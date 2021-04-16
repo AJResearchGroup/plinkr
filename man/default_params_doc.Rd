@@ -5,9 +5,13 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(verbose)
+default_params_doc(plink_folder, url, verbose)
 }
 \arguments{
+\item{plink_folder}{folder where PLINK is installed}
+
+\item{url}{PLINK download URL}
+
 \item{verbose}{set to TRUE for more output}
 }
 \description{

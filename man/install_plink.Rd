@@ -9,6 +9,11 @@ install_plink(
   plink_folder = get_plink_folder()
 )
 }
+\arguments{
+\item{url}{PLINK download URL}
+
+\item{plink_folder}{folder where PLINK is installed}
+}
 \value{
 Nothing
 }

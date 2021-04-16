@@ -15,7 +15,7 @@ install_plink <- function(
   )
   plink_zip_path <- file.path(plink_folder, "plink.zip")
   if (!file.exists(plink_zip_path)) {
-    download.file(
+    utils::download.file(
       url = url,
       destfile = plink_zip_path,
       quiet = TRUE

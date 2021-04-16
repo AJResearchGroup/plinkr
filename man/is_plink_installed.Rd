@@ -6,6 +6,9 @@
 \usage{
 is_plink_installed(plink_folder = get_plink_folder())
 }
+\arguments{
+\item{plink_folder}{folder where PLINK is installed}
+}
 \value{
 TRUE if PLINK is installed, FALSE otherwise
 }

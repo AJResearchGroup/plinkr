@@ -6,6 +6,9 @@
 \usage{
 uninstall_plink(plink_folder = get_plink_folder())
 }
+\arguments{
+\item{plink_folder}{folder where PLINK is installed}
+}
 \value{
 Nothing
 }

@@ -5,7 +5,7 @@ Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github
 `master` |![R-CMD-check](https://github.com/richelbilderbeek/plinkr/workflows/R-CMD-check/badge.svg?branch=master)   |[![codecov.io](https://codecov.io/github/richelbilderbeek/plinkr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/plinkr/branch/master)
 `develop`|![R-CMD-check](https://github.com/richelbilderbeek/plinkr/workflows/R-CMD-check/badge.svg?branch=develop)  |[![codecov.io](https://codecov.io/github/richelbilderbeek/plinkr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/plinkr/branch/develop)
 
-Work with PLINK from R
+Work with [PLINK](http://zzz.bwh.harvard.edu/plink/) from R
 
 ## Features
 

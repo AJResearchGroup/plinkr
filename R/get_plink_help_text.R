@@ -5,11 +5,8 @@
 get_plink_help_text <- function(
   plink_folder = get_plink_folder()
 ) {
-  plinkr::check_plink_is_installed(plink_folder = plink_folder)
-  plink_exe_path <- plinkr::get_plink_exe_path(plink_folder = plink_folder)
-  system2(
-    command = normalizePath(plink_exe_path),
+  plinkr::run_plink(
     args = "--help",
-    stdout = TRUE
+    plink_folder = plink_folder
   )
 }

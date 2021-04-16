@@ -7,7 +7,7 @@
 is_exe(filename)
 }
 \arguments{
-\item{filaname}{path to a filename}
+\item{filename}{path to a filename}
 }
 \value{
 TRUE if the file can be executed, FALSE otherwise

@@ -1,0 +1,86 @@
+# For help debugging build failures open an issue on the RStudio community with the 'github-actions' tag.
+# https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
+on:
+  push:
+  pull_request:
+
+name: R-CMD-check
+
+jobs:
+  R-CMD-check:
+    strategy:
+      matrix:
+        include:
+          - install_pureseqtm: "true"
+          - install_pureseqtm: "false"
+
+    runs-on: ubuntu-18.04
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@v1
+
+      - name: Install libgit2-dev
+        run: sudo apt install -qq libgit2-dev
+
+      - name: Install libcurl4-openssl-dev
+        run: sudo apt install -qq libcurl4-openssl-dev
+
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes", "rcmdcheck"))
+          remotes::install_deps(dependencies = TRUE)
+          remotes::install_cran("rcmdcheck")
+          remotes::install_cran("covr")
+          remotes::install_cran("lintr")
+          remotes::install_github("MangoTheCat/goodpractice")
+        shell: Rscript {0}
+
+      - name: Show PureseqTM
+        env:
+          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
+        run: echo "$INSTALL_PURESEQTM"
+
+      - name: If statement on PureseqTM is true
+        env:
+          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
+        run: if [[ "$INSTALL_PURESEQTM" == true ]]; then echo "Yay!"; fi
+
+      - name: Show location
+        run: pwd
+
+      - name: If statement on PureseqTM is false
+        env:
+          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
+        run: if [[ "$INSTALL_PURESEQTM" == false ]]; then echo "Nay!"; fi
+
+      - name: Show PureseqTM install script
+        env:
+          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
+        run: if [[ "$INSTALL_PURESEQTM" == true ]]; then cat scripts/install_pureseqtm.sh; fi
+
+      - name: Install PureseqTM
+        env:
+          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
+        run: if [[ "$INSTALL_PURESEQTM" == true ]]; then ./scripts/install_pureseqtm.sh; fi
+
+      - name: Check
+        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        shell: Rscript {0}
+
+      #- name: Test coverage
+      #  run: if [[ "$INSTALL_PURESEQTM" == true ]]; then Rscript -e 'covr::codecov()'; fi
+
+      - name: Lint
+        run: if [[ "$INSTALL_PURESEQTM" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
+
+      - name: Install plinkr
+        run: remotes::install_github("richelbilderbeek/plinkr")
+        shell: Rscript {0}
+
+      - name: Report
+        run: plinkr::plinkr_report()
+        shell: Rscript {0}
+

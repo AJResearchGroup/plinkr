@@ -1,0 +1,23 @@
+Package: plinkr
+Title: Interface to PLINK
+Version: 1.4
+Authors@R: c(
+    person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")))
+Description:
+    GWAS are important. 
+    PLINK does GWAS.
+    This package allows one to use 'PLINK' from R.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Depends:
+    R (>= 3.5.0)
+Imports:
+    tibble
+Suggests: 
+    testthat (>= 3.0.0)
+URL: https://github.com/richelbilderbeek/plinkr/
+BugReports: https://github.com/richelbilderbeek/plinkr
+Config/testthat/edition: 3

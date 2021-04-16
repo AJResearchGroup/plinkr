@@ -8,13 +8,8 @@ name: R-CMD-check
 
 jobs:
   R-CMD-check:
-    strategy:
-      matrix:
-        include:
-          - install_pureseqtm: "true"
-          - install_pureseqtm: "false"
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -38,43 +33,20 @@ jobs:
           remotes::install_github("MangoTheCat/goodpractice")
         shell: Rscript {0}
 
-      - name: Show PureseqTM
-        env:
-          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
-        run: echo "$INSTALL_PURESEQTM"
-
-      - name: If statement on PureseqTM is true
-        env:
-          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
-        run: if [[ "$INSTALL_PURESEQTM" == true ]]; then echo "Yay!"; fi
-
-      - name: Show location
-        run: pwd
-
-      - name: If statement on PureseqTM is false
-        env:
-          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
-        run: if [[ "$INSTALL_PURESEQTM" == false ]]; then echo "Nay!"; fi
-
-      - name: Show PureseqTM install script
-        env:
-          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
-        run: if [[ "$INSTALL_PURESEQTM" == true ]]; then cat scripts/install_pureseqtm.sh; fi
-
-      - name: Install PureseqTM
-        env:
-          INSTALL_PURESEQTM: ${{ matrix.install_pureseqtm }}
-        run: if [[ "$INSTALL_PURESEQTM" == true ]]; then ./scripts/install_pureseqtm.sh; fi
+      - name: Install PLINK
+        run: ./scripts/install_plink.sh
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}
 
-      #- name: Test coverage
-      #  run: if [[ "$INSTALL_PURESEQTM" == true ]]; then Rscript -e 'covr::codecov()'; fi
-
+      - name: Test coverage
+        run: covr::codecov()
+        shell: Rscript {0}
+        
       - name: Lint
-        run: if [[ "$INSTALL_PURESEQTM" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
+        run: lintr::lint_package()
+        shell: Rscript {0}
 
       - name: Install plinkr
         run: remotes::install_github("richelbilderbeek/plinkr")

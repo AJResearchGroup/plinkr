@@ -53,6 +53,6 @@ jobs:
         shell: Rscript {0}
 
       - name: Report
-        run: plinkr::plinkr_report()
+        run: plinkr::do_plinkr_self_test()
         shell: Rscript {0}
 

@@ -4,7 +4,10 @@
 \alias{is_plink_installed}
 \title{Determine if PLINK is installed}
 \usage{
-is_plink_installed()
+is_plink_installed(plink_folder = get_plink_folder())
+}
+\value{
+TRUE if PLINK is installed, FALSE otherwise
 }
 \description{
 Determine if PLINK is installed

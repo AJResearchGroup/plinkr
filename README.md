@@ -9,8 +9,9 @@ Work with PLINK from R
 
 ## Features
 
- * [x] Check if PLINK is installed, stop if not, with a helpful error message
- * [x] Determine if PLINK is installed
+ * [x] Check if PLINK is installed, stop if not
+ * [x] Determine if PLINK is installed, yes/no
+ * [x] Get the help text of PLINK
+ * [x] Get the version of PLINK
  * [x] Install PLINK
- * [x] Show PLINK help
  * [x] Uninstall PLINK

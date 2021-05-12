@@ -1,7 +1,9 @@
 #' This function does nothing. It is intended to inherit is parameters'
 #' documentation.
 #' @param log_filename name of a PLINK \code{.log} file
+#' @param map_filename name of a PLINK \code{.map} file
 #' @param n_individuals number of individuals
+#' @param ped_filename name of a PLINK \code{.ped} file
 #' @param plink_folder folder where PLINK is installed
 #' @param sim_filename name of a PLINK \code{.sim} file
 #' @param simfreq_filename name of a PLINK \code{.simfreq} file
@@ -18,7 +20,9 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   log_filename,
+  map_filename,
   n_individuals,
+  ped_filename,
   plink_folder,
   sim_filename,
   simfreq_filename,

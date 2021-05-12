@@ -7,7 +7,9 @@ documentation.}
 \usage{
 default_params_doc(
   log_filename,
+  map_filename,
   n_individuals,
+  ped_filename,
   plink_folder,
   sim_filename,
   simfreq_filename,
@@ -20,7 +22,11 @@ default_params_doc(
 \arguments{
 \item{log_filename}{name of a PLINK \code{.log} file}
 
+\item{map_filename}{name of a PLINK \code{.map} file}
+
 \item{n_individuals}{number of individuals}
+
+\item{ped_filename}{name of a PLINK \code{.ped} file}
 
 \item{plink_folder}{folder where PLINK is installed}
 

@@ -18,7 +18,8 @@ Imports:
     rappdirs,
     readr,
     stringr,
-    tibble
+    tibble,
+    tidyr
 Suggests:
     markdown,
     rmarkdown,

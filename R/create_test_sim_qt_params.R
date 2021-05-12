@@ -4,7 +4,7 @@
 #' @export
 create_test_sim_qt_params <- function(
   n_snps = 10,
-  snp_label = "test_qtl",
+  snp_label = "test_trait",
   allele_frequency_lower = 0.05,
   allele_frequency_upper = 0.95,
   additive_genetic_variance = 0.01,

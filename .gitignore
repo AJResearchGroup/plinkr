@@ -42,3 +42,5 @@ plink.log
 plink.assoc
 inst/doc
 .pversion
+plink.simfreq
+temp.sim

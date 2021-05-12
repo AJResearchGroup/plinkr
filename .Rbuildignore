@@ -6,3 +6,5 @@
 ^plink\.assoc$
 ^scripts$
 ^\.pversion$
+^plink\.simfreq$
+^temp\.sim$

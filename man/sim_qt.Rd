@@ -2,10 +2,20 @@
 % Please edit documentation in R/sim_qt.R
 \name{sim_qt}
 \alias{sim_qt}
-\title{Simulate a quantitive trait}
+\title{Simulate a quantitative trait}
 \usage{
-sim_qt()
+sim_qt(sim_qt_params, n_individuals, temp_sim_filename)
+}
+\arguments{
+\item{sim_qt_params}{the parameters for a quantitative
+traits simulation, as can be created by
+\link{create_sim_qt_params}}
+
+\item{n_individuals}{number of individuals}
+
+\item{temp_sim_filename}{temporary file to store simulation
+parameters, which is a PLINK \code{.sim} file}
 }
 \description{
-Simulate a quantitive trait
+Simulate a quantitative trait
 }

@@ -5,10 +5,26 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(plink_folder, url, verbose)
+default_params_doc(
+  n_individuals,
+  plink_folder,
+  sim_qt_params,
+  temp_sim_filename,
+  url,
+  verbose
+)
 }
 \arguments{
+\item{n_individuals}{number of individuals}
+
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{sim_qt_params}{the parameters for a quantitative
+traits simulation, as can be created by
+\link{create_sim_qt_params}}
+
+\item{temp_sim_filename}{temporary file to store simulation
+parameters, which is a PLINK \code{.sim} file}
 
 \item{url}{PLINK download URL}
 

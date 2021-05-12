@@ -19,20 +19,13 @@ library(plinkr)
 ```
 Here we create the filename with parameters:
 
-```{r create_sim_file}
-sim_filename <- tempfile("plink_qt_", fileext = ".sim")
-# From https://zzz.bwh.harvard.edu/plink/simulate.shtml#sim3
-text <- "10 qtl 0.05 0.95  0.01 0"
-readr::write_lines(x = text, file = sim_filename)
-```
 
 ```{r sim}
 if (plinkr::is_plink_installed()) {
-  # From https://zzz.bwh.harvard.edu/plink/simulate.shtml#sim3
-  args <- c(
-    "--simulate-qt", sim_filename, 
-    "--simulate-n", "2"
-  ) 
-  plinkr::run_plink(args)
+  sim_qt(
+    sim_qt_params = create_test_sim_qt_params(),
+    n_individuals = 2,
+    temp_sim_filename = "temp.sim"
+  )
 }
 ```

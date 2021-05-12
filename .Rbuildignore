@@ -3,4 +3,6 @@
 ^\.github$
 ^LICENSE$
 ^plink\.log$
-plink.assoc
+^plink\.assoc$
+^scripts$
+^\.pversion$

@@ -16,10 +16,10 @@ Depends:
     R (>= 3.5.0)
 Imports:
     rappdirs,
+    readr,
     stringr,
     tibble
 Suggests:
-    readr,
     rmarkdown,
     knitr,
     testthat (>= 3.0.0)

@@ -18,7 +18,8 @@ Imports:
     rappdirs,
     stringr,
     tibble
-Suggests: 
+Suggests:
+    readr,
     rmarkdown,
     knitr,
     testthat (>= 3.0.0)

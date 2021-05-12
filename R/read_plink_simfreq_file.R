@@ -1,4 +1,5 @@
 #' Read a PLINK \code{.simfreq} file
+#' @inheritParams default_params_doc
 #' @return
 #' a \link[tibble]{tibble} with column names:
 #'   * \code{n_snps} Number of SNPs in set

@@ -6,6 +6,9 @@
 \usage{
 read_plink_simfreq_file(simfreq_filename)
 }
+\arguments{
+\item{simfreq_filename}{name of a PLINK \code{.simfreq} file}
+}
 \value{
 a \link[tibble]{tibble} with column names:
 \itemize{

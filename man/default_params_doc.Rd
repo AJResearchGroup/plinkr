@@ -6,8 +6,11 @@
 documentation.}
 \usage{
 default_params_doc(
+  log_filename,
   n_individuals,
   plink_folder,
+  sim_filename,
+  simfreq_filename,
   sim_qt_params,
   temp_sim_filename,
   url,
@@ -15,9 +18,15 @@ default_params_doc(
 )
 }
 \arguments{
+\item{log_filename}{name of a PLINK \code{.log} file}
+
 \item{n_individuals}{number of individuals}
 
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{sim_filename}{name of a PLINK \code{.sim} file}
+
+\item{simfreq_filename}{name of a PLINK \code{.simfreq} file}
 
 \item{sim_qt_params}{the parameters for a quantitative
 traits simulation, as can be created by

@@ -6,6 +6,9 @@
 \usage{
 read_plink_log_file(log_filename)
 }
+\arguments{
+\item{log_filename}{name of a PLINK \code{.log} file}
+}
 \description{
 Read a PLINK log file
 }

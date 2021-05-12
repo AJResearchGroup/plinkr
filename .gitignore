@@ -40,3 +40,4 @@ vignettes/*.pdf
 plink-1.07-x86_64/
 plink.log
 plink.assoc
+inst/doc

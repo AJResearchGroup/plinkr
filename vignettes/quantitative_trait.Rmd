@@ -1,0 +1,39 @@
+---
+title: "quantitative_trait"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{quantitative_trait}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(plinkr)
+```
+
+
+```{r create_sim_file}
+sim_filename <- tempfile("plink_qt_", fileext = ".sim")
+# From https://zzz.bwh.harvard.edu/plink/simulate.shtml#sim3
+text <- "10 qtl 0.05 0.95  0.01 0"
+readr::write_lines(x = text, file = sim_filename)
+```
+
+```{r sim}
+if (plinkr::is_plink_installed()) {
+  # From https://zzz.bwh.harvard.edu/plink/simulate.shtml#sim3
+  args <- c(
+    "--simulate-qt", sim_filename, 
+    "--simulate-n", "20"
+  ) 
+  plinkr::run_plink(args)
+# --make-bed --out sim1  
+}
+```

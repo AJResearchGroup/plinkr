@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(plinkr)
 ```
-
+Here we create the filename with parameters:
 
 ```{r create_sim_file}
 sim_filename <- tempfile("plink_qt_", fileext = ".sim")
@@ -31,9 +31,8 @@ if (plinkr::is_plink_installed()) {
   # From https://zzz.bwh.harvard.edu/plink/simulate.shtml#sim3
   args <- c(
     "--simulate-qt", sim_filename, 
-    "--simulate-n", "20"
+    "--simulate-n", "2"
   ) 
   plinkr::run_plink(args)
-# --make-bed --out sim1  
 }
 ```

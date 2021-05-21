@@ -25,8 +25,8 @@ This vignette will give output only if PLINK is installed:
 
 ```{r}
 if (!is_plink_installed()) {
-  message("PLINK is not installed")  
-  message("Tip: use 'plinkr::install_plink()'")  
+  message("PLINK is not installed")
+  message("Tip: use 'plinkr::install_plink()'")
 }
 ```
 
@@ -77,20 +77,48 @@ if (is_plink_installed()) {
   plinkr::run_plink(
     args = c(
       "--file", mydata, # mydata.ped and mydata.map
-      "--pheno", phenotype_filename, 
-      "--assoc", 
-      "--maf", "0.05", 
+      "--pheno", phenotype_filename,
+      "--assoc",
+      "--maf", "0.05",
       "--out", output_filename_base
     )
   )
 }
 ```
+Now, let's see what actually happened, except for calling PLINK, by showing what was in the input files, as well as what is in the output file:
+
+The .ped file
+
+```{r}
+if (is_plink_installed()) {
+  knitr::kable(
+    read_plink_ped_file(ped_filename)
+  )
+}
+```
+
+```{r}
+if (is_plink_installed()) {
+  knitr::kable(
+    read_plink_map_file(map_filename)
+  )
+}
+```
+
+```{r}
+if (is_plink_installed()) {
+  knitr::kable(
+    read_plink_phenotype_file(phenotype_filename)
+  )
+}
+```
+
 Reading the output:
 
 ```{r}
 if (is_plink_installed()) {
   knitr::kable(
-    read_qassoc_file(output_filename_qassoc)
+    read_plink_qassoc_file(output_filename_qassoc)
   )
 }
 ```

@@ -1,4 +1,4 @@
-#' Read a PLINK log file
+#' Read a PLINK \code{.log} file
 #' @inheritParams default_params_doc
 #' @export
 read_plink_log_file <- function(

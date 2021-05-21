@@ -8,4 +8,3 @@ test_that("un- or install in temp plink folder", {
   expect_silent(uninstall_plink(plink_folder = temp_folder))
   expect_false(is_plink_installed(plink_folder = temp_folder))
 })
-

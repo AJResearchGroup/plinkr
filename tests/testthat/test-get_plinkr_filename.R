@@ -26,4 +26,3 @@ test_that("pheno.raw", {
     )
   )
 })
-

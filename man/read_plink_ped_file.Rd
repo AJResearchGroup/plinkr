@@ -7,7 +7,8 @@
 read_plink_ped_file(ped_filename)
 }
 \arguments{
-\item{ped_filename}{name of a PLINK \code{.ped} file}
+\item{ped_filename}{name of a PLINK \code{.ped} file.
+Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
 }
 \value{
 a \link[tibble]{tibble} with column names:
@@ -30,4 +31,11 @@ in the \code{.map file} (\code{0} = no call)
 }
 \description{
 Read a PLINK \code{.ped} file
+}
+\examples{
+ if (is_plink_installed()) {
+   read_plink_ped_file(
+     get_plink_example_filename("test.ped")
+   )
+ }
 }

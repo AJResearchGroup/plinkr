@@ -12,7 +12,9 @@ default_params_doc(
   map_filename,
   n_individuals,
   ped_filename,
+  phenotype_filename,
   plink_folder,
+  qassoc_filename,
   sim_filename,
   simfreq_filename,
   sim_qt_params,
@@ -32,13 +34,21 @@ Use \link{get_plink_version} to get the current PLINK version.}
 
 \item{log_filename}{name of a PLINK \code{.log} file}
 
-\item{map_filename}{name of a PLINK \code{.map} file}
+\item{map_filename}{name of a PLINK \code{.map} file
+Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
 
 \item{n_individuals}{number of individuals}
 
-\item{ped_filename}{name of a PLINK \code{.ped} file}
+\item{ped_filename}{name of a PLINK \code{.ped} file.
+Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
+
+\item{phenotype_filename}{name of a raw phenotype file.
+Use \link{read_plink_phenotype_file} to read a raw phenotype file.}
 
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{qassoc_filename}{name of a PLINK \code{.qassoc} file
+Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.}
 
 \item{sim_filename}{name of a PLINK \code{.sim} file}
 

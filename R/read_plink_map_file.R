@@ -1,10 +1,4 @@
 #' Read a PLINK \code{.map} file
-#'
-#' Read a variant information file
-#' accompanying a \code{.ped} text pedigree +
-#' genotype table.
-#'
-#'
 #' @inheritParams default_params_doc
 #' @return a \[tibble]{tibble} with the following columns:
 #'  * \code{chromosome_code}: the chromosome code or contig name

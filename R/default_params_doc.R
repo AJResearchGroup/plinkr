@@ -8,9 +8,15 @@
 #' @param example_filename name of the example file
 #' @param log_filename name of a PLINK \code{.log} file
 #' @param map_filename name of a PLINK \code{.map} file
+#' Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
 #' @param n_individuals number of individuals
-#' @param ped_filename name of a PLINK \code{.ped} file
+#' @param ped_filename name of a PLINK \code{.ped} file.
+#' Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
+#' @param phenotype_filename name of a raw phenotype file.
+#' Use \link{read_plink_phenotype_file} to read a raw phenotype file.
 #' @param plink_folder folder where PLINK is installed
+#' @param qassoc_filename name of a PLINK \code{.qassoc} file
+#' Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.
 #' @param sim_filename name of a PLINK \code{.sim} file
 #' @param simfreq_filename name of a PLINK \code{.simfreq} file
 #' @param sim_qt_params the parameters for a quantitative
@@ -31,7 +37,9 @@ default_params_doc <- function(
   map_filename,
   n_individuals,
   ped_filename,
+  phenotype_filename,
   plink_folder,
+  qassoc_filename,
   sim_filename,
   simfreq_filename,
   sim_qt_params,

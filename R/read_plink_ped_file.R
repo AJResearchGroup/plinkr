@@ -15,6 +15,12 @@
 #'       \code{9}/\code{0}/non-numeric = missing data if case/control)
 #'   * \code{allele_call_x_y} Allele calls for the \code{x}th variant
 #'     in the \code{.map file} (\code{0} = no call)
+#' @examples
+#'  if (is_plink_installed()) {
+#'    read_plink_ped_file(
+#'      get_plink_example_filename("test.ped")
+#'    )
+#'  }
 #' @export
 read_plink_ped_file <- function(ped_filename) {
   table <- stringr::str_split(

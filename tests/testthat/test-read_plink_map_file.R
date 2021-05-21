@@ -9,5 +9,3 @@ test_that("use", {
   expect_true("position" %in% names(t))
   expect_true("coordinat" %in% names(t))
 })
-
-

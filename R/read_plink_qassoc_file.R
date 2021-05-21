@@ -1,10 +1,12 @@
-#' Read a \code{.qassoc} file
+#' Read a PLINK \code{.qassoc} file
 #' @inheritParams default_params_doc
 #' @return a tibble
 #' @examples
-#' read_qassoc_file(qassoc_filename = get_plinkr_filename("run1.qassoc"))
+#' read_plink_qassoc_file(
+#'   qassoc_filename = get_plinkr_filename("run1.qassoc")
+#' )
 #' @export
-read_qassoc_file <- function(qassoc_filename) {
+read_plink_qassoc_file <- function(qassoc_filename) {
   testthat::expect_true(file.exists(qassoc_filename))
   text_lines_raw <- readr::read_lines(
     qassoc_filename

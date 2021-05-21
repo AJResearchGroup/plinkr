@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_plink_log_file.R
 \name{read_plink_log_file}
 \alias{read_plink_log_file}
-\title{Read a PLINK log file}
+\title{Read a PLINK \code{.log} file}
 \usage{
 read_plink_log_file(log_filename)
 }
@@ -10,5 +10,5 @@ read_plink_log_file(log_filename)
 \item{log_filename}{name of a PLINK \code{.log} file}
 }
 \description{
-Read a PLINK log file
+Read a PLINK \code{.log} file
 }

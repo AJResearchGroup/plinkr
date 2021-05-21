@@ -7,7 +7,8 @@
 read_plink_map_file(map_filename)
 }
 \arguments{
-\item{map_filename}{name of a PLINK \code{.map} file}
+\item{map_filename}{name of a PLINK \code{.map} file
+Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
 }
 \value{
 a [tibble]{tibble} with the following columns:
@@ -20,7 +21,5 @@ This value is options. Zeroes denote it is unused
 }
 }
 \description{
-Read a variant information file
-accompanying a \code{.ped} text pedigree +
-genotype table.
+Read a PLINK \code{.map} file
 }

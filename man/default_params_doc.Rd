@@ -6,6 +6,8 @@
 documentation.}
 \usage{
 default_params_doc(
+  add_noweb,
+  example_filename,
   log_filename,
   map_filename,
   n_individuals,
@@ -20,6 +22,14 @@ default_params_doc(
 )
 }
 \arguments{
+\item{add_noweb}{add the \code{--noweb} option, which prevents
+that PLINK will check if it is in its latest version.
+By default, this value is set to true,
+hence plinkr will skip this check.
+Use \link{get_plink_version} to get the current PLINK version.}
+
+\item{example_filename}{name of the example file}
+
 \item{log_filename}{name of a PLINK \code{.log} file}
 
 \item{map_filename}{name of a PLINK \code{.map} file}

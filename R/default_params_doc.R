@@ -1,5 +1,11 @@
 #' This function does nothing. It is intended to inherit is parameters'
 #' documentation.
+#' @param add_noweb add the \code{--noweb} option, which prevents
+#' that PLINK will check if it is in its latest version.
+#' By default, this value is set to true,
+#' hence plinkr will skip this check.
+#' Use \link{get_plink_version} to get the current PLINK version.
+#' @param example_filename name of the example file
 #' @param log_filename name of a PLINK \code{.log} file
 #' @param map_filename name of a PLINK \code{.map} file
 #' @param n_individuals number of individuals
@@ -19,6 +25,8 @@
 #'   \code{@noRd}. This is not done, as this will disallow all
 #'   functions to find the documentation parameters
 default_params_doc <- function(
+  add_noweb,
+  example_filename,
   log_filename,
   map_filename,
   n_individuals,

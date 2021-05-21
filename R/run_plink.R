@@ -5,10 +5,21 @@
 #' @export
 run_plink <- function(
   args,
-  plink_folder = get_plink_folder()
+  plink_folder = get_plink_folder(),
+  add_noweb = TRUE,
+  verbose = FALSE
 ) {
   plinkr::check_plink_is_installed(plink_folder = plink_folder)
+  if (add_noweb) {
+    args <- c(args, "--noweb")
+  }
   plink_exe_path <- plinkr::get_plink_exe_path(plink_folder = plink_folder)
+  if (verbose) {
+    message(
+      "Running: '", plink_exe_path, " ", paste(args, collapse = " "), "'. \n",
+      "Tip: you should be able to copy paste this :-)"
+    )
+  }
   system2(
     command = normalizePath(plink_exe_path),
     args = args,

@@ -1,6 +1,19 @@
 #' Read a PLINK \code{.assoc} file
 #' @inheritParams default_params_doc
-#' @return a tibble
+#' @return a \link[tibble]{tibble}.
+#'
+#' The \link[tibble]{tibble} has these columns:
+#'
+#'  * `CHR`: Chromosome
+#'  * `SNP`: SNP ID
+#'  * `BP`: Physical position (base-pair)
+#'  * `A1`: Minor allele name (based on whole sample)
+#'  * `F_A`: Frequency of this allele in cases
+#'  * `F_U`: Frequency of this allele in controls
+#'  * `A2`: Major allele name
+#'  * `CHISQ`: Basic allelic test chi-square (1 degree of fredoom)
+#'  * `P`: Asymptotic p-value for this test
+#'  * `OR`: Estimated odds ratio (for A1, i.e. A2 is reference)
 #' @examples
 #' read_plink_assoc_file(
 #'   assoc_filename = get_plinkr_filename("run1.assoc")

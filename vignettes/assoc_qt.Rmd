@@ -1,0 +1,56 @@
+---
+title: "Detect associations with a quantitative trait"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Detect associations with a quantitative trait}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(plinkr)
+```
+
+
+```{r}
+if (is_plink_installed()) {
+  map_table <- read_plink_map_file(
+    map_filename = get_plink_example_filename("test.map")
+  )
+  knitr::kable(map_table)
+}
+```
+
+The PLINK example \code{.ped} file does not contain a quantitative trait,
+but a case-control value instead.
+We will overwrite the phenotypic values to be a quantitative trait:
+
+```{r}
+if (is_plink_installed()) {
+  ped_table <- read_plink_ped_file(
+    ped_filename = get_plink_example_filename("test.ped")
+  )
+  ped_table$phenotype_value <- runif(nrow(ped_table))
+  knitr::kable(ped_table)
+}
+```
+
+Now we detect the associations:
+
+```{r}
+if (is_plink_installed()) {
+  t <- assoc_qt(
+    ped_table,
+    map_table,
+    maf = 0.05
+  )
+  knitr::kable(t)
+}
+```

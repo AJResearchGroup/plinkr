@@ -1,8 +1,8 @@
 ---
-title: "quantitative_trait"
+title: "Simulate a quantitative trait in PLINK"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{quantitative_trait}
+  %\VignetteIndexEntry{Simulate a quantitative trait in PLINK}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

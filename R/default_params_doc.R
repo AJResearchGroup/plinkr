@@ -9,10 +9,15 @@
 #' Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.
 #' @param example_filename name of the example file
 #' @param log_filename name of a PLINK \code{.log} file
+#' @param maf minor allele frequency
 #' @param map_filename name of a PLINK \code{.map} file
+#' Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
+#' @param map_table a table obtained by reading a PLINK \code{.map} file
 #' Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
 #' @param n_individuals number of individuals
 #' @param ped_filename name of a PLINK \code{.ped} file.
+#' Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
+#' @param ped_table a table obtained by reading a PLINK \code{.ped} file
 #' Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
 #' @param phenotype_filename name of a raw phenotype file.
 #' Use \link{read_plink_phenotype_file} to read a raw phenotype file.
@@ -37,9 +42,12 @@ default_params_doc <- function(
   assoc_filename,
   example_filename,
   log_filename,
+  maf,
   map_filename,
+  map_table,
   n_individuals,
   ped_filename,
+  ped_table,
   phenotype_filename,
   plink_folder,
   qassoc_filename,

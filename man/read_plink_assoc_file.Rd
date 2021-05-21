@@ -11,7 +11,21 @@ read_plink_assoc_file(assoc_filename)
 Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.}
 }
 \value{
-a tibble
+a \link[tibble]{tibble}.
+
+The \link[tibble]{tibble} has these columns:
+\itemize{
+\item \code{CHR}: Chromosome
+\item \code{SNP}: SNP ID
+\item \code{BP}: Physical position (base-pair)
+\item \code{A1}: Minor allele name (based on whole sample)
+\item \code{F_A}: Frequency of this allele in cases
+\item \code{F_U}: Frequency of this allele in controls
+\item \code{A2}: Major allele name
+\item \code{CHISQ}: Basic allelic test chi-square (1 degree of fredoom)
+\item \code{P}: Asymptotic p-value for this test
+\item \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
+}
 }
 \description{
 Read a PLINK \code{.assoc} file

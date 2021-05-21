@@ -25,7 +25,8 @@ a \link[tibble]{tibble} with column names:
 \item \code{phenotype_value} Phenotype value
 (\code{1} = control, \code{2} = case,
 \code{9}/\code{0}/non-numeric = missing data if case/control)
-\item \code{allele_call_x_y} Allele calls for the \code{x}th variant
+\item \code{allele_call_[x][y]} Allele calls for the \code{x}th variant
+for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 in the \code{.map file} (\code{0} = no call)
 }
 }

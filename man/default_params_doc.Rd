@@ -10,9 +10,12 @@ default_params_doc(
   assoc_filename,
   example_filename,
   log_filename,
+  maf,
   map_filename,
+  map_table,
   n_individuals,
   ped_filename,
+  ped_table,
   phenotype_filename,
   plink_folder,
   qassoc_filename,
@@ -38,12 +41,20 @@ Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.}
 
 \item{log_filename}{name of a PLINK \code{.log} file}
 
+\item{maf}{minor allele frequency}
+
 \item{map_filename}{name of a PLINK \code{.map} file
+Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
+
+\item{map_table}{a table obtained by reading a PLINK \code{.map} file
 Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
 
 \item{n_individuals}{number of individuals}
 
 \item{ped_filename}{name of a PLINK \code{.ped} file.
+Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
+
+\item{ped_table}{a table obtained by reading a PLINK \code{.ped} file
 Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
 
 \item{phenotype_filename}{name of a raw phenotype file.

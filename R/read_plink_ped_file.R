@@ -13,7 +13,8 @@
 #'   * \code{phenotype_value} Phenotype value
 #'       (\code{1} = control, \code{2} = case,
 #'       \code{9}/\code{0}/non-numeric = missing data if case/control)
-#'   * \code{allele_call_x_y} Allele calls for the \code{x}th variant
+#'   * \code{allele_call_[x][y]} Allele calls for the \code{x}th variant
+#'     for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 #'     in the \code{.map file} (\code{0} = no call)
 #' @examples
 #'  if (is_plink_installed()) {
@@ -32,10 +33,12 @@ read_plink_ped_file <- function(ped_filename) {
     simplify = TRUE
   )
   t <- tibble::as_tibble(table, .name_repair = "minimal")
+  testthat::expect_true(ncol(t) >= 6)
+  testthat::expect_equal(ncol(t) %% 2, 0)
   n_allele_calls <- (ncol(t) - 6) / 2
-  t_str <- tidyr::expand_grid(seq_len(n_allele_calls), seq_len(2))
+  t_str <- tidyr::expand_grid(seq_len(n_allele_calls), c("a", "b"))
   names(t_str) <- c("allele", "variant")
-  t_str$text <- paste0(t_str$allele, "_", t_str$variant)
+  t_str$text <- paste0(t_str$allele, t_str$variant)
 
   names <- c(
     "family_id",

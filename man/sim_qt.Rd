@@ -4,7 +4,13 @@
 \alias{sim_qt}
 \title{Simulate a quantitative trait}
 \usage{
-sim_qt(sim_qt_params, n_individuals, temp_sim_filename)
+sim_qt(
+  sim_qt_params,
+  n_individuals,
+  temp_sim_filename,
+  add_noweb = TRUE,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{sim_qt_params}{the parameters for a quantitative
@@ -15,6 +21,14 @@ traits simulation, as can be created by
 
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a PLINK \code{.sim} file}
+
+\item{add_noweb}{add the \code{--noweb} option, which prevents
+that PLINK will check if it is in its latest version.
+By default, this value is set to true,
+hence plinkr will skip this check.
+Use \link{get_plink_version} to get the current PLINK version.}
+
+\item{verbose}{set to TRUE for more output}
 }
 \description{
 Simulate a quantitative trait

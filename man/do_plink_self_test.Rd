@@ -4,10 +4,16 @@
 \alias{do_plink_self_test}
 \title{Do a minimal PLINK self test}
 \usage{
-do_plink_self_test(plink_folder = get_plink_folder())
+do_plink_self_test(plink_folder = get_plink_folder(), add_noweb = TRUE)
 }
 \arguments{
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{add_noweb}{add the \code{--noweb} option, which prevents
+that PLINK will check if it is in its latest version.
+By default, this value is set to true,
+hence plinkr will skip this check.
+Use \link{get_plink_version} to get the current PLINK version.}
 }
 \value{
 nothing. Will stop with an error message if the self-test fails

@@ -4,7 +4,9 @@
 sim_qt <- function(
   sim_qt_params,
   n_individuals,
-  temp_sim_filename
+  temp_sim_filename,
+  add_noweb = TRUE,
+  verbose = FALSE
 ) {
   # Create input files
   plinkr::save_sim_qt_params_to_file(
@@ -16,10 +18,13 @@ sim_qt <- function(
   # Run PLINK
   args <- c(
     "--simulate-qt", temp_sim_filename,
-    "--simulate-n", n_individuals,
-    "--noweb"
+    "--simulate-n", n_individuals
   )
-  plinkr::run_plink(args)
+  plinkr::run_plink(
+    args,
+    add_noweb = add_noweb,
+    verbose = verbose
+  )
 
   # Parse output
   log_filename <- "plink.log"

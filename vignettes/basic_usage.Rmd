@@ -21,6 +21,17 @@ library(plinkr)
 In this vignette, I run the 
 commands at [http://zzz.bwh.harvard.edu/plink/data.shtml#plink](http://zzz.bwh.harvard.edu/plink/data.shtml#plink) using plinkr.
 
+This vignette will give output only if PLINK is installed:
+
+```{r}
+if (!is_plink_installed()) {
+  message("PLINK is not installed")  
+  message("Tip: use 'plinkr::install_plink()'")  
+}
+```
+
+Here is the first example on the PLINK website:
+
 ```
 plink --file mydata --pheno pheno.raw --assoc --maf 0.05 --out run1
 ```
@@ -30,16 +41,18 @@ The `--file mydata` means that PLINK will look for the files named
 the PLINK example files:
 
 ```{r}
-# Check both files exists
-ped_filename <- get_plink_example_filename("test.ped")
-map_filename <- get_plink_example_filename("test.map")
-# Get the path without extension, can use either ped or map file
-testthat::expect_equal(
-  tools::file_path_sans_ext(ped_filename),
-  tools::file_path_sans_ext(map_filename)
-)
-# Get the path without extension
-mydata <- tools::file_path_sans_ext(ped_filename)
+if (is_plink_installed()) {
+  # Check both files exists
+  ped_filename <- get_plink_example_filename("test.ped")
+  map_filename <- get_plink_example_filename("test.map")
+  # Get the path without extension, can use either ped or map file
+  testthat::expect_equal(
+    tools::file_path_sans_ext(ped_filename),
+    tools::file_path_sans_ext(map_filename)
+  )
+  # Get the path without extension
+  mydata <- tools::file_path_sans_ext(ped_filename)
+}
 ```
 
 
@@ -49,20 +62,41 @@ The `--pheno pheno.raw` means that PLINK will look for a files named `pheno.raw`
 phenotype_filename <- get_plinkr_filename("pheno.raw")
 ```
 
+The `--out run1` means that PLINK will create a file that starts with  `run1`. In this context, where we test for an association for a quantitive trait, this file will be called `run1.qassoc`. 
+
+```{r}
+output_filename_base <- file.path(tempfile(), "run1")
+output_filename_base <- "run1"
+output_filename_qassoc <- paste0(output_filename_base, ".qassoc")
+```
+
 becomes
 
 ```{r}
-plinkr::run_plink(
-  args = c(
-    "--file", mydata, # mydata.ped and mydata.map
-    "--pheno", phenotype_filename, 
-    "--assoc", 
-    "--maf", "0.05", 
-    "--out", "run1"
+if (is_plink_installed()) {
+  plinkr::run_plink(
+    args = c(
+      "--file", mydata, # mydata.ped and mydata.map
+      "--pheno", phenotype_filename, 
+      "--assoc", 
+      "--maf", "0.05", 
+      "--out", output_filename_base
+    )
   )
-)
+}
+```
+Reading the output:
+
+```{r}
+if (is_plink_installed()) {
+  knitr::kable(
+    read_qassoc_file(output_filename_qassoc)
+  )
+}
 ```
 
+
+## Future
 
 Ru-run if (`rerun_plink`) is fun for the future:
 

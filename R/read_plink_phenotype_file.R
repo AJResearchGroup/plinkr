@@ -16,7 +16,7 @@ read_plink_phenotype_file <- function(phenotype_filename) {
     simplify = TRUE
   )
   t <-  tibble::as_tibble(
-    text_matrix[-1, ],
+    text_matrix,
     .name_repair = "minimal"
   )
   testthat::expect_equal(3, ncol(t))

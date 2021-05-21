@@ -97,7 +97,7 @@ if (is_plink_installed()) {
 }
 ```
 
-Note that the `.ped` file contains a column called `phenotype`.
+Note that the `.ped` file contains a column called `phenotype_value`.
 In this example, this column will be ignored, as we supply our own phenotypic
 values in the phenotype file. If we do not include the file with our
 own phenotypic values, PLINK will use the ones in the `.ped` file 

@@ -24,7 +24,7 @@ install_plink <- function(
     )
   }
   testthat::expect_true(file.exists(plink_zip_path))
-  plink_exe_path <- get_plink_exe_path(plink_folder = plink_folder)
+  plink_exe_path <- plinkr::get_plink_exe_path(plink_folder = plink_folder)
   if (!file.exists(plink_exe_path)) {
     utils::unzip(
       plink_zip_path,

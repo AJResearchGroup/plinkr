@@ -22,10 +22,11 @@ Here we create the filename with parameters:
 
 ```{r sim}
 if (plinkr::is_plink_installed()) {
-  sim_qt(
+  results <- sim_qt(
     sim_qt_params = create_test_sim_qt_params(),
     n_individuals = 2,
     temp_sim_filename = "temp.sim"
   )
+  knitr::kable(head(results$simfreq))
 }
 ```

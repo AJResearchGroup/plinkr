@@ -7,6 +7,7 @@ documentation.}
 \usage{
 default_params_doc(
   add_noweb,
+  assoc_filename,
   example_filename,
   log_filename,
   map_filename,
@@ -29,6 +30,9 @@ that PLINK will check if it is in its latest version.
 By default, this value is set to true,
 hence plinkr will skip this check.
 Use \link{get_plink_version} to get the current PLINK version.}
+
+\item{assoc_filename}{name of a PLINK \code{.assoc} file
+Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.}
 
 \item{example_filename}{name of the example file}
 

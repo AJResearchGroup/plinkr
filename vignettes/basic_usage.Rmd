@@ -87,7 +87,7 @@ if (is_plink_installed()) {
 ```
 Now, let's see what actually happened, except for calling PLINK, by showing what was in the input files, as well as what is in the output file:
 
-The .ped file
+The `.ped` file:
 
 ```{r}
 if (is_plink_installed()) {
@@ -96,6 +96,13 @@ if (is_plink_installed()) {
   )
 }
 ```
+
+Note that the `.ped` file contains a column called `phenotype`.
+In this example, this column will be ignored, as we supply our own phenotypic
+values in the phenotype file. If we do not include the file with our
+own phenotypic values, PLINK will use the ones in the `.ped` file 
+instead (see also below, in the section 'Is the phenotype file mandatory?')
+
 
 ```{r}
 if (is_plink_installed()) {
@@ -119,6 +126,35 @@ Reading the output:
 if (is_plink_installed()) {
   knitr::kable(
     read_plink_qassoc_file(output_filename_qassoc)
+  )
+}
+```
+
+
+## Is the phenotype file mandatory?
+
+No, you can remove it:
+
+```{r}
+if (is_plink_installed()) {
+  plinkr::run_plink(
+    args = c(
+      "--file", mydata, # mydata.ped and mydata.map
+      "--assoc",
+      "--maf", "0.05",
+      "--out", output_filename_base
+    )
+  )
+}
+```
+
+However, the input is now in `run1.assoc`
+
+```{r}
+if (is_plink_installed()) {
+  output_filename_assoc <- paste0(output_filename_base, ".assoc")
+  knitr::kable(
+    read_plink_assoc_file(output_filename_assoc)
   )
 }
 ```

@@ -3,4 +3,5 @@
 *.log
 *.simfreq
 *.qassoc
+*.assoc
 ^\.pversion$

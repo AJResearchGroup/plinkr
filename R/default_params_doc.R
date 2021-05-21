@@ -5,6 +5,8 @@
 #' By default, this value is set to true,
 #' hence plinkr will skip this check.
 #' Use \link{get_plink_version} to get the current PLINK version.
+#' @param assoc_filename name of a PLINK \code{.assoc} file
+#' Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.
 #' @param example_filename name of the example file
 #' @param log_filename name of a PLINK \code{.log} file
 #' @param map_filename name of a PLINK \code{.map} file
@@ -32,6 +34,7 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   add_noweb,
+  assoc_filename,
   example_filename,
   log_filename,
   map_filename,

@@ -6,7 +6,9 @@ install_plink <- function(
   url = "http://zzz.bwh.harvard.edu/plink/dist/plink-1.07-x86_64.zip",
   plink_folder = get_plink_folder()
 ) {
-  testthat::expect_false(is_plink_installed(plink_folder = plink_folder))
+  testthat::expect_false(
+    plinkr::is_plink_installed(plink_folder = plink_folder)
+  )
 
   dir.create(
     path = plink_folder,
@@ -34,5 +36,5 @@ install_plink <- function(
     Sys.chmod(plink_exe_path, "777")
   }
   testthat::expect_true(plinkr::is_exe(plink_exe_path))
-  testthat::expect_true(is_plink_installed(plink_folder = plink_folder))
+  testthat::expect_true(plinkr::is_plink_installed(plink_folder = plink_folder))
 }

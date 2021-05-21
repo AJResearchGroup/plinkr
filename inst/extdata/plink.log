@@ -1,0 +1,37 @@
+
+@----------------------------------------------------------@
+|        PLINK!       |     v1.07      |   10/Aug/2009     |
+|----------------------------------------------------------|
+|  (C) 2009 Shaun Purcell, GNU General Public License, v2  |
+|----------------------------------------------------------|
+|  For documentation, citation & bug-report instructions:  |
+|        http://pngu.mgh.harvard.edu/purcell/plink/        |
+@----------------------------------------------------------@
+
+Skipping web check... [ --noweb ] 
+Writing this text to log file [ plink.log ]
+Analysis started: Wed May 12 13:11:58 2021
+
+Options in effect:
+	--simulate-qt temp.sim
+	--simulate-n 2
+	--noweb
+
+Reading QT simulation parameters from [ temp.sim ]
+Writing SNP population frequencies to [ plink.simfreq ]
+Read 1 sets of SNPs, specifying 10 SNPs in total
+Simulating QT for 2 individuals 
+Total QTL variance is 0.1
+Simulating disease variants (direct association)
+
+Before frequency and genotyping pruning, there are 10 SNPs
+2 founders and 0 non-founders found
+Total genotyping rate in remaining individuals is 1
+0 SNPs failed missingness test ( GENO > 1 )
+0 SNPs failed frequency test ( MAF < 0 )
+After frequency and genotyping pruning, there are 10 SNPs
+After filtering, 2 individuals with non-missing status
+After filtering, 0 males, 2 females, and 0 of unspecified sex
+
+Analysis finished: Wed May 12 13:11:58 2021
+

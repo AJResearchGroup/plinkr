@@ -20,6 +20,7 @@ default_params_doc(
   phenotype_filename,
   phenotype_table,
   plink_folder,
+  plink_version,
   qassoc_filename,
   sim_filename,
   simfreq_filename,
@@ -70,6 +71,8 @@ Use \link{read_plink_phenotype_file} to read a raw phenotype file.}
 Use \link{read_plink_phenotype_file} to read a phenotype file.}
 
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
 
 \item{qassoc_filename}{name of a PLINK \code{.qassoc} file
 Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.}

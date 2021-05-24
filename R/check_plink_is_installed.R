@@ -5,9 +5,15 @@
 #' @return Nothing. Will \link{stop} if PLINK is not installed.
 #' @export
 check_plink_is_installed <- function(
+  plink_version = get_default_plink_version(),
   plink_folder = get_plink_folder()
 ) {
-  plink_zip_path <- file.path(plink_folder, "plink.zip")
+  plinkr::check_plink_version(plink_version)
+
+  plink_zip_path <- plinkr::get_plink_zip_path(
+    plink_version = plink_version,
+    plink_folder = plink_folder
+  )
   if (!file.exists(plink_zip_path)) {
     stop(
       "PLINK is not installed. \n",
@@ -18,7 +24,10 @@ check_plink_is_installed <- function(
     )
   }
 
-  plink_exe_path <- file.path(plink_folder, "plink-1.07-x86_64", "plink")
+  plink_exe_path <- get_plink_exe_path(
+    plink_version = plink_version,
+    plink_folder = plink_folder
+  )
   if (!file.exists(plink_exe_path)) {
     stop(
       "PLINK is not installed. \n",

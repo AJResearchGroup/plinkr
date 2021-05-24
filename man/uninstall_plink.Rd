@@ -4,9 +4,14 @@
 \alias{uninstall_plink}
 \title{Uninstall PLINK}
 \usage{
-uninstall_plink(plink_folder = get_plink_folder())
+uninstall_plink(
+  plink_version = get_default_plink_version(),
+  plink_folder = get_plink_folder()
+)
 }
 \arguments{
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
+
 \item{plink_folder}{folder where PLINK is installed}
 }
 \value{

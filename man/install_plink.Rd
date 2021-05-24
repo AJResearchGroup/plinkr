@@ -2,15 +2,15 @@
 % Please edit documentation in R/install_plink.R
 \name{install_plink}
 \alias{install_plink}
-\title{Determine if PLINK is installed}
+\title{Install a specific version of PLINK}
 \usage{
 install_plink(
-  url = "http://zzz.bwh.harvard.edu/plink/dist/plink-1.07-x86_64.zip",
+  plink_version = get_default_plink_version(),
   plink_folder = get_plink_folder()
 )
 }
 \arguments{
-\item{url}{PLINK download URL}
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
 
 \item{plink_folder}{folder where PLINK is installed}
 }
@@ -18,5 +18,5 @@ install_plink(
 Nothing
 }
 \description{
-Determine if PLINK is installed
+Install a specific version of PLINK
 }

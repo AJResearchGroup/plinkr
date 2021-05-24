@@ -4,9 +4,14 @@
 \alias{check_plink_is_installed}
 \title{Check if PLINK is installed}
 \usage{
-check_plink_is_installed(plink_folder = get_plink_folder())
+check_plink_is_installed(
+  plink_version = get_default_plink_version(),
+  plink_folder = get_plink_folder()
+)
 }
 \arguments{
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
+
 \item{plink_folder}{folder where PLINK is installed}
 }
 \value{

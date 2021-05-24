@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return path to the default PLINK executable  as used by plinkr
 #' @export
-get_plink_exe_path <- function(
+get_plink_zip_path <- function(
   plink_version = get_default_plink_version(),
   plink_folder = get_plink_folder()
 ) {
@@ -11,9 +11,9 @@ get_plink_exe_path <- function(
     return(
       file.path(
         plink_folder,
-        "plink-1.07-x86_64", "plink"
+        "plink_1_7.zip"
       )
     )
   }
-  stop("Should never get here in get_plink_exe_path")
+  stop("Should never get here in get_plink_zip_path")
 }

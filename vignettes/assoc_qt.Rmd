@@ -126,6 +126,16 @@ if (is_plink_installed()) {
 }
 ```
 
+ * `trait_name`: name of the quantitive trait,
+ * `CHR`: Chromosome number
+ * `SNP`: SNP identifier
+ * `BP`: Physical position (base-pair)
+ * `NMISS`: Number of non-missing genotypes
+ * `BETA`: Regression coefficient
+ * `SE`: Standard error
+ * `R2`: Regression r-squared
+ * `T`: Wald test (based on t-distribtion)
+ * `P`: Wald test asymptotic p-value
 
 ## Detecting associations for multiple traits
 
@@ -161,5 +171,13 @@ if (is_plink_installed()) {
 }
 ```
 
-As can be seen, these are exactly the same values as the single-trait
-association.
+ * `trait_name`: name of the quantitive trait,
+ * `CHR`: Chromosome number
+ * `SNP`: SNP identifier
+ * `BP`: Physical position (base-pair)
+ * `NMISS`: Number of non-missing genotypes
+ * `BETA`: Regression coefficient
+ * `SE`: Standard error
+ * `R2`: Regression r-squared
+ * `T`: Wald test (based on t-distribtion)
+ * `P`: Wald test asymptotic p-value

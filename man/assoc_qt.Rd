@@ -11,6 +11,27 @@ assoc_qt(assoc_qt_params)
 for a quantitative trait (i.e. using \link{assoc_qt}),
 as can be created by \link{create_assoc_qt_params}}
 }
+\value{
+a \link[tibble]{tibble} with the following columns:
+\itemize{
+\item \code{trait_name}: name of the quantitive trait,
+taken from the phenotype table column name
+\item \code{CHR}: Chromosome number
+\item \code{SNP}: SNP identifier
+\item \code{BP}: Physical position (base-pair)
+\item \code{NMISS}: Number of non-missing genotypes
+\item \code{BETA}: Regression coefficient
+\item \code{SE}: Standard error
+\item \code{R2}: Regression r-squared
+\item \code{T}: Wald test (based on t-distribtion)
+\item \code{P}: Wald test asymptotic p-value
+}
+
+The table with have as much rows as the number of SNPs multiplied
+by the number of traits.
+
+Note that parameters in uppercase are named as such by PLINK.
+}
 \description{
 This function is named after the \code{--assoc} flag used by PLINK
 }

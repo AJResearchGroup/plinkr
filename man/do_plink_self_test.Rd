@@ -4,9 +4,15 @@
 \alias{do_plink_self_test}
 \title{Do a minimal PLINK self test}
 \usage{
-do_plink_self_test(plink_folder = get_plink_folder(), add_noweb = TRUE)
+do_plink_self_test(
+  plink_version = get_default_plink_version(),
+  plink_folder = get_plink_folder(),
+  add_noweb = TRUE
+)
 }
 \arguments{
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
+
 \item{plink_folder}{folder where PLINK is installed}
 
 \item{add_noweb}{add the \code{--noweb} option, which prevents

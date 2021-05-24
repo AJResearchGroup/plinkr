@@ -15,7 +15,7 @@ a single-phenotype \link[tibble]{tibble}, with columns:
 \itemize{
 \item \code{family_id}
 \item \code{within_family_id}
-\item \code{.phenotype_value}
+\item \code{phenotype_value}
 }
 }
 \description{

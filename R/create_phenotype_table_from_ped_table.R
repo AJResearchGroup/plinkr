@@ -4,7 +4,7 @@
 #'
 #' * \code{family_id}
 #' * \code{within_family_id}
-#' * \code{.phenotype_value}
+#' * \code{phenotype_value}
 #'
 #' @export
 create_phenotype_table_from_ped_table <- function(ped_table) { # nolint indeed a long and descriptive name

@@ -7,6 +7,9 @@
 #' Use \link{get_plink_version} to get the current PLINK version.
 #' @param assoc_filename name of a PLINK \code{.assoc} file
 #' Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.
+#' @param assoc_qt_params parameters to do an association analysis
+#' for a quantitative trait (i.e. using \link{assoc_qt}),
+#' as can be created by \link{create_assoc_qt_params}
 #' @param example_filename name of the example file
 #' @param log_filename name of a PLINK \code{.log} file
 #' @param maf minor allele frequency
@@ -42,6 +45,7 @@
 default_params_doc <- function(
   add_noweb,
   assoc_filename,
+  assoc_qt_params,
   example_filename,
   log_filename,
   maf,

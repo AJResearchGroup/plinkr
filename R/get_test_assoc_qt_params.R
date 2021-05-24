@@ -8,7 +8,7 @@ get_test_assoc_qt_params <- function(
     ped_table = ped_table
   )
 ) {
-  phenotype_table$phenotype_value <- 0.1 * seq_len(nrow(phenotype_table))
+  phenotype_table[, 3] <- 0.1 * seq_len(nrow(phenotype_table))
   plinkr::create_assoc_qt_params(
     ped_table = ped_table,
     map_table = map_table,

@@ -90,7 +90,17 @@ values:
 knitr::kable(assoc_qt_params$phenotype_table)
 ```
 
-These trait values are clearly artificial :-)
+These trait values, that is the values in the column `phenotype_value`,
+are clearly artificial. As the name `phenotype_value` we will
+rename it to `trait_x`:
+
+```{r}
+names(assoc_qt_params$phenotype_table) <-
+  c(
+    names(assoc_qt_params$phenotype_table)[-3],
+    "trait_x"
+  )
+```
 
 ### The minor allele frequency (MAF)
 
@@ -119,9 +129,10 @@ if (is_plink_installed()) {
 
 ## Detecting associations for multiple traits
 
-NOTE: THIS DOES NOT WORK (YET?)
-
 To detect associations for multiple traits,
+we can simply run multiple associations for single traits.
+
+Within `plinkr`, however, 
 all we need to do is to extent the phenotype table,
 then re-run the analysis.
 
@@ -131,7 +142,7 @@ We simply add another column with random values:
  
 ```{r}
 if (is_plink_installed()) {
-  assoc_qt_params$phenotype_table$another_phenotype_value <-    seq_len(nrow(assoc_qt_params$phenotype_table)) * seq_len(nrow(assoc_qt_params$phenotype_table))
+  assoc_qt_params$phenotype_table$trait_y <-    seq_len(nrow(assoc_qt_params$phenotype_table)) * seq_len(nrow(assoc_qt_params$phenotype_table))
   knitr::kable(assoc_qt_params$phenotype_table)
 }
 ```

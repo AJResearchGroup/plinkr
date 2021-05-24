@@ -6,6 +6,11 @@
 \usage{
 check_assoc_qt_params(assoc_qt_params)
 }
+\arguments{
+\item{assoc_qt_params}{parameters to do an association analysis
+for a quantitative trait (i.e. using \link{assoc_qt}),
+as can be created by \link{create_assoc_qt_params}}
+}
 \value{
 Nothing.
 }

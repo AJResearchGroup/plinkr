@@ -52,5 +52,9 @@ assoc_qt <- function(
       "--out", output_filename_base
     )
   )
-  plinkr::read_plink_qassoc_file(qassoc_filename)
+  t <- plinkr::read_plink_qassoc_file(qassoc_filename)
+  t$trait_name <- names(assoc_qt_params$phenotype_table[3])
+
+  trait_name <- NULL # nolint suppress 'no visible binding for global variable'
+  dplyr::relocate(t, trait_name)
 }

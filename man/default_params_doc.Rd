@@ -8,6 +8,7 @@ documentation.}
 default_params_doc(
   add_noweb,
   assoc_filename,
+  assoc_qt_params,
   example_filename,
   log_filename,
   maf,
@@ -37,6 +38,10 @@ Use \link{get_plink_version} to get the current PLINK version.}
 
 \item{assoc_filename}{name of a PLINK \code{.assoc} file
 Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.}
+
+\item{assoc_qt_params}{parameters to do an association analysis
+for a quantitative trait (i.e. using \link{assoc_qt}),
+as can be created by \link{create_assoc_qt_params}}
 
 \item{example_filename}{name of the example file}
 

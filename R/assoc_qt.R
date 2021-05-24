@@ -57,4 +57,5 @@ assoc_qt <- function(
 
   trait_name <- NULL # nolint suppress 'no visible binding for global variable'
   dplyr::relocate(t, trait_name)
+  t
 }

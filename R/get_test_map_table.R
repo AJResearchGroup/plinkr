@@ -3,8 +3,8 @@
 #' @export
 get_test_map_table <- function() {
   tibble::tribble(
-    ~CHR, ~SNP  , ~position_cm, ~BP,
-    1   , "snp1", 0           , 1  ,
-    1   , "snp2", 0           , 2
+    ~CHR, ~SNP  , ~position_cm, ~BP, # nolint keep spaces to align content
+    1   , "snp1", 0           , 1  , # nolint keep spaces to align content
+    1   , "snp2", 0           , 2    # nolint keep spaces to align content
   )
 }

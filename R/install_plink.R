@@ -61,4 +61,3 @@ install_plink <- function(
     )
   )
 }
-

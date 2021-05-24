@@ -152,7 +152,9 @@ We simply add another column with random values:
  
 ```{r}
 if (is_plink_installed()) {
-  assoc_qt_params$phenotype_table$trait_y <-    seq_len(nrow(assoc_qt_params$phenotype_table)) * seq_len(nrow(assoc_qt_params$phenotype_table))
+  assoc_qt_params$phenotype_table$trait_y <-
+    seq_len(nrow(assoc_qt_params$phenotype_table)) *
+    seq_len(nrow(assoc_qt_params$phenotype_table))
   knitr::kable(assoc_qt_params$phenotype_table)
 }
 ```

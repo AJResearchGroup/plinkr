@@ -13,12 +13,18 @@ Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
 \value{
 a [tibble]{tibble} with the following columns:
 \itemize{
-\item \code{chromosome_code}: the chromosome code or contig name
-\item \code{variant_id}: Variant identifier
-\item \code{position}: Position in morgans or centimorgans.
-This value is options. Zeroes denote it is unused
-\item \code{coordinat}: Base-pair coordinat
+\item \code{CHR}: the chromosome code or contig name
+\item \code{SNP}: Variant identifier
+\item \code{position_cm}: Position in morgans or centimorgans.
+This value is optional. Zeroes denote it is unused
+\item \code{BP}: Base-pair coordinat
 }
+
+The uppercase variable names are chosen to match those used by PLINK,
+e.g. as can be observed from \link{assoc_qt}.
+
+\code{position_cm} is still lowercase as I am unsure how PLINK calls this
+variable. If you know, please let me know.
 }
 \description{
 Read a PLINK \code{.map} file

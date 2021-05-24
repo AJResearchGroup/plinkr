@@ -103,6 +103,9 @@ values in the phenotype file. If we do not include the file with our
 own phenotypic values, PLINK will use the ones in the `.ped` file 
 instead (see also below, in the section 'Is the phenotype file mandatory?')
 
+Now we take a look at the `.map` file,
+which maps the single-nucleotide variations (SNVs)
+to their position on the DNA:
 
 ```{r}
 if (is_plink_installed()) {
@@ -111,6 +114,18 @@ if (is_plink_installed()) {
   )
 }
 ```
+
+These are:
+
+ * `r names(read_plink_map_file(map_filename))[1]`: 
+    the chromosome code or contig name
+ * `r names(read_plink_map_file(map_filename))[2]`: 
+    Variant identifier
+ * `r names(read_plink_map_file(map_filename))[3]`: 
+    Position in morgans or centimorgans.
+    This value is optional. Zeroes denote it is unused
+ * `r names(read_plink_map_file(map_filename))[4]`: 
+    Base-pair coordinat
 
 ```{r}
 if (is_plink_installed()) {
@@ -133,7 +148,7 @@ if (is_plink_installed()) {
 
 ## Is the phenotype file mandatory?
 
-No, you can remove it:
+No, you can remove it from the command to run PLINK:
 
 ```{r}
 if (is_plink_installed()) {
@@ -148,7 +163,13 @@ if (is_plink_installed()) {
 }
 ```
 
-However, the input is now in `run1.assoc`
+Instead, PLINK will use the phenotypic trait in the `.map`
+file, for the column named `r names(read_plink_map_file(map_filename))[6]`.
+These values (always a 1 or a 2), however, are not phenotypic 
+values, these are the notation for case-control associations.
+
+As we run PLINK with a case-control study, 
+the input is now in `run1.assoc` instead:
 
 ```{r}
 if (is_plink_installed()) {

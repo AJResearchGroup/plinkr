@@ -21,6 +21,8 @@
 #' Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
 #' @param phenotype_filename name of a raw phenotype file.
 #' Use \link{read_plink_phenotype_file} to read a raw phenotype file.
+#' @param phenotype_table a table of phenotypes.
+#' Use \link{read_plink_phenotype_file} to read a phenotype file.
 #' @param plink_folder folder where PLINK is installed
 #' @param qassoc_filename name of a PLINK \code{.qassoc} file
 #' Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.
@@ -49,6 +51,7 @@ default_params_doc <- function(
   ped_filename,
   ped_table,
   phenotype_filename,
+  phenotype_table,
   plink_folder,
   qassoc_filename,
   sim_filename,

@@ -1,0 +1,11 @@
+test_that("use", {
+  expect_silent(check_ped_table(create_test_ped_table()))
+  expect_error(check_ped_table("nonsense"))
+})
+
+test_that("evil use", {
+  skip("Not yet")
+  ped_table <- create_test_ped_table()
+  ped_table$allele_call_2c <- ped_table$allele_call_2b
+  expect_error(check_ped_table(ped_table))
+})

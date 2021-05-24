@@ -17,6 +17,7 @@ default_params_doc(
   ped_filename,
   ped_table,
   phenotype_filename,
+  phenotype_table,
   plink_folder,
   qassoc_filename,
   sim_filename,
@@ -59,6 +60,9 @@ Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
 
 \item{phenotype_filename}{name of a raw phenotype file.
 Use \link{read_plink_phenotype_file} to read a raw phenotype file.}
+
+\item{phenotype_table}{a table of phenotypes.
+Use \link{read_plink_phenotype_file} to read a phenotype file.}
 
 \item{plink_folder}{folder where PLINK is installed}
 

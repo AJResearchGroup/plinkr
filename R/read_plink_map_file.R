@@ -1,11 +1,17 @@
 #' Read a PLINK \code{.map} file
 #' @inheritParams default_params_doc
 #' @return a \[tibble]{tibble} with the following columns:
-#'  * \code{chromosome_code}: the chromosome code or contig name
-#'  * \code{variant_id}: Variant identifier
-#'  * \code{position}: Position in morgans or centimorgans.
-#'      This value is options. Zeroes denote it is unused
-#'  * \code{coordinat}: Base-pair coordinat
+#'  * \code{CHR}: the chromosome code or contig name
+#'  * \code{SNP}: Variant identifier
+#'  * \code{position_cm}: Position in morgans or centimorgans.
+#'      This value is optional. Zeroes denote it is unused
+#'  * \code{BP}: Base-pair coordinat
+#'
+#' The uppercase variable names are chosen to match those used by PLINK,
+#' e.g. as can be observed from \link{assoc_qt}.
+#'
+#' \code{position_cm} is still lowercase as I am unsure how PLINK calls this
+#' variable. If you know, please let me know.
 #' @export
 read_plink_map_file <- function(map_filename) {
   # A text file with no header file,
@@ -19,9 +25,9 @@ read_plink_map_file <- function(map_filename) {
     simplify = TRUE
   )
   tibble::tibble(
-    chromosome_code = as.numeric(table[, 1]),
-    variant_id = table[, 2],
-    position = as.numeric(table[, 3]),
-    coordinat = as.numeric(table[, 4]),
+    CHR = as.numeric(table[, 1]),
+    SNP = table[, 2],
+    position_cm = as.numeric(table[, 3]),
+    BP = as.numeric(table[, 4]),
   )
 }

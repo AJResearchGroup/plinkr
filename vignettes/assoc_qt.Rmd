@@ -14,10 +14,49 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Introduction
+
+In this vignette,
+we are going to detect associations between genetic information
+and one or more quantitative traits.
+
+## Setup
+
+First load `plinkr`:
+
 ```{r setup}
 library(plinkr)
 ```
 
+This vignette will build whether or not PLINK is installed
+
+```{r is_plink_installed}
+if (is_plink_installed()) {
+  message("PLINK is installed")
+} else {
+  message(
+    "PLINK is not installed",
+    "",
+    "Tip: run 'plinkr::install_plink()' to do so"
+  )
+}
+```
+
+## Detecting associations for a single trait
+
+To do an association (both for a single and multiple traits), 
+we need three table:
+
+ * The `.map` table or mapping table, which contains the location
+   of the single-nucleotide polymorphisms (SNPs)
+ * The `.ped` table or pedigree table, which contains the pedigree
+   of the individuals and their SNP values
+ * The phenotype table, which contains the one or more phenotypes
+   of the individuals
+
+Here, we create each of these files.
+
+### The mapping table
 
 ```{r}
 if (is_plink_installed()) {
@@ -28,29 +67,106 @@ if (is_plink_installed()) {
 }
 ```
 
-The PLINK example \code{.ped} file does not contain a quantitative trait,
-but a case-control value instead.
-We will overwrite the phenotypic values to be a quantitative trait:
+### The pedigree table
+
+The PLINK example \code{.ped} contains, among others, the pedigree of the individuals:
 
 ```{r}
 if (is_plink_installed()) {
   ped_table <- read_plink_ped_file(
     ped_filename = get_plink_example_filename("test.ped")
   )
-  ped_table$phenotype_value <- runif(nrow(ped_table))
   knitr::kable(ped_table)
 }
 ```
 
-Now we detect the associations:
+Note that the pedigree table has a column called `phenotype_value`,
+which will be completely ignored.
+
+### The phenotype table
+
+The pedigree table has a column called `phenotype_value`,
+which will be completely ignored, as it only allows to put in
+one phenotype. Instead, we use a table of one or more phenotypic
+values. It must be clear, however, which individual 
+has which trait. 
+
+To be sure we have all individuals, we extract these individuals
+and traits from the pedigree table first, so we can modify these later:
+
+```{r}
+if (is_plink_installed()) {
+  phenotype_table <- create_phenotype_table_from_ped_table(
+    ped_table = ped_table
+  )
+  knitr::kable(phenotype_table)
+}
+```
+
+Now, the phenotype_table does not contain a quantitative trait,
+but a case-control value instead (as this was the original example).
+We will overwrite these values to be a random quantitative trait:
+
+```{r}
+if (is_plink_installed()) {
+  phenotype_table$phenotype_value <- runif(nrow(phenotype_table))
+  knitr::kable(phenotype_table)
+}
+```
+
+### Detecting the association
+
+With the mapping, pedigree and phenotype table, 
+we can detect the association between genotype and the single trait:
 
 ```{r}
 if (is_plink_installed()) {
   t <- assoc_qt(
-    ped_table,
-    map_table,
+    ped_table = ped_table,
+    map_table = map_table,
+    phenotype_table = phenotype_table,
     maf = 0.05
   )
   knitr::kable(t)
 }
 ```
+
+
+## Detecting associations for multiple traits
+
+NOTE: THIS DOES NOT WORK (YET?)
+
+To detect associations for multiple traits,
+all we need to do is to extent the phenotype table,
+then re-run the analysis.
+
+### The phenotype table
+
+We simply add another column with random values:
+ 
+```{r}
+if (is_plink_installed()) {
+  phenotype_table$another_phenotype_value <- runif(nrow(phenotype_table))
+  knitr::kable(phenotype_table)
+}
+```
+
+### Detecting the association
+
+With the mapping, pedigree and phenotype table, 
+we can detect the association between genotype and the two traits:
+
+```{r}
+if (is_plink_installed()) {
+  t <- assoc_qt(
+    ped_table = ped_table,
+    map_table = map_table,
+    phenotype_table = phenotype_table,
+    maf = 0.05
+  )
+  knitr::kable(t)
+}
+```
+
+As can be seen, these are exactly the same values as the single-trait
+association.

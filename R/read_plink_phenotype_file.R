@@ -19,11 +19,18 @@ read_plink_phenotype_file <- function(phenotype_filename) {
     text_matrix,
     .name_repair = "minimal"
   )
-  testthat::expect_equal(3, ncol(t))
-  names(t) <- c("family_id", "individual_id", "phenotype")
-  # Converting the full text_matrix to numeric may be better...
-  t$family_id <- as.numeric(t$family_id)
-  t$individual_id <- as.numeric(t$individual_id)
-  t$phenotype <- as.numeric(t$phenotype)
+  n_phenotypes <- ncol(t) - 2
+  testthat::expect_true(n_phenotypes >= 1)
+
+  names(t) <- c(
+    "family_id",
+    "within_family_id",
+    paste0("phenotype_", seq_len(n_phenotypes))
+  )
+  # Convert all columns to numeric
+  dplyr::mutate(
+    dplyr::select(t, dplyr::everything()),
+    dplyr::across(dplyr::everything(), as.numeric)
+  )
   t
 }

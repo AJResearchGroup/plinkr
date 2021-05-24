@@ -1,0 +1,59 @@
+---
+title: "use_cases"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{use_cases}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(plinkr)
+```
+
+
+
+```
+for bim in {101..196}
+do   
+echo  $bim
+ for panel in "ONC2_" "NEU_" "CVD2_" "CVD3_" "INF_"
+  do
+     for chr in  {1..22}
+     do
+	 awk '$7>=0.01 && $1<30 && $12<5E-08 ' output/$panel$bim.$chr.conditional.assoc.txt.assoc.txt > Sign/Sign.cond.$panel$bim.$chr
+
+	 if [ -s Sign/Sign.cond.$panel$bim.$chr ]
+	 then
+	  #   echo "File not empty"
+	     awk '{if(min>$12||NR==1){min=$12;a[$12]=$0}}END{print a[min]}' Sign/Sign.cond.$panel$bim.$chr > Sign/Top.Sign.cond.$panel$bim.$chr
+	     rm Sign/Sign.cond.$panel$bim.$chr
+	 else
+	   #  echo "File empty"
+	     rm  Sign/Sign.cond.$panel$bim.$chr
+	 fi
+
+
+     done 
+
+done
+done
+
+
+cat Sign/Top.Sign* > Top.Sign.All
+PLINKin="/my_folder/"
+
+awk '{print $2}' Top.Sign.All > Top.Sign.All.snps
+
+for chr in {1..22}
+do
+plink --bfile $PLINKin$chr/$chr --extract Top.Sign.All.snps  --recode 12 --out CovarFiles/$chr
+done
+```

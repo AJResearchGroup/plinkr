@@ -17,9 +17,20 @@
 #'     for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 #'     in the \code{.map file} (\code{0} = no call)
 #' @examples
-#'  if (is_plink_installed()) {
+#'  if (is_plink_installed(plink_version = "1.7")) {
 #'    read_plink_ped_file(
-#'      get_plink_example_filename("test.ped")
+#'      get_plink_example_filename(
+#'        example_filename = "test.ped",
+#'        plink_version = "1.7"
+#'      )
+#'    )
+#'  }
+#'  if (is_plink_installed(plink_version = "1.9")) {
+#'    read_plink_ped_file(
+#'      get_plink_example_filename(
+#'        example_filename = "toy.ped",
+#'        plink_version = "1.9"
+#'      )
 #'    )
 #'  }
 #' @export

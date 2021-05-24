@@ -1,3 +1,3 @@
 test_that("use", {
-  expect_equal("1.7", get_default_plink_version())
+  expect_true(get_default_plink_version() %in% get_plink_versions())
 })

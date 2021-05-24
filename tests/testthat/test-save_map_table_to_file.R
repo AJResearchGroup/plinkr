@@ -1,6 +1,9 @@
 test_that("use", {
   map_table <- read_plink_map_file(
-    map_filename = get_plink_example_filename("test.map")
+    map_filename = get_plink_example_filename(
+      example_filename = "test.map",
+      plink_version = "1.7"
+    )
   )
   map_filename <- tempfile()
   save_map_table_to_file(
@@ -17,7 +20,10 @@ test_that("use", {
 
 test_that("sub-sub-sub folder", {
   map_table <- read_plink_map_file(
-    map_filename = get_plink_example_filename("test.map")
+    map_filename = get_plink_example_filename(
+      example_filename = "test.map",
+      plink_version = "1.7"
+    )
   )
   map_filename <- file.path(
     tempfile(), "sub", "sub", "sub", "folder", "test.map"

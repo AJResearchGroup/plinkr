@@ -4,9 +4,13 @@
 #'   Will \link{stop} if the file does not exist
 #' @export
 #' @examples
-#' if (is_plink_installed()) {
-#'   get_plink_example_filename("test.map")
-#'   get_plink_example_filename("test.ped")
+#' if (is_plink_installed(plink_version = "1.7")) {
+#'   get_plink_example_filename("test.map", plink_version = "1.7")
+#'   get_plink_example_filename("test.ped", plink_version = "1.7")
+#' }
+#' if (is_plink_installed(plink_version = "1.9")) {
+#'   get_plink_example_filename("toy.map", plink_version = "1.9")
+#'   get_plink_example_filename("toy.ped", plink_version = "1.9")
 #' }
 get_plink_example_filename <- function(
   example_filename,

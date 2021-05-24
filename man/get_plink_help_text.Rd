@@ -4,9 +4,14 @@
 \alias{get_plink_help_text}
 \title{Get the text of the PLINK help file}
 \usage{
-get_plink_help_text(plink_folder = get_plink_folder())
+get_plink_help_text(
+  plink_version = get_default_plink_version(),
+  plink_folder = get_plink_folder()
+)
 }
 \arguments{
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
+
 \item{plink_folder}{folder where PLINK is installed}
 }
 \value{

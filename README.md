@@ -7,11 +7,17 @@ Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github
 
 Work with [PLINK](http://zzz.bwh.harvard.edu/plink/) from R
 
+ * Doing the first PLINK example: [YouTube](https://youtu.be/LsfKQw2oIUg) [download (.ogv)](http://richelbilderbeek.nl/plinkr_basic_usage.ogv)
+ * Detect an association with one or more quantitative traits: [YouTube](https://youtu.be/IicNdc8sDfI) [download (.ogv)](http://richelbilderbeek.nl/plinkr_assoc_qt.ogv)
+
 ## Features
 
  * [x] Check if PLINK is installed, stop if not
+ * [x] Detect an association with one or more quantitative trait
  * [x] Determine if PLINK is installed, yes/no
  * [x] Get the help text of PLINK
  * [x] Get the version of PLINK
  * [x] Install PLINK
+ * [x] PLINK versions 1.7 and 1.9
+ * [x] Run PLINK
  * [x] Uninstall PLINK

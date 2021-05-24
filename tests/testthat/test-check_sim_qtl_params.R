@@ -1,7 +1,3 @@
-test_that("minimal use", {
-  expect_silent(create_test_sim_qt_params())
-})
-
 test_that("must be valid", {
   expect_silent(check_sim_qt_params(create_test_sim_qt_params()))
 })

@@ -49,7 +49,14 @@ read_plink_ped_file <- function(ped_filename) {
     "phenotype_value",
     paste0("allele_call_", t_str$text)
   )
-
   names(t) <- names
+
+  t$family_id <- as.numeric(t$family_id)
+  t$within_family_id <- as.numeric(t$within_family_id)
+  t$within_family_id_father <- as.numeric(t$within_family_id_father)
+  t$within_family_id_mother <- as.numeric(t$within_family_id_mother)
+  t$sex_code <- as.numeric(t$sex_code)
+  t$phenotype_value <- as.numeric(t$phenotype_value)
+
   t
 }

@@ -6,7 +6,7 @@ save_sim_qt_params_to_file <- function(
   sim_qt_params,
   sim_filename
 ) {
-  testthat::expect_true(plinkr::is_sim_qt_params(sim_qt_params))
+  testthat::expect_silent(plinkr::check_sim_qt_params(sim_qt_params))
   line <- paste(
     sim_qt_params, collapse = " "
   )

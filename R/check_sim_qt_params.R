@@ -1,8 +1,8 @@
-#' Determine if the input is a valid set of parameters to
-#' simulate a quantitative trait
+#' Check if the input is a valid set of parameters to
+#' simulate a quantitative trait, will stop otherwise
 #' @inheritParams default_params_doc
 #' @export
-is_sim_qt_params <- function(sim_qt_params) {
+check_sim_qt_params <- function(sim_qt_params) {
   testthat::expect_true(is.list(sim_qt_params))
   testthat::expect_true("n_snps" %in% names(sim_qt_params))
   testthat::expect_true("snp_label" %in% names(sim_qt_params))

@@ -45,7 +45,7 @@ if (is_plink_installed()) {
 ## Detecting associations for a single trait
 
 To do an association (both for a single and multiple traits), 
-we need three table:
+we need some parameters:
 
  * The `.map` table or mapping table, which contains the location
    of the single-nucleotide polymorphisms (SNPs)
@@ -53,18 +53,19 @@ we need three table:
    of the individuals and their SNP values
  * The phenotype table, which contains the one or more phenotypes
    of the individuals
+ * The minor allele frequence (MAF)
 
-Here, we create each of these files.
+Here, we get simple set of parameters, as to be used in testing,
+or -in this case- a simple demonstration:
+ 
+```{r}
+assoc_qt_params <- get_test_assoc_qt_params()
+```
 
 ### The mapping table
 
 ```{r}
-if (is_plink_installed()) {
-  map_table <- read_plink_map_file(
-    map_filename = get_plink_example_filename("test.map")
-  )
-  knitr::kable(map_table)
-}
+knitr::kable(assoc_qt_params$map_table)
 ```
 
 ### The pedigree table
@@ -72,12 +73,7 @@ if (is_plink_installed()) {
 The PLINK example \code{.ped} contains, among others, the pedigree of the individuals:
 
 ```{r}
-if (is_plink_installed()) {
-  ped_table <- read_plink_ped_file(
-    ped_filename = get_plink_example_filename("test.ped")
-  )
-  knitr::kable(ped_table)
-}
+knitr::kable(assoc_qt_params$ped_table)
 ```
 
 Note that the pedigree table has a column called `phenotype_value`,
@@ -88,31 +84,23 @@ which will be completely ignored.
 The pedigree table has a column called `phenotype_value`,
 which will be completely ignored, as it only allows to put in
 one phenotype. Instead, we use a table of one or more phenotypic
-values. It must be clear, however, which individual 
-has which trait. 
-
-To be sure we have all individuals, we extract these individuals
-and traits from the pedigree table first, so we can modify these later:
+values:
 
 ```{r}
-if (is_plink_installed()) {
-  phenotype_table <- create_phenotype_table_from_ped_table(
-    ped_table = ped_table
-  )
-  knitr::kable(phenotype_table)
-}
+knitr::kable(assoc_qt_params$phenotype_table)
 ```
 
-Now, the phenotype_table does not contain a quantitative trait,
-but a case-control value instead (as this was the original example).
-We will overwrite these values to be a random quantitative trait:
+These trait values are clearly artificial :-)
+
+### The minor allele frequency (MAF)
+
+The minor allele frequency (MAF) is set to 5% as a default:
 
 ```{r}
-if (is_plink_installed()) {
-  phenotype_table$phenotype_value <- runif(nrow(phenotype_table))
-  knitr::kable(phenotype_table)
-}
+message(assoc_qt_params$maf)
 ```
+
+We leave it as it is.
 
 ### Detecting the association
 
@@ -122,10 +110,7 @@ we can detect the association between genotype and the single trait:
 ```{r}
 if (is_plink_installed()) {
   t <- assoc_qt(
-    ped_table = ped_table,
-    map_table = map_table,
-    phenotype_table = phenotype_table,
-    maf = 0.05
+    assoc_qt_params = assoc_qt_params
   )
   knitr::kable(t)
 }
@@ -146,8 +131,8 @@ We simply add another column with random values:
  
 ```{r}
 if (is_plink_installed()) {
-  phenotype_table$another_phenotype_value <- runif(nrow(phenotype_table))
-  knitr::kable(phenotype_table)
+  assoc_qt_params$phenotype_table$another_phenotype_value <-    seq_len(nrow(assoc_qt_params$phenotype_table)) * seq_len(nrow(assoc_qt_params$phenotype_table))
+  knitr::kable(assoc_qt_params$phenotype_table)
 }
 ```
 
@@ -159,10 +144,7 @@ we can detect the association between genotype and the two traits:
 ```{r}
 if (is_plink_installed()) {
   t <- assoc_qt(
-    ped_table = ped_table,
-    map_table = map_table,
-    phenotype_table = phenotype_table,
-    maf = 0.05
+    assoc_qt_params = assoc_qt_params
   )
   knitr::kable(t)
 }

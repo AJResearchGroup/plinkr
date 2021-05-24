@@ -1,14 +1,17 @@
 #' Let PLINK detect an association with a quantitative trait
+#'
+#' This function is named after the \code{--assoc} flag used by PLINK
 #' @inheritParams default_params_doc
 #' @export
 assoc_qt <- function(
-  ped_table,
-  map_table,
-  phenotype_table,
-  maf
+  assoc_qt_params
 ) {
-  testthat::expect_true(maf >= 0.0)
-  testthat::expect_true(maf < 0.5)
+  plinkr::check_assoc_qt_params(assoc_qt_params)
+  # Do not be smart yet
+  ped_table <- assoc_qt_params$ped_table
+  map_table <- assoc_qt_params$map_table
+  phenotype_table <- assoc_qt_params$phenotype_table
+  maf <- assoc_qt_params$maf
   temp_folder <- tempfile()
   base_input_filename <- file.path(temp_folder, "assoc_qt_input")
   output_filename_base <- file.path(temp_folder, "assoc_qt_output")

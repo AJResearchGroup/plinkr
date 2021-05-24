@@ -4,20 +4,8 @@
 \alias{assoc_qt}
 \title{Let PLINK detect an association with a quantitative trait}
 \usage{
-assoc_qt(ped_table, map_table, phenotype_table, maf)
-}
-\arguments{
-\item{ped_table}{a table obtained by reading a PLINK \code{.ped} file
-Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
-
-\item{map_table}{a table obtained by reading a PLINK \code{.map} file
-Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
-
-\item{phenotype_table}{a table of phenotypes.
-Use \link{read_plink_phenotype_file} to read a phenotype file.}
-
-\item{maf}{minor allele frequency}
+assoc_qt(assoc_qt_params)
 }
 \description{
-Let PLINK detect an association with a quantitative trait
+This function is named after the \code{--assoc} flag used by PLINK
 }

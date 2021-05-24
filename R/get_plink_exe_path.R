@@ -15,5 +15,14 @@ get_plink_exe_path <- function(
       )
     )
   }
+  if (plink_version == "1.9") {
+    return(
+      file.path(
+        plink_folder,
+        "plink_1_9", "plink"
+      )
+    )
+  }
+  list.files(plink_folder)
   stop("Should never get here in get_plink_exe_path")
 }

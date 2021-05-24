@@ -28,6 +28,8 @@
 #' Use \link{read_plink_phenotype_file} to read a phenotype file.
 #' @param plink_folder folder where PLINK is installed
 #' @param plink_version version of PLINK, e.g. \code{"1.7"}
+#' @param plink_versions one or more versions of PLINK,
+#' e.g. as can be obtained using \link{get_plink_versions}
 #' @param qassoc_filename name of a PLINK \code{.qassoc} file
 #' Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.
 #' @param sim_filename name of a PLINK \code{.sim} file
@@ -59,6 +61,7 @@ default_params_doc <- function(
   phenotype_table,
   plink_folder,
   plink_version,
+  plink_versions,
   qassoc_filename,
   sim_filename,
   simfreq_filename,

@@ -6,6 +6,7 @@ is_plink_installed <- function(
   plink_version = get_default_plink_version(),
   plink_folder = get_plink_folder()
 ) {
+  plinkr::check_plink_version(plink_version)
   is_installed <- FALSE
   tryCatch({
     plinkr::check_plink_is_installed(

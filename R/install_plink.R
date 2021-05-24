@@ -8,7 +8,10 @@ install_plink <- function(
 ) {
   plinkr::check_plink_version(plink_version)
   testthat::expect_false(
-    plinkr::is_plink_installed(plink_folder = plink_folder)
+    plinkr::is_plink_installed(
+      plink_version = plink_version,
+      plink_folder = plink_folder
+    )
   )
 
   dir.create(
@@ -33,10 +36,17 @@ install_plink <- function(
     plink_version = plink_version,
     plink_folder = plink_folder
   )
+
+  # Plink 1.7 comes with a zip that creates a subfolder, v1.9 does not
+  plink_sub_folder <- plink_folder
+  if (plink_version == "1.9") {
+    plink_sub_folder <- file.path(plink_sub_folder, "plink_1_9")
+  }
+
   if (!file.exists(plink_exe_path)) {
     utils::unzip(
       plink_zip_path,
-      exdir = plink_folder
+      exdir = plink_sub_folder
     )
   }
   testthat::expect_true(file.exists(plink_exe_path))

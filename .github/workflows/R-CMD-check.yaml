@@ -35,8 +35,8 @@ jobs:
           remotes::install_github("MangoTheCat/goodpractice")
         shell: Rscript {0}
 
-      - name: Install PLINK
-        run: ./scripts/install_plink.sh
+      - name: Install all PLINK versions
+        run: ./scripts/install_plinks.sh
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")

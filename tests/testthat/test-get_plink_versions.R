@@ -1,0 +1,9 @@
+test_that("minimal use", {
+  expect_silent(get_plink_versions())
+})
+
+test_that("valid versions", {
+  for (plink_version in get_plink_versions()) {
+    expect_silent(check_plink_version(plink_version))
+  }
+})

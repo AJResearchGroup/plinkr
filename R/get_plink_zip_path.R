@@ -7,13 +7,13 @@ get_plink_zip_path <- function(
   plink_folder = get_plink_folder()
 ) {
   plinkr::check_plink_version(plink_version)
-  if (plink_version == "1.7") {
-    return(
-      file.path(
-        plink_folder,
-        "plink_1_7.zip"
-      )
-    )
-  }
-  stop("Should never get here in get_plink_zip_path")
+  plink_version_str <- stringr::str_replace(
+    plink_version,
+    pattern = "\\.",
+    replacement = "_"
+  )
+  file.path(
+    plink_folder,
+    paste0("plink_", plink_version_str, ".zip")
+  )
 }

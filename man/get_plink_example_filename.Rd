@@ -4,10 +4,16 @@
 \alias{get_plink_example_filename}
 \title{Get the path to a PLINK example file}
 \usage{
-get_plink_example_filename(example_filename, plink_folder = get_plink_folder())
+get_plink_example_filename(
+  example_filename,
+  plink_version = get_default_plink_version(),
+  plink_folder = get_plink_folder()
+)
 }
 \arguments{
 \item{example_filename}{name of the example file}
+
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
 
 \item{plink_folder}{folder where PLINK is installed}
 }

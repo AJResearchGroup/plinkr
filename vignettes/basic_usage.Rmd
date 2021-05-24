@@ -38,13 +38,19 @@ plink --file mydata --pheno pheno.raw --assoc --maf 0.05 --out run1
 
 The `--file mydata` means that PLINK will look for the files named
 `mydata.ped` and `mydata.map`. In this example, we will use these two from
-the PLINK example files:
+the PLINK v1.7 example files:
 
 ```{r}
 if (is_plink_installed()) {
   # Check both files exists
-  ped_filename <- get_plink_example_filename("test.ped")
-  map_filename <- get_plink_example_filename("test.map")
+  ped_filename <- get_plink_example_filename(
+    example_filename = "test.ped",
+    plink_version = "1.7"
+  )
+  map_filename <- get_plink_example_filename(
+    example_filename = "test.map",
+    plink_version = "1.7"
+  )
   # Get the path without extension, can use either ped or map file
   testthat::expect_equal(
     tools::file_path_sans_ext(ped_filename),

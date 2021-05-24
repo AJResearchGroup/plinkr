@@ -57,3 +57,19 @@ do
 plink --bfile $PLINKin$chr/$chr --extract Top.Sign.All.snps  --recode 12 --out CovarFiles/$chr
 done
 ```
+
+Or:
+
+```
+plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --clump /my_folder/GENABEL/PEA3/FILTERED/$bio.filtered.pea3.genabel --clump-p1 1e-8 --clump-r2 0.05 --clump-kb 2000 --out /my_folder/GENABEL/PEA3/$bio.r0.05; done
+plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --clump /my_folder/GENABEL/PEA3/FILTERED/$bio.filtered.pea3.genabel --clump-p1 1e-8 --clump-r2 0.1 --clump-kb 2000 --out /my_folder/GENABEL/PEA3/$bio.r0.1; done
+plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --clump /my_folder/GENABEL/PEA3/FILTERED/$bio.filtered.pea3.genabel --clump-p1 1e-8 --clump-r2 0.1 --clump-kb 15000 --out /my_folder/GENABEL/PEA3/$bio.15Mb; done
+plink --vcf /my_folder/Recal_SNP_INDEL_clean_samples_RENAMED.vcf --make-bed --keep-allele-order --autosome --set-missing-var-ids @:#[b37] --biallelic-only list --out /my_folder/WGS-SNP-INDEL-biallelic
+plink --bfile /my_folder/WGS-SNP-biallelic --freq --hardy --allow-extra-chr --out /my_folder/WGS-SNP-biallelic
+plink --bfile /my_folder/WGS-SNP-biallelic --autosome --recode transpose --out /my_folder/WGS-SNP-biallelic
+plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --chr 1-6 --recode transpose --out GenABEL-biallelic-CHR1-6
+plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --chr 7-14 --recode transpose --out GenABEL-biallelic-CHR7-14
+plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --chr 15-12 --recode transpose --out GenABEL-biallelic-CHR15-22
+plink --bfile /my_folder/WGS-SNP-biallelic --allow-extra-chr --chr 1-22 --extract subsetSNP --recode transpose --out /my_folder/WGS-SNP-biallelic-subset
+plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --indep-pairwise 10000kb 1 0.8 --maf 0.0015 --out /my_folder/WGS-SNP-biallelic-pruned-10Mb-1
+```

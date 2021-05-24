@@ -20,6 +20,9 @@ uninstall_plink <- function(
   )
   unlink(unpacked_folder_name, recursive = TRUE)
   testthat::expect_false(
-    plinkr::is_plink_installed(plink_folder = plink_folder)
+    plinkr::is_plink_installed(
+      plink_version = plink_version,
+      plink_folder = plink_folder
+    )
   )
 }

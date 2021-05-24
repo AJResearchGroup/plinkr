@@ -151,6 +151,16 @@ if (is_plink_installed()) {
 }
 ```
 
+ * `trait_name`: name of the quantitive trait,
+ * `CHR`: Chromosome number
+ * `SNP`: SNP identifier
+ * `BP`: Physical position (base-pair)
+ * `NMISS`: Number of non-missing genotypes
+ * `BETA`: Regression coefficient
+ * `SE`: Standard error
+ * `R2`: Regression r-squared
+ * `T`: Wald test (based on t-distribtion)
+ * `P`: Wald test asymptotic p-value
 
 ## Is the phenotype file mandatory?
 
@@ -185,6 +195,17 @@ if (is_plink_installed()) {
   )
 }
 ```
+
+ * `trait_name`: name of the quantitive trait,
+ * `CHR`: Chromosome number
+ * `SNP`: SNP identifier
+ * `BP`: Physical position (base-pair)
+ * `NMISS`: Number of non-missing genotypes
+ * `BETA`: Regression coefficient
+ * `SE`: Standard error
+ * `R2`: Regression r-squared
+ * `T`: Wald test (based on t-distribtion)
+ * `P`: Wald test asymptotic p-value
 
 
 ## Future

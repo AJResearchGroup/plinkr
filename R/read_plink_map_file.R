@@ -14,6 +14,7 @@
 #' variable. If you know, please let me know.
 #' @export
 read_plink_map_file <- function(map_filename) {
+  testthat::expect_true(file.exists(map_filename))
   # A text file with no header file,
   # and one line per variant with the following 3-4 fields:
   table <- stringr::str_split(

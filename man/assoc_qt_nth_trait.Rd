@@ -10,6 +10,8 @@ assoc_qt_nth_trait(assoc_qt_params, n)
 \item{assoc_qt_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc_qt}),
 as can be created by \link{create_assoc_qt_params}}
+
+\item{n}{the nth trait. Use '1' for the first trait}
 }
 \description{
 This function is named after the \code{--assoc} flag used by PLINK

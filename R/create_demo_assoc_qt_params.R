@@ -9,23 +9,23 @@
 #'  * Traits that follow different genotype to phenotype mapping:
 #'    * `control`: a trait that is random
 #'    * `additive`: a trait that is perfectly additive,
-#'      each `A` denotes an increase of 0.1,
-#'      each `C` denotes an increase of 0.2,
-#'      each `G` denotes an increase of 0.3,
-#'      each `T` denotes an increase of 0.4
+#'      each `A` denotes an increase of 0.0,
+#'      each `T` denotes an increase of 0.5
 #'
 #' @note This function is named after the \code{--assoc-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
 create_demo_assoc_qt_params <- function(
-  n_snps = 1,
-  phenotypes = "random",
+  phenotypes = get_phenotypes(),
   maf = 0.05
 ) {
+  plinkr::check_phenotypes(phenotypes)
+  plinkr::check_maf(maf)
+  n_snps <- length(phenotypes)
   testthat::expect_true(n_snps >= 0)
   testthat::expect_silent(plinkr::check_phenotypes(phenotypes))
-  ped_table <- plinkr::create_demo_ped_table(n_snps = n_snps)
-  map_table <- plinkr::create_demo_map_table(n_snps = n_snps)
+  ped_table <- plinkr::create_demo_ped_table(phenotypes = phenotypes)
+  map_table <- plinkr::create_demo_map_table(n_snps = length(phenotypes))
   phenotype_table <- create_demo_phenotype_table(
     ped_table = ped_table,
     phenotypes = phenotypes

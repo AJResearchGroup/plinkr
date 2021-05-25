@@ -1,3 +1,4 @@
 test_that("use", {
-  expect_equal(get_phenotypes(), "random")
+  expect_true("random" %in% get_phenotypes())
+  expect_true("additive" %in% get_phenotypes())
 })

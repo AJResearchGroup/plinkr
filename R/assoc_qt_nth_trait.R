@@ -27,7 +27,21 @@ assoc_qt_nth_trait <- function(
   phenotype_table <- assoc_qt_params$phenotype_table
   maf <- assoc_qt_params$maf
 
-  # Copy the nth trait to the third column
+  # Of the pedigree table, only keep the nth SNP
+  if (1 == 2) {
+    col_snp_a <- 6 + ((n - 1) * 2) + 1
+    testthat::expect_true(col_snp_a >= 7)
+    col_snp_b <- col_snp_a + 1
+    testthat::expect_true(col_snp_b <= ncol(ped_table))
+    ped_table <- ped_table[, c(seq(1, 6), col_snp_a, col_snp_b)]
+  }
+
+  # Of the genetic mapping, only keep the nth SNP
+  if (1 == 2) {
+    map_table <- map_table[n, ]
+  }
+
+  # Of the phenotypes, only keep the nth phenotype
   trait_index <- 2 + n
   keep_indices <- c(1, 2, trait_index)
   phenotype_table <- phenotype_table[, keep_indices]
@@ -47,7 +61,6 @@ assoc_qt_nth_trait <- function(
     ped_filename = ped_filename
   )
   testthat::expect_true(file.exists(ped_filename))
-  readLines(ped_filename)
   plinkr::save_map_table_to_file(
     map_table = map_table,
     map_filename = map_filename

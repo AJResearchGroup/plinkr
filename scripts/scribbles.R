@@ -1,8 +1,18 @@
 # Random scribbles
+assoc_qt_params <- create_demo_assoc_qt_params(
+  phenotypes = rep("random", 10)
+)
+assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+assoc_qt_results
+
+
+assoc_qt_params <- create_demo_assoc_qt_params()
+assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+assoc_qt_results
+
 
 assoc_qt_params <- create_demo_assoc_qt_params(
-  n_snps = 2,
-  phenotypes = "random"
+  phenotypes = get_phenotypes()
 )
 assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
 assoc_qt_results

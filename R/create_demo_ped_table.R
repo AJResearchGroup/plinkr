@@ -7,7 +7,11 @@
 #' these are 4 individuals.
 #' @inheritParams default_params_doc
 #' @export
-create_demo_ped_table <- function(n_snps = 1) {
+create_demo_ped_table <- function(
+  phenotypes = get_phenotypes()
+) {
+  plinkr::check_phenotypes(phenotypes)
+  n_snvs <- length(phenotypes)
   ped_table_lhs <- tibble::tibble(
     family_id = seq_len(4),
     within_family_id = 1,
@@ -22,14 +26,20 @@ create_demo_ped_table <- function(n_snps = 1) {
     dplyr::across(dplyr::everything(), as.numeric)
   )
 
-  bi_allelic_nucleotides <- c("A", "C")
-  snv_combinations <- tidyr::expand_grid(
-    a = bi_allelic_nucleotides,
-    b = bi_allelic_nucleotides
-  )
-
   tibbles <- list()
-  for (i in seq_len(n_snps)) {
+  for (i in seq_len(n_snvs)) {
+    phenotype <- phenotypes[i]
+    nucleotides <- NA
+    if (phenotype == "random") {
+      nucleotides <- c("A", "C")
+    } else {
+      testthat::expect_true(phenotype == "additive")
+      nucleotides <- c("A", "T")
+    }
+    snv_combinations <- tidyr::expand_grid(
+      a = nucleotides,
+      b = nucleotides
+    )
     t <- tibble::tibble(snv_combinations)
     names(t) <- paste0("snv_", i, names(t))
     tibbles[[i]] <- t

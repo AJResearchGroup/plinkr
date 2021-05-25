@@ -6,6 +6,9 @@
 \usage{
 get_phenotypes()
 }
+\value{
+all the phenotypes that are named after their genetic background
+}
 \description{
 Get the phenotypes that are named after their genetic background
 }

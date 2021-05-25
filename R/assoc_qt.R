@@ -1,4 +1,10 @@
-#' Let PLINK detect an association with a quantitative trait
+#' Let PLINK detect an association with one ore more quantitative traits.
+#'
+#' This function assumes \code{n} traits for \code{n} SNPs,
+#' and will do a separate association between each trait-SNPs pair,
+#' i.e. it will detect an association based one the first trait
+#' and its first set of SNPs, then do a new association between
+#' the second trait and its second set of SNPs, etc.
 #'
 #' @note This function is named after the \code{--assoc} flag used by PLINK
 #' @inheritParams default_params_doc

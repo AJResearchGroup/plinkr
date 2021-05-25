@@ -17,6 +17,7 @@ create_assoc_qt_params <- function(
   plinkr::check_ped_table(ped_table = ped_table)
   plinkr::check_map_table(map_table = map_table)
   plinkr::check_phenotype_table(phenotype_table = phenotype_table)
+  plinkr::check_maf(maf = maf)
   list(
     ped_table = ped_table,
     map_table = map_table,

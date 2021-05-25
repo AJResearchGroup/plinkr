@@ -30,3 +30,51 @@ test_that("use", {
     )
   )
 })
+
+test_that("default demo", {
+  if (!is_plink_installed()) return()
+  assoc_qt_params <- create_demo_assoc_qt_params()
+  assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+  # Two traits times two SNPs = four association
+  expect_equal(4, nrow(assoc_qt_results))
+})
+
+test_that("demo on random only", {
+  if (!is_plink_installed()) return()
+  assoc_qt_params <- create_demo_assoc_qt_params(
+    phenotypes = "random"
+  )
+  assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+  # 1 trait times 1 SNP = 1 association
+  expect_equal(nrow(assoc_qt_results), 1)
+})
+
+test_that("demo on two randoms", {
+  if (!is_plink_installed()) return()
+  assoc_qt_params <- create_demo_assoc_qt_params(
+    phenotypes = rep("random", 2)
+  )
+  assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+  # 2 trait times 2 SNP = 4 association
+  expect_equal(nrow(assoc_qt_results), 4)
+})
+
+test_that("demo on three randoms", {
+  if (!is_plink_installed()) return()
+  assoc_qt_params <- create_demo_assoc_qt_params(
+    phenotypes = rep("random", 3)
+  )
+  assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+  # 3 trait times 3 SNP = 9 association
+  expect_equal(nrow(assoc_qt_results), 9)
+})
+
+test_that("demo on additive only", {
+  if (!is_plink_installed()) return()
+  assoc_qt_params <- create_demo_assoc_qt_params(
+    phenotypes = "additive"
+  )
+  assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+  # 1 trait times 1 SNP = 1 association
+  expect_equal(nrow(assoc_qt_results), 1)
+})

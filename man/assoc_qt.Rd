@@ -2,7 +2,7 @@
 % Please edit documentation in R/assoc_qt.R
 \name{assoc_qt}
 \alias{assoc_qt}
-\title{Let PLINK detect an association with a quantitative trait}
+\title{Let PLINK detect an association with one ore more quantitative traits.}
 \usage{
 assoc_qt(assoc_qt_params)
 }
@@ -33,7 +33,11 @@ by the number of traits.
 Note that parameters in uppercase are named as such by PLINK.
 }
 \description{
-Let PLINK detect an association with a quantitative trait
+This function assumes \code{n} traits for \code{n} SNPs,
+and will do a separate association between each trait-SNPs pair,
+i.e. it will detect an association based one the first trait
+and its first set of SNPs, then do a new association between
+the second trait and its second set of SNPs, etc.
 }
 \note{
 This function is named after the \code{--assoc} flag used by PLINK

@@ -1,13 +1,13 @@
 test_that("minimal use", {
   expect_silent(
-    create_demo_phenotype_table(
-      ped_table = create_demo_ped_table()
-    )
+    create_demo_phenotype_table()
   )
 })
 
 test_that("same number of individuals in ped and phenotype tables", {
-  ped_table <- create_demo_ped_table(n_snps = 2)
+  ped_table <- create_demo_ped_table(
+    phenotypes = get_phenotypes()[1:2]
+  )
   phenotype_table <- create_demo_phenotype_table(
     ped_table = ped_table
   )

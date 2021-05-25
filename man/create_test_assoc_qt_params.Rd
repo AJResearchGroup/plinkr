@@ -8,7 +8,8 @@ create_test_assoc_qt_params(
   ped_table = get_test_ped_table(),
   map_table = get_test_map_table(),
   phenotype_table = plinkr::create_phenotype_table_from_ped_table(ped_table =
-    ped_table)
+    ped_table),
+  maf = 0.05
 )
 }
 \arguments{
@@ -63,6 +64,8 @@ columns can have any name
 
 Use \link{read_plink_phenotype_file} to read a phenotype file.
 Use \link{check_phenotype_table} to test if a phenotype table is valid.}
+
+\item{maf}{minor allele frequency}
 }
 \description{
 Create parameters (as created by \link{create_assoc_qt_params})

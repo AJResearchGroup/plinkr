@@ -39,7 +39,9 @@ read_plink_qassoc_file <- function(qassoc_filename) {
   t$BETA <- as.numeric(t$BETA)
   t$SE <- as.numeric(t$SE)
   t$R2 <- as.numeric(t$R2)
-  t$T <- as.numeric(t$T)
-  t$P <- as.numeric(t$P)
+  # T may be NA
+  t$T <- suppressWarnings(as.numeric(t$T))
+  # P may be NA
+  t$P <- suppressWarnings(as.numeric(t$P))
   t
 }

@@ -88,6 +88,16 @@
 #' @param simulate_qt_params the parameters for a quantitative
 #'   traits simulation, as can be created by
 #'   \link{create_simulate_qt_params}
+#' @param snvs a \link[tibble]{tibble} that contains the
+#' two nucleotide calls for multiple individuals.
+#' Each column is a haplotypes, hence, for a diploid organism,
+#' there are two columns.
+#' Each individual is represented by a row.
+#' Nucleotides are in uppercase.
+#' Per SNV table, there can be only two different nucleotides,
+#' as this is how a SNP works; a SNP from A to C is a different one (and
+#' has a different SNP ID) than a SNP that encodes a mutation
+#' for A to G.
 #' @param temp_sim_filename temporary file to store simulation
 #'   parameters, which is a PLINK \code{.sim} file
 #' @param url PLINK download URL
@@ -119,6 +129,7 @@ default_params_doc <- function(
   sim_filename,
   simfreq_filename,
   simulate_qt_params,
+  snvs,
   temp_sim_filename,
   url,
   verbose

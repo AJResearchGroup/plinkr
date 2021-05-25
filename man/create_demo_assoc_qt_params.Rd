@@ -5,11 +5,9 @@
 \title{Create a set of \code{assoc_qt} parameters
 to demonstrate PLINKs \code{--assoc_qt} functionality}
 \usage{
-create_demo_assoc_qt_params(n_snps = 1, phenotypes = "random", maf = 0.05)
+create_demo_assoc_qt_params(phenotypes = get_phenotypes(), maf = 0.05)
 }
 \arguments{
-\item{n_snps}{the number of SNPs}
-
 \item{phenotypes}{one ore more phenotypes,
 named after their genetic background:
 \itemize{
@@ -38,10 +36,8 @@ as created by the \link{create_demo_map_table} function
 \itemize{
 \item \code{control}: a trait that is random
 \item \code{additive}: a trait that is perfectly additive,
-each \code{A} denotes an increase of 0.1,
-each \code{C} denotes an increase of 0.2,
-each \code{G} denotes an increase of 0.3,
-each \code{T} denotes an increase of 0.4
+each \code{A} denotes an increase of 0.0,
+each \code{T} denotes an increase of 0.5
 }
 }
 }

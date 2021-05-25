@@ -20,6 +20,10 @@ save_map_table_to_file <- function(
     recursive = TRUE
   )
 
-  readr::write_lines(x = text_vector, file = map_filename)
+  # PLINKs example files have an added empty line
+  readr::write_lines(
+    x = c(text_vector, ""),
+    file = map_filename
+  )
   testthat::expect_true(file.exists(map_filename))
 }

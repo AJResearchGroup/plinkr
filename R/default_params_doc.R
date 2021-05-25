@@ -64,6 +64,17 @@
 #'
 #' Use \link{read_plink_phenotype_file} to read a phenotype file.
 #' Use \link{check_phenotype_table} to test if a phenotype table is valid.
+#' @param phenotypes one ore more phenotypes,
+#' named after their genetic background:
+#'
+#'  * \code{random} the phenotype is a random value,
+#'    i.e. there is no association between the genetics and
+#'    this phenotype
+#'  * \code{additive} the phenotype is perfectly additive
+#'    (the nucleotides used are A and T as these are in the word 'additive'):
+#'    * \code{AA} 1.0
+#'    * \code{AT} 0.5
+#'    * \code{TT} 0.0
 #' @param plink_folder folder where PLINK is installed
 #' @param plink_version version of PLINK, e.g. \code{"1.7"}
 #' Use \link{get_plink_version} to get the PLINK version.
@@ -100,6 +111,7 @@ default_params_doc <- function(
   ped_table,
   phenotype_filename,
   phenotype_table,
+  phenotypes,
   plink_folder,
   plink_version,
   plink_versions,

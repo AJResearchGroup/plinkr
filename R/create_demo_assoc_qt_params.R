@@ -17,12 +17,19 @@
 #' @note This function is named after the \code{--assoc-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
-create_demo_assoc_qt_params <- function(maf = 0.05) {
-  ped_table <- plinkr::create_demo_ped_table(n_snps = 1)
-  map_table <- plinkr::create_demo_map_table(n_snps = 1)
-  phenotype_table <- ped_table[, 1:2]
-  phenotype_table$random <- stats::runif(nrow(phenotype_table))
-
+create_demo_assoc_qt_params <- function(
+  n_snps = 1,
+  phenotypes = "random",
+  maf = 0.05
+) {
+  testthat::expect_true(n_snps >= 0)
+  testthat::expect_silent(plinkr::check_phenotypes(phenotypes))
+  ped_table <- plinkr::create_demo_ped_table(n_snps = n_snps)
+  map_table <- plinkr::create_demo_map_table(n_snps = n_snps)
+  phenotype_table <- create_demo_phenotype_table(
+    ped_table = ped_table,
+    phenotypes = phenotypes
+  )
   plinkr::create_assoc_qt_params(
     ped_table = ped_table,
     map_table = map_table,

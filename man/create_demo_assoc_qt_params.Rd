@@ -5,9 +5,26 @@
 \title{Create a set of \code{assoc_qt} parameters
 to demonstrate PLINKs \code{--assoc_qt} functionality}
 \usage{
-create_demo_assoc_qt_params(maf = 0.05)
+create_demo_assoc_qt_params(n_snps = 1, phenotypes = "random", maf = 0.05)
 }
 \arguments{
+\item{n_snps}{the number of SNPs}
+
+\item{phenotypes}{one ore more phenotypes,
+named after their genetic background:
+\itemize{
+\item \code{random} the phenotype is a random value,
+i.e. there is no association between the genetics and
+this phenotype
+\item \code{additive} the phenotype is perfectly additive
+(the nucleotides used are A and T as these are in the word 'additive'):
+\itemize{
+\item \code{AA} 1.0
+\item \code{AT} 0.5
+\item \code{TT} 0.0
+}
+}}
+
 \item{maf}{minor allele frequency}
 }
 \description{

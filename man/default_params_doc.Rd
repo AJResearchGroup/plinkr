@@ -20,6 +20,7 @@ default_params_doc(
   ped_table,
   phenotype_filename,
   phenotype_table,
+  phenotypes,
   plink_folder,
   plink_version,
   plink_versions,
@@ -116,6 +117,21 @@ columns can have any name
 
 Use \link{read_plink_phenotype_file} to read a phenotype file.
 Use \link{check_phenotype_table} to test if a phenotype table is valid.}
+
+\item{phenotypes}{one ore more phenotypes,
+named after their genetic background:
+\itemize{
+\item \code{random} the phenotype is a random value,
+i.e. there is no association between the genetics and
+this phenotype
+\item \code{additive} the phenotype is perfectly additive
+(the nucleotides used are A and T as these are in the word 'additive'):
+\itemize{
+\item \code{AA} 1.0
+\item \code{AT} 0.5
+\item \code{TT} 0.0
+}
+}}
 
 \item{plink_folder}{folder where PLINK is installed}
 

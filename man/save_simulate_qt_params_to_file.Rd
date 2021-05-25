@@ -10,7 +10,7 @@ save_simulate_qt_params_to_file(simulate_qt_params, sim_filename)
 \arguments{
 \item{simulate_qt_params}{the parameters for a quantitative
 traits simulation, as can be created by
-\link{create_sim_qt_params}}
+\link{create_simulate_qt_params}}
 
 \item{sim_filename}{name of a PLINK \code{.sim} file}
 }

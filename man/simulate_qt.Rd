@@ -15,7 +15,7 @@ simulate_qt(
 \arguments{
 \item{simulate_qt_params}{the parameters for a quantitative
 traits simulation, as can be created by
-\link{create_sim_qt_params}}
+\link{create_simulate_qt_params}}
 
 \item{n_individuals}{number of individuals}
 

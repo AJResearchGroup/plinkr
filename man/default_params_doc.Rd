@@ -87,7 +87,7 @@ Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.}
 
 \item{simulate_qt_params}{the parameters for a quantitative
 traits simulation, as can be created by
-\link{create_sim_qt_params}}
+\link{create_simulate_qt_params}}
 
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a PLINK \code{.sim} file}

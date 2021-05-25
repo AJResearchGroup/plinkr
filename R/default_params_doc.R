@@ -36,7 +36,7 @@
 #' @param simfreq_filename name of a PLINK \code{.simfreq} file
 #' @param simulate_qt_params the parameters for a quantitative
 #'   traits simulation, as can be created by
-#'   \link{create_sim_qt_params}
+#'   \link{create_simulate_qt_params}
 #' @param temp_sim_filename temporary file to store simulation
 #'   parameters, which is a PLINK \code{.sim} file
 #' @param url PLINK download URL

@@ -157,7 +157,7 @@ if (is_plink_installed()) {
  * `BETA`: Regression coefficient
  * `SE`: Standard error
  * `R2`: Regression r-squared
- * `T`: Wald test (based on t-distribtion)
+ * `T`: Wald test (based on t-distribution)
  * `P`: Wald test asymptotic p-value
 
 ## Is the phenotype file mandatory?
@@ -200,7 +200,7 @@ if (is_plink_installed()) {
  * `BETA`: Regression coefficient
  * `SE`: Standard error
  * `R2`: Regression r-squared
- * `T`: Wald test (based on t-distribtion)
+ * `T`: Wald test (based on t-distribution)
  * `P`: Wald test asymptotic p-value
 
 

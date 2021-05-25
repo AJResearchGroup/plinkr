@@ -19,7 +19,7 @@
 #'   * \code{BETA}: Regression coefficient
 #'   * \code{SE}: Standard error
 #'   * \code{R2}: Regression r-squared
-#'   * \code{T}: Wald test (based on t-distribtion)
+#'   * \code{T}: Wald test (based on t-distribution)
 #'   * \code{P}: Wald test asymptotic p-value
 #'
 #' The table with have as much rows as the number of SNPs multiplied

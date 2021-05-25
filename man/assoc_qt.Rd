@@ -23,7 +23,7 @@ taken from the phenotype table column name
 \item \code{BETA}: Regression coefficient
 \item \code{SE}: Standard error
 \item \code{R2}: Regression r-squared
-\item \code{T}: Wald test (based on t-distribtion)
+\item \code{T}: Wald test (based on t-distribution)
 \item \code{P}: Wald test asymptotic p-value
 }
 

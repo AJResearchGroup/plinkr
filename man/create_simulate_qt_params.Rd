@@ -15,7 +15,7 @@ create_simulate_qt_params(
 )
 }
 \arguments{
-\item{n_snps}{Number of SNPs in this set}
+\item{n_snps}{the number of SNPs}
 
 \item{snp_label}{Label of this set of SNPs}
 
@@ -33,6 +33,6 @@ for simulating a quantitative trait (see \link{simulate_qt}).
 Use \link{create_test_simulate_qt_params}) for a set of parameters
 using in testing.
 }
-\details{
+\note{
 This function is named after the \code{--simulate-qt} PLINK flag.
 }

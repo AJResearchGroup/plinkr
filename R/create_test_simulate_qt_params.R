@@ -5,7 +5,7 @@
 #' for simulating a quantitative trait (see \link{simulate_qt})
 #' to be used for testing.
 #'
-#' This function is named after the \code{--simulate-qt} PLINK flag.
+#' @note This function is named after the \code{--simulate-qt} PLINK flag.
 #' @inheritParams create_simulate_qt_params
 #' @export
 create_test_simulate_qt_params <- function(

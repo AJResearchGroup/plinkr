@@ -22,10 +22,10 @@ a \link[tibble]{tibble} with column names:
 (\code{0} if mother isn't in dataset)
 \item \code{sex_code} Sex code
 (\code{1} = male, \code{2} = female, \code{0} = unknown)
-\item \code{phenotype_value} Phenotype value
+\item \code{case_control_code} Case control code
 (\code{1} = control, \code{2} = case,
 \code{9}/\code{0}/non-numeric = missing data if case/control)
-\item \code{allele_call_[x][y]} Allele calls for the \code{x}th variant
+\item \code{snv_[x][y]} Nucleotide for the \code{x}th variant
 for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 in the \code{.map file} (\code{0} = no call)
 }

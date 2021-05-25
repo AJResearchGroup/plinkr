@@ -76,12 +76,12 @@ The PLINK example \code{.ped} contains, among others, the pedigree of the indivi
 knitr::kable(assoc_qt_params$ped_table)
 ```
 
-Note that the pedigree table has a column called `phenotype_value`,
+Note that the pedigree table has a column called `case_control_code`,
 which will be completely ignored.
 
 ### The phenotype table
 
-The pedigree table has a column called `phenotype_value`,
+The pedigree table has a column called `case_control_code`,
 which will be completely ignored, as it only allows to put in
 one phenotype. Instead, we use a table of one or more phenotypic
 values:

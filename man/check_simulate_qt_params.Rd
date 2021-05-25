@@ -13,5 +13,9 @@ traits simulation, as can be created by
 \link{create_simulate_qt_params}}
 }
 \description{
+Check if the input is a valid set of parameters to
+simulate a quantitative trait, will stop otherwise
+}
+\note{
 This function is named after the \code{--simulate-qt} PLINK flag.
 }

@@ -6,6 +6,6 @@ test_that("use", {
 test_that("evil use", {
   skip("Not yet")
   ped_table <- get_test_ped_table()
-  ped_table$allele_call_2c <- ped_table$allele_call_2b
+  ped_table$snv_2c <- ped_table$snv_2b
   expect_error(check_ped_table(ped_table))
 })

@@ -14,5 +14,8 @@ as can be created by \link{create_assoc_qt_params}}
 \item{n}{the nth trait. Use '1' for the first trait}
 }
 \description{
+Let PLINK detect an association with the n-th quantitative trait
+}
+\note{
 This function is named after the \code{--assoc} flag used by PLINK
 }

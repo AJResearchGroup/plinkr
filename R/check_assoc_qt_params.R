@@ -1,6 +1,6 @@
 #' Check if the \code{assoc_qt_params} are valid, will stop otherwise
 #'
-#' This function is named after the \code{--assoc-qt} PLINK flag.
+#' @note This function is named after the \code{--assoc-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @return Nothing.
 #' @export

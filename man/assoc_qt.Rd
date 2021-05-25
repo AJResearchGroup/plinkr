@@ -33,5 +33,8 @@ by the number of traits.
 Note that parameters in uppercase are named as such by PLINK.
 }
 \description{
+Let PLINK detect an association with a quantitative trait
+}
+\note{
 This function is named after the \code{--assoc} flag used by PLINK
 }

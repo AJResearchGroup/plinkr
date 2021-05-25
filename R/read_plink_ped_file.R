@@ -10,10 +10,10 @@
 #'       (\code{0} if mother isn't in dataset)
 #'   * \code{sex_code} Sex code
 #'       (\code{1} = male, \code{2} = female, \code{0} = unknown)
-#'   * \code{phenotype_value} Phenotype value
+#'   * \code{case_control_code} Case control code
 #'       (\code{1} = control, \code{2} = case,
 #'       \code{9}/\code{0}/non-numeric = missing data if case/control)
-#'   * \code{allele_call_[x][y]} Allele calls for the \code{x}th variant
+#'   * \code{snv_[x][y]} Nucleotide for the \code{x}th variant
 #'     for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 #'     in the \code{.map file} (\code{0} = no call)
 #' @examples
@@ -57,8 +57,8 @@ read_plink_ped_file <- function(ped_filename) {
     "within_family_id_father",
     "within_family_id_mother",
     "sex_code",
-    "phenotype_value",
-    paste0("allele_call_", t_str$text)
+    "case_control_code",
+    paste0("snv_", t_str$text)
   )
   names(t) <- names
 
@@ -67,7 +67,7 @@ read_plink_ped_file <- function(ped_filename) {
   t$within_family_id_father <- as.numeric(t$within_family_id_father)
   t$within_family_id_mother <- as.numeric(t$within_family_id_mother)
   t$sex_code <- as.numeric(t$sex_code)
-  t$phenotype_value <- as.numeric(t$phenotype_value)
+  t$case_control_code <- as.numeric(t$case_control_code)
 
   t
 }

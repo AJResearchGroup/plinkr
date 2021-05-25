@@ -26,6 +26,6 @@ Create parameters (as created by \link{create_assoc_qt_params})
 to detect associations with quantitative traits
 (using \link{assoc_qt}) used for testing.
 }
-\details{
+\note{
 This function is named after the \code{--assoc-qt} PLINK flag.
 }

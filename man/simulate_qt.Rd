@@ -17,7 +17,7 @@ simulate_qt(
 traits simulation, as can be created by
 \link{create_simulate_qt_params}}
 
-\item{n_individuals}{number of individuals}
+\item{n_individuals}{the number of individuals}
 
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a PLINK \code{.sim} file}
@@ -31,5 +31,8 @@ Use \link{get_plink_version} to get the current PLINK version.}
 \item{verbose}{set to TRUE for more output}
 }
 \description{
+Simulate a quantitative trait
+}
+\note{
 This function is named after the \code{--simulate-qt} PLINK flag.
 }

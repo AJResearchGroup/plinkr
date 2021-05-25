@@ -1,6 +1,6 @@
 #' Simulate a quantitative trait
 #'
-#' This function is named after the \code{--simulate-qt} PLINK flag.
+#' @note This function is named after the \code{--simulate-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
 simulate_qt <- function(

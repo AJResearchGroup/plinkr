@@ -17,7 +17,8 @@
 #' Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
 #' @param map_table a table obtained by reading a PLINK \code{.map} file
 #' Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
-#' @param n_individuals number of individuals
+#' @param n_individuals the number of individuals
+#' @param n_snps the number of SNPs
 #' @param ped_filename name of a PLINK \code{.ped} file.
 #' Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
 #' @param ped_table a table obtained by reading a PLINK \code{.ped} file
@@ -55,6 +56,7 @@ default_params_doc <- function(
   map_filename,
   map_table,
   n_individuals,
+  n_snps,
   ped_filename,
   ped_table,
   phenotype_filename,

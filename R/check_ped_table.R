@@ -16,9 +16,9 @@ check_ped_table <- function(ped_table) {
     "within_family_id_father",
     "within_family_id_mother",
     "sex_code",
-    "phenotype_value",
-    "allele_call_1a",
-    "allele_call_1b"
+    "case_control_code",
+    "snv_1a",
+    "snv_1b"
   )
   n_col_names <- length(col_names)
   testthat::expect_true(

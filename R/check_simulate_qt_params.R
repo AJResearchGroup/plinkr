@@ -1,7 +1,7 @@
 #' Check if the input is a valid set of parameters to
 #' simulate a quantitative trait, will stop otherwise
 #'
-#' This function is named after the \code{--simulate-qt} PLINK flag.
+#' @note This function is named after the \code{--simulate-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
 check_simulate_qt_params <- function(simulate_qt_params) {

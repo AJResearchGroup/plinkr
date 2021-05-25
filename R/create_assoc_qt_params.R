@@ -5,7 +5,7 @@
 #' Use \link{create_test_assoc_qt_params}) to create a set of parameters
 #' that is used in testing.
 #'
-#' This function is named after the \code{--assoc-qt} PLINK flag.
+#' @note This function is named after the \code{--assoc-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
 create_assoc_qt_params <- function(

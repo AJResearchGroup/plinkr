@@ -4,7 +4,7 @@
 #'
 #' * \code{family_id}
 #' * \code{within_family_id}
-#' * \code{phenotype_value}
+#' * \code{case_control_code}
 #'
 #' @export
 create_phenotype_table_from_ped_table <- function(ped_table) { # nolint indeed a long and descriptive name
@@ -13,6 +13,6 @@ create_phenotype_table_from_ped_table <- function(ped_table) { # nolint indeed a
   tibble::tibble(
     family_id = ped_table$family_id,
     within_family_id = ped_table$within_family_id,
-    phenotype_value = ped_table$phenotype_value
+    case_control_code = ped_table$case_control_code
   )
 }

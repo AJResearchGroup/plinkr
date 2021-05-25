@@ -1,7 +1,7 @@
 #' Save the parameters for a quantitative traits simulation
 #' to file
 #'
-#' This function is named after the \code{--simulate-qt} PLINK flag.
+#' @note This function is named after the \code{--simulate-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
 save_simulate_qt_params_to_file <- function(

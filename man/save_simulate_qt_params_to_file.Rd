@@ -15,5 +15,9 @@ traits simulation, as can be created by
 \item{sim_filename}{name of a PLINK \code{.sim} file}
 }
 \description{
+Save the parameters for a quantitative traits simulation
+to file
+}
+\note{
 This function is named after the \code{--simulate-qt} PLINK flag.
 }

@@ -1,6 +1,6 @@
 #' Let PLINK detect an association with the n-th quantitative trait
 #'
-#' This function is named after the \code{--assoc} flag used by PLINK
+#' @note This function is named after the \code{--assoc} flag used by PLINK
 #' @inheritParams default_params_doc
 #' @param n the nth trait. Use '1' for the first trait
 #' @export

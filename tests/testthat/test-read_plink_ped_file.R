@@ -11,6 +11,7 @@ test_that("use", {
 })
 
 test_that("use, v1.7", {
+  if (!is_plink_installed(plink_version = "1.7")) return()
   t <- read_plink_ped_file(
     ped_filename = get_plink_example_filename(
       example_filename = "test.ped",
@@ -22,14 +23,15 @@ test_that("use, v1.7", {
   expect_true("within_family_id_father" %in% names(t))
   expect_true("within_family_id_mother" %in% names(t))
   expect_true("sex_code" %in% names(t))
-  expect_true("phenotype_value" %in% names(t))
-  expect_true("allele_call_1a" %in% names(t))
-  expect_true("allele_call_1b" %in% names(t))
-  expect_true("allele_call_2a" %in% names(t))
-  expect_true("allele_call_2b" %in% names(t))
+  expect_true("case_control_code" %in% names(t))
+  expect_true("snv_1a" %in% names(t))
+  expect_true("snv_1b" %in% names(t))
+  expect_true("snv_2a" %in% names(t))
+  expect_true("snv_2b" %in% names(t))
 })
 
 test_that("use, v1.9", {
+  if (!is_plink_installed(plink_version = "1.9")) return()
   t <- read_plink_ped_file(
     ped_filename = get_plink_example_filename(
       example_filename = "toy.ped",
@@ -41,9 +43,9 @@ test_that("use, v1.9", {
   expect_true("within_family_id_father" %in% names(t))
   expect_true("within_family_id_mother" %in% names(t))
   expect_true("sex_code" %in% names(t))
-  expect_true("phenotype_value" %in% names(t))
-  expect_true("allele_call_1a" %in% names(t))
-  expect_true("allele_call_1b" %in% names(t))
-  expect_true("allele_call_2a" %in% names(t))
-  expect_true("allele_call_2b" %in% names(t))
+  expect_true("case_control_code" %in% names(t))
+  expect_true("snv_1a" %in% names(t))
+  expect_true("snv_1b" %in% names(t))
+  expect_true("snv_2a" %in% names(t))
+  expect_true("snv_2b" %in% names(t))
 })

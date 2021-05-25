@@ -6,8 +6,8 @@
 #' Use \link{create_test_simulate_qt_params}) for a set of parameters
 #' using in testing.
 #'
-#' This function is named after the \code{--simulate-qt} PLINK flag.
-#' @param n_snps Number of SNPs in this set
+#' @note This function is named after the \code{--simulate-qt} PLINK flag.
+#' @inheritParams default_params_doc
 #' @param snp_label Label of this set of SNPs
 #' @param allele_frequency_lower Lower allele frequency range
 #' @param allele_frequency_upper Upper allele frequency range

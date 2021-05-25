@@ -15,6 +15,7 @@ default_params_doc(
   map_filename,
   map_table,
   n_individuals,
+  n_snps,
   ped_filename,
   ped_table,
   phenotype_filename,
@@ -57,7 +58,9 @@ Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
 \item{map_table}{a table obtained by reading a PLINK \code{.map} file
 Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
 
-\item{n_individuals}{number of individuals}
+\item{n_individuals}{the number of individuals}
+
+\item{n_snps}{the number of SNPs}
 
 \item{ped_filename}{name of a PLINK \code{.ped} file.
 Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}

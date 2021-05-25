@@ -4,7 +4,7 @@
 #' to detect associations with quantitative traits
 #' (using \link{assoc_qt}) used for testing.
 #'
-#' This function is named after the \code{--assoc-qt} PLINK flag.
+#' @note This function is named after the \code{--assoc-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
 create_test_assoc_qt_params <- function(

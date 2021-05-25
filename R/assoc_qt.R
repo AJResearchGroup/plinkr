@@ -1,6 +1,6 @@
 #' Let PLINK detect an association with a quantitative trait
 #'
-#' This function is named after the \code{--assoc} flag used by PLINK
+#' @note This function is named after the \code{--assoc} flag used by PLINK
 #' @inheritParams default_params_doc
 #' @return a \link[tibble]{tibble} with the following columns:
 #'

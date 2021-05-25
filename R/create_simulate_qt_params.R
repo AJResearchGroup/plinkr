@@ -1,5 +1,12 @@
-#' Create a set of testing parameters for simulating
+#' Create a set of parameters for simulating
 #' a quantitative trait
+#'
+#' Create a set of parameters for simulating
+#' for simulating a quantitative trait (see \link{simulate_qt}).
+#' Use \link{create_test_simulate_qt_params}) for a set of parameters
+#' using in testing.
+#'
+#' This function is named after the \code{--simulate-qt} PLINK flag.
 #' @param n_snps Number of SNPs in this set
 #' @param snp_label Label of this set of SNPs
 #' @param allele_frequency_lower Lower allele frequency range
@@ -7,7 +14,7 @@
 #' @param additive_genetic_variance The additive genetic variance
 #' @param ratio_dominance_to_additive The ratio of dominance to additive effects
 #' @export
-create_sim_qt_params <- function(
+create_simulate_qt_params <- function(
   n_snps,
   snp_label,
   allele_frequency_lower,

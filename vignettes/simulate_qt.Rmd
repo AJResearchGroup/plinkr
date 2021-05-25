@@ -17,13 +17,16 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(plinkr)
 ```
+
+Here we simulate a quantitative trait using PLINK.
+
 Here we create the filename with parameters:
 
 
 ```{r sim}
 if (plinkr::is_plink_installed()) {
-  results <- sim_qt(
-    sim_qt_params = create_test_sim_qt_params(),
+  results <- simulate_qt(
+    simulate_qt_params = create_test_simulate_qt_params(),
     n_individuals = 2,
     temp_sim_filename = "temp.sim"
   )

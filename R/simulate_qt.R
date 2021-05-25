@@ -1,16 +1,18 @@
 #' Simulate a quantitative trait
+#'
+#' This function is named after the \code{--simulate-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
-sim_qt <- function(
-  sim_qt_params,
+simulate_qt <- function(
+  simulate_qt_params,
   n_individuals,
   temp_sim_filename,
   add_noweb = TRUE,
   verbose = FALSE
 ) {
   # Create input files
-  plinkr::save_sim_qt_params_to_file(
-    sim_qt_params = sim_qt_params,
+  plinkr::save_simulate_qt_params_to_file(
+    simulate_qt_params = simulate_qt_params,
     sim_filename = temp_sim_filename
   )
   testthat::expect_true(file.exists(temp_sim_filename))

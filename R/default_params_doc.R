@@ -34,7 +34,7 @@
 #' Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.
 #' @param sim_filename name of a PLINK \code{.sim} file
 #' @param simfreq_filename name of a PLINK \code{.simfreq} file
-#' @param sim_qt_params the parameters for a quantitative
+#' @param simulate_qt_params the parameters for a quantitative
 #'   traits simulation, as can be created by
 #'   \link{create_sim_qt_params}
 #' @param temp_sim_filename temporary file to store simulation
@@ -65,7 +65,7 @@ default_params_doc <- function(
   qassoc_filename,
   sim_filename,
   simfreq_filename,
-  sim_qt_params,
+  simulate_qt_params,
   temp_sim_filename,
   url,
   verbose

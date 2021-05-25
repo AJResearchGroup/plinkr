@@ -1,6 +1,6 @@
 test_that("minimal use", {
   expect_silent(
-    create_sim_qt_params(
+    create_simulate_qt_params(
       n_snps = 10,
       snp_label = "test_qt",
       allele_frequency_lower = 0.05,
@@ -13,8 +13,8 @@ test_that("minimal use", {
 
 test_that("must be valid", {
   expect_silent(
-    check_sim_qt_params(
-      create_sim_qt_params(
+    check_simulate_qt_params(
+      create_simulate_qt_params(
         n_snps = 10,
         snp_label = "test_qt",
         allele_frequency_lower = 0.05,

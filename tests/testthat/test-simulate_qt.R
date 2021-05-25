@@ -1,6 +1,6 @@
 test_that("use", {
-  results <- sim_qt(
-    sim_qt_params = create_test_sim_qt_params(),
+  results <- simulate_qt(
+    simulate_qt_params = create_test_simulate_qt_params(),
     n_individuals = 2,
     temp_sim_filename = "temp.sim"
   )

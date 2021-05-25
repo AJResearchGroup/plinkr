@@ -20,7 +20,7 @@ check_plink_is_installed <- function(
       "ZIP file not downloaded. \n",
       "PLINK folder: ", plink_folder, " \n",
       "PLINK zip path: ", plink_zip_path, " \n",
-      "Tip: run 'plinkr::install_plink()'"
+      "Tip: run 'plinkr::install_plinks()'"
     )
   }
 
@@ -34,7 +34,7 @@ check_plink_is_installed <- function(
       "Executable is not found \n",
       "PLINK folder: ", plink_folder, " \n",
       "PLINK executable: ", plink_exe_path, " \n",
-      "Tip: run 'plinkr::install_plink()'"
+      "Tip: run 'plinkr::install_plinks()'"
     )
   }
   if (!plinkr::is_exe(plink_exe_path)) {
@@ -43,7 +43,7 @@ check_plink_is_installed <- function(
       "PLINK binary is not executable \n",
       "PLINK folder: ", plink_folder, " \n",
       "PLINK executable: ", plink_exe_path, " \n",
-      "Tip: run 'plinkr::install_plink()'"
+      "Tip: run 'plinkr::install_plinks()'"
     )
   }
 }

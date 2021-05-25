@@ -10,7 +10,7 @@ test_that("use", {
 
 test_that("detailed use, recreate v1.7 test.map file exactly", {
   if (!is_plink_installed(plink_version = "1.7")) return()
-  plink_map_filename = get_plink_example_filename(
+  plink_map_filename <- get_plink_example_filename(
     example_filename = "test.map",
     plink_version = "1.7"
   )

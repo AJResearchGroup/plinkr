@@ -11,7 +11,14 @@ read_plink_phenotype_file(phenotype_filename)
 Use \link{read_plink_phenotype_file} to read a raw phenotype file.}
 }
 \value{
-a tibble
+a \link[tibble]{tibble} with the following columns:
+\itemize{
+\item \code{family_id} The family ID (\code{FID})
+\item \code{within_family_id} Within-family ID
+(\code{IID}, cannot be zero)
+\item One or more columns of phenotype values,
+columns can have any name
+}
 }
 \description{
 Read a PLINK raw phenotype file

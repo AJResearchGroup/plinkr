@@ -7,7 +7,7 @@
 #'      This value is optional. Zeroes denote it is unused
 #'  * \code{BP}: Base-pair coordinat
 #'
-#' The uppercase variable names are chosen to match those used by PLINK,
+#' @note The uppercase variable names are chosen to match those used by PLINK,
 #' e.g. as can be observed from \link{assoc_qt}.
 #'
 #' \code{position_cm} is still lowercase as I am unsure how PLINK calls this

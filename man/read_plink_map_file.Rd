@@ -19,13 +19,14 @@ a [tibble]{tibble} with the following columns:
 This value is optional. Zeroes denote it is unused
 \item \code{BP}: Base-pair coordinat
 }
-
+}
+\description{
+Read a PLINK \code{.map} file
+}
+\note{
 The uppercase variable names are chosen to match those used by PLINK,
 e.g. as can be observed from \link{assoc_qt}.
 
 \code{position_cm} is still lowercase as I am unsure how PLINK calls this
 variable. If you know, please let me know.
-}
-\description{
-Read a PLINK \code{.map} file
 }

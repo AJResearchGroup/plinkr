@@ -10,7 +10,9 @@ get_plink_example_filenames(
 )
 }
 \arguments{
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
+Use \link{get_plink_version} to get the PLINK version.
+Use \link{get_plink_versions} to get all the supported PLINK versions.}
 
 \item{plink_folder}{folder where PLINK is installed}
 }

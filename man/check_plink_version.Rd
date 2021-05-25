@@ -7,7 +7,9 @@
 check_plink_version(plink_version)
 }
 \arguments{
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}}
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
+Use \link{get_plink_version} to get the PLINK version.
+Use \link{get_plink_versions} to get all the supported PLINK versions.}
 }
 \description{
 Check if the PLINK version is valid, will stop if not

@@ -11,6 +11,12 @@ name: R-CMD-check
 jobs:
   R-CMD-check:
 
+    strategy:
+      fail-fast: false
+      matrix:
+        install_plink: [true, false]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -35,8 +41,10 @@ jobs:
           remotes::install_github("MangoTheCat/goodpractice")
         shell: Rscript {0}
 
-      - name: Install all PLINK versions
-        run: ./scripts/install_plinks.sh
+      - name: Install PLINK
+        env:
+          INSTALL_PLINK: ${{ matrix.install_plink }}
+        run: if [[ "$INSTALL_PLINK" == true ]]; then ./scripts/install_plinks.sh; fi
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")

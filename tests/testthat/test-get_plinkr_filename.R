@@ -1,5 +1,6 @@
 test_that("use", {
   expect_silent(get_plinkr_filename("plink.log"))
+  expect_error(get_plinkr_filename("abs.ent"))
 })
 
 test_that("pheno.raw", {

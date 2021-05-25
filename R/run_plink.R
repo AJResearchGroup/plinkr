@@ -17,6 +17,12 @@ run_plink <- function(
   if (add_noweb) {
     args <- c(args, "--noweb")
   }
+  if (sum(args == "--noweb") > 1) {
+    stop(
+      "Duplicate --noweb flag \n",
+      "args: ", paste(args, collapse = " ")
+    )
+  }
   plink_exe_path <- plinkr::get_plink_exe_path(
     plink_version = plink_version,
     plink_folder = plink_folder

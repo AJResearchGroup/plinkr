@@ -10,6 +10,25 @@ Work with [PLINK](http://zzz.bwh.harvard.edu/plink/) from R
  * Doing the first PLINK example: [YouTube](https://youtu.be/LsfKQw2oIUg) [download (.ogv)](http://richelbilderbeek.nl/plinkr_basic_usage.ogv)
  * Detect an association with one or more quantitative traits: [YouTube](https://youtu.be/IicNdc8sDfI) [download (.ogv)](http://richelbilderbeek.nl/plinkr_assoc_qt.ogv)
 
+## Examples
+
+### Installing PLINKs
+
+`plinkr` uses multiple version of PLINK. To install them all:
+
+```
+library(plinkr)
+install_plinks()
+```
+
+### Demonstrate a quantitative trait analysis
+
+```
+library(plinkr)
+assoc_qt_params <- create_demo_assoc_qt_params()
+assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+```
+
 ## Features
 
  * [x] Check if PLINK is installed, stop if not

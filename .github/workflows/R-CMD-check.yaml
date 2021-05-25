@@ -63,6 +63,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Report
-        run: plinkr::do_plink_self_test()
-        shell: Rscript {0}
+        env:
+          INSTALL_PLINK: ${{ matrix.install_plink }}
+        run: if [[ "$INSTALL_PLINK" == true ]]; then Rscript -e "plinkr::do_plink_self_test()"; fi
 

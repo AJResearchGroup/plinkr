@@ -1,6 +1,6 @@
 test_that("use", {
   if (!is_plink_installed()) return()
-  assoc_qt_params <- get_test_assoc_qt_params()
+  assoc_qt_params <- create_test_assoc_qt_params()
   expect_silent(
     assoc_qt(
       assoc_qt_params = assoc_qt_params
@@ -10,7 +10,7 @@ test_that("use", {
 
 test_that("use", {
   if (!is_plink_installed()) return()
-  assoc_qt_params <- get_test_assoc_qt_params()
+  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt_result <- assoc_qt(assoc_qt_params = assoc_qt_params)
   expect_true(tibble::is_tibble(assoc_qt_result))
   expect_true("CHR" %in% names(assoc_qt_result))

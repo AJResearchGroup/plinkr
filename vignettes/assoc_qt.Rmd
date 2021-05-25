@@ -59,7 +59,7 @@ Here, we get simple set of parameters, as to be used in testing,
 or -in this case- a simple demonstration:
  
 ```{r}
-assoc_qt_params <- get_test_assoc_qt_params()
+assoc_qt_params <- create_test_assoc_qt_params()
 ```
 
 ### The mapping table

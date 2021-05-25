@@ -1,4 +1,4 @@
-^plink\.simfreq$
 *.bed
 *.bim
 *.fam
+*.simfreq

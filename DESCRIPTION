@@ -1,6 +1,6 @@
 Package: plinkr
 Title: Interface to PLINK
-Version: 0.5
+Version: 0.6
 Authors@R: c(
     person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")))
 Description:

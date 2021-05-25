@@ -121,14 +121,14 @@ if (is_plink_installed()) {
 
 These are:
 
- * `r names(read_plink_map_file(map_filename))[1]`: 
+ * `r names(get_test_map_table())[1]`: 
     the chromosome code or contig name
- * `r names(read_plink_map_file(map_filename))[2]`: 
+ * `r names(get_test_map_table())[2]`: 
     Variant identifier
- * `r names(read_plink_map_file(map_filename))[3]`: 
+ * `r names(get_test_map_table())[3]`: 
     Position in morgans or centimorgans.
     This value is optional. Zeroes denote it is unused
- * `r names(read_plink_map_file(map_filename))[4]`: 
+ * `r names(get_test_map_table())[4]`: 
     Base-pair coordinat
 
 ```{r}
@@ -177,10 +177,8 @@ if (is_plink_installed()) {
 }
 ```
 
-Instead, PLINK will use the phenotypic trait in the `.map`
-file, for the column named `r names(read_plink_map_file(map_filename))[6]`.
-These values (always a 1 or a 2), however, are not phenotypic 
-values, these are the notation for case-control associations.
+Instead, PLINK will use the case-control code in the `.ped`
+file, from the column named `r names(get_test_ped_table())[6]`.
 
 As we run PLINK with a case-control study, 
 the input is now in `run1.assoc` instead:

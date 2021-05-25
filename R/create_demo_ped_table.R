@@ -1,14 +1,15 @@
 #' Create a demo pedigree \code{.ped} table
 #'
 #' Create a demo pedigree \code{.ped} table,
-#' which should allow the individuals to have all combinations of SNPs
-#' exactly once. As we assume four nucleotides and a diploid organism,
-#' these are 16 individuals.
+#' which should allow the individuals to have all combinations of
+#' biallelic SNPs exactly once.
+#' As we assume two nucleotides and a diploid organism,
+#' these are 4 individuals.
 #' @inheritParams default_params_doc
 #' @export
 create_demo_ped_table <- function(n_snps = 1) {
   ped_table_lhs <- tibble::tibble(
-    family_id = seq_len(16),
+    family_id = seq_len(4),
     within_family_id = 1,
     within_family_id_father = 0,
     within_family_id_mother = 0,
@@ -21,8 +22,11 @@ create_demo_ped_table <- function(n_snps = 1) {
     dplyr::across(dplyr::everything(), as.numeric)
   )
 
-  nucleotides <- c("A", "C", "G", "T")
-  snv_combinations <- tidyr::expand_grid(a = nucleotides, b = nucleotides)
+  bi_allelic_nucleotides <- c("A", "C")
+  snv_combinations <- tidyr::expand_grid(
+    a = bi_allelic_nucleotides,
+    b = bi_allelic_nucleotides
+  )
 
   tibbles <- list()
   for (i in seq_len(n_snps)) {

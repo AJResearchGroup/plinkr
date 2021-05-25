@@ -1,4 +1,5 @@
-test_that("minimal use", {
+test_that("minimal use, v1.7", {
+  if (!is_plink_installed(plink_version = "1.7")) return()
   expect_silent(
     read_plink_map_file(
       get_plink_example_filename(
@@ -7,6 +8,10 @@ test_that("minimal use", {
       )
     )
   )
+})
+
+test_that("minimal use, v1.9", {
+  if (!is_plink_installed(plink_version = "1.9")) return()
   expect_silent(
     read_plink_map_file(
       get_plink_example_filename(
@@ -18,6 +23,7 @@ test_that("minimal use", {
 })
 
 test_that("use, v1.7", {
+  if (!is_plink_installed(plink_version = "1.7")) return()
   t <- read_plink_map_file(
     get_plink_example_filename(
       example_filename = "test.map",
@@ -31,6 +37,7 @@ test_that("use, v1.7", {
 })
 
 test_that("use, v1.9", {
+  if (!is_plink_installed(plink_version = "1.9")) return()
   t <- read_plink_map_file(
     get_plink_example_filename(
       example_filename = "toy.map",

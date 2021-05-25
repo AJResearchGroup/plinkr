@@ -8,3 +8,5 @@
 ^\.pversion$
 ^plink\.simfreq$
 ^temp\.sim$
+^vignettes/*.log$
+

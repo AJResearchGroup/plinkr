@@ -7,6 +7,7 @@ simulate_qt <- function(
   simulate_qt_params,
   n_individuals,
   temp_sim_filename,
+  plink_version = get_default_plink_version(),
   add_noweb = TRUE,
   verbose = FALSE
 ) {
@@ -24,6 +25,7 @@ simulate_qt <- function(
   )
   plinkr::run_plink(
     args,
+    plink_version = plink_version,
     add_noweb = add_noweb,
     verbose = verbose
   )

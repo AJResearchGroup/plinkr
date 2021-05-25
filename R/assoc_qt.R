@@ -27,15 +27,15 @@ assoc_qt <- function(
   n_traits <- ncol(assoc_qt_params$phenotype_table) - 2
 
   tibbles <- list()
-  for (i in seq_len(n_traits)) {
+  for (n in seq_len(n_traits)) {
     t <- plinkr::assoc_qt_nth_trait(
       assoc_qt_params = assoc_qt_params,
-      n = i
+      n = n
     )
-    t$trait_name <- names(assoc_qt_params$phenotype_table[2 + i])
+    t$trait_name <- names(assoc_qt_params$phenotype_table[2 + n])
     trait_name <- NULL # nolint suppress 'no visible binding for global variable'
     t <- dplyr::relocate(t, trait_name)
-    tibbles[[i]] <- t
+    tibbles[[n]] <- t
   }
   dplyr::bind_rows(tibbles)
 }

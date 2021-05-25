@@ -11,7 +11,8 @@ create_demo_ped_table(n_snps = 1)
 }
 \description{
 Create a demo pedigree \code{.ped} table,
-which should allow the individuals to have all combinations of SNPs
-exactly once. As we assume four nucleotides and a diploid organism,
-these are 16 individuals.
+which should allow the individuals to have all combinations of
+biallelic SNPs exactly once.
+As we assume two nucleotides and a diploid organism,
+these are 4 individuals.
 }

@@ -8,6 +8,7 @@ simulate_qt(
   simulate_qt_params,
   n_individuals,
   temp_sim_filename,
+  plink_version = get_default_plink_version(),
   add_noweb = TRUE,
   verbose = FALSE
 )
@@ -21,6 +22,10 @@ traits simulation, as can be created by
 
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a PLINK \code{.sim} file}
+
+\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
+Use \link{get_plink_version} to get the PLINK version.
+Use \link{get_plink_versions} to get all the supported PLINK versions.}
 
 \item{add_noweb}{add the \code{--noweb} option, which prevents
 that PLINK will check if it is in its latest version.

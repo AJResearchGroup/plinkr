@@ -4,7 +4,7 @@
 \alias{create_demo_map_table}
 \title{Create a demo genetic mapping \code{.map} table}
 \usage{
-create_demo_map_table(n_snps = 16)
+create_demo_map_table(n_snps = 1)
 }
 \arguments{
 \item{n_snps}{the number of SNPs}

@@ -20,6 +20,13 @@ In this vignette,
 we are going to detect associations between genetic information
 and one or more quantitative traits.
 
+We will be using the data from PLINK files, which
+is small, albeit a bit messy, where 'messy' is defined
+as that there is not a ideal 1-on-1 relation between genotype
+and phenotype. See the 'demo_assoc_qt' vignette
+where the same analysis is done with simulated
+ideal data.
+
 ## Setup
 
 First load `plinkr`:

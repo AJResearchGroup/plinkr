@@ -1,0 +1,144 @@
+---
+title: "Detect associations with a simulated quantitative trait"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Detect associations with a simulated quantitative trait}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+In this vignette,
+we are going to detect associations between genetic information
+and one or more quantitative traits.
+
+We will be using simulated data,
+with a simple relationship between genotype and phenotype.
+To see how this same analysis is done with more
+messy data, see the 'test_assoc_qt' vignette.
+
+## Setup
+
+First load `plinkr`:
+
+```{r setup}
+library(plinkr)
+```
+
+This vignette will build whether or not PLINK is installed
+
+```{r is_plink_installed}
+if (is_plink_installed()) {
+  message("PLINK is installed")
+} else {
+  message(
+    "PLINK is not installed",
+    "",
+    "Tip: run 'plinkr::install_plinks()' to do so"
+  )
+}
+```
+
+## Detecting associations for a random and additive traits
+
+To do an association (both for a single and multiple traits), 
+we need some parameters:
+
+ * The `.map` table or mapping table, which contains the location
+   of the single-nucleotide polymorphisms (SNPs)
+ * The `.ped` table or pedigree table, which contains the pedigree
+   of the individuals and their SNP values
+ * The phenotype table, which contains the one or more phenotypes
+   of the individuals
+ * The minor allele frequence (MAF)
+
+Here, we get simple set of parameters, as to be used in testing,
+or -in this case- a simple demonstration:
+ 
+```{r}
+assoc_qt_params <- create_demo_assoc_qt_params()
+```
+
+### The mapping table
+
+```{r}
+knitr::kable(assoc_qt_params$map_table)
+```
+
+### The pedigree table
+
+The PLINK example \code{.ped} contains, among others, the pedigree of the individuals:
+
+```{r}
+knitr::kable(assoc_qt_params$ped_table)
+```
+
+Note that the pedigree table has a column called `case_control_code`,
+which will be completely ignored.
+
+Also note that the two SNPs are identical, i.e.
+the first and fourth individual are homozygous,
+where the others are heterozygous.
+
+### The phenotype table
+
+The pedigree table has a column called `case_control_code`,
+which will be completely ignored, as it only allows to put in
+one phenotype. Instead, we use a table of one or more phenotypic
+values:
+
+```{r}
+knitr::kable(assoc_qt_params$phenotype_table)
+```
+
+The phenotypes are named after their relationship to the
+genotype:
+
+ * ´random´: there is no relationship, values are random
+ * ´additive´: there is a perfect additive relationship, 
+   where each 'T' increases the trait by 0.5
+
+### The minor allele frequency (MAF)
+
+The minor allele frequency (MAF) is set to 5% as a default:
+
+```{r}
+message(assoc_qt_params$maf)
+```
+
+We leave it as it is.
+
+### Detecting the association
+
+With the mapping, pedigree and phenotype table, 
+we can detect the association between genotype and the two traits:
+
+```{r}
+if (is_plink_installed()) {
+  t <- assoc_qt(
+    assoc_qt_params = assoc_qt_params
+  )
+  knitr::kable(t)
+}
+```
+
+ * `trait_name`: name of the quantitive trait,
+ * `CHR`: Chromosome number
+ * `SNP`: SNP identifier
+ * `BP`: Physical position (base-pair)
+ * `NMISS`: Number of non-missing genotypes
+ * `BETA`: Regression coefficient
+ * `SE`: Standard error
+ * `R2`: Regression r-squared
+ * `T`: Wald test (based on t-distribtion)
+ * `P`: Wald test asymptotic p-value
+
+Note that, as the different SNPs are indentical, the exact same association is found.

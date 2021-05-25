@@ -12,4 +12,5 @@ check_assoc_qt_params <- function(assoc_qt_params) {
   testthat::expect_true("maf" %in% names(assoc_qt_params))
   testthat::expect_true(assoc_qt_params$maf >= 0.0)
   testthat::expect_true(assoc_qt_params$maf < 0.5)
+  plinkr::check_equal_number_of_snvs(assoc_qt_params)
 }

@@ -12,7 +12,7 @@ test_that("multiple traits", {
   phenotype_table <- read_plink_phenotype_file(
     phenotype_filename = get_plinkr_filename("pheno.raw")
   )
-  phenotype_table$phenotype_2 <- runif(nrow(phenotype_table))
+  phenotype_table$phenotype_2 <- stats::runif(nrow(phenotype_table))
   phenotype_filename <- tempfile()
   save_phenotype_table_to_file(
     phenotype_table = phenotype_table,

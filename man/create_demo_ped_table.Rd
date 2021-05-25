@@ -4,7 +4,7 @@
 \alias{create_demo_ped_table}
 \title{Create a demo pedigree \code{.ped} table}
 \usage{
-create_demo_ped_table(n_snps = 2)
+create_demo_ped_table(n_snps = 1)
 }
 \arguments{
 \item{n_snps}{the number of SNPs}

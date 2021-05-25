@@ -2,7 +2,7 @@
 % Please edit documentation in R/save_ped_table_to_file.R
 \name{save_ped_table_to_file}
 \alias{save_ped_table_to_file}
-\title{Save a \code{.ped} table to file}
+\title{Save a \code{.ped} table to file.}
 \usage{
 save_ped_table_to_file(ped_table, ped_filename)
 }
@@ -35,5 +35,12 @@ Use \link{check_ped_table} to test if a pedigree table is valid.}
 Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
 }
 \description{
-Save a \code{.ped} table to file
+Save a \code{.ped} table to file to be used by PLINK.
+Most columns have a single space between them.
+The exceptions, where there are two spaces between the columns are:
+\itemize{
+\item between \code{sex_code} and \code{case_control_code}
+\item between \code{case_control_code} and the first SNP
+\item between each pair of SNPs
+}
 }

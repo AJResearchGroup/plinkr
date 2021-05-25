@@ -49,3 +49,26 @@ test_that("use, v1.9", {
   expect_true("snv_2a" %in% names(t))
   expect_true("snv_2b" %in% names(t))
 })
+
+
+test_that("save and load result from get_test_ped_table()", {
+  ped_filename <- tempfile()
+  ped_table <- get_test_ped_table()
+  save_ped_table_to_file(
+    ped_table = ped_table,
+    ped_filename = ped_filename
+  )
+  ped_table_again <- read_plink_ped_file(ped_filename = ped_filename)
+  expect_identical(ped_table, ped_table_again)
+})
+
+test_that("save and load result from create_demo_ped_table()", {
+  ped_filename <- tempfile()
+  ped_table <- create_demo_ped_table()
+  save_ped_table_to_file(
+    ped_table = ped_table,
+    ped_filename = ped_filename
+  )
+  ped_table_again <- read_plink_ped_file(ped_filename = ped_filename)
+  expect_identical(ped_table, ped_table_again)
+})

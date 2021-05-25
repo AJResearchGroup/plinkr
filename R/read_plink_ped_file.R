@@ -35,10 +35,13 @@
 #'  }
 #' @export
 read_plink_ped_file <- function(ped_filename) {
+  # Use str_trim as PLINK adds whitespace around text
   table <- stringr::str_split(
-    string = readr::read_lines(
-      file = ped_filename,
-      skip_empty_rows = TRUE
+    string = stringr::str_trim(
+      readr::read_lines(
+        file = ped_filename,
+        skip_empty_rows = TRUE
+      )
     ),
     pattern = "[:blank:]+",
     simplify = TRUE

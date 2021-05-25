@@ -15,14 +15,18 @@
 #'      each `T` denotes an increase of 0.4
 #'
 #' @note This function is named after the \code{--assoc-qt} PLINK flag.
+#' @inheritParams default_params_doc
 #' @export
-create_demo_assoc_qt_params <- function() {
-  ped_table <- plinkr::create_demo_ped_table()
-  map_table <- plinkr::create_demo_map_table()
-  phenotype_table <- plinkr::create_phenotype_table_from_ped_table(ped_table)
+create_demo_assoc_qt_params <- function(maf = 0.05) {
+  ped_table <- plinkr::create_demo_ped_table(n_snps = 1)
+  map_table <- plinkr::create_demo_map_table(n_snps = 1)
+  phenotype_table <- ped_table[, 1:2]
+  phenotype_table$random <- stats::runif(nrow(phenotype_table))
+
   plinkr::create_assoc_qt_params(
     ped_table = ped_table,
     map_table = map_table,
-    phenotype_table = phenotype_table
+    phenotype_table = phenotype_table,
+    maf = maf
   )
 }

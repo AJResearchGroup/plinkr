@@ -5,7 +5,10 @@
 \title{Create a set of \code{assoc_qt} parameters
 to demonstrate PLINKs \code{--assoc_qt} functionality}
 \usage{
-create_demo_assoc_qt_params()
+create_demo_assoc_qt_params(maf = 0.05)
+}
+\arguments{
+\item{maf}{minor allele frequency}
 }
 \description{
 This function creates:

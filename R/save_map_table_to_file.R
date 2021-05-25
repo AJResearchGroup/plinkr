@@ -1,3 +1,5 @@
+#' Save a \code{.map} table to file.
+#'
 #' Save a \code{.map} table to file
 #' @inheritParams default_params_doc
 #' @export

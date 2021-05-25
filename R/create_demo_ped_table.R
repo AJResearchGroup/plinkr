@@ -6,7 +6,7 @@
 #' these are 16 individuals.
 #' @inheritParams default_params_doc
 #' @export
-create_demo_ped_table <- function(n_snps = 2) {
+create_demo_ped_table <- function(n_snps = 1) {
   ped_table_lhs <- tibble::tibble(
     family_id = seq_len(16),
     within_family_id = 1,
@@ -14,6 +14,11 @@ create_demo_ped_table <- function(n_snps = 2) {
     within_family_id_mother = 0,
     sex_code = 1,
     case_control_code = 0
+  )
+  # Convert all columns to numeric
+  ped_table_lhs <- dplyr::mutate(
+    dplyr::select(ped_table_lhs, dplyr::everything()),
+    dplyr::across(dplyr::everything(), as.numeric)
   )
 
   nucleotides <- c("A", "C", "G", "T")
@@ -26,5 +31,7 @@ create_demo_ped_table <- function(n_snps = 2) {
     tibbles[[i]] <- t
   }
   ped_table_rhs <- dplyr::bind_cols(tibbles)
+
+  testthat::expect_equal(nrow(ped_table_lhs), nrow(ped_table_rhs))
   dplyr::bind_cols(ped_table_lhs, ped_table_rhs)
 }

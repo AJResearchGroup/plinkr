@@ -47,6 +47,7 @@ assoc_qt_nth_trait <- function(
     ped_filename = ped_filename
   )
   testthat::expect_true(file.exists(ped_filename))
+  readLines(ped_filename)
   plinkr::save_map_table_to_file(
     map_table = map_table,
     map_filename = map_filename

@@ -2,7 +2,7 @@
 % Please edit documentation in R/save_map_table_to_file.R
 \name{save_map_table_to_file}
 \alias{save_map_table_to_file}
-\title{Save a \code{.map} table to file}
+\title{Save a \code{.map} table to file.}
 \usage{
 save_map_table_to_file(map_table, map_filename)
 }

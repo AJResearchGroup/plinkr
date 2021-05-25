@@ -4,7 +4,7 @@
 #' @note This function is named after the \code{--simulate-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @export
-save_simulate_qt_params_to_file <- function(
+save_simulate_qt_params_to_file <- function( # nolint indeed a long function name
   simulate_qt_params,
   sim_filename
 ) {

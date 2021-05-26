@@ -58,7 +58,8 @@ we need some parameters:
    of the individuals and their SNP values
  * The phenotype table, which contains the one or more phenotypes
    of the individuals
- * The minor allele frequence (MAF)
+ * The minor allele frequence (MAF) threshold for an allele
+   to be included in the analysis
 
 Here, we get simple set of parameters, as to be used in testing,
 or -in this case- a simple demonstration:
@@ -86,10 +87,6 @@ knitr::kable(assoc_qt_params$ped_table)
 Note that the pedigree table has a column called `case_control_code`,
 which will be completely ignored.
 
-Also note that the two SNPs are identical, i.e.
-the first and fourth individual are homozygous,
-where the others are heterozygous.
-
 ### The phenotype table
 
 The pedigree table has a column called `case_control_code`,
@@ -106,17 +103,21 @@ genotype:
 
  * ´random´: there is no relationship, values are random
  * ´additive´: there is a perfect additive relationship, 
+   with a starting value of 10.0,
    where each 'T' increases the trait by 0.5
 
 ### The minor allele frequency (MAF)
 
-The minor allele frequency (MAF) is set to 5% as a default:
 
 ```{r}
 message(assoc_qt_params$maf)
 ```
 
-We leave it as it is.
+The `maf` (named after the PLINK `--maf` flag)
+denotes the minimal frequency an allele must have to be
+included in the analysis. 
+We keep this at the lowest non-zero value, so that all
+SNPs are analysed.
 
 ### Detecting the association
 
@@ -143,7 +144,13 @@ if (is_plink_installed()) {
  * `T`: Wald test (based on t-distribution)
  * `P`: Wald test asymptotic p-value
 
-Note that, as the different SNPs are indentical, the exact same association is found.
+In the fourth row, the association between `snp_2`
+and the `additive` phenotype is discovered
+correctly, as the `R2` (the R-squared value, i.e. the
+proportion of the phenotype that can be explained by the
+genotype) gives the highest possible value of 1.0,
+which denotes the phenotype can be perfectly explained
+by the genotype.
 
 ### Other options
 

@@ -97,24 +97,14 @@ values:
 knitr::kable(assoc_qt_params$phenotype_table)
 ```
 
-These trait values, that is the values in the column `phenotype_value`,
-are clearly artificial. As the name `phenotype_value` we will
-rename it to `trait_x`:
-
-```{r}
-names(assoc_qt_params$phenotype_table) <-
-  c(
-    names(assoc_qt_params$phenotype_table)[-3],
-    "trait_x"
-  )
-```
+These trait values, that is the values in the column `trait`,
+are clearly artificial. 
 
 ### The minor allele frequency (MAF)
 
 ```{r}
 message(assoc_qt_params$maf)
 ```
-
 
 The minor allele frequency (MAF) denotes that alleles that
 have an occurrence below this MAF will be excluded from
@@ -157,8 +147,24 @@ then re-run the analysis.
 
 ### The phenotype table
 
-We simply add another column with random values:
+We simply add another column with random values.
+First, however, we rename the first phenotype name
+from `trait` to `trait_x`:
  
+```{r}
+if (is_plink_installed()) {
+  # Rename 
+  names(assoc_qt_params$phenotype_table) <-
+    c(
+      names(assoc_qt_params$phenotype_table)[-3],
+      "trait_x"
+    )
+}
+```
+
+We simply add another column with random values for a trait
+called `trait_y`:
+
 ```{r}
 if (is_plink_installed()) {
   assoc_qt_params$phenotype_table$trait_y <-
@@ -167,6 +173,7 @@ if (is_plink_installed()) {
   knitr::kable(assoc_qt_params$phenotype_table)
 }
 ```
+
 
 ### Detecting the association
 

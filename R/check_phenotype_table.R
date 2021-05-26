@@ -18,7 +18,7 @@ check_phenotype_table <- function(phenotype_table) {
     if (all(trait_values %in% c(0, 1, 2))) {
       stop(
         "Phenotytic values match case-control values  \n",
-        "in column '", names(phenotype_table)[col_index] ,"'. \n",
+        "in column '", names(phenotype_table)[col_index], "'. \n",
         "PLINK will always treat these valuse as case-control values\n",
         "and do a case-control analysis. \n",
         " \n",

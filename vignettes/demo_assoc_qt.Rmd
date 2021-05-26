@@ -65,7 +65,7 @@ or -in this case- a simple demonstration:
  
 ```{r}
 assoc_qt_params <- create_demo_assoc_qt_params(
-  n_individuals = 10  
+  n_individuals = 10
 )
 ```
 
@@ -152,4 +152,3 @@ Note that, as the different SNPs are indentical, the exact same association is f
 ```{r}
 assoc_qt_params <- create_demo_assoc_qt_params()
 ```
-

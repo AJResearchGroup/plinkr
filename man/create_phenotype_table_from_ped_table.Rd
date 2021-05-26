@@ -42,8 +42,8 @@ a single-phenotype \link[tibble]{tibble}, with columns:
 \description{
 Create a single-phenotype table from pedigree (\code{.ped}) table.
 The individuals' family and within-family ID's are copied.
-The \link{case_control_code} is copied as well, but
-renamed to \link{trait} and divided by then.
+The \code{case_control_code} is copied as well, but
+renamed to \code{trait} and divided by then.
 In this way, PLINK traits the phenotype table as having quantitative
 traits.
 }

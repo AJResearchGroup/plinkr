@@ -37,4 +37,3 @@ test_that("use, second column", {
     )
   )
 })
-

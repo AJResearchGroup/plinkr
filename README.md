@@ -90,3 +90,21 @@ Function name         | Description
 
 Interface may change.
 
+## FAQ
+
+### On which operating systems can I run `plinkr`?
+
+`plinkr` is tested by GitHub Actions to work on Linux, Mac and Windows.
+(note: that does not mean I trust it to work on Mac or Windows)
+
+### Why is this package not on CRAN?
+
+Because no real users have yet tested it, except me.
+
+When it moves to CRAN, the `install` and `uninstall` functions will move
+to a non-CRAN package, as these functions violate CRAN policy.
+
+
+
+
+

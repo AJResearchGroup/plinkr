@@ -13,6 +13,7 @@
 #' @param allele_frequency_upper Upper allele frequency range
 #' @param additive_genetic_variance The additive genetic variance
 #' @param ratio_dominance_to_additive The ratio of dominance to additive effects
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_simulate_qt_params <- function(
   n_snps,

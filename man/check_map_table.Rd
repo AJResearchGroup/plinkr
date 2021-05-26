@@ -28,3 +28,6 @@ Nothing. Will \link{stop} if the \code{map_table} is invalid
 Check if a genetic mapping \code{.map} table is valid.
 Will \link{stop} if not
 }
+\author{
+Richèl J.C. Bilderbeek
+}

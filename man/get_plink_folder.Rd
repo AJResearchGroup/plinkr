@@ -12,3 +12,6 @@ path to the default PLINK folder as used by plinkr
 \description{
 Get the path to the default PLINK folder as used by plinkr
 }
+\author{
+Richèl J.C. Bilderbeek
+}

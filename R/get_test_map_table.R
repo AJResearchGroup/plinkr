@@ -21,6 +21,7 @@
 #'   )
 #'   read_plink_map_file(map_filename)
 #' }
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_map_table <- function() {
   tibble::tribble(

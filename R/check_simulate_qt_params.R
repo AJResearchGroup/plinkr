@@ -3,6 +3,7 @@
 #'
 #' @note This function is named after the \code{--simulate-qt} PLINK flag.
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_simulate_qt_params <- function(simulate_qt_params) {
   testthat::expect_true(is.list(simulate_qt_params))

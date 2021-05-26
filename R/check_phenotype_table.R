@@ -4,6 +4,7 @@
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return Nothing. Will \link{stop} if the \code{phenotype_table} is invalid
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_phenotype_table <- function(phenotype_table) {
   testthat::expect_true(tibble::is_tibble(phenotype_table))

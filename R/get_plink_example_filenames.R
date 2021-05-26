@@ -1,11 +1,12 @@
 #' Get the full paths to all PLINK example files
 #' @inheritParams default_params_doc
 #' @return the full paths to all PLINK example files
-#' @export
 #' @examples
 #' if (is_plink_installed()) {
 #'   get_plink_example_filenames()
 #' }
+#' @author Richèl J.C. Bilderbeek
+#' @export
 get_plink_example_filenames <- function(
   plink_version = get_default_plink_version(),
   plink_folder = get_plink_folder()

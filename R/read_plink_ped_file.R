@@ -33,6 +33,7 @@
 #'      )
 #'    )
 #'  }
+#' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_ped_file <- function(ped_filename) {
   # Use str_trim as PLINK adds whitespace around text

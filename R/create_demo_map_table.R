@@ -5,6 +5,7 @@
 #' @inheritParams default_params_doc
 #' @examples
 #' create_demo_map_table()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_demo_map_table <- function(n_snps = 1) {
   tibble::tibble(

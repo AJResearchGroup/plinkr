@@ -3,6 +3,7 @@
 #' @note This function is named after the \code{--assoc} flag used by PLINK
 #' @inheritParams default_params_doc
 #' @param n the nth trait. Use '1' for the first trait
+#' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_qt_nth_trait <- function(
   assoc_qt_params,

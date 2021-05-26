@@ -8,6 +8,7 @@ to demonstrate PLINKs \code{--assoc_qt} functionality}
 create_demo_assoc_qt_params(
   n_individuals = 4,
   phenotypes = get_phenotypes(),
+  mafs = rep(0.25, length(phenotypes)),
   maf = get_lowest_maf()
 )
 }
@@ -29,6 +30,8 @@ this phenotype
 \item \code{TT} 0.0
 }
 }}
+
+\item{mafs}{one or more minor allele frequencies}
 
 \item{maf}{minor allele frequency threshold.
 Alleles that have a frequency lower than the MAF
@@ -53,12 +56,15 @@ as created by the \link{create_demo_map_table} function
 \item Traits that follow different genotype to phenotype mapping:
 \itemize{
 \item \code{control}: a trait that is random
-\item \code{additive}: a trait that is perfectly additive,
-each \code{A} denotes an increase of 0.0,
-each \code{T} denotes an increase of 0.5
+\item \code{additive}: a trait that is perfectly additive.
+The trait value is \code{10.0},
+where each \code{T} increases it by 0.5
 }
 }
 }
 \note{
 This function is named after the \code{--assoc-qt} PLINK flag.
+}
+\author{
+Richèl J.C. Bilderbeek
 }

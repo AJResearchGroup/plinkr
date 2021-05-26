@@ -16,3 +16,6 @@ It is simply a map of SNPs that are located on different chromosomes.
 \examples{
 create_demo_map_table()
 }
+\author{
+Richèl J.C. Bilderbeek
+}

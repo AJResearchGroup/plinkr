@@ -1,6 +1,7 @@
 #' Get the text of the PLINK help file
 #' @inheritParams default_params_doc
 #' @return the text of the PLINK help file
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_help_text <- function(
   plink_version = get_default_plink_version(),

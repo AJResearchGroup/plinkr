@@ -12,6 +12,7 @@ default_params_doc(
   example_filename,
   log_filename,
   maf,
+  mafs,
   map_filename,
   map_table,
   n_individuals,
@@ -64,6 +65,8 @@ as obtained by \link{get_lowest_maf}
 The parameter name \code{maf} is named after the
 PLINK \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
+
+\item{mafs}{one or more minor allele frequencies}
 
 \item{map_filename}{name of a PLINK \code{.map} file
 Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}

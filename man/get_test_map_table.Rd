@@ -36,3 +36,6 @@ if (is_plink_installed(plink_version = "1.7")) {
 use \link{create_demo_map_table} to get simulated
 genetic mapping tables
 }
+\author{
+Richèl J.C. Bilderbeek
+}

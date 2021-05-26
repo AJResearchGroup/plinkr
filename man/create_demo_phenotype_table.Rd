@@ -52,3 +52,6 @@ this phenotype
 \description{
 Create a demo phenotype table
 }
+\author{
+Richèl J.C. Bilderbeek
+}

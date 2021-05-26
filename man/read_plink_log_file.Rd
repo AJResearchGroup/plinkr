@@ -12,3 +12,6 @@ read_plink_log_file(log_filename)
 \description{
 Read a PLINK \code{.log} file
 }
+\author{
+Richèl J.C. Bilderbeek
+}

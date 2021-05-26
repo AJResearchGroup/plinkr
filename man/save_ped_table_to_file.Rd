@@ -44,3 +44,6 @@ The exceptions, where there are two spaces between the columns are:
 \item between each pair of SNPs
 }
 }
+\author{
+Richèl J.C. Bilderbeek
+}

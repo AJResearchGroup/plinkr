@@ -1,5 +1,6 @@
 #' Save a \code{.phenotype} table to file
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 save_phenotype_table_to_file <- function(
   phenotype_table,

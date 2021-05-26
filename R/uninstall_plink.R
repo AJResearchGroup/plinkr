@@ -1,6 +1,7 @@
 #' Uninstall PLINK
 #' @inheritParams default_params_doc
 #' @return Nothing
+#' @author Richèl J.C. Bilderbeek
 #' @export
 uninstall_plink <- function(
   plink_version = get_default_plink_version(),

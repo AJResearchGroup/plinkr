@@ -22,3 +22,6 @@ the version of PLINK
 \description{
 Get the version of PLINK
 }
+\author{
+Richèl J.C. Bilderbeek
+}

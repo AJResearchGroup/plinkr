@@ -28,3 +28,6 @@ read_plink_phenotype_file(
   phenotype_filename = get_plinkr_filename("pheno.raw")
 )
 }
+\author{
+Richèl J.C. Bilderbeek
+}

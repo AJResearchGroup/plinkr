@@ -2,6 +2,7 @@
 #' @inheritParams default_params_doc
 #' @return Nothing.
 #'   Will \link{stop} if the pedigree table is invalid.
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_ped_table <- function(ped_table) {
   if (!tibble::is_tibble(ped_table)) {

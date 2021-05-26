@@ -31,3 +31,6 @@ Read a PLINK \code{.simfreq} file
 File format reference at
 \url{https://www.cog-genomics.org/plink/1.9/formats#simfreq}
 }
+\author{
+Richèl J.C. Bilderbeek
+}

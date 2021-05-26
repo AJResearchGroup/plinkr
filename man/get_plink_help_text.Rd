@@ -22,3 +22,6 @@ the text of the PLINK help file
 \description{
 Get the text of the PLINK help file
 }
+\author{
+Richèl J.C. Bilderbeek
+}

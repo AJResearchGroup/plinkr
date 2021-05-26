@@ -22,3 +22,6 @@ Nothing. Will \link{stop} if PLINK is not installed.
 \description{
 Check if PLINK is installed. Will \link{stop} if not
 }
+\author{
+Richèl J.C. Bilderbeek
+}

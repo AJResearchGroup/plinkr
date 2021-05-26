@@ -22,3 +22,6 @@ Nothing
 \description{
 Uninstall PLINK
 }
+\author{
+Richèl J.C. Bilderbeek
+}

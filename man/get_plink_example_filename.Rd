@@ -42,3 +42,6 @@ if (is_plink_installed(plink_version = "1.9")) {
   get_plink_example_filename("toy.ped", plink_version = "1.9")
 }
 }
+\author{
+Richèl J.C. Bilderbeek
+}

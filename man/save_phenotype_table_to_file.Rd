@@ -27,3 +27,6 @@ Use \link{read_plink_phenotype_file} to read a raw phenotype file.}
 \description{
 Save a \code{.phenotype} table to file
 }
+\author{
+Richèl J.C. Bilderbeek
+}

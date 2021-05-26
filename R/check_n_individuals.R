@@ -3,6 +3,7 @@
 #' Check if the number of individual is valid.
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_n_individuals <- function(n_individuals) {
   testthat::expect_equal(1, length(n_individuals))

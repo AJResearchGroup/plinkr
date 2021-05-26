@@ -40,3 +40,6 @@ zeroes and ones.
 
 As a workaround, phenotypic traits start from ten.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

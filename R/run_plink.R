@@ -17,6 +17,7 @@
 #'     )
 #'   )
 #' }
+#' @author Richèl J.C. Bilderbeek
 #' @export
 run_plink <- function(
   args,

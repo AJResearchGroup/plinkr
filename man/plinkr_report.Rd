@@ -9,3 +9,9 @@ plinkr_report()
 \description{
 Create a \link{plinkr} report, to be used when reporting bugs
 }
+\examples{
+plinkr_report()
+}
+\author{
+Richèl J.C. Bilderbeek
+}

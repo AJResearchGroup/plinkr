@@ -28,3 +28,6 @@ Nothing. Will \link{stop} if the \code{phenotype_table} is invalid
 Check if a phenotype table is valid.
 Will \link{stop} if not
 }
+\author{
+Richèl J.C. Bilderbeek
+}

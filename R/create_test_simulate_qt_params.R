@@ -7,6 +7,7 @@
 #'
 #' @note This function is named after the \code{--simulate-qt} PLINK flag.
 #' @inheritParams create_simulate_qt_params
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_simulate_qt_params <- function(
   n_snps = 10,

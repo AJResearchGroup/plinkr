@@ -38,3 +38,6 @@ Will \link{stop} if the pedigree table is invalid.
 \description{
 Check if a \code{.ped} is valid. Will \link{stop} if not
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -2,6 +2,7 @@
 #'
 #' Save a \code{.map} table to file
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 save_map_table_to_file <- function(
   map_table,

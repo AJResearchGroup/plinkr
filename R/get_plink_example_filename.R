@@ -2,7 +2,6 @@
 #' @inheritParams default_params_doc
 #' @return the path to a PLINK example file, if it exists.
 #'   Will \link{stop} if the file does not exist
-#' @export
 #' @examples
 #' if (is_plink_installed()) {
 #'   get_plink_example_filename("toy.map")
@@ -18,6 +17,8 @@
 #'   get_plink_example_filename("toy.map", plink_version = "1.9")
 #'   get_plink_example_filename("toy.ped", plink_version = "1.9")
 #' }
+#' @author Richèl J.C. Bilderbeek
+#' @export
 get_plink_example_filename <- function(
   example_filename,
   plink_version = get_default_plink_version(),

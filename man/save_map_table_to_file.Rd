@@ -27,3 +27,6 @@ Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
 \description{
 Save a \code{.map} table to file
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -1,6 +1,7 @@
 #' Get the path to the default PLINK executable as used by plinkr
 #' @inheritParams default_params_doc
 #' @return path to the default PLINK executable  as used by plinkr
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_exe_path <- function(
   plink_version = get_default_plink_version(),

@@ -19,3 +19,6 @@ Let PLINK detect an association with the n-th quantitative trait
 \note{
 This function is named after the \code{--assoc} flag used by PLINK
 }
+\author{
+Richèl J.C. Bilderbeek
+}

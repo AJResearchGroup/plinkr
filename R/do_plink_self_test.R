@@ -1,6 +1,7 @@
 #' Do a minimal PLINK self test
 #' @inheritParams default_params_doc
 #' @return nothing. Will stop with an error message if the self-test fails
+#' @author Richèl J.C. Bilderbeek
 #' @export
 do_plink_self_test <- function(
   plink_version = get_default_plink_version(),

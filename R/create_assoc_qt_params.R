@@ -7,6 +7,7 @@
 #'
 #' @note This function is named after the \code{--assoc-qt} PLINK flag.
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_assoc_qt_params <- function(
   ped_table,

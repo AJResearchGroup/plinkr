@@ -14,3 +14,6 @@ Use \link{get_plink_versions} to get all the supported PLINK versions.}
 \description{
 Check if the PLINK version is valid, will stop if not
 }
+\author{
+Richèl J.C. Bilderbeek
+}

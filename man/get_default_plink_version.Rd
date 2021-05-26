@@ -9,3 +9,6 @@ get_default_plink_version()
 \description{
 Get the default PLINK version as used by plinkr
 }
+\author{
+Richèl J.C. Bilderbeek
+}

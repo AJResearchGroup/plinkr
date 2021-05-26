@@ -15,3 +15,6 @@ Get the full paths to all plinkr files
 \examples{
 get_plinkr_filenames()
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -36,3 +36,6 @@ if (is_plink_installed(plink_version = "1.7")) {
 use \link{create_demo_ped_table} to get simulated
 pedigree tables
 }
+\author{
+Richèl J.C. Bilderbeek
+}

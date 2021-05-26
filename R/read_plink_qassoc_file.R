@@ -5,6 +5,7 @@
 #' read_plink_qassoc_file(
 #'   qassoc_filename = get_plinkr_filename("run1.qassoc")
 #' )
+#' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_qassoc_file <- function(qassoc_filename) {
   testthat::expect_true(file.exists(qassoc_filename))

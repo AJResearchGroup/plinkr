@@ -31,3 +31,6 @@ is not number between
 \description{
 Will \link{stop} if not
 }
+\author{
+Richèl J.C. Bilderbeek
+}

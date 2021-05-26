@@ -86,3 +86,6 @@ that is used in testing.
 \note{
 This function is named after the \code{--assoc-qt} PLINK flag.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

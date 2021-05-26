@@ -7,6 +7,7 @@
 #'  * between \code{case_control_code} and the first SNP
 #'  * between each pair of SNPs
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 save_ped_table_to_file <- function(
   ped_table,

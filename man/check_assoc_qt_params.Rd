@@ -20,3 +20,6 @@ Check if the \code{assoc_qt_params} are valid, will stop otherwise
 \note{
 This function is named after the \code{--assoc-qt} PLINK flag.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

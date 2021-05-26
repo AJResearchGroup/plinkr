@@ -26,6 +26,7 @@
 #' by the number of traits.
 #'
 #' Note that parameters in uppercase are named as such by PLINK.
+#' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_qt <- function(
   assoc_qt_params

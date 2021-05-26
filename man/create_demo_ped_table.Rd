@@ -35,3 +35,6 @@ these are 4 individuals.
 \examples{
 create_demo_ped_table()
 }
+\author{
+Richèl J.C. Bilderbeek
+}

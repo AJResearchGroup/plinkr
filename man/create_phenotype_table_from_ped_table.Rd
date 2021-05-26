@@ -47,3 +47,6 @@ renamed to \code{trait} and divided by then.
 In this way, PLINK traits the phenotype table as having quantitative
 traits.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -8,6 +8,7 @@
 #' @inheritParams default_params_doc
 #' @examples
 #' create_demo_ped_table()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_demo_ped_table <- function(
   n_individuals = 4,

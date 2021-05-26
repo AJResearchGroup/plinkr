@@ -32,3 +32,6 @@ as can be obtained with \link{get_phenotypes}
 Check if the phenotypes are indeed phenotypes with a clear genetic setup.
 Will \link{stop} if not.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

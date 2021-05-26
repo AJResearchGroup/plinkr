@@ -14,3 +14,6 @@ Use \link{check_n_individuals} to check if this is a valid value}
 Check if the number of individual is valid.
 Will \link{stop} if not
 }
+\author{
+Richèl J.C. Bilderbeek
+}

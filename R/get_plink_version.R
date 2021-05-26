@@ -1,6 +1,7 @@
 #' Get the version of PLINK
 #' @inheritParams default_params_doc
 #' @return the version of PLINK
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_version <- function(
   plink_version = get_default_plink_version(),

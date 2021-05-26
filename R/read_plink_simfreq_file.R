@@ -14,6 +14,7 @@
 #'   * \code{dominance_deviation} Dominance deviation
 #' @seealso File format reference at
 #'   \url{https://www.cog-genomics.org/plink/1.9/formats#simfreq}
+#' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_simfreq_file <- function(
   simfreq_filename

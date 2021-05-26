@@ -24,6 +24,7 @@
 #' The parameter name \code{maf} is named after the
 #' PLINK \code{--maf} flag. This was chosen over
 #' more specific names such as \code{min_allele_frequency}).
+#' @param mafs one or more minor allele frequencies
 #' @param map_filename name of a PLINK \code{.map} file
 #' Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
 #' @param map_table a genetic mapping table.
@@ -125,6 +126,7 @@ default_params_doc <- function(
   example_filename,
   log_filename,
   maf,
+  mafs,
   map_filename,
   map_table,
   n_individuals,

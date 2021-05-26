@@ -42,3 +42,6 @@ the second trait and its second set of SNPs, etc.
 \note{
 This function is named after the \code{--assoc} flag used by PLINK
 }
+\author{
+Richèl J.C. Bilderbeek
+}

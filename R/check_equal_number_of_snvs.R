@@ -4,6 +4,7 @@
 #' SNVs in the genetic mapping and the pedigree table.
 #' Will \link{stop} if not.
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_equal_number_of_snvs <- function(
   assoc_qt_params

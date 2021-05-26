@@ -9,3 +9,6 @@ get_plink_versions()
 \description{
 Get the supported version of PLINK
 }
+\author{
+Richèl J.C. Bilderbeek
+}

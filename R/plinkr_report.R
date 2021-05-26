@@ -1,4 +1,7 @@
 #' Create a \link{plinkr} report, to be used when reporting bugs
+#' @examples
+#' plinkr_report()
+#' @author Richèl J.C. Bilderbeek
 #' @export
 plinkr_report <- function() {
   message("OS: ", rappdirs::app_dir()$os)

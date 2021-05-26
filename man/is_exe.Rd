@@ -15,3 +15,6 @@ TRUE if the file can be executed, FALSE otherwise
 \description{
 Determine if a file can be executed
 }
+\author{
+Richèl J.C. Bilderbeek
+}

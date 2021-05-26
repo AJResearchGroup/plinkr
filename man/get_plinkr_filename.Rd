@@ -19,3 +19,6 @@ Get the path to a plinkr file
 \examples{
 get_plinkr_filename("plink.log")
 }
+\author{
+Richèl J.C. Bilderbeek
+}

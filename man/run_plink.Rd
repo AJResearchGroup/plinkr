@@ -51,3 +51,6 @@ if (is_plink_installed()) {
   )
 }
 }
+\author{
+Richèl J.C. Bilderbeek
+}

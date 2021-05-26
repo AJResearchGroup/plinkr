@@ -30,3 +30,6 @@ e.g. as can be observed from \link{assoc_qt}.
 \code{position_cm} is still lowercase as I am unsure how PLINK calls this
 variable. If you know, please let me know.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

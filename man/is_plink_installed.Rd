@@ -22,3 +22,6 @@ TRUE if PLINK is installed, FALSE otherwise
 \description{
 Determine if PLINK is installed
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -1,6 +1,7 @@
 #' Determine if PLINK is installed
 #' @inheritParams default_params_doc
 #' @return TRUE if PLINK is installed, FALSE otherwise
+#' @author Richèl J.C. Bilderbeek
 #' @export
 is_plink_installed <- function(
   plink_version = get_default_plink_version(),

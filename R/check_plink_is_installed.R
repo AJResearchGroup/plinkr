@@ -3,6 +3,7 @@
 #' Check if PLINK is installed. Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return Nothing. Will \link{stop} if PLINK is not installed.
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_plink_is_installed <- function(
   plink_version = get_default_plink_version(),

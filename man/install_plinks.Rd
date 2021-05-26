@@ -18,3 +18,6 @@ e.g. as can be obtained using \link{get_plink_versions}}
 \description{
 Install multiple versions of PLINK
 }
+\author{
+Richèl J.C. Bilderbeek
+}

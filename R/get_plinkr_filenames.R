@@ -1,8 +1,9 @@
 #' Get the full paths to all plinkr files
 #' @return the full paths to all plinkr files
-#' @export
 #' @examples
 #' get_plinkr_filenames()
+#' @author Richèl J.C. Bilderbeek
+#' @export
 get_plinkr_filenames <- function(
 ) {
   list.files(

@@ -27,3 +27,6 @@ if (is_plink_installed()) {
   get_plink_example_filenames()
 }
 }
+\author{
+Richèl J.C. Bilderbeek
+}

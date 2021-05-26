@@ -29,3 +29,6 @@ nothing. Will stop with an error message if the self-test fails
 \description{
 Do a minimal PLINK self test
 }
+\author{
+Richèl J.C. Bilderbeek
+}

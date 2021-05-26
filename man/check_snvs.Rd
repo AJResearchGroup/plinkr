@@ -22,3 +22,6 @@ for A to G.}
 Check if the single nucleotide variations are valid,
 will \link{stop} if not
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -21,6 +21,7 @@
 #'   )
 #'   read_plink_ped_file(ped_filename)
 #' }
+#' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_ped_table <- function() {
   tibble::tribble(

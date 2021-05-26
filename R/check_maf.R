@@ -9,6 +9,7 @@
 #' @return Nothing. Will \link{stop} if the input
 #' is not number between
 #' 0.0 and 0.5
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_maf <- function(maf) {
   testthat::expect_true(is.numeric(maf))

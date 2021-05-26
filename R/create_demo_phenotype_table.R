@@ -1,5 +1,6 @@
 #' Create a demo phenotype table
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 create_demo_phenotype_table <- function(
   ped_table = create_demo_ped_table(),

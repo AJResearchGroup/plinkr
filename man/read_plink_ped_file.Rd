@@ -51,3 +51,6 @@ Read a PLINK \code{.ped} file
    )
  }
 }
+\author{
+Richèl J.C. Bilderbeek
+}

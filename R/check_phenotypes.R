@@ -7,6 +7,7 @@
 #' Will \link{stop} if the phenotypes are not
 #' in the supported list of phenotypes with a clear genetic setup,
 #' as can be obtained with \link{get_phenotypes}
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_phenotypes <- function(
   phenotypes

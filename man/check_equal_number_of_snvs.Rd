@@ -16,3 +16,6 @@ Check if the \code{assoc_qt_params} has the same number of
 SNVs in the genetic mapping and the pedigree table.
 Will \link{stop} if not.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

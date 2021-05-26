@@ -42,3 +42,6 @@ Simulate a quantitative trait
 \note{
 This function is named after the \code{--simulate-qt} PLINK flag.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

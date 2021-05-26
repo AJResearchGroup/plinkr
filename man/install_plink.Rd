@@ -22,3 +22,6 @@ Nothing
 \description{
 Install a specific version of PLINK
 }
+\author{
+Richèl J.C. Bilderbeek
+}

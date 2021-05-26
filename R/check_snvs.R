@@ -3,6 +3,7 @@
 #' Check if the single nucleotide variations are valid,
 #' will \link{stop} if not
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_snvs <- function(snvs) {
   testthat::expect_true(tibble::is_tibble(snvs))

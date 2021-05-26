@@ -3,6 +3,7 @@
 #' @note This function is named after the \code{--assoc-qt} PLINK flag.
 #' @inheritParams default_params_doc
 #' @return Nothing.
+#' @author Richèl J.C. Bilderbeek
 #' @export
 check_assoc_qt_params <- function(assoc_qt_params) {
   testthat::expect_true(is.list(assoc_qt_params))

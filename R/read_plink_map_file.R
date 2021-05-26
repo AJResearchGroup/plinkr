@@ -12,6 +12,7 @@
 #'
 #' \code{position_cm} is still lowercase as I am unsure how PLINK calls this
 #' variable. If you know, please let me know.
+#' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_map_file <- function(map_filename) {
   testthat::expect_true(file.exists(map_filename))

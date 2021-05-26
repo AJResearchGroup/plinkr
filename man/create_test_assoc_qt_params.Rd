@@ -86,3 +86,6 @@ to detect associations with quantitative traits
 \note{
 This function is named after the \code{--assoc-qt} PLINK flag.
 }
+\author{
+Richèl J.C. Bilderbeek
+}

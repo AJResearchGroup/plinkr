@@ -1,5 +1,6 @@
 #' Install multiple versions of PLINK
 #' @inheritParams default_params_doc
+#' @author Richèl J.C. Bilderbeek
 #' @export
 install_plinks <- function(
   plink_versions = get_plink_versions(),

@@ -17,3 +17,6 @@ a URL
 \description{
 Get the URL to download a version of PLINK from
 }
+\author{
+Richèl J.C. Bilderbeek
+}

@@ -10,6 +10,7 @@
 #' read_plink_phenotype_file(
 #'   phenotype_filename = get_plinkr_filename("pheno.raw")
 #' )
+#' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_phenotype_file <- function(phenotype_filename) {
   testthat::expect_true(file.exists(phenotype_filename))

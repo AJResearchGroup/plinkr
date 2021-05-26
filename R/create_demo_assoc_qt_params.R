@@ -25,7 +25,10 @@ create_demo_assoc_qt_params <- function(
   n_snps <- length(phenotypes)
   testthat::expect_true(n_snps >= 0)
   testthat::expect_silent(plinkr::check_phenotypes(phenotypes))
-  ped_table <- plinkr::create_demo_ped_table(phenotypes = phenotypes)
+  ped_table <- plinkr::create_demo_ped_table(
+    n_individuals = n_individuals,
+    phenotypes = phenotypes
+  )
   map_table <- plinkr::create_demo_map_table(n_snps = length(phenotypes))
   phenotype_table <- create_demo_phenotype_table(
     ped_table = ped_table,

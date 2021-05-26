@@ -4,9 +4,12 @@
 \alias{create_demo_ped_table}
 \title{Create a demo pedigree \code{.ped} table}
 \usage{
-create_demo_ped_table(phenotypes = get_phenotypes())
+create_demo_ped_table(n_individuals = 4, phenotypes = get_phenotypes())
 }
 \arguments{
+\item{n_individuals}{the number of individuals.
+Use \link{check_n_individuals} to check if this is a valid value}
+
 \item{phenotypes}{one ore more phenotypes,
 named after their genetic background:
 \itemize{

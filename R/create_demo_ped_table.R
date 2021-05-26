@@ -8,12 +8,14 @@
 #' @inheritParams default_params_doc
 #' @export
 create_demo_ped_table <- function(
+  n_individuals = 4,
   phenotypes = get_phenotypes()
 ) {
+  plinkr::check_n_individuals(n_individuals)
   plinkr::check_phenotypes(phenotypes)
   n_snvs <- length(phenotypes)
   ped_table_lhs <- tibble::tibble(
-    family_id = seq_len(4),
+    family_id = seq_len(n_individuals),
     within_family_id = 1,
     within_family_id_father = 0,
     within_family_id_mother = 0,

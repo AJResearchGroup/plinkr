@@ -98,21 +98,3 @@ test_that("use quantitative traits that are either 1 or 2", {
     )
   )
 })
-
-
-
-test_that("A MAF removed allele that are too rare", {
-  if (!is_plink_installed()) return()
-  set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params(n_individuals = 1000)
-
-  assoc_qt_params$maf <- 0.49
-  assoc_qt_results_1 <- assoc_qt(
-    assoc_qt_params = assoc_qt_params
-  )
-  assoc_qt_params$maf <- get_lowest_maf()
-  assoc_qt_results_2 <- assoc_qt(
-    assoc_qt_params = assoc_qt_params
-  )
-  expect_false(identical(assoc_qt_results_1, assoc_qt_results_2))
-})

@@ -96,6 +96,7 @@ if (is_plink_installed()) {
   )
 }
 ```
+
 Now, let's see what actually happened, except for calling PLINK, by showing what was in the input files, as well as what is in the output file:
 
 The `.ped` file:
@@ -237,3 +238,17 @@ plink --script myscript1.txt
 --missing
 ```
 
+## Simple association
+
+```{r}
+if (is_plink_installed()) {
+  ped_filename <- get_plink_example_filename("test.ped", plink_version = 1.7)
+  map_filename <- get_plink_example_filename("test.map", plink_version = 1.7)
+  plinkr::run_plink(
+    args = c(
+      "--ped", ped_filename, 
+      "--map", map_filename
+    )
+  )
+}
+```

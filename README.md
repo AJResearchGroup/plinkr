@@ -39,11 +39,26 @@ To call a specific version of PLINK:
 run_plink("--help", plink_version = "1.7")
 ```
 
-Of course, you can also call PLINK to detect genetic associations.
-See the vignette `basic_usage.Rmd` for basic usage,
-as taken from the PLINK website.
-
 Use `get_plink_versions()` to see which versions are supported.
+
+Of course, you can also call PLINK to detect genetic associations:
+
+```
+# Use the PLINK v1.7 example files
+ped_filename <- get_plink_example_filename("test.ped", plink_version = 1.7)
+map_filename <- get_plink_example_filename("test.map", plink_version = 1.7)
+
+# Do a case-control association
+plinkr::run_plink(
+  args = c(
+    "--ped", ped_filename, 
+    "--map", map_filename
+  )
+)
+```
+
+For other examples, see the vignette `basic_usage.Rmd` for basic usage,
+as taken from the PLINK website.
 
 ### Demonstrate a quantitative trait analysis
 
@@ -66,6 +81,8 @@ Function name                 | Description
 `check_plink_install`         | check if PLINK is installed, stop if not
 `is_plink_installed`          | determine if PLINK is installed, yes/no
 `get_plink_version`           | get the version of PLINK
+`get_test_map_table`          | get a test genetic mapping table
+`get_test_ped_table`          | get a test pedigree table
 `install_plinks`              | install PLINKs
 `read_plink_assoc_file`       | read a PLINK `.assoc` file
 `read_plink_log_file`         | read a PLINK `.log` file

@@ -1,6 +1,9 @@
 *.html
 *.R
 *.log
+*.bed
+*.bim
+*.fam
 *.simfreq
 *.qassoc
 *.assoc

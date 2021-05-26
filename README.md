@@ -24,6 +24,23 @@ library(plinkr)
 install_plinks()
 ```
 
+### Running PLINKs
+
+Call PLINK:
+
+```
+library(plinkr)
+run_plink("--help")
+```
+
+To call a specific version of PLINK:
+
+```
+run_plink("--help", plink_version = "1.7")
+```
+
+Of course, you can also call PLINK to detect genetic associations :-)
+
 ### Demonstrate a quantitative trait analysis
 
 ```
@@ -34,12 +51,28 @@ assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
 
 ## Features
 
- * [x] Check if PLINK is installed, stop if not
- * [x] Detect an association with one or more quantitative trait
- * [x] Determine if PLINK is installed, yes/no
- * [x] Get the help text of PLINK
- * [x] Get the version of PLINK
- * [x] Install PLINK
- * [x] PLINK versions 1.7 and 1.9
- * [x] Run PLINK
- * [x] Uninstall PLINK
+If one of these do not work as expected, 
+please submit a bug report,
+see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+### Stable
+
+Function name         | Description
+----------------------|------------------------------------------
+`check_plink_install` | check if PLINK is installed, stop if not
+`is_plink_installed`  | determine if PLINK is installed, yes/no
+`get_plink_version`   | get the version of PLINK
+`install_plinks`      | install PLINKs
+`run_plink`           | run PLINK
+`uninstall_plinks`    | uninstall PLINKs
+
+Interface is likely to stay the same. 
+
+### Unstable
+
+Function name         | Description
+----------------------|------------------------------------------
+`assoc_qt`            | detect an association with one or more quantitative traits
+
+Interface may change.
+

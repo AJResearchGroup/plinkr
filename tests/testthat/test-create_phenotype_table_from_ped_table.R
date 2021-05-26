@@ -12,7 +12,13 @@ test_that("use", {
   expect_equal(ped_table$family_id, phenotype_table$family_id)
   expect_equal(ped_table$within_family_id, phenotype_table$within_family_id)
 
-  # Column name too likely to change in the future
+  # Column name is renamed to 'trait' and values are divided by ten.
+  # This is to prevent PLINK doing a case-control
+  # association with a quantitative trait
   expect_true("case_control_code" %in% names(ped_table))
-  expect_equal(ped_table$case_control_code, phenotype_table$case_control_code)
+  expect_true("trait" %in% names(phenotype_table))
+  expect_equal(
+    ped_table$case_control_code / 10.0,
+    phenotype_table$trait
+  )
 })

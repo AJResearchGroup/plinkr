@@ -64,7 +64,9 @@ Here, we get simple set of parameters, as to be used in testing,
 or -in this case- a simple demonstration:
  
 ```{r}
-assoc_qt_params <- create_demo_assoc_qt_params()
+assoc_qt_params <- create_demo_assoc_qt_params(
+  n_individuals = 10  
+)
 ```
 
 ### The mapping table
@@ -142,3 +144,12 @@ if (is_plink_installed()) {
  * `P`: Wald test asymptotic p-value
 
 Note that, as the different SNPs are indentical, the exact same association is found.
+
+### Other options
+
+
+
+```{r}
+assoc_qt_params <- create_demo_assoc_qt_params()
+```
+

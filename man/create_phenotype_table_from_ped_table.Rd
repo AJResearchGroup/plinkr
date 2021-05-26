@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_phenotype_table_from_ped_table.R
 \name{create_phenotype_table_from_ped_table}
 \alias{create_phenotype_table_from_ped_table}
-\title{Create a single-phenotype table from a \code{.ped} table}
+\title{Create a single-phenotype table from pedigree (\code{.ped}) table}
 \usage{
 create_phenotype_table_from_ped_table(ped_table)
 }
@@ -36,9 +36,14 @@ a single-phenotype \link[tibble]{tibble}, with columns:
 \itemize{
 \item \code{family_id}
 \item \code{within_family_id}
-\item \code{case_control_code}
+\item \code{trait}
 }
 }
 \description{
-Create a single-phenotype table from a \code{.ped} table
+Create a single-phenotype table from pedigree (\code{.ped}) table.
+The individuals' family and within-family ID's are copied.
+The \link{case_control_code} is copied as well, but
+renamed to \link{trait} and divided by then.
+In this way, PLINK traits the phenotype table as having quantitative
+traits.
 }

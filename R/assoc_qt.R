@@ -30,6 +30,7 @@
 assoc_qt <- function(
   assoc_qt_params
 ) {
+  plinkr::check_assoc_qt_params(assoc_qt_params)
   n_traits <- ncol(assoc_qt_params$phenotype_table) - 2
 
   tibbles <- list()

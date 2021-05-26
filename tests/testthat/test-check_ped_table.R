@@ -1,5 +1,6 @@
 test_that("use", {
   expect_silent(check_ped_table(get_test_ped_table()))
+  expect_silent(check_ped_table(create_demo_ped_table()))
   expect_error(check_ped_table("nonsense"))
 })
 

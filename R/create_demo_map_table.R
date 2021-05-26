@@ -3,6 +3,8 @@
 #' Create a demo genetic mapping \code{.map} table.
 #' It is simply a map of SNPs that are located on different chromosomes.
 #' @inheritParams default_params_doc
+#' @examples
+#' create_demo_map_table()
 #' @export
 create_demo_map_table <- function(n_snps = 1) {
   tibble::tibble(

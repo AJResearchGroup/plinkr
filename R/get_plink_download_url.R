@@ -1,5 +1,6 @@
 #' Get the URL to download a version of PLINK from
 #' @inheritParams default_params_doc
+#' @return a URL
 #' @export
 get_plink_download_url <- function(
   plink_version = get_default_plink_version()

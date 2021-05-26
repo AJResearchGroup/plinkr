@@ -6,6 +6,8 @@
 #' As we assume two nucleotides and a diploid organism,
 #' these are 4 individuals.
 #' @inheritParams default_params_doc
+#' @examples
+#' create_demo_ped_table()
 #' @export
 create_demo_ped_table <- function(
   n_individuals = 4,

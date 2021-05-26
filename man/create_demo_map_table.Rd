@@ -13,3 +13,6 @@ create_demo_map_table(n_snps = 1)
 Create a demo genetic mapping \code{.map} table.
 It is simply a map of SNPs that are located on different chromosomes.
 }
+\examples{
+create_demo_map_table()
+}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_test_ped_table.R
 \name{get_test_ped_table}
 \alias{get_test_ped_table}
-\title{Get a testing pedigree (\code{.ped}) table}
+\title{Get a simple pedigree (\code{.ped}) table.}
 \usage{
 get_test_ped_table()
 }
@@ -10,5 +10,29 @@ get_test_ped_table()
 a pedigree (\code{.ped}) table
 }
 \description{
-Get a testing pedigree (\code{.ped}) table
+Get a simple pedigree (\code{.ped}) table,
+as can be used in testing.
+This is the same table as can be obtained by reading
+the PLINK v1.7 example file called \code{test.ped}.
+}
+\note{
+The function has the word \code{get} in its name,
+as getting the result is trivial. When getting the result is non-trivial,
+the word \code{create} is used.
+}
+\examples{
+get_test_ped_table()
+
+# Get the pedigree from the original PLINK v1.7 example file
+if (is_plink_installed(plink_version = "1.7")) {
+  ped_filename <- get_plink_example_filename(
+    example_filename = "test.ped",
+    plink_version = "1.7"
+  )
+  read_plink_ped_file(ped_filename)
+}
+}
+\seealso{
+use \link{create_demo_ped_table} to get simulated
+pedigree tables
 }

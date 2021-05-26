@@ -32,3 +32,6 @@ biallelic SNPs exactly once.
 As we assume two nucleotides and a diploid organism,
 these are 4 individuals.
 }
+\examples{
+create_demo_ped_table()
+}

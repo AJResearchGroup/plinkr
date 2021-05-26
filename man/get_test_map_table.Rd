@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_test_map_table.R
 \name{get_test_map_table}
 \alias{get_test_map_table}
-\title{Get a testing mapping (\code{.map}) table}
+\title{Get a simple genetic mapping (\code{.map}) table}
 \usage{
 get_test_map_table()
 }
@@ -10,5 +10,29 @@ get_test_map_table()
 a mapping (\code{.map}) table
 }
 \description{
-Get a testing mapping (\code{.map}) table
+Get a simple genetic mapping (\code{.map}) table,
+as can be used in testing.
+This is the same table as can be obtained by reading
+the PLINK v1.7 example file called \code{test.map}.
+}
+\note{
+The function has the word \code{get} in its name,
+as getting the result is trivial. When getting the result is non-trivial,
+the word \code{create} is used.
+}
+\examples{
+get_test_map_table()
+
+# Get the genetic map from the original PLINK v1.7 example file
+if (is_plink_installed(plink_version = "1.7")) {
+  map_filename <- get_plink_example_filename(
+    example_filename = "test.map",
+    plink_version = "1.7"
+  )
+  read_plink_map_file(map_filename)
+}
+}
+\seealso{
+use \link{create_demo_map_table} to get simulated
+genetic mapping tables
 }

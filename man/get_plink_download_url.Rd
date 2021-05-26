@@ -11,6 +11,9 @@ get_plink_download_url(plink_version = get_default_plink_version())
 Use \link{get_plink_version} to get the PLINK version.
 Use \link{get_plink_versions} to get all the supported PLINK versions.}
 }
+\value{
+a URL
+}
 \description{
 Get the URL to download a version of PLINK from
 }

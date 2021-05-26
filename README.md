@@ -57,14 +57,24 @@ see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Stable
 
-Function name         | Description
-----------------------|------------------------------------------
-`check_plink_install` | check if PLINK is installed, stop if not
-`is_plink_installed`  | determine if PLINK is installed, yes/no
-`get_plink_version`   | get the version of PLINK
-`install_plinks`      | install PLINKs
-`run_plink`           | run PLINK
-`uninstall_plinks`    | uninstall PLINKs
+Function name                 | Description
+------------------------------|-----------------------------------------------------
+`check_plink_install`         | check if PLINK is installed, stop if not
+`is_plink_installed`          | determine if PLINK is installed, yes/no
+`get_plink_version`           | get the version of PLINK
+`install_plinks`              | install PLINKs
+`read_plink_assoc_file`       | read a PLINK `.assoc` file
+`read_plink_log_file`         | read a PLINK `.log` file
+`read_plink_map_file`         | read a PLINK `.map` file
+`read_plink_ped_file`         | read a PLINK `.ped` file
+`read_plink_phenotype_file`   | read a PLINK phenotype file
+`read_plink_qassoc_file`      | read a PLINK `.qassoc` file
+`read_plink_simfreq_file`     | read a PLINK `.simfreq` file
+`run_plink`                   | run PLINK
+`save_map_table_to_file`      | save a genetic mapping table to a PLINK `.map` file
+`save_ped_table_to_file`      | save a pedigree table to a PLINK `.ped` file
+`save_phenotype_table_to_file`| save a phenotype table to a PLINK phenotype file
+`uninstall_plinks`            | uninstall PLINKs
 
 Interface is likely to stay the same. 
 

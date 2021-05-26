@@ -4,7 +4,11 @@
 \alias{create_demo_ped_table}
 \title{Create a demo pedigree \code{.ped} table}
 \usage{
-create_demo_ped_table(n_individuals = 4, phenotypes = get_phenotypes())
+create_demo_ped_table(
+  n_individuals = 4,
+  phenotypes = get_phenotypes(),
+  mafs = rep(0.25, length(phenotypes))
+)
 }
 \arguments{
 \item{n_individuals}{the number of individuals.
@@ -24,6 +28,8 @@ this phenotype
 \item \code{TT} 0.0
 }
 }}
+
+\item{mafs}{one or more minor allele frequencies}
 }
 \description{
 Create a demo pedigree \code{.ped} table,

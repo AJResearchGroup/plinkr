@@ -4,6 +4,7 @@ assoc_qt_params <- create_demo_assoc_qt_params(
   phenotypes = rep("random", 3),
   n_individuals = 1000
 )
+x <- assoc_qt_params$ped_table
 assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
 assoc_qt_results
 

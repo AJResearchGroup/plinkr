@@ -12,10 +12,12 @@
 #' @export
 create_demo_ped_table <- function(
   n_individuals = 4,
-  phenotypes = get_phenotypes()
+  phenotypes = get_phenotypes(),
+  mafs = rep(0.25, length(phenotypes))
 ) {
   plinkr::check_n_individuals(n_individuals)
   plinkr::check_phenotypes(phenotypes)
+  testthat::expect_equal(length(phenotypes), length(mafs))
   n_snvs <- length(phenotypes)
   ped_table_lhs <- tibble::tibble(
     family_id = seq_len(n_individuals),
@@ -34,6 +36,7 @@ create_demo_ped_table <- function(
   tibbles <- list()
   for (i in seq_len(n_snvs)) {
     phenotype <- phenotypes[i]
+    # The first nucleotide will be the common/major allele
     nucleotides <- NA
     if (phenotype == "random") {
       nucleotides <- c("A", "C")
@@ -41,9 +44,20 @@ create_demo_ped_table <- function(
       testthat::expect_true(phenotype == "additive")
       nucleotides <- c("A", "T")
     }
+    major_allele_frequency <- 1.0 - mafs[i]
+    n_major_alleles <- round(n_individuals * major_allele_frequency)
+    n_minor_alleles <- n_individuals - n_major_alleles
+    testthat::expect_equal(
+      n_major_alleles + n_minor_alleles,
+      n_individuals
+    )
+    nsp_calls <- c(
+      rep(nucleotides[1], n_major_alleles),
+      rep(nucleotides[2], n_minor_alleles)
+    )
     t <- tibble::tibble(
-      a = sample(nucleotides, size = n_individuals, replace = TRUE),
-      b = sample(nucleotides, size = n_individuals, replace = TRUE)
+      a = sample(nsp_calls),
+      b = sample(nsp_calls)
     )
     names(t) <- paste0("snv_", i, names(t))
     tibbles[[i]] <- t

@@ -35,3 +35,19 @@ the text that PLINK returns
 \description{
 Run PLINK from arguments
 }
+\examples{
+if (is_plink_installed()) {
+
+  # Use the PLINK v1.9 example files
+  ped_filename <- get_plink_example_filename("toy.ped")
+  map_filename <- get_plink_example_filename("toy.map")
+
+  # Do a case-control association
+  run_plink(
+    args = c(
+     "--ped", ped_filename,
+     "--map", map_filename
+    )
+  )
+}
+}

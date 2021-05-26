@@ -73,3 +73,31 @@ plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --chr 15-12 --recode tr
 plink --bfile /my_folder/WGS-SNP-biallelic --allow-extra-chr --chr 1-22 --extract subsetSNP --recode transpose --out /my_folder/WGS-SNP-biallelic-subset
 plink --bfile /my_folder/dataBIALLELIC/WGS-SNP-biallelic --indep-pairwise 10000kb 1 0.8 --maf 0.0015 --out /my_folder/WGS-SNP-biallelic-pruned-10Mb-1
 ```
+
+## Future
+
+Ru-run if (`rerun_plink`) is fun for the future:
+
+```
+plink --rerun run1.log --maf 0.1
+plink --rerun run1.log --maf 0.1 --out run2
+```
+
+Run PLINK from script, not now (`run_plink_from_script`):
+
+```
+plink --script myscript1.txt
+```
+
+> where the file myscript1.txt is a plain text file containing
+
+```
+--ped ..\data\version1\50K\allsamples.ped 
+--map ..\data\allmapfiles\finalversion\autosomal.map 
+--out ..\results\working\sample-missingness-v1.22
+--from rs66537222
+--to rs8837323 
+--geno 0.25
+--maf 0.02
+--missing
+```

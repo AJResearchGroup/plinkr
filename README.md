@@ -44,9 +44,9 @@ Use `get_plink_versions()` to see which versions are supported.
 Of course, you can also call PLINK to detect genetic associations:
 
 ```
-# Use the PLINK v1.7 example files
-ped_filename <- get_plink_example_filename("test.ped", plink_version = 1.7)
-map_filename <- get_plink_example_filename("test.map", plink_version = 1.7)
+# Use the PLINK v1.9 example files
+ped_filename <- get_plink_example_filename("toy.ped")
+map_filename <- get_plink_example_filename("toy.map")
 
 # Do a case-control association
 plinkr::run_plink(

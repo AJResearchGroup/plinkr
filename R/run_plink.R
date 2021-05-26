@@ -2,6 +2,21 @@
 #' @inheritParams default_params_doc
 #' @param args arguments for the PLINK executable
 #' @return the text that PLINK returns
+#' @examples
+#' if (is_plink_installed()) {
+#'
+#'   # Use the PLINK v1.9 example files
+#'   ped_filename <- get_plink_example_filename("toy.ped")
+#'   map_filename <- get_plink_example_filename("toy.map")
+#'
+#'   # Do a case-control association
+#'   run_plink(
+#'     args = c(
+#'      "--ped", ped_filename,
+#'      "--map", map_filename
+#'     )
+#'   )
+#' }
 #' @export
 run_plink <- function(
   args,

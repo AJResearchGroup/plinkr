@@ -1,3 +1,3 @@
 test_that("use", {
-  expect_equal(plinkr_report())
+  expect_message(plinkr_report())
 })

@@ -101,9 +101,13 @@ Interface is likely to stay the same.
 
 ### Unstable
 
-Function name         | Description
-----------------------|------------------------------------------
-`assoc_qt`            | detect an association with one or more quantitative traits
+Function name                 | Description
+------------------------------|---------------------------------------------------------------------
+`assoc_qt`                    | detect an association with one or more quantitative traits
+`create_demo_assoc_qt_params` | create parameters to demonstrate a quantitative trait analysis
+`create_demo_map_table`       | create a genetic map to demonstrate a quantitative trait analysis 
+`create_demo_ped_table`       | create a pedigree table to demonstrate a quantitative trait analysis 
+`create_demo_phenotype_table` | create a phenotype map to demonstrate a quantitative trait analysis 
 
 Interface may change.
 
@@ -120,8 +124,4 @@ Because no real users have yet tested it, except me.
 
 When it moves to CRAN, the `install` and `uninstall` functions will move
 to a non-CRAN package, as these functions violate CRAN policy.
-
-
-
-
 

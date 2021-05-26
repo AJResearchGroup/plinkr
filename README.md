@@ -39,7 +39,9 @@ To call a specific version of PLINK:
 run_plink("--help", plink_version = "1.7")
 ```
 
-Of course, you can also call PLINK to detect genetic associations :-)
+Of course, you can also call PLINK to detect genetic associations.
+See the vignette `basic_usage.Rmd` for basic usage,
+as taken from the PLINK website.
 
 Use `get_plink_versions()` to see which versions are supported.
 

@@ -63,15 +63,16 @@ test_that("demo on two randoms", {
   expect_equal(nrow(assoc_qt_results), 4)
 })
 
-test_that("demo on three randoms", {
+test_that("number of individuals", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
-    phenotypes = rep("random", 3)
+    n_individuals = 3,
+    phenotypes = "random"
   )
   assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
-  # 3 trait times 3 SNP = 9 association
-  expect_equal(nrow(assoc_qt_results), 9)
+  # One traits times one SNP = one association
+  expect_equal(1, nrow(assoc_qt_results))
 })
 
 test_that("demo on additive only", {
@@ -82,17 +83,6 @@ test_that("demo on additive only", {
   assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
   # 1 trait times 1 SNP = 1 association
   expect_equal(nrow(assoc_qt_results), 1)
-})
-
-test_that("more individuals", {
-  if (!is_plink_installed()) return()
-  set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params(
-    n_individuals = 100
-  )
-  assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
-  # Two traits times two SNPs = four association
-  expect_equal(4, nrow(assoc_qt_results))
 })
 
 test_that("use quantitative traits that are either 1 or 2", {
@@ -107,4 +97,22 @@ test_that("use quantitative traits that are either 1 or 2", {
       assoc_qt_params = assoc_qt_params
     )
   )
+})
+
+
+
+test_that("A MAF removed allele that are too rare", {
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  assoc_qt_params <- create_demo_assoc_qt_params(n_individuals = 1000)
+
+  assoc_qt_params$maf <- 0.49
+  assoc_qt_results_1 <- assoc_qt(
+    assoc_qt_params = assoc_qt_params
+  )
+  assoc_qt_params$maf <- get_lowest_maf()
+  assoc_qt_results_2 <- assoc_qt(
+    assoc_qt_params = assoc_qt_params
+  )
+  expect_false(identical(assoc_qt_results_1, assoc_qt_results_2))
 })

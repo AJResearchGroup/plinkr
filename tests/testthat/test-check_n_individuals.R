@@ -1,6 +1,7 @@
 test_that("use", {
-  expect_silent(check_n_individuals(1))
+  expect_silent(check_n_individuals(2))
   expect_silent(check_n_individuals(314))
+  expect_error(check_n_individuals(1)) # Need 2 for any association
   expect_error(check_n_individuals(0))
   expect_error(check_n_individuals(-123))
   expect_error(check_n_individuals(3.14))

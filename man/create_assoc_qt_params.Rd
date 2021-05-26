@@ -4,7 +4,12 @@
 \alias{create_assoc_qt_params}
 \title{Create parameters for the \link{assoc_qt} function}
 \usage{
-create_assoc_qt_params(ped_table, map_table, phenotype_table, maf)
+create_assoc_qt_params(
+  ped_table,
+  map_table,
+  phenotype_table,
+  maf = get_lowest_maf()
+)
 }
 \arguments{
 \item{ped_table}{a 'pedigree' table.
@@ -59,7 +64,18 @@ columns can have any name
 Use \link{read_plink_phenotype_file} to read a phenotype file.
 Use \link{check_phenotype_table} to test if a phenotype table is valid.}
 
-\item{maf}{minor allele frequency}
+\item{maf}{minor allele frequency threshold.
+Alleles that have a frequency lower than the MAF
+are excluded from the PLINK analysis.
+\code{maf} must be a value between zero and 0.5
+(i.e. excluding zero and excluding 0.5).
+By default, \code{maf} is set to the lowest
+representable non-zero floating-point value,
+as obtained by \link{get_lowest_af}
+
+The parameter name \code{maf} is named after the
+PLINK \code{--maf} flag. This was chosen over
+more specific names such as \code{min_allele_frequency}).}
 }
 \description{
 Create parameters to detect associations with quantitative traits

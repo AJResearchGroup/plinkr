@@ -9,7 +9,7 @@ create_test_assoc_qt_params(
   map_table = get_test_map_table(),
   phenotype_table = plinkr::create_phenotype_table_from_ped_table(ped_table =
     ped_table),
-  maf = 0.05
+  maf = get_lowest_maf()
 )
 }
 \arguments{
@@ -65,7 +65,18 @@ columns can have any name
 Use \link{read_plink_phenotype_file} to read a phenotype file.
 Use \link{check_phenotype_table} to test if a phenotype table is valid.}
 
-\item{maf}{minor allele frequency}
+\item{maf}{minor allele frequency threshold.
+Alleles that have a frequency lower than the MAF
+are excluded from the PLINK analysis.
+\code{maf} must be a value between zero and 0.5
+(i.e. excluding zero and excluding 0.5).
+By default, \code{maf} is set to the lowest
+representable non-zero floating-point value,
+as obtained by \link{get_lowest_af}
+
+The parameter name \code{maf} is named after the
+PLINK \code{--maf} flag. This was chosen over
+more specific names such as \code{min_allele_frequency}).}
 }
 \description{
 Create parameters (as created by \link{create_assoc_qt_params})

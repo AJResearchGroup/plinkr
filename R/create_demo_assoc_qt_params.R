@@ -18,8 +18,9 @@
 create_demo_assoc_qt_params <- function(
   n_individuals = 4,
   phenotypes = get_phenotypes(),
-  maf = 0.05
+  maf = get_lowest_maf()
 ) {
+  plinkr::check_n_individuals(n_individuals)
   plinkr::check_phenotypes(phenotypes)
   plinkr::check_maf(maf)
   n_snps <- length(phenotypes)

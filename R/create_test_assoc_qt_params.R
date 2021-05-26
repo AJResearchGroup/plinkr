@@ -13,7 +13,7 @@ create_test_assoc_qt_params <- function(
   phenotype_table = plinkr::create_phenotype_table_from_ped_table(
     ped_table = ped_table
   ),
-  maf = 0.05
+  maf = get_lowest_maf()
 ) {
   plinkr::check_ped_table(ped_table = ped_table)
   plinkr::check_map_table(map_table = map_table)
@@ -24,6 +24,6 @@ create_test_assoc_qt_params <- function(
     ped_table = ped_table,
     map_table = map_table,
     phenotype_table = phenotype_table,
-    maf = 0.05
+    maf = maf
   )
 }

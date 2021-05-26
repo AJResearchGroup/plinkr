@@ -9,8 +9,7 @@ test_that("use", {
     create_assoc_qt_params(
       ped_table = ped_table,
       map_table = map_table,
-      phenotype_table = phenotype_table,
-      maf = 0.05
+      phenotype_table = phenotype_table
     )
   )
 })

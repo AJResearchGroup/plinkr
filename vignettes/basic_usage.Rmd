@@ -61,6 +61,11 @@ if (is_plink_installed()) {
 }
 ```
 
+The `--maf 0.05`, where `maf` is an abbreviation for
+minor allele frequency (MAF), denotes that alleles that
+have an occurrence below this MAF will be excluded from
+the analysis. In this PLINK example, this flag has no
+effect, as all alleles are present frequently enough.
 
 The `--pheno pheno.raw` means that PLINK will look for a files named `pheno.raw`. PLINK does not supply this example file, hence we will use one supplied by plinkr:
 

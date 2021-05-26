@@ -10,7 +10,18 @@ Frequency' is valid, which is when it is a number between
 check_maf(maf)
 }
 \arguments{
-\item{maf}{minor allele frequency}
+\item{maf}{minor allele frequency threshold.
+Alleles that have a frequency lower than the MAF
+are excluded from the PLINK analysis.
+\code{maf} must be a value between zero and 0.5
+(i.e. excluding zero and excluding 0.5).
+By default, \code{maf} is set to the lowest
+representable non-zero floating-point value,
+as obtained by \link{get_lowest_af}
+
+The parameter name \code{maf} is named after the
+PLINK \code{--maf} flag. This was chosen over
+more specific names such as \code{min_allele_frequency}).}
 }
 \value{
 Nothing. Will \link{stop} if the input

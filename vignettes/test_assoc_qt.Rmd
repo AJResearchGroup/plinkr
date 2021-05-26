@@ -111,13 +111,15 @@ names(assoc_qt_params$phenotype_table) <-
 
 ### The minor allele frequency (MAF)
 
-The minor allele frequency (MAF) is set to 5% as a default:
-
 ```{r}
 message(assoc_qt_params$maf)
 ```
 
-We leave it as it is.
+
+The minor allele frequency (MAF) denotes that alleles that
+have an occurrence below this MAF will be excluded from
+the analysis. As we want to analyse all data, the MAF is
+set to the lowest non-zero value.
 
 ### Detecting the association
 

@@ -22,4 +22,3 @@ test_that("random", {
   )
   expect_silent(check_ped_table(ped_table))
 })
-

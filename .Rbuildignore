@@ -9,5 +9,5 @@
 ^plink\.simfreq$
 ^temp\.sim$
 ^vignettes/.*log$
-^CODE_OF_CONDUCT/.md$
-^CONTRIBUTING/.md$
+^CODE_OF_CONDUCT\.md$
+^CONTRIBUTING\.md$

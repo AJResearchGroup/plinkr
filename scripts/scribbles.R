@@ -10,20 +10,28 @@ assoc_qt_params <- create_demo_assoc_qt_params(
 
 assoc_qt_params <- create_demo_assoc_qt_params(
   traits = list(
-    get_additive_trait(),
-    get_random_trait()
+    create_additive_trait(),
+    create_random_trait()
   ),
   n_individuals = 1000
 )
 
-
+list(
+    create_additive_trait(),
+    create_random_trait()
+)
 assoc_qt_params <- create_demo_assoc_qt_params(
-  traits = get_additive_trait(),
+  traits = create_additive_trait(),
   n_individuals = 1000
 )
 
 assoc_qt_params <- create_demo_assoc_qt_params(
-  traits = get_random_trait(),
+  traits = create_random_trait(),
+  n_individuals = 1000
+)
+
+assoc_qt_params <- create_demo_assoc_qt_params(
+  traits = create_trait("random"),
   n_individuals = 1000
 )
 

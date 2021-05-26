@@ -43,9 +43,9 @@ this phenotype
 \item \code{additive} the phenotype is perfectly additive
 (the nucleotides used are A and T as these are in the word 'additive'):
 \itemize{
-\item \code{AA} 1.0
-\item \code{AT} 0.5
-\item \code{TT} 0.0
+\item \code{AA} 11.0
+\item \code{AT} 10.5
+\item \code{TT} 10.0
 }
 }}
 }

@@ -5,9 +5,16 @@
 \title{Create a set of \code{assoc_qt} parameters
 to demonstrate PLINKs \code{--assoc_qt} functionality}
 \usage{
-create_demo_assoc_qt_params(phenotypes = get_phenotypes(), maf = 0.05)
+create_demo_assoc_qt_params(
+  n_individuals = 4,
+  phenotypes = get_phenotypes(),
+  maf = 0.05
+)
 }
 \arguments{
+\item{n_individuals}{the number of individuals.
+Use \link{check_n_individuals} to check if this is a valid value}
+
 \item{phenotypes}{one ore more phenotypes,
 named after their genetic background:
 \itemize{

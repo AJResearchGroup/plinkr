@@ -2,8 +2,7 @@
 % Please edit documentation in R/check_equal_number_of_snvs.R
 \name{check_equal_number_of_snvs}
 \alias{check_equal_number_of_snvs}
-\title{Check if the \code{assoc_qt_params} has the same number of
-SNVs in the genetic mapping and the pedigree table.}
+\title{Internal function, called by \link{check_assoc_qt_params}}
 \usage{
 check_equal_number_of_snvs(assoc_qt_params)
 }
@@ -15,5 +14,5 @@ as can be created by \link{create_assoc_qt_params}}
 \description{
 Check if the \code{assoc_qt_params} has the same number of
 SNVs in the genetic mapping and the pedigree table.
-Will \link{stop} if not
+Will \link{stop} if not.
 }

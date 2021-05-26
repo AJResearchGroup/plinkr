@@ -71,7 +71,8 @@ This value is optional. Zeroes denote it is unused
 Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
 Use \link{check_map_table} to test if a genetic mapping table is valid.}
 
-\item{n_individuals}{the number of individuals}
+\item{n_individuals}{the number of individuals.
+Use \link{check_n_individuals} to check if this is a valid value}
 
 \item{n_snps}{the number of SNPs}
 

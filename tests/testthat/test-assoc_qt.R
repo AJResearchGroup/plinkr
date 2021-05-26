@@ -78,3 +78,13 @@ test_that("demo on additive only", {
   # 1 trait times 1 SNP = 1 association
   expect_equal(nrow(assoc_qt_results), 1)
 })
+
+test_that("more individuals", {
+  if (!is_plink_installed()) return()
+  assoc_qt_params <- create_demo_assoc_qt_params(
+    n_individuals = 100
+  )
+  assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+  # Two traits times two SNPs = four association
+  expect_equal(4, nrow(assoc_qt_results))
+})

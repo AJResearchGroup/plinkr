@@ -26,7 +26,8 @@
 #'
 #' Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
 #' Use \link{check_map_table} to test if a genetic mapping table is valid.
-#' @param n_individuals the number of individuals
+#' @param n_individuals the number of individuals.
+#' Use \link{check_n_individuals} to check if this is a valid value
 #' @param n_snps the number of SNPs
 #' @param ped_filename name of a PLINK \code{.ped} file.
 #' Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.

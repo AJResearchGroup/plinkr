@@ -16,6 +16,7 @@
 #' @inheritParams default_params_doc
 #' @export
 create_demo_assoc_qt_params <- function(
+  n_individuals = 4,
   phenotypes = get_phenotypes(),
   maf = 0.05
 ) {

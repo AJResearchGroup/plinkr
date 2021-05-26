@@ -18,7 +18,8 @@ simulate_qt(
 traits simulation, as can be created by
 \link{create_simulate_qt_params}}
 
-\item{n_individuals}{the number of individuals}
+\item{n_individuals}{the number of individuals.
+Use \link{check_n_individuals} to check if this is a valid value}
 
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a PLINK \code{.sim} file}

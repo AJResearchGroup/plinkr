@@ -48,7 +48,7 @@ Use `get_plink_versions()` to see which versions are supported.
 ```
 library(plinkr)
 assoc_qt_params <- create_demo_assoc_qt_params()
-assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
+assoc_qt_results <- assoc_qt(assoc_qt_params)
 ```
 
 ## Features

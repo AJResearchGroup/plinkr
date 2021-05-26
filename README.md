@@ -7,11 +7,11 @@ Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github
 
 Work with [PLINK](http://zzz.bwh.harvard.edu/plink/) from R
 
+:construction: Users wanted! Go ahead and post an Issue with a feature request, or send me an email
+
  * Doing the first PLINK example: [YouTube](https://youtu.be/LsfKQw2oIUg) [download (.ogv)](http://richelbilderbeek.nl/plinkr_basic_usage.ogv)
  * Detect an association with one or more quantitative traits: [YouTube](https://youtu.be/IicNdc8sDfI) [download (.ogv)](http://richelbilderbeek.nl/plinkr_assoc_qt.ogv)
  * Detect an association with ideal quantitative traits: [YouTube](https://youtu.be/oXGy83WiHm4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_demo_qt_assoc.ogv)
-
-
 
 ## Examples
 

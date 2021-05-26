@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @export
 create_demo_phenotype_table <- function(
-  ped_table = create_demo_ped_table(get_phenotypes()),
+  ped_table = create_demo_ped_table(),
   phenotypes = get_phenotypes()
 ) {
   plinkr::check_ped_table(ped_table)

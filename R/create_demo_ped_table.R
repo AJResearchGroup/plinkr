@@ -38,11 +38,10 @@ create_demo_ped_table <- function(
       testthat::expect_true(phenotype == "additive")
       nucleotides <- c("A", "T")
     }
-    snv_combinations <- tidyr::expand_grid(
-      a = nucleotides,
-      b = nucleotides
+    t <- tibble::tibble(
+      a = sample(nucleotides, size = n_individuals, replace = TRUE),
+      b = sample(nucleotides, size = n_individuals, replace = TRUE)
     )
-    t <- tibble::tibble(snv_combinations)
     names(t) <- paste0("snv_", i, names(t))
     tibbles[[i]] <- t
   }

@@ -17,8 +17,10 @@ test_that("additive", {
 })
 
 test_that("random", {
+  n_individuals <- 314
   ped_table <- create_demo_ped_table(
-    n_individuals = 4
+    n_individuals = n_individuals
   )
   expect_silent(check_ped_table(ped_table))
+  expect_equal(nrow(ped_table), n_individuals)
 })

@@ -5,7 +5,7 @@
 \title{Create a demo phenotype table}
 \usage{
 create_demo_phenotype_table(
-  ped_table = create_demo_ped_table(get_phenotypes()),
+  ped_table = create_demo_ped_table(),
   phenotypes = get_phenotypes()
 )
 }

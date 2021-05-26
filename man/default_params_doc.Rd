@@ -59,7 +59,7 @@ are excluded from the PLINK analysis.
 (i.e. excluding zero and excluding 0.5).
 By default, \code{maf} is set to the lowest
 representable non-zero floating-point value,
-as obtained by \link{get_lowest_af}
+as obtained by \link{get_lowest_maf}
 
 The parameter name \code{maf} is named after the
 PLINK \code{--maf} flag. This was chosen over

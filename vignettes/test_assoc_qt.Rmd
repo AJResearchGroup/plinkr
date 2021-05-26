@@ -153,7 +153,7 @@ from `trait` to `trait_x`:
  
 ```{r}
 if (is_plink_installed()) {
-  # Rename 
+  # Rename
   names(assoc_qt_params$phenotype_table) <-
     c(
       names(assoc_qt_params$phenotype_table)[-3],

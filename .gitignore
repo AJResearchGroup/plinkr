@@ -38,9 +38,14 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 plink-1.07-x86_64/
-plink.log
-plink.assoc
 inst/doc
 .pversion
-^plink.simfreq$
 temp.sim
+plink.assoc
+plink.bed
+plink.bim
+plink.fam
+plink.log
+plink.qassoc
+plink.simfreq
+

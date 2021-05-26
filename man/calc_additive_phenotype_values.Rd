@@ -20,6 +20,7 @@ for A to G.}
 }
 \description{
 Calculate the phenotypic values for a trait that is perfectly additive.
+A phenotypic value starts at 10.0.
 }
 \details{
 \itemize{
@@ -29,4 +30,13 @@ Calculate the phenotypic values for a trait that is perfectly additive.
 
 The SNVs ('Single Nucleotide Variants') must reflect this genetic
 architecture, i.e. must consist out of adenines and thymines
+}
+\note{
+the reason a phenotypic value starts at 10.0, instead of 0.0,
+is due to PLINK: if phenotypic values are all only zeroes and ones
+(and twos), PLINK will interpret these as case-control codes.
+There is no way to force PLINK to do a quantitative trait analysis on
+zeroes and ones.
+
+As a workaround, phenotypic traits start from ten.
 }

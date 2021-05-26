@@ -3,5 +3,5 @@ test_that("use", {
   phenotype_values <- calc_additive_phenotype_values(
     snvs = snvs
   )
-  expect_equal(phenotype_values, c(0.0, 0.5, 0.5, 1.0))
+  expect_equal(phenotype_values, 10 + c(0.0, 0.5, 0.5, 1.0))
 })

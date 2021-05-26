@@ -24,9 +24,9 @@ library(plinkr)
 install_plinks()
 ```
 
-### Running PLINKs
+### Running PLINK
 
-Call PLINK:
+Run PLINK:
 
 ```
 library(plinkr)
@@ -40,6 +40,8 @@ run_plink("--help", plink_version = "1.7")
 ```
 
 Of course, you can also call PLINK to detect genetic associations :-)
+
+Use `get_plink_versions()` to see which versions are supported.
 
 ### Demonstrate a quantitative trait analysis
 

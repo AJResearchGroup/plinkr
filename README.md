@@ -24,6 +24,8 @@ library(plinkr)
 install_plinks()
 ```
 
+Use `get_plink_versions()` to see which versions are supported.
+
 ### Running PLINK
 
 Run PLINK:
@@ -39,9 +41,7 @@ To call a specific version of PLINK:
 run_plink("--help", plink_version = "1.7")
 ```
 
-Use `get_plink_versions()` to see which versions are supported.
-
-Of course, you can also call PLINK to detect genetic associations:
+Of course, you can also call PLINK to detect genetic associations :-) :
 
 ```
 # Use the PLINK v1.9 example files

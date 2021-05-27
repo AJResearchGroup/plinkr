@@ -78,14 +78,26 @@ knitr::kable(assoc_qt_params$map_table)
 
 ### The pedigree table
 
-The PLINK example \code{.ped} contains, among others, the pedigree of the individuals:
+The PLINK example \code{.ped} contains:
+
+ * the pedigree of the individuals
+ * the SNP calls of the individuals
+
+Show only the pedigree:
 
 ```{r}
-knitr::kable(assoc_qt_params$ped_table)
+knitr::kable(assoc_qt_params$ped_table[, 1:6])
 ```
 
 Note that the pedigree table has a column called `case_control_code`,
 which will be completely ignored.
+
+Show only the SNP calls:
+
+```{r}
+knitr::kable(assoc_qt_params$ped_table[, -(1:6)])
+```
+
 
 ### The phenotype table
 

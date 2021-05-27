@@ -26,10 +26,15 @@
 #' by the number of traits.
 #'
 #' Note that parameters in uppercase are named as such by PLINK.
+#' @examples
+#' if (is_plink_installed()) {
+#'   assoc_qt(create_demo_assoc_qt_params())
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_qt <- function(
-  assoc_qt_params
+  assoc_qt_params,
+  verbose = FALSE
 ) {
   plinkr::check_assoc_qt_params(assoc_qt_params)
   n_traits <- ncol(assoc_qt_params$phenotype_table) - 2
@@ -38,7 +43,8 @@ assoc_qt <- function(
   for (n in seq_len(n_traits)) {
     t <- plinkr::assoc_qt_nth_trait(
       assoc_qt_params = assoc_qt_params,
-      n = n
+      n = n,
+      verbose = verbose
     )
     t$trait_name <- names(assoc_qt_params$phenotype_table[2 + n])
     trait_name <- NULL # nolint suppress 'no visible binding for global variable'

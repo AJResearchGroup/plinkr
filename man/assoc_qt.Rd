@@ -4,12 +4,14 @@
 \alias{assoc_qt}
 \title{Let PLINK detect an association with one ore more quantitative traits.}
 \usage{
-assoc_qt(assoc_qt_params)
+assoc_qt(assoc_qt_params, verbose = FALSE)
 }
 \arguments{
 \item{assoc_qt_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc_qt}),
 as can be created by \link{create_assoc_qt_params}}
+
+\item{verbose}{set to TRUE for more output}
 }
 \value{
 a \link[tibble]{tibble} with the following columns:
@@ -41,6 +43,11 @@ the second trait and its second set of SNPs, etc.
 }
 \note{
 This function is named after the \code{--assoc} flag used by PLINK
+}
+\examples{
+if (is_plink_installed()) {
+  assoc_qt(create_demo_assoc_qt_params())
+}
 }
 \author{
 Richèl J.C. Bilderbeek

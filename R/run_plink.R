@@ -16,6 +16,11 @@
 #'      "--map", map_filename
 #'     )
 #'   )
+#'
+#'   # Delete the created files
+#'   file.remove("plink.bed")
+#'   file.remove("plink.fam")
+#'   file.remove("plink.log")
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

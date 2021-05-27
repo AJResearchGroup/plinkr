@@ -7,7 +7,8 @@
 #' @export
 assoc_qt_nth_trait <- function(
   assoc_qt_params,
-  n
+  n,
+  verbose = FALSE
 ) {
   plinkr::check_assoc_qt_params(assoc_qt_params)
   testthat::expect_true(n >= 1)
@@ -27,20 +28,6 @@ assoc_qt_nth_trait <- function(
   map_table <- assoc_qt_params$map_table
   phenotype_table <- assoc_qt_params$phenotype_table
   maf <- assoc_qt_params$maf
-
-  # Of the pedigree table, only keep the nth SNP
-  if (1 == 2) {
-    col_snp_a <- 6 + ((n - 1) * 2) + 1
-    testthat::expect_true(col_snp_a >= 7)
-    col_snp_b <- col_snp_a + 1
-    testthat::expect_true(col_snp_b <= ncol(ped_table))
-    ped_table <- ped_table[, c(seq(1, 6), col_snp_a, col_snp_b)]
-  }
-
-  # Of the genetic mapping, only keep the nth SNP
-  if (1 == 2) {
-    map_table <- map_table[n, ]
-  }
 
   # Of the phenotypes, only keep the nth phenotype
   trait_index <- 2 + n
@@ -80,14 +67,26 @@ assoc_qt_nth_trait <- function(
     recursive = TRUE
   )
 
-  plinkr::run_plink(
-    args = c(
-      "--file", base_input_filename,
-      "--assoc",
-      "--pheno", phenotype_filename,
-      "--maf", maf,
-      "--out", output_filename_base
-    )
+  args <- c(
+    "--file", base_input_filename,
+    "--assoc",
+    "--pheno", phenotype_filename,
+    "--maf", maf,
+    "--out", output_filename_base
   )
-  plinkr::read_plink_qassoc_file(qassoc_filename)
+
+  plinkr::run_plink(args = args, verbose = verbose)
+
+  qassoc_table <- plinkr::read_plink_qassoc_file(qassoc_filename)
+
+  file.remove(map_filename)
+  file.remove(ped_filename)
+  file.remove(phenotype_filename)
+  file.remove(qassoc_filename)
+  testthat::expect_equal(
+    0,
+    length(list.files(pattern = base_input_filename))
+  )
+
+  qassoc_table
 }

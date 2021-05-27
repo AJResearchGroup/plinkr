@@ -49,6 +49,11 @@ if (is_plink_installed()) {
      "--map", map_filename
     )
   )
+
+  # Delete the created files
+  file.remove("plink.bed")
+  file.remove("plink.fam")
+  file.remove("plink.log")
 }
 }
 \author{

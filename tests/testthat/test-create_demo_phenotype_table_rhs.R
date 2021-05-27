@@ -9,5 +9,10 @@ test_that("use", {
       traits = create_additive_trait()
     )
   )
+  expect_silent(
+    create_demo_phenotype_table_rhs(
+      traits = create_epistatic_trait()
+    )
+  )
   expect_silent(create_demo_phenotype_table_rhs())
 })

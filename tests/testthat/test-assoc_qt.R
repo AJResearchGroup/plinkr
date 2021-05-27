@@ -37,8 +37,8 @@ test_that("default demo", {
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params()
   assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
-  # Two traits times two SNPs = four association
-  expect_equal(4, nrow(assoc_qt_results))
+  # three traits times four SNPs = 12 association
+  expect_equal(12, nrow(assoc_qt_results))
 })
 
 test_that("demo on random only", {

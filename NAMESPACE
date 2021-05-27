@@ -3,6 +3,7 @@
 export(assoc_qt)
 export(assoc_qt_nth_trait)
 export(calc_additive_phenotype_values)
+export(calc_epistatic_phenotype_values)
 export(calc_random_phenotype_values)
 export(check_assoc_qt_params)
 export(check_equal_number_of_snvs)

@@ -32,7 +32,7 @@ create_demo_phenotype_table_rhs <- function(
     if (trait$phenotype == "epistatic") ped_col_to <- ped_col_from + 3
     testthat::expect_true(!is.na(ped_col_to))
     testthat::expect_true(ped_col_to <= ncol(ped_table))
-    snvs <- ped_table[, c(ped_col_from, ped_col_to)]
+    snvs <- ped_table[, seq(from = ped_col_from, to = ped_col_to)]
     values <- NA
     if (trait$phenotype == "random") {
        values <- plinkr::calc_random_phenotype_values(snvs = snvs)

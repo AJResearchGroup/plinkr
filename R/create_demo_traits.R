@@ -8,6 +8,7 @@
 create_demo_traits <- function() {
   list(
     plinkr::create_random_trait(),
-    plinkr::create_additive_trait()
+    plinkr::create_additive_trait(),
+    plinkr::create_epistatic_trait()
   )
 }

@@ -4,10 +4,12 @@
 \alias{create_demo_map_table}
 \title{Create a demo genetic mapping \code{.map} table}
 \usage{
-create_demo_map_table(n_snps = 1)
+create_demo_map_table(traits = create_demo_traits())
 }
 \arguments{
-\item{n_snps}{the number of SNPs}
+\item{traits}{one or more traits
+with a clear genetic architecture and a known minor allele frequency,
+as, for example, created by \link{create_demo_traits}.}
 }
 \description{
 Create a demo genetic mapping \code{.map} table.

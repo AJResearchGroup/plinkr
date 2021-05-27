@@ -13,6 +13,40 @@
 #'      where each `T` increases it by 0.5
 #'
 #' @note This function is named after the \code{--assoc-qt} PLINK flag.
+#' @examples
+#' # Default
+#' create_demo_assoc_qt_params()
+#'
+#' # Add more individuals
+#' create_demo_assoc_qt_params(n_individuals = 1000)
+#'
+#' # Use a random trait
+#' create_demo_assoc_qt_params(
+#'   traits = create_random_trait()
+#' )
+#'
+#' # Use an additive trait
+#' create_demo_assoc_qt_params(
+#'   traits = create_additive_trait()
+#' )
+#'
+#' # Use an additive and random trait
+#' create_demo_assoc_qt_params(
+#'   traits = list(create_additive_trait(), create_random_trait())
+#' )
+#'
+#' # Use three random traits
+#' create_demo_assoc_qt_params(
+#'   traits = rep(list(create_random_trait()), 3)
+#' )
+#'
+#' # Use two additive traits with different minor allele frequencies
+#' create_demo_assoc_qt_params(
+#'   traits = list(
+#'     get_additive_trait(maf = 0.01),
+#'     get_additive_trait(maf = 0.10)
+#'   )
+#' )
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export

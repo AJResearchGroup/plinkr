@@ -1,0 +1,16 @@
+test_that("use", {
+  t <- create_random_trait()
+  expect_true(is_one_trait(t))
+
+  expect_false(is_one_trait(c(t, t)))
+  expect_false(is_one_trait(list(t)))
+  expect_false(is_one_trait(create_demo_traits()))
+  expect_false(is_one_trait("nonsense"))
+  expect_false(is_one_trait(""))
+  expect_false(is_one_trait(3.14))
+  expect_false(is_one_trait(42))
+  expect_false(is_one_trait(NA))
+  expect_false(is_one_trait(NULL))
+  expect_false(is_one_trait(Inf))
+  expect_false(is_one_trait(c()))
+})

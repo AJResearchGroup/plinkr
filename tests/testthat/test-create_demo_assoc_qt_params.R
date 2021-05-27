@@ -17,8 +17,11 @@ test_that("MAFs", {
   n_individuals <- 100
   mafs <- c(0.31, 0.02)
   assoc_qt_params <- create_demo_assoc_qt_params(
-    mafs = mafs,
-    n_individuals = n_individuals,
+    traits = list(
+      create_random_trait(maf = mafs[1]),
+      create_random_trait(maf = mafs[2])
+    ),
+    n_individuals = n_individuals
   )
   expect_silent(check_assoc_qt_params(assoc_qt_params))
   expect_equal(n_individuals, nrow(assoc_qt_params$ped_table))

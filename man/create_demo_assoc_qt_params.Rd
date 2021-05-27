@@ -5,46 +5,15 @@
 \title{Create a set of \code{assoc_qt} parameters
 to demonstrate PLINKs \code{--assoc_qt} functionality}
 \usage{
-create_demo_assoc_qt_params(
-  n_individuals = 4,
-  phenotypes = get_phenotypes(),
-  mafs = rep(0.25, length(phenotypes)),
-  maf = get_lowest_maf()
-)
+create_demo_assoc_qt_params(n_individuals = 4, traits = create_demo_traits())
 }
 \arguments{
 \item{n_individuals}{the number of individuals.
 Use \link{check_n_individuals} to check if this is a valid value}
 
-\item{phenotypes}{one ore more phenotypes,
-named after their genetic background:
-\itemize{
-\item \code{random} the phenotype is a random value,
-i.e. there is no association between the genetics and
-this phenotype
-\item \code{additive} the phenotype is perfectly additive
-(the nucleotides used are A and T as these are in the word 'additive'):
-\itemize{
-\item \code{AA} 11.0
-\item \code{AT} 10.5
-\item \code{TT} 10.0
-}
-}}
-
-\item{mafs}{one or more minor allele frequencies}
-
-\item{maf}{minor allele frequency threshold.
-Alleles that have a frequency lower than the MAF
-are excluded from the PLINK analysis.
-\code{maf} must be a value between zero and 0.5
-(i.e. excluding zero and excluding 0.5).
-By default, \code{maf} is set to the lowest
-representable non-zero floating-point value,
-as obtained by \link{get_lowest_maf}
-
-The parameter name \code{maf} is named after the
-PLINK \code{--maf} flag. This was chosen over
-more specific names such as \code{min_allele_frequency}).}
+\item{traits}{one or more traits
+with a clear genetic architecture and a known minor allele frequency,
+as, for example, created by \link{create_demo_traits}.}
 }
 \description{
 This function creates:

@@ -2,7 +2,7 @@ test_that("use", {
   phenotype_table <- read_plink_phenotype_file(
     phenotype_filename = get_plinkr_filename("pheno.raw")
   )
-  phenotype_filename <- tempfile()
+  phenotype_filename <- get_plinkr_tempfilename()
   save_phenotype_table_to_file(
     phenotype_table = phenotype_table,
     phenotype_filename = phenotype_filename
@@ -20,7 +20,8 @@ test_that("sub-sub-sub folder", {
     phenotype_filename = get_plinkr_filename("pheno.raw")
   )
   phenotype_filename <- file.path(
-    tempfile(), "sub", "sub", "sub", "folder", "test.phenotype"
+    get_plinkr_tempfilename(),
+    "sub", "sub", "sub", "folder", "test.phenotype"
   )
   save_phenotype_table_to_file(
     phenotype_table = phenotype_table,

@@ -12,10 +12,19 @@
 #' @export
 create_demo_ped_table <- function(
   n_individuals = 4,
-  phenotypes = get_phenotypes(),
-  mafs = rep(0.25, length(phenotypes))
+  traits = create_demo_traits()
 ) {
   plinkr::check_n_individuals(n_individuals)
+  plinkr::check_traits(traits)
+
+  # traits must be a list of traits
+  if (plinkr::is_one_trait(traits)) traits <- list(traits)
+  testthat::expect_false(plinkr::is_one_trait(traits))
+
+  # Don't be smart yet
+  phenotypes <- purrr::map_chr(traits, function(e) e$phenotype)
+  mafs <- purrr::map_dbl(traits, function(e) e$maf)
+
   plinkr::check_phenotypes(phenotypes)
   testthat::expect_equal(length(phenotypes), length(mafs))
   n_snvs <- length(phenotypes)

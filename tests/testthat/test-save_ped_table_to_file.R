@@ -1,6 +1,6 @@
 test_that("minimal use, using get_test_ped_table", {
   ped_table <- get_test_ped_table()
-  ped_filename <- tempfile()
+  ped_filename <- get_plinkr_tempfilename()
   save_ped_table_to_file(
     ped_table = ped_table,
     ped_filename = ped_filename
@@ -17,7 +17,7 @@ test_that("detailed use, exactly re-create PLINK v1.7 file", {
   ped_table <- read_plink_ped_file(
     ped_filename = plink_ped_filename
   )
-  ped_filename <- tempfile()
+  ped_filename <- get_plinkr_tempfilename()
   save_ped_table_to_file(
     ped_table = ped_table,
     ped_filename = ped_filename
@@ -31,7 +31,8 @@ test_that("detailed use, exactly re-create PLINK v1.7 file", {
 test_that("sub-sub-sub folder", {
   ped_table <- get_test_ped_table()
   ped_filename <- file.path(
-    tempfile(), "sub", "sub", "sub", "folder", "test.ped"
+    get_plinkr_tempfilename(),
+    "sub", "sub", "sub", "folder", "test.ped"
   )
   save_ped_table_to_file(
     ped_table = ped_table,

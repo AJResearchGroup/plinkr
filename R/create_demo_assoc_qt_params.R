@@ -18,31 +18,31 @@
 #' @export
 create_demo_assoc_qt_params <- function(
   n_individuals = 4,
-  phenotypes = get_phenotypes(),
-  mafs = rep(0.25, length(phenotypes)),
-  maf = get_lowest_maf()
+  traits = create_demo_traits()
 ) {
   plinkr::check_n_individuals(n_individuals)
-  plinkr::check_phenotypes(phenotypes)
-  plinkr::check_maf(maf)
-  testthat::expect_equal(length(phenotypes), length(mafs))
-  n_snps <- length(phenotypes)
-  testthat::expect_true(n_snps >= 0)
-  testthat::expect_silent(plinkr::check_phenotypes(phenotypes))
+  plinkr::check_traits(traits)
+
+  # traits must be a list of traits
+  if (plinkr::is_one_trait(traits)) traits <- list(traits)
+  testthat::expect_false(plinkr::is_one_trait(traits))
+  plinkr::check_traits(traits)
+  n_traits <- length(traits)
+  testthat::expect_true(n_traits >= 0)
   ped_table <- plinkr::create_demo_ped_table(
-    mafs = mafs,
     n_individuals = n_individuals,
-    phenotypes = phenotypes
+    traits = traits
   )
-  map_table <- plinkr::create_demo_map_table(n_snps = length(phenotypes))
+  map_table <- plinkr::create_demo_map_table(
+    n_snps = n_traits
+  )
   phenotype_table <- create_demo_phenotype_table(
     ped_table = ped_table,
-    phenotypes = phenotypes
+    traits = traits
   )
   plinkr::create_assoc_qt_params(
     ped_table = ped_table,
     map_table = map_table,
-    phenotype_table = phenotype_table,
-    maf = maf
+    phenotype_table = phenotype_table
   )
 }

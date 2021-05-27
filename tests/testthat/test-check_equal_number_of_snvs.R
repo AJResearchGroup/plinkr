@@ -15,7 +15,7 @@ test_that("detect mismatch", {
   assoc_qt_params <- create_demo_assoc_qt_params()
   # Creates two SNVs
   assoc_qt_params$ped_table <- create_demo_ped_table(
-    phenotypes = get_phenotypes()[1:2] # 2
+    traits = rep(list(create_random_trait()), 2)
   )
   assoc_qt_params$map_table <- create_demo_map_table(n_snps = 3)
   expect_error(

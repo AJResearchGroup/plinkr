@@ -76,7 +76,7 @@ phenotype_filename <- get_plinkr_filename("pheno.raw")
 The `--out run1` means that PLINK will create a file that starts with  `run1`. In this context, where we test for an association for a quantitive trait, this file will be called `run1.qassoc`. 
 
 ```{r}
-output_filename_base <- file.path(tempfile(), "run1")
+output_filename_base <- file.path(get_plinkr_tempfilename(), "run1")
 output_filename_base <- "run1"
 output_filename_qassoc <- paste0(output_filename_base, ".qassoc")
 ```

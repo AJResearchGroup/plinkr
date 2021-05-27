@@ -3,11 +3,20 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_demo_phenotype_table <- function(
-  ped_table = create_demo_ped_table(),
-  phenotypes = get_phenotypes()
+  traits = create_demo_traits(),
+  ped_table = create_demo_ped_table(traits = traits)
 ) {
   plinkr::check_ped_table(ped_table)
+  plinkr::check_traits(traits)
+
+  # traits must be a list of traits
+  if (plinkr::is_one_trait(traits)) traits <- list(traits)
+  testthat::expect_false(plinkr::is_one_trait(traits))
+
+  # Don't be smart yet
+  phenotypes <- purrr::map_chr(traits, function(e) e$phenotype)
   plinkr::check_phenotypes(phenotypes)
+
 
   # Allow multiple columns with random
   n_randoms <- sum(phenotypes == "random")

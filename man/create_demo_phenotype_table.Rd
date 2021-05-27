@@ -5,11 +5,15 @@
 \title{Create a demo phenotype table}
 \usage{
 create_demo_phenotype_table(
-  ped_table = create_demo_ped_table(),
-  phenotypes = get_phenotypes()
+  traits = create_demo_traits(),
+  ped_table = create_demo_ped_table(traits = traits)
 )
 }
 \arguments{
+\item{traits}{one or more traits
+with a clear genetic architecture and a known minor allele frequency,
+as, for example, created by \link{create_demo_traits}.}
+
 \item{ped_table}{a 'pedigree' table.
 
 A \code{ped_table} is a \link[tibble]{tibble} with these columns:
@@ -33,21 +37,6 @@ in the \code{.map file} (\code{0} = no call)
 
 Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
-
-\item{phenotypes}{one ore more phenotypes,
-named after their genetic background:
-\itemize{
-\item \code{random} the phenotype is a random value,
-i.e. there is no association between the genetics and
-this phenotype
-\item \code{additive} the phenotype is perfectly additive
-(the nucleotides used are A and T as these are in the word 'additive'):
-\itemize{
-\item \code{AA} 11.0
-\item \code{AT} 10.5
-\item \code{TT} 10.0
-}
-}}
 }
 \description{
 Create a demo phenotype table

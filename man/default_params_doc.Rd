@@ -32,6 +32,8 @@ default_params_doc(
   simulate_qt_params,
   snvs,
   temp_sim_filename,
+  trait,
+  traits,
   url,
   verbose
 )
@@ -118,6 +120,20 @@ in the \code{.map file} (\code{0} = no call)
 Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
 
+\item{phenotype}{one phenotype, named after its genetic background:
+\itemize{
+\item \code{random} the phenotype is a random value,
+i.e. there is no association between the genetics and
+this phenotype
+\item \code{additive} the phenotype is perfectly additive
+(the nucleotides used are A and T as these are in the word 'additive'):
+\itemize{
+\item \code{AA} 11.0
+\item \code{AT} 10.5
+\item \code{TT} 10.0
+}
+}}
+
 \item{phenotype_filename}{name of a raw phenotype file.
 Use \link{read_plink_phenotype_file} to read a raw phenotype file.}
 
@@ -183,6 +199,14 @@ for A to G.}
 
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a PLINK \code{.sim} file}
+
+\item{trait}{one trait with a clear genetic architecture and a known
+minor allele frequency, as created by \link{create_trait}.
+Use \link{is_one_trait} to detect if something is one trait}
+
+\item{traits}{one or more traits
+with a clear genetic architecture and a known minor allele frequency,
+as, for example, created by \link{create_demo_traits}.}
 
 \item{url}{PLINK download URL}
 

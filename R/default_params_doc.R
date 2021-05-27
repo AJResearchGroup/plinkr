@@ -64,7 +64,7 @@
 #'
 #' Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
 #' Use \link{check_ped_table} to test if a pedigree table is valid.
-#' @param phenotypes one phenotypes, named after its genetic background:
+#' @param phenotype one phenotype, named after its genetic background:
 #'
 #'  * \code{random} the phenotype is a random value,
 #'    i.e. there is no association between the genetics and
@@ -123,6 +123,12 @@
 #' for A to G.
 #' @param temp_sim_filename temporary file to store simulation
 #'   parameters, which is a PLINK \code{.sim} file
+#' @param trait one trait with a clear genetic architecture and a known
+#' minor allele frequency, as created by \link{create_trait}.
+#' Use \link{is_one_trait} to detect if something is one trait
+#' @param traits one or more traits
+#' with a clear genetic architecture and a known minor allele frequency,
+#' as, for example, created by \link{create_demo_traits}.
 #' @param url PLINK download URL
 #' @param verbose set to TRUE for more output
 #' @author Richèl J.C. Bilderbeek
@@ -156,6 +162,8 @@ default_params_doc <- function(
   simulate_qt_params,
   snvs,
   temp_sim_filename,
+  trait,
+  traits,
   url,
   verbose
 ) {

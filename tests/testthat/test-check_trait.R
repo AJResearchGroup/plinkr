@@ -1,0 +1,12 @@
+test_that("use", {
+  expect_silent(check_trait(create_trait("random")))
+  expect_silent(check_trait(create_random_trait()))
+  expect_silent(check_trait(create_additive_trait()))
+  expect_error(check_trait("nonsense"))
+  expect_error(check_trait(42))
+  expect_error(check_trait(3.14))
+  expect_error(check_trait(NULL))
+  expect_error(check_trait(NA))
+  expect_error(check_trait(Inf))
+  expect_error(check_trait(c()))
+})

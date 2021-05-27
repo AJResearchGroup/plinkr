@@ -45,7 +45,7 @@ test_that("default demo", {
 test_that("demo on random only", {
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_demo_assoc_qt_params(
-    phenotypes = "random"
+    traits = create_random_trait()
   )
   assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
   # 1 trait times 1 SNP = 1 association
@@ -56,7 +56,7 @@ test_that("demo on two randoms", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
-    phenotypes = rep("random", 2)
+    traits = rep(list(create_random_trait()), 2)
   )
   assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
   # 2 trait times 2 SNP = 4 association
@@ -68,7 +68,7 @@ test_that("number of individuals", {
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
     n_individuals = 3,
-    phenotypes = "random"
+    traits = create_random_trait()
   )
   assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
   # One traits times one SNP = one association
@@ -78,7 +78,7 @@ test_that("number of individuals", {
 test_that("demo on additive only", {
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_demo_assoc_qt_params(
-    phenotypes = "additive"
+    traits = create_additive_trait()
   )
   assoc_qt_results <- assoc_qt(assoc_qt_params = assoc_qt_params)
   # 1 trait times 1 SNP = 1 association

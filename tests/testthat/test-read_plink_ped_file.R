@@ -52,7 +52,7 @@ test_that("use, v1.9", {
 
 
 test_that("save and load result from get_test_ped_table()", {
-  ped_filename <- tempfile()
+  ped_filename <- get_plinkr_tempfilename()
   ped_table <- get_test_ped_table()
   save_ped_table_to_file(
     ped_table = ped_table,
@@ -63,7 +63,7 @@ test_that("save and load result from get_test_ped_table()", {
 })
 
 test_that("save and load result from create_demo_ped_table()", {
-  ped_filename <- tempfile()
+  ped_filename <- get_plinkr_tempfilename()
   ped_table <- create_demo_ped_table()
   save_ped_table_to_file(
     ped_table = ped_table,

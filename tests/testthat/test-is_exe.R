@@ -1,5 +1,5 @@
 test_that("use on text file", {
-  temp_filename <- tempfile()
+  temp_filename <- get_plinkr_tempfilename()
   writeLines(text = "temp", temp_filename)
   expect_false(is_exe(filename = temp_filename))
 })

@@ -16,6 +16,7 @@ Depends:
 Imports:
     devtools,
     dplyr,
+    purrr,
     rappdirs,
     readr,
     stringr,

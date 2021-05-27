@@ -4,32 +4,15 @@
 \alias{create_demo_ped_table}
 \title{Create a demo pedigree \code{.ped} table}
 \usage{
-create_demo_ped_table(
-  n_individuals = 4,
-  phenotypes = get_phenotypes(),
-  mafs = rep(0.25, length(phenotypes))
-)
+create_demo_ped_table(n_individuals = 4, traits = create_demo_traits())
 }
 \arguments{
 \item{n_individuals}{the number of individuals.
 Use \link{check_n_individuals} to check if this is a valid value}
 
-\item{phenotypes}{one ore more phenotypes,
-named after their genetic background:
-\itemize{
-\item \code{random} the phenotype is a random value,
-i.e. there is no association between the genetics and
-this phenotype
-\item \code{additive} the phenotype is perfectly additive
-(the nucleotides used are A and T as these are in the word 'additive'):
-\itemize{
-\item \code{AA} 11.0
-\item \code{AT} 10.5
-\item \code{TT} 10.0
-}
-}}
-
-\item{mafs}{one or more minor allele frequencies}
+\item{traits}{one or more traits
+with a clear genetic architecture and a known minor allele frequency,
+as, for example, created by \link{create_demo_traits}.}
 }
 \description{
 Create a demo pedigree \code{.ped} table,

@@ -1,6 +1,6 @@
 test_that("use", {
   map_table <- get_test_map_table()
-  map_filename <- tempfile()
+  map_filename <- get_plinkr_tempfilename()
   save_map_table_to_file(
     map_table = map_table,
     map_filename = map_filename
@@ -17,7 +17,7 @@ test_that("detailed use, recreate v1.7 test.map file exactly", {
   map_table <- read_plink_map_file(
     map_filename = plink_map_filename
   )
-  map_filename <- tempfile()
+  map_filename <- get_plinkr_tempfilename()
   save_map_table_to_file(
     map_table = map_table,
     map_filename = map_filename
@@ -34,7 +34,8 @@ test_that("detailed use, recreate v1.7 test.map file exactly", {
 test_that("sub-sub-sub folder", {
   map_table <- get_test_map_table()
   map_filename <- file.path(
-    tempfile(), "sub", "sub", "sub", "folder", "test.map"
+    get_plinkr_tempfilename(),
+    "sub", "sub", "sub", "folder", "test.map"
   )
   save_map_table_to_file(
     map_table = map_table,

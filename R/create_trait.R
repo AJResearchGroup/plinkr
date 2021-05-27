@@ -11,12 +11,12 @@
 #' @author Richèl J.C. Bilderbeek
 create_trait <- function(
   phenotype,
-  maf = 0.25
+  mafs = 0.25
 ) {
   plinkr::check_phenotypes(phenotype)
-  plinkr::check_maf(maf)
+  plinkr::check_mafs(mafs)
   list(
     phenotype = phenotype,
-    maf = maf
+    mafs = mafs
   )
 }

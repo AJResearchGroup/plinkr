@@ -25,7 +25,9 @@ A phenotypic value starts at 10.0.
 \details{
 \itemize{
 \item each \code{A} denotes an increase of 0.0
+\item each \code{C} denotes an increase of 0.5
 \item each \code{T} denotes an increase of 0.5
+\item each \code{G} denotes an increase of 0.5
 }
 
 The SNVs ('Single Nucleotide Variants') must reflect this genetic

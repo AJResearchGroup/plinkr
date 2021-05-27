@@ -5,7 +5,7 @@
 \title{Create a trait with a clear genetic architecture and a known
 minor allele frequency.}
 \usage{
-create_trait(phenotype, maf = 0.25)
+create_trait(phenotype, mafs = 0.25)
 }
 \arguments{
 \item{phenotype}{one phenotype, named after its genetic background:
@@ -22,18 +22,7 @@ this phenotype
 }
 }}
 
-\item{maf}{minor allele frequency threshold.
-Alleles that have a frequency lower than the MAF
-are excluded from the PLINK analysis.
-\code{maf} must be a value between zero and 0.5
-(i.e. excluding zero and excluding 0.5).
-By default, \code{maf} is set to the lowest
-representable non-zero floating-point value,
-as obtained by \link{get_lowest_maf}
-
-The parameter name \code{maf} is named after the
-PLINK \code{--maf} flag. This was chosen over
-more specific names such as \code{min_allele_frequency}).}
+\item{mafs}{one or more minor allele frequencies}
 }
 \description{
 Create a trait with a clear genetic architecture and a known

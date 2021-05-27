@@ -10,7 +10,8 @@
 #' @export
 #' @author Richèl J.C. Bilderbeek
 create_random_trait <- function(
-  maf = 0.25
+  mafs = 0.25
 ) {
-  create_trait(phenotype = "random", maf = maf)
+  # mafs is checked by create_trait
+  plinkr::create_trait(phenotype = "random", mafs = mafs)
 }

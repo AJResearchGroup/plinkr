@@ -15,11 +15,7 @@ with a clear genetic architecture and a known minor allele frequency,
 as, for example, created by \link{create_demo_traits}.}
 }
 \description{
-Create a demo pedigree \code{.ped} table,
-which should allow the individuals to have all combinations of
-biallelic SNPs exactly once.
-As we assume two nucleotides and a diploid organism,
-these are 4 individuals.
+Create a demo pedigree \code{.ped} table
 }
 \examples{
 create_demo_ped_table()

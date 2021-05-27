@@ -24,7 +24,6 @@ test_that("use", {
   expect_true("R2" %in% names(assoc_qt_result))
   expect_true("T" %in% names(assoc_qt_result))
   expect_true("P" %in% names(assoc_qt_result))
-  # New: show trait name
   expect_true("trait_name" %in% names(assoc_qt_result))
   expect_true(
     all(
@@ -96,5 +95,37 @@ test_that("use quantitative traits that are either 1 or 2", {
     assoc_qt(
       assoc_qt_params = assoc_qt_params
     )
+  )
+})
+
+
+
+test_that("PLINK cannot handle triallelic SNPs", {
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  assoc_qt_params <- create_demo_assoc_qt_params(
+    traits = create_random_trait(mafs = c(0.3, 0.2)),
+    n_individuals = 1000
+  )
+  expect_warning(
+    assoc_qt(
+      assoc_qt_params = assoc_qt_params
+    ),
+    "Variant 1 triallelic; setting rarest alleles missing."
+  )
+})
+
+test_that("PLINK cannot handle quadallelic SNPs", {
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  assoc_qt_params <- create_demo_assoc_qt_params(
+    traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
+    n_individuals = 10
+  )
+  expect_warning(
+    assoc_qt(
+      assoc_qt_params = assoc_qt_params
+    ),
+    "Variant 1 quadallelic; setting rarest alleles missing"
   )
 })

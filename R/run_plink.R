@@ -54,9 +54,13 @@ run_plink <- function(
       "Tip: you should be able to copy paste this :-)"
     )
   }
-  system2(
+  text <- system2(
     command = normalizePath(plink_exe_path),
     args = args,
-    stdout = TRUE
+    stdout = TRUE,
+    stderr = TRUE
   )
+  warnings <- stringr::str_subset(text, "Warning")
+  if (length(warnings) != 0) warning(warnings)
+  text
 }

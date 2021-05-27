@@ -81,3 +81,8 @@ Because no real users have yet tested it, except me.
 When it moves to CRAN, the `install` and `uninstall` functions will move
 to a non-CRAN package, as these functions violate CRAN policy.
 
+### Can plinkr handle SNPs with three or four alleles?
+
+No. PLINK cannot, so plinkr cannot.
+
+

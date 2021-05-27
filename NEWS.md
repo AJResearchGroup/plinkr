@@ -6,13 +6,13 @@ Newest versions at top.
 
 ### NEW FEATURES
 
+ * Add tri- and quadallelic traits
  * ?Add epistatic trait
- * ?Add tri- and quadallelic traits
  * ?Add PLINK tutorial on real data
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * PLINK warnings are detected and put into R warning
 
 ### BUG FIXES
 

@@ -2,13 +2,12 @@
 
 Newest versions at top.
 
-## plinkr 0.8 (unreleased)
+## plinkr 0.8 (2021-5-27)
 
 ### NEW FEATURES
 
  * Add tri- and quadallelic traits
- * ?Add epistatic trait
- * ?Add PLINK tutorial on real data
+ * Add epistatic trait
 
 ### MINOR IMPROVEMENTS
 

@@ -12,11 +12,6 @@ get_plink_download_url <- function(
       "http://zzz.bwh.harvard.edu/plink/dist/plink-1.07-x86_64.zip"
     )
   }
-  if (plink_version == "1.9") {
-    return(
-      "https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20210416.zip"
-    )
-  }
-
-  stop("Should never get here in get_plink_download_url")
+  testthat::expect_true(plink_version == "1.9")
+  "https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20210416.zip"
 }

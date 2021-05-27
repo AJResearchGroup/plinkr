@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## plinkr 0.9 (unreleased)
+
+### NEW FEATURES
+
+ * ?Add vignette with PLINK tutorial
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## plinkr 0.8 (2021-5-27)
 
 ### NEW FEATURES

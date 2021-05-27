@@ -5,10 +5,12 @@
 #' @inheritParams default_params_doc
 #' @examples
 #' create_demo_phenotype_table_rhs()
-#' create_demo_phenotype_table_rhs(get_test_ped_table())
+#' create_demo_phenotype_table_rhs(create_random_trait())
+#' create_demo_phenotype_table_rhs(create_additive_trait())
+#' create_demo_phenotype_table_rhs(create_epistatic_trait())
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_demo_phenotype_table_rhs <- function(
+create_demo_phenotype_table_rhs <- function( # nolint indeed a long function name
   traits = create_demo_traits(),
   ped_table = create_demo_ped_table(traits = traits)
 ) {

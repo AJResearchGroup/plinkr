@@ -12,7 +12,7 @@
 #' @export
 #' @author Richèl J.C. Bilderbeek
 create_additive_trait <- function(
-  maf = 0.25
+  mafs = 0.25
 ) {
-  create_trait(phenotype = "additive", maf = maf)
+  create_trait(phenotype = "additive", mafs = mafs)
 }

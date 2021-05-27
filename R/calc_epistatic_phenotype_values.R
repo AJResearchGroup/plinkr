@@ -14,7 +14,7 @@
 #' As a workaround, epistatic traits start from twenty.
 #' @author Richèl J.C. Bilderbeek
 #' @export
-calc_epistatic_phenotype_values <- function(snvs) {
+calc_epistatic_phenotype_values <- function(snvs) { # nolint indeed a long function name
   plinkr::check_snvs(snvs)
   testthat::expect_true(tibble::is_tibble(snvs))
   testthat::expect_equal(4, ncol(snvs))

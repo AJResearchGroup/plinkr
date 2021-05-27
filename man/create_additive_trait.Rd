@@ -5,21 +5,17 @@
 \title{Create a trait in which the phenotype is additive
 and the minor allele frequency is known.}
 \usage{
-create_additive_trait(maf = 0.25)
+create_additive_trait(mafs = 0.25)
 }
 \arguments{
-\item{maf}{minor allele frequency threshold.
-Alleles that have a frequency lower than the MAF
-are excluded from the PLINK analysis.
-\code{maf} must be a value between zero and 0.5
-(i.e. excluding zero and excluding 0.5).
-By default, \code{maf} is set to the lowest
-representable non-zero floating-point value,
-as obtained by \link{get_lowest_maf}
+\item{mafs}{one or more minor allele frequencies.
+These allele frequencies must be ordered decreasingly,
+i.e. the MAF is at the first position, where the
+even rarer alleles are at the second and third positions.
 
-The parameter name \code{maf} is named after the
-PLINK \code{--maf} flag. This was chosen over
-more specific names such as \code{min_allele_frequency}).}
+Note that \code{PLINK} cannot handle triallelic nor
+quadallelic SNPs: \code{PLINK} will give a warning that it
+is setting the rarest alleles to missing.}
 }
 \description{
 Create a trait in which the phenotype is additive

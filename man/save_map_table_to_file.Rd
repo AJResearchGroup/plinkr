@@ -22,7 +22,7 @@ Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
 Use \link{check_map_table} to test if a genetic mapping table is valid.}
 
 \item{map_filename}{name of a PLINK \code{.map} file
-Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
+Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.}
 }
 \description{
 Save a \code{.map} table to file

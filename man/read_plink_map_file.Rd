@@ -8,7 +8,7 @@ read_plink_map_file(map_filename)
 }
 \arguments{
 \item{map_filename}{name of a PLINK \code{.map} file
-Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
+Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.}
 }
 \value{
 a [tibble]{tibble} with the following columns:

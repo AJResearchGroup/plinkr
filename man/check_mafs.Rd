@@ -7,7 +7,14 @@
 check_mafs(mafs)
 }
 \arguments{
-\item{mafs}{one or more minor allele frequencies}
+\item{mafs}{one or more minor allele frequencies.
+These allele frequencies must be ordered decreasingly,
+i.e. the MAF is at the first position, where the
+even rarer alleles are at the second and third positions.
+
+Note that \code{PLINK} cannot handle triallelic nor
+quadallelic SNPs: \code{PLINK} will give a warning that it
+is setting the rarest alleles to missing.}
 }
 \description{
 Check the \code{mafs}, the minor allele frequencies,

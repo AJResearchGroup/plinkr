@@ -69,10 +69,17 @@ The parameter name \code{maf} is named after the
 PLINK \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
 
-\item{mafs}{one or more minor allele frequencies}
+\item{mafs}{one or more minor allele frequencies.
+These allele frequencies must be ordered decreasingly,
+i.e. the MAF is at the first position, where the
+even rarer alleles are at the second and third positions.
+
+Note that \code{PLINK} cannot handle triallelic nor
+quadallelic SNPs: \code{PLINK} will give a warning that it
+is setting the rarest alleles to missing.}
 
 \item{map_filename}{name of a PLINK \code{.map} file
-Use \link{read_plink_map_file} to read a PLINK \code{.map} file.}
+Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.}
 
 \item{map_table}{a genetic mapping table.
 

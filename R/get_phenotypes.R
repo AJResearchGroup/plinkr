@@ -8,6 +8,7 @@
 get_phenotypes <- function() {
   c(
     "random",
-    "additive"
+    "additive",
+    "epistatic"
   )
 }

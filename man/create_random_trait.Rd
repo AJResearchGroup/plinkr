@@ -8,7 +8,14 @@ and a known minor allele frequency.}
 create_random_trait(mafs = 0.25)
 }
 \arguments{
-\item{mafs}{one or more minor allele frequencies}
+\item{mafs}{one or more minor allele frequencies.
+These allele frequencies must be ordered decreasingly,
+i.e. the MAF is at the first position, where the
+even rarer alleles are at the second and third positions.
+
+Note that \code{PLINK} cannot handle triallelic nor
+quadallelic SNPs: \code{PLINK} will give a warning that it
+is setting the rarest alleles to missing.}
 }
 \description{
 Create a trait with no relation between genotype and phenotype

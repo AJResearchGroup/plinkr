@@ -10,7 +10,7 @@
 #' This is a list of functions to install or uninstall
 #' (multiple versions of) \code{PLINK}:
 #'
-#' * \link{check_plink_install}:
+#' * \link{check_plink_is_installed}:
 #'   check if \code{PLINK} is installed, stop if not
 #' * \link{is_plink_installed}:
 #'   determine if \code{PLINK} is installed, yes/no
@@ -50,9 +50,9 @@
 #' This is a list of functions to save \code{PLINK} output files:
 #'
 #' * \link{save_map_table_to_file}:
-#'   save a genetic mapping table to a \code{PLINK} \link{.map} file
+#'   save a genetic mapping table to a \code{PLINK} \code{.map} file
 #' * \link{save_ped_table_to_file}:
-#'   save a pedigree table to a \code{PLINK} \link{.ped} file
+#'   save a pedigree table to a \code{PLINK} \code{.ped} file
 #' * \link{save_phenotype_table_to_file}:
 #'   save a phenotype table to a \code{PLINK} phenotype file
 #'

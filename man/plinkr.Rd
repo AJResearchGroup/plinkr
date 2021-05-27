@@ -16,7 +16,7 @@ and saved to PLINK-conforming files
 This is a list of functions to install or uninstall
 (multiple versions of) \code{PLINK}:
 \itemize{
-\item \link{check_plink_install}:
+\item \link{check_plink_is_installed}:
 check if \code{PLINK} is installed, stop if not
 \item \link{is_plink_installed}:
 determine if \code{PLINK} is installed, yes/no
@@ -60,9 +60,9 @@ read a \code{PLINK} \code{.simfreq} file
 This is a list of functions to save \code{PLINK} output files:
 \itemize{
 \item \link{save_map_table_to_file}:
-save a genetic mapping table to a \code{PLINK} \link{.map} file
+save a genetic mapping table to a \code{PLINK} \code{.map} file
 \item \link{save_ped_table_to_file}:
-save a pedigree table to a \code{PLINK} \link{.ped} file
+save a pedigree table to a \code{PLINK} \code{.ped} file
 \item \link{save_phenotype_table_to_file}:
 save a phenotype table to a \code{PLINK} phenotype file
 }

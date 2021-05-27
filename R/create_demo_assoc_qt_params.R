@@ -43,8 +43,8 @@
 #' # Use two additive traits with different minor allele frequencies
 #' create_demo_assoc_qt_params(
 #'   traits = list(
-#'     get_additive_trait(maf = 0.01),
-#'     get_additive_trait(maf = 0.10)
+#'     create_additive_trait(maf = 0.01),
+#'     create_additive_trait(maf = 0.10)
 #'   )
 #' )
 #' @inheritParams default_params_doc

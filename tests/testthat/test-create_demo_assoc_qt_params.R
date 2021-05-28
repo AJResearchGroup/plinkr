@@ -47,3 +47,93 @@ test_that("MAFs", {
     sum(assoc_qt_params$ped_table$snv_2b == "A")
   )
 })
+
+
+
+
+
+
+
+
+test_that("one random", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = create_random_trait()
+    )
+  )
+})
+
+test_that("one additive", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = create_additive_trait()
+    )
+  )
+})
+
+test_that("one epistatic", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = create_epistatic_trait()
+    )
+  )
+})
+
+test_that("number of individuals", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      n_individuals = 3,
+      traits = create_random_trait()
+    )
+  )
+})
+
+test_that("Triallelic SNPs", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = create_random_trait(mafs = c(0.3, 0.2)),
+      n_individuals = 10
+    )
+  )
+})
+
+test_that("Quadallelic SNPs", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
+      n_individuals = 10
+    )
+  )
+})
+
+test_that("two randoms", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = rep(list(create_random_trait()), 2)
+    )
+  )
+})
+
+test_that("two additive", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = rep(list(create_additive_trait()), 2)
+    )
+  )
+})
+
+test_that("two epistatic", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = rep(list(create_additive_trait()), 2)
+    )
+  )
+})
+
+test_that("two of demo traits", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = rep(create_demo_traits(), 2)
+    )
+  )
+})

@@ -25,9 +25,10 @@ as created by the \link{create_demo_map_table} function
 \item Traits that follow different genotype to phenotype mapping:
 \itemize{
 \item \code{control}: a trait that is random
-\item \code{additive}: a trait that is perfectly additive.
-The trait value is \code{10.0},
-where each \code{T} increases it by 0.5
+\item \code{additive}: a trait that is perfectly additive,
+see \link{calc_additive_phenotype_values} for the exact calculation
+\item \code{epistatic}: a trait that is epistatic,
+see \link{calc_epistatic_phenotype_values} for the exact calculation
 }
 }
 }
@@ -49,6 +50,11 @@ create_demo_assoc_qt_params(
 # Use an additive trait
 create_demo_assoc_qt_params(
   traits = create_additive_trait()
+)
+
+# Use an epistatic trait
+create_demo_assoc_qt_params(
+  traits = create_epistatic_trait()
 )
 
 # Use an additive and random trait

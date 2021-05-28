@@ -1,0 +1,161 @@
+---
+title: "create_demo_assoc_qt_params"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{create_demo_assoc_qt_params}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(plinkr)
+```
+
+With `create_demo_assoc_qt_params` one can get simulated/ideal data
+with known relations between genotype and phenotype.
+`assoc_qt` can directly use the created data to do a quantitative trait
+association analysis.
+
+This vignette shows the versatility of `create_demo_assoc_qt_params`,
+by calling it in multiple different ways. 
+The output is left as-is, i.e. no pretty-printing.
+
+## One trait
+
+### Random
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = create_random_trait()
+)
+```
+
+A random trait is a trait in which there is no relationship
+between genotype. In this case, the phenotype is randomly
+and uniformly distributed between zero and one.
+
+### Random with more individuals
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = create_random_trait(),
+  n_individuals = 5
+)
+```
+
+You can specify the number of individuals that are created.
+The rarer the alleles you are looking for, 
+the more individuals you'll need :-)
+
+### Random for a MAF of 0.1
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = create_random_trait(mafs = 0.1)
+)
+```
+
+By default, the minor allele frequency is set to a high value, as this
+is most useful when demonstrating an effect. To investigate an allele
+that is rare, one can specify the MAF of each allele.
+Don't forget to increase the number of individuals!
+
+### Random for a tri-allelic trait
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = create_random_trait(mafs = c(0.2, 0.1))
+)
+```
+
+Usually SNPs are bi-allelic, with only two different nucleotides present
+in the genetic dataset. Sometimes, however, there is a tri-allelic trait.
+You can simulate such a tri-allelic trait by specifying both
+the MAF and the frequency of the even rarer nucleotide.
+
+Note that PLINK does not handle tri-allelic traits and will only
+work on the common and the minor allele.
+
+### Random for a quad-allelic trait
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = create_random_trait(mafs = c(0.3, 0.2, 0.1))
+)
+```
+
+DNA has four nucleotides, so SNPs can be quad-allelic as well.
+You can simulate such a quad-allelic trait by specifying the
+allele frequencies of the rarer nucleotides.
+
+Note that PLINK does not handle tri-allelic traits and will only
+work on the common and the minor allele.
+
+### Additive
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = create_additive_trait()
+)
+```
+
+A additive trait is a trait in which the phenotype is
+linearily (and perfectly) determined by the genotype.
+The homozygotes of the common allele have the lowest phenotypic value,
+the homozygotes of the rare allele have the heighest,
+where the heterozygotes are exactly in between.
+
+See `?calc_additive_phenotype_values` for the exact calculation.
+
+### Epistatic
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = create_epistatic_trait()
+)
+```
+
+## Two traits
+
+### The same trait twice
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = rep(list(create_random_trait()), 2)
+)
+```
+
+### The same trait twice, with different MAFs
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = list(
+    create_random_trait(mafs = 0.2),
+    create_additive_trait(mafs = 0.4)
+  )
+)
+```
+
+### Two different traits
+
+```{r}
+create_demo_assoc_qt_params(
+  traits = list(
+    create_random_trait(),
+    create_additive_trait()
+  )
+)
+```
+
+## More traits
+
+```{r}
+create_demo_assoc_qt_params()
+```

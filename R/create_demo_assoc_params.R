@@ -58,17 +58,18 @@
 #' @export
 create_demo_assoc_params <- function(
   n_individuals = 4,
-  traits = create_demo_traits()
+  trait = create_random_trait()
 ) {
   plinkr::check_n_individuals(n_individuals)
-  plinkr::check_traits(traits)
+  plinkr::check_trait(trait)
 
   # traits must be a list of traits
-  if (plinkr::is_one_trait(traits)) traits <- list(traits)
+  traits <- list(trait)
   testthat::expect_false(plinkr::is_one_trait(traits))
   plinkr::check_traits(traits)
   n_traits <- length(traits)
-  testthat::expect_true(n_traits >= 0)
+  testthat::expect_equal(n_traits, 1)
+
   ped_table <- plinkr::create_demo_ped_table(
     n_individuals = n_individuals,
     traits = traits
@@ -76,6 +77,12 @@ create_demo_assoc_params <- function(
   map_table <- plinkr::create_demo_map_table(
     traits = traits
   )
+  phenotype_table <- create_demo_phenotype_table(
+    ped_table = ped_table,
+    traits = traits
+  )
+  names(phenotype_table) <- c(names(phenotype_table)[1:2], "case_control_code")
+  ped_table$case_control_code <- phenotype_table[, 3]
   plinkr::create_assoc_params(
     ped_table = ped_table,
     map_table = map_table

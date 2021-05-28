@@ -7,6 +7,9 @@
 #' Use \link{get_plink_version} to get the current PLINK version.
 #' @param assoc_filename name of a PLINK \code{.assoc} file
 #' Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.
+#' @param assoc_params parameters to do an association analysis
+#' for a quantitative trait (i.e. using \link{assoc}),
+#' as can be created by \link{create_assoc_params}
 #' @param assoc_qt_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc_qt}),
 #' as can be created by \link{create_assoc_qt_params}
@@ -145,6 +148,7 @@
 default_params_doc <- function(
   add_noweb,
   assoc_filename,
+  assoc_params,
   assoc_qt_params,
   example_filename,
   log_filename,

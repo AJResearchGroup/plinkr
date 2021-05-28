@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_plink_installed.R
 \name{is_plink_installed}
 \alias{is_plink_installed}
-\title{Determine if PLINK is installed}
+\title{Determine if \code{PLINK} is installed}
 \usage{
 is_plink_installed(
   plink_version = get_default_plink_version(),
@@ -17,10 +17,10 @@ Use \link{get_plink_versions} to get all the supported PLINK versions.}
 \item{plink_folder}{folder where PLINK is installed}
 }
 \value{
-TRUE if PLINK is installed, FALSE otherwise
+\code{TRUE} if \code{PLINK} is installed, \code{FALSE} otherwise
 }
 \description{
-Determine if PLINK is installed
+Determine if \code{PLINK} is installed
 }
 \author{
 Richèl J.C. Bilderbeek

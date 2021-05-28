@@ -10,6 +10,7 @@ Work with [PLINK](http://zzz.bwh.harvard.edu/plink/) from R
  * Doing the first PLINK example: [YouTube](https://youtu.be/LsfKQw2oIUg) [download (.ogv)](http://richelbilderbeek.nl/plinkr_basic_usage.ogv)
  * Detect an association with one or more quantitative traits: [YouTube](https://youtu.be/IicNdc8sDfI) [download (.ogv)](http://richelbilderbeek.nl/plinkr_assoc_qt.ogv)
  * Detect an association with ideal quantitative traits: [YouTube](https://youtu.be/oXGy83WiHm4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_demo_qt_assoc.ogv)
+ * Simulate quantitative traits: [YouTube](https://youtu.be/H0XlLVsFry4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_create_demo_assoc_qt_params.ogv)
 
 ## Examples
 
@@ -55,8 +56,13 @@ plinkr::run_plink(
 )
 ```
 
-For other examples, see the vignette `basic_usage.Rmd` for basic usage,
-as taken from the PLINK website.
+ * See the vignette `basic_usage` for basic usage of PLINK, 
+   as taken from the PLINK website, which shows a 
+   quantitative trait analysis
+ * See the vignette `test_assoc_qt` for the same basic usage of PLINK,
+   using the `plinkr` interface
+ * See the vignette `demo_assoc_qt` for doing a quantitative trait
+   analysis using simulated data and the `plinkr` interface
 
 ### Demonstrate a quantitative trait analysis
 
@@ -65,6 +71,11 @@ library(plinkr)
 assoc_qt_params <- create_demo_assoc_qt_params()
 assoc_qt(assoc_qt_params)
 ```
+
+ * See the vignette `demo_assoc_qt` for a walk-through of
+   the data that is simulated by default
+ * See the vignette `create_demo_assoc_qt_params` for many
+   examples how data can be simulated
 
 ## FAQ
 

@@ -23,7 +23,7 @@ commands at [http://zzz.bwh.harvard.edu/plink/data.shtml#plink](http://zzz.bwh.h
 
 This vignette will give output only if PLINK is installed:
 
-```{r}
+```{r check_plink_is_installed}
 if (!is_plink_installed()) {
   message("PLINK is not installed")
   message("Tip: use 'plinkr::install_plinks()'")

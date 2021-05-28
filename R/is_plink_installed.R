@@ -1,6 +1,6 @@
-#' Determine if PLINK is installed
+#' Determine if \code{PLINK} is installed
 #' @inheritParams default_params_doc
-#' @return TRUE if PLINK is installed, FALSE otherwise
+#' @return \code{TRUE} if \code{PLINK} is installed, \code{FALSE} otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_plink_installed <- function(

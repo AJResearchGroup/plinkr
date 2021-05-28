@@ -1,0 +1,38 @@
+---
+title: "plink_tutorial"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{plink_tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(plinkr)
+```
+
+Here we follow the tutorial at [http://zzz.bwh.harvard.edu/plink/tutorial.shtml](http://zzz.bwh.harvard.edu/plink/tutorial.shtml).
+
+```{r check_plink_is_installed}
+if (!is_plink_installed()) {
+  message("PLINK is not installed")
+  message("Tip: use 'plinkr::install_plinks()'")
+}
+```
+
+```{r check_plink_tutorial_data_is_installed}
+if (!is_plink_tutorial_data_installed()) {
+  message("PLINK tutorial data is not installed")
+  message("Tip: use 'plinkr::install_plink_tutorial_data()'")
+}
+```
+
+
+

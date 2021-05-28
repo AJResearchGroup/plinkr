@@ -54,7 +54,7 @@ if (is_plink_installed()) {
 }
 ```
 
-## Detecting associations for a random and additive traits
+## Detecting associations for quantitative traits
 
 To do an association (both for a single and multiple traits), 
 we need some parameters:
@@ -65,7 +65,7 @@ we need some parameters:
    of the individuals and their SNP values
  * The phenotype table, which contains the one or more phenotypes
    of the individuals
- * The minor allele frequence (MAF) threshold for an allele
+ * The minor allele frequency (MAF) threshold for an allele
    to be included in the analysis
 
 Here, we get simple set of parameters, as to be used in testing,
@@ -124,6 +124,10 @@ genotype:
  * ´additive´: there is a perfect additive relationship, 
    with a starting value of 10.0,
    where each 'T' increases the trait by 0.5
+ * ´epistatic´: there is an epistatic phenotype, 
+   with a starting value of 20.0,
+   that can only be 21.0 if all four nucleotides on four
+   SNPs are the uncommon alleles
 
 ### The minor allele frequency (MAF)
 

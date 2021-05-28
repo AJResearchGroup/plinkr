@@ -84,7 +84,7 @@ to detect associations with quantitative traits
 (using \link{assoc_qt}) used for testing.
 }
 \note{
-This function is named after the \code{--assoc-qt} PLINK flag.
+This function is named after the \code{--assoc} PLINK flag.
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -1,28 +1,25 @@
-#' Create parameters for the \link{assoc_qt} function
+#' Create parameters for the \link{assoc} function
 #'
-#' Create parameters to detect associations with quantitative traits
-#' (using \link{assoc_qt}).
-#' Use \link{create_test_assoc_qt_params}) to create a set of parameters
+#' Create parameters to detect associations with a binary traits
+#' (using \link{assoc}).
+#' Use \link{create_test_assoc_params}) to create a set of parameters
 #' that is used in testing.
 #'
 #' @note This function is named after the \code{--assoc} PLINK flag.
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_assoc_qt_params <- function(
+create_assoc_params <- function(
   ped_table,
   map_table,
-  phenotype_table,
   maf = get_lowest_maf()
 ) {
   plinkr::check_ped_table(ped_table = ped_table)
   plinkr::check_map_table(map_table = map_table)
-  plinkr::check_phenotype_table(phenotype_table = phenotype_table)
   plinkr::check_maf(maf = maf)
   list(
     ped_table = ped_table,
     map_table = map_table,
-    phenotype_table = phenotype_table,
     maf = maf
   )
 }

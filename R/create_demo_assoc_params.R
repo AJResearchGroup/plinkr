@@ -1,5 +1,5 @@
-#' Create a set of \code{assoc_qt} parameters
-#' to demonstrate PLINKs \code{--assoc_qt} functionality
+#' Create a set of \code{assoc} parameters
+#' to demonstrate PLINKs \code{--assoc} functionality
 #'
 #' This function creates:
 #'  * Individuals that have all combinations of SNPs exactly once,
@@ -16,38 +16,38 @@
 #' @note This function is named after the \code{--assoc} PLINK flag.
 #' @examples
 #' # Default
-#' create_demo_assoc_qt_params()
+#' create_demo_assoc_params()
 #'
 #' # Add more individuals
-#' create_demo_assoc_qt_params(n_individuals = 16)
+#' create_demo_assoc_params(n_individuals = 16)
 #'
 #' # Use a random trait
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_params(
 #'   traits = create_random_trait()
 #' )
 #'
 #' # Use an additive trait
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_params(
 #'   traits = create_additive_trait()
 #' )
 #'
 #' # Use an epistatic trait
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_params(
 #'   traits = create_epistatic_trait()
 #' )
 #'
 #' # Use an additive and random trait
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_params(
 #'   traits = list(create_additive_trait(), create_random_trait())
 #' )
 #'
 #' # Use three random traits
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_params(
 #'   traits = rep(list(create_random_trait()), 3)
 #' )
 #'
 #' # Use two additive traits with different minor allele frequencies
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_params(
 #'   traits = list(
 #'     create_additive_trait(maf = 0.01),
 #'     create_additive_trait(maf = 0.10)
@@ -56,7 +56,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_demo_assoc_qt_params <- function(
+create_demo_assoc_params <- function(
   n_individuals = 4,
   traits = create_demo_traits()
 ) {
@@ -76,13 +76,8 @@ create_demo_assoc_qt_params <- function(
   map_table <- plinkr::create_demo_map_table(
     traits = traits
   )
-  phenotype_table <- create_demo_phenotype_table(
+  plinkr::create_assoc_params(
     ped_table = ped_table,
-    traits = traits
-  )
-  plinkr::create_assoc_qt_params(
-    ped_table = ped_table,
-    map_table = map_table,
-    phenotype_table = phenotype_table
+    map_table = map_table
   )
 }

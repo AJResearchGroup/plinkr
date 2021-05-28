@@ -8,7 +8,7 @@
 #' is installed, \code{FALSE} otherwise
 #' @author Richèl J.C. Bilderbeek
 #' @export
-is_plink_tutorial_data_installed <- function(
+is_plink_tutorial_data_installed <- function( # nolint indeed a long function name
 ) {
   FALSE
 }

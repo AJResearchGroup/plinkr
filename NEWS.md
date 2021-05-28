@@ -7,6 +7,7 @@ Newest versions at top.
 ### NEW FEATURES
 
  * ?Add vignette with PLINK tutorial
+ * Add `assoc` to detect associations for a binary trait
 
 ### MINOR IMPROVEMENTS
 

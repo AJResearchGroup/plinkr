@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * `create_demo_assoc_qt_params` can now accept multiple additive and epistatic traits
 
 ### BUG FIXES
 

@@ -27,6 +27,13 @@ messy data, see the 'test_assoc_qt' vignette.
 
 ## Setup
 
+Set the RNG seed:
+
+```{r set_rng_seed}
+set.seed(314)
+```
+
+
 First load `plinkr`:
 
 ```{r setup}
@@ -66,7 +73,7 @@ or -in this case- a simple demonstration:
  
 ```{r}
 assoc_qt_params <- create_demo_assoc_qt_params(
-  n_individuals = 10
+  n_individuals = 16
 )
 ```
 
@@ -163,11 +170,3 @@ proportion of the phenotype that can be explained by the
 genotype) gives the highest possible value of 1.0,
 which denotes the phenotype can be perfectly explained
 by the genotype.
-
-### Other options
-
-
-
-```{r}
-assoc_qt_params <- create_demo_assoc_qt_params()
-```

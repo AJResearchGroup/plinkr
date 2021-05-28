@@ -53,27 +53,14 @@ create_demo_phenotype_table_rhs <- function( # nolint indeed a long function nam
   phenotype_table_rhs <- dplyr::bind_cols(tibbles, .name_repair = "minimal")
 
   # Allow multiple columns with same phenotype
-  if (1 == 1) {
-    col_names <- purrr::map_chr(traits, function(e) e$phenotype)
-    for (phenotype in get_phenotypes()) {
-      n_randoms <- sum(col_names == phenotype)
-      if (n_randoms > 1) {
-        col_names[which(col_names == phenotype)] <-
-          paste0(phenotype, "_", seq_len(n_randoms))
-      }
-      names(phenotype_table_rhs) <- col_names
-    }
-  } else {
-    phenotypes <- purrr::map_chr(traits, function(e) e$phenotype)
-    n_randoms <- sum(phenotypes == "random")
+  col_names <- purrr::map_chr(traits, function(e) e$phenotype)
+  for (phenotype in get_phenotypes()) {
+    n_randoms <- sum(col_names == phenotype)
     if (n_randoms > 1) {
-      phenotypes[which(phenotypes == "random")] <-
-        paste0("random_", seq_len(n_randoms))
+      col_names[which(col_names == phenotype)] <-
+        paste0(phenotype, "_", seq_len(n_randoms))
     }
-    names(phenotype_table_rhs) <- phenotypes
+    names(phenotype_table_rhs) <- col_names
   }
-
-
-
   phenotype_table_rhs
 }

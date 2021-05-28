@@ -19,7 +19,7 @@
 #' create_demo_assoc_qt_params()
 #'
 #' # Add more individuals
-#' create_demo_assoc_qt_params(n_individuals = 1000)
+#' create_demo_assoc_qt_params(n_individuals = 16)
 #'
 #' # Use a random trait
 #' create_demo_assoc_qt_params(

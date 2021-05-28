@@ -105,7 +105,7 @@ test_that("PLINK cannot handle triallelic SNPs", {
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
     traits = create_random_trait(mafs = c(0.3, 0.2)),
-    n_individuals = 1000
+    n_individuals = 10
   )
   expect_warning(
     assoc_qt(

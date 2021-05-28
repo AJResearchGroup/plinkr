@@ -4,7 +4,11 @@
 \alias{calc_additive_phenotype_values}
 \title{Calculate the phenotypic values for a trait that is perfectly additive.}
 \usage{
-calc_additive_phenotype_values(snvs)
+calc_additive_phenotype_values(
+  snvs,
+  base_phenotype_value = 10,
+  phenotype_increase = 0.5
+)
 }
 \arguments{
 \item{snvs}{a \link[tibble]{tibble} that contains the
@@ -17,21 +21,20 @@ Per SNV table, there can be only two different nucleotides,
 as this is how a SNP works; a SNP from A to C is a different one (and
 has a different SNP ID) than a SNP that encodes a mutation
 for A to G.}
+
+\item{base_phenotype_value}{the lowest phenotypic value possible}
+
+\item{phenotype_increase}{the increase of the  phenotypic value
+per non-adenine}
 }
 \description{
 Calculate the phenotypic values for a trait that is perfectly additive.
-A phenotypic value starts at 10.0.
-}
-\details{
-\itemize{
-\item each \code{A} denotes an increase of 0.0
-\item each \code{C} denotes an increase of 0.5
-\item each \code{T} denotes an increase of 0.5
-\item each \code{G} denotes an increase of 0.5
-}
-
-The SNVs ('Single Nucleotide Variants') must reflect this genetic
-architecture, i.e. must consist out of adenines and thymines
+A phenotypic value starts at \code{base_phenotype_value}.
+An adenine does not change that value.
+Another other nucleotide, however, increase that value
+by \code{phenotype_increase}.
+As the organism is diploid, the maximum phenotypic value is
+\code{base_phenotype_value + (2 * phenotype_increase)}.
 }
 \note{
 the reason a phenotypic value starts at 10.0, instead of 0.0,

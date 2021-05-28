@@ -53,10 +53,12 @@ jobs:
       - name: Test coverage
         run: covr::codecov()
         shell: Rscript {0}
-        
+        if: matrix.os == 'ubuntu-latest'
+
       - name: Lint
         run: lintr::lint_package()
         shell: Rscript {0}
+        if: matrix.os == 'windows-latest'        
 
       - name: Install plinkr
         run: remotes::install_github("richelbilderbeek/plinkr")

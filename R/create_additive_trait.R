@@ -14,5 +14,5 @@
 create_additive_trait <- function(
   mafs = 0.25
 ) {
-  create_trait(phenotype = "additive", mafs = mafs)
+  plinkr::create_trait(phenotype = "additive", mafs = mafs)
 }

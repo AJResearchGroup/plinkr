@@ -53,7 +53,7 @@ jobs:
       - name: Test coverage
         run: covr::codecov()
         shell: Rscript {0}
-        if: matrix.os == 'ubuntu-latest' && matrix.install_plink == 'true'
+        if: matrix.os == 'ubuntu-latest'
 
       - name: Lint
         run: lintr::lint_package()

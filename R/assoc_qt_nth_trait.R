@@ -36,7 +36,7 @@ assoc_qt_nth_trait <- function(
   testthat::expect_equal(3, ncol(phenotype_table))
 
   # Filename
-  temp_folder <- get_plinkr_tempfilename()
+  temp_folder <- plinkr::get_plinkr_tempfilename()
   base_input_filename <- file.path(temp_folder, "assoc_qt_input")
   output_filename_base <- file.path(temp_folder, "assoc_qt_output")
   ped_filename <- paste0(base_input_filename, ".ped")

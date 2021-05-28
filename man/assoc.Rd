@@ -7,6 +7,10 @@
 assoc(assoc_params, verbose = FALSE)
 }
 \arguments{
+\item{assoc_params}{parameters to do an association analysis
+for a quantitative trait (i.e. using \link{assoc}),
+as can be created by \link{create_assoc_params}}
+
 \item{verbose}{set to TRUE for more output}
 }
 \value{

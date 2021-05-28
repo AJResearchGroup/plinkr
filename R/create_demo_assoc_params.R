@@ -23,35 +23,17 @@
 #'
 #' # Use a random trait
 #' create_demo_assoc_params(
-#'   traits = create_random_trait()
+#'   trait = create_random_trait()
 #' )
 #'
 #' # Use an additive trait
 #' create_demo_assoc_params(
-#'   traits = create_additive_trait()
+#'   trait = create_additive_trait()
 #' )
 #'
 #' # Use an epistatic trait
 #' create_demo_assoc_params(
-#'   traits = create_epistatic_trait()
-#' )
-#'
-#' # Use an additive and random trait
-#' create_demo_assoc_params(
-#'   traits = list(create_additive_trait(), create_random_trait())
-#' )
-#'
-#' # Use three random traits
-#' create_demo_assoc_params(
-#'   traits = rep(list(create_random_trait()), 3)
-#' )
-#'
-#' # Use two additive traits with different minor allele frequencies
-#' create_demo_assoc_params(
-#'   traits = list(
-#'     create_additive_trait(maf = 0.01),
-#'     create_additive_trait(maf = 0.10)
-#'   )
+#'   trait = create_epistatic_trait()
 #' )
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
@@ -83,7 +65,8 @@ create_demo_assoc_params <- function(
   )
   names(phenotype_table) <- c(names(phenotype_table)[1:2], "case_control_code")
   ped_table$case_control_code <- phenotype_table$case_control_code
-  ped_table$case_control_code <- 1 + (ped_table$case_control_code < median(ped_table$case_control_code))
+  ped_table$case_control_code <- 1 +
+    (ped_table$case_control_code < median(ped_table$case_control_code))
   plinkr::create_assoc_params(
     ped_table = ped_table,
     map_table = map_table

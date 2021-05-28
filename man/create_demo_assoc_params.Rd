@@ -5,15 +5,15 @@
 \title{Create a set of \code{assoc} parameters
 to demonstrate PLINKs \code{--assoc} functionality}
 \usage{
-create_demo_assoc_params(n_individuals = 4, traits = create_demo_traits())
+create_demo_assoc_params(n_individuals = 4, trait = create_random_trait())
 }
 \arguments{
 \item{n_individuals}{the number of individuals.
 Use \link{check_n_individuals} to check if this is a valid value}
 
-\item{traits}{one or more traits
-with a clear genetic architecture and a known minor allele frequency,
-as, for example, created by \link{create_demo_traits}.}
+\item{trait}{one trait with a clear genetic architecture and a known
+minor allele frequency, as created by \link{create_trait}.
+Use \link{is_one_trait} to detect if something is one trait}
 }
 \description{
 This function creates:
@@ -44,35 +44,17 @@ create_demo_assoc_params(n_individuals = 16)
 
 # Use a random trait
 create_demo_assoc_params(
-  traits = create_random_trait()
+  trait = create_random_trait()
 )
 
 # Use an additive trait
 create_demo_assoc_params(
-  traits = create_additive_trait()
+  trait = create_additive_trait()
 )
 
 # Use an epistatic trait
 create_demo_assoc_params(
-  traits = create_epistatic_trait()
-)
-
-# Use an additive and random trait
-create_demo_assoc_params(
-  traits = list(create_additive_trait(), create_random_trait())
-)
-
-# Use three random traits
-create_demo_assoc_params(
-  traits = rep(list(create_random_trait()), 3)
-)
-
-# Use two additive traits with different minor allele frequencies
-create_demo_assoc_params(
-  traits = list(
-    create_additive_trait(maf = 0.01),
-    create_additive_trait(maf = 0.10)
-  )
+  trait = create_epistatic_trait()
 )
 }
 \author{

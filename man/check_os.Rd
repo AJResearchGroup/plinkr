@@ -6,6 +6,10 @@
 \usage{
 check_os(os)
 }
+\arguments{
+\item{os}{name of the operating system,
+as returned by \link[rappdirs]{app_dir}}
+}
 \value{
 nothing. Will stop if the OS is unsupported
 }

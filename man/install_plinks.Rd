@@ -15,6 +15,9 @@ install_plinks(
 e.g. as can be obtained using \link{get_plink_versions}}
 
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{os}{name of the operating system,
+as returned by \link[rappdirs]{app_dir}}
 }
 \description{
 Install multiple versions of PLINK

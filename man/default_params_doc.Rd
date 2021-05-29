@@ -18,6 +18,7 @@ default_params_doc(
   map_table,
   n_individuals,
   n_snps,
+  os,
   ped_filename,
   ped_table,
   phenotype,
@@ -104,6 +105,9 @@ Use \link{check_map_table} to test if a genetic mapping table is valid.}
 Use \link{check_n_individuals} to check if this is a valid value}
 
 \item{n_snps}{the number of SNPs}
+
+\item{os}{name of the operating system,
+as returned by \link[rappdirs]{app_dir}}
 
 \item{ped_filename}{name of a PLINK \code{.ped} file.
 Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}

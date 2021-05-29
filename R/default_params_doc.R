@@ -51,6 +51,8 @@
 #' @param n_individuals the number of individuals.
 #' Use \link{check_n_individuals} to check if this is a valid value
 #' @param n_snps the number of SNPs
+#' @param os name of the operating system,
+#' as returned by \link[rappdirs]{app_dir}
 #' @param ped_filename name of a PLINK \code{.ped} file.
 #' Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
 #' @param ped_table a 'pedigree' table.
@@ -158,6 +160,7 @@ default_params_doc <- function(
   map_table,
   n_individuals,
   n_snps,
+  os,
   ped_filename,
   ped_table,
   phenotype,

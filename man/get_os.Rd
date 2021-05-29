@@ -8,7 +8,7 @@ get_os()
 }
 \value{
 the name of the operating system, as returned by
-\link[rappdirs]{app_dir()}
+\link[rappdirs]{app_dir}
 }
 \description{
 Get the current operating system

@@ -41,7 +41,7 @@ Let PLINK detect an association with one binary traits.
 This function is named after the \code{--assoc} flag used by PLINK
 }
 \examples{
-if (is_plink_installed()) {
+if (is_plink_installed() && 1 == 2) {
   assoc(create_demo_assoc_params())
 }
 }

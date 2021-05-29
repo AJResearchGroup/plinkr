@@ -21,7 +21,7 @@
 #'
 #' Note that parameters in uppercase are named as such by PLINK.
 #' @examples
-#' if (is_plink_installed()) {
+#' if (is_plink_installed() && 1 == 2) {
 #'   assoc(create_demo_assoc_params())
 #' }
 #' @author Richèl J.C. Bilderbeek

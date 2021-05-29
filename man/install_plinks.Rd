@@ -6,7 +6,8 @@
 \usage{
 install_plinks(
   plink_versions = get_plink_versions(),
-  plink_folder = get_plink_folder()
+  plink_folder = get_plink_folder(),
+  os = get_os()
 )
 }
 \arguments{

@@ -5,7 +5,8 @@
 #' @export
 install_plink <- function(
   plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
+  plink_folder = get_plink_folder(),
+  os = get_os()
 ) {
   plinkr::check_plink_version(plink_version)
   testthat::expect_false(
@@ -27,7 +28,10 @@ install_plink <- function(
   )
   if (!file.exists(plink_zip_path)) {
     utils::download.file(
-      url = plinkr::get_plink_download_url(plink_version = plink_version),
+      url = plinkr::get_plink_download_url(
+        plink_version = plink_version,
+        os = os
+      ),
       destfile = plink_zip_path,
       quiet = TRUE
     )

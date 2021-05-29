@@ -8,4 +8,3 @@
 get_os <- function() {
   rappdirs::app_dir()$os
 }
-

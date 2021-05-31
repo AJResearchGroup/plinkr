@@ -30,6 +30,6 @@ create_trait <- function(
     phenotype = phenotype,
     mafs = mafs,
     n_snps = n_snps,
-    calc_phenotype_function
+    calc_phenotype_function = calc_phenotype_function
   )
 }

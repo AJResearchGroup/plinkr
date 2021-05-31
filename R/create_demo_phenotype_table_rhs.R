@@ -30,15 +30,7 @@ create_demo_phenotype_table_rhs <- function( # nolint indeed a long function nam
     ped_col_to <- ped_col_from + 1 + ((trait$n_snps - 1) * 2)
     testthat::expect_true(ped_col_to <= ncol(ped_table))
     snvs <- ped_table[, seq(from = ped_col_from, to = ped_col_to)]
-    values <- NA
-    if (trait$phenotype == "random") {
-       values <- plinkr::calc_random_phenotype_values(snvs = snvs)
-    } else if (trait$phenotype == "additive") {
-      values <- plinkr::calc_additive_phenotype_values(snvs = snvs)
-    } else {
-      testthat::expect_equal(trait$phenotype, "epistatic")
-      values <- plinkr::calc_epistatic_phenotype_values(snvs = snvs)
-    }
+    values <- trait$calc_phenotype_function(snvs = snvs)
     tibbles[[i]] <- tibble::as_tibble_col(values)
     ped_col_from <- ped_col_to + 1
   }

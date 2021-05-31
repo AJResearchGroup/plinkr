@@ -39,7 +39,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_demo_assoc_params <- function(
-  n_individuals = 4,
+  n_individuals = 3,
   trait = create_random_trait()
 ) {
   plinkr::check_n_individuals(n_individuals)

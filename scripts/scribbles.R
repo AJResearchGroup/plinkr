@@ -1,4 +1,8 @@
 # Random scribbles
+
+assoc_params <- create_demo_assoc_params()
+assoc(assoc_params)
+
 assoc_qt_params <- create_demo_assoc_qt_params(
   traits = list(
     create_epistatic_trait(maf = 0.49),

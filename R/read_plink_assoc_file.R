@@ -33,18 +33,28 @@ read_plink_assoc_file <- function(assoc_filename) {
     pattern = "[:blank:]+",
     simplify = TRUE
   )
-  t <-  tibble::as_tibble(
-    text_matrix[-1, ],
-    .name_repair = "minimal"
-  )
+
+  if (nrow(text_matrix) > 2) {
+    t <- tibble::as_tibble(
+      text_matrix[-1, ],
+      .name_repair = "minimal"
+    )
+  } else {
+    testthat::expect_equal(2, nrow(text_matrix))
+    # else, tibble will create a 1-column table
+    t <- tibble::as_tibble_row(
+      text_matrix[-1, ],
+      .name_repair = "minimal"
+    )
+  }
   names(t) <- text_matrix[1, ]
   t
   t$CHR <- as.numeric(t$CHR)
   t$BP <- as.numeric(t$BP)
-  t$F_A <- as.numeric(t$F_A)
+  suppressWarnings(t$F_A <- as.numeric(t$F_A)) # May be NA
   t$F_U <- as.numeric(t$F_U)
   t$CHISQ <- as.numeric(t$CHISQ)
   t$P <- as.numeric(t$P)
-  t$OR <- as.numeric(t$OR)
+  suppressWarnings(t$OR <- as.numeric(t$OR)) # May be NA
   t
 }

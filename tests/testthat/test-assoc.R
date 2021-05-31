@@ -1,15 +1,20 @@
-test_that("use", {
+test_that("minimal use", {
   if (!is_plink_installed()) return()
   set.seed(314)
   expect_silent(
     assoc(create_test_assoc_params())
   )
+})
+
+test_that("verbose", {
+  if (!is_plink_installed()) return()
+  set.seed(314)
   expect_message(
     assoc(create_test_assoc_params(), verbose = TRUE)
   )
 })
 
-test_that("use", {
+test_that("use, test", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_params <- create_test_assoc_params()
@@ -27,57 +32,42 @@ test_that("use", {
   expect_true("OR" %in% names(assoc_result))
 })
 
-test_that("default demo", {
-  skip("WIP")
+test_that("use, demo", {
   if (!is_plink_installed()) return()
-  set.seed(314)
+  set.seed(317)
   assoc_params <- create_demo_assoc_params()
   assoc_results <- assoc(assoc_params = assoc_params)
-  # three traits times four SNPs = 12 association
-  expect_equal(12, nrow(assoc_results))
+  # 1 traits times 1 SNP = 1 association
+  expect_equal(1, nrow(assoc_results))
 })
 
 test_that("demo on random only", {
-  skip("WIP")
   if (!is_plink_installed()) return()
   assoc_params <- create_demo_assoc_params(
-    traits = create_random_trait()
+    trait = create_random_trait()
   )
   assoc_results <- assoc(assoc_params = assoc_params)
   # 1 trait times 1 SNP = 1 association
   expect_equal(nrow(assoc_results), 1)
 })
 
-test_that("demo on two randoms", {
-  skip("WIP")
-  if (!is_plink_installed()) return()
-  set.seed(314)
-  assoc_params <- create_demo_assoc_params(
-    traits = rep(list(create_random_trait()), 2)
-  )
-  assoc_results <- assoc(assoc_params = assoc_params)
-  # 2 trait times 2 SNP = 4 association
-  expect_equal(nrow(assoc_results), 4)
-})
-
 test_that("number of individuals", {
-  skip("WIP")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
-    n_individuals = 3,
-    traits = create_random_trait()
+    n_individuals = 5,
+    trait = create_random_trait()
   )
   assoc_results <- assoc(assoc_params = assoc_params)
   # One traits times one SNP = one association
   expect_equal(1, nrow(assoc_results))
 })
 
-test_that("demo on additive only", {
-  skip("WIP")
+test_that("demo on additive", {
   if (!is_plink_installed()) return()
+  set.seed(314)
   assoc_params <- create_demo_assoc_params(
-    traits = create_additive_trait()
+    trait = create_additive_trait()
   )
   assoc_results <- assoc(assoc_params = assoc_params)
   # 1 trait times 1 SNP = 1 association
@@ -85,16 +75,14 @@ test_that("demo on additive only", {
 })
 
 test_that("error when case-controls are not 1 or 2", {
-  skip("WIP")
   if (!is_plink_installed()) return()
   assoc_params <- create_test_assoc_params()
-  n_individuals <- nrow(assoc_params$phenotype_table)
-  assoc_params$phenotype_table$case_control_code <- NULL
-  assoc_params$phenotype_table$special_phenotype <- sample(
-    c(1, 2), size = n_individuals, replace = TRUE)
+  n_individuals <- nrow(assoc_params$ped_table)
+  assoc_params$ped_table$case_control_code <- 314
   expect_error(
     assoc(
-      assoc_params = assoc_params
+      assoc_params = assoc_params,
+      verbose = TRUE
     )
   )
 })
@@ -102,11 +90,10 @@ test_that("error when case-controls are not 1 or 2", {
 
 
 test_that("PLINK cannot handle triallelic SNPs", {
-  skip("WIP")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
-    traits = create_random_trait(mafs = c(0.3, 0.2)),
+    trait = create_random_trait(mafs = c(0.3, 0.2)),
     n_individuals = 10
   )
   expect_warning(
@@ -118,11 +105,10 @@ test_that("PLINK cannot handle triallelic SNPs", {
 })
 
 test_that("PLINK cannot handle quadallelic SNPs", {
-  skip("WIP")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
-    traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
+    trait = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
     n_individuals = 10
   )
   expect_warning(

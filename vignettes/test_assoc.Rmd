@@ -40,8 +40,8 @@ if (is_plink_installed()) {
   message("PLINK is installed")
 } else {
   message(
-    "PLINK is not installed",
-    "",
+    "PLINK is not installed \n",
+    " \n",
     "Tip: run 'plinkr::install_plinks()' to do so"
   )
 }

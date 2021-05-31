@@ -2,7 +2,8 @@ Package: plinkr
 Title: Interface to PLINK
 Version: 0.9
 Authors@R: c(
-    person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")))
+    person("Richèl J.C.", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")),
+    person("Hadrien", "Gourlé", role = "ctb", comment = c(ORCID = "0000-0001-9807-1082")))
 Description:
     GWAS are important. 
     PLINK does GWAS.

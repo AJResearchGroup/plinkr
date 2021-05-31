@@ -40,7 +40,7 @@
 #' @export
 create_demo_assoc_params <- function(
   n_individuals = 3,
-  trait = create_random_trait()
+  trait = create_random_case_control_trait()
 ) {
   plinkr::check_n_individuals(n_individuals)
   plinkr::check_trait(trait)

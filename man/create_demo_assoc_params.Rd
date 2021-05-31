@@ -5,7 +5,10 @@
 \title{Create a set of \code{assoc} parameters
 to demonstrate PLINKs \code{--assoc} functionality}
 \usage{
-create_demo_assoc_params(n_individuals = 3, trait = create_random_trait())
+create_demo_assoc_params(
+  n_individuals = 3,
+  trait = create_random_case_control_trait()
+)
 }
 \arguments{
 \item{n_individuals}{the number of individuals.

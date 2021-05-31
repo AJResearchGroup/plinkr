@@ -6,6 +6,12 @@
 \usage{
 uninstall_plinks(plink_optionses = create_plink_optionses())
 }
+\arguments{
+\item{plink_optionses}{a list of one or more options to run PLINK,
+as created by \link{create_plink_optionses}.
+The reduplicated plural was used to express this is a list
+of \code{plink_options}, instead of one set of \code{plink_options}}
+}
 \description{
 Uninstall multiple versions of PLINK
 }

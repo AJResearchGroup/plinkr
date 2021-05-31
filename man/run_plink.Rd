@@ -9,6 +9,9 @@ run_plink(args, plink_options = create_plink_options(), verbose = FALSE)
 \arguments{
 \item{args}{arguments for the PLINK executable}
 
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
 \item{verbose}{set to TRUE for more output}
 }
 \value{

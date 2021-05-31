@@ -6,6 +6,10 @@
 \usage{
 get_plink_version(plink_options = create_plink_options())
 }
+\arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
 \value{
 the version of PLINK
 }

@@ -6,6 +6,10 @@
 \usage{
 get_plink_help_text(plink_options = create_plink_options())
 }
+\arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
 \value{
 the text of the PLINK help file
 }

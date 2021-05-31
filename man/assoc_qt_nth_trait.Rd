@@ -18,6 +18,9 @@ as can be created by \link{create_assoc_qt_params}}
 
 \item{n}{the nth trait. Use '1' for the first trait}
 
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
 \item{verbose}{set to TRUE for more output}
 }
 \description{

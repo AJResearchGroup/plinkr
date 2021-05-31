@@ -6,6 +6,10 @@
 \usage{
 get_plink_zip_path(plink_options = create_plink_options())
 }
+\arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
 \value{
 path to the default \code{PLINK} executable  as used by \code{plinkr}
 }

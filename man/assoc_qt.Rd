@@ -10,6 +10,9 @@ assoc_qt(assoc_qt_params, plink_options = create_plink_options())
 \item{assoc_qt_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc_qt}),
 as can be created by \link{create_assoc_qt_params}}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
 }
 \value{
 a \link[tibble]{tibble} with the following columns:

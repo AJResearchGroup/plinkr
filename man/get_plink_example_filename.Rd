@@ -11,6 +11,9 @@ get_plink_example_filename(
 }
 \arguments{
 \item{example_filename}{name of the example file}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
 }
 \value{
 the path to a PLINK example file, if it exists.

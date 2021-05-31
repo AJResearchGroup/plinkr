@@ -7,6 +7,9 @@
 install_plink(plink_options = create_plink_options(), os = get_os())
 }
 \arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}
 }

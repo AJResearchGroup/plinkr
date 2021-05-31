@@ -6,6 +6,10 @@
 \usage{
 is_plink_installed(plink_options = create_plink_options())
 }
+\arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
 \value{
 \code{TRUE} if \code{PLINK} is installed, \code{FALSE} otherwise
 }

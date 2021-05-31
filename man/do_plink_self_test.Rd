@@ -7,6 +7,9 @@
 do_plink_self_test(plink_options = create_plink_options(), verbose = FALSE)
 }
 \arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
 \item{verbose}{set to TRUE for more output}
 }
 \value{

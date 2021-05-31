@@ -6,6 +6,10 @@
 \usage{
 check_plink_is_installed(plink_options = create_plink_options())
 }
+\arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
 \value{
 Nothing. Will \link{stop} if PLINK is not installed.
 }

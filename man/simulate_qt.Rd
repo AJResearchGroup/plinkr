@@ -23,6 +23,9 @@ Use \link{check_n_individuals} to check if this is a valid value}
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a PLINK \code{.sim} file}
 
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
 \item{verbose}{set to TRUE for more output}
 }
 \description{

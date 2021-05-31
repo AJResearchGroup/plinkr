@@ -6,6 +6,10 @@
 \usage{
 check_plink_options(plink_options)
 }
+\arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
 \value{
 the PLINK options,
 as can be checked by \link{check_plink_options}

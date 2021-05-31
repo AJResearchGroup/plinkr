@@ -6,6 +6,10 @@
 \usage{
 get_plink_example_filenames(plink_options = create_plink_options())
 }
+\arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
 \value{
 the full paths to all PLINK example files
 }

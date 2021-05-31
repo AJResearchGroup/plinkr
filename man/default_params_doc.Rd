@@ -26,6 +26,8 @@ default_params_doc(
   phenotype_table,
   phenotypes,
   plink_folder,
+  plink_options,
+  plink_optionses,
   plink_version,
   plink_versions,
   qassoc_filename,
@@ -173,16 +175,21 @@ named after their genetic background:
 \item \code{random} the phenotype is a random value,
 i.e. there is no association between the genetics and
 this phenotype
-\item \code{additive} the phenotype is perfectly additive
-(the nucleotides used are A and T as these are in the word 'additive'):
-\itemize{
-\item \code{AA} 11.0
-\item \code{AT} 10.5
-\item \code{TT} 10.0
-}
+\item \code{additive} the phenotype is perfectly additive,
+see \link{calc_additive_phenotype_values} for the exact calculation
+\item \code{epistatic} the phenotype is epistatic,
+see \link{calc_additive_epistatic_values} for the exact calculation
 }}
 
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
+\item{plink_optionses}{a list of one or more options to run PLINK,
+as created by \link{create_plink_optionses}.
+The reduplicated plural was used to express this is a list
+of \code{plink_options}, instead of one set of \code{plink_options}}
 
 \item{plink_version}{version of PLINK, e.g. \code{"1.7"}
 Use \link{get_plink_version} to get the PLINK version.

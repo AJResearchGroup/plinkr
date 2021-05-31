@@ -11,6 +11,9 @@ assoc(assoc_params, plink_options = create_plink_options(), verbose = FALSE)
 for a quantitative trait (i.e. using \link{assoc}),
 as can be created by \link{create_assoc_params}}
 
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
 \item{verbose}{set to TRUE for more output}
 }
 \value{

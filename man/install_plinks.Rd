@@ -7,6 +7,11 @@
 install_plinks(plink_optionses = create_plink_optionses(), os = get_os())
 }
 \arguments{
+\item{plink_optionses}{a list of one or more options to run PLINK,
+as created by \link{create_plink_optionses}.
+The reduplicated plural was used to express this is a list
+of \code{plink_options}, instead of one set of \code{plink_options}}
+
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}
 }

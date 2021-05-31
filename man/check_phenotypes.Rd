@@ -13,13 +13,10 @@ named after their genetic background:
 \item \code{random} the phenotype is a random value,
 i.e. there is no association between the genetics and
 this phenotype
-\item \code{additive} the phenotype is perfectly additive
-(the nucleotides used are A and T as these are in the word 'additive'):
-\itemize{
-\item \code{AA} 11.0
-\item \code{AT} 10.5
-\item \code{TT} 10.0
-}
+\item \code{additive} the phenotype is perfectly additive,
+see \link{calc_additive_phenotype_values} for the exact calculation
+\item \code{epistatic} the phenotype is epistatic,
+see \link{calc_additive_epistatic_values} for the exact calculation
 }}
 }
 \value{

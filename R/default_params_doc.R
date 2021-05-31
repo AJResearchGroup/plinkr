@@ -105,12 +105,17 @@
 #'  * \code{random} the phenotype is a random value,
 #'    i.e. there is no association between the genetics and
 #'    this phenotype
-#'  * \code{additive} the phenotype is perfectly additive
-#'    (the nucleotides used are A and T as these are in the word 'additive'):
-#'    * \code{AA} 11.0
-#'    * \code{AT} 10.5
-#'    * \code{TT} 10.0
+#'  * \code{additive} the phenotype is perfectly additive,
+#'    see \link{calc_additive_phenotype_values} for the exact calculation
+#'  * \code{epistatic} the phenotype is epistatic,
+#'    see \link{calc_additive_epistatic_values} for the exact calculation
 #' @param plink_folder folder where PLINK is installed
+#' @param plink_options options to run PLINK,
+#' as created by \link{create_plink_options}
+#' @param plink_optionses a list of one or more options to run PLINK,
+#' as created by \link{create_plink_optionses}.
+#' The reduplicated plural was used to express this is a list
+#' of \code{plink_options}, instead of one set of \code{plink_options}
 #' @param plink_version version of PLINK, e.g. \code{"1.7"}
 #' Use \link{get_plink_version} to get the PLINK version.
 #' Use \link{get_plink_versions} to get all the supported PLINK versions.
@@ -168,6 +173,8 @@ default_params_doc <- function(
   phenotype_table,
   phenotypes,
   plink_folder,
+  plink_options,
+  plink_optionses,
   plink_version,
   plink_versions,
   qassoc_filename,

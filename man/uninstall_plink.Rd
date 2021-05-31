@@ -6,6 +6,10 @@
 \usage{
 uninstall_plink(plink_options = create_plink_options())
 }
+\arguments{
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
 \value{
 Nothing
 }

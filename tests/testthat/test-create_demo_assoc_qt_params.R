@@ -4,7 +4,7 @@ test_that("use", {
 })
 
 test_that("n_individuals", {
-  n_individuals <- 31
+  n_individuals <- 5
   assoc_qt_params <- create_demo_assoc_qt_params(
     n_individuals = n_individuals
   )
@@ -14,8 +14,8 @@ test_that("n_individuals", {
 })
 
 test_that("MAFs", {
-  n_individuals <- 100
-  mafs <- c(0.31, 0.02)
+  n_individuals <- 10
+  mafs <- c(0.2, 0.1)
   assoc_qt_params <- create_demo_assoc_qt_params(
     traits = list(
       create_random_trait(maf = mafs[1]),
@@ -47,13 +47,6 @@ test_that("MAFs", {
     sum(assoc_qt_params$ped_table$snv_2b == "A")
   )
 })
-
-
-
-
-
-
-
 
 test_that("one random", {
   expect_silent(

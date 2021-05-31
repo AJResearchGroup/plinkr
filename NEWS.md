@@ -2,11 +2,28 @@
 
 Newest versions at top.
 
-## plinkr 0.9 (unreleased)
+## plinkr 0.10 (unreleased)
 
 ### NEW FEATURES
 
  * ?Add vignette with PLINK tutorial
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+## plinkr 0.9 (2021-05-31)
+
+### NEW FEATURES
+
  * Add `assoc` to detect associations for a binary trait
  * Allow to use a custom version of PLINK, #4, thanks @HadrienG
  * Can run PLINK on Mac, #5, thanks @HadrienG 
@@ -22,7 +39,7 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * None
+ * Functions that call PLINK must use a `plink_options` parameter
 
 ## plinkr 0.8 (2021-5-27)
 

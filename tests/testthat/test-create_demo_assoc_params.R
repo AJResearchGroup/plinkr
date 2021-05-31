@@ -4,7 +4,7 @@ test_that("use", {
 })
 
 test_that("n_individuals", {
-  n_individuals <- 31
+  n_individuals <- 5
   assoc_params <- create_demo_assoc_params(
     n_individuals = n_individuals
   )

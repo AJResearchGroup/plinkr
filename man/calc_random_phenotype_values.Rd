@@ -21,6 +21,13 @@ for A to G.}
 \description{
 Calculate the phenotypic values for a trait that is random.
 }
+\examples{
+t <- tibble::tibble(
+  snv_1a = c("A", "A", "C", "C"),
+  snv_1b = c("A", "C", "A", "C")
+)
+calc_random_phenotype_values(t)
+}
 \author{
 Richèl J.C. Bilderbeek
 }

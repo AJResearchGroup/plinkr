@@ -49,7 +49,6 @@ test_that("random trait, 1 SNP", {
 })
 
 test_that("random trait, 2 SNPs", {
-  skip("WIP")
   traits <- create_random_trait(n_snps = 2)
   expect_silent(
     create_demo_phenotype_table(

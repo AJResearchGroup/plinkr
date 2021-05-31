@@ -108,7 +108,7 @@
 #'  * \code{additive} the phenotype is perfectly additive,
 #'    see \link{calc_additive_phenotype_values} for the exact calculation
 #'  * \code{epistatic} the phenotype is epistatic,
-#'    see \link{calc_additive_epistatic_values} for the exact calculation
+#'    see \link{calc_epistatic_phenotype_values} for the exact calculation
 #' @param plink_folder folder where PLINK is installed
 #' @param plink_options options to run PLINK,
 #' as created by \link{create_plink_options}

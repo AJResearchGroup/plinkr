@@ -10,18 +10,14 @@ create_plink_optionses(plink_folder = get_plink_folder())
 \item{plink_folder}{folder where PLINK is installed}
 }
 \value{
-a list of multiple PLINK options,
-as can be checked by \link{check_plink_optionses}
+a list of multiple PLINK options
 }
 \description{
 Create the PLINK options for all supported versions of PLINK.
 }
-\note{
-'optionses' is the reduplicated plural (or: Gollumese)
-of 'options', to indicate this is a list of multiple options
-}
 \examples{
 create_plink_optionses()
+create_plink_optionses(plink_folder = get_plink_folder())
 }
 \author{
 Richèl J.C. Bilderbeek

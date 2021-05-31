@@ -40,22 +40,10 @@ create_demo_ped_table_rhs_trait <- function( # nolint indeed a long function nam
     rep("G", n_g),
     rep("T", n_t)
   )
-  if (trait$phenotype == "random" || trait$phenotype == "additive") {
-    return(
-      tibble::tibble(
-        a = sample(nsp_calls),
-        b = sample(nsp_calls)
-      )
-    )
-  } else {
-    testthat::expect_equal(trait$phenotype, "epistatic")
-    return(
-      tibble::tibble(
-        a = sample(nsp_calls),
-        b = sample(nsp_calls),
-        c = sample(nsp_calls),
-        d = sample(nsp_calls)
-      )
-    )
+  n_snps <- trait$n_snps
+  m <- matrix(data = "X", nrow = n_individuals, ncol = n_snps * 2)
+  for (col_index in seq_len(ncol(m))) {
+    m[, col_index] <- sample(nsp_calls)
   }
+  tibble::as_tibble(m, .name_repair = "minimal")
 }

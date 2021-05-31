@@ -7,6 +7,16 @@ test_that("use", {
   expect_error(create_demo_ped_table_rhs_trait(create_demo_traits()))
 })
 
+test_that("random trait, 1 SNP", {
+  t <- create_demo_ped_table_rhs_trait(create_random_trait())
+  expect_equal(ncol(t), 2)
+})
+
+test_that("random trait, 2 SNPs", {
+  t <- create_demo_ped_table_rhs_trait(trait = create_random_trait(n_snps = 2))
+  expect_equal(ncol(t), 4)
+})
+
 test_that("correct number of columns", {
   expect_equal(
     2,

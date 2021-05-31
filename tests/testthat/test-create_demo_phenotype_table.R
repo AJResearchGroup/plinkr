@@ -30,10 +30,31 @@ test_that("same number of individuals in ped and phenotype tables", {
   expect_equal(nrow(ped_table), nrow(phenotype_table))
 })
 
-test_that("minimal use", {
+test_that("MAFs", {
   expect_silent(
     create_demo_phenotype_table(
       traits = create_random_trait(mafs = c(0.3, 0.2, 0.1))
+    )
+  )
+})
+
+test_that("random trait, 1 SNP", {
+  traits <- create_random_trait(n_snps = 1)
+  expect_silent(
+    create_demo_phenotype_table(
+      traits = traits,
+      ped_table = create_demo_ped_table(traits = traits)
+    )
+  )
+})
+
+test_that("random trait, 2 SNPs", {
+  skip("WIP")
+  traits <- create_random_trait(n_snps = 2)
+  expect_silent(
+    create_demo_phenotype_table(
+      traits = traits,
+      ped_table = create_demo_ped_table(traits = traits)
     )
   )
 })

@@ -27,12 +27,7 @@ create_demo_phenotype_table_rhs <- function( # nolint indeed a long function nam
   for (i in seq_along(traits)) {
     trait <- traits[[i]]
     plinkr::check_phenotypes(trait$phenotype)
-
-    ped_col_to <- NA
-    if (trait$phenotype == "random") ped_col_to <- ped_col_from + 1
-    if (trait$phenotype == "additive") ped_col_to <- ped_col_from + 1
-    if (trait$phenotype == "epistatic") ped_col_to <- ped_col_from + 3
-    testthat::expect_true(!is.na(ped_col_to))
+    ped_col_to <- ped_col_from + 1 + ((trait$n_snps - 1) * 2)
     testthat::expect_true(ped_col_to <= ncol(ped_table))
     snvs <- ped_table[, seq(from = ped_col_from, to = ped_col_to)]
     values <- NA

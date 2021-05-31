@@ -17,6 +17,7 @@ create_random_trait <- function(
   plinkr::create_trait(
     phenotype = "random",
     mafs = mafs,
-    n_snps = n_snps
+    n_snps = n_snps,
+    calc_phenotype_function = plinkr::calc_random_phenotype_values
   )
 }

@@ -12,6 +12,22 @@ all the phenotypes that are named after their genetic background
 \description{
 Get the phenotypes that are named after their genetic background
 }
+\details{
+To create a trait with a phenotype:
+\itemize{
+\item \link{create_additive_trait}
+\item \link{create_custom_trait}
+\item \link{create_epistatic_trait}
+\item \link{create_random_trait}
+}
+
+The functions that calculate the phenotype for a genotype:
+\itemize{
+\item \link{calc_additive_phenotype_values}
+\item \link{calc_epistatic_phenotype_values}
+\item \link{calc_random_phenotype_values}
+}
+}
 \note{
 The function has the word \code{get} in its name,
 as getting the result is trivial. When getting the result is non-trivial,

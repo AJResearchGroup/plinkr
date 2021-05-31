@@ -23,7 +23,7 @@ Calculate the phenotypic values for a trait that is epistatic.
 }
 \details{
 A phenotypic value starts at 20.0.
-Only four non-adenines results in a phenotype of 21.0
+Only genotypes without adenines results in a phenotype of 21.0
 }
 \note{
 the reason a phenotypic value starts at 20.0, instead of 0.0,

@@ -5,7 +5,12 @@
 \title{Create a trait with a clear genetic architecture and a known
 minor allele frequency.}
 \usage{
-create_trait(phenotype, mafs = 0.25, n_snps = 1)
+create_trait(
+  phenotype,
+  mafs = 0.25,
+  n_snps = 1,
+  calc_phenotype_function = calc_random_phenotype_values
+)
 }
 \arguments{
 \item{phenotype}{one phenotype, named after its genetic background:
@@ -36,6 +41,15 @@ is setting the rarest alleles to missing.}
 \description{
 Create a trait with a clear genetic architecture and a known
 minor allele frequency.
+}
+\details{
+Prefer to use the specialized functions:
+\itemize{
+\item \link{create_additive_trait}
+\item \link{create_custom_trait}
+\item \link{create_epistatic_trait}
+\item \link{create_random_trait}
+}
 }
 \examples{
 create_trait(phenotype = "random")

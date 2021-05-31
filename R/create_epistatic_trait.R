@@ -20,6 +20,7 @@ create_epistatic_trait <- function(
   plinkr::create_trait(
     phenotype = "epistatic",
     mafs = mafs,
-    n_snps = 2
+    n_snps = n_snps,
+    calc_phenotype_function = plinkr::calc_epistatic_phenotype_values
   )
 }

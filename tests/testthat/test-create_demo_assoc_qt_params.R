@@ -48,7 +48,7 @@ test_that("MAFs", {
   )
 })
 
-test_that("one random", {
+test_that("one random, 1 SNP", {
   expect_silent(
     create_demo_assoc_qt_params(
       traits = create_random_trait()
@@ -56,7 +56,15 @@ test_that("one random", {
   )
 })
 
-test_that("one additive", {
+test_that("one random, 2 SNPs", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = create_random_trait(n_snps = 2)
+    )
+  )
+})
+
+test_that("one additive, 1 SNP", {
   expect_silent(
     create_demo_assoc_qt_params(
       traits = create_additive_trait()
@@ -64,10 +72,27 @@ test_that("one additive", {
   )
 })
 
-test_that("one epistatic", {
+test_that("one additive, 2 SNPs", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = create_additive_trait(n_snps = 2)
+    )
+  )
+})
+
+test_that("one epistatic, 1 SNP", {
   expect_silent(
     create_demo_assoc_qt_params(
       traits = create_epistatic_trait()
+    )
+  )
+})
+
+test_that("one epistatic, 3 SNPs", {
+  expect_silent(
+    create_demo_assoc_qt_params(
+      traits = create_epistatic_trait(n_snps = 3),
+      n_individuals = 64
     )
   )
 })

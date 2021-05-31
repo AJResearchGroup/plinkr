@@ -1,6 +1,12 @@
 # Random scribbles
 
 assoc_params <- create_demo_assoc_params(
+  trait = create_additive_trait(n_snps = 2)
+)
+assoc(assoc_params)
+
+
+assoc_params <- create_demo_assoc_params(
   trait = create_random_trait(n_snps = 2)
 )
 assoc(assoc_params)

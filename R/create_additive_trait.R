@@ -12,7 +12,13 @@
 #' @export
 #' @author Richèl J.C. Bilderbeek
 create_additive_trait <- function(
-  mafs = 0.25
+  mafs = 0.25,
+  n_snps = 1
 ) {
-  plinkr::create_trait(phenotype = "additive", mafs = mafs)
+  plinkr::create_trait(
+    phenotype = "additive",
+    mafs = mafs,
+    n_snps = n_snps,
+    calc_phenotype_function = plinkr::calc_additive_phenotype_values
+  )
 }

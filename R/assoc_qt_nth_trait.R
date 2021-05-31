@@ -67,24 +67,14 @@ assoc_qt_nth_trait <- function(
     recursive = TRUE
   )
 
-  if (1 == 1) {
-    args <- c(
-      "--map", map_filename,
-      "--ped", ped_filename,
-      "--pheno", phenotype_filename,
-      "--assoc",
-      "--maf", maf,
-      "--out", output_filename_base
-    )
-  } else {
-    args <- c(
-      "--file", base_input_filename,
-      "--assoc",
-      "--pheno", phenotype_filename,
-      "--maf", maf,
-      "--out", output_filename_base
-    )
-  }
+  args <- c(
+    "--map", map_filename,
+    "--ped", ped_filename,
+    "--pheno", phenotype_filename,
+    "--assoc",
+    "--maf", maf,
+    "--out", output_filename_base
+  )
   plinkr::run_plink(args = args, verbose = verbose)
 
   qassoc_table <- plinkr::read_plink_qassoc_file(qassoc_filename)

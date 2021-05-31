@@ -65,8 +65,6 @@ create_demo_assoc_params <- function(
   )
   names(phenotype_table) <- c(names(phenotype_table)[1:2], "case_control_code")
   ped_table$case_control_code <- phenotype_table$case_control_code
-  ped_table$case_control_code <- 1 +
-    (ped_table$case_control_code < stats::median(ped_table$case_control_code))
   plinkr::create_assoc_params(
     ped_table = ped_table,
     map_table = map_table

@@ -30,8 +30,47 @@ determined in a custom way
 and the minor allele frequency is known.
 }
 \examples{
-create_additive_trait()
-create_additive_trait(maf = 0.01)
+# Create a custom trait that calculates the phenotypes randomly,
+# regardless of the genotype.
+# This is the same as using 'create_random_trait'
+create_custom_trait(
+  calc_phenotype_function = calc_random_phenotype_values
+)
+
+# Create a custom trait that calculates the phenotypes additively
+# This is the same as using 'create_additive_trait'
+create_custom_trait(
+  calc_phenotype_function = calc_additive_phenotype_values
+)
+
+# Create a custom trait that calculates the phenotypes from
+# an epistatic interaction
+# This is the same as using 'create_epistate_trait'
+create_custom_trait(
+  calc_phenotype_function = calc_epistatic_phenotype_values,
+  n_snps = 2
+)
+
+# Create a custom trait that calculates the phenotypes from
+# an epistatic interaction
+# This is the same as using 'create_epistate_trait'
+create_custom_trait(
+  calc_phenotype_function = calc_epistatic_phenotype_values,
+  n_snps = 2
+)
+
+# A trivial trait, that shows the genotypes worked on
+create_custom_trait(
+  calc_phenotype_function = function(snvs) {
+
+    # Show the input
+    message(paste0(knitr::kable(snvs), collapse = "\n"))
+
+    # Return as much 1s as individuals
+    rep(1, nrow(snvs))
+  }
+)
+
 }
 \author{
 Richèl J.C. Bilderbeek

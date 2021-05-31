@@ -79,6 +79,7 @@ The `--out run1` means that PLINK will create a file that starts with  `run1`. I
 output_filename_base <- file.path(get_plinkr_tempfilename(), "run1")
 output_filename_base <- "run1"
 output_filename_qassoc <- paste0(output_filename_base, ".qassoc")
+output_filename_log <- paste0(output_filename_base, ".log")
 ```
 
 becomes
@@ -137,7 +138,7 @@ These are:
  * `r names(get_test_map_table())[4]`: 
     Base-pair coordinat
 
-```{r}
+```{r how_phenotypes}
 if (is_plink_installed()) {
   knitr::kable(
     read_plink_phenotype_file(phenotype_filename)
@@ -147,7 +148,7 @@ if (is_plink_installed()) {
 
 Reading the output:
 
-```{r}
+```{r show_qassoc}
 if (is_plink_installed()) {
   knitr::kable(
     read_plink_qassoc_file(output_filename_qassoc)
@@ -166,11 +167,30 @@ if (is_plink_installed()) {
  * `T`: Wald test (based on t-distribution)
  * `P`: Wald test asymptotic p-value
 
+The PLINK log file:
+
+```{r show_log_assoc_qt}
+if (is_plink_installed()) {
+  utils::head(
+    read_plink_log_file(output_filename_log)
+  )
+}
+```
+
+Cleaning up:
+
+```{r cleanup_assoc_qt}
+if (is_plink_installed()) {
+  file.remove(output_filename_log)
+  file.remove(output_filename_qassoc)
+}
+```
+
 ## Is the phenotype file mandatory?
 
 No, you can remove it from the command to run PLINK:
 
-```{r}
+```{r run_assoc}
 if (is_plink_installed()) {
   plinkr::run_plink(
     args = c(
@@ -189,7 +209,7 @@ file, from the column named `r names(get_test_ped_table())[6]`.
 As we run PLINK with a case-control study, 
 the input is now in `run1.assoc` instead:
 
-```{r}
+```{r show_assoc}
 if (is_plink_installed()) {
   output_filename_assoc <- paste0(output_filename_base, ".assoc")
   knitr::kable(
@@ -208,3 +228,22 @@ if (is_plink_installed()) {
  * `R2`: Regression r-squared
  * `T`: Wald test (based on t-distribution)
  * `P`: Wald test asymptotic p-value
+
+The PLINK log file:
+
+```{r show_log_assoc}
+if (is_plink_installed()) {
+  utils::head(
+    read_plink_log_file(output_filename_log)
+  )
+}
+```
+
+Cleaning up:
+
+```{r cleanup_assoc}
+if (is_plink_installed()) {
+  file.remove(output_filename_log)
+  file.remove(output_filename_assoc)
+}
+```

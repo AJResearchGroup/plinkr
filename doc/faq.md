@@ -35,3 +35,12 @@ for example:
 get_plink_version(plink_options)
 ```
 
+The executable of PLINK should be at the following location:
+
+```
+get_plink_exe_path(plink_options)
+```
+
+In this example, on Linux, 
+the PLINK executable must be located at `my_plink_path/plink`.
+

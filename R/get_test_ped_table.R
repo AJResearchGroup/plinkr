@@ -14,10 +14,10 @@
 #' get_test_ped_table()
 #'
 #' # Get the pedigree from the original PLINK v1.7 example file
-#' if (is_plink_installed(plink_version = "1.7")) {
+#' if (is_plink_installed(create_plink_v1_7_options())) {
 #'   ped_filename <- get_plink_example_filename(
 #'     example_filename = "test.ped",
-#'     plink_version = "1.7"
+#'     create_plink_v1_7_options()
 #'   )
 #'   read_plink_ped_file(ped_filename)
 #' }

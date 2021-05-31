@@ -4,19 +4,9 @@
 \alias{install_plink}
 \title{Install a specific version of PLINK}
 \usage{
-install_plink(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder(),
-  os = get_os()
-)
+install_plink(plink_options = create_plink_options(), os = get_os())
 }
 \arguments{
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
-
-\item{plink_folder}{folder where PLINK is installed}
-
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}
 }

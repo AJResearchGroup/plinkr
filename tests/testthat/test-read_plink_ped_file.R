@@ -4,18 +4,18 @@ test_that("use", {
     read_plink_ped_file(
       ped_filename = get_plink_example_filename(
         example_filename = "test.ped",
-        plink_version = "1.7"
+        create_plink_v1_7_options()
       )
     )
   )
 })
 
 test_that("use, v1.7", {
-  if (!is_plink_installed(plink_version = "1.7")) return()
+  if (!is_plink_installed(create_plink_v1_7_options())) return()
   t <- read_plink_ped_file(
     ped_filename = get_plink_example_filename(
       example_filename = "test.ped",
-      plink_version = "1.7"
+      create_plink_v1_7_options()
     )
   )
   expect_true("family_id" %in% names(t))
@@ -31,11 +31,11 @@ test_that("use, v1.7", {
 })
 
 test_that("use, v1.9", {
-  if (!is_plink_installed(plink_version = "1.9")) return()
+  if (!is_plink_installed(create_plink_v1_9_options())) return()
   t <- read_plink_ped_file(
     ped_filename = get_plink_example_filename(
       example_filename = "toy.ped",
-      plink_version = "1.9"
+      create_plink_v1_9_options()
     )
   )
   expect_true("family_id" %in% names(t))
@@ -60,6 +60,7 @@ test_that("save and load result from get_test_ped_table()", {
   )
   ped_table_again <- read_plink_ped_file(ped_filename = ped_filename)
   expect_identical(ped_table, ped_table_again)
+  file.remove(ped_filename)
 })
 
 test_that("save and load result from create_demo_ped_table()", {
@@ -71,4 +72,5 @@ test_that("save and load result from create_demo_ped_table()", {
   )
   ped_table_again <- read_plink_ped_file(ped_filename = ped_filename)
   expect_identical(ped_table, ped_table_again)
+  file.remove(ped_filename)
 })

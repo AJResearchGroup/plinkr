@@ -4,7 +4,7 @@ test_that("use", {
     file.exists(
       get_plink_example_filename(
         example_filename = "test.map",
-        plink_version = "1.7"
+        create_plink_v1_7_options()
       )
     )
   )
@@ -12,7 +12,23 @@ test_that("use", {
     file.exists(
       get_plink_example_filename(
         example_filename = "test.ped",
-        plink_version = "1.7"
+        create_plink_v1_7_options()
+      )
+    )
+  )
+  expect_true(
+    file.exists(
+      get_plink_example_filename(
+        example_filename = "toy.map",
+        create_plink_v1_9_options()
+      )
+    )
+  )
+  expect_true(
+    file.exists(
+      get_plink_example_filename(
+        example_filename = "toy.ped",
+        create_plink_v1_9_options()
       )
     )
   )

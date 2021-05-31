@@ -7,11 +7,11 @@
 simulate_qt <- function(
   simulate_qt_params,
   n_individuals,
-  temp_sim_filename,
-  plink_version = get_default_plink_version(),
-  add_noweb = TRUE,
+  temp_sim_filename = get_plinkr_tempfilename(),
+  plink_options = create_plink_options(),
   verbose = FALSE
 ) {
+  plinkr::check_plink_options(plink_options)
   # Create input files
   plinkr::save_simulate_qt_params_to_file(
     simulate_qt_params = simulate_qt_params,
@@ -26,8 +26,7 @@ simulate_qt <- function(
   )
   plinkr::run_plink(
     args,
-    plink_version = plink_version,
-    add_noweb = add_noweb,
+    plink_options = plink_options,
     verbose = verbose
   )
 
@@ -44,5 +43,10 @@ simulate_qt <- function(
   results$simfreq <- plinkr::read_plink_simfreq_file(
     simfreq_filename = simfreq_filename
   )
+
+  file.remove(temp_sim_filename)
+  file.remove(log_filename)
+  file.remove(simfreq_filename)
+
   results
 }

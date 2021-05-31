@@ -2,6 +2,7 @@ test_that("use on text file", {
   temp_filename <- get_plinkr_tempfilename()
   writeLines(text = "temp", temp_filename)
   expect_false(is_exe(filename = temp_filename))
+  file.remove(temp_filename)
 })
 
 test_that("use on PLINK exe file", {

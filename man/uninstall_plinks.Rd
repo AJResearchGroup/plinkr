@@ -4,16 +4,7 @@
 \alias{uninstall_plinks}
 \title{Uninstall multiple versions of PLINK}
 \usage{
-uninstall_plinks(
-  plink_versions = get_plink_versions(),
-  plink_folder = get_plink_folder()
-)
-}
-\arguments{
-\item{plink_versions}{one or more versions of PLINK,
-e.g. as can be obtained using \link{get_plink_versions}}
-
-\item{plink_folder}{folder where PLINK is installed}
+uninstall_plinks(plink_optionses = create_plink_optionses())
 }
 \description{
 Uninstall multiple versions of PLINK

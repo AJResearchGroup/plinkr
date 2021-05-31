@@ -4,18 +4,9 @@
 \alias{install_plinks}
 \title{Install multiple versions of PLINK}
 \usage{
-install_plinks(
-  plink_versions = get_plink_versions(),
-  plink_folder = get_plink_folder(),
-  os = get_os()
-)
+install_plinks(plink_optionses = create_plink_optionses(), os = get_os())
 }
 \arguments{
-\item{plink_versions}{one or more versions of PLINK,
-e.g. as can be obtained using \link{get_plink_versions}}
-
-\item{plink_folder}{folder where PLINK is installed}
-
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}
 }

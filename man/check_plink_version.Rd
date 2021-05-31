@@ -14,6 +14,11 @@ Use \link{get_plink_versions} to get all the supported PLINK versions.}
 \description{
 Check if the PLINK version is valid, will stop if not
 }
+\examples{
+check_plink_version("1.7")
+check_plink_version("1.9")
+check_plink_version("custom")
+}
 \author{
 Richèl J.C. Bilderbeek
 }

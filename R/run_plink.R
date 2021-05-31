@@ -26,16 +26,13 @@
 #' @export
 run_plink <- function(
   args,
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder(),
-  add_noweb = TRUE,
+  plink_options = create_plink_options(),
   verbose = FALSE
 ) {
-  plinkr::check_plink_is_installed(
-    plink_version = plink_version,
-    plink_folder = plink_folder
-  )
-  if (add_noweb) {
+  plinkr::check_plink_options(plink_options)
+  plinkr::check_plink_is_installed(plink_options)
+
+  if (plink_options$add_noweb) {
     args <- c(args, "--noweb")
   }
   if (sum(args == "--noweb") > 1) {
@@ -44,10 +41,7 @@ run_plink <- function(
       "args: ", paste(args, collapse = " ")
     )
   }
-  plink_exe_path <- plinkr::get_plink_exe_path(
-    plink_version = plink_version,
-    plink_folder = plink_folder
-  )
+  plink_exe_path <- plinkr::get_plink_exe_path(plink_options)
   if (verbose) {
     message(
       "Running: '", plink_exe_path, " ", paste(args, collapse = " "), "'. \n",

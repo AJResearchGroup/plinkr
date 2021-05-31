@@ -1,11 +1,11 @@
 test_that("use", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_params <- create_test_assoc_params()
   expect_silent(
-    assoc(
-      assoc_params = assoc_params
-    )
+    assoc(create_test_assoc_params())
+  )
+  expect_message(
+    assoc(create_test_assoc_params(), verbose = TRUE)
   )
 })
 

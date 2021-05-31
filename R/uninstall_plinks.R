@@ -3,14 +3,10 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 uninstall_plinks <- function(
-  plink_versions = get_plink_versions(),
-  plink_folder = get_plink_folder()
+  plink_optionses = create_plink_optionses()
 ) {
-  for (plink_version in plink_versions) {
-    plinkr::check_plink_version(plink_version)
-    plinkr::uninstall_plink(
-      plink_version = plink_version,
-      plink_folder = plink_folder
-    )
+  for (plink_options in plink_optionses) {
+    plinkr::check_plink_options(plink_options)
+    plinkr::uninstall_plink(plink_options)
   }
 }

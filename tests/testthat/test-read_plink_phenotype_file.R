@@ -28,4 +28,5 @@ test_that("multiple traits", {
   expect_true("phenotype_1" %in% names(phenotypes))
   expect_true("phenotype_2" %in% names(phenotypes))
   expect_equal(6, nrow(phenotypes))
+  file.remove(phenotype_filename)
 })

@@ -8,10 +8,13 @@ Newest versions at top.
 
  * ?Add vignette with PLINK tutorial
  * Add `assoc` to detect associations for a binary trait
+ * Allow to use a custom version of PLINK, #4, thanks @HadrienG
+ * Can run PLINK on Mac, #5, thanks @HadrienG 
 
 ### MINOR IMPROVEMENTS
 
  * `create_demo_assoc_qt_params` can now accept multiple additive and epistatic traits
+ * All temporary files are cleaned up
 
 ### BUG FIXES
 

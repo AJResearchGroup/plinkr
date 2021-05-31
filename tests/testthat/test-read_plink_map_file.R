@@ -1,33 +1,33 @@
 test_that("minimal use, v1.7", {
-  if (!is_plink_installed(plink_version = "1.7")) return()
+  if (!is_plink_installed(create_plink_v1_7_options())) return()
   expect_silent(
     read_plink_map_file(
       get_plink_example_filename(
         example_filename = "test.map",
-        plink_version = "1.7"
+        create_plink_v1_7_options()
       )
     )
   )
 })
 
 test_that("minimal use, v1.9", {
-  if (!is_plink_installed(plink_version = "1.9")) return()
+  if (!is_plink_installed(create_plink_v1_9_options())) return()
   expect_silent(
     read_plink_map_file(
       get_plink_example_filename(
         example_filename = "toy.map",
-        plink_version = "1.9"
+        create_plink_v1_9_options()
       )
     )
   )
 })
 
 test_that("use, v1.7", {
-  if (!is_plink_installed(plink_version = "1.7")) return()
+  if (!is_plink_installed(create_plink_v1_7_options())) return()
   t <- read_plink_map_file(
     get_plink_example_filename(
       example_filename = "test.map",
-      plink_version = "1.7"
+      create_plink_v1_7_options()
     )
   )
   expect_true("CHR" %in% names(t))
@@ -37,11 +37,11 @@ test_that("use, v1.7", {
 })
 
 test_that("use, v1.9", {
-  if (!is_plink_installed(plink_version = "1.9")) return()
+  if (!is_plink_installed(create_plink_v1_9_options())) return()
   t <- read_plink_map_file(
     get_plink_example_filename(
       example_filename = "toy.map",
-      plink_version = "1.9"
+      create_plink_v1_9_options()
     )
   )
   expect_true("CHR" %in% names(t))

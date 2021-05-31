@@ -6,34 +6,18 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_plink_is_installed <- function(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
+  plink_options = create_plink_options()
 ) {
-  plinkr::check_plink_version(plink_version)
+  plinkr::check_plink_options(plink_options)
 
-  plink_zip_path <- plinkr::get_plink_zip_path(
-    plink_version = plink_version,
-    plink_folder = plink_folder
-  )
-  if (!file.exists(plink_zip_path)) {
-    stop(
-      "PLINK is not installed. \n",
-      "ZIP file not downloaded. \n",
-      "PLINK folder: ", plink_folder, " \n",
-      "PLINK zip path: ", plink_zip_path, " \n",
-      "Tip: run 'plinkr::install_plinks()'"
-    )
-  }
-
-  plink_exe_path <- get_plink_exe_path(
-    plink_version = plink_version,
-    plink_folder = plink_folder
+  plink_exe_path <- plinkr::get_plink_exe_path(
+    plink_options = plink_options
   )
   if (!file.exists(plink_exe_path)) {
     stop(
       "PLINK is not installed. \n",
       "Executable is not found \n",
-      "PLINK folder: ", plink_folder, " \n",
+      "PLINK folder: ", plink_options$plink_folder, " \n",
       "PLINK executable: ", plink_exe_path, " \n",
       "Tip: run 'plinkr::install_plinks()'"
     )
@@ -42,7 +26,7 @@ check_plink_is_installed <- function(
     stop(
       "PLINK is not installed. \n",
       "PLINK binary is not executable \n",
-      "PLINK folder: ", plink_folder, " \n",
+      "PLINK folder: ", plink_options$plink_folder, " \n",
       "PLINK executable: ", plink_exe_path, " \n",
       "Tip: run 'plinkr::install_plinks()'"
     )

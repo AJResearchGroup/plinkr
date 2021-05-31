@@ -8,10 +8,12 @@
 assoc_qt_nth_trait <- function(
   assoc_qt_params,
   n,
+  plink_options = create_plink_options(),
   verbose = FALSE
 ) {
   plinkr::check_assoc_qt_params(assoc_qt_params)
   testthat::expect_true(n >= 1)
+  plinkr::check_plink_options(plink_options)
   n_traits <- ncol(assoc_qt_params$phenotype_table) - 2
   if (n > n_traits) {
     stop(
@@ -35,7 +37,7 @@ assoc_qt_nth_trait <- function(
   phenotype_table <- phenotype_table[, keep_indices]
   testthat::expect_equal(3, ncol(phenotype_table))
 
-  # Filename
+  # Filenames
   temp_folder <- plinkr::get_plinkr_tempfilename()
   base_input_filename <- file.path(temp_folder, "assoc_qt_input")
   output_filename_base <- file.path(temp_folder, "assoc_qt_output")
@@ -43,6 +45,8 @@ assoc_qt_nth_trait <- function(
   map_filename <- paste0(base_input_filename, ".map")
   phenotype_filename <- paste0(base_input_filename, ".phenotype")
   qassoc_filename <- paste0(output_filename_base, ".qassoc")
+  log_filename <- paste0(output_filename_base, ".log")
+
 
   plinkr::save_ped_table_to_file(
     ped_table = ped_table,
@@ -75,18 +79,28 @@ assoc_qt_nth_trait <- function(
     "--maf", maf,
     "--out", output_filename_base
   )
-  plinkr::run_plink(args = args, verbose = verbose)
+  plinkr::run_plink(
+    args = args,
+    plink_options = plink_options,
+    verbose = verbose
+  )
 
   qassoc_table <- plinkr::read_plink_qassoc_file(qassoc_filename)
+
+  if (verbose) {
+    message(paste(plinkr::read_plink_log_file(log_filename), collapse = "\n"))
+  }
 
   file.remove(map_filename)
   file.remove(ped_filename)
   file.remove(phenotype_filename)
   file.remove(qassoc_filename)
+  file.remove(log_filename)
   testthat::expect_equal(
     0,
     length(list.files(pattern = base_input_filename))
   )
+  unlink(temp_folder, recursive = TRUE)
 
   qassoc_table
 }

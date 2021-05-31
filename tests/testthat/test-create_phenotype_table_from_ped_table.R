@@ -1,9 +1,9 @@
 test_that("use", {
-  if (!is_plink_installed(plink_version = "1.7")) return()
+  if (!is_plink_installed(create_plink_v1_7_options())) return()
   ped_table <- read_plink_ped_file(
     ped_filename = get_plink_example_filename(
       example_filename = "test.ped",
-      plink_version = "1.7"
+      create_plink_v1_7_options()
     )
   )
   phenotype_table <- create_phenotype_table_from_ped_table(ped_table)

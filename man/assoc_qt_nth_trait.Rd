@@ -4,7 +4,12 @@
 \alias{assoc_qt_nth_trait}
 \title{Let PLINK detect an association with the n-th quantitative trait}
 \usage{
-assoc_qt_nth_trait(assoc_qt_params, n, verbose = FALSE)
+assoc_qt_nth_trait(
+  assoc_qt_params,
+  n,
+  plink_options = create_plink_options(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{assoc_qt_params}{parameters to do an association analysis

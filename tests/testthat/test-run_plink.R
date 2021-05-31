@@ -5,7 +5,13 @@ test_that("show help", {
 
 test_that("verbose", {
   if (!is_plink_installed()) return()
-  expect_message(run_plink(args = "--help", verbose = TRUE))
+  expect_message(
+    run_plink(
+      args = "--help",
+      plink_options = create_plink_options(),
+      verbose = TRUE
+    )
+  )
 })
 
 test_that("no duplicate --noweb flag", {
@@ -50,4 +56,7 @@ test_that("warnings", {
     run_plink(args),
     "Variant 1 quadallelic; setting rarest alleles missing"
   )
+  file.remove(ped_filename)
+  file.remove(map_filename)
+  file.remove(phenotype_filename)
 })

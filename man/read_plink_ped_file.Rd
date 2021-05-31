@@ -34,19 +34,19 @@ in the \code{.map file} (\code{0} = no call)
 Read a PLINK \code{.ped} file
 }
 \examples{
- if (is_plink_installed(plink_version = "1.7")) {
+ if (is_plink_installed(create_plink_v1_7_options())) {
    read_plink_ped_file(
      get_plink_example_filename(
        example_filename = "test.ped",
-       plink_version = "1.7"
+       create_plink_v1_7_options()
      )
    )
  }
- if (is_plink_installed(plink_version = "1.9")) {
+ if (is_plink_installed(create_plink_v1_9_options())) {
    read_plink_ped_file(
      get_plink_example_filename(
        example_filename = "toy.ped",
-       plink_version = "1.9"
+       create_plink_v1_9_options()
      )
    )
  }

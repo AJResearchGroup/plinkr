@@ -8,32 +8,29 @@
 #'   get_plink_example_filename("toy.ped")
 #' }
 #'
-#' # Specific versions
-#' if (is_plink_installed(plink_version = "1.7")) {
-#'   get_plink_example_filename("test.map", plink_version = "1.7")
-#'   get_plink_example_filename("test.ped", plink_version = "1.7")
+#' # v.17
+#' plink_options <- create_plink_v1_7_options()
+#' if (is_plink_installed(plink_options)) {
+#'   get_plink_example_filename("test.map", plink_options)
+#'   get_plink_example_filename("test.ped", plink_options)
 #' }
-#' if (is_plink_installed(plink_version = "1.9")) {
-#'   get_plink_example_filename("toy.map", plink_version = "1.9")
-#'   get_plink_example_filename("toy.ped", plink_version = "1.9")
+#'
+#' # v1.9
+#' plink_options <- create_plink_v1_9_options()
+#' if (is_plink_installed(plink_options)) {
+#'   get_plink_example_filename("toy.map", plink_options)
+#'   get_plink_example_filename("toy.ped", plink_options)
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_example_filename <- function(
   example_filename,
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
+  plink_options = create_plink_options()
 ) {
-  plinkr::check_plink_is_installed(
-    plink_version = plink_version,
-    plink_folder = plink_folder
-  )
+  plinkr::check_plink_is_installed(plink_options)
   full_path <- file.path(
     dirname(
-      plinkr::get_plink_exe_path(
-        plink_version = plink_version,
-        plink_folder = plink_folder
-      )
+      plinkr::get_plink_exe_path(plink_options)
     ),
     example_filename
   )

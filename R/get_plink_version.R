@@ -4,18 +4,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_version <- function(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
+  plink_options = create_plink_options()
 ) {
-  plinkr::check_plink_version(plink_version)
-  plinkr::check_plink_is_installed(
-    plink_version = plink_version,
-    plink_folder = plink_folder
-  )
-  text <- plinkr::get_plink_help_text(
-    plink_version = plink_version,
-    plink_folder = plink_folder
-  )
+  plinkr::check_plink_options(plink_options)
+  plinkr::check_plink_is_installed(plink_options)
+  text <- plinkr::get_plink_help_text(plink_options)
   all_matches <- stringr::str_match(
     string = text,
     pattern = "v[:digit:]+\\.[:digit:]+"

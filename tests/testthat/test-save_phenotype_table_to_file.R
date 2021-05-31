@@ -13,6 +13,7 @@ test_that("use", {
   expect_equal(names(phenotype_table), names(phenotype_table_again))
   expect_equal(nrow(phenotype_table), nrow(phenotype_table_again))
   expect_equal(ncol(phenotype_table), ncol(phenotype_table_again))
+  file.remove(phenotype_filename)
 })
 
 test_that("sub-sub-sub folder", {
@@ -28,4 +29,9 @@ test_that("sub-sub-sub folder", {
     phenotype_filename = phenotype_filename
   )
   expect_true(file.exists(phenotype_filename))
+  file.remove(phenotype_filename)
+  unlink(
+    dirname(dirname(dirname(dirname(dirname(phenotype_filename))))),
+    recursive = TRUE
+  )
 })

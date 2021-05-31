@@ -3,15 +3,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 install_plinks <- function(
-  plink_versions = get_plink_versions(),
-  plink_folder = get_plink_folder(),
+  plink_optionses = create_plink_optionses(),
   os = get_os()
 ) {
-  for (plink_version in plink_versions) {
-    plinkr::check_plink_version(plink_version)
+  for (plink_options in plink_optionses) {
+    plinkr::check_plink_options(plink_options)
     plinkr::install_plink(
-      plink_version = plink_version,
-      plink_folder = plink_folder,
+      plink_options = plink_options,
       os = os
     )
   }

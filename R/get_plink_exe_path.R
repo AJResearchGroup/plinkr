@@ -4,21 +4,35 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_exe_path <- function(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
+  plink_options = create_plink_options()
 ) {
-  plinkr::check_plink_version(plink_version)
-  if (plink_version == "1.7") {
+  plinkr::check_plink_options(plink_options)
+
+  # Don't be smart yet
+  plink_version <- plink_options$plink_version
+  plink_folder <- plink_options$plink_folder
+
+  if (plink_version == "custom") {
     return(
       file.path(
         plink_folder,
-        "plink-1.07-x86_64", "plink"
+        "plink"
       )
     )
   }
-  testthat::expect_true(plink_version == "1.9")
+
+  subfolder <- NA
+  if (plink_version == "1.7") {
+    subfolder <- "plink-1.07-x86_64"
+  }
+  else {
+    testthat::expect_equal(plink_version, "1.9")
+    subfolder <- "plink_1_9"
+  }
+  testthat::expect_false(is.na(subfolder))
   file.path(
     plink_folder,
-    "plink_1_9", "plink"
+    subfolder,
+    "plink"
   )
 }

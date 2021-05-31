@@ -5,18 +5,22 @@
 #' @export
 plinkr_report <- function() {
   message("OS: ", rappdirs::app_dir()$os)
-  for (plink_version in plinkr::get_plink_versions()) {
+  plink_optionses <- list( # A reduplicated plural
+    plinkr::create_plink_v1_7_options(),
+    plinkr::create_plink_v1_9_options()
+  )
+  for (plink_options in plink_optionses) {
     message(
-      paste0("PLINK version (plink versioning scheme) '",
-        plink_version, "' installed: ",
-        plinkr::is_plink_installed(plink_version = plink_version)
+      paste0("PLINK version (plinkr versioning scheme) '",
+        plink_options$plink_version, "' installed: ",
+        plinkr::is_plink_installed(plink_options)
       )
     )
-    if (plinkr::is_plink_installed(plink_version = plink_version)) {
+    if (plinkr::is_plink_installed(plink_options)) {
       message(
         paste0(
           "PLINK version (PLINK versioning scheme): ",
-          plinkr::get_plink_version(plink_version = plink_version)
+          plinkr::get_plink_version(plink_options)
         )
       )
     }

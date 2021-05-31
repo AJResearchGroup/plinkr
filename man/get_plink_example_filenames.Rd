@@ -4,17 +4,7 @@
 \alias{get_plink_example_filenames}
 \title{Get the full paths to all PLINK example files}
 \usage{
-get_plink_example_filenames(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
-)
-}
-\arguments{
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
-
-\item{plink_folder}{folder where PLINK is installed}
+get_plink_example_filenames(plink_options = create_plink_options())
 }
 \value{
 the full paths to all PLINK example files
@@ -24,7 +14,14 @@ Get the full paths to all PLINK example files
 }
 \examples{
 if (is_plink_installed()) {
+  # Default version
   get_plink_example_filenames()
+
+  # v1.7
+  get_plink_example_filenames(create_plink_v1_7_options())
+
+  # v1.9
+  get_plink_example_filenames(create_plink_v1_9_options())
 }
 }
 \author{

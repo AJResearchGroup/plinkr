@@ -4,17 +4,7 @@
 \alias{get_plink_exe_path}
 \title{Get the path to the default PLINK executable as used by plinkr}
 \usage{
-get_plink_exe_path(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
-)
-}
-\arguments{
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
-
-\item{plink_folder}{folder where PLINK is installed}
+get_plink_exe_path(plink_options = create_plink_options())
 }
 \value{
 path to the default PLINK executable  as used by plinkr

@@ -14,6 +14,16 @@ test_that("use", {
     ),
     "Cannot associate the nth trait, as it is absent"
   )
+
+  suppressMessages(
+    expect_message(
+      assoc_qt_nth_trait(
+        assoc_qt_params = assoc_qt_params,
+        n = 1,
+        verbose = TRUE
+      ),
+    )
+  )
 })
 
 test_that("for one trait, must match assoc_qt", {

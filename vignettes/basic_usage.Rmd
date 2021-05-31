@@ -45,11 +45,11 @@ if (is_plink_installed()) {
   # Check both files exists
   ped_filename <- get_plink_example_filename(
     example_filename = "test.ped",
-    plink_version = "1.7"
+    create_plink_v1_7_options()
   )
   map_filename <- get_plink_example_filename(
     example_filename = "test.map",
-    plink_version = "1.7"
+    create_plink_v1_7_options()
   )
   # Get the path without extension, can use either ped or map file
   testthat::expect_equal(

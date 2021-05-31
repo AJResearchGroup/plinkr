@@ -1,13 +1,13 @@
 test_that("use, v1.7", {
-  if (!is_plink_installed(plink_version = "1.7")) return()
-  text <- get_plink_help_text(plink_version = "1.7")
+  if (!is_plink_installed(create_plink_v1_7_options())) return()
+  text <- get_plink_help_text(create_plink_v1_7_options())
   log <- read_plink_log_file("plink.log")
   expect_true(all(log %in% text))
 })
 
 test_that("use, v1.9", {
-  if (!is_plink_installed(plink_version = "1.9")) return()
-  text <- get_plink_help_text(plink_version = "1.9")
+  if (!is_plink_installed(create_plink_v1_9_options())) return()
+  text <- get_plink_help_text(create_plink_v1_9_options())
   log <- c(
     "PLINK v1.90b6.22 64-bit (16 Apr 2021)          www.cog-genomics.org/plink/1.9/", # nolint indeed a long line
     "(C) 2005-2021 Shaun Purcell, Christopher Chang   GNU General Public License v3", # nolint indeed a long line

@@ -6,18 +6,11 @@
 \usage{
 get_plink_example_filename(
   example_filename,
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
+  plink_options = create_plink_options()
 )
 }
 \arguments{
 \item{example_filename}{name of the example file}
-
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
-
-\item{plink_folder}{folder where PLINK is installed}
 }
 \value{
 the path to a PLINK example file, if it exists.
@@ -32,14 +25,18 @@ if (is_plink_installed()) {
   get_plink_example_filename("toy.ped")
 }
 
-# Specific versions
-if (is_plink_installed(plink_version = "1.7")) {
-  get_plink_example_filename("test.map", plink_version = "1.7")
-  get_plink_example_filename("test.ped", plink_version = "1.7")
+# v.17
+plink_options <- create_plink_v1_7_options()
+if (is_plink_installed(plink_options)) {
+  get_plink_example_filename("test.map", plink_options)
+  get_plink_example_filename("test.ped", plink_options)
 }
-if (is_plink_installed(plink_version = "1.9")) {
-  get_plink_example_filename("toy.map", plink_version = "1.9")
-  get_plink_example_filename("toy.ped", plink_version = "1.9")
+
+# v1.9
+plink_options <- create_plink_v1_9_options()
+if (is_plink_installed(plink_options)) {
+  get_plink_example_filename("toy.map", plink_options)
+  get_plink_example_filename("toy.ped", plink_options)
 }
 }
 \author{

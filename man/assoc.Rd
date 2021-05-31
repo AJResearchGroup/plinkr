@@ -4,7 +4,7 @@
 \alias{assoc}
 \title{Let PLINK detect an association with one binary traits.}
 \usage{
-assoc(assoc_params, verbose = FALSE)
+assoc(assoc_params, plink_options = create_plink_options(), verbose = FALSE)
 }
 \arguments{
 \item{assoc_params}{parameters to do an association analysis

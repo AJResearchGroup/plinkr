@@ -4,23 +4,30 @@
 \alias{get_plink_help_text}
 \title{Get the text of the PLINK help file}
 \usage{
-get_plink_help_text(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
-)
-}
-\arguments{
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
-
-\item{plink_folder}{folder where PLINK is installed}
+get_plink_help_text(plink_options = create_plink_options())
 }
 \value{
 the text of the PLINK help file
 }
 \description{
 Get the text of the PLINK help file
+}
+\examples{
+if (is_plink_installed()) {
+
+  # Default version
+  get_plink_help_text()
+
+  # PLINK v1.7
+  get_plink_help_text(create_plink_v1_7_options())
+
+  # PLINK v1.9
+  get_plink_help_text(create_plink_v1_9_options())
+
+  # Custom PLINK version, secretly v1.9
+  plink_folder <- dirname(get_plink_exe_path(create_plink_v1_9_options()))
+  get_plink_help_text(create_custom_plink_options(plink_folder))
+}
 }
 \author{
 Richèl J.C. Bilderbeek

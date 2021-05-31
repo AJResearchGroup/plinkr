@@ -7,9 +7,8 @@
 simulate_qt(
   simulate_qt_params,
   n_individuals,
-  temp_sim_filename,
-  plink_version = get_default_plink_version(),
-  add_noweb = TRUE,
+  temp_sim_filename = get_plinkr_tempfilename(),
+  plink_options = create_plink_options(),
   verbose = FALSE
 )
 }
@@ -23,16 +22,6 @@ Use \link{check_n_individuals} to check if this is a valid value}
 
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a PLINK \code{.sim} file}
-
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
-
-\item{add_noweb}{add the \code{--noweb} option, which prevents
-that PLINK will check if it is in its latest version.
-By default, this value is set to true,
-hence plinkr will skip this check.
-Use \link{get_plink_version} to get the current PLINK version.}
 
 \item{verbose}{set to TRUE for more output}
 }

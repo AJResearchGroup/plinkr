@@ -4,17 +4,7 @@
 \alias{check_plink_is_installed}
 \title{Check if PLINK is installed}
 \usage{
-check_plink_is_installed(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
-)
-}
-\arguments{
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
-
-\item{plink_folder}{folder where PLINK is installed}
+check_plink_is_installed(plink_options = create_plink_options())
 }
 \value{
 Nothing. Will \link{stop} if PLINK is not installed.

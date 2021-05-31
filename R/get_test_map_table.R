@@ -14,10 +14,10 @@
 #' get_test_map_table()
 #'
 #' # Get the genetic map from the original PLINK v1.7 example file
-#' if (is_plink_installed(plink_version = "1.7")) {
+#' if (is_plink_installed(create_plink_v1_7_options())) {
 #'   map_filename <- get_plink_example_filename(
 #'     example_filename = "test.map",
-#'     plink_version = "1.7"
+#'     create_plink_v1_7_options()
 #'   )
 #'   read_plink_map_file(map_filename)
 #' }

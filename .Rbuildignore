@@ -2,6 +2,7 @@
 ^\.pversion$
 ^\.Rproj\.user$
 ^\.github$
+^doc$
 ^CODE_OF_CONDUCT\.md$
 ^CONTRIBUTING\.md$
 ^LICENSE$

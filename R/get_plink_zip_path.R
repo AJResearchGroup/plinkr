@@ -1,20 +1,30 @@
-#' Get the path to the default PLINK executable as used by plinkr
+#' Get the path to the default \code{PLINK} executable as used by \code{plinkr}
+#'
+#' Get the path to the default \code{PLINK} executable as used by \code{plinkr}.
+#' Will give an error for a custom \code{PLINK} version,
+#' as set up by \link{create_custom_plink_options}, as a custom install
+#' requires no zip file
 #' @inheritParams default_params_doc
-#' @return path to the default PLINK executable  as used by plinkr
+#' @return path to the default \code{PLINK} executable  as used by \code{plinkr}
+#' @examples
+#' get_plink_zip_path(create_plink_v1_7_options())
+#' get_plink_zip_path(create_plink_v1_9_options())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_zip_path <- function(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
+  plink_options = create_plink_options()
 ) {
-  plinkr::check_plink_version(plink_version)
+  plinkr::check_plink_options(plink_options)
+  if (plink_options$plink_version == "custom") {
+    stop("A custom PLINK installation has no default zip path")
+  }
   plink_version_str <- stringr::str_replace(
-    plink_version,
+    plink_options$plink_version,
     pattern = "\\.",
     replacement = "_"
   )
   file.path(
-    plink_folder,
+    plink_options$plink_folder,
     paste0("plink_", plink_version_str, ".zip")
   )
 }

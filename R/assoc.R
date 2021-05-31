@@ -28,9 +28,11 @@
 #' @export
 assoc <- function(
   assoc_params,
+  plink_options = create_plink_options(),
   verbose = FALSE
 ) {
   plinkr::check_assoc_params(assoc_params)
+  plinkr::check_plink_options(plink_options)
 
   # Do not be smart yet
   ped_table <- assoc_params$ped_table
@@ -71,7 +73,11 @@ assoc <- function(
     "--out", output_filename_base
   )
 
-  plinkr::run_plink(args = args, verbose = verbose)
+  plinkr::run_plink(
+    args = args,
+    plink_options = plink_options,
+    verbose = verbose
+  )
 
   assoc_table <- plinkr::read_plink_assoc_file(assoc_filename)
 
@@ -82,5 +88,6 @@ assoc <- function(
     0,
     length(list.files(pattern = base_input_filename))
   )
+  unlink(temp_folder, recursive = TRUE)
   assoc_table
 }

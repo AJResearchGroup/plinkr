@@ -2,25 +2,22 @@
 % Please edit documentation in R/get_plink_zip_path.R
 \name{get_plink_zip_path}
 \alias{get_plink_zip_path}
-\title{Get the path to the default PLINK executable as used by plinkr}
+\title{Get the path to the default \code{PLINK} executable as used by \code{plinkr}}
 \usage{
-get_plink_zip_path(
-  plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder()
-)
-}
-\arguments{
-\item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
-
-\item{plink_folder}{folder where PLINK is installed}
+get_plink_zip_path(plink_options = create_plink_options())
 }
 \value{
-path to the default PLINK executable  as used by plinkr
+path to the default \code{PLINK} executable  as used by \code{plinkr}
 }
 \description{
-Get the path to the default PLINK executable as used by plinkr
+Get the path to the default \code{PLINK} executable as used by \code{plinkr}.
+Will give an error for a custom \code{PLINK} version,
+as set up by \link{create_custom_plink_options}, as a custom install
+requires no zip file
+}
+\examples{
+get_plink_zip_path(create_plink_v1_7_options())
+get_plink_zip_path(create_plink_v1_9_options())
 }
 \author{
 Richèl J.C. Bilderbeek

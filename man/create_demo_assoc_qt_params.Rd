@@ -5,7 +5,7 @@
 \title{Create a set of \code{assoc_qt} parameters
 to demonstrate PLINKs \code{--assoc_qt} functionality}
 \usage{
-create_demo_assoc_qt_params(n_individuals = 4, traits = create_demo_traits())
+create_demo_assoc_qt_params(n_individuals = 3, traits = create_demo_traits())
 }
 \arguments{
 \item{n_individuals}{the number of individuals.
@@ -40,7 +40,7 @@ This function is named after the \code{--assoc} PLINK flag.
 create_demo_assoc_qt_params()
 
 # Add more individuals
-create_demo_assoc_qt_params(n_individuals = 16)
+create_demo_assoc_qt_params(n_individuals = 5)
 
 # Use a random trait
 create_demo_assoc_qt_params(
@@ -59,10 +59,15 @@ create_demo_assoc_qt_params(
 
 # Use an additive and random trait
 create_demo_assoc_qt_params(
-  traits = list(create_additive_trait(), create_random_trait())
+  traits = list(
+    create_additive_trait(),
+    create_random_trait()
+   )
 )
 
 # Use three random traits
+# Don't forget to put the trait in a list, else 'rep' will
+# concatenate the traits in one list
 create_demo_assoc_qt_params(
   traits = rep(list(create_random_trait()), 3)
 )

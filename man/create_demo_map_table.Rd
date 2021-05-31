@@ -16,7 +16,14 @@ Create a demo genetic mapping \code{.map} table.
 It is simply a map of SNPs that are located on different chromosomes.
 }
 \examples{
+# Default demonstration genetic mapping table
 create_demo_map_table()
+
+# Random, 1 SNP
+create_demo_map_table(traits = create_random_trait())
+
+# Random, 2 SNPs
+create_demo_map_table(traits = create_random_trait(n_snps = 2))
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -14,7 +14,12 @@
 #' @export
 #' @author Richèl J.C. Bilderbeek
 create_epistatic_trait <- function(
-  mafs = 0.25
+  mafs = 0.25,
+  n_snps = 2
 ) {
-  plinkr::create_trait(phenotype = "epistatic", mafs = mafs)
+  plinkr::create_trait(
+    phenotype = "epistatic",
+    mafs = mafs,
+    n_snps = 2
+  )
 }

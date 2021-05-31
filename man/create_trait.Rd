@@ -5,7 +5,7 @@
 \title{Create a trait with a clear genetic architecture and a known
 minor allele frequency.}
 \usage{
-create_trait(phenotype, mafs = 0.25)
+create_trait(phenotype, mafs = 0.25, n_snps = 1)
 }
 \arguments{
 \item{phenotype}{one phenotype, named after its genetic background:
@@ -30,6 +30,8 @@ even rarer alleles are at the second and third positions.
 Note that \code{PLINK} cannot handle triallelic nor
 quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
+
+\item{n_snps}{the number of SNPs}
 }
 \description{
 Create a trait with a clear genetic architecture and a known
@@ -38,6 +40,7 @@ minor allele frequency.
 \examples{
 create_trait(phenotype = "random")
 create_trait(phenotype = "random", maf = 0.01)
+create_trait(phenotype = "random", n_snps = 2)
 }
 \author{
 Richèl J.C. Bilderbeek

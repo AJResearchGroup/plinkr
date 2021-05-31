@@ -4,7 +4,14 @@
 #' It is simply a map of SNPs that are located on different chromosomes.
 #' @inheritParams default_params_doc
 #' @examples
+#' # Default demonstration genetic mapping table
 #' create_demo_map_table()
+#'
+#' # Random, 1 SNP
+#' create_demo_map_table(traits = create_random_trait())
+#'
+#' # Random, 2 SNPs
+#' create_demo_map_table(traits = create_random_trait(n_snps = 2))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_demo_map_table <- function(
@@ -16,10 +23,7 @@ create_demo_map_table <- function(
   if (plinkr::is_one_trait(traits)) traits <- list(traits)
   testthat::expect_false(plinkr::is_one_trait(traits))
 
-  phenotypes <- purrr::map_chr(traits, function(e) e$phenotype)
-  snps_per_phenotype <- rep(1, length(phenotypes))
-  snps_per_phenotype[phenotypes == "epistatic"] <- 2
-  n_snps <- sum(snps_per_phenotype)
+  n_snps <- sum(purrr::map_dbl(traits, function(e) e$n_snps))
 
   tibble::tibble(
     CHR = seq_len(n_snps),

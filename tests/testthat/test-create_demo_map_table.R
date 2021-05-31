@@ -11,17 +11,23 @@ test_that("use", {
   )
 })
 
-test_that("correct number of SNPs", {
+test_that("correct number of SNPs, 1 trait", {
+  expect_equal(1, nrow(create_demo_map_table(create_random_trait())))
+  expect_equal(2, nrow(create_demo_map_table(create_random_trait(n_snps = 2))))
+  expect_equal(1, nrow(create_demo_map_table(create_additive_trait())))
+  expect_equal(2, nrow(create_demo_map_table(create_epistatic_trait())))
+})
+
+test_that("correct number of SNPs, 2 trais", {
   expect_equal(
-    1,
-    nrow(create_demo_map_table(create_random_trait()))
-  )
-  expect_equal(
-    1,
-    nrow(create_demo_map_table(create_additive_trait()))
-  )
-  expect_equal(
-    2,
-    nrow(create_demo_map_table(create_epistatic_trait()))
+    5,
+    nrow(
+      create_demo_map_table(
+        traits = list(
+          create_random_trait(n_snps = 3),
+          create_epistatic_trait(n_snps = 2)
+        )
+      )
+    )
   )
 })

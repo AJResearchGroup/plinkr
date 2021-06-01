@@ -11,6 +11,8 @@ Work with [PLINK](http://zzz.bwh.harvard.edu/plink/) from R
  * Detect an association with one or more quantitative traits: [YouTube](https://youtu.be/IicNdc8sDfI) [download (.ogv)](http://richelbilderbeek.nl/plinkr_assoc_qt.ogv)
  * Detect an association with ideal quantitative traits: [YouTube](https://youtu.be/oXGy83WiHm4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_demo_qt_assoc.ogv)
  * Simulate quantitative traits: [YouTube](https://youtu.be/H0XlLVsFry4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_create_demo_assoc_qt_params.ogv)
+ * Simulate custom traits: [YouTube](https://youtu.be/5X1kLkiQbtw) [download (.ogv)](http://richelbilderbeek.nl/plinkr_create_custom_trait.ogv)
+
 
 ## Installation
 

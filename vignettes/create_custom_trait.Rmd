@@ -1,0 +1,239 @@
+---
+title: "create_custom_trait"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{create_custom_trait}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+```{r setup}
+library(plinkr)
+```
+
+`plinkr` allows to simulate phenotypes from genetic data.
+For this, `plinkr` supplies multiple traits 
+with a clear genetic architecture. See `?create_trait` for a list
+of all traits.
+
+## Function on 1 SNP
+
+Here, we'll write multiple custom functions that work on phenotype
+that is determined by 1 SNP.
+
+### Example genotypes
+
+We will use this table of genotypes, called `snvs`, short for 'single
+nucleotide variants':
+
+```{r}
+snvs <- create_snvs(n_snps = 1, n_individuals = 4)
+knitr::kable(snvs)
+```
+
+### Existing function
+
+There are multiple example functions that can determine the phenotype
+from these genotypes (see `?create_trait` for a full list).
+As an example, the phenotypes as calculated by `calc_additive_phenotype_values`
+are shown:
+
+```{r}
+t <- snvs
+t$phenotype <- calc_additive_phenotype_values(snvs)
+knitr::kable(t)
+```
+
+### Custom function: phenotype is random
+
+We'll write a custom function, called `runif_phenotype`, named
+after the `stats::runif` function`:
+
+```{r}
+runif_phenotype <- function(snvs) {
+  stats::runif(nrow(snvs))  
+}
+```
+
+We can verify if it is a valid custom function:
+
+```{r}
+check_calc_phenotype_function(runif_phenotype)
+```
+
+If the function is valid, `check_calc_phenotype_function` does
+nothing. Else, an error message will be shown when building this
+vignette.
+
+Let's see what our custom function does on our genotypes:
+
+```{r}
+t <- snvs
+t$phenotype <- runif_phenotype(snvs)
+knitr::kable(t)
+```
+
+As was the idea, the phenotypes are random.
+
+### Custom function: phenotype is additive
+
+We'll write a custom function, called `additive_phenotype`, 
+which assumes that traits are additive:
+
+```{r}
+additive_phenotype <- function(snvs) {
+  10.0 + (0.5 * rowSums(snvs != "A"))
+}
+```
+
+The function counts the number of non-adenines each individual has.
+The phenotypic value increases per non-adenine.
+The minimal phenotypic value is ten. We use such a baseline value
+to prevent PLINK from confusing our quantitiative phenotypic values
+with case-control values.
+
+We verify our custom function,
+and then see what our custom function does on our genotypes:
+
+```{r}
+check_calc_phenotype_function(additive_phenotype)
+t <- snvs
+t$phenotype <- additive_phenotype(snvs)
+knitr::kable(t)
+```
+
+### Custom function: phenotype is recessive
+
+We'll write a custom function, called `recessive_phenotype`, 
+which assumes that the trait is only expressed by the genotype `TT`:
+
+```{r}
+recessive_phenotype <- function(snvs) {
+  only_ts <- rowSums(snvs == "T") == ncol(snvs)
+  10.0 + only_ts
+}
+```
+
+The function counts the number of thymines each individual has.
+If all SNPs hold thymines, the phenotype is eleven,
+else it is ten. We use such a baseline value
+to prevent PLINK from confusing our quantitiative phenotypic values
+with case-control values.
+
+We verify our custom function,
+and then see what our custom function does on our genotypes:
+
+```{r}
+check_calc_phenotype_function(recessive_phenotype)
+t <- snvs
+t$phenotype <- recessive_phenotype(snvs)
+knitr::kable(t)
+```
+
+## Function on 2 SNPs
+
+Here, we'll write multiple custom functions that work on phenotype
+that is determined by 2 SNPs.
+
+### Example genotypes
+
+We will use this table of genotypes, called `snvs`, short for 'single
+nucleotide variants':
+
+```{r}
+snvs <- create_snvs(n_snps = 2, n_individuals = 16)
+knitr::kable(snvs)
+```
+
+### Existing function
+
+There are multiple example functions that can determine the phenotype
+from these genotypes (see `?create_trait` for a full list).
+As an example, the phenotypes as calculated by `calc_additive_phenotype_values`
+are shown:
+
+```{r}
+t <- snvs
+t$phenotype <- calc_additive_phenotype_values(snvs)
+knitr::kable(t)
+```
+
+### Custom function: phenotype is epistatic
+
+We'll write a custom function, called `epistatic_phenotype`, 
+which assumes that the trait is only expressed
+for an individual that only has thymines for the two loci:
+
+```{r}
+epistatic_phenotype <- function(snvs) {
+  only_ts <- rowSums(snvs == "T") == ncol(snvs)
+  10.0 + only_ts
+}
+```
+
+The function counts the number of thymines each individual has.
+If all SNPs hold thymines, the phenotype is eleven,
+else it is ten. We use such a baseline value
+to prevent PLINK from confusing our quantitiative phenotypic values
+with case-control values.
+
+We verify our custom function,
+and then see what our custom function does on our genotypes:
+
+```{r}
+check_calc_phenotype_function(epistatic_phenotype)
+t <- snvs
+t$phenotype <- epistatic_phenotype(snvs)
+knitr::kable(t)
+```
+
+### Custom function: phenotype is XOR
+
+We'll write a custom function, called `xor_phenotype`, 
+which assumes that the trait is only expressed
+if the individual is homozygous for 'A' on locus 1 and not homozygous for 'A'
+on locus 2, or the other way around:
+
+```{r}
+xor_phenotype <- function(snvs) {
+  if (ncol(snvs) == 2) return(rep(10.0, nrow(snvs))) 
+  homozygous_a_locus_1 <- snvs$snp_1a == "A" & snvs$snp_1b == "A"
+  homozygous_t_locus_1 <- snvs$snp_1a == "T" & snvs$snp_1b == "T"
+  homozygous_a_locus_2 <- snvs$snp_2a == "A" & snvs$snp_2b == "A"
+  homozygous_t_locus_2 <- snvs$snp_2a == "T" & snvs$snp_2b == "T"
+  xor_1 <- homozygous_a_locus_1 & homozygous_t_locus_2
+  xor_2 <- homozygous_t_locus_1 & homozygous_a_locus_2
+  xor <- xor_1 | xor_2
+  10.0 + xor
+}
+```
+
+Note that, although `xor_phenotypes` needs to SNPs to have an effect,
+the function must give a result for 1 SNP as well. The reason for
+this, is because `check_calc_phenotype_function` will check if
+`xor_phenotype` produces phenotypic values for 1 trait as well.
+
+The function counts the number of thymines each individual has.
+If all SNPs hold thymines, the phenotype is eleven,
+else it is ten. We use such a baseline value
+to prevent PLINK from confusing our quantitiative phenotypic values
+with case-control values.
+
+We verify our custom function,
+and then see what our custom function does on our genotypes:
+
+```{r}
+check_calc_phenotype_function(xor_phenotype)
+t <- snvs
+t$phenotype <- xor_phenotype(snvs)
+knitr::kable(t)
+```

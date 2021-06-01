@@ -23,6 +23,19 @@ quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
 \item{n_snps}{the number of SNPs}
+
+\item{calc_phenotype_function}{a function that calculate the phenotypes
+from genotypes. The input is the genetic data as a \link[tibble]{tibble},
+in which each row is an individual and the columns are the SNVs.
+The first two columns are named \code{snv_1a}, \code{snv_1b} and
+hold the genetic data for the first SNV of a diploid organism.
+If there are more SNVs, columns continue with names,
+\code{snv_2a}, \code{snv_2b}, \code{snv_3a}, \code{snv_3b}, etc.
+Nucleotides are in uppercase.
+The output must be the phenotypic values, as a numeric vector,
+which has the same length as the number of individuals.
+Use \link{check_calc_phenotype_function}
+to check a \code{calc_phenotype_function}.}
 }
 \description{
 Create a custom trait in which the phenotype is

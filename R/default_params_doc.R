@@ -13,6 +13,18 @@
 #' @param assoc_qt_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc_qt}),
 #' as can be created by \link{create_assoc_qt_params}
+#' @param calc_phenotype_function a function that calculate the phenotypes
+#' from genotypes. The input is the genetic data as a \link[tibble]{tibble},
+#' in which each row is an individual and the columns are the SNVs.
+#' The first two columns are named \code{snv_1a}, \code{snv_1b} and
+#' hold the genetic data for the first SNV of a diploid organism.
+#' If there are more SNVs, columns continue with names,
+#' \code{snv_2a}, \code{snv_2b}, \code{snv_3a}, \code{snv_3b}, etc.
+#' Nucleotides are in uppercase.
+#' The output must be the phenotypic values, as a numeric vector,
+#' which has the same length as the number of individuals.
+#' Use \link{check_calc_phenotype_function}
+#' to check a \code{calc_phenotype_function}.
 #' @param example_filename name of the example file
 #' @param log_filename name of a PLINK \code{.log} file
 #' @param maf minor allele frequency threshold.
@@ -130,7 +142,7 @@
 #'   \link{create_simulate_qt_params}
 #' @param snvs a \link[tibble]{tibble} that contains the
 #' two nucleotide calls for multiple individuals.
-#' Each column is a haplotypes, hence, for a diploid organism,
+#' Each column is a haplotype, hence, for a diploid organism,
 #' there are two columns.
 #' Each individual is represented by a row.
 #' Nucleotides are in uppercase.
@@ -138,6 +150,7 @@
 #' as this is how a SNP works; a SNP from A to C is a different one (and
 #' has a different SNP ID) than a SNP that encodes a mutation
 #' for A to G.
+#' Use \link{create_snvs} to create a \code{snvs}.
 #' @param temp_sim_filename temporary file to store simulation
 #'   parameters, which is a PLINK \code{.sim} file
 #' @param trait one trait with a clear genetic architecture and a known
@@ -157,6 +170,7 @@ default_params_doc <- function(
   assoc_filename,
   assoc_params,
   assoc_qt_params,
+  calc_phenotype_function,
   example_filename,
   log_filename,
   maf,

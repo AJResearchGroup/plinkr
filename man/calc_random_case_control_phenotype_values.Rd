@@ -9,14 +9,15 @@ calc_random_case_control_phenotype_values(snvs)
 \arguments{
 \item{snvs}{a \link[tibble]{tibble} that contains the
 two nucleotide calls for multiple individuals.
-Each column is a haplotypes, hence, for a diploid organism,
+Each column is a haplotype, hence, for a diploid organism,
 there are two columns.
 Each individual is represented by a row.
 Nucleotides are in uppercase.
 Per SNV table, there can be only two different nucleotides,
 as this is how a SNP works; a SNP from A to C is a different one (and
 has a different SNP ID) than a SNP that encodes a mutation
-for A to G.}
+for A to G.
+Use \link{create_snvs} to create a \code{snvs}.}
 }
 \description{
 Calculate the phenotypic values for a case-control trait that is random.

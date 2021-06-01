@@ -17,7 +17,7 @@
 #' * \link{calc_additive_phenotype_values}
 #' * \link{calc_epistatic_phenotype_values}
 #' * \link{calc_random_phenotype_values}
-#' * \link{calc_random_case_contol_phenotype_values}
+#' * \link{calc_random_case_control_phenotype_values}
 #' * \link{calc_rnorm_phenotype_values}
 #' * \link{calc_runif_phenotype_values}
 #'

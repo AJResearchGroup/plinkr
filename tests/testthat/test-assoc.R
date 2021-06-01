@@ -44,7 +44,7 @@ test_that("use, demo", {
 test_that("demo on random only", {
   if (!is_plink_installed()) return()
   assoc_params <- create_demo_assoc_params(
-    trait = create_random_trait()
+    trait = create_random_case_control_trait()
   )
   assoc_results <- assoc(assoc_params = assoc_params)
   # 1 trait times 1 SNP = 1 association
@@ -56,22 +56,11 @@ test_that("number of individuals", {
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
     n_individuals = 5,
-    trait = create_random_trait()
+    trait = create_random_case_control_trait()
   )
   assoc_results <- assoc(assoc_params = assoc_params)
   # One traits times one SNP = one association
   expect_equal(1, nrow(assoc_results))
-})
-
-test_that("demo on additive", {
-  if (!is_plink_installed()) return()
-  set.seed(314)
-  assoc_params <- create_demo_assoc_params(
-    trait = create_additive_trait()
-  )
-  assoc_results <- assoc(assoc_params = assoc_params)
-  # 1 trait times 1 SNP = 1 association
-  expect_equal(nrow(assoc_results), 1)
 })
 
 test_that("error when case-controls are not 1 or 2", {
@@ -87,13 +76,11 @@ test_that("error when case-controls are not 1 or 2", {
   )
 })
 
-
-
 test_that("PLINK cannot handle triallelic SNPs", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
-    trait = create_random_trait(mafs = c(0.3, 0.2)),
+    trait = create_random_case_control_trait(mafs = c(0.3, 0.2)),
     n_individuals = 10
   )
   expect_warning(
@@ -108,7 +95,7 @@ test_that("PLINK cannot handle quadallelic SNPs", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
-    trait = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
+    trait = create_random_case_control_trait(mafs = c(0.3, 0.2, 0.1)),
     n_individuals = 10
   )
   expect_warning(

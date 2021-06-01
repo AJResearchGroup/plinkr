@@ -18,6 +18,6 @@ create_random_case_control_trait <- function(
     phenotype = "random_case_control",
     mafs = mafs,
     n_snps = n_snps,
-    calc_phenotype_function = plinkr::calc_random_case_conrol_phenotype_values
+    calc_phenotype_function = plinkr::calc_random_case_control_phenotype_values
   )
 }

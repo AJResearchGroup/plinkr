@@ -10,6 +10,7 @@
 #'  * \link{create_custom_trait}
 #'  * \link{create_epistatic_trait}
 #'  * \link{create_random_trait}
+#'  * \link{create_random_case_control_trait}
 #'
 #' @inheritParams default_params_doc
 #' @examples

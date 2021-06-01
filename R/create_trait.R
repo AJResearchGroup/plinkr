@@ -17,6 +17,10 @@
 #' create_trait(phenotype = "random")
 #' create_trait(phenotype = "random", maf = 0.01)
 #' create_trait(phenotype = "random", n_snps = 2)
+#' create_trait(
+#'   phenotype = "random",
+#'   calc_phenotype_function = calc_random_phenotype_values
+#' )
 #' @export
 #' @author Richèl J.C. Bilderbeek
 create_trait <- function(

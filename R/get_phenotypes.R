@@ -9,6 +9,8 @@
 #' * \link{create_epistatic_trait}
 #' * \link{create_random_trait}
 #' * \link{create_random_case_control_trait}
+#' * \link{create_rnorm_trait}
+#' * \link{create_runif_trait}
 #'
 #' The functions that calculate the phenotype for a genotype:
 #'
@@ -16,6 +18,8 @@
 #' * \link{calc_epistatic_phenotype_values}
 #' * \link{calc_random_phenotype_values}
 #' * \link{calc_random_case_contol_phenotype_values}
+#' * \link{calc_rnorm_phenotype_values}
+#' * \link{calc_runif_phenotype_values}
 #'
 #' @return all the phenotypes that are named after their genetic background
 #' @note The function has the word \code{get} in its name,
@@ -29,6 +33,8 @@ get_phenotypes <- function() {
     "custom",
     "epistatic",
     "random",
-    "random_case_control"
+    "random_case_control",
+    "rnorm",
+    "runif"
   )
 }

@@ -49,12 +49,17 @@ Prefer to use the specialized functions:
 \item \link{create_custom_trait}
 \item \link{create_epistatic_trait}
 \item \link{create_random_trait}
+\item \link{create_random_case_control_trait}
 }
 }
 \examples{
 create_trait(phenotype = "random")
 create_trait(phenotype = "random", maf = 0.01)
 create_trait(phenotype = "random", n_snps = 2)
+create_trait(
+  phenotype = "random",
+  calc_phenotype_function = calc_random_phenotype_values
+)
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -205,15 +205,15 @@ on locus 2, or the other way around:
 
 ```{r}
 xor_phenotype <- function(snvs) {
-  if (ncol(snvs) == 2) return(rep(10.0, nrow(snvs))) 
-  homozygous_a_locus_1 <- snvs$snp_1a == "A" & snvs$snp_1b == "A"
-  homozygous_t_locus_1 <- snvs$snp_1a == "T" & snvs$snp_1b == "T"
-  homozygous_a_locus_2 <- snvs$snp_2a == "A" & snvs$snp_2b == "A"
-  homozygous_t_locus_2 <- snvs$snp_2a == "T" & snvs$snp_2b == "T"
+  if (ncol(snvs) < 4) return(rep(10.0, nrow(snvs))) 
+  homozygous_a_locus_1 <- snvs$snv_1a == "A" & snvs$snv_1b == "A"
+  homozygous_t_locus_1 <- snvs$snv_1a == "T" & snvs$snv_1b == "T"
+  homozygous_a_locus_2 <- snvs$snv_2a == "A" & snvs$snv_2b == "A"
+  homozygous_t_locus_2 <- snvs$snv_2a == "T" & snvs$snv_2b == "T"
   xor_1 <- homozygous_a_locus_1 & homozygous_t_locus_2
   xor_2 <- homozygous_t_locus_1 & homozygous_a_locus_2
-  xor <- xor_1 | xor_2
-  10.0 + xor
+  xors <- xor_1 | xor_2
+  10.0 + xors
 }
 ```
 

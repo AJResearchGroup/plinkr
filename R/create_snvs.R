@@ -21,18 +21,18 @@ create_snvs <- function(
   if (n_snps == 1) {
     return(
       tidyr::expand_grid(
-        snp_1a = c("A", "T"),
-        snp_1b = c("A", "T")
+        snv_1a = c("A", "T"),
+        snv_1b = c("A", "T")
       )[seq(1, n_individuals), ]
     )
   }
   if (n_snps == 2) {
     return(
       tidyr::expand_grid(
-        snp_1a = c("A", "T"),
-        snp_1b = c("A", "T"),
-        snp_2a = c("A", "T"),
-        snp_2b = c("A", "T")
+        snv_1a = c("A", "T"),
+        snv_1b = c("A", "T"),
+        snv_2a = c("A", "T"),
+        snv_2b = c("A", "T")
       )[seq(1, n_individuals), ]
     )
   }

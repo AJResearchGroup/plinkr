@@ -31,6 +31,7 @@ create_demo_phenotype_table_rhs <- function( # nolint indeed a long function nam
     testthat::expect_true(ped_col_to <= ncol(ped_table))
     snvs <- ped_table[, seq(from = ped_col_from, to = ped_col_to)]
     values <- trait$calc_phenotype_function(snvs = snvs)
+    testthat::expect_equal(length(values), nrow(ped_table))
     tibbles[[i]] <- tibble::as_tibble_col(values)
     ped_col_from <- ped_col_to + 1
   }

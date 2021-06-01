@@ -1,6 +1,8 @@
 library(testthat)
 library(plinkr)
 
+clear_plinkr_cache()
+
 test_check("plinkr")
 
 expect_equal(

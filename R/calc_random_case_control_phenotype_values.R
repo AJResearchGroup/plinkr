@@ -10,7 +10,7 @@
 #' calc_random_case_control_phenotype_values(t)
 #' @author Richèl J.C. Bilderbeek
 #' @export
-calc_random_case_control_phenotype_values <- function(snvs) {
+calc_random_case_control_phenotype_values <- function(snvs) { # nolint indeed a long function name
   plinkr::check_snvs(snvs)
   testthat::expect_true(tibble::is_tibble(snvs))
   testthat::expect_true(all(as.matrix(snvs) %in% c("A", "C", "G", "T")))

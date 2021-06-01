@@ -9,7 +9,7 @@
 #' create_random_trait(maf = 0.01)
 #' @export
 #' @author Richèl J.C. Bilderbeek
-create_random_case_control_trait <- function(
+create_random_case_control_trait <- function( # nolint indeed a long function name
   mafs = 0.25,
   n_snps = 1
 ) {

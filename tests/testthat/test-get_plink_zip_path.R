@@ -17,6 +17,13 @@ test_that("v1.9", {
   )
 })
 
+test_that("v2.0", {
+  expect_equal(
+    file.path(get_plink_folder(), "plink_2_0.zip"),
+    get_plink_zip_path(create_plink_v2_0_options())
+  )
+})
+
 test_that("custom", {
   expect_error(
     get_plink_zip_path(create_custom_plink_options("irrelevant")),

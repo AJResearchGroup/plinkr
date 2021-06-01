@@ -13,6 +13,7 @@ create_plink_optionses <- function(
 ) {
   list(
     plinkr::create_plink_v1_7_options(plink_folder),
-    plinkr::create_plink_v1_9_options(plink_folder)
+    plinkr::create_plink_v1_9_options(plink_folder),
+    plinkr::create_plink_v2_0_options(plink_folder)
   )
 }

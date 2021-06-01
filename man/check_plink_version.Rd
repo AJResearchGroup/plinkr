@@ -17,6 +17,7 @@ Check if the PLINK version is valid, will stop if not
 \examples{
 check_plink_version("1.7")
 check_plink_version("1.9")
+check_plink_version("2.0")
 check_plink_version("custom")
 }
 \author{

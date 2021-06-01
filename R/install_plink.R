@@ -37,6 +37,9 @@ install_plink <- function(
   if (plink_options$plink_version == "1.9") {
     plink_sub_folder <- file.path(plink_sub_folder, "plink_1_9")
   }
+  if (plink_options$plink_version == "2.0") {
+    plink_sub_folder <- file.path(plink_sub_folder, "plink_2_0")
+  }
 
   if (!file.exists(plink_exe_path)) {
     utils::unzip(

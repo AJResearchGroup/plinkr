@@ -23,6 +23,10 @@
 #' create_plink_options(plink_version = "1.9")
 #' create_plink_v1_9_options()
 #'
+#' # Use PLINK v2.0
+#' create_plink_options(plink_version = "2.0")
+#' create_plink_v2_0_options()
+#'
 #' # Use a custom PLINK version
 #' create_plink_options(
 #'   plink_version = "custom",

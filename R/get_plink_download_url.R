@@ -11,8 +11,10 @@ get_plink_download_url <- function(
   plinkr::check_os(os)
   if (os == "unix") {
     return(plinkr::get_plink_download_url_linux(plink_version))
-  } else {
-    testthat::expect_equal(os, "mac")
+  } else if (os == "mac") {
     return(plinkr::get_plink_download_url_mac(plink_version))
+  } else {
+    testthat::expect_equal(os, "win")
+    return(plinkr::get_plink_download_url_win(plink_version))
   }
 }

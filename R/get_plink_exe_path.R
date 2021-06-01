@@ -25,14 +25,29 @@ get_plink_exe_path <- function(
   if (plink_version == "1.7") {
     subfolder <- "plink-1.07-x86_64"
   }
-  else {
-    testthat::expect_equal(plink_version, "1.9")
+  else if (plink_version == "1.9") {
     subfolder <- "plink_1_9"
   }
+  else {
+    testthat::expect_equal(plink_version, "2.0")
+    subfolder <- "plink_2_0"
+  }
   testthat::expect_false(is.na(subfolder))
+  exe_name <- NA
+  if (plink_version == "1.7") {
+    exe_name <- "plink"
+  }
+  else if (plink_version == "1.9") {
+    exe_name <- "plink"
+  }
+  else {
+    testthat::expect_equal(plink_version, "2.0")
+    exe_name <- "plink2"
+  }
+  testthat::expect_false(is.na(exe_name))
   file.path(
     plink_folder,
     subfolder,
-    "plink"
+    exe_name
   )
 }

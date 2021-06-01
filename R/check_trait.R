@@ -14,6 +14,8 @@ check_trait <- function(trait) {
   testthat::expect_true(is.list(trait))
   testthat::expect_true("phenotype" %in% names(trait))
   testthat::expect_true("mafs" %in% names(trait))
+  testthat::expect_true("calc_phenotype_function" %in% names(trait))
   plinkr::check_phenotypes(trait$phenotype)
   plinkr::check_mafs(trait$mafs)
+  plinkr::check_calc_phenotype_function(trait$calc_phenotype_function)
 }

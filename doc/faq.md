@@ -12,11 +12,15 @@ See [install.md](install.md)
 
 ### On which operating systems can I run `plinkr`?
 
-`plinkr` is tested by GitHub Actions to work on Linux, Mac and Windows.
+On Linux, Mac and Windows.
+
+`plinkr` is tested to work on Linux by GitHub Actions,
+and tested to work on Windows by AppVeyor..
 
 Real users have confirmed `plinkr` works under Linux and Mac.
 Another real user needs to confirm/reject 
 that `plinkr` really works under Windows
+
 (note: I predict it does not :sunglasses:)
 
 ### Why is this package not on CRAN?

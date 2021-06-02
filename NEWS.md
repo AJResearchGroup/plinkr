@@ -20,6 +20,24 @@ Newest versions at top.
 
  * None
 
+## plinkr 0.10 (2021-06-02)
+
+### NEW FEATURES
+
+ * `install_plinks` also installs PLINK2
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## plinkr 0.9 (2021-05-31)
 
 ### NEW FEATURES

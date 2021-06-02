@@ -26,6 +26,7 @@ default_params_doc(
   phenotype_filename,
   phenotype_table,
   phenotypes,
+  plink_exe_path,
   plink_folder,
   plink_options,
   plink_optionses,
@@ -194,6 +195,9 @@ see \link{calc_additive_phenotype_values} for the exact calculation
 \item \code{epistatic} the phenotype is epistatic,
 see \link{calc_epistatic_phenotype_values} for the exact calculation
 }}
+
+\item{plink_exe_path}{path to
+the \code{PLINK} or \code{PLINK2} executable file.}
 
 \item{plink_folder}{folder where PLINK is installed}
 

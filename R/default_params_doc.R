@@ -121,6 +121,8 @@
 #'    see \link{calc_additive_phenotype_values} for the exact calculation
 #'  * \code{epistatic} the phenotype is epistatic,
 #'    see \link{calc_epistatic_phenotype_values} for the exact calculation
+#' @param plink_exe_path path to
+#'   the \code{PLINK} or \code{PLINK2} executable file.
 #' @param plink_folder folder where PLINK is installed
 #' @param plink_options options to run PLINK,
 #' as created by \link{create_plink_options}
@@ -186,6 +188,7 @@ default_params_doc <- function(
   phenotype_filename,
   phenotype_table,
   phenotypes,
+  plink_exe_path,
   plink_folder,
   plink_options,
   plink_optionses,

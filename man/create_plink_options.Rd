@@ -6,7 +6,7 @@
 \usage{
 create_plink_options(
   plink_version = get_default_plink_version(),
-  plink_folder = get_plink_folder(),
+  plink_exe_path = get_default_plink_exe_path(),
   add_noweb = TRUE,
   os = get_os()
 )
@@ -16,7 +16,8 @@ create_plink_options(
 Use \link{get_plink_version} to get the PLINK version.
 Use \link{get_plink_versions} to get all the supported PLINK versions.}
 
-\item{plink_folder}{folder where PLINK is installed}
+\item{plink_exe_path}{path to
+the \code{PLINK} or \code{PLINK2} executable file.}
 
 \item{add_noweb}{add the \code{--noweb} option, which prevents
 that PLINK will check if it is in its latest version.

@@ -5,7 +5,7 @@ Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github
 `master` |![R-CMD-check](https://github.com/richelbilderbeek/plinkr/workflows/R-CMD-check/badge.svg?branch=master)   |[![codecov.io](https://codecov.io/github/richelbilderbeek/plinkr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/plinkr/branch/master)
 `develop`|![R-CMD-check](https://github.com/richelbilderbeek/plinkr/workflows/R-CMD-check/badge.svg?branch=develop)  |[![codecov.io](https://codecov.io/github/richelbilderbeek/plinkr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/plinkr/branch/develop)
 
-Work with [PLINK](http://zzz.bwh.harvard.edu/plink/) from R
+Work with PLINK and PLINK2 from R.
 
  * Doing the first PLINK example: [YouTube](https://youtu.be/LsfKQw2oIUg) [download (.ogv)](http://richelbilderbeek.nl/plinkr_basic_usage.ogv)
  * Detect an association with one or more quantitative traits: [YouTube](https://youtu.be/IicNdc8sDfI) [download (.ogv)](http://richelbilderbeek.nl/plinkr_assoc_qt.ogv)
@@ -33,6 +33,8 @@ To call a specific version of PLINK:
 
 ```
 run_plink("--help", create_plink_v1_7_options())
+run_plink("--help", create_plink_v1_9_options())
+run_plink("--help", create_plink_v2_0_options())
 ```
 
 Of course, you can also call PLINK to detect genetic associations :-) :

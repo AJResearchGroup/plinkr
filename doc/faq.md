@@ -28,20 +28,24 @@ to a non-CRAN package, as these functions violate CRAN policy.
 
 ## Technical
 
+### Which PLINK versions are supported?
+
+ * [PLINK v1.7](http://zzz.bwh.harvard.edu/plink/)
+ * [PLINK v1.9](https://www.cog-genomics.org/plink/1.9/)
+ * [PLINK2 v2.0](https://www.cog-genomics.org/plink/2.0/) 
+
 ### Can plinkr handle SNPs with three or four alleles?
 
 No. PLINK cannot, so plinkr cannot.
 
-
 ### How can I use a version of PLINK I have installed elsewhere?
 
 The `create_custom_plink_options` allows to do so.
-If PLINK is installed in folder `my_plink_path`,
+If the PLINK executable can be found at `my_plink_path/plink3.mp4`,
 create a `plink_options` as such:
- 
 
 ```
-plink_options <- create_custom_plink_options("my_plink_path")
+plink_options <- create_custom_plink_options("my_plink_path/plink3.mp4")
 ```
 
 This `plink_options` can be used in all functions that call PLINK,
@@ -50,13 +54,4 @@ for example:
 ```
 get_plink_version(plink_options)
 ```
-
-The executable of PLINK should be at the following location:
-
-```
-get_plink_exe_path(plink_options)
-```
-
-In this example, on Linux, 
-the PLINK executable must be located at `my_plink_path/plink`.
 

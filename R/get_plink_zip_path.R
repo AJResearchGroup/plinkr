@@ -24,7 +24,7 @@ get_plink_zip_path <- function(
     replacement = "_"
   )
   file.path(
-    plink_options$plink_folder,
+    dirname(dirname(plink_options$plink_exe_path)),
     paste0("plink_", plink_version_str, ".zip")
   )
 }

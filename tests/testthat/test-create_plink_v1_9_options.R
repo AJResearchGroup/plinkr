@@ -1,10 +1,13 @@
-test_that("v1.9", {
+test_that("default", {
   plink_options <- create_plink_v1_9_options()
   expect_equal("1.9", plink_options$plink_version)
-  expect_equal(get_plink_folder(), plink_options$plink_folder)
+  expect_true(stringr::str_detect(plink_options$plink_exe_path, "plink_1_9_"))
+  expect_true(stringr::str_detect(plink_options$plink_exe_path, "plink$"))
 })
 
-test_that("v1.9, Linux", {
+test_that("unix", {
   plink_options <- create_plink_v1_9_options(os = "unix")
-  expect_equal("unix", plink_options$os)
+  expect_true(
+    stringr::str_detect(plink_options$plink_exe_path, "plink_1_9_unix")
+  )
 })

@@ -18,18 +18,19 @@
 #' @return path to the default PLINK executable  as used by plinkr
 #' @author Richèl J.C. Bilderbeek
 #' @export
-get_plink_subfolder <- function(
-  plink_options = create_plink_options()
+get_plink_subfolder_name <- function(
+  plink_version = get_default_plink_version(),
+  os = get_os()
 ) {
-  plinkr::check_plink_options(plink_options)
-  if (plink_options$plink_version == "custom") {
+  plinkr::check_plink_version(plink_version)
+  if (plink_version == "custom") {
     stop("Cannot predict the PLINK subfolder for a custom PLINK version")
   }
 
   version_str <- stringr::str_replace_all(
-    plink_options$plink_version,
+    plink_version,
     "\\.",
     "_"
   )
-  paste0("plink_", version_str, "_", plink_options$os)
+  paste0("plink_", version_str, "_", os)
 }

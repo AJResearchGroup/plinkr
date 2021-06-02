@@ -9,7 +9,10 @@ test_that("use", {
   expect_error(check_plink_version(Inf))
   expect_error(check_plink_version(""))
   expect_error(check_plink_version(c()))
-  expect_error(check_plink_version(c("1.7", "1.9")))
+  expect_error(
+    check_plink_version(c("1.7", "1.9")),
+    "must have one element"
+  )
   expect_error(check_plink_version(3.14))
   expect_error(check_plink_version(42))
 })

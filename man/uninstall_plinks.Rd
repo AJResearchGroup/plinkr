@@ -13,7 +13,11 @@ The reduplicated plural was used to express this is a list
 of \code{plink_options}, instead of one set of \code{plink_options}}
 }
 \description{
-Uninstall multiple versions of PLINK
+Uninstall multiple versions of PLINK.
+This deletes only the PLINK folders that are expected to be
+present.
+Use \link{clear_plink_folder} to ruthlessly delete all files in the PLINK
+folder.
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -9,10 +9,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_custom_plink_options <- function(
-  plink_folder
+  plink_exe_path,
+  os = get_os()
 ) {
   plinkr::create_plink_options(
     plink_version = "custom",
-    plink_folder = plink_folder
+    plink_exe_path = plink_exe_path,
+    os = os
   )
 }

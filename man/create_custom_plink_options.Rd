@@ -4,10 +4,14 @@
 \alias{create_custom_plink_options}
 \title{Create the options to run a custom PLINK version}
 \usage{
-create_custom_plink_options(plink_folder)
+create_custom_plink_options(plink_exe_path, os = get_os())
 }
 \arguments{
-\item{plink_folder}{folder where PLINK is installed}
+\item{plink_exe_path}{path to
+the \code{PLINK} or \code{PLINK2} executable file.}
+
+\item{os}{name of the operating system,
+as returned by \link[rappdirs]{app_dir}}
 }
 \value{
 the PLINK options,

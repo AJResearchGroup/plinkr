@@ -27,7 +27,7 @@ check_plink_options <- function(
     )
   }
   testthat::expect_true("plink_version" %in% names(plink_options))
-  testthat::expect_true("plink_folder" %in% names(plink_options))
+  testthat::expect_true("plink_exe_path" %in% names(plink_options))
   testthat::expect_true("add_noweb" %in% names(plink_options))
   testthat::expect_true("os" %in% names(plink_options))
   plinkr::check_plink_version(plink_options$plink_version)

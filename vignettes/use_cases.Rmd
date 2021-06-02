@@ -101,3 +101,11 @@ plink --script myscript1.txt
 --maf 0.02
 --missing
 ```
+
+```
+plink2 -bfile genotype_FileName -score PRS_downloaded_FileName 1 4 5 header -out Output_FileName 
+for chr in {1..22}
+do 
+plink2 -pgen chr$chr.pgen -bim chr$chr.dedup.bim -fam ukb41143.fam -score PRS_downloaded_FileName 1 4 5 header -out test.chr$chr 
+done 
+```

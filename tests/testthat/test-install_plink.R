@@ -31,7 +31,8 @@ test_that("un- or install in temp plink folder, v1.7, Windows", {
   if (!is_on_ci()) return()
 
   plink_options <- create_plink_v1_7_options(
-    plink_folder = get_plinkr_tempfilename()
+    plink_folder = get_plinkr_tempfilename(),
+    os = "win"
   )
   plink_options$plink_folder
   expect_false(is_plink_installed(plink_options))

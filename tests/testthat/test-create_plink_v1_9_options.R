@@ -3,3 +3,8 @@ test_that("v1.9", {
   expect_equal("1.9", plink_options$plink_version)
   expect_equal(get_plink_folder(), plink_options$plink_folder)
 })
+
+test_that("v1.9, Linux", {
+  plink_options <- create_plink_v1_9_options(os = "unix")
+  expect_equal("unix", plink_options$os)
+})

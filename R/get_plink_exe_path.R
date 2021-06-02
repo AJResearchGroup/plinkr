@@ -4,37 +4,24 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_exe_path <- function(
-  plink_options = create_plink_options(),
-  os = get_os()
+  plink_options = create_plink_options()
 ) {
   plinkr::check_plink_options(plink_options)
-  plinkr::check_os(os)
 
-  # Don't be smart yet
-  plink_version <- plink_options$plink_version
-  plink_folder <- plink_options$plink_folder
-
-  if (plink_version == "custom") {
+  if (plink_options$plink_version == "custom") {
     return(
       file.path(
-        plink_folder,
+        plink_options$plink_folder,
         "plink"
       )
     )
   }
 
-  subfolder <- NA
-  if (plink_version == "1.7") {
-    subfolder <- "plink-1.07-x86_64"
-  }
-  else if (plink_version == "1.9") {
-    subfolder <- "plink_1_9"
-  }
-  else {
-    testthat::expect_equal(plink_version, "2.0")
-    subfolder <- "plink_2_0"
-  }
-  testthat::expect_false(is.na(subfolder))
+  # Don't be smart yet
+  plink_version <- plink_options$plink_version
+  plink_folder <- plink_options$plink_folder
+
+  plink_subfolder <- plinkr::get_plink_subfolder(plink_options)
   exe_name <- NA
   if (plink_version == "1.7") {
     exe_name <- "plink"
@@ -47,9 +34,11 @@ get_plink_exe_path <- function(
     exe_name <- "plink2"
   }
   testthat::expect_false(is.na(exe_name))
+  if (plink_options$os == "win") exe_name <- paste0(exe_name, ".exe")
+
   file.path(
     plink_folder,
-    subfolder,
+    plink_subfolder,
     exe_name
   )
 }

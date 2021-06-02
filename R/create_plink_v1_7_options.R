@@ -9,10 +9,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_plink_v1_7_options <- function(
-  plink_folder = get_plink_folder()
+  plink_folder = get_plink_folder(),
+  os = get_os()
 ) {
   plinkr::create_plink_options(
     plink_version = "1.7",
-    plink_folder = plink_folder
+    plink_folder = plink_folder,
+    os = os
   )
 }

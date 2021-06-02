@@ -7,7 +7,8 @@
 create_plink_options(
   plink_version = get_default_plink_version(),
   plink_folder = get_plink_folder(),
-  add_noweb = TRUE
+  add_noweb = TRUE,
+  os = get_os()
 )
 }
 \arguments{
@@ -22,6 +23,9 @@ that PLINK will check if it is in its latest version.
 By default, this value is set to true,
 hence plinkr will skip this check.
 Use \link{get_plink_version} to get the current PLINK version.}
+
+\item{os}{name of the operating system,
+as returned by \link[rappdirs]{app_dir}}
 }
 \value{
 the PLINK options,

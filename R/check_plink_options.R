@@ -19,9 +19,17 @@
 check_plink_options <- function(
   plink_options
 ) {
-  testthat::expect_true(is.list(plink_options))
+  if (!is.list(plink_options)) {
+    stop(
+      "'plink_options' must be a list  \n",
+      "Actual class: ", class(plink_options), " \n",
+      "Tip: use 'plinkr::create_plink_options()'\n"
+    )
+  }
   testthat::expect_true("plink_version" %in% names(plink_options))
   testthat::expect_true("plink_folder" %in% names(plink_options))
   testthat::expect_true("add_noweb" %in% names(plink_options))
+  testthat::expect_true("os" %in% names(plink_options))
   plinkr::check_plink_version(plink_options$plink_version)
+  plinkr::check_os(plink_options$os)
 }

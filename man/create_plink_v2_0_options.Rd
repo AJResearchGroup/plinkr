@@ -4,10 +4,13 @@
 \alias{create_plink_v2_0_options}
 \title{Create the options to run PLINK v2.0}
 \usage{
-create_plink_v2_0_options(plink_folder = get_plink_folder())
+create_plink_v2_0_options(plink_folder = get_plink_folder(), os = get_os())
 }
 \arguments{
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{os}{name of the operating system,
+as returned by \link[rappdirs]{app_dir}}
 }
 \value{
 the PLINK options,

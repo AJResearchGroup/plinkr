@@ -38,11 +38,14 @@
 create_plink_options <- function(
   plink_version = get_default_plink_version(),
   plink_folder = get_plink_folder(),
-  add_noweb = TRUE
+  add_noweb = TRUE,
+  os = get_os()
 ) {
+  plinkr::check_os(os)
   list(
     plink_version = plink_version,
     plink_folder = plink_folder,
-    add_noweb = add_noweb
+    add_noweb = add_noweb,
+    os = os
   )
 }

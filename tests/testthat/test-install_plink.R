@@ -27,6 +27,7 @@ test_that("un- or install in temp plink folder, v1.7", {
 })
 
 test_that("un- or install in temp plink folder, v1.7, Windows", {
+  skip("WIP")
   if (!is_on_ci()) return()
 
   plink_options <- create_plink_v1_7_options(

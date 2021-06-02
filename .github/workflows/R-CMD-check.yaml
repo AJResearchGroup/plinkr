@@ -41,7 +41,7 @@ jobs:
           remotes::install_github("MangoTheCat/goodpractice")
         shell: Rscript {0}
 
-      - name: Install PLINK
+      - name: Install PLINKs
         env:
           INSTALL_PLINK: ${{ matrix.install_plink }}
         run: if [[ "$INSTALL_PLINK" == true ]]; then ./scripts/install_plinks.sh; fi
@@ -64,12 +64,12 @@ jobs:
         run: remotes::install_github("richelbilderbeek/plinkr")
         shell: Rscript {0}
 
+      - name: Report
+        run: plinkr::plinkr_report()
+        shell: Rscript {0}
+
       - name: Self-test
         env:
           INSTALL_PLINK: ${{ matrix.install_plink }}
         run: if [[ "$INSTALL_PLINK" == true ]]; then Rscript -e "plinkr::do_plink_self_test()"; fi
-
-      - name: Report
-        run: plinkr::plinkr_report()
-        shell: Rscript {0}
 

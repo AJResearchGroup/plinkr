@@ -1,10 +1,10 @@
 # plinkr
 
-Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/richelbilderbeek/plinkr/actions)|AppVeyor                                                                                                                                                                               |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
+Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github.com/richelbilderbeek/plinkr/actions)|[![AppVeyor logo](man/figures/AppVeyor.png)](https://ci.appveyor.com/project/richelbilderbeek/plinkr/)                                                                                 |[![Codecov logo](man/figures/Codecov.png)](https://www.codecov.io)
 ---------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------
 `master` |![R-CMD-check](https://github.com/richelbilderbeek/plinkr/workflows/R-CMD-check/badge.svg?branch=master)   |[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/richelbilderbeek/plinkr?branch=master&svg=true)](https://ci.appveyor.com/project/richelbilderbeek/plinkr) |[![codecov.io](https://codecov.io/github/richelbilderbeek/plinkr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/plinkr/branch/master)
 `develop`|![R-CMD-check](https://github.com/richelbilderbeek/plinkr/workflows/R-CMD-check/badge.svg?branch=develop)  |[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/richelbilderbeek/plinkr?branch=develop&svg=true)](https://ci.appveyor.com/project/richelbilderbeek/plinkr)|[![codecov.io](https://codecov.io/github/richelbilderbeek/plinkr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/plinkr/branch/develop)
-  
+
 Work with PLINK and PLINK2 from R.
 
  * Doing the first PLINK example: [YouTube](https://youtu.be/LsfKQw2oIUg) [download (.ogv)](http://richelbilderbeek.nl/plinkr_basic_usage.ogv)
@@ -12,7 +12,6 @@ Work with PLINK and PLINK2 from R.
  * Detect an association with ideal quantitative traits: [YouTube](https://youtu.be/oXGy83WiHm4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_demo_qt_assoc.ogv)
  * Simulate quantitative traits: [YouTube](https://youtu.be/H0XlLVsFry4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_create_demo_assoc_qt_params.ogv)
  * Simulate custom traits: [YouTube](https://youtu.be/5X1kLkiQbtw) [download (.ogv)](http://richelbilderbeek.nl/plinkr_create_custom_trait.ogv)
-
 
 ## Installation
 

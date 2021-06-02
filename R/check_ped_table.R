@@ -11,18 +11,23 @@ check_ped_table <- function(ped_table) {
       "Current class: ", paste(class(ped_table), collapse = " ")
     )
   }
-  col_names <- c(
+
+  expected_names_lhs <- c(
     "family_id",
     "within_family_id",
     "within_family_id_father",
     "within_family_id_mother",
     "sex_code",
-    "case_control_code",
-    "snv_1a",
-    "snv_1b"
+    "case_control_code"
   )
-  n_col_names <- length(col_names)
-  testthat::expect_true(
-    all(names(ped_table)[seq(1, n_col_names)] == col_names)
+  actual_names_lhs <- names(ped_table)[seq(1, 6)]
+  testthat::expect_equal(actual_names_lhs, expected_names_lhs)
+  n_snvs <- (ncol(ped_table) - 6) / 2
+  expected_names_rhs <- paste0(
+    "snv_",
+    rep(seq(from = 1, to = n_snvs), each = 2),
+    rep(c("a", "b"), times = n_snvs)
   )
+  actual_names_rhs <- names(ped_table)[-seq(1, 6)]
+  testthat::expect_equal(actual_names_rhs, expected_names_rhs)
 }

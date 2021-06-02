@@ -8,7 +8,9 @@ test_that("v1.7", {
     normalizePath(
       file.path(get_plink_folder(), "plink_1_7.zip"), mustWork = FALSE
     ),
-    normalizePath(get_plink_zip_path(create_plink_v1_7_options()))
+    normalizePath(
+      get_plink_zip_path(create_plink_v1_7_options()), mustWork = FALSE
+    )
   )
 })
 
@@ -17,7 +19,9 @@ test_that("v1.9", {
     normalizePath(
       file.path(get_plink_folder(), "plink_1_9.zip"), mustWork = FALSE
     ),
-    normalizePath(get_plink_zip_path(create_plink_v1_9_options()))
+    normalizePath(
+      get_plink_zip_path(create_plink_v1_9_options()), mustWork = FALSE
+    )
   )
 })
 
@@ -26,7 +30,9 @@ test_that("v2.0", {
     normalizePath(
       file.path(get_plink_folder(), "plink_2_0.zip"), mustWork = FALSE
     ),
-    normalizePath(get_plink_zip_path(create_plink_v2_0_options()))
+    normalizePath(
+      get_plink_zip_path(create_plink_v2_0_options()), mustWork = FALSE
+    )
   )
 })
 

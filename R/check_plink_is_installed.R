@@ -20,7 +20,8 @@ check_plink_is_installed <- function(
       "Tip: run 'plinkr::install_plinks()'"
     )
   }
-  if (!plinkr::is_exe(plink_exe_path)) {
+
+  if (plinkr::get_os() != "win" && !plinkr::is_exe(plink_exe_path)) {
     stop(
       "PLINK is not installed. \n",
       "PLINK binary is not executable \n",

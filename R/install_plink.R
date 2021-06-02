@@ -49,7 +49,8 @@ install_plink <- function(
   }
 
   testthat::expect_true(file.exists(plink_exe_path))
-  if (!plinkr::is_exe(plink_exe_path)) {
+
+  if (get_os() != "win" && !plinkr::is_exe(plink_exe_path)) {
     Sys.chmod(plink_exe_path, "777")
   }
   testthat::expect_true(plinkr::is_exe(plink_exe_path))

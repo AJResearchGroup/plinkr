@@ -2,5 +2,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_versions <- function() {
-  c("1.7", "1.9")
+  c("1.7", "1.9", "2.0")
 }

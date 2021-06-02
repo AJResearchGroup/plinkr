@@ -4,9 +4,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_exe_path <- function(
-  plink_options = create_plink_options()
+  plink_options = create_plink_options(),
+  os = get_os()
 ) {
   plinkr::check_plink_options(plink_options)
+  plinkr::check_os(os)
 
   # Don't be smart yet
   plink_version <- plink_options$plink_version

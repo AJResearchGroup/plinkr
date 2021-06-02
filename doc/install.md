@@ -7,6 +7,7 @@ This page explains how to:
   * Install a specific PLINK version
     * Install PLINK v1.7
     * Install PLINK v1.9
+    * Install PLINK v2.0
   * Do a custom PLINK installation
     * Install the PLINK versions elsewhere
     * Install the PLINK versions in custom (sub)folders
@@ -40,6 +41,7 @@ It is possible to only install a single version:
 
  * Install PLINK v1.7
  * Install PLINK v1.9
+ * Install PLINK v2.0
 
 Use `get_plink_versions()` to see which versions are supported.
 
@@ -49,9 +51,11 @@ To install only PLINK v1.7:
 
 ```
 library(plinkr)
-install_plink(create_plink_v1_7_options())
+plink_options <- create_plink_v1_7_options()
+install_plink(plink_options = plink_options)
 ```
 
+Use the same ´plink_options´ when calling PLINK, to call this version of PLINK.
 
 ### Install PLINK v1.9
 
@@ -59,8 +63,24 @@ To install only PLINK v1.9:
 
 ```
 library(plinkr)
-install_plink(create_plink_v1_9_options())
+plink_options <- create_plink_v1_9_options()
+install_plink(plink_options = plink_options)
 ```
+
+Use the same ´plink_options´ when calling PLINK, to call this version of PLINK.
+
+### Install PLINK v2.0
+
+To install only PLINK v2.0:
+
+```
+library(plinkr)
+plink_options <- create_plink_v2_0_options()
+install_plink(plink_options = plink_options)
+```
+
+Use the same ´plink_options´ when calling PLINK, to call this version of PLINK.
+
 ## Do a custom PLINK installation
 
  * Install the PLINK versions elsewhere

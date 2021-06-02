@@ -24,3 +24,4 @@
 ^tests/testthat/plink\.qassoc$
 ^tests/testthat/plink\.simfreq$
 ^vignettes/.*log$
+^appveyor\.yml$

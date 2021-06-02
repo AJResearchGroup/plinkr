@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         install_plink: [true, false]
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
 
     runs-on: ubuntu-latest
     env:

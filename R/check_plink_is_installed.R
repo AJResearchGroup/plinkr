@@ -10,9 +10,7 @@ check_plink_is_installed <- function(
 ) {
   plinkr::check_plink_options(plink_options)
 
-  plink_exe_path <- plinkr::get_plink_exe_path(
-    plink_options = plink_options
-  )
+  plink_exe_path <- plink_options$plink_exe_path
   if (!file.exists(plink_exe_path)) {
     stop(
       "PLINK is not installed. \n",

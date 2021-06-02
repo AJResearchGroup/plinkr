@@ -2,6 +2,7 @@
 #'
 #' Deletes all files in the default \code{PLINK} folder,
 #' as obtained by \link{get_plink_folder}
+#' @inheritParams default_params_doc
 #' @return Nothing.
 #' @author Richèl J.C. Bilderbeek
 #' @export

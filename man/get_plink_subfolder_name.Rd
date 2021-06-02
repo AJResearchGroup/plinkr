@@ -26,7 +26,7 @@ Get the path to the default \code{PLINK} subfolder as used by \code{plinkr}.
 \details{
 \code{plinkr} installs all versions of \code{PLINK} in
 a default \code{PLINK} folder,
-as can be obtained by \link{get_plink_folder()}.
+as can be obtained by \link{get_plink_folder}.
 
 In that \code{PLINK} folder, there are different subfolders for the
 different version of \code{PLINK}.

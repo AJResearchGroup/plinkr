@@ -23,9 +23,9 @@ test_that("v1.9", {
 
 test_that("custom, secretly use v1.7", {
   if (!is_plink_installed(create_plink_v1_7_options())) return()
-  plink_folder <- dirname(get_plink_exe_path(create_plink_v1_7_options()))
+  plink_exe_path <- create_plink_v1_7_options()$plink_exe_path
   text_custom <- get_plink_help_text(
-    create_custom_plink_options(plink_folder)
+    create_custom_plink_options(plink_exe_path = plink_exe_path)
   )
   text_v1_7 <- get_plink_help_text(create_plink_v1_7_options())
 
@@ -35,9 +35,9 @@ test_that("custom, secretly use v1.7", {
 
 test_that("custom, secretly use v1.9", {
   if (!is_plink_installed(create_plink_v1_9_options())) return()
-  plink_folder <- dirname(get_plink_exe_path(create_plink_v1_9_options()))
+
   text_custom <- get_plink_help_text(
-    create_custom_plink_options(plink_folder)
+    create_custom_plink_options(create_plink_v1_9_options()$plink_exe_path)
   )
   text_v1_9 <- get_plink_help_text(create_plink_v1_9_options())
   expect_equal(text_custom, text_v1_9)

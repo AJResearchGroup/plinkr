@@ -5,11 +5,7 @@
 #' @export
 plinkr_report <- function() {
   message("OS: ", rappdirs::app_dir()$os)
-  plink_optionses <- list( # A reduplicated plural
-    plinkr::create_plink_v1_7_options(),
-    plinkr::create_plink_v1_9_options()
-  )
-  for (plink_options in plink_optionses) {
+  for (plink_options in plinkr::create_plink_optionses()) {
     message(
       paste0("PLINK version (plinkr versioning scheme) '",
         plink_options$plink_version, "' installed: ",

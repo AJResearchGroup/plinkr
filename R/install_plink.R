@@ -4,8 +4,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 install_plink <- function(
-  plink_options = create_plink_options(),
-  os = get_os()
+  plink_options = create_plink_options()
 ) {
   plinkr::check_plink_options(plink_options)
   testthat::expect_false(
@@ -23,23 +22,17 @@ install_plink <- function(
     utils::download.file(
       url = plinkr::get_plink_download_url(
         plink_version = plink_options$plink_version,
-        os = os
+        os = plink_options$os
       ),
       destfile = plink_zip_path,
       quiet = TRUE
     )
   }
   testthat::expect_true(file.exists(plink_zip_path))
-  plink_exe_path <- plinkr::get_plink_exe_path(plink_options)
+  plink_exe_path <- plink_options$plink_exe_path
 
-  # Plink 1.7 comes with a zip that creates a subfolder, v1.9 does not
-  plink_sub_folder <- plink_options$plink_folder
-  if (plink_options$plink_version == "1.9") {
-    plink_sub_folder <- file.path(plink_sub_folder, "plink_1_9")
-  }
-  if (plink_options$plink_version == "2.0") {
-    plink_sub_folder <- file.path(plink_sub_folder, "plink_2_0")
-  }
+  plink_sub_folder <- dirname(plink_exe_path)
+  dir.create(plink_sub_folder, showWarnings = FALSE, recursive = TRUE)
 
   if (!file.exists(plink_exe_path)) {
     utils::unzip(
@@ -47,6 +40,14 @@ install_plink <- function(
       exdir = plink_sub_folder
     )
   }
+  if (plink_options$plink_version == "1.7") {
+    # v1.7 extracts into an own subfolder. Move files up.
+    from <- list.files(plink_sub_folder, full.names = TRUE, recursive = TRUE)
+    to <- file.path(dirname(dirname(from)), basename(from))
+    file.copy(from = from, to = to)
+    unlink(dirname(from[1]), recursive = TRUE)
+  }
+
   testthat::expect_true(file.exists(plink_exe_path))
   if (!plinkr::is_exe(plink_exe_path)) {
     Sys.chmod(plink_exe_path, "777")

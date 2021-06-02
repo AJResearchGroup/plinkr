@@ -60,7 +60,7 @@ after the `stats::runif` function`:
 
 ```{r}
 runif_phenotype <- function(snvs) {
-  stats::runif(nrow(snvs))  
+  stats::runif(nrow(snvs))
 }
 ```
 
@@ -205,7 +205,7 @@ on locus 2, or the other way around:
 
 ```{r}
 xor_phenotype <- function(snvs) {
-  if (ncol(snvs) < 4) return(rep(10.0, nrow(snvs))) 
+  if (ncol(snvs) < 4) return(rep(10.0, nrow(snvs)))
   homozygous_a_locus_1 <- snvs$snv_1a == "A" & snvs$snv_1b == "A"
   homozygous_t_locus_1 <- snvs$snv_1a == "T" & snvs$snv_1b == "T"
   homozygous_a_locus_2 <- snvs$snv_2a == "A" & snvs$snv_2b == "A"

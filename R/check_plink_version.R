@@ -18,7 +18,7 @@ check_plink_version <- function(plink_version) {
   if (!plink_version %in% plink_versions) {
     stop(
       "Invalid 'plink_version'. \n",
-      "Actual value: " , plink_version, " \n",
+      "Actual value: ", plink_version, " \n",
       "Valid values: ", paste0(plink_versions, collapse = " ")
     )
   }

@@ -22,7 +22,7 @@ check_calc_phenotype_function <- function(calc_phenotype_function) {
       "'calc_phenotype_function' must return ",
         "as much phenotypes as there are individuals .\n",
       "n_phenotypes returned: ", length(phenotypes), " \n",
-      "n_snps, aka ncol(snvs) * 2: ", n_snps , " \n",
+      "n_snps, aka ncol(snvs) * 2: ", n_snps, " \n",
       "n_individuals, aka nrow(snvs): ", length(phenotypes)
     )
   }
@@ -37,7 +37,7 @@ check_calc_phenotype_function <- function(calc_phenotype_function) {
       "'calc_phenotype_function' must return ",
         "as much phenotypes as there are individuals .\n",
       "n_phenotypes returned: ", length(phenotypes), " \n",
-      "n_snps, aka ncol(snvs) * 2: ", n_snps , " \n",
+      "n_snps, aka ncol(snvs) * 2: ", n_snps, " \n",
       "n_individuals, aka nrow(snvs): ", length(phenotypes)
     )
   }

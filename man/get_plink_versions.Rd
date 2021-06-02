@@ -7,7 +7,14 @@
 get_plink_versions()
 }
 \description{
-Get the supported version of PLINK
+Get the supported version of PLINK as string.
+}
+\details{
+Use \link{create_plink_optionses} to obtain a list
+of \code{plink_options}.
+}
+\examples{
+get_plink_versions()
 }
 \author{
 Richèl J.C. Bilderbeek

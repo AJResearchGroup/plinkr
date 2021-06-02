@@ -29,7 +29,7 @@ if (is_plink_installed()) {
   get_plink_help_text(create_plink_v1_9_options())
 
   # Custom PLINK version, secretly v1.9
-  plink_folder <- dirname(get_plink_exe_path(create_plink_v1_9_options()))
+  plink_folder <- dirname(create_plink_v1_9_options()$plink_exe_path)
   get_plink_help_text(create_custom_plink_options(plink_folder))
 }
 }

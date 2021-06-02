@@ -16,23 +16,18 @@
 #' create_plink_options()
 #'
 #' # Use PLINK v1.7
-#' create_plink_options(plink_version = "1.7")
 #' create_plink_v1_7_options()
 #'
 #' # Use PLINK v1.9
-#' create_plink_options(plink_version = "1.9")
 #' create_plink_v1_9_options()
 #'
 #' # Use PLINK v2.0
-#' create_plink_options(plink_version = "2.0")
 #' create_plink_v2_0_options()
 #'
 #' # Use a custom PLINK version
-#' create_plink_options(
-#'   plink_version = "custom",
-#'   plink_folder = "path_to_my_custom_plink_folder"
+#' create_custom_plink_options(
+#'   plink_exe_path = "path_to_my_custom_plink_folder/plink3.mp4"
 #' )
-#' create_custom_plink_options("path_to_my_custom_plink_folder")
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_plink_options <- function(

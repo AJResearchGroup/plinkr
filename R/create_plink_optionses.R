@@ -1,6 +1,9 @@
 #' Create the PLINK options for all supported versions of PLINK
 #'
 #' Create the PLINK options for all supported versions of PLINK.
+#'
+#' Use \link{get_plink_versions} to get all the supported version
+#' as strings
 #' @inheritParams default_params_doc
 #' @return a list of multiple PLINK options
 #' @examples
@@ -9,7 +12,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_plink_optionses <- function(
-  plink_folder = get_plink_folder()
+  plink_folder = get_plink_folder(),
+  os = get_os()
 ) {
   list(
     plinkr::create_plink_v1_7_options(plink_folder = plink_folder),

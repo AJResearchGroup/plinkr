@@ -4,16 +4,23 @@
 \alias{create_plink_optionses}
 \title{Create the PLINK options for all supported versions of PLINK}
 \usage{
-create_plink_optionses(plink_folder = get_plink_folder())
+create_plink_optionses(plink_folder = get_plink_folder(), os = get_os())
 }
 \arguments{
 \item{plink_folder}{folder where PLINK is installed}
+
+\item{os}{name of the operating system,
+as returned by \link[rappdirs]{app_dir}}
 }
 \value{
 a list of multiple PLINK options
 }
 \description{
 Create the PLINK options for all supported versions of PLINK.
+}
+\details{
+Use \link{get_plink_versions} to get all the supported version
+as strings
 }
 \examples{
 create_plink_optionses()

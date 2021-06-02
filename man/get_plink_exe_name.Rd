@@ -21,8 +21,9 @@ path to the default PLINK executable  as used by plinkr
 Get the name of the PLINK executable
 }
 \examples{
-get_plink_exe_name(create_plink_options())
-get_plink_exe_name(create_plink_v2_0_options())
+get_plink_exe_name()
+get_plink_exe_name(plink_version = "2.0")
+get_plink_exe_name(os = "win")
 }
 \author{
 Richèl J.C. Bilderbeek

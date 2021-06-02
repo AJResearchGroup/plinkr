@@ -9,8 +9,7 @@ install_plinks <- function(
   for (plink_options in plink_optionses) {
     plinkr::check_plink_options(plink_options)
     plinkr::install_plink(
-      plink_options = plink_options,
-      os = os
+      plink_options = plink_options
     )
   }
 }

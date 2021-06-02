@@ -41,7 +41,7 @@ run_plink <- function(
       "args: ", paste(args, collapse = " ")
     )
   }
-  plink_exe_path <- plinkr::get_plink_exe_path(plink_options)
+  plink_exe_path <- plink_options$plink_exe_path
   if (verbose) {
     message(
       "Running: '", plink_exe_path, " ", paste(args, collapse = " "), "'. \n",

@@ -20,7 +20,7 @@ get_plink_example_filenames <- function(
   plinkr::check_plink_is_installed(plink_options)
   list.files(
     dirname(
-      plinkr::get_plink_exe_path(plink_options)
+      plink_options$plink_exe_path
     ),
     full.names = TRUE
   )

@@ -29,9 +29,7 @@ get_plink_example_filename <- function(
 ) {
   plinkr::check_plink_is_installed(plink_options)
   full_path <- file.path(
-    dirname(
-      plinkr::get_plink_exe_path(plink_options)
-    ),
+    dirname(plink_options$plink_exe_path),
     example_filename
   )
   if (!file.exists(full_path)) {

@@ -6,6 +6,7 @@
 #'
 #' * \link{create_additive_trait}
 #' * \link{create_custom_trait}
+#' * \link{create_dominant_trait}
 #' * \link{create_epistatic_trait}
 #' * \link{create_random_trait}
 #' * \link{create_random_case_control_trait}
@@ -15,6 +16,7 @@
 #' The functions that calculate the phenotype for a genotype:
 #'
 #' * \link{calc_additive_phenotype_values}
+#' * \link{calc_dominant_phenotype_values}
 #' * \link{calc_epistatic_phenotype_values}
 #' * \link{calc_random_phenotype_values}
 #' * \link{calc_random_case_control_phenotype_values}
@@ -31,6 +33,7 @@ get_phenotypes <- function() {
   c(
     "additive",
     "custom",
+    "dominant",
     "epistatic",
     "random",
     "random_case_control",

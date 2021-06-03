@@ -1,3 +1,9 @@
+assoc_params <- create_demo_assoc_params(
+  trait = create_dominant_trait(n_snps = 2)
+)
+assoc(assoc_params)
+
+
 # Random scribbles
 
 assoc_params <- create_demo_assoc_params(

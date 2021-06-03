@@ -52,7 +52,7 @@ read_plink_assoc_file <- function(assoc_filename) {
   t$CHR <- as.numeric(t$CHR)
   t$BP <- as.numeric(t$BP)
   suppressWarnings(t$F_A <- as.numeric(t$F_A)) # May be NA
-  t$F_U <- as.numeric(t$F_U)
+  t$F_U <- suppressWarnings(as.numeric(t$F_U)) # May be NA
   t$CHISQ <- as.numeric(t$CHISQ)
   t$P <- as.numeric(t$P)
   suppressWarnings(t$OR <- as.numeric(t$OR)) # May be NA

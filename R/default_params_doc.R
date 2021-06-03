@@ -25,6 +25,8 @@
 #' which has the same length as the number of individuals.
 #' Use \link{check_calc_phenotype_function}
 #' to check a \code{calc_phenotype_function}.
+#' @param epistatic_phenotype_value the phenotypic value when the
+#' epistatic phenotype is expressed
 #' @param example_filename name of the example file
 #' @param log_filename name of a PLINK \code{.log} file
 #' @param maf minor allele frequency threshold.
@@ -121,6 +123,12 @@
 #'    see \link{calc_additive_phenotype_values} for the exact calculation
 #'  * \code{epistatic} the phenotype is epistatic,
 #'    see \link{calc_epistatic_phenotype_values} for the exact calculation
+#' @param phenotype_value_dominant phenotypic value
+#' for the dominant variant, i.e. that genotype that has at least one
+#' version of the common common allele
+#' @param phenotype_value_recessive phenotypic value
+#' for the recessive variant, i.e. that genotype that is homozygous for the
+#' rare allele
 #' @param plink_exe_path path to
 #'   the \code{PLINK} or \code{PLINK2} executable file.
 #' @param plink_folder folder where PLINK is installed
@@ -137,6 +145,7 @@
 #' e.g. as can be obtained using \link{get_plink_versions}
 #' @param qassoc_filename name of a PLINK \code{.qassoc} file
 #' Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.
+#' @param regular_phenotype_value the regular phenotypic value
 #' @param sim_filename name of a PLINK \code{.sim} file
 #' @param simfreq_filename name of a PLINK \code{.simfreq} file
 #' @param simulate_qt_params the parameters for a quantitative
@@ -173,6 +182,7 @@ default_params_doc <- function(
   assoc_params,
   assoc_qt_params,
   calc_phenotype_function,
+  epistatic_phenotype_value,
   example_filename,
   log_filename,
   maf,
@@ -188,6 +198,8 @@ default_params_doc <- function(
   phenotype_filename,
   phenotype_table,
   phenotypes,
+  phenotype_value_dominant,
+  phenotype_value_recessive,
   plink_exe_path,
   plink_folder,
   plink_options,
@@ -195,6 +207,7 @@ default_params_doc <- function(
   plink_version,
   plink_versions,
   qassoc_filename,
+  regular_phenotype_value,
   sim_filename,
   simfreq_filename,
   simulate_qt_params,

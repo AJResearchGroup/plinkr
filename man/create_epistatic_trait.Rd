@@ -5,7 +5,12 @@
 \title{Create a trait in which the phenotype is epistatic
 and the minor allele frequency is known.}
 \usage{
-create_epistatic_trait(mafs = 0.25, n_snps = 2)
+create_epistatic_trait(
+  mafs = 0.25,
+  n_snps = 2,
+  regular_phenotype_value = 20,
+  epistatic_phenotype_value = 21
+)
 }
 \arguments{
 \item{mafs}{one or more minor allele frequencies.
@@ -18,6 +23,11 @@ quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
 \item{n_snps}{the number of SNPs}
+
+\item{regular_phenotype_value}{the regular phenotypic value}
+
+\item{epistatic_phenotype_value}{the phenotypic value when the
+epistatic phenotype is expressed}
 }
 \description{
 Create a trait in which the phenotype is epistatic

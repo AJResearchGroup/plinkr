@@ -23,10 +23,13 @@ has a different SNP ID) than a SNP that encodes a mutation
 for A to G.
 Use \link{create_snvs} to create a \code{snvs}.}
 
-\item{base_phenotype_value}{the lowest phenotypic value possible}
+\item{phenotype_value_recessive}{phenotypic value
+for the recessive variant, i.e. that genotype that is homozygous for the
+rare allele}
 
-\item{phenotype_increase}{the increase of the  phenotypic value
-per non-adenine}
+\item{phenotype_value_dominant}{phenotypic value
+for the dominant variant, i.e. that genotype that has at least one
+version of the common common allele}
 }
 \description{
 Calculate the phenotypic values for a trait that is dominant.

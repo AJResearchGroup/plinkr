@@ -14,9 +14,16 @@
 #' As a workaround, epistatic traits start from twenty.
 #' @author Richèl J.C. Bilderbeek
 #' @export
-calc_epistatic_phenotype_values <- function(snvs) { # nolint indeed a long function name
+calc_epistatic_phenotype_values <- function(
+  snvs,
+  regular_phenotype_value = 20.0,
+  epistatic_phenotype_value = 21.0
+) { # nolint indeed a long function name
   plinkr::check_snvs(snvs)
   testthat::expect_true(tibble::is_tibble(snvs))
   testthat::expect_true(all(as.matrix(snvs) %in% c("A", "C", "G", "T")))
-  20 + (1.0 * (rowSums(snvs != "A") == ncol(snvs)))
+  phenotype_values <- rep(regular_phenotype_value, nrow(snvs))
+  is_epistatics <- rowSums(snvs != "A") == ncol(snvs)
+  phenotype_values[is_epistatics] <- epistatic_phenotype_value
+  phenotype_values
 }

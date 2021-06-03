@@ -9,9 +9,6 @@
 #'
 #' If there are more SNPs, the phenotypic values are averaged.
 #' @inheritParams default_params_doc
-#' @param base_phenotype_value the lowest phenotypic value possible
-#' @param phenotype_increase the increase of the  phenotypic value
-#' per non-adenine
 #' @note  the reason a these phenotypic value are 10.0 and 11.0,
 #' instead of -say- 0.0 and 1.0,
 #' is due to PLINK: if phenotypic values are all only zeroes and ones

@@ -23,6 +23,14 @@ quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
 \item{n_snps}{the number of SNPs}
+
+\item{phenotype_value_recessive}{phenotypic value
+for the recessive variant, i.e. that genotype that is homozygous for the
+rare allele}
+
+\item{phenotype_value_dominant}{phenotypic value
+for the dominant variant, i.e. that genotype that has at least one
+version of the common common allele}
 }
 \description{
 Create a trait in which the phenotype is dominant

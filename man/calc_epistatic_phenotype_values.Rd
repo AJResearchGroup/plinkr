@@ -4,7 +4,11 @@
 \alias{calc_epistatic_phenotype_values}
 \title{Calculate the phenotypic values for a trait that is epistatic.}
 \usage{
-calc_epistatic_phenotype_values(snvs)
+calc_epistatic_phenotype_values(
+  snvs,
+  regular_phenotype_value = 20,
+  epistatic_phenotype_value = 21
+)
 }
 \arguments{
 \item{snvs}{a \link[tibble]{tibble} that contains the
@@ -18,6 +22,11 @@ as this is how a SNP works; a SNP from A to C is a different one (and
 has a different SNP ID) than a SNP that encodes a mutation
 for A to G.
 Use \link{create_snvs} to create a \code{snvs}.}
+
+\item{regular_phenotype_value}{the regular phenotypic value}
+
+\item{epistatic_phenotype_value}{the phenotypic value when the
+epistatic phenotype is expressed}
 }
 \description{
 Calculate the phenotypic values for a trait that is epistatic.

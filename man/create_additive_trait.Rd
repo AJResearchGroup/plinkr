@@ -5,7 +5,12 @@
 \title{Create a trait in which the phenotype is additive
 and the minor allele frequency is known.}
 \usage{
-create_additive_trait(mafs = 0.25, n_snps = 1)
+create_additive_trait(
+  mafs = 0.25,
+  n_snps = 1,
+  base_phenotype_value = 10,
+  phenotype_increase = 0.5
+)
 }
 \arguments{
 \item{mafs}{one or more minor allele frequencies.
@@ -27,7 +32,10 @@ see \link{calc_additive_phenotype_values} for the exact phenotypic values
 }
 \examples{
 create_additive_trait()
-create_additive_trait(maf = 0.01)
+create_additive_trait(mafs = 0.01)
+create_additive_trait(n_snps = 2)
+create_additive_trait(base_phenotype_value = 3.14)
+create_additive_trait(phenotype_increase = 2.71)
 }
 \author{
 Richèl J.C. Bilderbeek

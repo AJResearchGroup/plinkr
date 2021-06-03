@@ -30,8 +30,6 @@ calc_dominant_phenotype_values <- function(
   plinkr::check_snvs(snvs)
   testthat::expect_true(tibble::is_tibble(snvs))
   testthat::expect_true(all(as.matrix(snvs) %in% c("A", "C", "G", "T")))
-  testthat::expect_true(phenotype_value_recessive >= 10.0)
-  testthat::expect_true(phenotype_value_dominant >= 10.0)
   testthat::expect_true(is.numeric(phenotype_value_recessive))
   testthat::expect_true(is.numeric(phenotype_value_dominant))
   # Couldn't get it to work with dplyr, hence by hand :-/

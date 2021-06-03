@@ -17,6 +17,7 @@ To create a trait with a phenotype:
 \itemize{
 \item \link{create_additive_trait}
 \item \link{create_custom_trait}
+\item \link{create_dominant_trait}
 \item \link{create_epistatic_trait}
 \item \link{create_random_trait}
 \item \link{create_random_case_control_trait}
@@ -27,6 +28,7 @@ To create a trait with a phenotype:
 The functions that calculate the phenotype for a genotype:
 \itemize{
 \item \link{calc_additive_phenotype_values}
+\item \link{calc_dominant_phenotype_values}
 \item \link{calc_epistatic_phenotype_values}
 \item \link{calc_random_phenotype_values}
 \item \link{calc_random_case_control_phenotype_values}

@@ -5,7 +5,12 @@
 \title{Create a trait in which the phenotype is dominant
 and the minor allele frequency is known.}
 \usage{
-create_dominant_trait(mafs = 0.25, n_snps = 1)
+create_dominant_trait(
+  mafs = 0.25,
+  n_snps = 1,
+  phenotype_value_recessive = 10,
+  phenotype_value_dominant = 11
+)
 }
 \arguments{
 \item{mafs}{one or more minor allele frequencies.

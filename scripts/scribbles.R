@@ -1,5 +1,11 @@
 assoc_params <- create_demo_assoc_params(
-  trait = create_dominant_trait(n_snps = 2)
+  trait = create_dominant_trait(
+    mafs = 0.49,
+    n_snps = 1,
+    phenotype_value_recessive = 1,
+    phenotype_value_dominant = 2
+  ),
+  n_individuals = 8
 )
 assoc(assoc_params)
 

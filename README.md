@@ -12,6 +12,7 @@ Work with PLINK and PLINK2 from R.
  * Detect an association with ideal quantitative traits: [YouTube](https://youtu.be/oXGy83WiHm4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_demo_qt_assoc.ogv)
  * Simulate quantitative traits: [YouTube](https://youtu.be/H0XlLVsFry4) [download (.ogv)](http://richelbilderbeek.nl/plinkr_create_demo_assoc_qt_params.ogv)
  * Simulate custom traits: [YouTube](https://youtu.be/5X1kLkiQbtw) [download (.ogv)](http://richelbilderbeek.nl/plinkr_create_custom_trait.ogv)
+ * Detect an association with a binary trait/case-control phenotype: [YouTube](https://youtu.be/LhXQcDQvZS0) [download (.ogv)](http://richelbilderbeek.nl/plinkr_assoc.ogv)
 
 ## Installation
 

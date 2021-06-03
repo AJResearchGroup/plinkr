@@ -21,22 +21,21 @@ create_snvs <- function(
   if (n_snps == 1) {
     return(
       tidyr::expand_grid(
-        snv_1a = c("A", "T"),
-        snv_1b = c("A", "T")
+        snv_1a = c("A", "C"),
+        snv_1b = c("A", "C")
       )[seq(1, n_individuals), ]
     )
   }
   if (n_snps == 2) {
     return(
       tidyr::expand_grid(
-        snv_1a = c("A", "T"),
-        snv_1b = c("A", "T"),
-        snv_2a = c("A", "T"),
-        snv_2b = c("A", "T")
+        snv_1a = c("A", "C"),
+        snv_1b = c("A", "C"),
+        snv_2a = c("A", "C"),
+        snv_2b = c("A", "C")
       )[seq(1, n_individuals), ]
     )
   }
-
   m <- matrix(data = "A", nrow = n_individuals, ncol = n_snps * 2)
   t <- tibble::as_tibble(m, .name_repair = "minimal")
   names(t) <- paste0(

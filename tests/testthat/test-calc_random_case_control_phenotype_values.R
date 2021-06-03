@@ -1,5 +1,5 @@
 test_that("use", {
-  snvs <- tidyr::expand_grid(snp_1a = c("A", "T"), snp_1b = c("A", "T"))
+  snvs <- create_snvs(n_snps = 1, n_individuals = 4)
   set.seed(314)
   phenotype_values <- calc_random_case_control_phenotype_values(
     snvs = snvs
@@ -10,12 +10,7 @@ test_that("use", {
 })
 
 test_that("can use two SNPs", {
-  snvs <- tidyr::expand_grid(
-    snp_1a = c("A", "A"),
-    snp_1b = c("A", "C"),
-    snp_2a = c("A", "G"),
-    snp_2b = c("A", "T")
-  )
+  snvs <- create_snvs(n_snps = 2, n_individuals = 16)
   set.seed(314)
   phenotype_values <- calc_random_case_control_phenotype_values(
     snvs = snvs

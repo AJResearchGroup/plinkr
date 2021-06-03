@@ -1,5 +1,5 @@
 test_that("use, 1 SNP", {
-  snvs <- tidyr::expand_grid(snp_1a = c("A", "T"), snp_1b = c("A", "T"))
+  snvs <- create_snvs(n_snps = 1, n_individuals = 4)
   phenotype_values <- calc_additive_phenotype_values(
     snvs = snvs
   )
@@ -7,12 +7,7 @@ test_that("use, 1 SNP", {
 })
 
 test_that("use, 2 SNPs", {
-  snvs <- tidyr::expand_grid(
-    snp_1a = c("A", "T"),
-    snp_1b = c("A", "T"),
-    snp_2a = c("A", "T"),
-    snp_2b = c("A", "T")
-  )
+  snvs <- create_snvs(n_snps = 2, n_individuals = 16)
   phenotype_values <- calc_additive_phenotype_values(
     snvs = snvs
   )

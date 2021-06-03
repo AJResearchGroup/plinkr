@@ -24,12 +24,21 @@ test_that("minimal use", {
 
 test_that("most return as much values as rows in snvs", {
   calc_phenotype_function <- function(snvs) {
-    rep(42, nrow(snvs) + 1)
+    42
   }
-  snvs <- tibble::tibble(snv_1a = "A", snv_1b = "A")
-  expect_silent(calc_phenotype_function(snvs))
   expect_error(
     check_calc_phenotype_function(calc_phenotype_function),
     "must return as much phenotypes as there are individuals"
   )
 })
+
+test_that("most return as much values as rows in snvs", {
+  calc_phenotype_function <- function(snvs) {
+    c(42, 42)
+  }
+  expect_error(
+    check_calc_phenotype_function(calc_phenotype_function),
+    "must return as much phenotypes as there are individuals"
+  )
+})
+

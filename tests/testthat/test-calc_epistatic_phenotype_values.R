@@ -24,4 +24,3 @@ test_that("2 SNPs", {
   expect_equal(15, sum(phenotype_values == regular_phenotype_value))
   expect_equal(1, sum(phenotype_values == epistatic_phenotype_value))
 })
-

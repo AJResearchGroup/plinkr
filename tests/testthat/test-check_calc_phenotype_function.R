@@ -41,4 +41,3 @@ test_that("most return as much values as rows in snvs", {
     "must return as much phenotypes as there are individuals"
   )
 })
-

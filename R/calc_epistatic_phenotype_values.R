@@ -14,7 +14,7 @@
 #' As a workaround, epistatic traits start from twenty.
 #' @author Richèl J.C. Bilderbeek
 #' @export
-calc_epistatic_phenotype_values <- function(
+calc_epistatic_phenotype_values <- function( # nolint indeed a long function name
   snvs,
   regular_phenotype_value = 20.0,
   epistatic_phenotype_value = 21.0

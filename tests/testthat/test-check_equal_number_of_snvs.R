@@ -1,9 +1,14 @@
-test_that("use", {
+test_that("use, create_test_assoc_qt_params", {
+  set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
       assoc_qt_params = create_test_assoc_qt_params()
     )
   )
+})
+
+test_that("use, create_demo_assoc_qt_params", {
+  set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
       assoc_qt_params = create_demo_assoc_qt_params()

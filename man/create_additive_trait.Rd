@@ -23,6 +23,12 @@ quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
 \item{n_snps}{the number of SNPs}
+
+\item{base_phenotype_value}{the base phenotypic value for an additive trait,
+i.e. the phenotypic value for homozygotes of the common allele}
+
+\item{phenotype_increase}{the phenotypic value increase per rare allele,
+for an additive trait.}
 }
 \description{
 Create a trait in which the phenotype is additive

@@ -1,5 +1,6 @@
 #' This function does nothing. It is intended to inherit is parameters'
 #' documentation.
+#'
 #' @param add_noweb add the \code{--noweb} option, which prevents
 #' that PLINK will check if it is in its latest version.
 #' By default, this value is set to true,
@@ -13,6 +14,8 @@
 #' @param assoc_qt_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc_qt}),
 #' as can be created by \link{create_assoc_qt_params}
+#' @param base_phenotype_value the base phenotypic value for an additive trait,
+#' i.e. the phenotypic value for homozygotes of the common allele
 #' @param calc_phenotype_function a function that calculate the phenotypes
 #' from genotypes. The input is the genetic data as a \link[tibble]{tibble},
 #' in which each row is an individual and the columns are the SNVs.
@@ -102,6 +105,8 @@
 #'    * \code{TT} 10.0
 #' @param phenotype_filename name of a raw phenotype file.
 #' Use \link{read_plink_phenotype_file} to read a raw phenotype file.
+#' @param phenotype_increase the phenotypic value increase per rare allele,
+#' for an additive trait.
 #' @param phenotype_table a table of phenotypes.
 #'
 #' A \code{phenotype_table} is a \link[tibble]{tibble} with these columns:
@@ -181,6 +186,7 @@ default_params_doc <- function(
   assoc_filename,
   assoc_params,
   assoc_qt_params,
+  base_phenotype_value,
   calc_phenotype_function,
   epistatic_phenotype_value,
   example_filename,
@@ -196,6 +202,7 @@ default_params_doc <- function(
   ped_table,
   phenotype,
   phenotype_filename,
+  phenotype_increase,
   phenotype_table,
   phenotypes,
   phenotype_value_dominant,

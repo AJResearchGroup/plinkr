@@ -76,6 +76,7 @@ assoc_qt_nth_trait <- function(
     "--ped", ped_filename,
     "--pheno", phenotype_filename,
     "--assoc",
+    "--allow-extra-chr",
     "--maf", maf,
     "--out", output_filename_base
   )

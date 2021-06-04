@@ -54,6 +54,11 @@ run_plink <- function(
     stdout = TRUE,
     stderr = TRUE
   )
+  error_line_index <- stringr::str_which(text, "Error:")
+  if (length(error_line_index) != 0) {
+    error_text <- text[seq(from = error_line_index, to = length(text))]
+    stop(paste0(error_text, collapse = " \n"))
+  }
   warnings <- stringr::str_subset(text, "Warning")
   if (length(warnings) != 0) warning(warnings)
   text

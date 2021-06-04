@@ -29,7 +29,8 @@
 #' @export
 assoc_qt <- function(
   assoc_qt_params,
-  plink_options = create_plink_options()
+  plink_options = create_plink_options(),
+  verbose = FALSE
 ) {
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_options(plink_options)
@@ -40,7 +41,8 @@ assoc_qt <- function(
     t <- plinkr::assoc_qt_nth_trait(
       assoc_qt_params = assoc_qt_params,
       n = n,
-      plink_options = plink_options
+      plink_options = plink_options,
+      verbose = verbose
     )
     t$trait_name <- names(assoc_qt_params$phenotype_table[2 + n])
     trait_name <- NULL # nolint suppress 'no visible binding for global variable'

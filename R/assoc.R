@@ -69,6 +69,7 @@ assoc <- function(
     "--map", map_filename,
     "--ped", ped_filename,
     "--assoc",
+    "--allow-extra-chr",
     "--maf", maf,
     "--out", output_filename_base
   )

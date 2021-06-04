@@ -4,7 +4,11 @@
 \alias{assoc_qt}
 \title{Let PLINK detect an association with one ore more quantitative traits.}
 \usage{
-assoc_qt(assoc_qt_params, plink_options = create_plink_options())
+assoc_qt(
+  assoc_qt_params,
+  plink_options = create_plink_options(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{assoc_qt_params}{parameters to do an association analysis
@@ -13,6 +17,8 @@ as can be created by \link{create_assoc_qt_params}}
 
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
+
+\item{verbose}{set to TRUE for more output}
 }
 \value{
 a \link[tibble]{tibble} with the following columns:

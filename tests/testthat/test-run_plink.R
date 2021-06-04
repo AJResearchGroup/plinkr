@@ -60,3 +60,32 @@ test_that("warnings", {
   file.remove(map_filename)
   file.remove(phenotype_filename)
 })
+
+test_that("Give error due to too high chromosome number", {
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  assoc_params <- create_demo_assoc_params(
+    n_individuals = 2
+  )
+  assoc_params$map_table$CHR <- 123
+  ped_filename <- get_plinkr_tempfilename()
+  map_filename <- get_plinkr_tempfilename()
+  save_ped_table_to_file(
+    ped_table = assoc_params$ped_table,
+    ped_filename = ped_filename
+  )
+  save_map_table_to_file(
+    map_table = assoc_params$map_table,
+    map_filename = map_filename
+  )
+  args <- c(
+    "--ped", ped_filename,
+    "--map", map_filename
+  )
+  expect_error(
+    suppressWarnings(run_plink(args)),
+    "Invalid chromosome code '123' on line 1 of .map file"
+  )
+  file.remove(ped_filename)
+  file.remove(map_filename)
+})

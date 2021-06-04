@@ -105,3 +105,14 @@ test_that("PLINK cannot handle quadallelic SNPs", {
     "Variant 1 quadallelic; setting rarest alleles missing"
   )
 })
+
+test_that("All chromosome numbers work", {
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  assoc_params <- create_demo_assoc_params(
+    trait = create_random_case_control_trait(n_snps = 1),
+    n_individuals = 10
+  )
+  assoc_params$map_table$CHR <- 123
+  expect_silent(assoc(assoc_params = assoc_params))
+})

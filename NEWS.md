@@ -7,6 +7,7 @@ Newest versions at top.
 ### NEW FEATURES
 
  * ?Add vignette with PLINK tutorial
+ * Add confidence interval for `assoc`
 
 ### MINOR IMPROVEMENTS
 

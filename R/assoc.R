@@ -32,10 +32,6 @@ assoc <- function(
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
 
-  # Do not be smart yet
-  ped_table <- assoc_params$ped_table
-  map_table <- assoc_params$map_table
-
   # Filename
   temp_folder <- plinkr::get_plinkr_tempfilename()
   base_input_filename <- file.path(temp_folder, "assoc_input")

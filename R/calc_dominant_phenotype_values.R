@@ -40,5 +40,5 @@ calc_dominant_phenotype_values <- function(
     f_recessive[i] <- n_recessive / (length(is_recessive) / 2)
   }
   (f_recessive * phenotype_value_recessive) +
-  ( (1.0 - f_recessive) * phenotype_value_dominant)
+    ((1.0 - f_recessive) * phenotype_value_dominant)
 }

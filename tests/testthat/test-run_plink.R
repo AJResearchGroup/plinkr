@@ -67,7 +67,7 @@ test_that("Give error due to too high chromosome number", {
   assoc_params <- create_demo_assoc_params(
     n_individuals = 2
   )
-  assoc_params$map_table$CHR <- 123
+  assoc_params$map_table$CHR <- 123 # nolint PLINK coding style
   ped_filename <- get_plinkr_tempfilename()
   map_filename <- get_plinkr_tempfilename()
   save_ped_table_to_file(

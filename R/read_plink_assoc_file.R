@@ -49,12 +49,12 @@ read_plink_assoc_file <- function(assoc_filename) {
   }
   names(t) <- text_matrix[1, ]
   t
-  t$CHR <- as.numeric(t$CHR)
-  t$BP <- as.numeric(t$BP)
-  suppressWarnings(t$F_A <- as.numeric(t$F_A)) # May be NA
-  t$F_U <- suppressWarnings(as.numeric(t$F_U)) # May be NA
-  t$CHISQ <- as.numeric(t$CHISQ)
-  t$P <- as.numeric(t$P)
-  suppressWarnings(t$OR <- as.numeric(t$OR)) # May be NA
+  t$CHR <- as.numeric(t$CHR) # nolint PLINK coding style
+  t$BP <- as.numeric(t$BP) # nolint PLINK coding style
+  suppressWarnings(t$F_A <- as.numeric(t$F_A)) # May be NA  # nolint PLINK coding style
+  t$F_U <- suppressWarnings(as.numeric(t$F_U)) # May be NA  # nolint PLINK coding style
+  t$CHISQ <- as.numeric(t$CHISQ) # nolint PLINK coding style
+  t$P <- as.numeric(t$P) # nolint PLINK coding style
+  suppressWarnings(t$OR <- as.numeric(t$OR)) # May be NA # nolint PLINK coding style
   t
 }

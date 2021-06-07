@@ -35,7 +35,6 @@ assoc <- function(
   # Do not be smart yet
   ped_table <- assoc_params$ped_table
   map_table <- assoc_params$map_table
-  maf <- assoc_params$maf
 
   # Filename
   temp_folder <- plinkr::get_plinkr_tempfilename()
@@ -46,12 +45,12 @@ assoc <- function(
   assoc_filename <- paste0(output_filename_base, ".assoc")
 
   plinkr::save_ped_table_to_file(
-    ped_table = ped_table,
+    ped_table = assoc_params$ped_table,
     ped_filename = ped_filename
   )
   testthat::expect_true(file.exists(ped_filename))
   plinkr::save_map_table_to_file(
-    map_table = map_table,
+    map_table = assoc_params$map_table,
     map_filename = map_filename
   )
   testthat::expect_true(file.exists(map_filename))

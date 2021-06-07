@@ -124,6 +124,6 @@ test_that("All chromosome numbers work", {
     trait = create_random_case_control_trait(n_snps = 1),
     n_individuals = 10
   )
-  assoc_params$map_table$CHR <- 123
+  assoc_params$map_table$CHR <- 123 # nolint PLINK coding style
   expect_silent(assoc(assoc_params = assoc_params))
 })

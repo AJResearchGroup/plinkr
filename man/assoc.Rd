@@ -19,21 +19,19 @@ as created by \link{create_plink_options}}
 \value{
 a \link[tibble]{tibble} with the following columns:
 \itemize{
-\item \code{trait_name}: name of the quantitive trait,
-taken from the phenotype table column name
 \item \code{CHR}: Chromosome number
 \item \code{SNP}: SNP identifier
 \item \code{BP}: Physical position (base-pair)
-\item \code{NMISS}: Number of non-missing genotypes
-\item \code{BETA}: Regression coefficient
-\item \code{SE}: Standard error
-\item \code{R2}: Regression r-squared
-\item \code{T}: Wald test (based on t-distribution)
-\item \code{P}: Wald test asymptotic p-value
+\item \code{A1}: Minor allele name (based on whole sample)
+\item \code{F_A}: Frequency of this allele in cases
+\item \code{F_U}: Frequency of this allele in controls
+\item \code{A2}: Major allele name
+\item \code{CHISQ}: Basic allelic test chi-square (1df)
+\item \code{P}: Asymptotic p-value for this test
+\item \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
 }
 
-The table with have as much rows as the number of SNPs multiplied
-by the number of traits.
+The table with have as much rows as the number of SNPs
 
 Note that parameters in uppercase are named as such by PLINK.
 }
@@ -44,7 +42,7 @@ Let PLINK detect an association with one binary traits.
 This function is named after the \code{--assoc} flag used by PLINK
 }
 \examples{
-if (is_plink_installed() && 1 == 2) {
+if (is_plink_installed()) {
   assoc(create_demo_assoc_params())
 }
 }

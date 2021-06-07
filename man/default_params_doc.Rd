@@ -12,6 +12,7 @@ default_params_doc(
   assoc_qt_params,
   base_phenotype_value,
   calc_phenotype_function,
+  confidence_interval,
   epistatic_phenotype_value,
   example_filename,
   log_filename,
@@ -83,6 +84,11 @@ The output must be the phenotypic values, as a numeric vector,
 which has the same length as the number of individuals.
 Use \link{check_calc_phenotype_function}
 to check a \code{calc_phenotype_function}.}
+
+\item{confidence_interval}{confidence interval, a value between (and
+excluding both) 0.0 and 1.0. The confidence interval helps assess
+the certainty of an estimation: you can be 99 percent sure
+a value is within the range of the 0.99 confidence interval}
 
 \item{epistatic_phenotype_value}{the phenotypic value when the
 epistatic phenotype is expressed}

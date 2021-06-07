@@ -4,7 +4,12 @@
 \alias{create_assoc_params}
 \title{Create parameters for the \link{assoc} function}
 \usage{
-create_assoc_params(ped_table, map_table, maf = get_lowest_maf())
+create_assoc_params(
+  ped_table,
+  map_table,
+  confidence_interval = 0.95,
+  maf = get_lowest_maf()
+)
 }
 \arguments{
 \item{ped_table}{a 'pedigree' table.
@@ -44,6 +49,11 @@ This value is optional. Zeroes denote it is unused
 
 Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
 Use \link{check_map_table} to test if a genetic mapping table is valid.}
+
+\item{confidence_interval}{confidence interval, a value between (and
+excluding both) 0.0 and 1.0. The confidence interval helps assess
+the certainty of an estimation: you can be 99 percent sure
+a value is within the range of the 0.99 confidence interval}
 
 \item{maf}{minor allele frequency threshold.
 Alleles that have a frequency lower than the MAF

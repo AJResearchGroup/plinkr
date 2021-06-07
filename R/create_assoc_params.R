@@ -12,14 +12,17 @@
 create_assoc_params <- function(
   ped_table,
   map_table,
+  confidence_interval = 0.95,
   maf = get_lowest_maf()
 ) {
   plinkr::check_ped_table(ped_table = ped_table)
   plinkr::check_map_table(map_table = map_table)
+  plinkr::check_confidence_interval(confidence_interval = confidence_interval)
   plinkr::check_maf(maf = maf)
   list(
     ped_table = ped_table,
     map_table = map_table,
+    confidence_interval = confidence_interval,
     maf = maf
   )
 }

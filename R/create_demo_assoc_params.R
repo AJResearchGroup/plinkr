@@ -40,7 +40,8 @@
 #' @export
 create_demo_assoc_params <- function(
   n_individuals = 3,
-  trait = create_random_case_control_trait()
+  trait = create_random_case_control_trait(),
+  confidence_interval = 0.95
 ) {
   plinkr::check_n_individuals(n_individuals)
   plinkr::check_trait(trait)
@@ -67,6 +68,7 @@ create_demo_assoc_params <- function(
   ped_table$case_control_code <- phenotype_table$case_control_code
   plinkr::create_assoc_params(
     ped_table = ped_table,
-    map_table = map_table
+    map_table = map_table,
+    confidence_interval = confidence_interval
   )
 }

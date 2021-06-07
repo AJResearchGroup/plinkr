@@ -4,24 +4,22 @@
 #' @inheritParams default_params_doc
 #' @return a \link[tibble]{tibble} with the following columns:
 #'
-#'   * \code{trait_name}: name of the quantitive trait,
-#'     taken from the phenotype table column name
 #'   * \code{CHR}: Chromosome number
 #'   * \code{SNP}: SNP identifier
 #'   * \code{BP}: Physical position (base-pair)
-#'   * \code{NMISS}: Number of non-missing genotypes
-#'   * \code{BETA}: Regression coefficient
-#'   * \code{SE}: Standard error
-#'   * \code{R2}: Regression r-squared
-#'   * \code{T}: Wald test (based on t-distribution)
-#'   * \code{P}: Wald test asymptotic p-value
+#'   * \code{A1}: Minor allele name (based on whole sample)
+#'   * \code{F_A}: Frequency of this allele in cases
+#'   * \code{F_U}: Frequency of this allele in controls
+#'   * \code{A2}: Major allele name
+#'   * \code{CHISQ}: Basic allelic test chi-square (1df)
+#'   * \code{P}: Asymptotic p-value for this test
+#'   * \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
 #'
-#' The table with have as much rows as the number of SNPs multiplied
-#' by the number of traits.
+#' The table with have as much rows as the number of SNPs
 #'
 #' Note that parameters in uppercase are named as such by PLINK.
 #' @examples
-#' if (is_plink_installed() && 1 == 2) {
+#' if (is_plink_installed()) {
 #'   assoc(create_demo_assoc_params())
 #' }
 #' @author Richèl J.C. Bilderbeek
@@ -70,7 +68,8 @@ assoc <- function(
     "--ped", ped_filename,
     "--assoc",
     "--allow-extra-chr",
-    "--maf", maf,
+    "--maf", assoc_params$maf,
+    "--ci", assoc_params$confidence_interval,
     "--out", output_filename_base
   )
 

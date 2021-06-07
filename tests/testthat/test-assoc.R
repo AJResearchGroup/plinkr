@@ -14,6 +14,15 @@ test_that("verbose", {
   )
 })
 
+test_that("confidence interval", {
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  expect_message(
+    assoc(create_test_assoc_params(), verbose = TRUE),
+    "--ci"
+  )
+})
+
 test_that("use, test", {
   if (!is_plink_installed()) return()
   set.seed(314)
@@ -30,6 +39,8 @@ test_that("use, test", {
   expect_true("CHISQ" %in% names(assoc_result))
   expect_true("P" %in% names(assoc_result))
   expect_true("OR" %in% names(assoc_result))
+  expect_true("L95" %in% names(assoc_result))
+  expect_true("U95" %in% names(assoc_result))
 })
 
 test_that("use, demo", {

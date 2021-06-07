@@ -28,6 +28,10 @@
 #' which has the same length as the number of individuals.
 #' Use \link{check_calc_phenotype_function}
 #' to check a \code{calc_phenotype_function}.
+#' @param confidence_interval confidence interval, a value between (and
+#' excluding both) 0.0 and 1.0. The confidence interval helps assess
+#' the certainty of an estimation: you can be 99 percent sure
+#' a value is within the range of the 0.99 confidence interval
 #' @param epistatic_phenotype_value the phenotypic value when the
 #' epistatic phenotype is expressed
 #' @param example_filename name of the example file
@@ -188,6 +192,7 @@ default_params_doc <- function(
   assoc_qt_params,
   base_phenotype_value,
   calc_phenotype_function,
+  confidence_interval,
   epistatic_phenotype_value,
   example_filename,
   log_filename,

@@ -14,6 +14,9 @@
 #'   * \code{CHISQ}: Basic allelic test chi-square (1df)
 #'   * \code{P}: Asymptotic p-value for this test
 #'   * \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
+#'   * \code{SE}: Standard error of the estimated log(odds ratio)
+#'   * \code{L95}: Lower bound of the 95% confidence interval of the odds ratio
+#'   * \code{U95}: Upper bound of the 95% confidence interval of the odds ratio
 #'
 #' The table with have as much rows as the number of SNPs
 #'
@@ -31,6 +34,7 @@ assoc <- function(
 ) {
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
+
 
   # Filename
   temp_folder <- plinkr::get_plinkr_tempfilename()
@@ -57,16 +61,19 @@ assoc <- function(
     showWarnings = FALSE,
     recursive = TRUE
   )
-
   args <- c(
     "--map", map_filename,
     "--ped", ped_filename,
-    "--assoc",
     "--allow-extra-chr",
     "--maf", assoc_params$maf,
     "--ci", assoc_params$confidence_interval,
     "--out", output_filename_base
   )
+  if (plink_options$plink_version == "2.0") {
+    args <- c(args, "--glm")
+  } else {
+    args <- c(args, "--assoc")
+  }
 
   plinkr::run_plink(
     args = args,

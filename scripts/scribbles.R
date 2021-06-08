@@ -1,3 +1,68 @@
+plink_output_base_filename <- file.path(get_plinkr_tempfilename(), "plink_output")
+dir.create(dirname(plink_output_base_filename), showWarnings = FALSE, recursive = TRUE)
+run_plink(
+  args = c("--dummy", "2", "2", "--freq", "--make-bed", "--out", plink_output_base_filename),
+  plink_options = create_plink_v1_9_options()
+)
+plink_output_filenames <- list.files(path = dirname(plink_output_base_filename), full.names = TRUE)
+bed_filename <- stringr::str_subset(plink_output_filenames, ".bed$")
+bim_filename <- stringr::str_subset(plink_output_filenames, ".bim$")
+fam_filename <- stringr::str_subset(plink_output_filenames, ".fam$")
+
+plink2_output_base_filename <- file.path(get_plinkr_tempfilename(), "plink2_output")
+dir.create(dirname(plink2_output_base_filename), showWarnings = FALSE, recursive = TRUE)
+
+run_plink(
+  args = c("--bfile", plink_output_base_filename, "--freq", "--out", plink2_output_base_filename),
+  plink_options = create_plink_v2_0_options()
+)
+plink2_output_filenames <- list.files(path = dirname(plink2_output_base_filename), full.names = TRUE)
+plink2_output_filenames
+readLines(plink2_output_filenames[1])
+
+
+if (1 == 2) { # genio example
+
+  genio::wr
+  file_bed <- system.file("extdata", 'sample.bed', package = "genio", mustWork = TRUE)
+  file_bim <- system.file("extdata", 'sample.bim', package = "genio", mustWork = TRUE)
+  file_fam <- system.file("extdata", 'sample.fam', package = "genio", mustWork = TRUE)
+  # read annotation tables
+  bim <- genio::read_bim(file_bim)
+  fam <- genio::read_fam(file_fam)
+
+  # read an existing plink *.bim file
+  # pass locus and individual IDs as vectors, setting data dimensions too
+  X <- genio::read_bed(file_bed, bim$id, fam$id)
+  X
+
+  # can specify without extension
+  file_bed <- sub('\\.bed$', '', file_bed) # remove extension from this path on purpose
+  file_bed # verify .bed is missing
+  X <- read_bed(file_bed, bim$id, fam$id) # loads too!
+  X
+}
+
+# Nah, use genio instead
+# ARTP2::read.bed(bed = bed_filename, bim = bim_filename, fam = fam_filename)
+
+file.remove(plink_toy_data_files)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 xor_phenotype <- function(snvs) {
   if (ncol(snvs) < 4) return(rep(1, nrow(snvs)))

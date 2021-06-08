@@ -21,16 +21,16 @@ the text that PLINK returns
 Run PLINK from arguments
 }
 \examples{
-if (is_plink_installed(plink_options = create_plink_v1_7_options())) {
-  run_plink("--help", plink_options = create_plink_v1_7_options())
+if (is_plink_installed(create_plink_v1_7_options())) {
+  run_plink("--help", create_plink_v1_7_options())
 }
 
-if (is_plink_installed(plink_options = create_plink_v1_9_options())) {
-  run_plink("--help", plink_options = create_plink_v1_9_options())
+if (is_plink_installed(create_plink_v1_9_options())) {
+  run_plink("--help", create_plink_v1_9_options())
 }
 
-if (is_plink_installed(plink_options = create_plink_v2_0_options())) {
-  run_plink("--help", plink_options = create_plink_v2_0_options())
+if (is_plink_installed(create_plink_v2_0_options())) {
+  run_plink("--help", create_plink_v2_0_options())
 }
 
 plink_options <- create_plink_v1_9_options()

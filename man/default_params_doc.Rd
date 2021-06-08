@@ -11,6 +11,8 @@ default_params_doc(
   assoc_filename,
   assoc_params,
   assoc_qt_params,
+  base_input_filename,
+  base_output_filename,
   base_phenotype_value,
   calc_phenotype_function,
   confidence_interval,
@@ -71,6 +73,12 @@ as can be created by \link{create_assoc_params}}
 \item{assoc_qt_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc_qt}),
 as can be created by \link{create_assoc_qt_params}}
+
+\item{base_input_filename}{the base of the filenames that are
+used as input for \code{PLINK}/\code{PLINK2}}
+
+\item{base_output_filename}{the base of the filenames that are
+used as output for \code{PLINK}/\code{PLINK2}}
 
 \item{base_phenotype_value}{the base phenotypic value for an additive trait,
 i.e. the phenotypic value for homozygotes of the common allele}

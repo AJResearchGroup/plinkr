@@ -8,7 +8,9 @@ create_assoc_params(
   ped_table,
   map_table,
   confidence_interval = 0.95,
-  maf = get_lowest_maf()
+  maf = get_lowest_maf(),
+  base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
+  base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")
 )
 }
 \arguments{
@@ -67,6 +69,12 @@ as obtained by \link{get_lowest_maf}
 The parameter name \code{maf} is named after the
 \code{PLINK} \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
+
+\item{base_input_filename}{the base of the filenames that are
+used as input for \code{PLINK}/\code{PLINK2}}
+
+\item{base_output_filename}{the base of the filenames that are
+used as output for \code{PLINK}/\code{PLINK2}}
 }
 \description{
 Create parameters to detect associations with a binary traits

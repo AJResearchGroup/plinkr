@@ -29,6 +29,9 @@ a \link[tibble]{tibble} with the following columns:
 \item \code{CHISQ}: Basic allelic test chi-square (1df)
 \item \code{P}: Asymptotic p-value for this test
 \item \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
+\item \code{SE}: Standard error of the estimated log(odds ratio)
+\item \code{L95}: Lower bound of the 95\% confidence interval of the odds ratio
+\item \code{U95}: Upper bound of the 95\% confidence interval of the odds ratio
 }
 
 The table with have as much rows as the number of SNPs

@@ -26,3 +26,4 @@
 ^vignettes/.*log$
 ^appveyor\.yml$
 ^\.appveyor\.yml$
+^test2\.log$

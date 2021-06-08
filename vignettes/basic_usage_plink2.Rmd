@@ -1,0 +1,84 @@
+---
+title: "basic_usage_plink2"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{basic_usage_plink2}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(plinkr)
+```
+
+In this vignette, I run the PLINK2
+commands at [https://www.cog-genomics.org/plink/2.0/general_usage](https://www.cog-genomics.org/plink/2.0/general_usage) using `plinkr`.
+
+This vignette will give output only if PLINK v1.9 and PLINK2 are installed:
+
+```{r check_plink_v1_9_is_installed}
+if (!is_plink_installed(create_plink_v1_9_options())) {
+  message("PLINK v1.9 is not installed")
+  message("Tip: use 'plinkr::install_plinks()'")
+}
+```
+
+```{r check_plink_v2_0_is_installed}
+if (!is_plink_installed(create_plink_v2_0_options())) {
+  message("PLINK v2.0 is not installed")
+  message("Tip: use 'plinkr::install_plinks()'")
+}
+```
+
+The PLINK2 website verifies both PLINK and PLINK2:
+
+```
+./plink --dummy 2 2 --freq --make-bed --out toy_data
+./plink2 --bfile toy_data --freq --out test2
+```
+
+The first line creates a dummy .bed file using PLINK,
+the second line reads that .bed file using PLINK2.
+
+In plinkr:
+
+```{r}
+if (is_plink_installed(create_plink_v1_9_options())) {
+  run_plink(
+    args = c("--dummy", "2", "2", "--freq", "--make-bed", "--out", "toy_data"),
+    plink_options = create_plink_v1_9_options()
+  )
+  plink_toy_data_files <- list.files(pattern = "toy_data", full.names = TRUE)
+  plink_toy_data_files
+}
+```
+
+```{r}
+if (is_plink_installed(create_plink_v2_0_options())) {
+  run_plink(
+    args = c("--bfile", "toy_data", "--freq", "--out", "test2"),
+    plink_options = create_plink_v2_0_options()
+  )
+  plink2_toy_data_files <- list.files(pattern = "test2", full.names = TRUE)
+  plink2_toy_data_files
+}
+```
+
+Cleaning up:
+
+```{r cleanup_assoc}
+if (is_plink_installed(create_plink_v1_9_options())) {
+  file.remove(plink_toy_data_files)
+}
+if (is_plink_installed(create_plink_v2_0_options())) {
+  file.remove(plink2_toy_data_files)
+}
+```
+

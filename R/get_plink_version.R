@@ -9,12 +9,14 @@ get_plink_version <- function(
   plinkr::check_plink_options(plink_options)
   plinkr::check_plink_is_installed(plink_options)
   text <- plinkr::get_plink_help_text(plink_options)
-  all_matches <- stringr::str_match(
+  version_line <- stringr::str_subset(
     string = text,
-    pattern = "v[:digit:]+\\.[:digit:]+"
+    pattern = "PLINK.*(v[:digit:]+\\.[:digit:]+)"
   )
-  testthat::expect_equal(1, ncol(all_matches))
-  version <- all_matches[!is.na(all_matches)]
-  testthat::expect_equal(1, length(version))
+  testthat::expect_equal(1, length(version_line))
+  version <- stringr::str_match(
+    string = version_line,
+    pattern = "PLINK.*(v[:digit:]+\\.[:graph:]+)"
+  )[, 2]
   version
 }

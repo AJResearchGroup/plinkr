@@ -6,6 +6,18 @@ test_that("minimal use", {
   )
 })
 
+test_that("minimal use v2.0", {
+  skip("WIP")
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  expect_silent(
+    assoc(
+      create_test_assoc_params(),
+      plink_options = create_plink_v2_0_options()
+    )
+  )
+})
+
 test_that("verbose", {
   if (!is_plink_installed()) return()
   set.seed(314)

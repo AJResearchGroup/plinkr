@@ -21,6 +21,7 @@ create_plink_v2_0_options <- function(
   plinkr::create_plink_options(
     plink_exe_path = plink_exe_path,
     plink_version = plink_version,
-    os = os
+    os = os,
+    add_noweb = FALSE # Option does not exist in PLINK2
   )
 }

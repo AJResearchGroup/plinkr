@@ -8,7 +8,7 @@ test_that("use", {
 
 test_that("use, v1.7", {
   if (!is_plink_installed(create_plink_v1_7_options())) return()
-  text <- get_plink_version(create_plink_v1_7_options())
+  text <- get_plink_version(plink_options = create_plink_v1_7_options())
   expect_true(is.character(text))
   expect_true(length(text) == 1)
   expect_equal(text, "v1.07")
@@ -19,5 +19,13 @@ test_that("use, v1.9", {
   text <- get_plink_version(create_plink_v1_9_options())
   expect_true(is.character(text))
   expect_true(length(text) == 1)
-  expect_equal(text, "v1.90")
+  expect_equal(text, "v1.90b6.22")
+})
+
+test_that("use, v2.0", {
+  if (!is_plink_installed(create_plink_v2_0_options())) return()
+  text <- get_plink_version(plink_options = create_plink_v2_0_options())
+  expect_true(is.character(text))
+  expect_true(length(text) == 1)
+  expect_equal(text, "v2.00a2.3LM")
 })

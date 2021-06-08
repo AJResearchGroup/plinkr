@@ -15,6 +15,10 @@
 #' @param assoc_qt_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc_qt}),
 #' as can be created by \link{create_assoc_qt_params}
+#' @param base_input_filename the base of the filenames that are
+#' used as input for \code{PLINK}/\code{PLINK2}
+#' @param base_output_filename the base of the filenames that are
+#' used as output for \code{PLINK}/\code{PLINK2}
 #' @param base_phenotype_value the base phenotypic value for an additive trait,
 #' i.e. the phenotypic value for homozygotes of the common allele
 #' @param calc_phenotype_function a function that calculate the phenotypes
@@ -192,6 +196,8 @@ default_params_doc <- function(
   assoc_filename,
   assoc_params,
   assoc_qt_params,
+  base_input_filename,
+  base_output_filename,
   base_phenotype_value,
   calc_phenotype_function,
   confidence_interval,

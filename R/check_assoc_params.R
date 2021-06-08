@@ -10,11 +10,17 @@ check_assoc_params <- function(assoc_params) {
   testthat::expect_true("ped_table" %in% names(assoc_params))
   testthat::expect_true("map_table" %in% names(assoc_params))
   testthat::expect_true("maf" %in% names(assoc_params))
+  testthat::expect_true("base_input_filename" %in% names(assoc_params))
+  testthat::expect_true("base_output_filename" %in% names(assoc_params))
   testthat::expect_silent(plinkr::check_ped_table(assoc_params$ped_table))
   testthat::expect_silent(plinkr::check_map_table(assoc_params$map_table))
-  testthat::expect_silent(plinkr::check_maf(assoc_params$maf))
+  testthat::expect_silent(
+    plinkr::check_base_input_filename(assoc_params$base_input_filename)
+  )
+  testthat::expect_silent(
+    plinkr::check_base_output_filename(assoc_params$base_output_filename)
+  )
 
-  # This will actually work
   plinkr::check_equal_number_of_snvs(assoc_params)
 
   testthat::expect_true(

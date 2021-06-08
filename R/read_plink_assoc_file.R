@@ -59,8 +59,8 @@ read_plink_assoc_file <- function(assoc_filename) {
   t$CHISQ <- as.numeric(t$CHISQ) # nolint PLINK coding style
   t$P <- as.numeric(t$P) # nolint PLINK coding style
   suppressWarnings(t$OR <- as.numeric(t$OR)) # May be NA # nolint PLINK coding style
-  if ("SE" %in% names(t)) t$SE <- as.numeric(t$SE) # nolint PLINK coding style
-  if ("L95" %in% names(t)) t$L95 <- as.numeric(t$L95) # nolint PLINK coding style
-  if ("U95" %in% names(t)) t$U95 <- as.numeric(t$U95) # nolint PLINK coding style
+  if ("SE" %in% names(t)) suppressWarnings(t$SE <- as.numeric(t$SE)) # May be NA # nolint PLINK coding style
+  if ("L95" %in% names(t)) suppressWarnings(t$L95 <- as.numeric(t$L95)) # May be NA # nolint PLINK coding style
+  if ("U95" %in% names(t)) suppressWarnings(t$U95 <- as.numeric(t$U95)) # May be NA # nolint PLINK coding style
   t
 }

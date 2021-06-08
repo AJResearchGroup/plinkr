@@ -1,0 +1,11 @@
+test_that("use", {
+  expect_silent(check_base_input_filename("a"))
+  expect_error(check_base_input_filename(""))
+  expect_error(check_base_input_filename(NULL))
+  expect_error(check_base_input_filename(NA))
+  expect_error(check_base_input_filename(Inf))
+  expect_error(check_base_input_filename(42))
+  expect_error(check_base_input_filename(3.14))
+  expect_error(check_base_input_filename(c()))
+  expect_error(check_base_input_filename(c("a", "b")))
+})

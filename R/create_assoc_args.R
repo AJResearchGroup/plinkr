@@ -9,7 +9,18 @@ create_assoc_args <- function(
 ) {
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
-  if (plink_options$plink_version %in% c("1.7", "1.9")) {
+  if (plink_options$plink_version == "1.7") {
+    return(
+      c(
+        "--map", paste0(assoc_params$base_input_filename, ".map"),
+        "--ped", paste0(assoc_params$base_input_filename, ".ped"),
+        "--maf", assoc_params$maf,
+        "--ci", assoc_params$confidence_interval,
+        "--out", assoc_params$base_output_filename
+      )
+    )
+  }
+  if (plink_options$plink_version == "1.9") {
     return(
       c(
         "--map", paste0(assoc_params$base_input_filename, ".map"),

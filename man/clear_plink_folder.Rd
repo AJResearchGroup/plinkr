@@ -7,7 +7,7 @@
 clear_plink_folder(plink_folder = get_plink_folder())
 }
 \arguments{
-\item{plink_folder}{folder where PLINK is installed}
+\item{plink_folder}{folder where \code{PLINK} is installed}
 }
 \value{
 Nothing.

@@ -7,6 +7,7 @@ documentation.}
 \usage{
 default_params_doc(
   add_noweb,
+  args,
   assoc_filename,
   assoc_params,
   assoc_qt_params,
@@ -53,13 +54,15 @@ default_params_doc(
 }
 \arguments{
 \item{add_noweb}{add the \code{--noweb} option, which prevents
-that PLINK will check if it is in its latest version.
+that \code{PLINK} will check if it is in its latest version.
 By default, this value is set to true,
-hence plinkr will skip this check.
-Use \link{get_plink_version} to get the current PLINK version.}
+hence \code{plinkr} will skip this check.
+Use \link{get_plink_version} to get the current \code{PLINK} version.}
 
-\item{assoc_filename}{name of a PLINK \code{.assoc} file
-Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.}
+\item{args}{arguments for the \code{PLINK} executable}
+
+\item{assoc_filename}{name of a \code{PLINK} \code{.assoc} file
+Use \link{read_plink_assoc_file} to read a \code{PLINK} \code{.assoc} file.}
 
 \item{assoc_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc}),
@@ -95,11 +98,11 @@ epistatic phenotype is expressed}
 
 \item{example_filename}{name of the example file}
 
-\item{log_filename}{name of a PLINK \code{.log} file}
+\item{log_filename}{name of a \code{PLINK} \code{.log} file}
 
 \item{maf}{minor allele frequency threshold.
 Alleles that have a frequency lower than the MAF
-are excluded from the PLINK analysis.
+are excluded from the \code{PLINK} analysis.
 \code{maf} must be a value between zero and 0.5
 (i.e. excluding zero and excluding 0.5).
 By default, \code{maf} is set to the lowest
@@ -107,7 +110,7 @@ representable non-zero floating-point value,
 as obtained by \link{get_lowest_maf}
 
 The parameter name \code{maf} is named after the
-PLINK \code{--maf} flag. This was chosen over
+\code{PLINK} \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
 
 \item{mafs}{one or more minor allele frequencies.
@@ -119,7 +122,7 @@ Note that \code{PLINK} cannot handle triallelic nor
 quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
-\item{map_filename}{name of a PLINK \code{.map} file
+\item{map_filename}{name of a \code{PLINK} \code{.map} file
 Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.}
 
 \item{map_table}{a genetic mapping table.
@@ -133,7 +136,7 @@ This value is optional. Zeroes denote it is unused
 \item \code{BP}: Base-pair coordinat
 }
 
-Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
+Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
 Use \link{check_map_table} to test if a genetic mapping table is valid.}
 
 \item{n_individuals}{the number of individuals.
@@ -144,8 +147,8 @@ Use \link{check_n_individuals} to check if this is a valid value}
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}
 
-\item{ped_filename}{name of a PLINK \code{.ped} file.
-Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
+\item{ped_filename}{name of a \code{PLINK} \code{.ped} file.
+Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.}
 
 \item{ped_table}{a 'pedigree' table.
 
@@ -168,7 +171,7 @@ for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 in the \code{.map file} (\code{0} = no call)
 }
 
-Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
+Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
 
 \item{phenotype}{one phenotype, named after its genetic background:
@@ -228,7 +231,7 @@ rare allele}
 \item{plink_exe_path}{path to
 the \code{PLINK} or \code{PLINK2} executable file.}
 
-\item{plink_folder}{folder where PLINK is installed}
+\item{plink_folder}{folder where \code{PLINK} is installed}
 
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
@@ -239,20 +242,20 @@ The reduplicated plural was used to express this is a list
 of \code{plink_options}, instead of one set of \code{plink_options}}
 
 \item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
+Use \link{get_plink_version} to get the \code{PLINK} version.
+Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.}
 
 \item{plink_versions}{one or more versions of PLINK,
 e.g. as can be obtained using \link{get_plink_versions}}
 
-\item{qassoc_filename}{name of a PLINK \code{.qassoc} file
-Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.}
+\item{qassoc_filename}{name of a \code{PLINK} \code{.qassoc} file
+Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.}
 
 \item{regular_phenotype_value}{the regular phenotypic value}
 
-\item{sim_filename}{name of a PLINK \code{.sim} file}
+\item{sim_filename}{name of a \code{PLINK} \code{.sim} file}
 
-\item{simfreq_filename}{name of a PLINK \code{.simfreq} file}
+\item{simfreq_filename}{name of a \code{PLINK} \code{.simfreq} file}
 
 \item{simulate_qt_params}{the parameters for a quantitative
 traits simulation, as can be created by
@@ -271,7 +274,7 @@ for A to G.
 Use \link{create_snvs} to create a \code{snvs}.}
 
 \item{temp_sim_filename}{temporary file to store simulation
-parameters, which is a PLINK \code{.sim} file}
+parameters, which is a \code{PLINK} \code{.sim} file}
 
 \item{trait}{one trait with a clear genetic architecture and a known
 minor allele frequency, as created by \link{create_trait}.
@@ -281,7 +284,7 @@ Use \link{is_one_trait} to detect if something is one trait}
 with a clear genetic architecture and a known minor allele frequency,
 as, for example, created by \link{create_demo_traits}.}
 
-\item{url}{PLINK download URL}
+\item{url}{\code{PLINK} download URL}
 
 \item{verbose}{set to TRUE for more output}
 }

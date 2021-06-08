@@ -28,7 +28,7 @@ for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 in the \code{.map file} (\code{0} = no call)
 }
 
-Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
+Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
 }
 \description{

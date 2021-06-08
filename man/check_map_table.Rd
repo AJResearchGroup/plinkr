@@ -18,7 +18,7 @@ This value is optional. Zeroes denote it is unused
 \item \code{BP}: Base-pair coordinat
 }
 
-Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
+Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
 Use \link{check_map_table} to test if a genetic mapping table is valid.}
 }
 \value{

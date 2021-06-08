@@ -7,7 +7,7 @@
 create_plink_optionses(plink_folder = get_plink_folder(), os = get_os())
 }
 \arguments{
-\item{plink_folder}{folder where PLINK is installed}
+\item{plink_folder}{folder where \code{PLINK} is installed}
 
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}

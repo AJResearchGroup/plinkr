@@ -14,6 +14,9 @@
 #'  * `CHISQ`: Basic allelic test chi-square (1 degree of fredoom)
 #'  * `P`: Asymptotic p-value for this test
 #'  * `OR`: Estimated odds ratio (for A1, i.e. A2 is reference)
+#'  * `SE`: Standard error
+#'  * `L95`: Lower bound of the 95% confidence interval of the odds ratio
+#'  * `U95`: Upper bound of the 95% confidence interval of the odds ratio
 #' @examples
 #' read_plink_assoc_file(
 #'   assoc_filename = get_plinkr_filename("run1.assoc")
@@ -56,5 +59,8 @@ read_plink_assoc_file <- function(assoc_filename) {
   t$CHISQ <- as.numeric(t$CHISQ) # nolint PLINK coding style
   t$P <- as.numeric(t$P) # nolint PLINK coding style
   suppressWarnings(t$OR <- as.numeric(t$OR)) # May be NA # nolint PLINK coding style
+  if ("SE" %in% names(t)) t$SE <- as.numeric(t$SE) # nolint PLINK coding style
+  if ("L95" %in% names(t)) t$L95 <- as.numeric(t$L95) # nolint PLINK coding style
+  if ("U95" %in% names(t)) t$U95 <- as.numeric(t$U95) # nolint PLINK coding style
   t
 }

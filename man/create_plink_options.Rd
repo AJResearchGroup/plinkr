@@ -13,17 +13,17 @@ create_plink_options(
 }
 \arguments{
 \item{plink_version}{version of PLINK, e.g. \code{"1.7"}
-Use \link{get_plink_version} to get the PLINK version.
-Use \link{get_plink_versions} to get all the supported PLINK versions.}
+Use \link{get_plink_version} to get the \code{PLINK} version.
+Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.}
 
 \item{plink_exe_path}{path to
 the \code{PLINK} or \code{PLINK2} executable file.}
 
 \item{add_noweb}{add the \code{--noweb} option, which prevents
-that PLINK will check if it is in its latest version.
+that \code{PLINK} will check if it is in its latest version.
 By default, this value is set to true,
-hence plinkr will skip this check.
-Use \link{get_plink_version} to get the current PLINK version.}
+hence \code{plinkr} will skip this check.
+Use \link{get_plink_version} to get the current \code{PLINK} version.}
 
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}

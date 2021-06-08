@@ -7,8 +7,8 @@
 read_plink_assoc_file(assoc_filename)
 }
 \arguments{
-\item{assoc_filename}{name of a PLINK \code{.assoc} file
-Use \link{read_plink_assoc_file} to read a PLINK \code{.assoc} file.}
+\item{assoc_filename}{name of a \code{PLINK} \code{.assoc} file
+Use \link{read_plink_assoc_file} to read a \code{PLINK} \code{.assoc} file.}
 }
 \value{
 a \link[tibble]{tibble}.

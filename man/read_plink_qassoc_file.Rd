@@ -7,8 +7,8 @@
 read_plink_qassoc_file(qassoc_filename)
 }
 \arguments{
-\item{qassoc_filename}{name of a PLINK \code{.qassoc} file
-Use \link{read_plink_qassoc_file} to read a PLINK \code{.qassoc} file.}
+\item{qassoc_filename}{name of a \code{PLINK} \code{.qassoc} file
+Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.}
 }
 \value{
 a tibble

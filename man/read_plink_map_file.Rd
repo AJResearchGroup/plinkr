@@ -7,7 +7,7 @@
 read_plink_map_file(map_filename)
 }
 \arguments{
-\item{map_filename}{name of a PLINK \code{.map} file
+\item{map_filename}{name of a \code{PLINK} \code{.map} file
 Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.}
 }
 \value{

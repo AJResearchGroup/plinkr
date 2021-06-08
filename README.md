@@ -32,9 +32,9 @@ run_plink("--help")
 To call a specific version of PLINK:
 
 ```
-run_plink("--help", create_plink_v1_7_options())
-run_plink("--help", create_plink_v1_9_options())
-run_plink("--help", create_plink_v2_0_options())
+run_plink_v1_7("--help")
+run_plink_v1_9("--help")
+run_plink_v2_0("--help")
 ```
 
 Of course, you can also call PLINK to detect genetic associations :-) :
@@ -77,4 +77,3 @@ assoc_qt(assoc_qt_params)
 ## FAQ
 
 See [doc/faq.md](doc/faq.md)
-

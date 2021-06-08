@@ -7,8 +7,8 @@
 read_plink_ped_file(ped_filename)
 }
 \arguments{
-\item{ped_filename}{name of a PLINK \code{.ped} file.
-Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.}
+\item{ped_filename}{name of a \code{PLINK} \code{.ped} file.
+Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.}
 }
 \value{
 a \link[tibble]{tibble} with column names:

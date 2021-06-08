@@ -33,7 +33,7 @@ for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 in the \code{.map file} (\code{0} = no call)
 }
 
-Use \link{read_plink_ped_file} to read a PLINK \code{.ped} file.
+Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
 
 \item{map_table}{a genetic mapping table.
@@ -47,7 +47,7 @@ This value is optional. Zeroes denote it is unused
 \item \code{BP}: Base-pair coordinat
 }
 
-Use \link{read_plink_map_file} to read a PLINK \code{.map} file.
+Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
 Use \link{check_map_table} to test if a genetic mapping table is valid.}
 
 \item{confidence_interval}{confidence interval, a value between (and
@@ -57,7 +57,7 @@ a value is within the range of the 0.99 confidence interval}
 
 \item{maf}{minor allele frequency threshold.
 Alleles that have a frequency lower than the MAF
-are excluded from the PLINK analysis.
+are excluded from the \code{PLINK} analysis.
 \code{maf} must be a value between zero and 0.5
 (i.e. excluding zero and excluding 0.5).
 By default, \code{maf} is set to the lowest
@@ -65,7 +65,7 @@ representable non-zero floating-point value,
 as obtained by \link{get_lowest_maf}
 
 The parameter name \code{maf} is named after the
-PLINK \code{--maf} flag. This was chosen over
+\code{PLINK} \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
 }
 \description{

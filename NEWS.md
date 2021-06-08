@@ -9,8 +9,6 @@ Newest versions at top.
  * ?Add vignette with PLINK tutorial
  * Add confidence interval for `assoc`
  * `read_plink_assoc_file` can read `.assoc` files with a confidence interval
- * Add `run_plink_v1_7`, `run_plink_v1_9`, `run_plink_v2_0`
-   for convenience
 
 ### MINOR IMPROVEMENTS
 

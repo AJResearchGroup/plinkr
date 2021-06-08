@@ -32,17 +32,18 @@ run_plink("--help")
 To call a specific version of PLINK:
 
 ```
-run_plink_v1_7("--help")
-run_plink_v1_9("--help")
-run_plink_v2_0("--help")
+run_plink("--help", create_plink_v1_7_options())
+run_plink("--help", create_plink_v1_9_options())
+run_plink("--help", create_plink_v2_0_options())
 ```
 
 Of course, you can also call PLINK to detect genetic associations :-) :
 
 ```
 # Use the PLINK v1.9 example files
-ped_filename <- get_plink_example_filename("toy.ped")
-map_filename <- get_plink_example_filename("toy.map")
+plink_v1_9 <- create_plink_v1_9_options()
+ped_filename <- get_plink_example_filename("toy.ped", plink_v1_9)
+map_filename <- get_plink_example_filename("toy.map", plink_v1_9)
 
 # Do a case-control association
 plinkr::run_plink(

@@ -21,18 +21,36 @@ the text that PLINK returns
 Run PLINK from arguments
 }
 \examples{
-if (is_plink_installed()) {
+if (is_plink_installed(plink_options = create_plink_v1_7_options())) {
+  run_plink("--help", plink_options = create_plink_v1_7_options())
+}
+
+if (is_plink_installed(plink_options = create_plink_v1_9_options())) {
+  run_plink("--help", plink_options = create_plink_v1_9_options())
+}
+
+if (is_plink_installed(plink_options = create_plink_v2_0_options())) {
+  run_plink("--help", plink_options = create_plink_v2_0_options())
+}
+
+plink_options <- create_plink_v1_9_options()
+if (is_plink_installed(plink_options)) {
 
   # Use the PLINK v1.9 example files
-  ped_filename <- get_plink_example_filename("toy.ped")
-  map_filename <- get_plink_example_filename("toy.map")
+  ped_filename <- get_plink_example_filename(
+    "toy.ped", plink_options
+ )
+  map_filename <- get_plink_example_filename(
+    "toy.map", plink_options
+  )
 
   # Do a case-control association
   run_plink(
     args = c(
      "--ped", ped_filename,
      "--map", map_filename
-    )
+    ),
+    plink_options
   )
 
   # Delete the created files

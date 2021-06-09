@@ -17,6 +17,7 @@ Depends:
 Imports:
     devtools,
     dplyr,
+    genio,
     pryr,
     purrr,
     rappdirs,

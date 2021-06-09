@@ -21,6 +21,10 @@
 #' used as output for \code{PLINK}/\code{PLINK2}
 #' @param base_phenotype_value the base phenotypic value for an additive trait,
 #' i.e. the phenotypic value for homozygotes of the common allele
+#' @param bed_filename name of a \code{PLINK} \code{.bed} file
+#' Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
+#' @param bim_filename name of a \code{PLINK} \code{.bim} file
+#' Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.
 #' @param calc_phenotype_function a function that calculate the phenotypes
 #' from genotypes. The input is the genetic data as a \link[tibble]{tibble},
 #' in which each row is an individual and the columns are the SNVs.
@@ -40,6 +44,8 @@
 #' @param epistatic_phenotype_value the phenotypic value when the
 #' epistatic phenotype is expressed
 #' @param example_filename name of the example file
+#' @param fam_filename name of a \code{PLINK} \code{.fam} file
+#' Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
 #' @param log_filename name of a \code{PLINK} \code{.log} file
 #' @param maf minor allele frequency threshold.
 #' Alleles that have a frequency lower than the MAF
@@ -201,10 +207,13 @@ default_params_doc <- function(
   base_input_filename,
   base_output_filename,
   base_phenotype_value,
+  bed_filename,
+  bim_filename,
   calc_phenotype_function,
   confidence_interval,
   epistatic_phenotype_value,
   example_filename,
+  fam_filename,
   log_filename,
   maf,
   mafs,

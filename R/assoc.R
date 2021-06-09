@@ -1,6 +1,7 @@
-#' Let PLINK detect an association with one binary traits.
+#' Let \code{PLINK}/\code{PLINK2} detect an association for a binary trait.
 #'
-#' @note This function is named after the \code{--assoc} flag used by PLINK
+#' @note This function is named after the \code{--assoc} flag
+#' used by \code{PLINK}
 #' @inheritParams default_params_doc
 #' @return a \link[tibble]{tibble} with the following columns:
 #'
@@ -34,58 +35,19 @@ assoc <- function(
 ) {
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
-
-  # Filenames
-  ped_filename <- paste0(assoc_params$base_input_filename, ".ped")
-  map_filename <- paste0(assoc_params$base_input_filename, ".map")
-  assoc_filename <- paste0(assoc_params$base_output_filename, ".assoc")
-
-  plinkr::save_ped_table_to_file(
-    ped_table = assoc_params$ped_table,
-    ped_filename = ped_filename
-  )
-  testthat::expect_true(file.exists(ped_filename))
-  plinkr::save_map_table_to_file(
-    map_table = assoc_params$map_table,
-    map_filename = map_filename
-  )
-  testthat::expect_true(file.exists(map_filename))
-
-  # PLINK will not do so and will not give an error
-  # PLINK2 will suggest to change the out parameter :-)
-  dir.create(
-    dirname(assoc_params$base_input_filename),
-    showWarnings = FALSE,
-    recursive = TRUE
-  )
-  dir.create(
-    dirname(assoc_params$base_output_filename),
-    showWarnings = FALSE,
-    recursive = TRUE
-  )
-  args <- plinkr::create_assoc_args(
+  if (plink_options$plink_version %in% c("1.7", "1.9")) {
+    return(
+      plinkr::plink_assoc(
+        assoc_params = assoc_params,
+        plink_options = plink_options,
+        verbose = verbose
+      )
+    )
+  }
+  testthat::expect_equal("2.0", plink_options$plink_version)
+  plinkr::plink2_assoc(
     assoc_params = assoc_params,
-    plink_options = plink_options
-  )
-  plinkr::run_plink(
-    args = args,
     plink_options = plink_options,
     verbose = verbose
   )
-  assoc_table <- plinkr::read_plink_assoc_file(assoc_filename)
-
-  file.remove(map_filename)
-  file.remove(ped_filename)
-  file.remove(assoc_filename)
-  testthat::expect_equal(
-    0,
-    length(list.files(pattern = assoc_params$base_input_filename))
-  )
-  unlink(dirname(assoc_params$base_input_filename), recursive = TRUE)
-  testthat::expect_equal(
-    0,
-    length(list.files(pattern = assoc_params$base_output_filename))
-  )
-  unlink(dirname(assoc_params$base_output_filename), recursive = TRUE)
-  assoc_table
 }

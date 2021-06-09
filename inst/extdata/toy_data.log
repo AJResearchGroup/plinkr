@@ -1,0 +1,27 @@
+PLINK v1.90b6.22 64-bit (16 Apr 2021)
+Options in effect:
+  --dummy 2 2
+  --freq
+  --make-bed
+  --out toy_data
+
+Hostname: N141CU
+Working directory: /home/richel/GitHubs/plinkr
+Start time: Wed Jun  9 15:20:49 2021
+
+Random number seed: 1623244849
+7652 MB RAM detected; reserving 3826 MB for main workspace.
+Dummy data (2 people, 2 SNPs) written to toy_data-temporary.bed +
+toy_data-temporary.bim + toy_data-temporary.fam .
+2 variants loaded from .bim file.
+2 people (0 males, 2 females) loaded from .fam.
+2 phenotype values loaded from .fam.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 2 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+--freq: Allele frequencies (founders only) written to toy_data.frq .
+2 variants and 2 people pass filters and QC.
+Among remaining phenotypes, 1 is a case and 1 is a control.
+--make-bed to toy_data.bed + toy_data.bim + toy_data.fam ... done.
+
+End time: Wed Jun  9 15:20:49 2021

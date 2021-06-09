@@ -24,3 +24,14 @@ save_phenotype_table_to_file(
   phenotype_table = assoc_qt_params$phenotype_table,
   phenotype_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt.phenotype")
 )
+
+make_bed(
+  base_input_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt"),
+  base_output_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt")
+)
+
+make_bed(
+  base_input_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc"),
+  base_output_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc")
+)
+

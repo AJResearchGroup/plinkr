@@ -36,8 +36,9 @@ create_assoc_args <- function(
   }
   testthat::expect_true(plink_options$plink_version == "2.0")
   c(
-    "--map", paste0(assoc_params$base_input_filename, ".map"),
-    "--ped", paste0(assoc_params$base_input_filename, ".ped"),
+    "--bed", paste0(assoc_params$base_input_filename, ".bed"),
+    "--bim", paste0(assoc_params$base_input_filename, ".bim"),
+    "--fam", paste0(assoc_params$base_input_filename, ".fam"),
     "--glm",
     "--allow-extra-chr",
     "--maf", assoc_params$maf,

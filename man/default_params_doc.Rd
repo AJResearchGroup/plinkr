@@ -14,10 +14,13 @@ default_params_doc(
   base_input_filename,
   base_output_filename,
   base_phenotype_value,
+  bed_filename,
+  bim_filename,
   calc_phenotype_function,
   confidence_interval,
   epistatic_phenotype_value,
   example_filename,
+  fam_filename,
   log_filename,
   maf,
   mafs,
@@ -83,6 +86,12 @@ used as output for \code{PLINK}/\code{PLINK2}}
 \item{base_phenotype_value}{the base phenotypic value for an additive trait,
 i.e. the phenotypic value for homozygotes of the common allele}
 
+\item{bed_filename}{name of a \code{PLINK} \code{.bed} file
+Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.}
+
+\item{bim_filename}{name of a \code{PLINK} \code{.bim} file
+Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.}
+
 \item{calc_phenotype_function}{a function that calculate the phenotypes
 from genotypes. The input is the genetic data as a \link[tibble]{tibble},
 in which each row is an individual and the columns are the SNVs.
@@ -105,6 +114,9 @@ a value is within the range of the 0.99 confidence interval}
 epistatic phenotype is expressed}
 
 \item{example_filename}{name of the example file}
+
+\item{fam_filename}{name of a \code{PLINK} \code{.fam} file
+Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.}
 
 \item{log_filename}{name of a \code{PLINK} \code{.log} file}
 

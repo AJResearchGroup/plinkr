@@ -7,6 +7,7 @@ Newest versions at top.
 ### NEW FEATURES
 
  * ?Add vignette with PLINK tutorial
+ * Can read `.bed`, `.bim` and `.fam` files
 
 ### MINOR IMPROVEMENTS
 

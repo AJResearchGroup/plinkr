@@ -11,6 +11,16 @@ make_bed <- function(
   plink_options = create_plink_v1_9_options(),
   verbose = FALSE
 ) {
+  plinkr::check_base_input_filename(base_input_filename)
+  plinkr::check_base_output_filename(base_output_filename)
+  plinkr::check_plink_options(plink_options)
+  plinkr::check_verbose(verbose)
+  if (plink_options$plink_version == "2.0") {
+    stop(
+      "PLINK2 cannot convert '.map' and '.ped' files. ",
+      "Use PLINK v1.7 or v1.9 instead. "
+    )
+  }
   args <- c(
     "--file", base_input_filename,
     "--make-bed",

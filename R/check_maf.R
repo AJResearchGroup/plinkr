@@ -12,8 +12,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_maf <- function(maf) {
-  testthat::expect_true(is.numeric(maf))
   testthat::expect_equal(1, length(maf))
+  testthat::expect_true(is.numeric(maf))
   testthat::expect_true(maf > 0.0)
   testthat::expect_true(maf < 0.5)
 }

@@ -1,0 +1,13 @@
+test_that("use", {
+  expect_silent(check_verbose(TRUE))
+  expect_silent(check_verbose(FALSE))
+  expect_error(check_verbose(0.6))
+  expect_error(check_verbose(-0.3))
+  expect_error(check_verbose(""))
+  expect_error(check_verbose("nonsense"))
+  expect_error(check_verbose(12))
+  expect_error(check_verbose(NULL))
+  expect_error(check_verbose(NA))
+  expect_error(check_verbose(Inf))
+  expect_error(check_verbose(c(TRUE, FALSE)))
+})

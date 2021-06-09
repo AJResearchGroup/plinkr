@@ -26,7 +26,9 @@ parameters, which is a \code{PLINK} \code{.sim} file}
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
 
-\item{verbose}{set to TRUE for more output}
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \description{
 Simulate a quantitative trait

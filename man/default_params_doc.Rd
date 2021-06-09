@@ -294,7 +294,9 @@ as, for example, created by \link{create_demo_traits}.}
 
 \item{url}{\code{PLINK} download URL}
 
-\item{verbose}{set to TRUE for more output}
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

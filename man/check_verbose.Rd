@@ -9,7 +9,9 @@ which is when it is either \link{TRUE} or \link{FALSE}.}
 check_verbose(verbose)
 }
 \arguments{
-\item{verbose}{set to TRUE for more output}
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
 Nothing. Will \link{stop} if the input

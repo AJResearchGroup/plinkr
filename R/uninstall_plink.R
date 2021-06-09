@@ -13,8 +13,10 @@ uninstall_plink <- function(
       "PLINK version: ", plink_options$plink_version, " \n",
       "PLINK folder: ", plink_options$plink_folder, " \n",
       "OS: ", plink_options$os, " \n",
-      "Tip: maybe you did not expect 'uninstall_plink' to give an error ",
-      "and everything is fine :-)"
+      "Tip 1: maybe you did not expect 'uninstall_plink' to give an error ",
+      "and everything is fine :-)",
+      "Tip 2: Use 'plinkr::uninstall_plink' to uninstall ",
+      "a seperate PLINK version"
     )
   }
   unpacked_folder_name <- dirname(plink_options$plink_exe_path)

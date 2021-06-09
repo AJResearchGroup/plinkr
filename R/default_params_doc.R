@@ -185,7 +185,9 @@
 #' with a clear genetic architecture and a known minor allele frequency,
 #' as, for example, created by \link{create_demo_traits}.
 #' @param url \code{PLINK} download URL
-#' @param verbose set to TRUE for more output
+#' @param verbose the verbosity of a function.
+#' Set to \link{TRUE} for more output.
+#' Use \link{check_verbose} to detect if this argument is valid.
 #' @author Richèl J.C. Bilderbeek
 #' @note This is an internal function, so it should be marked with
 #'   \code{@noRd}. This is not done, as this will disallow all

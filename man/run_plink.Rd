@@ -12,7 +12,9 @@ run_plink(args, plink_options = create_plink_options(), verbose = FALSE)
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
 
-\item{verbose}{set to TRUE for more output}
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
 the text that PLINK returns

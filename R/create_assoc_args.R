@@ -14,6 +14,7 @@ create_assoc_args <- function(
       c(
         "--map", paste0(assoc_params$base_input_filename, ".map"),
         "--ped", paste0(assoc_params$base_input_filename, ".ped"),
+        "--assoc",
         "--maf", assoc_params$maf,
         "--ci", assoc_params$confidence_interval,
         "--out", assoc_params$base_output_filename
@@ -25,6 +26,7 @@ create_assoc_args <- function(
       c(
         "--map", paste0(assoc_params$base_input_filename, ".map"),
         "--ped", paste0(assoc_params$base_input_filename, ".ped"),
+        "--assoc",
         "--allow-extra-chr",
         "--maf", assoc_params$maf,
         "--ci", assoc_params$confidence_interval,
@@ -32,5 +34,14 @@ create_assoc_args <- function(
       )
     )
   }
-  stop("TODO")
+  testthat::expect_true(plink_options$plink_version == "2.0")
+  c(
+    "--map", paste0(assoc_params$base_input_filename, ".map"),
+    "--ped", paste0(assoc_params$base_input_filename, ".ped"),
+    "--glm",
+    "--allow-extra-chr",
+    "--maf", assoc_params$maf,
+    "--ci", assoc_params$confidence_interval,
+    "--out", assoc_params$base_output_filename
+  )
 }

@@ -36,10 +36,11 @@ This is a list of functions to run or with with
 
 This is a list of higher-level functions, that use \code{PLINK} in the back
 \itemize{
+\item \link{assoc}: do an association with a binary/case-control trait
 \item \link{assoc_qt}: do an association with a quantitative trait
 }
 
-This is a list of functions to read \code{PLINK} output files:
+This is a list of functions to read \code{PLINK} and \code{PLINK2} files:
 \itemize{
 \item \link{read_plink_assoc_file}:
 read a \code{PLINK} \code{.assoc} file
@@ -57,7 +58,14 @@ read a \code{PLINK} \code{.qassoc} file
 read a \code{PLINK} \code{.simfreq} file
 }
 
-This is a list of functions to save \code{PLINK} output files:
+This is a list of functions to convert \code{PLINK} and \code{PLINK2} files:
+\itemize{
+\item \link{make_bed}:
+Convert the (non-binary) \code{.map} and \code{.ped} files to their binary
+\code{.bed}, \code{.bim} and \code{.fam} equivalents
+}
+
+This is a list of functions to save \code{PLINK} and \code{PLINK2} files:
 \itemize{
 \item \link{save_map_table_to_file}:
 save a genetic mapping table to a \code{PLINK} \code{.map} file
@@ -68,14 +76,18 @@ save a phenotype table to a \code{PLINK} phenotype file
 }
 
 This is a list of functions to get simple/example/testing
-files  and data structures:
+files and data structures:
 \itemize{
+\item \link{create_demo_assoc_params}:
+create parameters to demonstrate a binary/case-control trait analysis
 \item \link{create_demo_assoc_qt_params}:
 create parameters to demonstrate a quantitative trait analysis
 \item \link{create_demo_map_table}:
-create a genetic map to demonstrate a quantitative trait analysis
+create a genetic map to demonstrate an association analysis,
+for both binary/case-control traits as well as quantitative trait
 \item \link{create_demo_ped_table}:
-create a pedigree table to demonstrate a quantitative trait analysis
+create a pedigree table to demonstrate an association analysis,
+for both binary/case-control traits as well as quantitative trait
 \item \link{create_demo_phenotype_table}:
 create a phenotype map to demonstrate a quantitative trait analysis
 \item \link{get_plink_example_filename}:

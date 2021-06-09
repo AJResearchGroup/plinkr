@@ -9,6 +9,8 @@ Newest versions at top.
  * ?Add vignette with PLINK tutorial
  * Add confidence interval for `assoc`
  * `read_plink_assoc_file` can read `.assoc` files with a confidence interval
+ * Add `make_bed` to convert the (non-binary) `.map` and `.ped` files 
+   to their binary `.bed`, `.bim` and `.fam` equivalents
 
 ### MINOR IMPROVEMENTS
 

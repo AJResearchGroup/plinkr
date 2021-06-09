@@ -35,10 +35,7 @@ assoc <- function(
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
 
-  # Filename
-  # temp_folder <- plinkr::get_plinkr_tempfilename()
-  # base_input_filename <- file.path(temp_folder, "assoc_input")
-  # output_filename_base <- file.path(temp_folder, "assoc_output")
+  # Filenames
   ped_filename <- paste0(assoc_params$base_input_filename, ".ped")
   map_filename <- paste0(assoc_params$base_input_filename, ".map")
   assoc_filename <- paste0(assoc_params$base_output_filename, ".assoc")
@@ -66,30 +63,15 @@ assoc <- function(
     showWarnings = FALSE,
     recursive = TRUE
   )
-  # args <- c(
-  #   "--map", map_filename,
-  #   "--ped", ped_filename,
-  #   "--allow-extra-chr",
-  #   "--maf", assoc_params$maf,
-  #   "--ci", assoc_params$confidence_interval,
-  #   "--out", output_filename_base
-  # )
   args <- plinkr::create_assoc_args(
     assoc_params = assoc_params,
     plink_options = plink_options
   )
-  if (1 == 2) {
-    args[2] <- normalizePath(args[2])
-    args[4] <- normalizePath(args[4])
-    args[11] <- normalizePath(args[11])
-    args[11] <- "assoc_output"
-  }
   plinkr::run_plink(
     args = args,
     plink_options = plink_options,
     verbose = verbose
   )
-
   assoc_table <- plinkr::read_plink_assoc_file(assoc_filename)
 
   file.remove(map_filename)

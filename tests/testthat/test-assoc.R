@@ -1,11 +1,9 @@
 test_that("minimal use, v1.7", {
   if (!is_plink_installed()) return()
-  set.seed(314)
   expect_silent(
     assoc(
       assoc_params = create_test_assoc_params(),
-      plink_options = create_plink_v1_7_options(),
-      verbose = TRUE
+      plink_options = create_plink_v1_7_options()
     )
   )
 })
@@ -16,8 +14,7 @@ test_that("minimal use, v1.9", {
   expect_silent(
     assoc(
       assoc_params = create_test_assoc_params(),
-      plink_options = create_plink_v1_9_options(),
-      verbose = TRUE
+      plink_options = create_plink_v1_9_options()
     )
   )
 })

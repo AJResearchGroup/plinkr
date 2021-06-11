@@ -11,7 +11,6 @@ test_that("minimal use", {
       plink_options = create_plink_v1_9_options()
     )
   )
-  skip("WIP")
   expect_silent(
     create_assoc_args(
       assoc_params = create_test_assoc_params(),

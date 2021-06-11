@@ -26,7 +26,8 @@ test_that("minimal use v2.0", {
   expect_silent(
     assoc(
       create_test_assoc_params(),
-      plink_options = create_plink_v2_0_options()
+      plink_options = create_plink_v2_0_options(),
+      verbose = TRUE
     )
   )
 })

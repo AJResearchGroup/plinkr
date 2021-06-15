@@ -18,12 +18,15 @@ read_plink_map_file <- function(map_filename) {
   testthat::expect_true(file.exists(map_filename))
   # A text file with no header file,
   # and one line per variant with the following 3-4 fields:
+  untrimmed_text <- readr::read_lines(
+    file = map_filename,
+    skip_empty_rows = TRUE
+  )
+  text <- stringr::str_trim(untrimmed_text)
+
   table <- stringr::str_split(
-    string = readr::read_lines(
-      file = map_filename,
-      skip_empty_rows = TRUE
-    ),
-    pattern = "[:blank:]",
+    string = text,
+    pattern = "[:blank:]+",
     simplify = TRUE
   )
   tibble::tibble(

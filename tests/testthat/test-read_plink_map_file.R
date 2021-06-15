@@ -55,7 +55,6 @@ test_that("read and write must result in exact same file", {
 })
 
 test_that("use, plinkr example", {
-  skip("random.map produces warnings")
   expect_silent(
     read_plink_map_file(
       get_plinkr_filename("random.map")

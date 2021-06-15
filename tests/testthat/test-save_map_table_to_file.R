@@ -21,7 +21,8 @@ test_that("detailed use, recreate v1.7 test.map file exactly", {
   map_filename <- get_plinkr_tempfilename()
   save_map_table_to_file(
     map_table = map_table,
-    map_filename = map_filename
+    map_filename = map_filename,
+    plink_options = create_plink_v1_7_options()
   )
   map_table_again <- read_plink_map_file(
     map_filename = map_filename

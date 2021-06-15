@@ -39,7 +39,7 @@ test_that("v1.7", {
   expect_false("--allow-extra-chr" %in% created)
 })
 
-test_that("v1.9", {
+test_that("v1.9, allow 95 chromosome", {
   assoc_params <- create_test_assoc_params()
   created <- create_assoc_args(
     assoc_params = assoc_params,
@@ -49,7 +49,7 @@ test_that("v1.9", {
     "--map", paste0(assoc_params$base_input_filename, ".map"),
     "--ped", paste0(assoc_params$base_input_filename, ".ped"),
     "--assoc",
-    "--allow-extra-chr",
+    "--chr-set", 95,
     "--maf", assoc_params$maf,
     "--ci", assoc_params$confidence_interval,
     "--out", assoc_params$base_output_filename

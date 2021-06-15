@@ -27,7 +27,7 @@ create_assoc_args <- function(
         "--map", paste0(assoc_params$base_input_filename, ".map"),
         "--ped", paste0(assoc_params$base_input_filename, ".ped"),
         "--assoc",
-        "--allow-extra-chr",
+        "--chr-set", 95,
         "--maf", assoc_params$maf,
         "--ci", assoc_params$confidence_interval,
         "--out", assoc_params$base_output_filename

@@ -4,7 +4,11 @@
 \alias{save_map_table_to_file}
 \title{Save a \code{.map} table to file.}
 \usage{
-save_map_table_to_file(map_table, map_filename)
+save_map_table_to_file(
+  map_table,
+  map_filename,
+  plink_options = create_plink_options()
+)
 }
 \arguments{
 \item{map_table}{a genetic mapping table.
@@ -23,6 +27,9 @@ Use \link{check_map_table} to test if a genetic mapping table is valid.}
 
 \item{map_filename}{name of a \code{PLINK} \code{.map} file
 Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
 }
 \description{
 Save a \code{.map} table to file

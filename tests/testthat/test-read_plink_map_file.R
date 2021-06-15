@@ -49,3 +49,16 @@ test_that("use, v1.9", {
   expect_true("position_cm" %in% names(t))
   expect_true("BP" %in% names(t))
 })
+
+test_that("read and write must result in exact same file", {
+  # See test-save_map_table_to_file
+})
+
+test_that("use, plinkr example", {
+  skip("random.map produces warnings")
+  expect_silent(
+    read_plink_map_file(
+      get_plinkr_filename("random.map")
+    )
+  )
+})

@@ -143,13 +143,15 @@ test_that("PLINK cannot handle quadallelic SNPs", {
   )
 })
 
-test_that("All chromosome numbers work", {
+test_that("All 95 chromosome numbers work", {
   if (!is_plink_installed()) return()
+  # Upper limit set by PLINK is 95
+  # https://github.com/chrchang/plink-ng/issues/182
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
     trait = create_random_case_control_trait(n_snps = 1),
     n_individuals = 10
   )
-  assoc_params$map_table$CHR <- 123 # nolint PLINK coding style
+  assoc_params$map_table$CHR <- 95 # nolint PLINK coding style
   expect_silent(assoc(assoc_params = assoc_params))
 })

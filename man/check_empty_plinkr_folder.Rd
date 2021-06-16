@@ -2,15 +2,19 @@
 % Please edit documentation in R/check_empty_plinkr_folder.R
 \name{check_empty_plinkr_folder}
 \alias{check_empty_plinkr_folder}
-\title{Check there are no files in the default \code{PLINK} folder}
+\title{Check there are no files in the default \link{plinkr} folder}
 \usage{
 check_empty_plinkr_folder(plinkr_folder = get_plinkr_folder())
+}
+\arguments{
+\item{plinkr_folder}{name of the folder where \link{plinkr}
+stores its temporary files}
 }
 \value{
 Nothing.
 }
 \description{
-Check there are no files in the default \code{PLINK} folder.
+Check there are no files in the default \link{plinkr} folder.
 The goal is to make sure no temporary files are left undeleted.
 Will \link{stop} if there are files in the \link{plinkr} folder
 }

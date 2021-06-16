@@ -165,6 +165,8 @@
 #' Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.
 #' @param plink_versions one or more versions of PLINK,
 #' e.g. as can be obtained using \link{get_plink_versions}
+#' @param plinkr_folder name of the folder where \link{plinkr}
+#' stores its temporary files
 #' @param qassoc_filename name of a \code{PLINK} \code{.qassoc} file
 #' Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.
 #' @param qassoc_filenames name of one or more
@@ -243,6 +245,7 @@ default_params_doc <- function(
   plink_optionses,
   plink_version,
   plink_versions,
+  plinkr_folder,
   qassoc_filename,
   qassoc_filenames,
   regular_phenotype_value,

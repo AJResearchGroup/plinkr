@@ -44,6 +44,7 @@ default_params_doc(
   plink_optionses,
   plink_version,
   plink_versions,
+  plinkr_folder,
   qassoc_filename,
   qassoc_filenames,
   regular_phenotype_value,
@@ -270,6 +271,9 @@ Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.}
 
 \item{plink_versions}{one or more versions of PLINK,
 e.g. as can be obtained using \link{get_plink_versions}}
+
+\item{plinkr_folder}{name of the folder where \link{plinkr}
+stores its temporary files}
 
 \item{qassoc_filename}{name of a \code{PLINK} \code{.qassoc} file
 Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.}

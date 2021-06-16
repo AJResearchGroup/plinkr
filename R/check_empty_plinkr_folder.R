@@ -1,6 +1,6 @@
-#' Check there are no files in the default \code{PLINK} folder
+#' Check there are no files in the default \link{plinkr} folder
 #'
-#' Check there are no files in the default \code{PLINK} folder.
+#' Check there are no files in the default \link{plinkr} folder.
 #' The goal is to make sure no temporary files are left undeleted.
 #' Will \link{stop} if there are files in the \link{plinkr} folder
 #' @inheritParams default_params_doc

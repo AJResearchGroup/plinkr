@@ -1,4 +1,5 @@
 test_that("un- or install in temp plink folder", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
 
   plink_options <- create_plink_v1_9_options(
@@ -13,6 +14,7 @@ test_that("un- or install in temp plink folder", {
 })
 
 test_that("un- or install in temp plink folder, v1.7", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
 
   plink_options <- create_plink_v1_7_options(
@@ -27,6 +29,7 @@ test_that("un- or install in temp plink folder, v1.7", {
 })
 
 test_that("un- or install in temp plink folder", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
 
   for (plink_version in get_plink_versions()) {

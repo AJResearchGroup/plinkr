@@ -17,7 +17,9 @@ test_that("use, 2 SNPs", {
 test_that("use, 1 SNP with NAs", {
   expect_silent(
     read_plink_qassoc_file(
-      qassoc_filename = get_plinkr_filename("assoc_qt_output_1_snp_nas.qassoc")
+      qassoc_filename = get_plinkr_filename(
+        "assoc_qt_output_1_snp_nas.qassoc"
+      )
     )
   )
 })

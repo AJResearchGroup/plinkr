@@ -4,7 +4,7 @@
 \alias{create_assoc_args}
 \title{Create the command-line arguments to call PLINK or PLINK2}
 \usage{
-create_assoc_args(assoc_params, plink_options)
+create_assoc_args(assoc_params, plink_options = create_plink_options())
 }
 \arguments{
 \item{assoc_params}{parameters to do an association analysis

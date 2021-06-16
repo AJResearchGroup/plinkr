@@ -15,6 +15,12 @@ as, for example, created by \link{create_demo_traits}.}
 Create a demo genetic mapping \code{.map} table.
 It is simply a map of SNPs that are located on different chromosomes.
 }
+\details{
+Each SNP is positioned on a different chromosome.
+As PLINK allows for a maximum of 95 chromosomes,
+the 96th SNP is placed on the first chromosome again,
+after which the chromosomes are travered again.
+}
 \examples{
 # Default demonstration genetic mapping table
 create_demo_map_table()

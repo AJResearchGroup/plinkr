@@ -130,13 +130,14 @@ test_that("PLINK cannot handle quadallelic SNPs", {
   )
 })
 
-test_that("All chromosome numbers work", {
+test_that("95 chromosome numbers work", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
-    traits = create_random_trait(n_snps = 1),
+    traits = create_random_trait(n_snps = 95),
     n_individuals = 10
   )
-  assoc_qt_params$map_table$CHR <- 123 # nolint PLINK coding style
   expect_silent(assoc_qt(assoc_qt_params = assoc_qt_params))
 })

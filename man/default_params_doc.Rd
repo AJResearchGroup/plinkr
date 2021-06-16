@@ -149,7 +149,9 @@ Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.}
 
 A \code{map_table} is a \link[tibble]{tibble} with the following columns:
 \itemize{
-\item \code{CHR}: the chromosome code or contig name
+\item \code{CHR}: the chromosome code or contig name.
+The chromosome number cannot exceed 95
+(\url{https://www.cog-genomics.org/plink/1.9/input#chr_set})
 \item \code{SNP}: Variant identifier
 \item \code{position_cm}: Position in morgans or centimorgans.
 This value is optional. Zeroes denote it is unused

@@ -5,6 +5,7 @@ test_that("use", {
 })
 
 test_that("Executable is not found", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
   plink_options <- create_plink_v1_7_options(
     plink_folder = get_plinkr_tempfilename()
@@ -20,6 +21,7 @@ test_that("Executable is not found", {
 })
 
 test_that("PLINK binary is not executable", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
   if (get_os() == "win") return()
   plink_options <- create_plink_v1_9_options(

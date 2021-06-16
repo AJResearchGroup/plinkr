@@ -2,6 +2,11 @@
 #'
 #' Create a demo genetic mapping \code{.map} table.
 #' It is simply a map of SNPs that are located on different chromosomes.
+#'
+#' Each SNP is positioned on a different chromosome.
+#' As PLINK allows for a maximum of 95 chromosomes,
+#' the 96th SNP is placed on the first chromosome again,
+#' after which the chromosomes are travered again.
 #' @inheritParams default_params_doc
 #' @examples
 #' # Default demonstration genetic mapping table
@@ -26,7 +31,7 @@ create_demo_map_table <- function(
   n_snps <- sum(purrr::map_dbl(traits, function(e) e$n_snps))
 
   tibble::tibble(
-    CHR = seq_len(n_snps),
+    CHR = 1 + (seq(0, n_snps - 1) %% 95),
     SNP = paste0("snp_", seq_len(n_snps)),
     position_cm = rep(0, n_snps),
     BP = seq_len(n_snps)

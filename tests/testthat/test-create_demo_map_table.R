@@ -31,3 +31,13 @@ test_that("correct number of SNPs, 2 trais", {
     )
   )
 })
+
+test_that("Can handle 100 SNPs", {
+  # default PLINK can handle a maximum of 95 chromosomes.
+  # (see https://www.cog-genomics.org/plink/1.9/input#chr_set)
+  expect_silent(
+    check_map_table(
+      create_demo_map_table(create_random_trait(n_snps = 100))
+    )
+  )
+})

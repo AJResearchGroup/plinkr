@@ -21,7 +21,7 @@ test_that("minimal use, v1.9", {
 })
 
 test_that("minimal use v2.0", {
-  skip("WIP")
+  skip("Cannot assoc with PLINK2 yet")
   if (!is_plink_installed()) return()
   set.seed(314)
   expect_silent(
@@ -145,16 +145,15 @@ test_that("PLINK cannot handle quadallelic SNPs", {
 })
 
 test_that("All 95 chromosome numbers work", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
   # Upper limit set by PLINK is 95
   # https://github.com/chrchang/plink-ng/issues/182
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
-    trait = create_random_case_control_trait(n_snps = 1),
+    trait = create_random_case_control_trait(n_snps = 95),
     n_individuals = 10
   )
-  assoc_params$map_table$CHR <- 95 # nolint PLINK coding style
-  create_assoc_args(assoc_params = assoc_params)
-  dir.create(dirname(assoc_params$base_output_filename))
   expect_silent(assoc(assoc_params = assoc_params))
 })

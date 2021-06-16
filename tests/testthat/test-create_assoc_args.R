@@ -68,7 +68,7 @@ test_that("v1.9, allow 95 chromosome", {
 })
 
 test_that("v2.0", {
-  skip("WIP")
+  skip("WIP: no idea to call PLINK2 to do assoc yet")
   assoc_params <- create_test_assoc_params()
   created <- create_assoc_args(
     assoc_params = assoc_params,

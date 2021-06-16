@@ -76,3 +76,18 @@ test_that("sub-sub-sub folder", {
     recursive = TRUE
   )
 })
+
+test_that("Give error due to too high chromosome number", {
+  set.seed(314)
+  assoc_params <- create_demo_assoc_params(
+    n_individuals = 2
+  )
+  assoc_params$map_table$CHR <- 123 # nolint PLINK coding style
+  expect_error(
+    save_map_table_to_file(
+      map_table = assoc_params$map_table,
+      map_filename = "irrelevant"
+    ),
+    "default PLINK can handle a maximum of 95 chromosomes"
+  )
+})

@@ -23,8 +23,11 @@ test_that("multiple traits", {
     phenotype_filename = phenotype_filename
   )
 
-  expect_true("family_id" %in% names(phenotypes))
-  expect_true("within_family_id" %in% names(phenotypes))
+  # The column names FID and IID match the PLINK names of the same
+  # data in the phenotype files,
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
+  expect_true("FID" %in% names(phenotypes))
+  expect_true("IID" %in% names(phenotypes))
   expect_true("phenotype_1" %in% names(phenotypes))
   expect_true("phenotype_2" %in% names(phenotypes))
   expect_equal(6, nrow(phenotypes))

@@ -11,13 +11,15 @@ check_phenotype_table(phenotype_table)
 
 A \code{phenotype_table} is a \link[tibble]{tibble} with these columns:
 \itemize{
-\item \code{family_id} The family ID (\code{FID})
-\item \code{within_family_id} Within-family ID
-(\code{IID}, cannot be zero)
+\item \code{FID} The family ID
+\item \code{IID} Within-family ID
+(cannot be zero)
 \item One or more columns of phenotype values,
 columns can have any name
 }
 
+Thes names match the PLINK column
+names (\url{https://www.cog-genomics.org/plink/1.9/input#pheno}).
 Use \link{read_plink_phenotype_file} to read a phenotype file.
 Use \link{check_phenotype_table} to test if a phenotype table is valid.}
 }

@@ -92,9 +92,8 @@
 #' @param ped_table a 'pedigree' table.
 #'
 #' A \code{ped_table} is a \link[tibble]{tibble} with these columns:
-#'   * \code{family_id} The family ID (\code{FID})
-#'   * \code{within_family_id} Within-family ID
-#'       (\code{IID}, cannot be zero)
+#'   * \code{FID} The family ID
+#'   * \code{IID} Within-family ID (cannot be zero)
 #'   * \code{within_family_id_father} Within-family ID of father
 #'       (\code{0} if father isn't in dataset)
 #'   * \code{within_family_id_mother} Within-family ID of mother
@@ -107,6 +106,9 @@
 #'   * \code{snv_[x][y]} Nucleotide for the \code{x}th variant
 #'     for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 #'     in the \code{.map file} (\code{0} = no call)
+#'
+#' The \code{FID} and \code{IID} column names match the PLINK names, see
+#' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}.
 #'
 #' Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 #' Use \link{check_ped_table} to test if a pedigree table is valid.
@@ -127,12 +129,14 @@
 #' @param phenotype_table a table of phenotypes.
 #'
 #' A \code{phenotype_table} is a \link[tibble]{tibble} with these columns:
-#'   * \code{family_id} The family ID (\code{FID})
-#'   * \code{within_family_id} Within-family ID
-#'       (\code{IID}, cannot be zero)
+#'   * \code{FID} The family ID
+#'   * \code{IID} Within-family ID
+#'       (cannot be zero)
 #'   * One or more columns of phenotype values,
 #'     columns can have any name
 #'
+#' Thes names match the PLINK column
+#' names (\url{https://www.cog-genomics.org/plink/1.9/input#pheno}).
 #' Use \link{read_plink_phenotype_file} to read a phenotype file.
 #' Use \link{check_phenotype_table} to test if a phenotype table is valid.
 #' @param phenotypes one ore more phenotypes,

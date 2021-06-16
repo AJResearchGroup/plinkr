@@ -24,8 +24,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_ped_table <- function() {
+  # The column names FID and IID match the PLINK names of the same
+  # data in the phenotype files,
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
   tibble::tribble(
-    ~family_id, ~within_family_id, ~within_family_id_father, ~within_family_id_mother, ~sex_code, ~case_control_code, ~snv_1a, ~snv_1b, ~snv_2a, ~snv_2b, # nolint indeed a long line
+    ~FID      , ~IID             , ~within_family_id_father, ~within_family_id_mother, ~sex_code, ~case_control_code, ~snv_1a, ~snv_1b, ~snv_2a, ~snv_2b, # nolint indeed a long line
     1         , 1                , 0                       , 0                       , 1        , 1                 , "A"    , "A"    , "G"    , "T"    , # nolint indeed a long line
     2         , 1                , 0                       , 0                       , 1        , 1                 , "A"    , "C"    , "T"    , "G"    , # nolint indeed a long line
     3         , 1                , 0                       , 0                       , 1        , 1                 , "C"    , "C"    , "G"    , "G"    , # nolint indeed a long line

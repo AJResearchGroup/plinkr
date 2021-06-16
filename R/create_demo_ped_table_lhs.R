@@ -12,9 +12,13 @@ create_demo_ped_table_lhs <- function(
   n_individuals = 4
 ) {
   plinkr::check_n_individuals(n_individuals)
+
+  # The column names FID and IID match the PLINK names of the same
+  # data in the phenotype files,
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
   ped_table_lhs <- tibble::tibble(
-    family_id = seq_len(n_individuals),
-    within_family_id = 1,
+    FID = seq_len(n_individuals),
+    IID = 1,
     within_family_id_father = 0,
     within_family_id_mother = 0,
     sex_code = 1,

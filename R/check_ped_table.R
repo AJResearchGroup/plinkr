@@ -11,10 +11,12 @@ check_ped_table <- function(ped_table) {
       "Current class: ", paste(class(ped_table), collapse = " ")
     )
   }
-
+  # The column names FID and IID match the PLINK names of the same
+  # data in the phenotype files,
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
   expected_names_lhs <- c(
-    "family_id",
-    "within_family_id",
+    "FID",
+    "IID",
     "within_family_id_father",
     "within_family_id_mother",
     "sex_code",

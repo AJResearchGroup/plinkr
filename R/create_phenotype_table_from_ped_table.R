@@ -9,18 +9,20 @@
 #' @inheritParams default_params_doc
 #' @return a single-phenotype \link[tibble]{tibble}, with columns:
 #'
-#' * \code{family_id}
-#' * \code{within_family_id}
+#' * \code{FID} the family ID
+#' * \code{IID} the within-family ID
 #' * \code{trait}
 #'
+#' The column names match the PLINK names, see
+#' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_phenotype_table_from_ped_table <- function(ped_table) { # nolint indeed a long and descriptive name
   plinkr::check_ped_table(ped_table)
 
   tibble::tibble(
-    family_id = ped_table$family_id,
-    within_family_id = ped_table$within_family_id,
+    FID = ped_table$FID,
+    IID = ped_table$IID,
     trait = ped_table$case_control_code / 10.0
   )
 }

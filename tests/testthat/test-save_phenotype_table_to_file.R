@@ -1,4 +1,4 @@
-test_that("use", {
+test_that("save and read must result in same table", {
   phenotype_table <- read_plink_phenotype_file(
     phenotype_filename = get_plinkr_filename("pheno.raw")
   )
@@ -13,6 +13,25 @@ test_that("use", {
   expect_equal(names(phenotype_table), names(phenotype_table_again))
   expect_equal(nrow(phenotype_table), nrow(phenotype_table_again))
   expect_equal(ncol(phenotype_table), ncol(phenotype_table_again))
+  file.remove(phenotype_filename)
+})
+
+test_that("save and read must result in same table with correct column names", {
+  skip("WIP")
+  phenotype_table <- read_plink_phenotype_file(
+    phenotype_filename = get_plinkr_filename("pheno.raw")
+  )
+  names(phenotype_table) <- c(names(phenotype_table)[1:2], "my_phenotype")
+  phenotype_filename <- get_plinkr_tempfilename()
+  save_phenotype_table_to_file(
+    phenotype_table = phenotype_table,
+    phenotype_filename = phenotype_filename
+  )
+  readLines(phenotype_filename)
+  phenotype_table_again <- read_plink_phenotype_file(
+    phenotype_filename = phenotype_filename
+  )
+  expect_equal(names(phenotype_table), names(phenotype_table_again))
   file.remove(phenotype_filename)
 })
 

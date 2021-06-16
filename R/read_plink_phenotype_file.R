@@ -1,11 +1,13 @@
 #' Read a PLINK raw phenotype file
 #' @inheritParams default_params_doc
 #' @return a \link[tibble]{tibble} with the following columns:
-#'   * \code{family_id} The family ID (\code{FID})
-#'   * \code{within_family_id} Within-family ID
-#'       (\code{IID}, cannot be zero)
+#'   * \code{FID} The family ID
+#'   * \code{IID} Within-family ID (cannot be zero)
 #'   * One or more columns of phenotype values,
 #'     columns can have any name
+#'
+#' The \code{FID} and \code{IID} column names match the PLINK names, see
+#' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
 #' @examples
 #' read_plink_phenotype_file(
 #'   phenotype_filename = get_plinkr_filename("pheno.raw")
@@ -28,9 +30,12 @@ read_plink_phenotype_file <- function(phenotype_filename) {
   n_phenotypes <- ncol(t) - 2
   testthat::expect_true(n_phenotypes >= 1)
 
+  # The column names FID and IID match the PLINK names of the same
+  # data in the phenotype files,
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
   names(t) <- c(
-    "family_id",
-    "within_family_id",
+    "FID",
+    "IID",
     paste0("phenotype_", seq_len(n_phenotypes))
   )
   # Convert all columns to numeric

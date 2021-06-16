@@ -10,7 +10,7 @@ test_that("use", {
   expect_equal(3, ncol(phenotype_table))
   expect_equal(nrow(ped_table), nrow(phenotype_table))
   expect_equal(ped_table$family_id, phenotype_table$family_id)
-  expect_equal(ped_table$within_family_id, phenotype_table$within_family_id)
+  expect_equal(ped_table$IID, phenotype_table$IID)
 
   # Column name is renamed to 'trait' and values are divided by ten.
   # This is to prevent PLINK doing a case-control

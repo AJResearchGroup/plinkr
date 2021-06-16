@@ -11,9 +11,8 @@ create_phenotype_table_from_ped_table(ped_table)
 
 A \code{ped_table} is a \link[tibble]{tibble} with these columns:
 \itemize{
-\item \code{family_id} The family ID (\code{FID})
-\item \code{within_family_id} Within-family ID
-(\code{IID}, cannot be zero)
+\item \code{FID} The family ID
+\item \code{IID} Within-family ID (cannot be zero)
 \item \code{within_family_id_father} Within-family ID of father
 (\code{0} if father isn't in dataset)
 \item \code{within_family_id_mother} Within-family ID of mother
@@ -28,16 +27,22 @@ for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 in the \code{.map file} (\code{0} = no call)
 }
 
+The \code{FID} and \code{IID} column names match the PLINK names, see
+\url{https://www.cog-genomics.org/plink/1.9/input#pheno}.
+
 Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
 }
 \value{
 a single-phenotype \link[tibble]{tibble}, with columns:
 \itemize{
-\item \code{family_id}
-\item \code{within_family_id}
+\item \code{FID} the family ID
+\item \code{IID} the within-family ID
 \item \code{trait}
 }
+
+The column names match the PLINK names, see
+\url{https://www.cog-genomics.org/plink/1.9/input#pheno}
 }
 \description{
 Create a single-phenotype table from pedigree (\code{.ped}) table.

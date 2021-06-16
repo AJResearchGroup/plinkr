@@ -6,7 +6,7 @@ save_phenotype_table_to_file <- function(
   phenotype_table,
   phenotype_filename
 ) {
-  # A .phenotype file does not have a header,
+  # A .phenotype file does not have a header
   text_matrix <- as.matrix(phenotype_table)
   text_vector <- rep(NA, nrow(text_matrix))
   for (i in seq_along(text_vector)) {

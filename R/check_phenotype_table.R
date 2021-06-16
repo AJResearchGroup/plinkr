@@ -9,8 +9,10 @@
 check_phenotype_table <- function(phenotype_table) {
   testthat::expect_true(tibble::is_tibble(phenotype_table))
   testthat::expect_true(ncol(phenotype_table) >= 3)
-  testthat::expect_equal("family_id", names(phenotype_table)[1])
-  testthat::expect_equal("within_family_id", names(phenotype_table)[2])
+  # PLINK names, from
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
+  testthat::expect_equal("FID", names(phenotype_table)[1])
+  testthat::expect_equal("IID", names(phenotype_table)[2])
 
   n_phenotypes <- ncol(phenotype_table) - 2
   col_indices <- seq(from = 2 + 1, to = 2 + n_phenotypes)

@@ -13,9 +13,8 @@ Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.}
 \value{
 a \link[tibble]{tibble} with column names:
 \itemize{
-\item \code{family_id} The family ID (\code{FID})
-\item \code{within_family_id} Within-family ID
-(\code{IID}, cannot be zero)
+\item \code{FID} The family ID
+\item \code{IID} Within-family ID (cannot be zero)
 \item \code{within_family_id_father} Within-family ID of father
 (\code{0} if father isn't in dataset)
 \item \code{within_family_id_mother} Within-family ID of mother
@@ -28,6 +27,16 @@ a \link[tibble]{tibble} with column names:
 \item \code{snv_[x][y]} Nucleotide for the \code{x}th variant
 for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 in the \code{.map file} (\code{0} = no call)
+}
+
+The columns names \code{FID} (the family ID) and
+\code{IID} (the within-family ID) is due to following the PLINK
+naming convention as for the phenotype column names
+for the same data, as can be read at
+\url{https://www.cog-genomics.org/plink/1.9/input#pheno}
+\itemize{
+\item \code{FID} the family ID
+\item \code{IID} the within-family ID
 }
 }
 \description{

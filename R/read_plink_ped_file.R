@@ -1,9 +1,8 @@
 #' Read a PLINK \code{.ped} file
 #' @inheritParams default_params_doc
 #' @return a \link[tibble]{tibble} with column names:
-#'   * \code{family_id} The family ID (\code{FID})
-#'   * \code{within_family_id} Within-family ID
-#'       (\code{IID}, cannot be zero)
+#'   * \code{FID} The family ID
+#'   * \code{IID} Within-family ID (cannot be zero)
 #'   * \code{within_family_id_father} Within-family ID of father
 #'       (\code{0} if father isn't in dataset)
 #'   * \code{within_family_id_mother} Within-family ID of mother
@@ -16,6 +15,12 @@
 #'   * \code{snv_[x][y]} Nucleotide for the \code{x}th variant
 #'     for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
 #'     in the \code{.map file} (\code{0} = no call)
+#'
+#' The columns names \code{FID} (the family ID) and
+#' \code{IID} (the within-family ID) is due to following the PLINK
+#' naming convention as for the phenotype column names
+#' for the same data, as can be read at
+#' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}.
 #' @examples
 #'  if (is_plink_installed(create_plink_v1_7_options())) {
 #'    read_plink_ped_file(
@@ -55,9 +60,12 @@ read_plink_ped_file <- function(ped_filename) {
   names(t_str) <- c("allele", "variant")
   t_str$text <- paste0(t_str$allele, t_str$variant)
 
+  # The column names FID and IID match the PLINK names of the same
+  # data in the phenotype files,
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
   names <- c(
-    "family_id",
-    "within_family_id",
+    "FID",
+    "IID",
     "within_family_id_father",
     "within_family_id_mother",
     "sex_code",
@@ -66,8 +74,8 @@ read_plink_ped_file <- function(ped_filename) {
   )
   names(t) <- names
 
-  t$family_id <- as.numeric(t$family_id)
-  t$within_family_id <- as.numeric(t$within_family_id)
+  t$FID <- as.numeric(t$FID) # nolint use PLINK notation
+  t$IID <- as.numeric(t$IID) # nolint use PLINK notation
   t$within_family_id_father <- as.numeric(t$within_family_id_father)
   t$within_family_id_mother <- as.numeric(t$within_family_id_mother)
   t$sex_code <- as.numeric(t$sex_code)

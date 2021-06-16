@@ -18,8 +18,11 @@ test_that("use, v1.7", {
       create_plink_v1_7_options()
     )
   )
-  expect_true("family_id" %in% names(t))
-  expect_true("within_family_id" %in% names(t))
+  # The column names FID and IID match the PLINK names of the same
+  # data in the phenotype files,
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
+  expect_true("FID" %in% names(t))
+  expect_true("IID" %in% names(t))
   expect_true("within_family_id_father" %in% names(t))
   expect_true("within_family_id_mother" %in% names(t))
   expect_true("sex_code" %in% names(t))
@@ -38,8 +41,11 @@ test_that("use, v1.9", {
       create_plink_v1_9_options()
     )
   )
-  expect_true("family_id" %in% names(t))
-  expect_true("within_family_id" %in% names(t))
+  # The column names FID and IID match the PLINK names of the same
+  # data in the phenotype files,
+  # https://www.cog-genomics.org/plink/1.9/input#pheno
+  expect_true("FID" %in% names(t))
+  expect_true("IID" %in% names(t))
   expect_true("within_family_id_father" %in% names(t))
   expect_true("within_family_id_mother" %in% names(t))
   expect_true("sex_code" %in% names(t))

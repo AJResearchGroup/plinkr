@@ -1,11 +1,11 @@
-#' Get the path to the default \code{PLINK} executable as used by \code{plinkr}
+#' Get the path to the default \code{PLINK} executable as used by \link{plinkr}
 #'
-#' Get the path to the default \code{PLINK} executable as used by \code{plinkr}.
+#' Get the path to the default \code{PLINK} executable as used by \link{plinkr}.
 #' Will give an error for a custom \code{PLINK} version,
 #' as set up by \link{create_custom_plink_options}, as a custom install
 #' requires no zip file
 #' @inheritParams default_params_doc
-#' @return path to the default \code{PLINK} executable  as used by \code{plinkr}
+#' @return path to the default \code{PLINK} executable  as used by \link{plinkr}
 #' @examples
 #' get_plink_zip_path(create_plink_v1_7_options())
 #' get_plink_zip_path(create_plink_v1_9_options())

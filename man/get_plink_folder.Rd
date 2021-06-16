@@ -2,15 +2,20 @@
 % Please edit documentation in R/get_plink_folder.R
 \name{get_plink_folder}
 \alias{get_plink_folder}
-\title{Get the path to the default PLINK folder as used by plinkr}
+\title{Get the path to the default \code{PLINK} folder as used by \link{plinkr}}
 \usage{
 get_plink_folder()
 }
 \value{
-path to the default PLINK folder as used by plinkr
+path to the default \code{PLINK} folder as used by \link{plinkr}
 }
 \description{
-Get the path to the default PLINK folder as used by plinkr
+Get the path to the default \code{PLINK} folder as used by \link{plinkr}.
+This is the folder where all \code{PLINK} versions are installed.
+}
+\details{
+Use \link{get_plinkr_folder} to get the folder where \link{plinkr}
+stores its temporary files
 }
 \author{
 Richèl J.C. Bilderbeek

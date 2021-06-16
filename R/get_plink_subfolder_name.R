@@ -1,8 +1,8 @@
-#' Get the path to the default \code{PLINK} subfolder as used by \code{plinkr}
+#' Get the path to the default \code{PLINK} subfolder as used by \link{plinkr}
 #'
-#' Get the path to the default \code{PLINK} subfolder as used by \code{plinkr}.
+#' Get the path to the default \code{PLINK} subfolder as used by \link{plinkr}.
 #'
-#' \code{plinkr} installs all versions of \code{PLINK} in
+#' \link{plinkr} installs all versions of \code{PLINK} in
 #' a default \code{PLINK} folder,
 #' as can be obtained by \link{get_plink_folder}.
 #'

@@ -1,8 +1,8 @@
-#' \code{plinkr}: An R interface to \code{PLINK}.
+#' \link{plinkr}: An R interface to \code{PLINK}.
 #'
-#' \code{plinkr} is an R interface to \code{PLINK}.
+#' \link{plinkr} is an R interface to \code{PLINK}.
 #'
-#' \code{plinkr} allows the user to install, run and uninstall
+#' \link{plinkr} allows the user to install, run and uninstall
 #' (multiple versions of) \code{PLINK}.
 #' Also PLINK output files can be read, modified within R
 #' and saved to PLINK-conforming files
@@ -83,9 +83,9 @@
 #' * \link{get_plink_example_filenames}:
 #'   get a list of example filenames supplied by \code{PLINK}
 #' * \link{get_plinkr_filename}:
-#'   get the path to an example file as supplied by \code{plinkr}
+#'   get the path to an example file as supplied by \link{plinkr}
 #' * \link{get_plinkr_filenames}:
-#'   get a list of example filenames supplied by \code{plinkr}
+#'   get a list of example filenames supplied by \link{plinkr}
 #' * \link{get_test_map_table}:
 #'   get a test genetic mapping table
 #' * \link{get_test_ped_table}: get a test pedigree table

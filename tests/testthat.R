@@ -1,11 +1,10 @@
 library(testthat)
 library(plinkr)
 
+# Tests must not cause undeleted files
 clear_plinkr_cache()
+check_empty_plinkr_folder()
 
 test_check("plinkr")
 
-expect_equal(
-  0,
-  length(list.files(dirname(get_plinkr_tempfilename()), full.names = TRUE))
-)
+check_empty_plinkr_folder()

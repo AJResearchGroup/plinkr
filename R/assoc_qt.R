@@ -94,11 +94,15 @@ assoc_qt <- function(
   file.remove(map_filename)
   file.remove(ped_filename)
   file.remove(phenotype_filename)
-  file.remove(qassoc_filenames)
+  for (qassoc_filename in qassoc_filenames) file.remove(qassoc_filename)
   file.remove(log_filename)
   testthat::expect_equal(
     0,
     length(list.files(pattern = base_input_filename))
+  )
+  unlink(
+    dirname(assoc_qt_params$base_input_filename),
+    recursive = TRUE
   )
   unlink(
     dirname(assoc_qt_params$base_output_filename),

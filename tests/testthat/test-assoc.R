@@ -157,3 +157,7 @@ test_that("All 95 chromosome numbers work", {
   )
   expect_silent(assoc(assoc_params = assoc_params))
 })
+
+test_that("assoc tests cleans up temp files", {
+  expect_silent(check_empty_plinkr_folder())
+})

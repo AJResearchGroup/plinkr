@@ -17,7 +17,7 @@ get_plinkr_tempfilename <- function(
 ) {
   tempfile(
     pattern = pattern,
-    tmpdir = rappdirs::user_cache_dir(appname = "plinkr"),
+    tmpdir = plinkr::get_plinkr_folder(),
     fileext = fileext
   )
 }

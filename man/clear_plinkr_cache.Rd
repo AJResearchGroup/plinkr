@@ -2,7 +2,7 @@
 % Please edit documentation in R/clear_plinkr_cache.R
 \name{clear_plinkr_cache}
 \alias{clear_plinkr_cache}
-\title{Clear the \code{plinkr} cache}
+\title{Clear the \link{plinkr} cache}
 \usage{
 clear_plinkr_cache()
 }
@@ -10,7 +10,7 @@ clear_plinkr_cache()
 Nothing.
 }
 \description{
-Clear the \code{plinkr} cache.
+Clear the \link{plinkr} cache.
 }
 \author{
 Richèl J.C. Bilderbeek

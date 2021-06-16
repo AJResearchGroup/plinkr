@@ -4,7 +4,7 @@
 #' @param add_noweb add the \code{--noweb} option, which prevents
 #' that \code{PLINK} will check if it is in its latest version.
 #' By default, this value is set to true,
-#' hence \code{plinkr} will skip this check.
+#' hence \link{plinkr} will skip this check.
 #' Use \link{get_plink_version} to get the current \code{PLINK} version.
 #' @param args arguments for the \code{PLINK} executable
 #' @param assoc_filename name of a \code{PLINK} \code{.assoc} file

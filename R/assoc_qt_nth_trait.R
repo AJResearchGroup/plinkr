@@ -38,15 +38,13 @@ assoc_qt_nth_trait <- function(
   testthat::expect_equal(3, ncol(phenotype_table))
 
   # Filenames
-  temp_folder <- plinkr::get_plinkr_tempfilename()
-  base_input_filename <- file.path(temp_folder, "assoc_qt_input")
-  output_filename_base <- file.path(temp_folder, "assoc_qt_output")
+  base_input_filename <- assoc_qt_params$base_input_filename
+  base_output_filename <- assoc_qt_params$base_output_filename
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
   phenotype_filename <- paste0(base_input_filename, ".phenotype")
-  qassoc_filename <- paste0(output_filename_base, ".qassoc")
-  log_filename <- paste0(output_filename_base, ".log")
-
+  qassoc_filename <- paste0(base_output_filename, ".qassoc")
+  log_filename <- paste0(base_output_filename, ".log")
 
   # 'save_' functions will check for success themselves
   plinkr::save_ped_table_to_file(
@@ -77,7 +75,7 @@ assoc_qt_nth_trait <- function(
     "--allow-extra-chr",
     "--chr-set", 95,
     "--maf", maf,
-    "--out", output_filename_base
+    "--out", base_output_filename
   )
   plinkr::run_plink(
     args = args,
@@ -100,7 +98,8 @@ assoc_qt_nth_trait <- function(
     0,
     length(list.files(pattern = base_input_filename))
   )
-  unlink(temp_folder, recursive = TRUE)
+  unlink(dirname(base_input_filename), recursive = TRUE)
+  unlink(dirname(base_output_filename), recursive = TRUE)
 
   qassoc_table
 }

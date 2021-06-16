@@ -22,7 +22,7 @@ the \code{PLINK} or \code{PLINK2} executable file.}
 \item{add_noweb}{add the \code{--noweb} option, which prevents
 that \code{PLINK} will check if it is in its latest version.
 By default, this value is set to true,
-hence \code{plinkr} will skip this check.
+hence \link{plinkr} will skip this check.
 Use \link{get_plink_version} to get the current \code{PLINK} version.}
 
 \item{os}{name of the operating system,

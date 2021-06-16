@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_plink_subfolder_name.R
 \name{get_plink_subfolder_name}
 \alias{get_plink_subfolder_name}
-\title{Get the path to the default \code{PLINK} subfolder as used by \code{plinkr}}
+\title{Get the path to the default \code{PLINK} subfolder as used by \link{plinkr}}
 \usage{
 get_plink_subfolder_name(
   plink_version = get_default_plink_version(),
@@ -21,10 +21,10 @@ as returned by \link[rappdirs]{app_dir}}
 path to the default PLINK executable  as used by plinkr
 }
 \description{
-Get the path to the default \code{PLINK} subfolder as used by \code{plinkr}.
+Get the path to the default \code{PLINK} subfolder as used by \link{plinkr}.
 }
 \details{
-\code{plinkr} installs all versions of \code{PLINK} in
+\link{plinkr} installs all versions of \code{PLINK} in
 a default \code{PLINK} folder,
 as can be obtained by \link{get_plink_folder}.
 

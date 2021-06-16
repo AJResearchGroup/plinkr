@@ -4,7 +4,7 @@
 \alias{clear_plinkr_cache}
 \title{Clear the \link{plinkr} cache}
 \usage{
-clear_plinkr_cache()
+clear_plinkr_cache(plinkr_folder = get_plinkr_folder())
 }
 \value{
 Nothing.

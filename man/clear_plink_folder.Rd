@@ -14,6 +14,7 @@ Nothing.
 }
 \description{
 Deletes all files in the default \code{PLINK} folder,
+(i.e. where all versions of \code{PLINK} are stored)
 as obtained by \link{get_plink_folder}
 }
 \author{

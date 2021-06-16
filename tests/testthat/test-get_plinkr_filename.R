@@ -19,8 +19,8 @@ test_that("pheno.raw", {
         delim = " ",
         col_names = c("FID", "IID", "phenotype"),
         col_types = readr::cols(
-          family_id = readr::col_double(),
-          individual_id = readr::col_double(),
+          FID = readr::col_double(),
+          IID = readr::col_double(),
           phenotype = readr::col_double()
         )
       )

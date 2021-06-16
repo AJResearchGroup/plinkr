@@ -9,7 +9,7 @@ test_that("use", {
   phenotype_table <- create_phenotype_table_from_ped_table(ped_table)
   expect_equal(3, ncol(phenotype_table))
   expect_equal(nrow(ped_table), nrow(phenotype_table))
-  expect_equal(ped_table$family_id, phenotype_table$family_id)
+  expect_equal(ped_table$FID, phenotype_table$FID)
   expect_equal(ped_table$IID, phenotype_table$IID)
 
   # Column name is renamed to 'trait' and values are divided by ten.

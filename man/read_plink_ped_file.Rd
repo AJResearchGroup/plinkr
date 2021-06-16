@@ -33,11 +33,7 @@ The columns names \code{FID} (the family ID) and
 \code{IID} (the within-family ID) is due to following the PLINK
 naming convention as for the phenotype column names
 for the same data, as can be read at
-\url{https://www.cog-genomics.org/plink/1.9/input#pheno}
-\itemize{
-\item \code{FID} the family ID
-\item \code{IID} the within-family ID
-}
+\url{https://www.cog-genomics.org/plink/1.9/input#pheno}.
 }
 \description{
 Read a PLINK \code{.ped} file

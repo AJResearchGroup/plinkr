@@ -17,7 +17,7 @@ test_that("pheno.raw", {
       readr::read_delim(
         get_plinkr_filename("pheno.raw"),
         delim = " ",
-        col_names = c("family_id", "individual_id", "phenotype"),
+        col_names = c("FID", "IID", "phenotype"),
         col_types = readr::cols(
           family_id = readr::col_double(),
           individual_id = readr::col_double(),

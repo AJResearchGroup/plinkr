@@ -41,16 +41,15 @@ plink2_assoc <- function(
   map_filename <- paste0(assoc_params$base_input_filename, ".map")
   assoc_filename <- paste0(assoc_params$base_output_filename, ".assoc")
 
+  # 'save_' functions will check for success themselves
   plinkr::save_ped_table_to_file(
     ped_table = assoc_params$ped_table,
     ped_filename = ped_filename
   )
-  testthat::expect_true(file.exists(ped_filename))
   plinkr::save_map_table_to_file(
     map_table = assoc_params$map_table,
     map_filename = map_filename
   )
-  testthat::expect_true(file.exists(map_filename))
 
   # PLINK will not do so and will not give an error
   # PLINK2 will suggest to change the out parameter :-)

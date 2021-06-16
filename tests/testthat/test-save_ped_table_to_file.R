@@ -47,3 +47,15 @@ test_that("sub-sub-sub folder", {
     recursive = TRUE
   )
 })
+
+test_that("write to impossible folder", {
+  ped_table <- read_plink_ped_file(get_plinkr_filename("demo_assoc.ped"))
+  ped_filename <- "/root/test.ped"
+  expect_error(
+    save_ped_table_to_file(
+      ped_table = ped_table,
+      ped_filename = ped_filename
+    ),
+    "Cannot save 'ped_table' to path"
+  )
+})

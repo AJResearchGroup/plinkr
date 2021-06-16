@@ -38,9 +38,20 @@ save_map_table_to_file <- function(
     text_vector <- c(text_vector, "")
   }
 
-  readr::write_lines(
-    x = text_vector,
-    file = map_filename
+
+  tryCatch(
+    suppressWarnings(
+      readr::write_lines(x = text_vector, file = map_filename)
+    ),
+    error = function(e) {
+      stop(
+        "Cannot save 'map_table' to path '", map_filename, "'. \n",
+        "Maybe no permission to do so? \n",
+        "Note that 'save_map_table_to_file' will (try to) create ",
+        "the (sub)folders needed. \n",
+        "Error message: ", e$message
+      )
+    }
   )
   testthat::expect_true(file.exists(map_filename))
 }

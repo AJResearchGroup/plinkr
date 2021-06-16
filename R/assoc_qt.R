@@ -43,38 +43,33 @@ assoc_qt <- function(
   n_phenotypes <- ncol(assoc_qt_params$phenotype_table) - 2
 
   # Filenames
-  temp_folder <- plinkr::get_plinkr_tempfilename()
   base_input_filename <- assoc_qt_params$base_input_filename
-  output_filename_base <- assoc_qt_params$base_output_filename
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
   phenotype_filename <- paste0(base_input_filename, ".phenotype")
   qassoc_filenames <- paste0(
-    output_filename_base, ".P",
+    assoc_qt_params$base_output_filename, ".P",
     seq_len(n_phenotypes), ".qassoc"
   )
-  log_filename <- paste0(output_filename_base, ".log")
+  log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
-
+  # 'save_' functions will check for success themselves
   plinkr::save_ped_table_to_file(
     ped_table = ped_table,
     ped_filename = ped_filename
   )
-  testthat::expect_true(file.exists(ped_filename))
   plinkr::save_map_table_to_file(
     map_table = map_table,
     map_filename = map_filename
   )
-  testthat::expect_true(file.exists(map_filename))
   plinkr::save_phenotype_table_to_file(
     phenotype_table = phenotype_table,
     phenotype_filename = phenotype_filename
   )
-  testthat::expect_true(file.exists(phenotype_filename))
 
   # PLINK will not do so and will not give an error
   dir.create(
-    dirname(output_filename_base),
+    dirname(assoc_qt_params$base_output_filename),
     showWarnings = FALSE,
     recursive = TRUE
   )
@@ -105,7 +100,10 @@ assoc_qt <- function(
     0,
     length(list.files(pattern = base_input_filename))
   )
-  unlink(temp_folder, recursive = TRUE)
+  unlink(
+    dirname(assoc_qt_params$base_output_filename),
+    recursive = TRUE
+  )
 
   qassoc_table
 }

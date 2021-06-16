@@ -49,8 +49,19 @@ save_ped_table_to_file <- function(
     recursive = TRUE
   )
 
-  readr::write_lines(x = text_vector, file = ped_filename)
-
+  tryCatch(
+    suppressWarnings(
+      readr::write_lines(x = text_vector, file = ped_filename)
+    ),
+    error = function(e) {
+      stop(
+        "Cannot save 'ped_table' to path '", ped_filename, "'. \n",
+        "Maybe no permission to do so? \n",
+        "Note that 'save_ped_table_to_file' will (try to) create ",
+        "the (sub)folders needed. \n",
+        "Error message: ", e$message
+      )
+    }
+  )
   testthat::expect_true(file.exists(ped_filename))
-
 }

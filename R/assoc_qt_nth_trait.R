@@ -48,21 +48,19 @@ assoc_qt_nth_trait <- function(
   log_filename <- paste0(output_filename_base, ".log")
 
 
+  # 'save_' functions will check for success themselves
   plinkr::save_ped_table_to_file(
     ped_table = ped_table,
     ped_filename = ped_filename
   )
-  testthat::expect_true(file.exists(ped_filename))
   plinkr::save_map_table_to_file(
     map_table = map_table,
     map_filename = map_filename
   )
-  testthat::expect_true(file.exists(map_filename))
   plinkr::save_phenotype_table_to_file(
     phenotype_table = phenotype_table,
     phenotype_filename = phenotype_filename
   )
-  testthat::expect_true(file.exists(phenotype_filename))
 
   # PLINK will not do so and will not give an error
   dir.create(

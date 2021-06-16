@@ -35,3 +35,17 @@ test_that("sub-sub-sub folder", {
     recursive = TRUE
   )
 })
+
+test_that("write to impossible folder", {
+  phenotype_table <- read_plink_phenotype_file(
+    phenotype_filename = get_plinkr_filename("pheno.raw")
+  )
+  phenotype_filename <- "/root/test.phenotype"
+  expect_error(
+    save_phenotype_table_to_file(
+      phenotype_table = phenotype_table,
+      phenotype_filename = phenotype_filename
+    ),
+    "Cannot save 'phenotype_table' to path"
+  )
+})

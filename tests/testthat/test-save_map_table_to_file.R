@@ -91,3 +91,15 @@ test_that("Give error due to too high chromosome number", {
     "default PLINK can handle a maximum of 95 chromosomes"
   )
 })
+
+test_that("write to impossible folder", {
+  map_table <- read_plink_map_file(get_plinkr_filename("toy_95.map"))
+  map_filename <- "/root/test.map"
+  expect_error(
+    save_map_table_to_file(
+      map_table = map_table,
+      map_filename = map_filename
+    ),
+    "Cannot save 'map_table' to path"
+  )
+})

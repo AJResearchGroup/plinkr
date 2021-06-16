@@ -18,7 +18,19 @@ save_phenotype_table_to_file <- function(
     showWarnings = FALSE,
     recursive = TRUE
   )
-
-  readr::write_lines(x = text_vector, file = phenotype_filename)
+  tryCatch(
+    suppressWarnings(
+      readr::write_lines(x = text_vector, file = phenotype_filename)
+    ),
+    error = function(e) {
+      stop(
+        "Cannot save 'phenotype_table' to path '", phenotype_filename, "'. \n",
+        "Maybe no permission to do so? \n",
+        "Note that 'save_phenotype_table_to_file' will (try to) create ",
+        "the (sub)folders needed. \n",
+        "Error message: ", e$message
+      )
+    }
+  )
   testthat::expect_true(file.exists(phenotype_filename))
 }

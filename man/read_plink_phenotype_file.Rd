@@ -15,12 +15,14 @@ a \link[tibble]{tibble} with the following columns:
 \itemize{
 \item \code{FID} The family ID
 \item \code{IID} Within-family ID (cannot be zero)
-\item One or more columns of phenotype values,
-columns can have any name
-}
-
-The \code{FID} and \code{IID} column names match the PLINK names, see
+\item \code{Px} One or more columns with phenotypic values,
+where \code{x} is the index of the trait:
+the first column is called \code{P1}, the second \code{P2},
+etcetera.
+The \code{FID}, \code{IID} and \code{Px} column names
+match the PLINK names, see
 \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
+}
 }
 \description{
 Read a PLINK raw phenotype file

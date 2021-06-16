@@ -3,10 +3,12 @@
 #' @return a \link[tibble]{tibble} with the following columns:
 #'   * \code{FID} The family ID
 #'   * \code{IID} Within-family ID (cannot be zero)
-#'   * One or more columns of phenotype values,
-#'     columns can have any name
-#'
-#' The \code{FID} and \code{IID} column names match the PLINK names, see
+#'   * \code{Px} One or more columns with phenotypic values,
+#'     where \code{x} is the index of the trait:
+#'     the first column is called \code{P1}, the second \code{P2},
+#'     etcetera.
+#' The \code{FID}, \code{IID} and \code{Px} column names
+#' match the PLINK names, see
 #' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
 #' @examples
 #' read_plink_phenotype_file(
@@ -36,7 +38,7 @@ read_plink_phenotype_file <- function(phenotype_filename) {
   names(t) <- c(
     "FID",
     "IID",
-    paste0("phenotype_", seq_len(n_phenotypes))
+    paste0("P", seq_len(n_phenotypes))
   )
   # Convert all columns to numeric
   t <- dplyr::mutate(

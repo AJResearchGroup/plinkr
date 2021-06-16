@@ -102,3 +102,34 @@ test_that("assoc_qt the PLINK way", {
   file.remove(phenotype_filename)
   file.remove(qassoc_filenames)
 })
+
+test_that("assoc_qt the PLINK way with phenotype file with header", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_on_ci()) return()
+  if (!is_plink_installed()) return()
+  # Without header works
+  args <- c(
+    "--ped", get_plinkr_filename("test_v1_7.ped"),
+    "--map", get_plinkr_filename("test_v1_7.map"),
+    "--assoc",
+    "--pheno", get_plinkr_filename("pheno.raw"),
+    "--all-pheno"
+  )
+  expect_silent(run_plink(args))
+  qassoc_filenames <- "plink.P1.qassoc"
+  expect_true(all(file.exists(qassoc_filenames)))
+  file.remove(qassoc_filenames)
+
+  # With header
+  args <- c(
+    "--ped", get_plinkr_filename("test_v1_7.ped"),
+    "--map", get_plinkr_filename("test_v1_7.map"),
+    "--assoc",
+    "--pheno", get_plinkr_filename("pheno_with_header.raw"),
+    "--all-pheno"
+  )
+  expect_silent(run_plink(args))
+  qassoc_filenames <- "plink.P1.qassoc"
+  expect_true(all(file.exists(qassoc_filenames)))
+  file.remove(qassoc_filenames)
+})

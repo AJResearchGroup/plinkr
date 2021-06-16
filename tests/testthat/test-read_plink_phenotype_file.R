@@ -1,10 +1,34 @@
-test_that("use", {
+test_that("use on phenotype file without a header", {
   phenotypes <- read_plink_phenotype_file(
     phenotype_filename = get_plinkr_filename("pheno.raw")
   )
+  # Standard PLINK names
   expect_true("FID" %in% names(phenotypes))
   expect_true("IID" %in% names(phenotypes))
-  expect_true("phenotype_1" %in% names(phenotypes))
+  expect_true("P1" %in% names(phenotypes))
+  expect_equal(6, nrow(phenotypes))
+})
+
+test_that("use on phenotype file with standard header", {
+  skip("WIP")
+  phenotypes <- read_plink_phenotype_file(
+    phenotype_filename = get_plinkr_filename("pheno_with_standard_header.raw")
+  )
+  # Standard PLINK names
+  expect_true("FID" %in% names(phenotypes))
+  expect_true("IID" %in% names(phenotypes))
+  expect_true("P1" %in% names(phenotypes))
+  expect_equal(6, nrow(phenotypes))
+})
+
+test_that("use on phenotype file with custom header", {
+  skip("WIP")
+  phenotypes <- read_plink_phenotype_file(
+    phenotype_filename = get_plinkr_filename("pheno_with_custom_header.raw")
+  )
+  expect_true("FID" %in% names(phenotypes))
+  expect_true("IID" %in% names(phenotypes))
+  expect_true("my_trait" %in% names(phenotypes))
   expect_equal(6, nrow(phenotypes))
 })
 

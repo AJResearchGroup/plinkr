@@ -2,11 +2,28 @@
 
 Newest versions at top.
 
-## plinkr 0.12 (unreleased)
+## plinkr 0.13 (unreleased)
 
 ### NEW FEATURES
 
  * ?Add vignette with PLINK tutorial
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+## plinkr 0.12 (2021-06-16)
+
+### NEW FEATURES
+
  * Can read `.bed`, `.bim` and `.fam` files
  * Check that maximally 95 chromosomes are used, as this is a (default)
    PLINK limit, see https://www.cog-genomics.org/plink/1.9/input#chr_set

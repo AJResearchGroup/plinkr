@@ -87,13 +87,6 @@ assoc_qt <- function(
   qassoc_table <- plinkr::read_plink_qassoc_files(
     qassoc_filenames = qassoc_filenames
   )
-
-  # Put trait name at first column
-  phenotype_names <- names(assoc_qt_params$phenotype_table)[c(-1, -2)]
-  n_snps <- nrow(assoc_qt_params$map_table)
-  qassoc_table$trait_name <- rep(phenotype_names, each = n_snps)
-  qassoc_table <- dplyr::relocate(qassoc_table, "trait_name")
-
   if (verbose) {
     message(paste(plinkr::read_plink_log_file(log_filename), collapse = "\n"))
   }

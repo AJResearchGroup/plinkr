@@ -34,9 +34,6 @@ test_that("for one trait, must match assoc_qt", {
     assoc_qt_params = assoc_qt_params,
     n = 1
   )
-  # assoc_qt_result_all will have the name of the trait added
-  assoc_qt_result_all$trait_name <- NULL
-
   expect_identical(assoc_qt_result_all, assoc_qt_result_nth)
   expect_silent(check_empty_plinkr_folder())
 })
@@ -57,10 +54,6 @@ test_that("for two trait, must match assoc_qt", {
     n = 2
   )
   expect_false(identical(assoc_qt_result_1, assoc_qt_result_2))
-
-  # assoc_qt_result_all will have the name of the trait added
-  assoc_qt_result_all$trait_name <- NULL
-
   expect_identical(assoc_qt_result_all[c(1, 2), ], assoc_qt_result_1)
   expect_identical(assoc_qt_result_all[c(3, 4), ], assoc_qt_result_2)
 })

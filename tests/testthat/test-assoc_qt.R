@@ -24,12 +24,6 @@ test_that("use", {
   expect_true("R2" %in% names(assoc_qt_result))
   expect_true("T" %in% names(assoc_qt_result))
   expect_true("P" %in% names(assoc_qt_result))
-  expect_true("trait_name" %in% names(assoc_qt_result))
-  expect_true(
-    all(
-      assoc_qt_result$trait_name == names(assoc_qt_params$phenotype_table)[3]
-    )
-  )
 })
 
 test_that("default demo", {

@@ -173,6 +173,9 @@
 #' \code{PLINK} \code{.qassoc} files.
 #' Use \link{read_plink_qassoc_files} to read one or more
 #' \code{PLINK} \code{.qassoc} files.
+#' @param qassoc_table the table that hold the result of an association
+#' with a quantitative trait, as created by \code{PLINK}
+#' and stored as a \code{.qassoc} file.
 #' @param regular_phenotype_value the regular phenotypic value
 #' @param sim_filename name of a \code{PLINK} \code{.sim} file
 #' @param simfreq_filename name of a \code{PLINK} \code{.simfreq} file
@@ -248,6 +251,7 @@ default_params_doc <- function(
   plinkr_folder,
   qassoc_filename,
   qassoc_filenames,
+  qassoc_table,
   regular_phenotype_value,
   sim_filename,
   simfreq_filename,

@@ -47,6 +47,7 @@ default_params_doc(
   plinkr_folder,
   qassoc_filename,
   qassoc_filenames,
+  qassoc_table,
   regular_phenotype_value,
   sim_filename,
   simfreq_filename,
@@ -282,6 +283,10 @@ Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.}
 \code{PLINK} \code{.qassoc} files.
 Use \link{read_plink_qassoc_files} to read one or more
 \code{PLINK} \code{.qassoc} files.}
+
+\item{qassoc_table}{the table that hold the result of an association
+with a quantitative trait, as created by \code{PLINK}
+and stored as a \code{.qassoc} file.}
 
 \item{regular_phenotype_value}{the regular phenotypic value}
 

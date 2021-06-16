@@ -28,6 +28,8 @@ Newest versions at top.
  * Check that maximally 95 chromosomes are used, as this is a (default)
    PLINK limit, see https://www.cog-genomics.org/plink/1.9/input#chr_set
  * Handle multiple phenotypes using in the PLINK way, using `--all-pheno`
+ * Add `save_qassoc_table_to_file` to save the results of a quantitive
+   association to file in the same way PLINK creates a `.qassoc` file
 
 ### MINOR IMPROVEMENTS
 

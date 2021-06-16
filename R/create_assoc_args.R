@@ -5,7 +5,7 @@
 #' @export
 create_assoc_args <- function(
   assoc_params,
-  plink_options
+  plink_options = create_plink_options()
 ) {
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)

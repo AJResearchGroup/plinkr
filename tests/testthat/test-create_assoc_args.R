@@ -35,8 +35,13 @@ test_that("v1.7", {
   )
   expect_equal(created, expected)
 
-  # PLINK v1.7 does not support this
+  # This does an association
+  expect_true("--assoc" %in% created)
+
+  # PLINK v1.7 does not support these
   expect_false("--allow-extra-chr" %in% created)
+  expect_false("--chr-set" %in% created)
+
 })
 
 test_that("v1.9, allow 95 chromosome", {
@@ -49,12 +54,17 @@ test_that("v1.9, allow 95 chromosome", {
     "--map", paste0(assoc_params$base_input_filename, ".map"),
     "--ped", paste0(assoc_params$base_input_filename, ".ped"),
     "--assoc",
+    # "--allow-extra-chr",
     "--chr-set", 95,
     "--maf", assoc_params$maf,
     "--ci", assoc_params$confidence_interval,
     "--out", assoc_params$base_output_filename
   )
   expect_equal(created, expected)
+
+  # This does an association
+  expect_true("--assoc" %in% created)
+
 })
 
 test_that("v2.0", {

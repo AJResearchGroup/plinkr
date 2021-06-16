@@ -1,8 +1,9 @@
 test_that("minimal use, v1.7", {
   if (!is_plink_installed()) return()
+  assoc_params  <- create_test_assoc_params()
   expect_silent(
     assoc(
-      assoc_params = create_test_assoc_params(),
+      assoc_params = assoc_params,
       plink_options = create_plink_v1_7_options()
     )
   )
@@ -153,5 +154,7 @@ test_that("All 95 chromosome numbers work", {
     n_individuals = 10
   )
   assoc_params$map_table$CHR <- 95 # nolint PLINK coding style
+  create_assoc_args(assoc_params = assoc_params)
+  dir.create(dirname(assoc_params$base_output_filename))
   expect_silent(assoc(assoc_params = assoc_params))
 })

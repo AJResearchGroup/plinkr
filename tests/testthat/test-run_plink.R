@@ -90,14 +90,14 @@ test_that("Give error due to too high chromosome number", {
   file.remove(map_filename)
 })
 
-test_that("PLINK allows 95 chromosomes", {
+test_that("PLINK allows 1234 chromosomes", {
   # https://github.com/chrchang/plink-ng/issues/182
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_params <- create_demo_assoc_params(
     n_individuals = 2
   )
-  assoc_params$map_table$CHR <- 95 # nolint PLINK coding style
+  assoc_params$map_table$CHR <- 1234 # nolint PLINK coding style
   ped_filename <- get_plinkr_tempfilename()
   map_filename <- get_plinkr_tempfilename()
   save_ped_table_to_file(
@@ -111,41 +111,11 @@ test_that("PLINK allows 95 chromosomes", {
   args <- c(
     "--ped", ped_filename,
     "--map", map_filename,
-    "--chr-set", 95
+    "--assoc",
+    "--allow-extra-chr"
   )
   expect_silent(
     suppressWarnings(run_plink(args))
-  )
-  file.remove(ped_filename)
-  file.remove(map_filename)
-})
-
-test_that("PLINK does not allows 96 chromosomes", {
-  # https://github.com/chrchang/plink-ng/issues/182
-  if (!is_plink_installed()) return()
-  set.seed(314)
-  assoc_params <- create_demo_assoc_params(
-    n_individuals = 2
-  )
-  assoc_params$map_table$CHR <- 96 # nolint PLINK coding style
-  ped_filename <- get_plinkr_tempfilename()
-  map_filename <- get_plinkr_tempfilename()
-  save_ped_table_to_file(
-    ped_table = assoc_params$ped_table,
-    ped_filename = ped_filename
-  )
-  save_map_table_to_file(
-    map_table = assoc_params$map_table,
-    map_filename = map_filename
-  )
-  args <- c(
-    "--ped", ped_filename,
-    "--map", map_filename,
-    "--chr-set", 96
-  )
-  expect_error(
-    suppressWarnings(run_plink(args)),
-    "Error: Invalid --chr-set parameter '96'. "
   )
   file.remove(ped_filename)
   file.remove(map_filename)

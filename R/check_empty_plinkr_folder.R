@@ -18,7 +18,8 @@ check_empty_plinkr_folder <- function(
       "Folders found in plinkr folder. \n",
       "plinkr_folder: ", plinkr_folder, " \n",
       "length(list.dirs(plinkr_folder)): ", length(dirs), " \n",
-      "head(list.dirs(plinkr_folder)): ", paste(head(dirs), collapse = ",")
+      "head(list.dirs(plinkr_folder)): ",
+        paste(utils::head(dirs), collapse = ",")
     )
   }
   filenames <- list.files(plinkr_folder, full.names = TRUE, recursive = TRUE)
@@ -28,7 +29,7 @@ check_empty_plinkr_folder <- function(
       "plinkr_folder: ", plinkr_folder, " \n",
       "length(list.files(plinkr_folder))): ", length(filenames), " \n",
       "head(list.files(plinkr_folder)): ",
-        paste(head(filenames), collapse = ",")
+        paste(utils::head(filenames), collapse = ",")
     )
   }
 }

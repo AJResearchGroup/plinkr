@@ -1,6 +1,7 @@
 #' Clear the \link{plinkr} cache
 #'
 #' Clear the \link{plinkr} cache.
+#' @inheritParams default_params_doc
 #' @return Nothing.
 #' @author Richèl J.C. Bilderbeek
 #' @export

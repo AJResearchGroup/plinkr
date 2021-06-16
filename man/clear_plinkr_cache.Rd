@@ -6,6 +6,10 @@
 \usage{
 clear_plinkr_cache(plinkr_folder = get_plinkr_folder())
 }
+\arguments{
+\item{plinkr_folder}{name of the folder where \link{plinkr}
+stores its temporary files}
+}
 \value{
 Nothing.
 }

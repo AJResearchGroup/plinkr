@@ -40,17 +40,15 @@ assoc_qt <- function(
   ped_table <- assoc_qt_params$ped_table
   map_table <- assoc_qt_params$map_table
   phenotype_table <- assoc_qt_params$phenotype_table
-  maf <- assoc_qt_params$maf
   n_phenotypes <- ncol(assoc_qt_params$phenotype_table) - 2
 
   # Filenames
   temp_folder <- plinkr::get_plinkr_tempfilename()
-  base_input_filename <- file.path(temp_folder, "assoc_qt_input")
-  output_filename_base <- file.path(temp_folder, "assoc_qt_output")
+  base_input_filename <- assoc_qt_params$base_input_filename
+  output_filename_base <- assoc_qt_params$base_output_filename
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
   phenotype_filename <- paste0(base_input_filename, ".phenotype")
-  qassoc_filename <- paste0(output_filename_base, ".qassoc")
   qassoc_filenames <- paste0(
     output_filename_base, ".P",
     seq_len(n_phenotypes), ".qassoc"
@@ -76,21 +74,14 @@ assoc_qt <- function(
 
   # PLINK will not do so and will not give an error
   dir.create(
-    dirname(qassoc_filename),
+    dirname(output_filename_base),
     showWarnings = FALSE,
     recursive = TRUE
   )
 
-  args <- c(
-    "--map", map_filename,
-    "--ped", ped_filename,
-    "--pheno", phenotype_filename,
-    "--all-pheno",
-    "--assoc",
-    "--allow-extra-chr",
-    "--chr-set", 95,
-    "--maf", maf,
-    "--out", output_filename_base
+  args <- plinkr::create_assoc_qt_args(
+    assoc_qt_params = assoc_qt_params,
+    plink_options = plink_options
   )
   plinkr::run_plink(
     args = args,

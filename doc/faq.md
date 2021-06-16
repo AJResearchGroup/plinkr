@@ -12,16 +12,10 @@ See [install.md](install.md)
 
 ### On which operating systems can I run `plinkr`?
 
-On Linux, Mac and Windows.
+On Linux and Windows.
 
 `plinkr` is tested to work on Linux by GitHub Actions,
-and tested to work on Windows by AppVeyor..
-
-Real users have confirmed `plinkr` works under Linux and Mac.
-Another real user needs to confirm/reject 
-that `plinkr` really works under Windows
-
-(note: I predict it does not :sunglasses:)
+and tested to work on Windows by AppVeyor.
 
 ### Why is this package not on CRAN?
 
@@ -58,4 +52,32 @@ for example:
 ```
 get_plink_version(plink_options)
 ```
+
+### Are there packages like `plinkr`?
+
+Yes, there are R packages that have a subset of the `plinkr` functionality
+
+### Why don't you use packages with the (subset of) the `plinkr` functionality?
+
+I do if I can, if I dare rely on those packages.
+
+These are package(s) I dare rely on:
+
+ * [genio](https://github.com/OchoaLab/genio)
+
+These are package(s) I dare not rely on:
+
+ * [quartzbio/plinker_pkg](https://github.com/quartzbio/plinker_pkg):
+   discontinued since 2018
+
+### What is unique about `plinkr`?
+
+ * It can use multiple version of PLINK and PLINK2,
+   allowing for a direct comparison
+ * It can simulate data
+ * It follows all (if not, let me know) quality guidelines
+   as described im the literature, specifically the
+   Tidyverse guidelines
+
+
 

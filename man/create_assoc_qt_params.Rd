@@ -8,7 +8,9 @@ create_assoc_qt_params(
   ped_table,
   map_table,
   phenotype_table,
-  maf = get_lowest_maf()
+  maf = get_lowest_maf(),
+  base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
+  base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")
 )
 }
 \arguments{
@@ -78,6 +80,12 @@ as obtained by \link{get_lowest_maf}
 The parameter name \code{maf} is named after the
 \code{PLINK} \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
+
+\item{base_input_filename}{the base of the filenames that are
+used as input for \code{PLINK}/\code{PLINK2}}
+
+\item{base_output_filename}{the base of the filenames that are
+used as output for \code{PLINK}/\code{PLINK2}}
 }
 \description{
 Create parameters to detect associations with quantitative traits
@@ -86,7 +94,10 @@ Use \link{create_test_assoc_qt_params}) to create a set of parameters
 that is used in testing.
 }
 \note{
-This function is named after the \code{--assoc} PLINK flag.
+This function is named after the \code{--assoc} \code{PLINK} flag.
+Where \code{--PLINK} uses phenotypic values to determine if an association
+is about a binary/case-control trait or a quantitative trait,
+\link{plinkr} uses functions named \link{assoc} and \link{assoc_qt}.
 }
 \author{
 Richèl J.C. Bilderbeek

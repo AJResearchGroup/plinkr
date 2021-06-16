@@ -167,6 +167,10 @@
 #' e.g. as can be obtained using \link{get_plink_versions}
 #' @param qassoc_filename name of a \code{PLINK} \code{.qassoc} file
 #' Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.
+#' @param qassoc_filenames name of one or more
+#' \code{PLINK} \code{.qassoc} files.
+#' Use \link{read_plink_qassoc_files} to read one or more
+#' \code{PLINK} \code{.qassoc} files.
 #' @param regular_phenotype_value the regular phenotypic value
 #' @param sim_filename name of a \code{PLINK} \code{.sim} file
 #' @param simfreq_filename name of a \code{PLINK} \code{.simfreq} file
@@ -240,6 +244,7 @@ default_params_doc <- function(
   plink_version,
   plink_versions,
   qassoc_filename,
+  qassoc_filenames,
   regular_phenotype_value,
   sim_filename,
   simfreq_filename,

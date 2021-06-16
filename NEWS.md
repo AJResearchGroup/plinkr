@@ -10,6 +10,7 @@ Newest versions at top.
  * Can read `.bed`, `.bim` and `.fam` files
  * Check that maximally 95 chromosomes are used, as this is a (default)
    PLINK limit, see https://www.cog-genomics.org/plink/1.9/input#chr_set
+ * Handle multiple phenotypes using in the PLINK way, using `--all-pheno`
 
 ### MINOR IMPROVEMENTS
 

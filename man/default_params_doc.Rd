@@ -45,6 +45,7 @@ default_params_doc(
   plink_version,
   plink_versions,
   qassoc_filename,
+  qassoc_filenames,
   regular_phenotype_value,
   sim_filename,
   simfreq_filename,
@@ -272,6 +273,11 @@ e.g. as can be obtained using \link{get_plink_versions}}
 
 \item{qassoc_filename}{name of a \code{PLINK} \code{.qassoc} file
 Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.}
+
+\item{qassoc_filenames}{name of one or more
+\code{PLINK} \code{.qassoc} files.
+Use \link{read_plink_qassoc_files} to read one or more
+\code{PLINK} \code{.qassoc} files.}
 
 \item{regular_phenotype_value}{the regular phenotypic value}
 

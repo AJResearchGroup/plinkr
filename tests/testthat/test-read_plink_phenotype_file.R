@@ -52,8 +52,8 @@ test_that("multiple traits", {
   # https://www.cog-genomics.org/plink/1.9/input#pheno
   expect_true("FID" %in% names(phenotypes))
   expect_true("IID" %in% names(phenotypes))
-  expect_true("phenotype_1" %in% names(phenotypes))
-  expect_true("phenotype_2" %in% names(phenotypes))
+  expect_true("P1" %in% names(phenotypes))
+  expect_true("P2" %in% names(phenotypes))
   expect_equal(6, nrow(phenotypes))
   file.remove(phenotype_filename)
 })

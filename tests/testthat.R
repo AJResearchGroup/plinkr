@@ -7,4 +7,4 @@ check_empty_plinkr_folder()
 
 test_check("plinkr")
 
-if (get_os() != "win") check_empty_plinkr_folder()
+check_empty_plinkr_folder()

@@ -39,7 +39,7 @@ read_plink_phenotype_file <- function(
     column_names <- c(
       "FID",
       "IID",
-      paste0("P", seq_len(nrow(text_matrix)))
+      paste0("P", seq_len(ncol(text_matrix) - 2))
     )
   }
 
@@ -47,6 +47,7 @@ read_plink_phenotype_file <- function(
     text_matrix,
     .name_repair = "minimal"
   )
+  testthat::expect_equal(length(names(t)), length(column_names))
   names(t) <- column_names
 
   # Convert all columns to numeric

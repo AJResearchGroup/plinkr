@@ -51,6 +51,17 @@ test_that("sub-sub-sub folder", {
 test_that("write to impossible folder", {
   ped_table <- read_plink_ped_file(get_plinkr_filename("demo_assoc.ped"))
   ped_filename <- "/root/test.ped"
+
+  expect_error(
+    save_ped_table_to_file(
+      ped_table = ped_table,
+      ped_filename = ped_filename
+    )
+  )
+
+  # Windows gives a different error message, cannot see which
+  if (get_os() == "win") return()
+
   expect_error(
     save_ped_table_to_file(
       ped_table = ped_table,

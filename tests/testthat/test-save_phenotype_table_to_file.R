@@ -59,11 +59,22 @@ test_that("write to impossible folder", {
     phenotype_filename = get_plinkr_filename("pheno.raw")
   )
   phenotype_filename <- "/root/test.phenotype"
+
+  expect_error(
+    save_phenotype_table_to_file(
+      phenotype_table = phenotype_table,
+      phenotype_filename = phenotype_filename
+    )
+  )
+
+  # Windows gives a different error message, cannot see which
+  if (get_os() == "win") return()
+
   expect_error(
     save_phenotype_table_to_file(
       phenotype_table = phenotype_table,
       phenotype_filename = phenotype_filename
     ),
-    "Cannot save"
+    "Cannot save 'phenotype_table' to path"
   )
 })

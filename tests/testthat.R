@@ -7,4 +7,4 @@ check_empty_plinkr_folder()
 
 test_check("plinkr")
 
-check_empty_plinkr_folder()
+if (get_os() == "unix") check_empty_plinkr_folder()

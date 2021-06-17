@@ -8,7 +8,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_qassoc_file <- function(qassoc_filename) {
-  testthat::expect_true(file.exists(qassoc_filename))
+  if (!file.exists(qassoc_filename)) {
+    stop(".qassoc file with path '", qassoc_filename, "' not found")
+  }
   text_lines_raw <- readr::read_lines(
     qassoc_filename
   )

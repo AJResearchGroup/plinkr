@@ -23,3 +23,11 @@ test_that("use, 1 SNP with NAs", {
     )
   )
 })
+
+test_that("abuse", {
+  expect_error(
+    read_plink_qassoc_file(
+      qassoc_filename = "abs.ent"
+    )
+  )
+})

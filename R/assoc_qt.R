@@ -41,6 +41,7 @@ assoc_qt <- function(
   map_table <- assoc_qt_params$map_table
   phenotype_table <- assoc_qt_params$phenotype_table
   n_phenotypes <- ncol(assoc_qt_params$phenotype_table) - 2
+  phenotype_names <- names(assoc_qt_params$phenotype_table)[c(-1, -2)]
 
   # Filenames
   base_input_filename <- assoc_qt_params$base_input_filename
@@ -48,8 +49,8 @@ assoc_qt <- function(
   map_filename <- paste0(base_input_filename, ".map")
   phenotype_filename <- paste0(base_input_filename, ".phenotype")
   qassoc_filenames <- paste0(
-    assoc_qt_params$base_output_filename, ".P",
-    seq_len(n_phenotypes), ".qassoc"
+    assoc_qt_params$base_output_filename, ".", phenotype_names,
+    ".qassoc"
   )
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 

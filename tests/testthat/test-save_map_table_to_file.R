@@ -93,18 +93,11 @@ test_that("Give error due to too high chromosome number", {
 })
 
 test_that("write to impossible folder", {
+  # Windows has no impossible folders
+  if (get_os() == "win") return()
+
   map_table <- read_plink_map_file(get_plinkr_filename("toy_95.map"))
   map_filename <- "/root/test.map"
-
-  expect_error(
-    save_map_table_to_file(
-      map_table = map_table,
-      map_filename = map_filename
-    )
-  )
-
-  # Windows gives a different error message, cannot see which
-  if (get_os() == "win") return()
 
   expect_error(
     save_map_table_to_file(

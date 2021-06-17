@@ -64,6 +64,6 @@ test_that("write to impossible folder", {
       phenotype_table = phenotype_table,
       phenotype_filename = phenotype_filename
     ),
-    "Cannot save 'phenotype_table' to path"
+    "Cannot save"
   )
 })

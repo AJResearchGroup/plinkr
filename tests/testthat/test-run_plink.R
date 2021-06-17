@@ -91,9 +91,9 @@ test_that("assoc_qt the PLINK way", {
     "--all-pheno"
   )
   expect_silent(run_plink(args))
+
   qassoc_filenames <- paste0(
-    "plink.P",
-    seq_len(ncol(assoc_qt_params$phenotype_table) - 2),
+    "plink.", names(assoc_qt_params$phenotype_table)[c(-1, -2)],
     ".qassoc"
   )
   expect_true(all(file.exists(qassoc_filenames)))

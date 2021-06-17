@@ -7,7 +7,9 @@ save_phenotype_table_to_file <- function(
   phenotype_filename
 ) {
   # A .phenotype file does not have a header
-  text_matrix <- as.matrix(phenotype_table)
+  text_matrix_header <- t(as.matrix(names(phenotype_table)))
+  text_matrix_body <- as.matrix(phenotype_table)
+  text_matrix <- rbind(text_matrix_header, text_matrix_body)
   text_vector <- rep(NA, nrow(text_matrix))
   for (i in seq_along(text_vector)) {
     text_vector[i] <- paste0(text_matrix[i, ], collapse = " ")

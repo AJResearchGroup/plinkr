@@ -17,7 +17,6 @@ test_that("save and read must result in same table", {
 })
 
 test_that("save and read must result in same table with correct column names", {
-  skip("WIP")
   phenotype_table <- read_plink_phenotype_file(
     phenotype_filename = get_plinkr_filename("pheno.raw")
   )

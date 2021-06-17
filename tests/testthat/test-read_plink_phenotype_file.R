@@ -10,7 +10,6 @@ test_that("use on phenotype file without a header", {
 })
 
 test_that("use on phenotype file with standard header", {
-  skip("WIP")
   phenotypes <- read_plink_phenotype_file(
     phenotype_filename = get_plinkr_filename("pheno_with_standard_header.raw")
   )
@@ -22,7 +21,6 @@ test_that("use on phenotype file with standard header", {
 })
 
 test_that("use on phenotype file with custom header", {
-  skip("WIP")
   phenotypes <- read_plink_phenotype_file(
     phenotype_filename = get_plinkr_filename("pheno_with_custom_header.raw")
   )

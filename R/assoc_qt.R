@@ -40,7 +40,6 @@ assoc_qt <- function(
   ped_table <- assoc_qt_params$ped_table
   map_table <- assoc_qt_params$map_table
   phenotype_table <- assoc_qt_params$phenotype_table
-  n_phenotypes <- ncol(assoc_qt_params$phenotype_table) - 2
   phenotype_names <- names(assoc_qt_params$phenotype_table)[c(-1, -2)]
 
   # Filenames

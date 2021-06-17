@@ -17,7 +17,8 @@ test_that("folders are detected", {
 })
 
 test_that("files are detected", {
-  clear_plinkr_cache()
+  if (get_os() == "win") return()
+
   dir.create(get_plinkr_folder(), showWarnings = FALSE, recursive = TRUE)
   plinkr_filename <- file.path(get_plinkr_tempfilename())
   expect_silent(check_empty_plinkr_folder(plinkr_folder = get_plinkr_folder()))

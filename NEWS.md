@@ -2,11 +2,29 @@
 
 Newest versions at top.
 
-## plinkr 0.13 (unreleased)
+## plinkr 0.14 (unreleased)
 
 ### NEW FEATURES
 
  * ?Add vignette with PLINK tutorial
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+## plinkr 0.13 (unreleased)
+
+### NEW FEATURES
+
+ * Phenotype files can have phenotype names
 
 ### MINOR IMPROVEMENTS
 

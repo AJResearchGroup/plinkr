@@ -66,11 +66,13 @@ run_plink <- function(
       "Tip: you should be able to copy paste this :-)"
     )
   }
-  text <- system2(
-    command = normalizePath(plink_exe_path),
-    args = args,
-    stdout = TRUE,
-    stderr = TRUE
+  suppressWarnings(
+    text <- system2(
+      command = normalizePath(plink_exe_path),
+      args = args,
+      stdout = TRUE,
+      stderr = TRUE
+    )
   )
   error_line_index <- stringr::str_which(text, "Error:")
   if (length(error_line_index) != 0) {

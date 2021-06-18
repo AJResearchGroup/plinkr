@@ -22,6 +22,16 @@ test_that("no duplicate --noweb flag", {
   )
 })
 
+test_that("error", {
+  if (!is_plink_installed()) return()
+  args <- c(
+    "--nonsense"
+  )
+  expect_error(
+    run_plink(args),
+    "you should be able to copy-paste this"
+  )
+})
 test_that("warnings", {
   if (!is_plink_installed()) return()
   set.seed(314)

@@ -34,7 +34,7 @@ test_that("most return as much values as rows in snvs", {
 
 test_that("most return as much values as rows in snvs", {
   calc_phenotype_function <- function(snvs) {
-    rep(42, nrow(snvs) * 2)
+    rep(42, 4)
   }
   expect_error(
     check_calc_phenotype_function(calc_phenotype_function),

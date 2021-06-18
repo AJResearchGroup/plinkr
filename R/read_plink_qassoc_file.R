@@ -7,7 +7,9 @@
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-read_plink_qassoc_file <- function(qassoc_filename) {
+read_plink_qassoc_file <- function(
+  qassoc_filename
+) {
   if (!file.exists(qassoc_filename)) {
     stop(".qassoc file with path '", qassoc_filename, "' not found")
   }
@@ -16,6 +18,9 @@ read_plink_qassoc_file <- function(qassoc_filename) {
   )
   # There is whitespace at start and end
   text_lines <- stringr::str_trim(text_lines_raw)
+
+  # Remove empty lines (added by PLINK v1.7)
+  text_lines <- text_lines[text_lines != ""]
 
   text_matrix <- stringr::str_split(
     string = text_lines,

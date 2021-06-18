@@ -26,8 +26,7 @@ test_that("read and save must result in same file, v1.7", {
     plink_options = create_plink_v1_7_options()
   )
   qassoc_table_again <- read_plink_qassoc_file(
-    qassoc_filename = qassoc_filename,
-    plink_options = create_plink_v1_7_options()
+    qassoc_filename = qassoc_filename
   )
   expect_identical(qassoc_table, qassoc_table_again)
   file.remove(qassoc_filename)

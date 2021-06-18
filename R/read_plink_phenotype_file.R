@@ -57,6 +57,7 @@ read_plink_phenotype_file <- function(
 
   # Convert all columns to numeric
   # FID is a character vector in the tutorial
+  FID <- NULL # nolint use Tidyverse global
   t <- dplyr::mutate(
     dplyr::select(t, dplyr::everything()),
     dplyr::across(dplyr::everything() & !FID, as.numeric)

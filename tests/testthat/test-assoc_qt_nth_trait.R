@@ -60,4 +60,5 @@ test_that("for two trait, must match assoc_qt", {
 
 test_that("assoc_qt_nth_trait tests cleans up temp files", {
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

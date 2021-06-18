@@ -24,9 +24,9 @@ read_plink_lmiss_file <- function(lmiss_filename) {
     "N_GENO",
     "F_MISS"
   )
-  expect_equal(expected_names, names(t))
+  testthat::expect_equal(expected_names, names(t))
 
-  t$CHR <- as.numeric(t$CHR) # use PLINK notation
+  t$CHR <- as.numeric(t$CHR) # nolint use PLINK notation
   t$N_MISS <- as.numeric(t$N_MISS) # nolint use PLINK notation
   t$N_GENO <- as.numeric(t$N_GENO) # nolint use PLINK notation
   t$F_MISS <- as.numeric(t$F_MISS) # nolint use PLINK notation

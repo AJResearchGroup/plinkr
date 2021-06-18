@@ -52,8 +52,9 @@ jobs:
         shell: Rscript {0}
 
       - name: Test coverage
-        run: covr::codecov()
-        shell: Rscript {0}
+        env:
+          INSTALL_PLINK: ${{ matrix.install_plink }}
+        run: if [[ "$INSTALL_PLINK" == true ]]; then Rscript -e "covr::codecov()"; fi
         if: matrix.os == 'ubuntu-latest'
 
       - name: Lint

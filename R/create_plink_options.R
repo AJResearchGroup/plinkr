@@ -33,7 +33,6 @@
 create_plink_options <- function(
   plink_version = get_default_plink_version(),
   plink_exe_path = get_default_plink_exe_path(),
-  add_noweb = TRUE,
   os = get_os()
 ) {
   plinkr::check_plink_version(plink_version)
@@ -41,7 +40,6 @@ create_plink_options <- function(
   list(
     plink_version = plink_version,
     plink_exe_path = plink_exe_path,
-    add_noweb = add_noweb,
     os = os
   )
 }

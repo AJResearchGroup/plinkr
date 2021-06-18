@@ -34,5 +34,135 @@ if (!is_plink_tutorial_data_installed()) {
 }
 ```
 
+# Data
 
+These are the tutorial data files:
 
+```{r}
+if (is_plink_tutorial_data_installed()) {
+  tutorial_data_filenames <- get_plink_tutorial_data_filenames()
+  tutorial_data_filenames
+}
+```
+
+Here we take a peek at those files, starting with `hapmap1.map`:
+
+```{r read_hapmap1_map}
+if (is_plink_tutorial_data_installed()) {
+  hapmap1_map_filename <- stringr::str_subset(
+    tutorial_data_filenames, "hapmap1.map"
+  )
+  knitr::kable(head(plinkr::read_plink_map_file(hapmap1_map_filename)))
+}
+```
+
+Now `hapmap1.ped`, of which we'll only show the first 10 columns:
+
+```{r read_hapmap1_ped}
+if (is_plink_tutorial_data_installed()) {
+  hapmap1_ped_filename <- stringr::str_subset(
+    tutorial_data_filenames, "hapmap1.ped"
+  )
+  knitr::kable(plinkr::read_plink_ped_file(hapmap1_ped_filename)[1:5, 1:10])
+}
+```
+
+Now `pop.phe`:
+
+```{r}
+if (is_plink_tutorial_data_installed()) {
+  pop_phe_filename <- stringr::str_subset(
+    tutorial_data_filenames, "pop.phe"
+  )
+  knitr::kable(
+    head(plinkr::read_plink_phenotype_file(pop_phe_filename))
+  )
+}
+```
+
+Now `qt.phe`:
+
+```{r}
+if (is_plink_tutorial_data_installed()) {
+  qt_phe_filename <- stringr::str_subset(
+    tutorial_data_filenames, "qt.phe"
+  )
+  knitr::kable(
+    head(plinkr::read_plink_phenotype_file(qt_phe_filename))
+  )
+}
+```
+
+# Phenotypes
+
+Two phenotypes were generated: a quantitative triat and a disease trait (affection status, coded 1=unaffected, 2=affected), based on a median split of the quantitative trait. The quantitative trait was generated as a function of three simple components:
+
+ * A random component
+ * Chinese versus Japanese identity
+ * A variant on chromosome 2, rs2222162 
+
+Remember, this model is not intended to be realistic. The following contingency table shows the joint distribution of disease and subpopulation:
+
+```{r}
+t_disease <- tibble::tribble(
+  ~disease , ~chinese, ~japanese,
+  "control", 34      , 11,
+  "case"   , 11      , 33
+)
+knitr::kable(t_disease)
+```
+
+which shows a strong relationship between these two variables. The next table shows the association between the variant rs2222162 and disease:
+
+```{r}
+t_variant <- tibble::tribble(
+  ~disease , ~g11, ~g12, ~g22,
+  "control", 17  , 22  , 6   ,
+  "case"   , 3   , 19  , 22
+)
+knitr::kable(t_variant)
+```
+
+Again, the strong association is clear. Note that the alleles have been recoded as 1 and 2 (this is not necessary for PLINK to work, however -- it can accept any coding for SNPs).
+
+In summary, we have a single causal variant that is associated with disease. Complicating factors are that this variant is one of 83534 SNPs and also that there might be some degree of confounding of the SNP-disease associations due to the subpopulation-disease association -- i.e. a possibility that population stratification effects will exist. Even though we might expect the two subpopulations to be fairly similar from an overall genetic perspective, and even though the sample size is small, this might still lead to an increase in false positive rates if not controlled for.
+
+We will use the affection status variable as the default variable for analysis (i.e. the sixth column in the PED file). The quantitative trait is in a separate alternate phenotype file, qt.phe. The file pop.phe contains a dummy phenotype that is coded 1 for Chinese individuals and 2 for Japanese individuals. We will use this in investigating between-population differences. You can view these alternate phenotype files in any text editor.
+
+In this tutorial dataset we focus on autosomal SNPs for simplicity, although PLINK does provide support for X and Y chromosome SNPs for a number of analyses. See the main documentation for further information. 
+
+# Using PLINK to analyse these data
+
+This tutorial is intended to introduce some of PLINK's features rather than provide exhaustive coverage of them. Futhermore, it is not intended as an analysis plan for whole genome data, or to represent anything close to 'best practice'.
+
+## Getting started
+
+Just typing plink and specifying a file with no further options is a good way to check that the file is intact, and to get some basic summary statistics about the file. 
+
+```{r}
+if (is_plink_tutorial_data_installed()) {
+  hapmap1_base_filename <- tools::file_path_sans_ext(hapmap1_map_filename)
+  # plinkr::run_plink(args = c("--file", hapmap1_base_filename))  
+}
+```
+
+## Making a binary PED file
+
+## Working with the binary PED file
+
+## Summary statistics: missing rates
+
+## Summary statistics: allele frequencies
+
+## Basic association analysis
+
+## Genotypic association models
+
+## Stratification analysis
+
+## Association analysis, accounting for clusters
+
+## Quantitative trait association analysis
+
+## Extracting a SNP of interest 
+    

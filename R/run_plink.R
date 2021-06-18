@@ -49,16 +49,8 @@ run_plink <- function(
 ) {
   plinkr::check_plink_options(plink_options)
   plinkr::check_plink_is_installed(plink_options)
+  plinkr::check_verbose(verbose)
 
-  if (plink_options$add_noweb) {
-    args <- c(args, "--noweb")
-  }
-  if (sum(args == "--noweb") > 1) {
-    stop(
-      "Duplicate --noweb flag \n",
-      "args: ", paste(args, collapse = " ")
-    )
-  }
   plink_exe_path <- plink_options$plink_exe_path
   if (verbose) {
     message(

@@ -6,11 +6,13 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * ?Add vignette with PLINK tutorial
+ * Add vignette with PLINK tutorial
+ * Add `install_plink_tutorial_data` and `uninstall_plink_tutorial_data`
+   to install and uninstall the PLINK tutorial data
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Use `--noweb` flag only in PLINK versions that support it
 
 ### BUG FIXES
 

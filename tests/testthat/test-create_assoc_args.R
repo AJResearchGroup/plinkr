@@ -31,7 +31,8 @@ test_that("v1.7", {
     "--assoc",
     "--maf", assoc_params$maf,
     "--ci", assoc_params$confidence_interval,
-    "--out", assoc_params$base_output_filename
+    "--out", assoc_params$base_output_filename,
+    "--noweb"
   )
   expect_equal(created, expected)
 
@@ -54,7 +55,6 @@ test_that("v1.9, allow 95 chromosome", {
     "--map", paste0(assoc_params$base_input_filename, ".map"),
     "--ped", paste0(assoc_params$base_input_filename, ".ped"),
     "--assoc",
-    # "--allow-extra-chr",
     "--chr-set", 95,
     "--maf", assoc_params$maf,
     "--ci", assoc_params$confidence_interval,
@@ -64,6 +64,9 @@ test_that("v1.9, allow 95 chromosome", {
 
   # This does an association
   expect_true("--assoc" %in% created)
+
+  # PLINK v1.9 does not support these
+  expect_false("--noweb" %in% created)
 
 })
 
@@ -79,4 +82,5 @@ test_that("v2.0", {
 
   # PLINK v2.0 does not support this
   expect_false("--assoc" %in% created)
+  expect_false("--noweb" %in% created)
 })

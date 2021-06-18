@@ -74,7 +74,7 @@ read_plink_ped_file <- function(ped_filename) {
   )
   names(t) <- names
 
-  t$FID <- as.numeric(t$FID) # nolint use PLINK notation
+  suppressWarnings(t$FID <- as.numeric(t$FID)) # nolint can be NA, use PLINK notation
   t$IID <- as.numeric(t$IID) # nolint use PLINK notation
   t$within_family_id_father <- as.numeric(t$within_family_id_father)
   t$within_family_id_mother <- as.numeric(t$within_family_id_mother)

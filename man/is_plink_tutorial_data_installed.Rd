@@ -4,7 +4,10 @@
 \alias{is_plink_tutorial_data_installed}
 \title{Determine if the \code{PLINK} tutorial data is installed.}
 \usage{
-is_plink_tutorial_data_installed()
+is_plink_tutorial_data_installed(plink_folder = get_plink_folder())
+}
+\arguments{
+\item{plink_folder}{folder where \code{PLINK} is installed}
 }
 \value{
 \code{TRUE} if the \code{PLINK} tutorial data

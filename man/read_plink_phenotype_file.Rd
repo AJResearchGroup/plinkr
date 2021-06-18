@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_plink_phenotype_file.R
 \name{read_plink_phenotype_file}
 \alias{read_plink_phenotype_file}
-\title{Read a PLINK raw phenotype file}
+\title{Read a \code{PLINK} raw phenotype file}
 \usage{
 read_plink_phenotype_file(phenotype_filename)
 }
@@ -25,7 +25,12 @@ match the PLINK names, see
 }
 }
 \description{
-Read a PLINK raw phenotype file
+Read a \code{PLINK} raw phenotype file.
+}
+\note{
+The filename extension used in the \code{PLINK}
+tutorial is \code{.phe}, where the \code{PLINK}
+'Getting started' uses \code{.raw}
 }
 \examples{
 read_plink_phenotype_file(

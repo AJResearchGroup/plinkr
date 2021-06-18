@@ -1,4 +1,5 @@
 test_that("use", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed()) return()
   expect_silent(
     read_plink_ped_file(
@@ -11,6 +12,7 @@ test_that("use", {
 })
 
 test_that("use, v1.7", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed(create_plink_v1_7_options())) return()
   t <- read_plink_ped_file(
     ped_filename = get_plink_example_filename(
@@ -34,6 +36,7 @@ test_that("use, v1.7", {
 })
 
 test_that("use, v1.9", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed(create_plink_v1_9_options())) return()
   t <- read_plink_ped_file(
     ped_filename = get_plink_example_filename(
@@ -79,4 +82,13 @@ test_that("save and load result from create_demo_ped_table()", {
   ped_table_again <- read_plink_ped_file(ped_filename = ped_filename)
   expect_identical(ped_table, ped_table_again)
   file.remove(ped_filename)
+})
+
+test_that("read PLINK tutorial files", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_plink_tutorial_data_installed()) return()
+  ped_filename <- stringr::str_subset(
+    get_plink_tutorial_data_filenames(), "hapmap1.ped"
+  )
+  expect_silent(read_plink_ped_file(ped_filename))
 })

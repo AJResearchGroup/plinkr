@@ -1,4 +1,9 @@
-#' Read a PLINK raw phenotype file
+#' Read a \code{PLINK} raw phenotype file
+#'
+#' Read a \code{PLINK} raw phenotype file.
+#' @note The filename extension used in the \code{PLINK}
+#' tutorial is \code{.phe}, where the \code{PLINK}
+#' 'Getting started' uses \code{.raw}
 #' @inheritParams default_params_doc
 #' @return a \link[tibble]{tibble} with the following columns:
 #'   * \code{FID} The family ID
@@ -51,9 +56,10 @@ read_plink_phenotype_file <- function(
   names(t) <- column_names
 
   # Convert all columns to numeric
+  # FID is a character vector in the tutorial
   t <- dplyr::mutate(
     dplyr::select(t, dplyr::everything()),
-    dplyr::across(dplyr::everything(), as.numeric)
+    dplyr::across(dplyr::everything() & !FID, as.numeric)
   )
   t
 }

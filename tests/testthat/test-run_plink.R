@@ -1,6 +1,31 @@
-test_that("show help", {
+test_that("show help, v1.7", {
   if (!is_plink_installed()) return()
-  expect_silent(run_plink(args = "--help"))
+  expect_silent(
+    run_plink(
+      args = "--help",
+      plink_options = create_plink_v1_7_options()
+    )
+  )
+})
+
+test_that("show help, v1.7", {
+  if (!is_plink_installed()) return()
+  expect_silent(
+    run_plink(
+      args = "--help",
+      plink_options = create_plink_v1_9_options()
+    )
+  )
+})
+
+test_that("show help, v2.0", {
+  if (!is_plink_installed()) return()
+  expect_silent(
+    run_plink(
+      args = "--help",
+      plink_options = create_plink_v2_0_options()
+    )
+  )
 })
 
 test_that("verbose", {

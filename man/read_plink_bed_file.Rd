@@ -21,6 +21,15 @@ Use \link{check_verbose} to detect if this argument is valid.}
 \description{
 Read a \code{PLINK}/\code{PLINK2} \code{.bed} file
 }
+\examples{
+bim <- read_plink_bim_file(get_plinkr_filename("demo_assoc.bim"))
+fam <- read_plink_fam_file(get_plinkr_filename("demo_assoc.fam"))
+read_plink_bed_file(
+  bed_filename = get_plinkr_filename("demo_assoc.bed"),
+  names_loci = bim$id,
+  names_ind = fam$id
+)
+}
 \author{
 Richèl J.C. Bilderbeek
 }

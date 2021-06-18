@@ -1,4 +1,16 @@
-test_that("use", {
+test_that("minimal use", {
+
+  ped_filenames <- stringr::str_subset(get_plinkr_filenames(), "\\.ped$")
+  for (ped_filename in ped_filenames) {
+    expect_silent(
+      read_plink_ped_file(
+        ped_filename = ped_filename
+      )
+    )
+  }
+})
+
+test_that("minimal use", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed()) return()
   expect_silent(

@@ -1,0 +1,34 @@
+#' Read a PLINK \code{.lmiss} file
+#' @inheritParams default_params_doc
+#' @return a \link[tibble]{tibble}
+#' @author Richèl J.C. Bilderbeek
+#' @export
+read_plink_lmiss_file <- function(lmiss_filename) {
+  # Use str_trim as PLINK adds whitespace around text
+  table <- stringr::str_split(
+    string = stringr::str_trim(
+      readr::read_lines(
+        file = lmiss_filename,
+        skip_empty_rows = TRUE
+      )
+    ),
+    pattern = "[:blank:]+",
+    simplify = TRUE
+  )
+  t <- tibble::as_tibble(table[-1, ], .name_repair = "minimal")
+  names(t) <- table[1, ]
+  expected_names <- c(
+    "CHR",
+    "SNP",
+    "N_MISS",
+    "N_GENO",
+    "F_MISS"
+  )
+  expect_equal(expected_names, names(t))
+
+  t$CHR <- as.numeric(t$CHR) # use PLINK notation
+  t$N_MISS <- as.numeric(t$N_MISS) # nolint use PLINK notation
+  t$N_GENO <- as.numeric(t$N_GENO) # nolint use PLINK notation
+  t$F_MISS <- as.numeric(t$F_MISS) # nolint use PLINK notation
+  t
+}

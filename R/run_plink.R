@@ -49,8 +49,11 @@ run_plink <- function(
 ) {
   plinkr::check_plink_options(plink_options)
   plinkr::check_plink_is_installed(plink_options)
-  plinkr::check_verbose(verbose)
 
+  # Will freeze otherwise
+  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+    args <- c(args, "--noweb")
+  }
   plink_exe_path <- plink_options$plink_exe_path
   if (verbose) {
     message(

@@ -8,7 +8,7 @@ test_that("show help, v1.7", {
   )
 })
 
-test_that("show help, v1.7", {
+test_that("show help, v1.9", {
   if (!is_plink_installed()) return()
   expect_silent(
     run_plink(
@@ -36,14 +36,6 @@ test_that("verbose", {
       plink_options = create_plink_options(),
       verbose = TRUE
     )
-  )
-})
-
-test_that("no duplicate --noweb flag", {
-  if (!is_plink_installed()) return()
-  expect_error(
-    run_plink(args = "--noweb"),
-    "Duplicate --noweb flag"
   )
 })
 

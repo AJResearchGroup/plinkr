@@ -21,6 +21,12 @@ make_bed <- function(
       "Use PLINK v1.7 or v1.9 instead. "
     )
   }
+  # PLINK will not do this for the user
+  dir.create(
+    dirname(base_output_filename),
+    showWarnings = FALSE,
+    recursive = TRUE
+  )
   args <- c(
     "--file", base_input_filename,
     "--make-bed",

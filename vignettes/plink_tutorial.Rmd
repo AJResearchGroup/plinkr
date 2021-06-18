@@ -18,6 +18,10 @@ knitr::opts_chunk$set(
 library(plinkr)
 ```
 
+```{r clear_plinkr_cache, echo = FALSE, include = FALSE}
+clear_plinkr_cache()
+```
+
 Here we follow the tutorial at [http://zzz.bwh.harvard.edu/plink/tutorial.shtml](http://zzz.bwh.harvard.edu/plink/tutorial.shtml).
 
 ```{r check_plink_is_installed}
@@ -34,12 +38,19 @@ if (!is_plink_tutorial_data_installed()) {
 }
 ```
 
+```{r good_to_go}
+good_to_go <- FALSE
+if (is_plink_installed() && is_plink_tutorial_data_installed()) {
+  good_to_go <- TRUE
+}
+```
+
 # Data
 
 These are the tutorial data files:
 
 ```{r}
-if (is_plink_tutorial_data_installed()) {
+if (good_to_go) {
   tutorial_data_filenames <- get_plink_tutorial_data_filenames()
   tutorial_data_filenames
 }
@@ -48,7 +59,7 @@ if (is_plink_tutorial_data_installed()) {
 Here we take a peek at those files, starting with `hapmap1.map`:
 
 ```{r read_hapmap1_map}
-if (is_plink_tutorial_data_installed()) {
+if (good_to_go) {
   hapmap1_map_filename <- stringr::str_subset(
     tutorial_data_filenames, "hapmap1.map"
   )
@@ -59,7 +70,7 @@ if (is_plink_tutorial_data_installed()) {
 Now `hapmap1.ped`, of which we'll only show the first 10 columns:
 
 ```{r read_hapmap1_ped}
-if (is_plink_tutorial_data_installed()) {
+if (good_to_go) {
   hapmap1_ped_filename <- stringr::str_subset(
     tutorial_data_filenames, "hapmap1.ped"
   )
@@ -70,7 +81,7 @@ if (is_plink_tutorial_data_installed()) {
 Now `pop.phe`:
 
 ```{r}
-if (is_plink_tutorial_data_installed()) {
+if (good_to_go) {
   pop_phe_filename <- stringr::str_subset(
     tutorial_data_filenames, "pop.phe"
   )
@@ -83,7 +94,7 @@ if (is_plink_tutorial_data_installed()) {
 Now `qt.phe`:
 
 ```{r}
-if (is_plink_tutorial_data_installed()) {
+if (good_to_go) {
   qt_phe_filename <- stringr::str_subset(
     tutorial_data_filenames, "qt.phe"
   )
@@ -139,18 +150,217 @@ This tutorial is intended to introduce some of PLINK's features rather than prov
 
 Just typing plink and specifying a file with no further options is a good way to check that the file is intact, and to get some basic summary statistics about the file. 
 
+
 ```{r}
-if (is_plink_tutorial_data_installed()) {
+if (good_to_go) {
   hapmap1_base_filename <- tools::file_path_sans_ext(hapmap1_map_filename)
-  # plinkr::run_plink(args = c("--file", hapmap1_base_filename))  
+  # This only works up until approx PLINK v1.7 
+  run_plink(
+    args = c("--file", hapmap1_base_filename), 
+    plink_options = create_plink_v1_7_options()
+  )
 }
 ```
+The information contained here can be summarized as follows:
+
+ * A banner showing copyright information and the version number
+ 
+ * `Skipping web check... [ --noweb ]` denotes that checking for a
+   PLINK update is disabled. This test is disabled, as -as of year 2021-
+   this causes the system to freeze
+
+ * A message indicating that the log file will be saved in plink.log. The name of the output file can be changed with the --out option -- e.g. specifying --out anal1 will generate a log file called anal1.log instead.
+
+ * A list of the command options specified is given next: in this case it is only a single option, --file hapmap1. By keeping track of log files, and naming each analysis with its own --out name, it makes it easier to keep track of when and how the different output files were generated.
+
+ * Next is some information on the number of markers and individuals read from the MAP and PED file. In total, just over 80,000 SNPs were read in from the MAP file. It is written "...83534 (of 83534)..." because some SNPs might be excluded (by making the physical position a negative number in the MAP file), in which case the first number would indicate how many SNPs are included. In this case, all SNPs are read in from the PED file. We also see that 89 individuals were read in from the PED file, and that all these individuals had valid phenotype information.
+
+ * Next, PLINK tells us that the phenotype is an affection status variable, as opposed to a quantitative trait, and lets us know what the missing values are.
+
+ * The next stage is the filtering stage -- individuals and/or SNPs are removed on the basis of thresholds. Please see this page for more information on setting thresholds. In this case we see that no individuals were removed, but almost 20,000 SNPs were removed, based on missingness (859) and frequency (16994). This particularly high proportion of removed SNPs is based on the fact that these are random HapMap SNPs in the Chinese and Japanese samples, rather than pre-selected markers on a whole-genome association product: there will be many more rare and monomorphic markers here than one would normally expect.
+
+ * Finally, a line is given that indicates when this analysis finished. You can see that it took 8 seconds (on my machine at least) to read in the file and apply the filters. 
+
+If other analyses had been requested, then the other output files generated would have been indicated in the log file. All output files that PLINK generates have the same format: root.extension where root is, by default, "plink" but can be changed with the --out option, and the extension will depend on the type of output file it is (a complete list of extensions is given here). 
 
 ## Making a binary PED file
 
+The first thing we will do is to make a binary PED file. 
+This more compact representation of the data saves space and speeds up subsequent analysis. 
+
+To make a binary PED file using `plinkr`, use `make_bed`:
+
+```{r}
+# Work in a temporary folder
+plinkr_folder <- get_plinkr_tempfilename()
+base_binary_filenames <- file.path(plinkr_folder, "hapmap1")
+
+if (good_to_go) {
+  binary_filenames <- make_bed(
+    base_input_filename = hapmap1_base_filename,
+    base_output_filename = base_binary_filenames
+  )
+  list.files(dirname(base_binary_filenames))
+}
+```
+
+Four files are created with this command:
+
+  * `hapmap1.bed`: the binary file that contains the raw genotype data
+  * `hapmap1.bim`: a revised map file, which contains two extra columns that 
+     give the allele names for each SNP
+  * `hapmap1.fam`: which is just the first six columns of `hapmap1.ped`
+  * `hapmap1.log`: the log file
+
+```{r}
+if (good_to_go) {
+  bim_filename <- stringr::str_subset(
+    binary_filenames, "hapmap1.bim"
+  )
+  bim_table <- plinkr::read_plink_bim_file(bim_filename = bim_filename)
+  knitr::kable(head(bim_table))
+}
+```
+
+```{r}
+if (good_to_go) {
+  fam_filename <- stringr::str_subset(
+    binary_filenames, "hapmap1.fam"
+  )
+  fam_table <- plinkr::read_plink_fam_file(fam_filename = fam_filename)
+  knitr::kable(head(fam_table))
+}
+```
+
+```{r}
+if (good_to_go) {
+  bed_filename <- stringr::str_subset(
+    binary_filenames, "hapmap1.bed"
+  )
+  bed_table <- read_plink_bed_file(
+    bed_filename = bed_filename,
+    bim_table$id, 
+    fam_table$id
+  )
+  knitr::kable(bed_table[1:5, 1:10])
+}
+```
+
+```{r}
+if (good_to_go) {
+  log_filename <- stringr::str_subset(
+    binary_filenames, "hapmap1.log"
+  )
+  log_text <- read_plink_log_file(
+    log_filename = log_filename
+  )
+  log_text
+}
+```
+
+You can view the `.bim`, `.fam` and `.log` files directly, as these
+are plain-text. The `.bed` file, however, is in a binary and computer-friendly
+format, use `plink::read_plink_bed_file` to read that file.
+    
 ## Working with the binary PED file
 
+To specify that the input data are in binary format, as opposed to the normal text PED/MAP format, just use the --bfile option instead of --file. To repeat the first command we ran (which just loads the data and prints some basic summary statistics):
+
+```{r}
+if (good_to_go) {
+  plinkr::run_plink(
+    args = c("--bfile", base_binary_filenames),
+    plink_options = create_plink_v1_7_options()
+  )
+}
+```
+
+The things to note here:
+
+ * That three files hapmap1.bim, hapmap1.fam and hapmap1.bed were loaded instead of the usual two files. That is, hapmap1.ped and hapmap1.map are not used in this analysis, and could in fact be deleted now.
+
+ * The data are loaded in much more quickly -- based on the timestamp at the beginning and end of the log output, this took 2 seconds instead of 10. 
+
 ## Summary statistics: missing rates
+
+Next, we shall generate some simple summary statistics on rates of missing data in the file, using the --missing option:
+
+```{r}
+base_miss_stat_filenames <- file.path(plinkr_folder, "miss_stat")
+
+if (good_to_go) {
+  plinkr::run_plink(
+    args = c(
+      "--bfile", base_binary_filenames,
+      "--missing",
+      "--out", base_miss_stat_filenames
+    ),
+    plink_options = create_plink_v1_7_options()
+  )
+  miss_stat_filenames <- list.files(
+    dirname(base_miss_stat_filenames), 
+    pattern = basename(base_miss_stat_filenames),
+    full.names = TRUE
+  )
+  miss_stat_filenames
+}
+
+```
+which should generate the following output:
+
+```{r}
+if (good_to_go) {
+  read_plink_log_file(stringr::str_subset(miss_stat_filenames, "miss_stat.log"))
+}
+```
+
+Here we see that no individuals were removed for low 
+genotypes (MIND > 0.1 implies that we accept people 
+with less than 10 percent missingness).
+
+The per individual and per SNP (after excluding individuals on the basis of low genotyping) rates are then output to the files miss_stat.imiss and miss_stat.lmiss respectively. If we had not specified an --out option, the root output filename would have defaulted to "plink".
+
+These output files are standard, plain text files that can be viewed in any text editor, pager, spreadsheet or statistics package (albeit one that can handle large files). Taking a look at the file miss_stat.lmiss, for example using the more command which is present on most systems:
+more miss_stat.lmiss
+
+```{r}
+if (good_to_go) {
+  lmiss_table <- read_plink_lmiss_file(
+    stringr::str_subset(miss_stat_filenames, "miss_stat.lmiss")
+  )
+  knitr::kable(head(lmiss_table))
+}
+```
+we see
+
+      CHR          SNP   N_MISS     F_MISS
+        1    rs6681049        0          0
+        1    rs4074137        0          0
+        1    rs7540009        0          0
+        1    rs1891905        0          0
+        1    rs9729550        0          0
+        1    rs3813196        0          0
+        1    rs6704013        2  0.0224719
+        1     rs307347       12   0.134831
+        1    rs9439440        2  0.0224719
+      ...
+
+That is, for each SNP, we see the number of missing individuals (N_MISS) and the proportion of individuals missing (F_MISS). Similarly:
+more miss_stat.imiss
+
+we see
+
+         FID          IID MISS_PHENO     N_MISS     F_MISS
+      HCB181            1          N        671 0.00803266
+      HCB182            1          N       1156  0.0138387
+      HCB183            1          N        498 0.00596164
+      HCB184            1          N        412 0.00493212
+      HCB185            1          N        329 0.00393852
+      HCB186            1          N       1233  0.0147605
+      HCB187            1          N        258 0.00308856
+      ...
+
+The final column is the actual genotyping rate for that individual -- we see the genotyping rate is very high here. 
 
 ## Summary statistics: allele frequencies
 
@@ -166,3 +376,8 @@ if (is_plink_tutorial_data_installed()) {
 
 ## Extracting a SNP of interest 
     
+## Cleanup
+
+```{r clear_plinkr_cache_at_end}
+clear_plinkr_cache()
+```

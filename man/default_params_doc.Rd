@@ -21,6 +21,7 @@ default_params_doc(
   epistatic_phenotype_value,
   example_filename,
   fam_filename,
+  lmiss_filename,
   log_filename,
   maf,
   mafs,
@@ -120,6 +121,9 @@ epistatic phenotype is expressed}
 
 \item{fam_filename}{name of a \code{PLINK} \code{.fam} file
 Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.}
+
+\item{lmiss_filename}{name of a \code{PLINK} \code{.lmiss} file
+Use \link{read_plink_lmiss_file} to read a \code{PLINK} \code{.lmiss} file.}
 
 \item{log_filename}{name of a \code{PLINK} \code{.log} file}
 

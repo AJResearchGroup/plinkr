@@ -55,12 +55,10 @@ jobs:
         env:
           INSTALL_PLINK: ${{ matrix.install_plink }}
         run: if [[ "$INSTALL_PLINK" == true ]]; then Rscript -e "covr::codecov()"; fi
-        if: matrix.os == 'ubuntu-latest'
 
       - name: Lint
         run: lintr::lint_package()
         shell: Rscript {0}
-        if: matrix.os == 'windows-latest'        
 
       - name: Install plinkr
         run: remotes::install_github("richelbilderbeek/plinkr")

@@ -36,3 +36,7 @@ test_that("3 SNPs", {
   )
   expect_equal(names(snvs), expected_names)
 })
+
+test_that("create_snvs tests cleans up temp files", {
+  expect_silent(check_empty_plinkr_folder())
+})

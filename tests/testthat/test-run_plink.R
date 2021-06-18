@@ -31,7 +31,9 @@ test_that("error", {
     run_plink(args),
     "you should be able to copy-paste this"
   )
+  expect_silent(check_empty_plinkr_folder())
 })
+
 test_that("warnings", {
   if (!is_plink_installed()) return()
   set.seed(314)
@@ -142,4 +144,8 @@ test_that("assoc_qt the PLINK way with phenotype file with header", {
   qassoc_filenames <- "plink.P1.qassoc"
   expect_true(all(file.exists(qassoc_filenames)))
   file.remove(qassoc_filenames)
+})
+
+test_that("run_plink tests cleans up temp files", {
+  expect_silent(check_empty_plinkr_folder())
 })

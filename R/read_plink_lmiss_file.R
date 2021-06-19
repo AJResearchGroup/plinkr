@@ -1,6 +1,15 @@
 #' Read a PLINK \code{.lmiss} file
 #' @inheritParams default_params_doc
-#' @return a \link[tibble]{tibble}
+#' @return a \link[tibble]{tibble} with column names:
+#'   * \code{CHR} .
+#'   * \code{SNP} Within-family ID (cannot be zero)
+#'   * \code{N_MISS} Within-family ID of father
+#'   * \code{N_GENO} Within-family ID of mother
+#'   * \code{F_MISS} Sex code
+#'   * \code{case_control_code} Case control code
+#'   * \code{snv_[x][y]} Nucleotide for the \code{x}th variant
+#'
+#' These column names are the names used by \code{PLINK}.
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_lmiss_file <- function(lmiss_filename) {

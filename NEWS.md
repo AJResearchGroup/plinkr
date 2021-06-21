@@ -10,6 +10,9 @@ Newest versions at top.
  * Add `install_plink_tutorial_data` and `uninstall_plink_tutorial_data`
    to install and uninstall the PLINK tutorial data
  * Add `read_plink_lmiss_file` to read PLINK `.lmiss` files
+ * Add 'read_plink_imiss_file' to read PLINK `.imiss` files
+ * Add 'missing_from_bfiles' to run a PLINK `--missing` analysis from
+   PLINK binary files
 
 ### MINOR IMPROVEMENTS
 

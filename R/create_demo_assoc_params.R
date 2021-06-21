@@ -60,12 +60,12 @@ create_demo_assoc_params <- function(
   map_table <- plinkr::create_demo_map_table(
     traits = traits
   )
-  phenotype_table <- create_demo_phenotype_table(
+  phe_table <- create_demo_phe_table(
     ped_table = ped_table,
     traits = traits
   )
-  names(phenotype_table) <- c(names(phenotype_table)[1:2], "case_control_code")
-  ped_table$case_control_code <- phenotype_table$case_control_code
+  names(phe_table) <- c(names(phe_table)[1:2], "case_control_code")
+  ped_table$case_control_code <- phe_table$case_control_code
   plinkr::create_assoc_params(
     ped_table = ped_table,
     map_table = map_table,

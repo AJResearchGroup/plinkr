@@ -1,39 +1,39 @@
 test_that("use", {
-  phenotype_table <- read_plink_phenotype_file(
-    phenotype_filename = get_plinkr_filename("pheno.raw")
+  phe_table <- read_plink_phe_file(
+    phe_filename = get_plinkr_filename("pheno.raw")
   )
-  expect_silent(check_phenotype_table(phenotype_table))
+  expect_silent(check_phe_table(phe_table))
 })
 
 test_that("use", {
   expect_silent(
-    check_phenotype_table(
-      create_demo_phenotype_table()
+    check_phe_table(
+      create_demo_phe_table()
     )
   )
 })
 
 test_that("case-control values in first column", {
-  phenotype_table <- create_demo_phenotype_table()
+  phe_table <- create_demo_phe_table()
   # All ones and twos
-  phenotype_table$random <- 2
-  phenotype_table$random[1] <- 1
+  phe_table$random <- 2
+  phe_table$random[1] <- 1
   expect_error(
-    check_phenotype_table(
-      phenotype_table
+    check_phe_table(
+      phe_table
     )
   )
 })
 
 test_that("use, second column", {
-  phenotype_table <- create_demo_phenotype_table()
+  phe_table <- create_demo_phe_table()
   # All zeroes, ones and twos
-  phenotype_table$additive <- 2
-  phenotype_table$additive[1] <- 0
-  phenotype_table$additive[2] <- 1
+  phe_table$additive <- 2
+  phe_table$additive[1] <- 0
+  phe_table$additive[2] <- 1
   expect_error(
-    check_phenotype_table(
-      phenotype_table
+    check_phe_table(
+      phe_table
     )
   )
 })

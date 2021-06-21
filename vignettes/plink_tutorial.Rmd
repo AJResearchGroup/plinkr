@@ -97,7 +97,7 @@ if (good_to_go) {
     tutorial_data_filenames, "pop.phe"
   )
   knitr::kable(
-    head(plinkr::read_plink_phenotype_file(pop_phe_filename))
+    head(plinkr::read_plink_phe_file(pop_phe_filename))
   )
 }
 ```
@@ -110,7 +110,7 @@ if (good_to_go) {
     tutorial_data_filenames, "qt.phe"
   )
   knitr::kable(
-    head(plinkr::read_plink_phenotype_file(qt_phe_filename))
+    head(plinkr::read_plink_phe_file(qt_phe_filename))
   )
 }
 ```

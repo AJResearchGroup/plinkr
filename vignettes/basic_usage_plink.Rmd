@@ -70,7 +70,7 @@ effect, as all alleles are present frequently enough.
 The `--pheno pheno.raw` means that PLINK will look for a files named `pheno.raw`. PLINK does not supply this example file, hence we will use one supplied by plinkr:
 
 ```{r}
-phenotype_filename <- get_plinkr_filename("pheno.raw")
+phe_filename <- get_plinkr_filename("pheno.raw")
 ```
 
 The `--out run1` means that PLINK will create a file that starts with  `run1`. In this context, where we test for an association for a quantitive trait, this file will be called `run1.qassoc`. 
@@ -89,7 +89,7 @@ if (is_plink_installed()) {
   plinkr::run_plink(
     args = c(
       "--file", mydata, # mydata.ped and mydata.map
-      "--pheno", phenotype_filename,
+      "--pheno", phe_filename,
       "--assoc",
       "--maf", "0.05",
       "--out", output_filename_base
@@ -141,7 +141,7 @@ These are:
 ```{r how_phenotypes}
 if (is_plink_installed()) {
   knitr::kable(
-    read_plink_phenotype_file(phenotype_filename)
+    read_plink_phe_file(phe_filename)
   )
 }
 ```

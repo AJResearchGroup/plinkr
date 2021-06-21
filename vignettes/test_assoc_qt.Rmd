@@ -94,7 +94,7 @@ one phenotype. Instead, we use a table of one or more phenotypic
 values:
 
 ```{r}
-knitr::kable(assoc_qt_params$phenotype_table)
+knitr::kable(assoc_qt_params$phe_table)
 ```
 
 These trait values, that is the values in the column `trait`,
@@ -154,9 +154,9 @@ from `trait` to `trait_x`:
 ```{r}
 if (is_plink_installed()) {
   # Rename
-  names(assoc_qt_params$phenotype_table) <-
+  names(assoc_qt_params$phe_table) <-
     c(
-      names(assoc_qt_params$phenotype_table)[-3],
+      names(assoc_qt_params$phe_table)[-3],
       "trait_x"
     )
 }
@@ -167,10 +167,10 @@ called `trait_y`:
 
 ```{r}
 if (is_plink_installed()) {
-  assoc_qt_params$phenotype_table$trait_y <-
-    seq_len(nrow(assoc_qt_params$phenotype_table)) *
-    seq_len(nrow(assoc_qt_params$phenotype_table))
-  knitr::kable(assoc_qt_params$phenotype_table)
+  assoc_qt_params$phe_table$trait_y <-
+    seq_len(nrow(assoc_qt_params$phe_table)) *
+    seq_len(nrow(assoc_qt_params$phe_table))
+  knitr::kable(assoc_qt_params$phe_table)
 }
 ```
 

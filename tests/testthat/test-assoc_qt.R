@@ -81,9 +81,9 @@ test_that("demo on additive only", {
 test_that("use quantitative traits that are either 1 or 2", {
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_test_assoc_qt_params()
-  n_individuals <- nrow(assoc_qt_params$phenotype_table)
-  assoc_qt_params$phenotype_table$case_control_code <- NULL
-  assoc_qt_params$phenotype_table$special_phenotype <- sample(
+  n_individuals <- nrow(assoc_qt_params$phe_table)
+  assoc_qt_params$phe_table$case_control_code <- NULL
+  assoc_qt_params$phe_table$special_phenotype <- sample(
     c(1, 2), size = n_individuals, replace = TRUE)
   expect_error(
     assoc_qt(

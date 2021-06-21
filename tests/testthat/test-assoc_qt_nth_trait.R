@@ -41,8 +41,8 @@ test_that("for one trait, must match assoc_qt", {
 test_that("for two trait, must match assoc_qt", {
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_test_assoc_qt_params()
-  assoc_qt_params$phenotype_table$trait_y <-
-    seq_len(nrow(assoc_qt_params$phenotype_table)) ^ 2
+  assoc_qt_params$phe_table$trait_y <-
+    seq_len(nrow(assoc_qt_params$phe_table)) ^ 2
 
   assoc_qt_result_all <- assoc_qt(assoc_qt_params = assoc_qt_params)
   assoc_qt_result_1 <- assoc_qt_nth_trait(

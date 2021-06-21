@@ -15,21 +15,21 @@
 create_assoc_qt_params <- function(
   ped_table,
   map_table,
-  phenotype_table,
+  phe_table,
   maf = get_lowest_maf(),
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
   base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")
 ) {
   plinkr::check_ped_table(ped_table = ped_table)
   plinkr::check_map_table(map_table = map_table)
-  plinkr::check_phenotype_table(phenotype_table = phenotype_table)
+  plinkr::check_phe_table(phe_table = phe_table)
   plinkr::check_maf(maf = maf)
   plinkr::check_base_input_filename(base_input_filename = base_input_filename)
   plinkr::check_base_output_filename(base_output_filename)
   list(
     ped_table = ped_table,
     map_table = map_table,
-    phenotype_table = phenotype_table,
+    phe_table = phe_table,
     maf = maf,
     base_input_filename = base_input_filename,
     base_output_filename = base_output_filename

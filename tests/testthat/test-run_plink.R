@@ -60,7 +60,7 @@ test_that("warnings", {
   )
   ped_filename <- get_plinkr_tempfilename()
   map_filename <- get_plinkr_tempfilename()
-  phenotype_filename <- get_plinkr_tempfilename()
+  phe_filename <- get_plinkr_tempfilename()
   save_ped_table_to_file(
     ped_table = assoc_qt_params$ped_table,
     ped_filename = ped_filename
@@ -69,15 +69,15 @@ test_that("warnings", {
     map_table = assoc_qt_params$map_table,
     map_filename = map_filename
   )
-  save_phenotype_table_to_file(
-    phenotype_table = assoc_qt_params$phenotype_table,
-    phenotype_filename = phenotype_filename
+  save_phe_table_to_file(
+    phe_table = assoc_qt_params$phe_table,
+    phe_filename = phe_filename
   )
   args <- c(
     "--ped", ped_filename,
     "--map", map_filename,
     "--assoc",
-    "--pheno", phenotype_filename
+    "--pheno", phe_filename
   )
   expect_warning(
     run_plink(args),
@@ -85,7 +85,7 @@ test_that("warnings", {
   )
   file.remove(ped_filename)
   file.remove(map_filename)
-  file.remove(phenotype_filename)
+  file.remove(phe_filename)
 })
 
 test_that("assoc_qt the PLINK way", {
@@ -99,7 +99,7 @@ test_that("assoc_qt the PLINK way", {
   )
   ped_filename <- get_plinkr_tempfilename()
   map_filename <- get_plinkr_tempfilename()
-  phenotype_filename <- get_plinkr_tempfilename()
+  phe_filename <- get_plinkr_tempfilename()
   save_ped_table_to_file(
     ped_table = assoc_qt_params$ped_table,
     ped_filename = ped_filename
@@ -108,27 +108,27 @@ test_that("assoc_qt the PLINK way", {
     map_table = assoc_qt_params$map_table,
     map_filename = map_filename
   )
-  save_phenotype_table_to_file(
-    phenotype_table = assoc_qt_params$phenotype_table,
-    phenotype_filename = phenotype_filename
+  save_phe_table_to_file(
+    phe_table = assoc_qt_params$phe_table,
+    phe_filename = phe_filename
   )
   args <- c(
     "--ped", ped_filename,
     "--map", map_filename,
     "--assoc",
-    "--pheno", phenotype_filename,
+    "--pheno", phe_filename,
     "--all-pheno"
   )
   expect_silent(run_plink(args))
 
   qassoc_filenames <- paste0(
-    "plink.", names(assoc_qt_params$phenotype_table)[c(-1, -2)],
+    "plink.", names(assoc_qt_params$phe_table)[c(-1, -2)],
     ".qassoc"
   )
   expect_true(all(file.exists(qassoc_filenames)))
   file.remove(ped_filename)
   file.remove(map_filename)
-  file.remove(phenotype_filename)
+  file.remove(phe_filename)
   file.remove(qassoc_filenames)
 })
 

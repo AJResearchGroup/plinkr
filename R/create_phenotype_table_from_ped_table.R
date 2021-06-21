@@ -17,7 +17,7 @@
 #' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_phenotype_table_from_ped_table <- function(ped_table) { # nolint indeed a long and descriptive name
+create_phe_table_from_ped_table <- function(ped_table) { # nolint indeed a long and descriptive name
   plinkr::check_ped_table(ped_table)
 
   tibble::tibble(

@@ -34,9 +34,9 @@ default_params_doc(
   ped_filename,
   ped_table,
   phenotype,
-  phenotype_filename,
+  phe_filename,
   phenotype_increase,
-  phenotype_table,
+  phe_table,
   phenotypes,
   phenotype_value_dominant,
   phenotype_value_recessive,
@@ -223,15 +223,15 @@ this phenotype
 }
 }}
 
-\item{phenotype_filename}{name of a raw phenotype file.
-Use \link{read_plink_phenotype_file} to read a raw phenotype file.}
+\item{phe_filename}{name of a raw phenotype file.
+Use \link{read_plink_phe_file} to read a raw phenotype file.}
 
 \item{phenotype_increase}{the phenotypic value increase per rare allele,
 for an additive trait.}
 
-\item{phenotype_table}{a table of phenotypes.
+\item{phe_table}{a table of phenotypes.
 
-A \code{phenotype_table} is a \link[tibble]{tibble} with these columns:
+A \code{phe_table} is a \link[tibble]{tibble} with these columns:
 \itemize{
 \item \code{FID} The family ID
 \item \code{IID} Within-family ID
@@ -242,8 +242,8 @@ columns can have any name
 
 Thes names match the PLINK column
 names (\url{https://www.cog-genomics.org/plink/1.9/input#pheno}).
-Use \link{read_plink_phenotype_file} to read a phenotype file.
-Use \link{check_phenotype_table} to test if a phenotype table is valid.}
+Use \link{read_plink_phe_file} to read a phenotype file.
+Use \link{check_phe_table} to test if a phenotype table is valid.}
 
 \item{phenotypes}{one ore more phenotypes,
 named after their genetic background:

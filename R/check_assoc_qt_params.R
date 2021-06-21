@@ -9,14 +9,14 @@ check_assoc_qt_params <- function(assoc_qt_params) {
   testthat::expect_true(is.list(assoc_qt_params))
   testthat::expect_true("ped_table" %in% names(assoc_qt_params))
   testthat::expect_true("map_table" %in% names(assoc_qt_params))
-  testthat::expect_true("phenotype_table" %in% names(assoc_qt_params))
+  testthat::expect_true("phe_table" %in% names(assoc_qt_params))
   testthat::expect_true("maf" %in% names(assoc_qt_params))
   testthat::expect_true("base_input_filename" %in% names(assoc_qt_params))
   testthat::expect_true("base_output_filename" %in% names(assoc_qt_params))
   testthat::expect_silent(plinkr::check_ped_table(assoc_qt_params$ped_table))
   testthat::expect_silent(plinkr::check_map_table(assoc_qt_params$map_table))
   testthat::expect_silent(
-    plinkr::check_phenotype_table(assoc_qt_params$phenotype_table)
+    plinkr::check_phe_table(assoc_qt_params$phe_table)
   )
   testthat::expect_silent(plinkr::check_maf(assoc_qt_params$maf))
   testthat::expect_silent(

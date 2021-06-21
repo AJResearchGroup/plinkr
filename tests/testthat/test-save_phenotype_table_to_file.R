@@ -1,55 +1,55 @@
 test_that("save and read must result in same table", {
-  phenotype_table <- read_plink_phenotype_file(
-    phenotype_filename = get_plinkr_filename("pheno.raw")
+  phe_table <- read_plink_phe_file(
+    phe_filename = get_plinkr_filename("pheno.raw")
   )
-  phenotype_filename <- get_plinkr_tempfilename()
-  save_phenotype_table_to_file(
-    phenotype_table = phenotype_table,
-    phenotype_filename = phenotype_filename
+  phe_filename <- get_plinkr_tempfilename()
+  save_phe_table_to_file(
+    phe_table = phe_table,
+    phe_filename = phe_filename
   )
-  phenotype_table_again <- read_plink_phenotype_file(
-    phenotype_filename = phenotype_filename
+  phe_table_again <- read_plink_phe_file(
+    phe_filename = phe_filename
   )
-  expect_equal(names(phenotype_table), names(phenotype_table_again))
-  expect_equal(nrow(phenotype_table), nrow(phenotype_table_again))
-  expect_equal(ncol(phenotype_table), ncol(phenotype_table_again))
-  file.remove(phenotype_filename)
+  expect_equal(names(phe_table), names(phe_table_again))
+  expect_equal(nrow(phe_table), nrow(phe_table_again))
+  expect_equal(ncol(phe_table), ncol(phe_table_again))
+  file.remove(phe_filename)
 })
 
 test_that("save and read must result in same table with correct column names", {
-  phenotype_table <- read_plink_phenotype_file(
-    phenotype_filename = get_plinkr_filename("pheno.raw")
+  phe_table <- read_plink_phe_file(
+    phe_filename = get_plinkr_filename("pheno.raw")
   )
-  names(phenotype_table) <- c(names(phenotype_table)[1:2], "my_phenotype")
-  phenotype_filename <- get_plinkr_tempfilename()
-  save_phenotype_table_to_file(
-    phenotype_table = phenotype_table,
-    phenotype_filename = phenotype_filename
+  names(phe_table) <- c(names(phe_table)[1:2], "my_phenotype")
+  phe_filename <- get_plinkr_tempfilename()
+  save_phe_table_to_file(
+    phe_table = phe_table,
+    phe_filename = phe_filename
   )
-  readLines(phenotype_filename)
-  phenotype_table_again <- read_plink_phenotype_file(
-    phenotype_filename = phenotype_filename
+  readLines(phe_filename)
+  phe_table_again <- read_plink_phe_file(
+    phe_filename = phe_filename
   )
-  expect_equal(names(phenotype_table), names(phenotype_table_again))
-  file.remove(phenotype_filename)
+  expect_equal(names(phe_table), names(phe_table_again))
+  file.remove(phe_filename)
 })
 
 test_that("sub-sub-sub folder", {
-  phenotype_table <- read_plink_phenotype_file(
-    phenotype_filename = get_plinkr_filename("pheno.raw")
+  phe_table <- read_plink_phe_file(
+    phe_filename = get_plinkr_filename("pheno.raw")
   )
-  phenotype_filename <- file.path(
+  phe_filename <- file.path(
     get_plinkr_tempfilename(),
     "sub", "sub", "sub", "folder", "test.phenotype"
   )
-  save_phenotype_table_to_file(
-    phenotype_table = phenotype_table,
-    phenotype_filename = phenotype_filename
+  save_phe_table_to_file(
+    phe_table = phe_table,
+    phe_filename = phe_filename
   )
-  expect_true(file.exists(phenotype_filename))
-  file.remove(phenotype_filename)
+  expect_true(file.exists(phe_filename))
+  file.remove(phe_filename)
   unlink(
-    dirname(dirname(dirname(dirname(dirname(phenotype_filename))))),
+    dirname(dirname(dirname(dirname(dirname(phe_filename))))),
     recursive = TRUE
   )
 })
@@ -57,15 +57,15 @@ test_that("sub-sub-sub folder", {
 test_that("write to impossible folder", {
   # Windows has no impossible folders
   if (get_os() == "win") return()
-  phenotype_table <- read_plink_phenotype_file(
-    phenotype_filename = get_plinkr_filename("pheno.raw")
+  phe_table <- read_plink_phe_file(
+    phe_filename = get_plinkr_filename("pheno.raw")
   )
-  phenotype_filename <- "/root/test.phenotype"
+  phe_filename <- "/root/test.phenotype"
   expect_error(
-    save_phenotype_table_to_file(
-      phenotype_table = phenotype_table,
-      phenotype_filename = phenotype_filename
+    save_phe_table_to_file(
+      phe_table = phe_table,
+      phe_filename = phe_filename
     ),
-    "Cannot save 'phenotype_table' to path"
+    "Cannot save 'phe_table' to path"
   )
 })

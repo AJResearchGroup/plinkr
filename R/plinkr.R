@@ -41,7 +41,7 @@
 #'   read a \code{PLINK} \code{.map} file
 #' * \link{read_plink_ped_file}:
 #'   read a \code{PLINK} \code{.ped} file
-#' * \link{read_plink_phenotype_file}:
+#' * \link{read_plink_phe_file}:
 #'   read a \code{PLINK} phenotype file
 #' * \link{read_plink_qassoc_file}:
 #'   read a \code{PLINK} \code{.qassoc} file
@@ -60,7 +60,7 @@
 #'   save a genetic mapping table to a \code{PLINK} \code{.map} file
 #' * \link{save_ped_table_to_file}:
 #'   save a pedigree table to a \code{PLINK} \code{.ped} file
-#' * \link{save_phenotype_table_to_file}:
+#' * \link{save_phe_table_to_file}:
 #'   save a phenotype table to a \code{PLINK} phenotype file
 #'
 #' This is a list of functions to get simple/example/testing
@@ -76,7 +76,7 @@
 #' * \link{create_demo_ped_table}:
 #'   create a pedigree table to demonstrate an association analysis,
 #'   for both binary/case-control traits as well as quantitative trait
-#' * \link{create_demo_phenotype_table}:
+#' * \link{create_demo_phe_table}:
 #'   create a phenotype map to demonstrate a quantitative trait analysis
 #' * \link{get_plink_example_filename}:
 #'   get the path to an example file as supplied by \code{PLINK}

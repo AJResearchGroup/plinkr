@@ -114,7 +114,7 @@ one phenotype. Instead, we use a table of one or more phenotypic
 values:
 
 ```{r}
-knitr::kable(assoc_qt_params$phenotype_table)
+knitr::kable(assoc_qt_params$phe_table)
 ```
 
 The phenotypes are named after their relationship to the

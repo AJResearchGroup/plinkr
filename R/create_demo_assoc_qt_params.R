@@ -81,13 +81,13 @@ create_demo_assoc_qt_params <- function(
   map_table <- plinkr::create_demo_map_table(
     traits = traits
   )
-  phenotype_table <- create_demo_phenotype_table(
+  phe_table <- create_demo_phe_table(
     ped_table = ped_table,
     traits = traits
   )
   plinkr::create_assoc_qt_params(
     ped_table = ped_table,
     map_table = map_table,
-    phenotype_table = phenotype_table
+    phe_table = phe_table
   )
 }

@@ -10,7 +10,7 @@ test_that("n_individuals", {
   )
   expect_silent(check_assoc_qt_params(assoc_qt_params))
   expect_equal(n_individuals, nrow(assoc_qt_params$ped_table))
-  expect_equal(n_individuals, nrow(assoc_qt_params$phenotype_table))
+  expect_equal(n_individuals, nrow(assoc_qt_params$phe_table))
 })
 
 test_that("MAFs", {
@@ -25,7 +25,7 @@ test_that("MAFs", {
   )
   expect_silent(check_assoc_qt_params(assoc_qt_params))
   expect_equal(n_individuals, nrow(assoc_qt_params$ped_table))
-  expect_equal(n_individuals, nrow(assoc_qt_params$phenotype_table))
+  expect_equal(n_individuals, nrow(assoc_qt_params$phe_table))
   # First SNP
   n_expect_major_alleles <- n_individuals * (1.0 - mafs[1])
   expect_equal(

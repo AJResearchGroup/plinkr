@@ -7,7 +7,7 @@
 create_assoc_qt_params(
   ped_table,
   map_table,
-  phenotype_table,
+  phe_table,
   maf = get_lowest_maf(),
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
   base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")
@@ -56,9 +56,9 @@ This value is optional. Zeroes denote it is unused
 Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
 Use \link{check_map_table} to test if a genetic mapping table is valid.}
 
-\item{phenotype_table}{a table of phenotypes.
+\item{phe_table}{a table of phenotypes.
 
-A \code{phenotype_table} is a \link[tibble]{tibble} with these columns:
+A \code{phe_table} is a \link[tibble]{tibble} with these columns:
 \itemize{
 \item \code{FID} The family ID
 \item \code{IID} Within-family ID
@@ -69,8 +69,8 @@ columns can have any name
 
 Thes names match the PLINK column
 names (\url{https://www.cog-genomics.org/plink/1.9/input#pheno}).
-Use \link{read_plink_phenotype_file} to read a phenotype file.
-Use \link{check_phenotype_table} to test if a phenotype table is valid.}
+Use \link{read_plink_phe_file} to read a phenotype file.
+Use \link{check_phe_table} to test if a phenotype table is valid.}
 
 \item{maf}{minor allele frequency threshold.
 Alleles that have a frequency lower than the MAF

@@ -39,14 +39,14 @@ assoc_qt <- function(
   # Do not be smart yet
   ped_table <- assoc_qt_params$ped_table
   map_table <- assoc_qt_params$map_table
-  phenotype_table <- assoc_qt_params$phenotype_table
-  phenotype_names <- names(assoc_qt_params$phenotype_table)[c(-1, -2)]
+  phe_table <- assoc_qt_params$phe_table
+  phenotype_names <- names(assoc_qt_params$phe_table)[c(-1, -2)]
 
   # Filenames
   base_input_filename <- assoc_qt_params$base_input_filename
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
-  phenotype_filename <- paste0(base_input_filename, ".phenotype")
+  phe_filename <- paste0(base_input_filename, ".phenotype")
   qassoc_filenames <- paste0(
     assoc_qt_params$base_output_filename, ".", phenotype_names,
     ".qassoc"
@@ -62,9 +62,9 @@ assoc_qt <- function(
     map_table = map_table,
     map_filename = map_filename
   )
-  plinkr::save_phenotype_table_to_file(
-    phenotype_table = phenotype_table,
-    phenotype_filename = phenotype_filename
+  plinkr::save_phe_table_to_file(
+    phe_table = phe_table,
+    phe_filename = phe_filename
   )
 
   # PLINK will not do so and will not give an error
@@ -93,7 +93,7 @@ assoc_qt <- function(
 
   file.remove(map_filename)
   file.remove(ped_filename)
-  file.remove(phenotype_filename)
+  file.remove(phe_filename)
   for (qassoc_filename in qassoc_filenames) file.remove(qassoc_filename)
   file.remove(log_filename)
   testthat::expect_equal(

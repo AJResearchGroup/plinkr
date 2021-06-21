@@ -24,7 +24,9 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * None
+ * All function with `phenotype` in it (e.g. `read_phenotype_file`), 
+   use `phe` instead (e.g. `read_phe_file`). This to have a naming
+   scheme consistent with PLINK
 
 ## plinkr 0.13 (2021-06-17)
 

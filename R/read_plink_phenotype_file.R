@@ -16,16 +16,16 @@
 #' match the PLINK names, see
 #' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
 #' @examples
-#' read_plink_phenotype_file(
-#'   phenotype_filename = get_plinkr_filename("pheno.raw")
+#' read_plink_phe_file(
+#'   phe_filename = get_plinkr_filename("pheno.raw")
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-read_plink_phenotype_file <- function(
-  phenotype_filename
+read_plink_phe_file <- function(
+  phe_filename
 ) {
-  testthat::expect_true(file.exists(phenotype_filename))
-  text_lines <- readr::read_lines(phenotype_filename)
+  testthat::expect_true(file.exists(phe_filename))
+  text_lines <- readr::read_lines(phe_filename)
 
   text_matrix <- stringr::str_split(
     string = text_lines,

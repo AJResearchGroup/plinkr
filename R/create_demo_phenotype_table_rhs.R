@@ -4,13 +4,13 @@
 #' of a phenotype table
 #' @inheritParams default_params_doc
 #' @examples
-#' create_demo_phenotype_table_rhs()
-#' create_demo_phenotype_table_rhs(create_random_trait())
-#' create_demo_phenotype_table_rhs(create_additive_trait())
-#' create_demo_phenotype_table_rhs(create_epistatic_trait())
+#' create_demo_phe_table_rhs()
+#' create_demo_phe_table_rhs(create_random_trait())
+#' create_demo_phe_table_rhs(create_additive_trait())
+#' create_demo_phe_table_rhs(create_epistatic_trait())
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_demo_phenotype_table_rhs <- function( # nolint indeed a long function name
+create_demo_phe_table_rhs <- function( # nolint indeed a long function name
   traits = create_demo_traits(),
   ped_table = create_demo_ped_table(traits = traits)
 ) {
@@ -38,7 +38,7 @@ create_demo_phenotype_table_rhs <- function( # nolint indeed a long function nam
   # ped_col_from must nicely end 1 spot beyond the last column
   testthat::expect_equal(ped_col_from, ncol(ped_table) + 1)
 
-  phenotype_table_rhs <- dplyr::bind_cols(tibbles, .name_repair = "minimal")
+  phe_table_rhs <- dplyr::bind_cols(tibbles, .name_repair = "minimal")
 
   # Allow multiple columns with same phenotype
   col_names <- purrr::map_chr(traits, function(e) e$phenotype)
@@ -48,7 +48,7 @@ create_demo_phenotype_table_rhs <- function( # nolint indeed a long function nam
       col_names[which(col_names == phenotype)] <-
         paste0(phenotype, "_", seq_len(n_randoms))
     }
-    names(phenotype_table_rhs) <- col_names
+    names(phe_table_rhs) <- col_names
   }
-  phenotype_table_rhs
+  phe_table_rhs
 }

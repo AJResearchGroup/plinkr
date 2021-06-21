@@ -1,0 +1,45 @@
+
+@----------------------------------------------------------@
+|        PLINK!       |     v1.07      |   10/Aug/2009     |
+|----------------------------------------------------------|
+|  (C) 2009 Shaun Purcell, GNU General Public License, v2  |
+|----------------------------------------------------------|
+|  For documentation, citation & bug-report instructions:  |
+|        http://pngu.mgh.harvard.edu/purcell/plink/        |
+@----------------------------------------------------------@
+
+Skipping web check... [ --noweb ] 
+Writing this text to log file [ /home/richel/.cache/plinkr/file220a490a009/miss_stat.log ]
+Analysis started: Mon Jun 21 07:42:27 2021
+
+Options in effect:
+	--bfile /home/richel/.cache/plinkr/file220a490a009/hapmap1
+	--missing
+	--out /home/richel/.cache/plinkr/file220a490a009/miss_stat
+	--noweb
+
+** For gPLINK compatibility, do not use '.' in --out **
+Reading map (extended format) from [ /home/richel/.cache/plinkr/file220a490a009/hapmap1.bim ] 
+83534 markers to be included from [ /home/richel/.cache/plinkr/file220a490a009/hapmap1.bim ]
+Reading pedigree information from [ /home/richel/.cache/plinkr/file220a490a009/hapmap1.fam ] 
+89 individuals read from [ /home/richel/.cache/plinkr/file220a490a009/hapmap1.fam ] 
+89 individuals with nonmissing phenotypes
+Assuming a disease phenotype (1=unaff, 2=aff, 0=miss)
+Missing phenotype value is also -9
+44 cases, 45 controls and 0 missing
+89 males, 0 females, and 0 of unspecified sex
+Reading genotype bitfile from [ /home/richel/.cache/plinkr/file220a490a009/hapmap1.bed ] 
+Detected that binary PED file is v1.00 SNP-major mode
+Before frequency and genotyping pruning, there are 83534 SNPs
+89 founders and 0 non-founders found
+Writing individual missingness information to [ /home/richel/.cache/plinkr/file220a490a009/miss_stat.imiss ] 
+Writing locus missingness information to [ /home/richel/.cache/plinkr/file220a490a009/miss_stat.lmiss ] 
+Total genotyping rate in remaining individuals is 0.99441
+0 SNPs failed missingness test ( GENO > 1 )
+0 SNPs failed frequency test ( MAF < 0 )
+After frequency and genotyping pruning, there are 83534 SNPs
+After filtering, 44 cases, 45 controls and 0 missing
+After filtering, 89 males, 0 females, and 0 of unspecified sex
+
+Analysis finished: Mon Jun 21 07:42:27 2021
+

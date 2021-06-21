@@ -29,7 +29,28 @@ test_that("use, v1.7", {
   unlink(folder, recursive = TRUE)
 })
 
-test_that("use, v1.9", {
+test_that("use, from files, v1.9", {
+  if (!is_plink_installed(plink_options = create_plink_v1_9_options())) return()
+  folder <- get_plinkr_tempfilename()
+  map_filename <- get_plinkr_filename("demo_assoc_qt.map")
+  ped_filename <- get_plinkr_filename("demo_assoc_qt.ped")
+  filenames <- make_bed(
+    base_input_filename = tools::file_path_sans_ext(ped_filename),
+    base_output_filename = file.path(folder, "output"),
+    plink_options = create_plink_v1_9_options()
+  )
+  expect_equal(
+    filenames,
+    list.files(
+      path = folder,
+      pattern = "output",
+      full.names = TRUE
+    )
+  )
+  unlink(folder, recursive = TRUE)
+})
+
+test_that("use, from test data, v1.9", {
   if (!is_plink_installed(plink_options = create_plink_v1_9_options())) return()
   folder <- get_plinkr_tempfilename()
   map_filename <- file.path(folder, "input.map")

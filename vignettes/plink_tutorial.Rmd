@@ -63,9 +63,13 @@ if (good_to_go) {
   hapmap1_map_filename <- stringr::str_subset(
     tutorial_data_filenames, "hapmap1.map"
   )
-  knitr::kable(head(plinkr::read_plink_map_file(hapmap1_map_filename)))
+  map_table <- plinkr::read_plink_map_file(hapmap1_map_filename)
+  n_snps <- nrow(map_table)
+  knitr::kable(head(map_table))
 }
 ```
+
+From the genetic mapping table, the number of rows equals the number of SNPs, which is `r n_snps` SNPs.
 
 Now `hapmap1.ped`, of which we'll only show the first 10 columns:
 
@@ -74,8 +78,15 @@ if (good_to_go) {
   hapmap1_ped_filename <- stringr::str_subset(
     tutorial_data_filenames, "hapmap1.ped"
   )
-  knitr::kable(plinkr::read_plink_ped_file(hapmap1_ped_filename)[1:5, 1:10])
+  ped_table <- plinkr::read_plink_ped_file(hapmap1_ped_filename)
+  n_individuals <- nrow(ped_table)
+  knitr::kable(ped_table[1:5, 1:10])
 }
+```
+The number of rows of the pedigree table equals the number of individuals, which equals `r n_individuals`. The number of columns equals 6 plus twice the number of SNPs.
+
+```{r}
+testthat::expect_equal(ncol(ped_table), 6 + (2 * n_snps))
 ```
 
 Now `pop.phe`:
@@ -289,28 +300,17 @@ Next, we shall generate some simple summary statistics on rates of missing data 
 base_miss_stat_filenames <- file.path(plinkr_folder, "miss_stat")
 
 if (good_to_go) {
-  plinkr::run_plink(
-    args = c(
-      "--bfile", base_binary_filenames,
-      "--missing",
-      "--out", base_miss_stat_filenames
-    ),
-    plink_options = create_plink_v1_7_options()
+  missing_result <- missing_from_bfiles(
+    bfile = base_binary_filenames,
+    out = base_miss_stat_filenames
   )
-  miss_stat_filenames <- list.files(
-    dirname(base_miss_stat_filenames), 
-    pattern = basename(base_miss_stat_filenames),
-    full.names = TRUE
-  )
-  miss_stat_filenames
 }
-
 ```
 which should generate the following output:
 
 ```{r}
 if (good_to_go) {
-  read_plink_log_file(stringr::str_subset(miss_stat_filenames, "miss_stat.log"))
+  missing_result$log
 }
 ```
 
@@ -320,45 +320,22 @@ with less than 10 percent missingness).
 
 The per individual and per SNP (after excluding individuals on the basis of low genotyping) rates are then output to the files miss_stat.imiss and miss_stat.lmiss respectively. If we had not specified an --out option, the root output filename would have defaulted to "plink".
 
-These output files are standard, plain text files that can be viewed in any text editor, pager, spreadsheet or statistics package (albeit one that can handle large files). Taking a look at the file miss_stat.lmiss, for example using the more command which is present on most systems:
-more miss_stat.lmiss
+These output files are standard, plain text files that can be viewed in any text editor, pager, spreadsheet or statistics package (albeit one that can handle large files). Taking a look at the file miss_stat.lmiss:
 
 ```{r}
 if (good_to_go) {
-  lmiss_table <- read_plink_lmiss_file(
-    stringr::str_subset(miss_stat_filenames, "miss_stat.lmiss")
-  )
-  knitr::kable(head(lmiss_table))
+  knitr::kable(head(missing_result$table_lmiss))
 }
 ```
-we see
+We see, that is, for each SNP, we see the number of missing individuals (N_MISS) and the proportion of individuals missing (F_MISS). Similarly, `miss_stat.imiss`:
 
-      CHR          SNP   N_MISS     F_MISS
-        1    rs6681049        0          0
-        1    rs4074137        0          0
-        1    rs7540009        0          0
-        1    rs1891905        0          0
-        1    rs9729550        0          0
-        1    rs3813196        0          0
-        1    rs6704013        2  0.0224719
-        1     rs307347       12   0.134831
-        1    rs9439440        2  0.0224719
-      ...
-
-That is, for each SNP, we see the number of missing individuals (N_MISS) and the proportion of individuals missing (F_MISS). Similarly:
-more miss_stat.imiss
+```{r}
+if (good_to_go) {
+  knitr::kable(head(missing_result$table_imiss))
+}
+```
 
 we see
-
-         FID          IID MISS_PHENO     N_MISS     F_MISS
-      HCB181            1          N        671 0.00803266
-      HCB182            1          N       1156  0.0138387
-      HCB183            1          N        498 0.00596164
-      HCB184            1          N        412 0.00493212
-      HCB185            1          N        329 0.00393852
-      HCB186            1          N       1233  0.0147605
-      HCB187            1          N        258 0.00308856
-      ...
 
 The final column is the actual genotyping rate for that individual -- we see the genotyping rate is very high here. 
 

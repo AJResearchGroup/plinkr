@@ -11,7 +11,7 @@ read_plink_map_file(map_filename)
 Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.}
 }
 \value{
-a [tibble]{tibble} with the following columns:
+a \link[tibble]{tibble} with the following columns:
 \itemize{
 \item \code{CHR}: the chromosome code or contig name
 \item \code{SNP}: Variant identifier

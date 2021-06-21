@@ -11,7 +11,16 @@ read_plink_lmiss_file(lmiss_filename)
 Use \link{read_plink_lmiss_file} to read a \code{PLINK} \code{.lmiss} file.}
 }
 \value{
-a \link[tibble]{tibble}
+a \link[tibble]{tibble} with column names:
+\itemize{
+\item \code{CHR} ?
+\item \code{SNP} ?
+\item \code{N_MISS} ?
+\item \code{N_GENO} ?
+\item \code{F_MISS} ?
+}
+
+These column names are the names used by \code{PLINK}.
 }
 \description{
 Read a PLINK \code{.lmiss} file

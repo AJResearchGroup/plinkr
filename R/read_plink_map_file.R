@@ -1,6 +1,6 @@
 #' Read a PLINK \code{.map} file
 #' @inheritParams default_params_doc
-#' @return a \[tibble]{tibble} with the following columns:
+#' @return a \link[tibble]{tibble} with the following columns:
 #'  * \code{CHR}: the chromosome code or contig name
 #'  * \code{SNP}: Variant identifier
 #'  * \code{position_cm}: Position in morgans or centimorgans.

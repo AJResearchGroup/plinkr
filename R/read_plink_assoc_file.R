@@ -54,11 +54,11 @@ read_plink_assoc_file <- function(assoc_filename) {
   t
   t$CHR <- as.numeric(t$CHR) # nolint PLINK coding style
   t$BP <- as.numeric(t$BP) # nolint PLINK coding style
-  suppressWarnings(t$F_A <- as.numeric(t$F_A)) # May be NA  # nolint PLINK coding style
+  t$F_A <- suppressWarnings(as.numeric(t$F_A)) # May be NA  # nolint PLINK coding style
   t$F_U <- suppressWarnings(as.numeric(t$F_U)) # May be NA  # nolint PLINK coding style
-  t$CHISQ <- as.numeric(t$CHISQ) # nolint PLINK coding style
-  t$P <- as.numeric(t$P) # nolint PLINK coding style
-  suppressWarnings(t$OR <- as.numeric(t$OR)) # May be NA # nolint PLINK coding style
+  t$CHISQ <- suppressWarnings(as.numeric(t$CHISQ)) # May be NA  ## nolint PLINK coding style
+  t$P <- suppressWarnings(as.numeric(t$P)) # nolint PLINK coding style
+  t$OR <- suppressWarnings(as.numeric(t$OR)) # May be NA # nolint PLINK coding style
   if ("SE" %in% names(t)) suppressWarnings(t$SE <- as.numeric(t$SE)) # May be NA # nolint PLINK coding style
   if ("L95" %in% names(t)) suppressWarnings(t$L95 <- as.numeric(t$L95)) # May be NA # nolint PLINK coding style
   if ("U95" %in% names(t)) suppressWarnings(t$U95 <- as.numeric(t$U95)) # May be NA # nolint PLINK coding style

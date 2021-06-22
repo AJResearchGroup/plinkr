@@ -96,7 +96,9 @@ if (good_to_go) {
 The number of rows of the pedigree table equals the number of individuals, which equals `r n_individuals`. The number of columns equals 6 plus twice the number of SNPs.
 
 ```{r}
-testthat::expect_equal(ncol(ped_table), 6 + (2 * n_snps))
+if (good_to_go) {
+  testthat::expect_equal(ncol(ped_table), 6 + (2 * n_snps))
+}
 ```
 
 Now `pop.phe`:

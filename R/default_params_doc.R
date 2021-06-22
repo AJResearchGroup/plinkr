@@ -50,6 +50,8 @@
 #' @param example_filename name of the example file
 #' @param fam_filename name of a \code{PLINK} \code{.fam} file
 #' Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
+#' @param frq_filename name of a \code{PLINK} \code{.frq} file
+#' Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.
 #' @param imiss_filename name of a \code{PLINK} \code{.imiss} file
 #' Use \link{read_plink_imiss_file} to read a \code{PLINK} \code{.imiss} file.
 #' @param lmiss_filename name of a \code{PLINK} \code{.lmiss} file
@@ -241,6 +243,7 @@ default_params_doc <- function(
   epistatic_phenotype_value,
   example_filename,
   fam_filename,
+  frq_filename,
   imiss_filename,
   lmiss_filename,
   log_filename,

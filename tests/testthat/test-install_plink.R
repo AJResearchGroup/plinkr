@@ -52,5 +52,4 @@ test_that("un- or install in temp plink folder", {
 
 test_that("install_plink tests cleans up temp files", {
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

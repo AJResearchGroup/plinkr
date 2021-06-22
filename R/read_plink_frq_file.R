@@ -3,11 +3,15 @@
 #' @return a \link[tibble]{tibble} with column names:
 #'   * \code{CHR} ?
 #'   * \code{SNP} ?
-#'   * \code{N_MISS} ?
-#'   * \code{N_GENO} ?
-#'   * \code{F_MISS} ?
+#'   * \code{A1} ?
+#'   * \code{A2} ?
+#'   * \code{MAF} ?
+#'   * \code{NCHROBS} ?
 #'
 #' These column names are the names used by \code{PLINK}.
+#' @examples
+#' frq_filename <- get_plinkr_filename("miss_stat.frq")
+#' read_plink_frq_file(frq_filename)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_frq_file <- function(frq_filename) {

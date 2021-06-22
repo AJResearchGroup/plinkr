@@ -1,9 +1,5 @@
 test_that("use", {
-  frq_filename <- system.file(
-    "extdata",
-    "miss_stat.frq",
-    package = "plinkr"
-  )
+  frq_filename <- get_plinkr_filename("miss_stat.frq")
   frq_table <- read_plink_frq_file(
     frq_filename = frq_filename
   )

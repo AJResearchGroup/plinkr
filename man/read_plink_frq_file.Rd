@@ -6,20 +6,29 @@
 \usage{
 read_plink_frq_file(frq_filename)
 }
+\arguments{
+\item{frq_filename}{name of a \code{PLINK} \code{.frq} file
+Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.}
+}
 \value{
 a \link[tibble]{tibble} with column names:
 \itemize{
 \item \code{CHR} ?
 \item \code{SNP} ?
-\item \code{N_MISS} ?
-\item \code{N_GENO} ?
-\item \code{F_MISS} ?
+\item \code{A1} ?
+\item \code{A2} ?
+\item \code{MAF} ?
+\item \code{NCHROBS} ?
 }
 
 These column names are the names used by \code{PLINK}.
 }
 \description{
 Read a PLINK \code{.frq} file
+}
+\examples{
+frq_filename <- get_plinkr_filename("miss_stat.frq")
+read_plink_frq_file(frq_filename)
 }
 \author{
 Richèl J.C. Bilderbeek

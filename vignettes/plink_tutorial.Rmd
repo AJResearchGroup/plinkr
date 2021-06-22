@@ -22,6 +22,16 @@ library(plinkr)
 clear_plinkr_cache()
 ```
 
+```{r variables, echo = FALSE, include = FALSE}
+# These variables are used in the text, also when
+# not good to go. Here the default values are set
+n_snps <- "[unknown]"
+n_individuals <- "[unknown]"
+```
+
+
+
+
 Here we follow the tutorial at [http://zzz.bwh.harvard.edu/plink/tutorial.shtml](http://zzz.bwh.harvard.edu/plink/tutorial.shtml).
 
 ```{r check_plink_is_installed}
@@ -318,9 +328,13 @@ Here we see that no individuals were removed for low
 genotypes (MIND > 0.1 implies that we accept people 
 with less than 10 percent missingness).
 
-The per individual and per SNP (after excluding individuals on the basis of low genotyping) rates are then output to the files miss_stat.imiss and miss_stat.lmiss respectively. If we had not specified an --out option, the root output filename would have defaulted to "plink".
+The per individual and per SNP (after excluding individuals on the basis of low genotyping) rates are then output to the files `miss_stat.imiss` 
+and `miss_stat.lmiss` respectively. 
+If we had not specified an `--out` option, the root output filename would have defaulted to "plink".
 
-These output files are standard, plain text files that can be viewed in any text editor, pager, spreadsheet or statistics package (albeit one that can handle large files). Taking a look at the file miss_stat.lmiss:
+These output files are standard, plain text files that can be viewed in any text editor, pager, spreadsheet or statistics package. 
+
+Taking a look at the file `miss_stat.lmiss`:
 
 ```{r}
 if (good_to_go) {

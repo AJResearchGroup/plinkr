@@ -2,7 +2,9 @@
 #' @note this function is named after the PLINK \code{--make-bed}
 #' parameter flag
 #' @inheritParams default_params_doc
-#' @return The full names of the created files
+#' @return The full names of the created PLINK1 binary files,
+#' which are a \code{.bed}, \code{.bim}, \code{.fam}
+#' and \code{.log} file.
 #' @author Richèl J.C. Bilderbeek
 #' @export
 make_bed <- function(

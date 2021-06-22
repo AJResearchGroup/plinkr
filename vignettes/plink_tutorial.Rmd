@@ -32,7 +32,7 @@ n_individuals <- "[unknown]"
 
 
 
-Here we follow the tutorial at [http://zzz.bwh.harvard.edu/plink/tutorial.shtml](http://zzz.bwh.harvard.edu/plink/tutorial.shtml).
+Here we follow the tutorial at [http://zzz.bwh.harvard.edu/plink/tutorial.shtml](http://zzz.bwh.harvard.edu/plink/tutorial.shtml). The text was literally copied initially.
 
 ```{r check_plink_is_installed}
 if (!is_plink_installed()) {
@@ -310,7 +310,7 @@ Next, we shall generate some simple summary statistics on rates of missing data 
 base_miss_stat_filenames <- file.path(plinkr_folder, "miss_stat")
 
 if (good_to_go) {
-  missing_result <- missing_from_bfiles(
+  missing_result <- missing_from_bfile(
     bfile = base_binary_filenames,
     out = base_miss_stat_filenames
   )
@@ -338,22 +338,99 @@ Taking a look at the file `miss_stat.lmiss`:
 
 ```{r}
 if (good_to_go) {
-  knitr::kable(head(missing_result$table_lmiss))
+  knitr::kable(head(missing_result$lmiss_table))
 }
 ```
-We see, that is, for each SNP, we see the number of missing individuals (N_MISS) and the proportion of individuals missing (F_MISS). Similarly, `miss_stat.imiss`:
+We see, that is, for each SNP, we see the number of missing individuals (N_MISS) and the proportion of individuals missing (F_MISS). 
 
 ```{r}
 if (good_to_go) {
-  knitr::kable(head(missing_result$table_imiss))
+  ggplot2::ggplot(
+    missing_result$lmiss_table, 
+    ggplot2::aes(x = "all", y = F_MISS)
+  ) + ggplot2::geom_boxplot() +
+    ggplot2::ggtitle("SNPs' genotyping rates")
 }
 ```
 
-we see
+Similarly, `miss_stat.imiss`:
 
-The final column is the actual genotyping rate for that individual -- we see the genotyping rate is very high here. 
+```{r}
+if (good_to_go) {
+  knitr::kable(head(missing_result$imiss_table))
+}
+```
+
+The final column, `F_MISS` is the actual genotyping rate for that individual.
+As values are close to zero, this genotyping rate is high here. 
+
+```{r}
+if (good_to_go) {
+  ggplot2::ggplot(
+    missing_result$table_imiss, 
+    ggplot2::aes(x = "", y = F_MISS)
+  ) + ggplot2::geom_boxplot() +
+    ggplot2::ggtitle("Individuals' genotyping rates")
+}
+```
 
 ## Summary statistics: allele frequencies
+
+Next we perform a similar analysis, except requesting allele frequencies instead of genotyping rates. The following command generates a file called freq_stat.frq which contains the minor allele frequency and allele codes for each SNP.
+
+```{r}
+base_frq_filenames <- file.path(plinkr_folder, "frq")
+
+if (good_to_go) {
+  freq_results <- freq_from_bfile(
+    bfile = base_binary_filenames,
+    out = base_frq_filenames
+  )
+  knitr::kable(head(freq_results$frq_table))
+}
+```
+
+It is also possible to perform this frequency analysis (and the missingness analysis) stratified by a categorical, cluster variable. In this case, we shall use the file that indicates whether the individual is from the Chinese or the Japanese sample, pop.phe. This cluster file contains three columns; each row is an individual. The format is described more fully in the main documentation.
+
+To perform a stratified analysis, use the --within option.
+
+
+```{r}
+if (good_to_go) {
+  run_plink(
+    args = c(
+      "--bfile", base_binary_filenames, 
+      "--freq",
+      "--within", "pop.phe",
+      "--out", "freq_stat"
+    )
+  )
+}
+```
+
+The output will now indicate that a file called freq_stat.frq.strat. has been generated instead of freq_stat.frq. If we view this file:
+more freq_stat.frq.strat
+
+we see each row is now the allele frequency for each SNP stratifed by subpopulation:
+
+     CHR          SNP     CLST   A1   A2          MAF
+       1    rs6681049        1    1    2     0.233333
+       1    rs6681049        2    1    2     0.193182
+       1    rs4074137        1    1    2          0.1
+       1    rs4074137        2    1    2    0.0568182
+       1    rs7540009        1    0    2            0
+       1    rs7540009        2    0    2            0
+       1    rs1891905        1    1    2     0.411111
+       1    rs1891905        2    1    2     0.397727
+       ...
+
+Here we see that each SNP is represented twice - the CLST column indicates whether the frequency is from the Chinese or Japanese populations, coded as per the pop.phe file.
+
+If you were just interested in a specific SNP, and wanted to know what the frequency was in the two populations, you can use the --snp option to select this SNP:
+plink --bfile hapmap1 --snp rs1891905 --freq --within pop.phe --out snp1_frq_stat
+
+would generate a file snp1_frq_stat.frq.strat containing only the population-specific frequencies for this single SNP. You can also specify a range of SNPs by adding the --window kb option or using the options --from and --to, following each with a different SNP (they must be in the correct order and be on the same chromosome). Follow this link for more details. 
+
 
 ## Basic association analysis
 

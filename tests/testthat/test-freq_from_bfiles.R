@@ -20,10 +20,10 @@ test_that("use", {
     base_output_filename = base_binary_filenames
   )
 
-  missing_result <- missing_from_bfile(
+  freq_result <- freq_from_bfile(
     bfile = base_binary_filenames,
     out = base_miss_stat_filenames
   )
-
+  list.files(dirname(base_miss_stat_filenames), full.names = TRUE)
   unlink(plinkr_folder, recursive = TRUE)
 })

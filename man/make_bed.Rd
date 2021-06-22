@@ -26,7 +26,9 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-The full names of the created files
+The full names of the created PLINK1 binary files,
+which are a \code{.bed}, \code{.bim}, \code{.fam}
+and \code{.log} file.
 }
 \description{
 Convert to binary files

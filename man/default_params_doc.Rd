@@ -15,6 +15,7 @@ default_params_doc(
   base_output_filename,
   base_phenotype_value,
   bed_filename,
+  bfile,
   bim_filename,
   calc_phenotype_function,
   confidence_interval,
@@ -31,6 +32,7 @@ default_params_doc(
   n_individuals,
   n_snps,
   os,
+  out,
   ped_filename,
   ped_table,
   phenotype,
@@ -93,6 +95,11 @@ i.e. the phenotypic value for homozygotes of the common allele}
 
 \item{bed_filename}{name of a \code{PLINK} \code{.bed} file
 Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.}
+
+\item{bfile}{the base filename of the binary files (i.e.
+a \code{.bed}, \code{.bim} and \code{.fam} file).
+This parameter is named after the \code{PLINK}
+\code{--bfile} flag}
 
 \item{bim_filename}{name of a \code{PLINK} \code{.bim} file
 Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.}
@@ -179,6 +186,10 @@ Use \link{check_n_individuals} to check if this is a valid value}
 
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}
+
+\item{out}{the base filename of the output files.
+This parameter is named after the \code{PLINK}
+\code{--out} flag}
 
 \item{ped_filename}{name of a \code{PLINK} \code{.ped} file.
 Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.}

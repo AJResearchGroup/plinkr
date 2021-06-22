@@ -7,10 +7,13 @@
 #' @note This function is named after the \code{--missing} flag
 #' used by \code{PLINK}
 #' @inheritParams default_params_doc
-#' @return a \link[tibble]{tibble}
+#' @return a \link{list} with the following elements:
+#'  * \code{imiss_table} table with the missing genotype data per individual
+#'  * \code{lmiss_table} table with the missing genotype data per SNP
+#'  * \code{log} the log text
 #' @author Richèl J.C. Bilderbeek
 #' @export
-missing_from_bfiles <- function(
+missing_from_bfile <- function(
   bfile,
   out
 ) {
@@ -48,8 +51,8 @@ missing_from_bfiles <- function(
   testthat::expect_true(file.exists(lmiss_filename))
   testthat::expect_true(file.exists(log_filename))
   missing_result <- list(
-    table_imiss = plinkr::read_plink_imiss_file(imiss_filename),
-    table_lmiss = plinkr::read_plink_lmiss_file(lmiss_filename),
+    imiss_table = plinkr::read_plink_imiss_file(imiss_filename),
+    lmiss_table = plinkr::read_plink_lmiss_file(lmiss_filename),
     log = plinkr::read_plink_log_file(log_filename)
   )
   file.remove(miss_stat_filenames)

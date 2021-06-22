@@ -52,6 +52,9 @@
 #' Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
 #' @param frq_filename name of a \code{PLINK} \code{.frq} file
 #' Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.
+#' @param frq_strat_filename name of a \code{PLINK} \code{.frq.strat} file
+#' Use \link{read_plink_frq_strat_file}
+#' to read a \code{PLINK} \code{.frq.strat} file.
 #' @param imiss_filename name of a \code{PLINK} \code{.imiss} file
 #' Use \link{read_plink_imiss_file} to read a \code{PLINK} \code{.imiss} file.
 #' @param lmiss_filename name of a \code{PLINK} \code{.lmiss} file
@@ -244,6 +247,7 @@ default_params_doc <- function(
   example_filename,
   fam_filename,
   frq_filename,
+  frq_strat_filename,
   imiss_filename,
   lmiss_filename,
   log_filename,

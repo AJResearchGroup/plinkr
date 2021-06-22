@@ -12,10 +12,13 @@ Newest versions at top.
  * Add `read_plink_lmiss_file` to read PLINK `.lmiss` files
  * Add 'read_plink_imiss_file' to read PLINK `.imiss` files
  * Add 'read_plink_frq_file' to read PLINK `.frq` files
+ * Add 'read_plink_frq_strat_file' to read PLINK `.frq.strat` files
  * Add 'missing_from_bfile' to run a PLINK `--missing` analysis from
    PLINK binary files
  * Add 'freq_from_bfile' to run a PLINK `--freq` analysis from
    PLINK binary files
+ * Add 'freq_from_bfile_within_phe_file' to run a PLINK `--freq` analysis from
+   PLINK binary files with a stratification on the phenotype
 
 ### MINOR IMPROVEMENTS
 

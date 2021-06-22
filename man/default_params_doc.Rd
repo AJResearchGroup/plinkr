@@ -23,6 +23,7 @@ default_params_doc(
   example_filename,
   fam_filename,
   frq_filename,
+  frq_strat_filename,
   imiss_filename,
   lmiss_filename,
   log_filename,
@@ -133,6 +134,10 @@ Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.}
 
 \item{frq_filename}{name of a \code{PLINK} \code{.frq} file
 Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.}
+
+\item{frq_strat_filename}{name of a \code{PLINK} \code{.frq.strat} file
+Use \link{read_plink_frq_strat_file}
+to read a \code{PLINK} \code{.frq.strat} file.}
 
 \item{imiss_filename}{name of a \code{PLINK} \code{.imiss} file
 Use \link{read_plink_imiss_file} to read a \code{PLINK} \code{.imiss} file.}

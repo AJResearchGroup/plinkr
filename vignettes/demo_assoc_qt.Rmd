@@ -174,3 +174,14 @@ proportion of the phenotype that can be explained by the
 genotype) gives the highest possible value of 1.0,
 which denotes the phenotype can be perfectly explained
 by the genotype.
+
+
+## Cleanup
+
+```{r clear_plinkr_cache_at_end}
+clear_plinkr_cache()
+```
+
+```{r check_empty_plinkr_folder_at_end}
+check_empty_plinkr_folder()
+```

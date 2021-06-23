@@ -33,3 +33,14 @@ if (plinkr::is_plink_installed()) {
   knitr::kable(head(results$simfreq))
 }
 ```
+
+
+## Cleanup
+
+```{r clear_plinkr_cache_at_end}
+clear_plinkr_cache()
+```
+
+```{r check_empty_plinkr_folder_at_end}
+check_empty_plinkr_folder()
+```

@@ -558,3 +558,7 @@ We will return to this issue below, when we consider using the whole genome data
 ```{r clear_plinkr_cache_at_end}
 clear_plinkr_cache()
 ```
+
+```{r check_empty_plinkr_folder_at_end}
+check_empty_plinkr_folder()
+```

@@ -118,3 +118,14 @@ if (is_plink_installed()) {
  * `CHISQ`: Basic allelic test chi-square (1df)
  * `P`: Asymptotic p-value for this test
  * `OR`: Estimated odds ratio (for A1, i.e. A2 is reference)
+
+
+## Cleanup
+
+```{r clear_plinkr_cache_at_end}
+clear_plinkr_cache()
+```
+
+```{r check_empty_plinkr_folder_at_end}
+check_empty_plinkr_folder()
+```

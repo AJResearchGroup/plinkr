@@ -247,3 +247,13 @@ if (is_plink_installed()) {
   file.remove(output_filename_assoc)
 }
 ```
+
+## Cleanup
+
+```{r clear_plinkr_cache_at_end}
+clear_plinkr_cache()
+```
+
+```{r check_empty_plinkr_folder_at_end}
+check_empty_plinkr_folder()
+```

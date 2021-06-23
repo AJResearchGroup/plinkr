@@ -28,10 +28,9 @@ test_that("use", {
     bfile = base_binary_filenames,
     out = base_assoc_filenames
   )
-
-  expect_true("frq_strat_table" %in% names(freq_within_result))
-  expect_true("log" %in% names(freq_within_result))
-  list.files(dirname(base_miss_stat_filenames), full.names = TRUE)
+  expect_true("assoc_table" %in% names(assoc_results))
+  expect_true("log" %in% names(assoc_results))
+  list.files(dirname(base_assoc_filenames), full.names = TRUE)
   unlink(plinkr_folder, recursive = TRUE)
   check_empty_plinkr_folder()
 })

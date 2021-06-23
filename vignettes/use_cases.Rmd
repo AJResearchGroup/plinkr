@@ -109,3 +109,13 @@ do
 plink2 -pgen chr$chr.pgen -bim chr$chr.dedup.bim -fam ukb41143.fam -score PRS_downloaded_FileName 1 4 5 header -out test.chr$chr 
 done 
 ```
+
+## Cleanup
+
+```{r clear_plinkr_cache_at_end}
+clear_plinkr_cache()
+```
+
+```{r check_empty_plinkr_folder_at_end}
+check_empty_plinkr_folder()
+```

@@ -237,3 +237,13 @@ t <- snvs
 t$phenotype <- xor_phenotype(snvs)
 knitr::kable(t)
 ```
+
+## Cleanup
+
+```{r clear_plinkr_cache_at_end}
+clear_plinkr_cache()
+```
+
+```{r check_empty_plinkr_folder_at_end}
+check_empty_plinkr_folder()
+```

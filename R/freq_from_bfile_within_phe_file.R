@@ -13,7 +13,7 @@
 #'  * \code{log} the log text
 #' @author Richèl J.C. Bilderbeek
 #' @export
-freq_from_bfile_within_phe_file <- function(
+freq_from_bfile_within_phe_file <- function( # nolint indeed a long function name
   bfile,
   phe_filename,
   out

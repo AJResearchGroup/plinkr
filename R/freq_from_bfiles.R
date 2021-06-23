@@ -49,4 +49,3 @@ freq_from_bfile <- function(
   file.remove(freq_stat_filenames)
   freq_stat_result
 }
-

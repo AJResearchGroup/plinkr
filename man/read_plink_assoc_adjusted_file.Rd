@@ -6,6 +6,12 @@
 \usage{
 read_plink_assoc_adjusted_file(assoc_adjusted_filename)
 }
+\arguments{
+\item{assoc_adjusted_filename}{name of a \code{PLINK}
+\code{.assoc.adjusted} file.
+Use \link{read_plink_assoc_adjusted_file}
+to read a \code{PLINK} \code{.assoc.adjusted} file.}
+}
 \value{
 a \link[tibble]{tibble}.
 

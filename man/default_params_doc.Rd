@@ -8,6 +8,7 @@ documentation.}
 default_params_doc(
   add_noweb,
   args,
+  assoc_adjusted_filename,
   assoc_filename,
   assoc_params,
   assoc_qt_params,
@@ -75,7 +76,12 @@ Use \link{get_plink_version} to get the current \code{PLINK} version.}
 
 \item{args}{arguments for the \code{PLINK} executable}
 
-\item{assoc_filename}{name of a \code{PLINK} \code{.assoc} file
+\item{assoc_adjusted_filename}{name of a \code{PLINK}
+\code{.assoc.adjusted} file.
+Use \link{read_plink_assoc_adjusted_file}
+to read a \code{PLINK} \code{.assoc.adjusted} file.}
+
+\item{assoc_filename}{name of a \code{PLINK} \code{.assoc} file.
 Use \link{read_plink_assoc_file} to read a \code{PLINK} \code{.assoc} file.}
 
 \item{assoc_params}{parameters to do an association analysis

@@ -7,7 +7,11 @@
 #' hence \link{plinkr} will skip this check.
 #' Use \link{get_plink_version} to get the current \code{PLINK} version.
 #' @param args arguments for the \code{PLINK} executable
-#' @param assoc_filename name of a \code{PLINK} \code{.assoc} file
+#' @param assoc_adjusted_filename name of a \code{PLINK}
+#' \code{.assoc.adjusted} file.
+#' Use \link{read_plink_assoc_adjusted_file}
+#' to read a \code{PLINK} \code{.assoc.adjusted} file.
+#' @param assoc_filename name of a \code{PLINK} \code{.assoc} file.
 #' Use \link{read_plink_assoc_file} to read a \code{PLINK} \code{.assoc} file.
 #' @param assoc_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc}),
@@ -232,6 +236,7 @@
 default_params_doc <- function(
   add_noweb,
   args,
+  assoc_adjusted_filename,
   assoc_filename,
   assoc_params,
   assoc_qt_params,

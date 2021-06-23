@@ -392,7 +392,8 @@ if (good_to_go) {
 }
 ```
 
-It is also possible to perform this frequency analysis (and the missingness analysis) stratified by a categorical, cluster variable. In this case, we shall use the file that indicates whether the individual is from the Chinese or the Japanese sample, pop.phe. This cluster file contains three columns; each row is an individual. The format is described more fully in the main documentation.
+It is also possible to perform this frequency analysis (and the missingness analysis) stratified by a categorical, cluster variable. In this case, we shall use the file that indicates whether the individual is from the Chinese or the Japanese sample, pop.phe. This cluster file contains three columns; each row is an individual. 
+The format is described more fully in the main documentation.
 
 To perform a stratified analysis, use the `--within` option.
 The output will now indicate that a file called `freq_stat.frq.strat`
@@ -410,7 +411,6 @@ if (good_to_go) {
     out = base_freq_within_filenames
   )
   knitr::kable(head(freq_within_results$frq_strat_table))
-  
 }
 ```
 
@@ -426,7 +426,7 @@ would generate a file snp1_frq_stat.frq.strat containing only the population-spe
 
 ## Basic association analysis
 
-Let's now perform a basic association analysis on the disease trait for all single SNPs. The basic command is
+Let's now perform a basic association analysis on the disease trait for all single SNPs:
 
 ```{r}
 base_as1_filenames <- file.path(plinkr_folder, "as1")
@@ -440,72 +440,47 @@ if (good_to_go) {
 }
 ```
 
-which generates an output file as1.assoc which contains the following fields
+Each row is a single SNP association result. The fields are:
 
-      CHR          SNP   A1      F_A      F_U   A2        CHISQ            P           OR
-        1    rs6681049    1   0.1591   0.2667    2        3.067      0.07991       0.5203
-        1    rs4074137    1  0.07955  0.07778    2     0.001919       0.9651        1.025
-        1    rs1891905    1   0.4091      0.4    2      0.01527       0.9017        1.038
-        1    rs9729550    1   0.1705  0.08889    2        2.631       0.1048        2.106
-        1    rs3813196    1  0.03409  0.02222    2       0.2296       0.6318        1.553
-        1   rs12044597    1      0.5   0.4889    2      0.02198       0.8822        1.045
-        1   rs10907185    1   0.3068   0.2667    2       0.3509       0.5536        1.217
-        1   rs11260616    1   0.2326      0.2    2       0.2754       0.5998        1.212
-        1     rs745910    1   0.1395   0.1932    2       0.9013       0.3424       0.6773
-     ...
+ * Chromosome
+ * SNP identifier
+ * Code for allele 1 (the minor, rare allele based on the entire sample frequencies)
+ * The frequency of this variant in cases
+ * The frequency of this variant in controls
+ * Code for the other allele
+ * The chi-squared statistic for this test (1 df)
+ * The asymptotic significance value for this test
+ * The odds ratio for this test 
 
-where each row is a single SNP association result. The fields are:
+If a test is not defined (for example, 
+if the variant is monomorphic but was not excluded by the filters),
+then values of NA for 'not applicable' will be given (as these are read by the package R to indicate missing data, which is convenient if using R to analyse the set of results).
 
-    Chromosome
-    SNP identifier
-    Code for allele 1 (the minor, rare allele based on the entire sample frequencies)
-    The frequency of this variant in cases
-    The frequency of this variant in controls
-    Code for the other allele
-    The chi-squared statistic for this test (1 df)
-    The asymptotic significance value for this test
-    The odds ratio for this test 
+To get the most significant results, 
+we sort the association results based on their low p-value:
 
-If a test is not defined (for example, if the variant is monomorphic but was not excluded by the filters) then values of NA for not applicable will be given (as these are read by the package R to indicate missing data, which is convenient if using R to analyse the set of results).
-
-In a Unix/Linux environment, one could simply use the available command line tools to sort the list of association statistics and print out the top ten, for example:
-sort --key=7 -nr as1.assoc | head
-
-would give
-
-
-       13    rs9585021    1    0.625   0.2841    2        20.62    5.586e-06          4.2
-        2    rs2222162    1   0.2841   0.6222    2        20.51    5.918e-06       0.2409
-        9   rs10810856    1   0.2955  0.04444    2        20.01    7.723e-06        9.016
-        2    rs4675607    1   0.1628   0.4778    2        19.93     8.05e-06       0.2125
-        2    rs4673349    1   0.1818      0.5    2        19.83    8.485e-06       0.2222
-        2    rs1375352    1   0.1818      0.5    2        19.83    8.485e-06       0.2222
-       21     rs219746    1      0.5   0.1889    2        19.12    1.228e-05        4.294
-        1    rs4078404    2      0.5      0.2    1        17.64    2.667e-05            4
-       14    rs1152431    2   0.2727   0.5795    1        16.94    3.862e-05       0.2721
-       14    rs4899962    2   0.3023   0.6111    1        16.88    3.983e-05       0.2758
+```{r}
+if (good_to_go) {
+  knitr::kable(head(dplyr::arrange(assoc_results$assoc_table, P)))
+}
+```
 
 Here we see that the simulated disease variant rs2222162 is actually the second most significant SNP in the list, with a large difference in allele frequencies of 0.28 in cases versus 0.62 in controls. However, we also see that, just by chance, a second SNP on chromosome 13 shows a slightly higher test result, with coincidentally similar allele frequencies in cases and controls. (Whether this result is due to chance alone or perhaps represents some confounding due to the population structure in this sample, we will investigate below). This highlights the important point that when performing so many tests, particularly in a small sample, we often expect the distribution of true positive results to be virtually indistinguishable from the best false positive results. That our variant appears in the top ten list is reassuring however.
 
-To get a sorted list of association results, that also includes a range of significance values that are adjusted for multiple testing, use the --adjust flag:
-plink --bfile hapmap1 --assoc --adjust --out as2
-
+To get a sorted list of association results, that also includes a range of significance values that are adjusted for multiple testing, use the --adjust flag.
 This generates the file as2.assoc.adjust in addition to the basic as2.assoc output file. Using more, one can easily look at one's most significant associations:
-more as2.assoc.adjusted
 
+```{r}
+base_as2_filenames <- file.path(plinkr_folder, "as2")
 
- CHR          SNP      UNADJ         GC     BONF     HOLM  SIDAK_SS  SIDAK_SD    FDR_BH  FDR_BY
-  13    rs9585021  5.586e-06  3.076e-05   0.3676   0.3676    0.3076    0.3076   0.09306       1
-   2    rs2222162  5.918e-06  3.231e-05   0.3894   0.3894    0.3226    0.3226   0.09306       1
-   9   rs10810856  7.723e-06  4.049e-05   0.5082   0.5082    0.3984    0.3984   0.09306       1
-   2    rs4675607   8.05e-06  4.195e-05   0.5297   0.5297    0.4112    0.4112   0.09306       1
-   2    rs1375352  8.485e-06  4.386e-05   0.5584   0.5583    0.4279    0.4278   0.09306       1
-   2    rs4673349  8.485e-06  4.386e-05   0.5584   0.5583    0.4279    0.4278   0.09306       1
-  21     rs219746  1.228e-05  6.003e-05   0.8083   0.8082    0.5544    0.5543    0.1155       1
-   1    rs4078404  2.667e-05  0.0001159        1        1    0.8271     0.827    0.2194       1
-  14    rs1152431  3.862e-05  0.0001588        1        1    0.9213    0.9212    0.2621       1
-  14    rs4899962  3.983e-05   0.000163        1        1    0.9273    0.9272    0.2621       1
-   8    rs2470048  4.487e-05  0.0001804        1        1    0.9478    0.9478    0.2684       1
+if (good_to_go) {
+  assoc_adjust_results <- assoc_adjust_from_bfile(
+    bfile = base_binary_filenames,
+    out = base_as2_filenames
+  )
+  knitr::kable(head(assoc_results$assoc_adjusted_table))
+}
+```
 
 Here we see a pre-sorted list of association results. The fields are as follows:
 

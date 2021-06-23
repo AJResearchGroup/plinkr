@@ -48,8 +48,5 @@ test_that("un- or install in temp plink folder", {
       unlink(plink_options$plink_folder, recursive = TRUE)
     }
   }
-})
-
-test_that("install_plink tests cleans up temp files", {
   expect_silent(check_empty_plinkr_folder())
 })

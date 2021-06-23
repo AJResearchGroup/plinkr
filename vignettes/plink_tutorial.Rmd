@@ -482,18 +482,23 @@ if (good_to_go) {
 }
 ```
 
-Here we see a pre-sorted list of association results. The fields are as follows:
+Here we see a pre-sorted list of association results. 
 
-    Chromosome
-    SNP identifier
-    Unadjusted, asymptotic significance value
-    Genomic control adjusted significance value. This is based on a simple estimation of the inflation factor based on median chi-square statistic. These values do not control for multiple testing therefore.
-    Bonferroni adjusted significance value
-    Holm step-down adjusted significance value
-    Sidak single-step adjusted significance value
-    Sidak step-down adjusted significance value
-    Benjamini & Hochberg (1995) step-up FDR control
-    Benjamini & Yekutieli (2001) step-up FDR control 
+The fields are as follows:
+
+ * Chromosome
+ * SNP identifier
+ * Unadjusted, asymptotic significance value
+ * Genomic control adjusted significance value. 
+   This is based on a simple estimation of the inflation factor 
+   based on median chi-square statistic. 
+   These values do not control for multiple testing therefore.
+ * Bonferroni adjusted significance value
+ * Holm step-down adjusted significance value
+ * Sidak single-step adjusted significance value
+ * Sidak step-down adjusted significance value
+ * Benjamini & Hochberg (1995) step-up FDR control
+ * Benjamini & Yekutieli (2001) step-up FDR control 
 
 In this particular case, we see that no single variant is significant at the 0.05 level after genome-wide correction. Different correction measures have different properties which are beyond the scope of this tutorial to discuss: it is up to the investigator to decide which to use and how to interpret them.
 

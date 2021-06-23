@@ -2,25 +2,12 @@
 #'
 #' @note This function is named after the \code{--assoc} flag used by PLINK
 #' @inheritParams default_params_doc
-#' @return a \link[tibble]{tibble} with the following columns:
-#'
-#'   * \code{CHR}: Chromosome number
-#'   * \code{SNP}: SNP identifier
-#'   * \code{BP}: Physical position (base-pair)
-#'   * \code{A1}: Minor allele name (based on whole sample)
-#'   * \code{F_A}: Frequency of this allele in cases
-#'   * \code{F_U}: Frequency of this allele in controls
-#'   * \code{A2}: Major allele name
-#'   * \code{CHISQ}: Basic allelic test chi-square (1df)
-#'   * \code{P}: Asymptotic p-value for this test
-#'   * \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
-#'   * \code{SE}: Standard error of the estimated log(odds ratio)
-#'   * \code{L95}: Lower bound of the 95% confidence interval of the odds ratio
-#'   * \code{U95}: Upper bound of the 95% confidence interval of the odds ratio
-#'
-#' The table with have as much rows as the number of SNPs
-#'
-#' Note that parameters in uppercase are named as such by PLINK.
+#' @return a \link{list} with the following columns:
+#' * \code{assoc_table}: a \link[tibble]{tibble} with associations
+#'   found by \code{PLINK}.
+#'   See \link{read_plink_assoc_file} for an explanation of the
+#'   column names.
+#' * \code{log}: the log file as text as created by \code{PLINK}
 #' @examples
 #' if (is_plink_installed()) {
 #'   assoc(create_demo_assoc_params())
@@ -40,6 +27,7 @@ plink_assoc <- function(
   ped_filename <- paste0(assoc_params$base_input_filename, ".ped")
   map_filename <- paste0(assoc_params$base_input_filename, ".map")
   assoc_filename <- paste0(assoc_params$base_output_filename, ".assoc")
+  log_filename <- paste0(assoc_params$base_output_filename, ".log")
 
   # 'save_' functions will check for success themselves
   plinkr::save_ped_table_to_file(
@@ -72,11 +60,17 @@ plink_assoc <- function(
     plink_options = plink_options,
     verbose = verbose
   )
-  assoc_table <- plinkr::read_plink_assoc_file(assoc_filename)
+  testthat::expect_true(file.exists(assoc_filename))
+  testthat::expect_true(file.exists(log_filename))
+  assoc_results <- list(
+    assoc_table = plinkr::read_plink_assoc_file(assoc_filename),
+    log = plinkr::read_plink_log_file(log_filename)
+  )
 
   file.remove(map_filename)
   file.remove(ped_filename)
   file.remove(assoc_filename)
+  file.remove(log_filename)
   testthat::expect_equal(
     0,
     length(list.files(pattern = assoc_params$base_input_filename))
@@ -87,5 +81,5 @@ plink_assoc <- function(
     length(list.files(pattern = assoc_params$base_output_filename))
   )
   unlink(dirname(assoc_params$base_output_filename), recursive = TRUE)
-  assoc_table
+  assoc_results
 }

@@ -7,25 +7,18 @@
 #' @note This function is named after the \code{--assoc} \code{--adjust} flags
 #' used by \code{PLINK}
 #' @inheritParams default_params_doc
-#' @return a \link[tibble]{tibble} with the following columns:
+#' @return a \link{list} with the following columns:
 #'
-#'   * \code{CHR}: Chromosome number
-#'   * \code{SNP}: SNP identifier
-#'   * \code{BP}: Physical position (base-pair)
-#'   * \code{A1}: Minor allele name (based on whole sample)
-#'   * \code{F_A}: Frequency of this allele in cases
-#'   * \code{F_U}: Frequency of this allele in controls
-#'   * \code{A2}: Major allele name
-#'   * \code{CHISQ}: Basic allelic test chi-square (1df)
-#'   * \code{P}: Asymptotic p-value for this test
-#'   * \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
-#'   * \code{SE}: Standard error of the estimated log(odds ratio)
-#'   * \code{L95}: Lower bound of the 95% confidence interval of the odds ratio
-#'   * \code{U95}: Upper bound of the 95% confidence interval of the odds ratio
+#' * \code{assoc_table}: a \link[tibble]{tibble} with associations
+#'   found by \code{PLINK}.
+#'   See \link{read_plink_assoc_file} for an explanation of the
+#'   column names.
+#' * \code{assoc_adjusted_table}: a \link[tibble]{tibble} with
+#'   adjusted associations found by \code{PLINK}.
+#'   See \link{read_plink_assoc_adjusted_file} for an explanation of the
+#'   column names.
+#' * \code{log}: the log file as text as created by \code{PLINK}
 #'
-#' The table with have as much rows as the number of SNPs
-#'
-#' Note that parameters in uppercase are named as such by PLINK.
 #' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_adjust_from_bfile <- function(

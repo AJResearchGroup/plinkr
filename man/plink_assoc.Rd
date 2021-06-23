@@ -23,26 +23,14 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-a \link[tibble]{tibble} with the following columns:
+a \link{list} with the following columns:
 \itemize{
-\item \code{CHR}: Chromosome number
-\item \code{SNP}: SNP identifier
-\item \code{BP}: Physical position (base-pair)
-\item \code{A1}: Minor allele name (based on whole sample)
-\item \code{F_A}: Frequency of this allele in cases
-\item \code{F_U}: Frequency of this allele in controls
-\item \code{A2}: Major allele name
-\item \code{CHISQ}: Basic allelic test chi-square (1df)
-\item \code{P}: Asymptotic p-value for this test
-\item \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
-\item \code{SE}: Standard error of the estimated log(odds ratio)
-\item \code{L95}: Lower bound of the 95\% confidence interval of the odds ratio
-\item \code{U95}: Upper bound of the 95\% confidence interval of the odds ratio
+\item \code{assoc_table}: a \link[tibble]{tibble} with associations
+found by \code{PLINK}.
+See \link{read_plink_assoc_file} for an explanation of the
+column names.
+\item \code{log}: the log file as text as created by \code{PLINK}
 }
-
-The table with have as much rows as the number of SNPs
-
-Note that parameters in uppercase are named as such by PLINK.
 }
 \description{
 Let PLINK detect an association with one binary traits.

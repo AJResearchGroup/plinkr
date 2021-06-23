@@ -14,21 +14,27 @@ Use \link{read_plink_assoc_file} to read a \code{PLINK} \code{.assoc} file.}
 a \link[tibble]{tibble}.
 
 The \link[tibble]{tibble} has these columns:
+
+a \link[tibble]{tibble} with the following columns:
 \itemize{
-\item \code{CHR}: Chromosome
-\item \code{SNP}: SNP ID
+\item \code{CHR}: Chromosome number
+\item \code{SNP}: SNP identifier
 \item \code{BP}: Physical position (base-pair)
 \item \code{A1}: Minor allele name (based on whole sample)
 \item \code{F_A}: Frequency of this allele in cases
 \item \code{F_U}: Frequency of this allele in controls
 \item \code{A2}: Major allele name
-\item \code{CHISQ}: Basic allelic test chi-square (1 degree of fredoom)
+\item \code{CHISQ}: Basic allelic test chi-square (1df)
 \item \code{P}: Asymptotic p-value for this test
 \item \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
-\item \code{SE}: Standard error
+\item \code{SE}: Standard error of the estimated log(odds ratio)
 \item \code{L95}: Lower bound of the 95\% confidence interval of the odds ratio
 \item \code{U95}: Upper bound of the 95\% confidence interval of the odds ratio
 }
+
+The table with have as much rows as the number of SNPs
+
+Note that parameters in uppercase are named as such by PLINK.
 }
 \description{
 Read a PLINK \code{.assoc} file

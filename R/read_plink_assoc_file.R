@@ -3,20 +3,25 @@
 #' @return a \link[tibble]{tibble}.
 #'
 #' The \link[tibble]{tibble} has these columns:
+#' @return a \link[tibble]{tibble} with the following columns:
 #'
-#'  * `CHR`: Chromosome
-#'  * `SNP`: SNP ID
-#'  * `BP`: Physical position (base-pair)
-#'  * `A1`: Minor allele name (based on whole sample)
-#'  * `F_A`: Frequency of this allele in cases
-#'  * `F_U`: Frequency of this allele in controls
-#'  * `A2`: Major allele name
-#'  * `CHISQ`: Basic allelic test chi-square (1 degree of fredoom)
-#'  * `P`: Asymptotic p-value for this test
-#'  * `OR`: Estimated odds ratio (for A1, i.e. A2 is reference)
-#'  * `SE`: Standard error
-#'  * `L95`: Lower bound of the 95% confidence interval of the odds ratio
-#'  * `U95`: Upper bound of the 95% confidence interval of the odds ratio
+#'   * \code{CHR}: Chromosome number
+#'   * \code{SNP}: SNP identifier
+#'   * \code{BP}: Physical position (base-pair)
+#'   * \code{A1}: Minor allele name (based on whole sample)
+#'   * \code{F_A}: Frequency of this allele in cases
+#'   * \code{F_U}: Frequency of this allele in controls
+#'   * \code{A2}: Major allele name
+#'   * \code{CHISQ}: Basic allelic test chi-square (1df)
+#'   * \code{P}: Asymptotic p-value for this test
+#'   * \code{OR}: Estimated odds ratio (for A1, i.e. A2 is reference)
+#'   * \code{SE}: Standard error of the estimated log(odds ratio)
+#'   * \code{L95}: Lower bound of the 95% confidence interval of the odds ratio
+#'   * \code{U95}: Upper bound of the 95% confidence interval of the odds ratio
+#'
+#' The table with have as much rows as the number of SNPs
+#'
+#' Note that parameters in uppercase are named as such by PLINK.
 #' @examples
 #' read_plink_assoc_file(
 #'   assoc_filename = get_plinkr_filename("run1.assoc")

@@ -38,6 +38,9 @@ Newest versions at top.
  * All function with `phenotype` in it (e.g. `read_phenotype_file`), 
    use `phe` instead (e.g. `read_phe_file`). This to have a naming
    scheme consistent with PLINK
+ * `assoc_` functions return a list with an association table and
+   a log (instead of just the association table), to ensure all
+   info by PLINK is used
 
 ## plinkr 0.13 (2021-06-17)
 

@@ -1,9 +1,8 @@
 test_that("minimal use, v1.7", {
   if (!is_plink_installed()) return()
-  assoc_params  <- create_test_assoc_params()
   expect_silent(
     assoc(
-      assoc_params = assoc_params,
+      assoc_params = create_test_assoc_params(),
       plink_options = create_plink_v1_7_options()
     )
   )
@@ -55,19 +54,8 @@ test_that("use, test", {
   set.seed(314)
   assoc_params <- create_test_assoc_params()
   assoc_result <- assoc(assoc_params = assoc_params)
-  expect_true(tibble::is_tibble(assoc_result))
-  expect_true("CHR" %in% names(assoc_result))
-  expect_true("SNP" %in% names(assoc_result))
-  expect_true("BP" %in% names(assoc_result))
-  expect_true("A1" %in% names(assoc_result))
-  expect_true("F_A" %in% names(assoc_result))
-  expect_true("F_U" %in% names(assoc_result))
-  expect_true("A2" %in% names(assoc_result))
-  expect_true("CHISQ" %in% names(assoc_result))
-  expect_true("P" %in% names(assoc_result))
-  expect_true("OR" %in% names(assoc_result))
-  expect_true("L95" %in% names(assoc_result))
-  expect_true("U95" %in% names(assoc_result))
+  expect_true("assoc_table" %in% names(assoc_result))
+  expect_true("log" %in% names(assoc_result))
 })
 
 test_that("use, demo", {
@@ -76,7 +64,7 @@ test_that("use, demo", {
   assoc_params <- create_demo_assoc_params()
   assoc_results <- assoc(assoc_params = assoc_params)
   # 1 traits times 1 SNP = 1 association
-  expect_equal(1, nrow(assoc_results))
+  expect_equal(1, nrow(assoc_results$assoc_table))
 })
 
 test_that("demo on random only", {
@@ -86,7 +74,7 @@ test_that("demo on random only", {
   )
   assoc_results <- assoc(assoc_params = assoc_params)
   # 1 trait times 1 SNP = 1 association
-  expect_equal(nrow(assoc_results), 1)
+  expect_equal(nrow(assoc_results$assoc_table), 1)
 })
 
 test_that("number of individuals", {
@@ -98,7 +86,7 @@ test_that("number of individuals", {
   )
   assoc_results <- assoc(assoc_params = assoc_params)
   # One traits times one SNP = one association
-  expect_equal(1, nrow(assoc_results))
+  expect_equal(1, nrow(assoc_results$assoc_table))
 })
 
 test_that("error when case-controls are not 1 or 2", {

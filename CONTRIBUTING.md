@@ -53,7 +53,7 @@ Pull Requests should follow the same guidelines as 'Submitting code'.
 
 ## git usage
 
-To get started working on `beautier` do:
+To get started working on `plinkr` do:
 
 ```
 git clone https://github.com/richelbilderbeek/plinkr

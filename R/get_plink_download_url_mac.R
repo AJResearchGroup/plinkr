@@ -14,7 +14,7 @@ get_plink_download_url_mac <- function(
   }
   else if (plink_version == "1.9") {
     return(
-      "https://s3.amazonaws.com/plink1-assets/plink_mac_20210416.zip"
+      "https://s3.amazonaws.com/plink1-assets/plink_mac_20210616.zip"
     )
   }
   testthat::expect_true(plink_version == "2.0")

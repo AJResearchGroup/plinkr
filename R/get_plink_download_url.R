@@ -1,4 +1,6 @@
 #' Get the URL to download a version of PLINK from
+#'
+#'  * PLINK v1.9: \url{https://www.cog-genomics.org/plink2/}
 #' @inheritParams default_params_doc
 #' @return a URL
 #' @author Richèl J.C. Bilderbeek

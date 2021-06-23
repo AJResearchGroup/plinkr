@@ -23,13 +23,12 @@ test_that("Windows", {
 })
 
 test_that("URLs are valid", {
-  verbose <- FALSE
   folder_name <- get_plinkr_tempfilename()
   dir.create(folder_name, showWarnings = FALSE, recursive = TRUE)
   destfile <- file.path(folder_name, "temp_download.zip")
   for (plink_version in c("1.7", "1.9", "2.0")) {
     for (os in c("unix", "mac", "win")) {
-      if (verbose) message(plink_version, " ", os)
+      message(plink_version, " ", os)
       url <- get_plink_download_url(
         plink_version = plink_version,
         os = os

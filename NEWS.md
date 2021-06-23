@@ -9,6 +9,7 @@ Newest versions at top.
  * Add vignette with PLINK tutorial
  * Add `install_plink_tutorial_data` and `uninstall_plink_tutorial_data`
    to install and uninstall the PLINK tutorial data
+ * Add `read_plink_assoc_adjusted_file` to read PLINK `.assoc.adjusted` files
  * Add `read_plink_lmiss_file` to read PLINK `.lmiss` files
  * Add 'read_plink_imiss_file' to read PLINK `.imiss` files
  * Add 'read_plink_frq_file' to read PLINK `.frq` files
@@ -19,6 +20,10 @@ Newest versions at top.
    PLINK binary files
  * Add 'freq_from_bfile_within_phe_file' to run a PLINK `--freq` analysis from
    PLINK binary files with a stratification on the phenotype
+ * Add 'assoc_from_bfile' to run a PLINK `--assoc` analysis from
+   PLINK binary files
+ * Add 'assoc_adjust_from_bfile' to run a PLINK `--assoc --adjust` analysis from
+   PLINK binary files
 
 ### MINOR IMPROVEMENTS
 

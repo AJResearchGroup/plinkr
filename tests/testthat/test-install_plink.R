@@ -56,4 +56,5 @@ test_that("un- or install in temp plink folder", {
     }
   }
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

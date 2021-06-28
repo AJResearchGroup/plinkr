@@ -1,4 +1,4 @@
-#' Save a \code{.phenotype} table to file
+#' Save a \code{.phe} table to file
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
@@ -6,7 +6,7 @@ save_phe_table_to_file <- function(
   phe_table,
   phe_filename
 ) {
-  # A .phenotype file does not have a header
+  # A .phe file does not have a header
   text_matrix_header <- t(as.matrix(names(phe_table)))
   text_matrix_body <- as.matrix(phe_table)
   text_matrix <- rbind(text_matrix_header, text_matrix_body)

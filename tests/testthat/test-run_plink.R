@@ -165,5 +165,4 @@ test_that("assoc_qt the PLINK way with phenotype file with header", {
 
 test_that("run_plink tests cleans up temp files", {
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

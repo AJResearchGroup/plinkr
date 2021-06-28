@@ -61,4 +61,5 @@ test_that("write to impossible folder", {
     ),
     "Cannot save 'ped_table' to path"
   )
+  check_empty_plinkr_folder()
 })

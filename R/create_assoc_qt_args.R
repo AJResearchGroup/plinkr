@@ -15,7 +15,7 @@ create_assoc_qt_args <- function(
       c(
         "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
         "--ped", paste0(assoc_qt_params$base_input_filename, ".ped"),
-        "--pheno", paste0(assoc_qt_params$base_input_filename, ".phenotype"),
+        "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
         "--all-pheno",
         "--assoc",
         "--allow-extra-chr",
@@ -30,7 +30,7 @@ create_assoc_qt_args <- function(
       c(
         "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
         "--ped", paste0(assoc_qt_params$base_input_filename, ".ped"),
-        "--pheno", paste0(assoc_qt_params$base_input_filename, ".phenotype"),
+        "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
         "--all-pheno",
         "--assoc",
         "--allow-extra-chr",
@@ -44,7 +44,7 @@ create_assoc_qt_args <- function(
   c(
     "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
     "--ped", paste0(assoc_qt_params$base_input_filename, ".ped"),
-    "--pheno", paste0(assoc_qt_params$base_input_filename, ".phenotype"),
+    "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
     "--all-pheno",
     "--assoc",
     "--allow-extra-chr",

@@ -22,7 +22,7 @@ save_ped_table_to_file(
 )
 save_phe_table_to_file(
   phe_table = assoc_qt_params$phe_table,
-  phe_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt.phenotype")
+  phe_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt.phe")
 )
 
 make_bed(

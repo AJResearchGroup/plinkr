@@ -7,4 +7,5 @@ test_that("use", {
   )
   expect_true(file.exists(sim_filename))
   file.remove(sim_filename)
+  check_empty_plinkr_folder()
 })

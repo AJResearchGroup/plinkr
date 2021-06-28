@@ -11,7 +11,7 @@
 #'
 #' * \code{FID} the family ID
 #' * \code{IID} the within-family ID
-#' * \code{trait}
+#' * \code{P1} the phenotype
 #'
 #' The column names match the PLINK names, see
 #' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
@@ -23,6 +23,6 @@ create_phe_table_from_ped_table <- function(ped_table) { # nolint indeed a long 
   tibble::tibble(
     FID = ped_table$FID,
     IID = ped_table$IID,
-    trait = ped_table$case_control_code / 10.0
+    P1 = ped_table$case_control_code / 10.0
   )
 }

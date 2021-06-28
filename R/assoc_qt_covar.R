@@ -23,35 +23,37 @@
 #' Note that parameters in uppercase are named as such by PLINK.
 #' @examples
 #' if (is_plink_installed()) {
-#'   assoc_qt(create_demo_assoc_qt_params())
+#'   assoc_qt(create_demo_assoc_qt_covar_params())
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-assoc_qt <- function(
-  assoc_qt_params,
+assoc_qt_covar <- function(
+  assoc_qt_covar_params,
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
-  plinkr::check_assoc_qt_params(assoc_qt_params)
+  plinkr::check_assoc_qt_covar_params(assoc_qt_covar_params)
   plinkr::check_plink_options(plink_options)
   plinkr::check_verbose(verbose)
 
   # Do not be smart yet
-  ped_table <- assoc_qt_params$ped_table
-  map_table <- assoc_qt_params$map_table
-  phe_table <- assoc_qt_params$phe_table
-  phenotype_names <- names(assoc_qt_params$phe_table)[c(-1, -2)]
+  ped_table <- assoc_qt_covar_params$ped_table
+  map_table <- assoc_qt_covar_params$map_table
+  phe_table <- assoc_qt_covar_params$phe_table
+  cov_table <- assoc_qt_covar_params$cov_table
+  phenotype_names <- names(assoc_qt_covar_params$phe_table)[c(-1, -2)]
 
   # Filenames
-  base_input_filename <- assoc_qt_params$base_input_filename
+  base_input_filename <- assoc_qt_covar_params$base_input_filename
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
   phe_filename <- paste0(base_input_filename, ".phe")
+  cov_filename <- paste0(base_input_filename, ".cov")
   qassoc_filenames <- paste0(
-    assoc_qt_params$base_output_filename, ".", phenotype_names,
+    assoc_qt_covar_params$base_output_filename, ".", phenotype_names,
     ".qassoc"
   )
-  log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
+  log_filename <- paste0(assoc_qt_covar_params$base_output_filename, ".log")
 
   # 'save_' functions will check for success themselves
   plinkr::save_ped_table_to_file(
@@ -66,16 +68,20 @@ assoc_qt <- function(
     phe_table = phe_table,
     phe_filename = phe_filename
   )
+  plinkr::save_cov_table_to_file(
+    cov_table = cov_table,
+    cov_filename = cov_filename
+  )
 
   # PLINK will not do so and will not give an error
   dir.create(
-    dirname(assoc_qt_params$base_output_filename),
+    dirname(assoc_qt_covar_params$base_output_filename),
     showWarnings = FALSE,
     recursive = TRUE
   )
 
-  args <- plinkr::create_assoc_qt_args(
-    assoc_qt_params = assoc_qt_params,
+  args <- plinkr::create_assoc_qt_covar_args(
+    assoc_qt_covar_params = assoc_qt_covar_params,
     plink_options = plink_options
   )
   plinkr::run_plink(
@@ -83,6 +89,8 @@ assoc_qt <- function(
     plink_options = plink_options,
     verbose = verbose
   )
+
+  stop("HIERO")
 
   qassoc_table <- plinkr::read_plink_qassoc_files(
     qassoc_filenames = qassoc_filenames
@@ -101,13 +109,14 @@ assoc_qt <- function(
     length(list.files(pattern = base_input_filename))
   )
   unlink(
-    dirname(assoc_qt_params$base_input_filename),
+    dirname(assoc_qt_covar_params$base_input_filename),
     recursive = TRUE
   )
   unlink(
-    dirname(assoc_qt_params$base_output_filename),
+    dirname(assoc_qt_covar_params$base_output_filename),
     recursive = TRUE
   )
 
   qassoc_table
 }
+

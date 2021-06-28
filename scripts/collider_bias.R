@@ -28,7 +28,6 @@ assoc_qt_params$phe_table$height[female_indices] <- rnorm(
   sd = 20.0 # cm, just a guess
 )
 
-a
 
 plink_output_base_filename <- file.path(get_plinkr_tempfilename(), "plink_output")
 dir.create(dirname(plink_output_base_filename), showWarnings = FALSE, recursive = TRUE)

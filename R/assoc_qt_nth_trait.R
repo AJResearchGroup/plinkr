@@ -42,7 +42,7 @@ assoc_qt_nth_trait <- function(
   base_output_filename <- assoc_qt_params$base_output_filename
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
-  phe_filename <- paste0(base_input_filename, ".phenotype")
+  phe_filename <- paste0(base_input_filename, ".phe")
   qassoc_filename <- paste0(base_output_filename, ".qassoc")
   log_filename <- paste0(base_output_filename, ".log")
 

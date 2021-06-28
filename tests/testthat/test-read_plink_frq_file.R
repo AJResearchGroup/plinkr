@@ -9,4 +9,5 @@ test_that("use", {
   expect_true("A2" %in% names(frq_table))
   expect_true("MAF" %in% names(frq_table))
   expect_true("NCHROBS" %in% names(frq_table))
+  check_empty_plinkr_folder()
 })

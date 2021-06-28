@@ -16,6 +16,10 @@
 #' @param assoc_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc}),
 #' as can be created by \link{create_assoc_params}
+#' @param assoc_qt_covar_params parameters to do an association analysis
+#' for a quantitative trait with covariates
+#' (i.e. using \link{assoc_qt_covar}),
+#' as can be created by \link{create_assoc_qt_covar_params}
 #' @param assoc_qt_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc_qt}),
 #' as can be created by \link{create_assoc_qt_params}
@@ -49,6 +53,20 @@
 #' excluding both) 0.0 and 1.0. The confidence interval helps assess
 #' the certainty of an estimation: you can be 99 percent sure
 #' a value is within the range of the 0.99 confidence interval
+#' @param cov_table a table of covariates.
+#'
+#' A \code{cov_table} is a \link[tibble]{tibble} with these columns:
+#'   * \code{FID} The family ID
+#'   * \code{IID} Within-family ID (cannot be zero)
+#'   * One or more columns of covariate values,
+#'     columns can have any name
+#'
+#' These names match the PLINK column
+#' names (\url{https://www.cog-genomics.org/plink/1.9/input#pheno}).
+#' Use \link{read_plink_cov_file} to read a covariates file.
+#' Use \link{check_cov_table} to test if a covariates table is valid.
+#' @param cov_filename name of a covariates (\code{.cov}) file.
+#' Use \link{read_plink_cov_file} to read a covariates file.
 #' @param epistatic_phenotype_value the phenotypic value when the
 #' epistatic phenotype is expressed
 #' @param example_filename name of the example file
@@ -142,7 +160,7 @@
 #'    * \code{AA} 11.0
 #'    * \code{AT} 10.5
 #'    * \code{TT} 10.0
-#' @param phe_filename name of a raw phenotype file.
+#' @param phe_filename name of a phenotype (\code{.phe}) file.
 #' Use \link{read_plink_phe_file} to read a raw phenotype file.
 #' @param phenotype_increase the phenotypic value increase per rare allele,
 #' for an additive trait.
@@ -150,12 +168,11 @@
 #'
 #' A \code{phe_table} is a \link[tibble]{tibble} with these columns:
 #'   * \code{FID} The family ID
-#'   * \code{IID} Within-family ID
-#'       (cannot be zero)
+#'   * \code{IID} Within-family ID (cannot be zero)
 #'   * One or more columns of phenotype values,
 #'     columns can have any name
 #'
-#' Thes names match the PLINK column
+#' These names match the PLINK column
 #' names (\url{https://www.cog-genomics.org/plink/1.9/input#pheno}).
 #' Use \link{read_plink_phe_file} to read a phenotype file.
 #' Use \link{check_phe_table} to test if a phenotype table is valid.
@@ -239,6 +256,7 @@ default_params_doc <- function(
   assoc_adjusted_filename,
   assoc_filename,
   assoc_params,
+  assoc_qt_covar_params,
   assoc_qt_params,
   base_input_filename,
   base_output_filename,
@@ -248,6 +266,8 @@ default_params_doc <- function(
   bim_filename,
   calc_phenotype_function,
   confidence_interval,
+  cov_filename,
+  cov_table,
   epistatic_phenotype_value,
   example_filename,
   fam_filename,

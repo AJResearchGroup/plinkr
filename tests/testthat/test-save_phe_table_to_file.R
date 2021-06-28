@@ -40,7 +40,7 @@ test_that("sub-sub-sub folder", {
   )
   phe_filename <- file.path(
     get_plinkr_tempfilename(),
-    "sub", "sub", "sub", "folder", "test.phenotype"
+    "sub", "sub", "sub", "folder", "test.phe"
   )
   save_phe_table_to_file(
     phe_table = phe_table,
@@ -60,7 +60,7 @@ test_that("write to impossible folder", {
   phe_table <- read_plink_phe_file(
     phe_filename = get_plinkr_filename("pheno.raw")
   )
-  phe_filename <- "/root/test.phenotype"
+  phe_filename <- "/root/test.phe"
   expect_error(
     save_phe_table_to_file(
       phe_table = phe_table,

@@ -7,7 +7,7 @@
 read_plink_phe_file(phe_filename)
 }
 \arguments{
-\item{phe_filename}{name of a raw phenotype file.
+\item{phe_filename}{name of a phenotype (\code{.phe}) file.
 Use \link{read_plink_phe_file} to read a raw phenotype file.}
 }
 \value{

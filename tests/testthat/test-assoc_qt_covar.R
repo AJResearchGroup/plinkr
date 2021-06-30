@@ -15,7 +15,9 @@ test_that("use", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_test_assoc_qt_covar_params()
-  assoc_qt_covar_result <- assoc_qt_covar(assoc_qt_covar_params = assoc_qt_covar_params)
+  assoc_qt_covar_result <- assoc_qt_covar(
+    assoc_qt_covar_params = assoc_qt_covar_params
+  )
   expect_true(tibble::is_tibble(assoc_qt_covar_result))
   expect_true("CHR" %in% names(assoc_qt_covar_result))
   expect_true("SNP" %in% names(assoc_qt_covar_result))
@@ -33,7 +35,9 @@ test_that("default demo", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params()
-  assoc_qt_covar_results <- assoc_qt_covar(assoc_qt_covar_params = assoc_qt_covar_params)
+  assoc_qt_covar_results <- assoc_qt_covar(
+    assoc_qt_covar_params = assoc_qt_covar_params
+  )
   # three traits times four SNPs = 12 association
   expect_equal(12, nrow(assoc_qt_covar_results))
 })
@@ -44,7 +48,9 @@ test_that("demo on random only", {
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
     traits = create_random_trait()
   )
-  assoc_qt_covar_results <- assoc_qt_covar(assoc_qt_covar_params = assoc_qt_covar_params)
+  assoc_qt_covar_results <- assoc_qt_covar(
+    assoc_qt_covar_params = assoc_qt_covar_params
+  )
   # 1 trait times 1 SNP = 1 association
   expect_equal(nrow(assoc_qt_covar_results), 1)
 })
@@ -56,7 +62,9 @@ test_that("demo on two randoms", {
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
     traits = rep(list(create_random_trait()), 2)
   )
-  assoc_qt_covar_results <- assoc_qt_covar(assoc_qt_covar_params = assoc_qt_covar_params)
+  assoc_qt_covar_results <- assoc_qt_covar(
+    assoc_qt_covar_params = assoc_qt_covar_params
+  )
   # 2 trait times 2 SNP = 4 association
   expect_equal(nrow(assoc_qt_covar_results), 4)
 })
@@ -69,7 +77,9 @@ test_that("number of individuals", {
     n_individuals = 3,
     traits = create_random_trait()
   )
-  assoc_qt_covar_results <- assoc_qt_covar(assoc_qt_covar_params = assoc_qt_covar_params)
+  assoc_qt_covar_results <- assoc_qt_covar(
+    assoc_qt_covar_params = assoc_qt_covar_params
+  )
   # One traits times one SNP = one association
   expect_equal(1, nrow(assoc_qt_covar_results))
 })
@@ -80,7 +90,9 @@ test_that("demo on additive only", {
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
     traits = create_additive_trait()
   )
-  assoc_qt_covar_results <- assoc_qt_covar(assoc_qt_covar_params = assoc_qt_covar_params)
+  assoc_qt_covar_results <- assoc_qt_covar(
+    assoc_qt_covar_params = assoc_qt_covar_params
+  )
   # 1 trait times 1 SNP = 1 association
   expect_equal(nrow(assoc_qt_covar_results), 1)
 })

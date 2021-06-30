@@ -7,4 +7,5 @@ test_that("use", {
       calc_phenotype_function = calc_additive_phenotype_values
     )
   )
+  expect_silent(check_empty_plinkr_folder())
 })

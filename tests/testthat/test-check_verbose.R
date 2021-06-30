@@ -10,4 +10,5 @@ test_that("use", {
   expect_error(check_verbose(NA))
   expect_error(check_verbose(Inf))
   expect_error(check_verbose(c(TRUE, FALSE)))
+  expect_silent(check_empty_plinkr_folder())
 })

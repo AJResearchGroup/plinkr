@@ -13,6 +13,6 @@ test_that("use", {
   # Prevent PLINK doing a case-control association with a quantitative trait
   expect_equal(
     ped_table$case_control_code / 10.0,
-    phe_table$trait
+    phe_table$P1
   )
 })

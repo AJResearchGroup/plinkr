@@ -8,4 +8,7 @@ test_that("use", {
   expect_equal(0, length(list.dirs(plink_folder)))
   expect_equal(0, length(list.files(plink_folder)))
   unlink(plink_folder, recursive = TRUE)
+
+  expect_silent(check_empty_plinkr_folder())
+
 })

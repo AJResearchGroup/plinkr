@@ -12,10 +12,18 @@ check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
   testthat::expect_true("phe_table" %in% names(assoc_qt_covar_params))
   testthat::expect_true("cov_table" %in% names(assoc_qt_covar_params))
   testthat::expect_true("maf" %in% names(assoc_qt_covar_params))
-  testthat::expect_true("base_input_filename" %in% names(assoc_qt_covar_params))
-  testthat::expect_true("base_output_filename" %in% names(assoc_qt_covar_params))
-  testthat::expect_silent(plinkr::check_ped_table(assoc_qt_covar_params$ped_table))
-  testthat::expect_silent(plinkr::check_map_table(assoc_qt_covar_params$map_table))
+  testthat::expect_true(
+    "base_input_filename" %in% names(assoc_qt_covar_params)
+  )
+  testthat::expect_true(
+    "base_output_filename" %in% names(assoc_qt_covar_params)
+  )
+  testthat::expect_silent(
+    plinkr::check_ped_table(assoc_qt_covar_params$ped_table)
+  )
+  testthat::expect_silent(
+    plinkr::check_map_table(assoc_qt_covar_params$map_table)
+  )
   testthat::expect_silent(
     plinkr::check_phe_table(assoc_qt_covar_params$phe_table)
   )
@@ -27,7 +35,9 @@ check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
     plinkr::check_base_input_filename(assoc_qt_covar_params$base_input_filename)
   )
   testthat::expect_silent(
-    plinkr::check_base_output_filename(assoc_qt_covar_params$base_output_filename)
+    plinkr::check_base_output_filename(
+      assoc_qt_covar_params$base_output_filename
+    )
   )
   plinkr::check_equal_number_of_snvs(assoc_qt_covar_params)
 }

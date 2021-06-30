@@ -1,26 +1,50 @@
 test_that("minimal use, toy_data", {
-  bim <- read_plink_bim_file(get_plinkr_filename("toy_data.bim"))
-  fam <- read_plink_fam_file(get_plinkr_filename("toy_data.fam"))
   expect_silent(
-    read_plink_bed_file(get_plinkr_filename("toy_data.bed"), bim$id, fam$id)
+    read_plink_bed_file_from_files(
+      bed_filename = get_plinkr_filename("toy_data.bed"),
+      bim_filename = get_plinkr_filename("toy_data.bim"),
+      fam_filename = get_plinkr_filename("toy_data.fam")
+    )
   )
 })
 
 test_that("minimal use, demo_assoc.bed", {
-  bim <- read_plink_bim_file(get_plinkr_filename("demo_assoc.bim"))
-  fam <- read_plink_fam_file(get_plinkr_filename("demo_assoc.fam"))
   expect_silent(
-    read_plink_bed_file(get_plinkr_filename("demo_assoc.bed"), bim$id, fam$id)
+    read_plink_bed_file_from_files(
+      bed_filename = get_plinkr_filename("demo_assoc.bed"),
+      bim_filename = get_plinkr_filename("demo_assoc.bim"),
+      fam_filename = get_plinkr_filename("demo_assoc.fam")
+    )
+  )
+})
+
+test_that("ARTP2 issue, demo_assoc.bed", {
+  skip("ARTP2 issue")
+  bed_filename <- get_plinkr_filename("demo_assoc.bed")
+  bim_filename <- get_plinkr_filename("demo_assoc.bim")
+  fam_filename <- get_plinkr_filename("demo_assoc.fam")
+
+  genio::read_bed(
+    file = bed_filename,
+    names_loci = plinkr::read_plink_bim_file(bim_filename)$id,
+    names_ind = plinkr::read_plink_fam_file(fam_filename)$fam
+  )
+
+  t <- genio::read_fam(fam_filename)
+
+  ARTP2::read.bed(
+    bed = get_plinkr_filename("demo_assoc.bed"),
+    bim = get_plinkr_filename("demo_assoc.bim"),
+    fam = get_plinkr_filename("demo_assoc.fam")
   )
 })
 
 test_that("minimal use, demo_assoc_qt", {
-  bim <- read_plink_bim_file(get_plinkr_filename("demo_assoc_qt.bim"))
-  fam <- read_plink_fam_file(get_plinkr_filename("demo_assoc_qt.fam"))
   expect_silent(
-    read_plink_bed_file(get_plinkr_filename("demo_assoc_qt.bed"),
-      bim$id,
-      fam$id
+    read_plink_bed_file_from_files(
+      bed_filename = get_plinkr_filename("demo_assoc_qt.bed"),
+      bim_filename = get_plinkr_filename("demo_assoc_qt.bim"),
+      fam_filename = get_plinkr_filename("demo_assoc_qt.fam")
     )
   )
 })

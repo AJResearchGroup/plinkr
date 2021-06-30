@@ -154,7 +154,7 @@ test_that("assoc_qt the PLINK way with phenotype file with header", {
     "--ped", get_plinkr_filename("test_v1_7.ped"),
     "--map", get_plinkr_filename("test_v1_7.map"),
     "--assoc",
-    "--pheno", get_plinkr_filename("pheno_with_header.raw"),
+    "--pheno", get_plinkr_filename("pheno_with_header.phe"),
     "--all-pheno"
   )
   expect_silent(run_plink(args))

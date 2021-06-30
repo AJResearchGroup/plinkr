@@ -262,8 +262,8 @@ if (good_to_go) {
   )
   bed_table <- read_plink_bed_file(
     bed_filename = bed_filename,
-    bim_table$id, 
-    fam_table$id
+    names_loci = bim_table$id, 
+    names_ind = fam_table$fam
   )
   knitr::kable(bed_table[1:5, 1:10])
 }

@@ -10,11 +10,43 @@ test_that("save and read must result in same table", {
   phe_table_again <- read_plink_phe_file(
     phe_filename = phe_filename
   )
-  expect_equal(names(phe_table), names(phe_table_again))
-  expect_equal(nrow(phe_table), nrow(phe_table_again))
-  expect_equal(ncol(phe_table), ncol(phe_table_again))
+  expect_equal(phe_table, phe_table_again)
   file.remove(phe_filename)
 })
+
+test_that("save and read must result in same table, file with custom header", {
+  phe_table <- read_plink_phe_file(
+    phe_filename = get_plinkr_filename("pheno_with_standard_header.phe")
+  )
+  phe_filename <- get_plinkr_tempfilename()
+  save_phe_table_to_file(
+    phe_table = phe_table,
+    phe_filename = phe_filename
+  )
+  phe_table_again <- read_plink_phe_file(
+    phe_filename = phe_filename
+  )
+  expect_equal(phe_table, phe_table_again)
+  file.remove(phe_filename)
+})
+
+
+test_that("save and read must result in same table, file with custom header", {
+  phe_table <- read_plink_phe_file(
+    phe_filename = get_plinkr_filename("pheno_with_custom_header.phe")
+  )
+  phe_filename <- get_plinkr_tempfilename()
+  save_phe_table_to_file(
+    phe_table = phe_table,
+    phe_filename = phe_filename
+  )
+  phe_table_again <- read_plink_phe_file(
+    phe_filename = phe_filename
+  )
+  expect_equal(phe_table, phe_table_again)
+  file.remove(phe_filename)
+})
+
 
 test_that("save and read must result in same table with correct column names", {
   phe_table <- read_plink_phe_file(

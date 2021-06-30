@@ -119,4 +119,3 @@ assoc_qt_covar <- function(
 
   qassoc_table
 }
-

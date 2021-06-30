@@ -8,7 +8,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_test_assoc_qt_covar_params <- function(
+create_test_assoc_qt_covar_params <- function( # nolint indeed a long function name
   ped_table = get_test_ped_table(),
   map_table = get_test_map_table(),
   phe_table = plinkr::create_phe_table_from_ped_table(

@@ -1,0 +1,148 @@
+---
+title: "plinkr_example_files"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{plinkr_example_files}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+This vignette shows how to plinkr example files were created.
+
+```{r setup}
+library(plinkr)
+```
+
+# Methods
+
+To demonstrate how the plinkr example files were created,
+these are re-created in a temporary folder, 
+and then compared to the existing files
+in the `plinkr` `inst/extdata` folder
+
+Determine the name of the temporary folder:
+
+```{r get_temp_folder_name}
+folder_name <- plinkr::get_plinkr_tempfilename()
+folder_name
+```
+
+## `demo_assoc`
+
+Simulate data:
+
+```{r}
+# Create the example files in the inst/extdata folder
+set.seed(314)
+assoc_params <- create_demo_assoc_params()
+```
+
+Glance at the data:
+
+```{r}
+knitr::kable(assoc_params$map_table)
+```
+
+```{r}
+knitr::kable(assoc_params$ped_table)
+```
+
+Should be the same:
+
+```{r}
+testthat::expect_equal(
+  assoc_params$map_table,
+  read_plink_map_file(get_plinkr_filename("demo_assoc.map"))
+)
+```
+
+```{r}
+testthat::expect_equal(
+  assoc_params$ped_table,
+  read_plink_ped_file(get_plinkr_filename("demo_assoc.ped"))
+)
+```
+
+## `demo_assoc_qt` 
+
+### plain-text files
+
+```{r}
+set.seed(314)
+assoc_qt_params <- create_demo_assoc_qt_params()
+```
+
+Glance at the data:
+
+```{r}
+knitr::kable(assoc_qt_params$map_table)
+```
+
+```{r}
+knitr::kable(assoc_qt_params$ped_table)
+```
+
+```{r}
+knitr::kable(assoc_qt_params$phe_table)
+```
+
+Should be equal:
+
+```{r}
+testthat::expect_equal(
+  assoc_qt_params$map_table,
+  read_plink_map_file(get_plinkr_filename("demo_assoc_qt.map"))
+)
+```
+
+```{r}
+testthat::expect_equal(
+  assoc_qt_params$ped_table,
+  read_plink_ped_file(get_plinkr_filename("demo_assoc_qt.ped"))
+)
+```
+
+```{r}
+if (1 == 2) {
+  plinkr::save_phe_table_to_file(
+    phe_table = assoc_qt_params$phe_table,
+    phe_filename = get_plinkr_filename("demo_assoc_qt.phe")
+  )
+  testthat::expect_equal(
+    assoc_qt_params$phe_table,
+    read_plink_phe_file(get_plinkr_filename("demo_assoc_qt.phe"))
+  )
+}
+```
+
+### binary files
+
+```{r}
+if (1 == 2) {
+  make_bed(
+    base_input_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt"),
+    base_output_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt")
+  )
+  
+  make_bed(
+    base_input_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc"),
+    base_output_filename = file.path(system.file("extdata", package = "plinkr"), "demo_assoc")
+  )
+  
+}
+```
+
+# Cleanup
+
+```{r cleanup}
+unlink(folder_name)
+```

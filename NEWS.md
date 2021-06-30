@@ -24,9 +24,11 @@ Newest versions at top.
    PLINK binary files
  * Add 'assoc_adjust_from_bfile' to run a PLINK `--assoc --adjust` analysis from
    PLINK binary files
+ * Add 'assoc_qt_covar' to do a quantitative traits analysis with covariates
 
 ### MINOR IMPROVEMENTS
 
+ * Add vignette to demonstrate how example files are created
  * Use `--noweb` flag only in PLINK versions that support it
 
 ### BUG FIXES
@@ -41,6 +43,9 @@ Newest versions at top.
  * `assoc_` functions return a list with an association table and
    a log (instead of just the association table), to ensure all
    info by PLINK is used
+ * Example phenotype files with the `.raw` extension have been renamed 
+   to have a `.phe` file extension, except for `pheno.raw`, as that filename
+   is used in the PLINK tutorial
 
 ## plinkr 0.13 (2021-06-17)
 

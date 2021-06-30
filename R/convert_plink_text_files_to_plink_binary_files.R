@@ -1,0 +1,45 @@
+#' Convert PLINK text files to PLINK binary files
+#' @inheritParams default_params_doc
+#' @return a list with the following elements:
+#'  * `bed_filename`: the full `.bed` filename
+#'  * `bim_filename`: the full `.bim` filename
+#'  * `fam_filename`: the full `.fam` filename
+#' @author Richèl J.C. Bilderbeek
+#' @export
+convert_plink_text_files_to_plink_binary_files <- function( # nolint indeed a long function name
+  base_input_filename,
+  base_output_filename = file.path(dirname(base_input_filename), "output"),
+  plink_options = create_plink_v1_9_options(),
+  verbose = FALSE
+) {
+  # All input is checked by make_bed :-)
+
+  plink_binary_filenames <- plinkr::make_bed(
+    base_input_filename = base_input_filename,
+    base_output_filename = base_output_filename,
+    plink_options = plink_options,
+    verbose = verbose
+  )
+
+  bed_filename <- stringr::str_subset(
+    string = plink_binary_filenames,
+    pattern = ".bed$"
+  )
+  bim_filename <- stringr::str_subset(
+    string = plink_binary_filenames,
+    pattern = ".bim$"
+  )
+  fam_filename <- stringr::str_subset(
+    string = plink_binary_filenames,
+    pattern = ".fam$"
+  )
+  testthat::expect_equal(1, length(bed_filename))
+  testthat::expect_equal(1, length(bim_filename))
+  testthat::expect_equal(1, length(fam_filename))
+  list(
+    bed_filename = bed_filename,
+    bim_filename = bim_filename,
+    fam_filename = fam_filename
+  )
+
+}

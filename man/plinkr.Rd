@@ -60,6 +60,13 @@ read a \code{PLINK} \code{.simfreq} file
 
 This is a list of functions to convert \code{PLINK} and \code{PLINK2} files:
 \itemize{
+\item \link{convert_plink_binary_files_to_plink_text_files}:
+Convert the PLINK binary \code{.bed}, \code{.bim} and \code{.fam} files
+to their equivalent plain-text/non-binary \code{.map} and \code{.ped}
+files
+\item \link{convert_plink_text_files_to_plink_binary_files}:
+Convert the PLINK plain-text/non-binary \code{.map} and \code{.ped} files
+to their equivalent binary \code{.bed}, \code{.bim} and \code{.fam} files
 \item \link{make_bed}:
 Convert the (non-binary) \code{.map} and \code{.ped} files to their binary
 \code{.bed}, \code{.bim} and \code{.fam} equivalents

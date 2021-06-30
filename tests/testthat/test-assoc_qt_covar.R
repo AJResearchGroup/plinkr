@@ -1,4 +1,5 @@
 test_that("use", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_test_assoc_qt_covar_params()
@@ -10,6 +11,7 @@ test_that("use", {
 })
 
 test_that("use", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_test_assoc_qt_covar_params()
@@ -27,6 +29,7 @@ test_that("use", {
 })
 
 test_that("default demo", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params()
@@ -36,6 +39,7 @@ test_that("default demo", {
 })
 
 test_that("demo on random only", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
     traits = create_random_trait()
@@ -46,6 +50,7 @@ test_that("demo on random only", {
 })
 
 test_that("demo on two randoms", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
@@ -57,6 +62,7 @@ test_that("demo on two randoms", {
 })
 
 test_that("number of individuals", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
@@ -69,6 +75,7 @@ test_that("number of individuals", {
 })
 
 test_that("demo on additive only", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
     traits = create_additive_trait()
@@ -79,6 +86,7 @@ test_that("demo on additive only", {
 })
 
 test_that("use quantitative traits that are either 1 or 2", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   assoc_qt_covar_params <- create_test_assoc_qt_covar_params()
   n_individuals <- nrow(assoc_qt_covar_params$phe_table)
@@ -95,6 +103,7 @@ test_that("use quantitative traits that are either 1 or 2", {
 
 
 test_that("PLINK cannot handle triallelic SNPs", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
@@ -110,6 +119,7 @@ test_that("PLINK cannot handle triallelic SNPs", {
 })
 
 test_that("PLINK cannot handle quadallelic SNPs", {
+  skip("No covariates yet")
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_covar_params <- create_demo_assoc_qt_covar_params(
@@ -125,6 +135,7 @@ test_that("PLINK cannot handle quadallelic SNPs", {
 })
 
 test_that("95 chromosome numbers work", {
+  skip("No covariates yet")
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
   if (!is_plink_installed()) return()

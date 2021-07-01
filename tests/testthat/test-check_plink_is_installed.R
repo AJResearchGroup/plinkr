@@ -18,7 +18,11 @@ test_that("Executable is not found", {
     check_plink_is_installed(plink_options),
     "Executable is not found"
   )
-  unlink(plink_options$plink_folder, recursive = TRUE)
+
+  unlink(
+    dirname(dirname(dirname(plink_options$plink_exe_path))),
+    recursive = TRUE
+  )
 
   expect_silent(check_empty_plinkr_folder())
 })

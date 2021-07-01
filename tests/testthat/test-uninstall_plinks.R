@@ -3,4 +3,6 @@ test_that("use", {
     uninstall_plinks("nonsense"),
     "must be a list"
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })

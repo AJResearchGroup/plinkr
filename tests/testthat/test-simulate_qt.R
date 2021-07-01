@@ -31,9 +31,6 @@ test_that("use, v1.9", {
   expect_true(is.list(results))
   expect_true("log" %in% names(results))
   expect_true("simfreq" %in% names(results))
-})
 
-test_that("simulate_qt tests cleans up temp files", {
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

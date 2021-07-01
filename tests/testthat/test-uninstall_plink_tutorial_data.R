@@ -5,4 +5,7 @@ test_that("use", {
   expect_silent(uninstall_plink_tutorial_data(plink_folder = plink_folder))
   expect_false(is_plink_tutorial_data_installed(plink_folder = plink_folder))
   expect_error(uninstall_plink_tutorial_data(plink_folder = plink_folder))
+
+  unlink(plink_folder, recursive = TRUE)
+  expect_silent(check_empty_plinkr_folder())
 })

@@ -2,6 +2,7 @@ test_that("use", {
   if (is_plink_installed()) {
     expect_silent(check_plink_is_installed())
   }
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("Executable is not found", {
@@ -18,6 +19,8 @@ test_that("Executable is not found", {
     "Executable is not found"
   )
   unlink(plink_options$plink_folder, recursive = TRUE)
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("PLINK binary is not executable", {
@@ -38,4 +41,5 @@ test_that("PLINK binary is not executable", {
     "PLINK binary is not executable"
   )
   unlink(plink_options$plink_folder, recursive = TRUE)
+  expect_silent(check_empty_plinkr_folder())
 })

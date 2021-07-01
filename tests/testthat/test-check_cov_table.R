@@ -3,4 +3,5 @@ test_that("use", {
     phe_filename = get_plinkr_filename("pheno.raw")
   )
   expect_silent(check_cov_table(cov_table))
+  expect_silent(check_empty_plinkr_folder())
 })

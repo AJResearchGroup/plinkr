@@ -46,5 +46,4 @@ test_that("URLs are valid", {
   }
   unlink(folder_name, recursive = TRUE)
   check_empty_plinkr_folder()
-  clear_plinkr_cache()
 })

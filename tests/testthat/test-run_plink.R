@@ -130,6 +130,8 @@ test_that("assoc_qt the PLINK way", {
   file.remove(map_filename)
   file.remove(phe_filename)
   file.remove(qassoc_filenames)
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("assoc_qt the PLINK way with phenotype file with header", {
@@ -161,6 +163,8 @@ test_that("assoc_qt the PLINK way with phenotype file with header", {
   qassoc_filenames <- "plink.P1.qassoc"
   expect_true(all(file.exists(qassoc_filenames)))
   file.remove(qassoc_filenames)
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("run_plink tests cleans up temp files", {

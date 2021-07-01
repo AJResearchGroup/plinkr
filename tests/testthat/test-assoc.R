@@ -6,6 +6,7 @@ test_that("minimal use, v1.7", {
       plink_options = create_plink_v1_7_options()
     )
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("minimal use, v1.9", {

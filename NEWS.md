@@ -2,7 +2,25 @@
 
 Newest versions at top.
 
-## plinkr 0.14 (2021-07-01)
+## plinkr v0.15 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+## plinkr v0.14 (2021-07-01)
 
 ### NEW FEATURES
 
@@ -47,7 +65,7 @@ Newest versions at top.
    to have a `.phe` file extension, except for `pheno.raw`, as that filename
    is used in the PLINK tutorial
 
-## plinkr 0.13 (2021-06-17)
+## plinkr v0.13 (2021-06-17)
 
 ### NEW FEATURES
 
@@ -65,7 +83,7 @@ Newest versions at top.
 
  * None
 
-## plinkr 0.12 (2021-06-16)
+## plinkr v0.12 (2021-06-16)
 
 ### NEW FEATURES
 
@@ -92,7 +110,7 @@ Newest versions at top.
 
  * None
 
-## plinkr 0.11 (2021-06-09)
+## plinkr v0.11 (2021-06-09)
 
 ### NEW FEATURES
 
@@ -113,7 +131,7 @@ Newest versions at top.
 
  * None
 
-## plinkr 0.10 (2021-06-02)
+## plinkr v0.10 (2021-06-02)
 
 ### NEW FEATURES
 
@@ -131,7 +149,7 @@ Newest versions at top.
 
  * None
 
-## plinkr 0.9 (2021-05-31)
+## plinkr v0.9 (2021-05-31)
 
 ### NEW FEATURES
 
@@ -152,7 +170,7 @@ Newest versions at top.
 
  * Functions that call PLINK must use a `plink_options` parameter
 
-## plinkr 0.8 (2021-5-27)
+## plinkr v0.8 (2021-5-27)
 
 ### NEW FEATURES
 
@@ -171,7 +189,7 @@ Newest versions at top.
 
  * None
 
-## plinkr 0.7 (2021-05-27)
+## plinkr v0.7 (2021-05-27)
 
 ### NEW FEATURES
 
@@ -189,7 +207,7 @@ Newest versions at top.
 
  * None
 
-## plinkr 0.6 (2021-05-26)
+## plinkr v0.6 (2021-05-26)
 
 ### NEW FEATURES
 
@@ -208,7 +226,7 @@ Newest versions at top.
 
  * None
 
-## plinkr 0.5 (2021-05-26)
+## plinkr v0.5 (2021-05-26)
 
 ### NEW FEATURES
 

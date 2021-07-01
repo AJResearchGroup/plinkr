@@ -11,7 +11,7 @@ uninstall_plink <- function(
     stop(
       "Cannot uninstall a PLINK version that is absent. \n",
       "PLINK version: ", plink_options$plink_version, " \n",
-      "PLINK folder: ", plink_options$plink_folder, " \n",
+      "PLINK exe path: ", plink_options$plink_exe_path, " \n",
       "OS: ", plink_options$os, " \n",
       "Tip 1: maybe you did not expect 'uninstall_plink' to give an error ",
       "and everything is fine :-)",

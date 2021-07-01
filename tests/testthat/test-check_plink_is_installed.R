@@ -44,6 +44,6 @@ test_that("PLINK binary is not executable", {
     check_plink_is_installed(plink_options),
     "PLINK binary is not executable"
   )
-  unlink(plink_options$plink_folder, recursive = TRUE)
+  unlink(dirname(dirname(plink_options$plink_exe_path)), recursive = TRUE)
   expect_silent(check_empty_plinkr_folder())
 })

@@ -15,8 +15,7 @@ check_plink_is_installed <- function(
     stop(
       "PLINK is not installed. \n",
       "Executable is not found \n",
-      "PLINK folder: ", plink_options$plink_folder, " \n",
-      "PLINK executable: ", plink_exe_path, " \n",
+      "PLINK exe path: ", plink_options$plink_exe_path, " \n",
       "Tip: run 'plinkr::install_plinks()'"
     )
   }
@@ -25,8 +24,7 @@ check_plink_is_installed <- function(
     stop(
       "PLINK is not installed. \n",
       "PLINK binary is not executable \n",
-      "PLINK folder: ", plink_options$plink_folder, " \n",
-      "PLINK executable: ", plink_exe_path, " \n",
+      "PLINK exe path: ", plink_options$plink_exe_path, " \n",
       "Tip: run 'plinkr::install_plinks()'"
     )
   }

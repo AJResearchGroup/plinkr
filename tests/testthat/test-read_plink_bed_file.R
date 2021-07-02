@@ -24,39 +24,3 @@ test_that("minimal use, demo_assoc_qt", {
     )
   )
 })
-
-test_that("genio bug report", {
-  skip("bug report")
-  # https://github.com/OchoaLab/genio/issues/3
-  temp_folder <- tempfile()
-  bed_filename <- file.path(temp_folder, "file.bed")
-  bim_filename <- file.path(temp_folder, "file.bim")
-  fam_filename <- file.path(temp_folder, "file.fam")
-  dir.create(temp_folder, showWarnings = FALSE, recursive = TRUE)
-  download.file(
-    "https://github.com/kausmees/GenoCAE/blob/master/example_tiny/HumanOrigins249_tiny.bed?raw=true", # nolint indeed a long line
-    destfile = bed_filename
-  )
-  download.file(
-    "https://github.com/kausmees/GenoCAE/blob/master/example_tiny/HumanOrigins249_tiny.bim?raw=true", # nolint indeed a long line
-    destfile = bim_filename
-  )
-  download.file(
-    "https://github.com/kausmees/GenoCAE/blob/master/example_tiny/HumanOrigins249_tiny.fam?raw=true", # nolint indeed a long line
-    destfile = fam_filename
-  )
-  # Works with ARTP2
-  bed_table <- ARTP2::read.bed(
-    bed = bed_filename,
-    bim = bim_filename,
-    fam = fam_filename
-  )
-  # Does not work with genio
-  bim_table <- genio::read_bim(bim_filename)
-  fam_table <- genio::read_bim(fam_filename)
-  genio::read_bed(
-    bed_filename,
-    names_loci = bim_table$id,
-    names_ind = fam_table$id
-  )
-})

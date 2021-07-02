@@ -25,32 +25,14 @@ read_plink_bed_file_from_files <- function(
   testthat::expect_true(file.exists(bed_filename))
   testthat::expect_true(file.exists(bim_filename))
   testthat::expect_true(file.exists(fam_filename))
-  # Try with ARTP2 first
-  t_bed <- NA
-  suppressWarnings(
-    tryCatch(
-      t_bed <- ARTP2::read.bed(
-        bed = bed_filename,
-        bim = bim_filename,
-        fam = fam_filename
-      ),
-      error = function(e) {} # nolint ignore
-    )
-  )
-  if (is.data.frame(t_bed)) {
-    return(tibble::as_tibble(t_bed))
-  }
-  # Fall back to genio
   bim_table <- plinkr::read_plink_bim_file(bim_filename)
   fam_table <- plinkr::read_plink_fam_file(fam_filename)
-
   snp_names <- bim_table$id
   individual_ids <- format(fam_table$fam, scientific = FALSE)
   if (length(unique(individual_ids)) < length(individual_ids)) {
     individual_ids <- format(fam_table$id, scientific = FALSE)
   }
   testthat::expect_equal(length(unique(individual_ids)), length(individual_ids))
-
   plinkr::read_plink_bed_file(
     bed_filename = bed_filename,
     names_loci = snp_names,

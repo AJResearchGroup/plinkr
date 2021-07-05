@@ -26,7 +26,10 @@ test_that("2 SNPs", {
 test_that("3 SNPs", {
   n_snps <- 3
 
-  snvs <- create_snvs(n_snps = n_snps)
+  snvs <- create_snvs(
+    n_snps = n_snps,
+    n_individuals = 4 * 4 * 4
+  )
 
   expect_equal(2 * n_snps, ncol(snvs))
   expected_names <- paste0(

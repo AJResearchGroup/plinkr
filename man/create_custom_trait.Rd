@@ -7,12 +7,27 @@ determined in a custom way
 and the minor allele frequency is known.}
 \usage{
 create_custom_trait(
+  phenotype = "custom",
   mafs = 0.25,
   n_snps = 1,
   calc_phenotype_function = calc_random_phenotype_values
 )
 }
 \arguments{
+\item{phenotype}{one phenotype, named after its genetic background:
+\itemize{
+\item \code{random} the phenotype is a random value,
+i.e. there is no association between the genetics and
+this phenotype
+\item \code{additive} the phenotype is perfectly additive
+(the nucleotides used are A and T as these are in the word 'additive'):
+\itemize{
+\item \code{AA} 11.0
+\item \code{AT} 10.5
+\item \code{TT} 10.0
+}
+}}
+
 \item{mafs}{one or more minor allele frequencies.
 These allele frequencies must be ordered decreasingly,
 i.e. the MAF is at the first position, where the
@@ -47,12 +62,14 @@ and the minor allele frequency is known.
 # regardless of the genotype.
 # This is the same as using 'create_random_trait'
 create_custom_trait(
+  phenotype = "random",
   calc_phenotype_function = calc_random_phenotype_values
 )
 
 # Create a custom trait that calculates the phenotypes additively
 # This is the same as using 'create_additive_trait'
 create_custom_trait(
+  phenotype = "additive",
   calc_phenotype_function = calc_additive_phenotype_values
 )
 
@@ -60,20 +77,14 @@ create_custom_trait(
 # an epistatic interaction
 # This is the same as using 'create_epistate_trait'
 create_custom_trait(
-  calc_phenotype_function = calc_epistatic_phenotype_values,
-  n_snps = 2
-)
-
-# Create a custom trait that calculates the phenotypes from
-# an epistatic interaction
-# This is the same as using 'create_epistate_trait'
-create_custom_trait(
+  phenotype = "epistatic",
   calc_phenotype_function = calc_epistatic_phenotype_values,
   n_snps = 2
 )
 
 # A trivial trait, that shows the genotypes worked on
 create_custom_trait(
+  phenotype = "debug",
   calc_phenotype_function = function(snvs) {
 
     # Show the input

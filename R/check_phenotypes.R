@@ -12,5 +12,6 @@
 check_phenotypes <- function(
   phenotypes
 ) {
-  testthat::expect_true(all(phenotypes %in% plinkr::get_phenotypes()))
+  testthat::expect_true(all(is.character(phenotypes)))
+  testthat::expect_true(all(nchar(phenotypes) > 0))
 }

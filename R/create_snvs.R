@@ -36,6 +36,18 @@ create_snvs <- function(
       )[seq(1, n_individuals), ]
     )
   }
+  if (n_snps == 3) {
+    return(
+      tidyr::expand_grid(
+        snv_1a = c("A", "C"),
+        snv_1b = c("A", "C"),
+        snv_2a = c("A", "C"),
+        snv_2b = c("A", "C"),
+        snv_3a = c("A", "C"),
+        snv_3b = c("A", "C")
+      )[seq(1, n_individuals), ]
+    )
+  }
   m <- matrix(data = "A", nrow = n_individuals, ncol = n_snps * 2)
   t <- tibble::as_tibble(m, .name_repair = "minimal")
   names(t) <- paste0(

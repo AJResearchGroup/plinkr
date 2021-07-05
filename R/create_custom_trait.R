@@ -11,12 +11,14 @@
 #' # regardless of the genotype.
 #' # This is the same as using 'create_random_trait'
 #' create_custom_trait(
+#'   phenotype = "random",
 #'   calc_phenotype_function = calc_random_phenotype_values
 #' )
 #'
 #' # Create a custom trait that calculates the phenotypes additively
 #' # This is the same as using 'create_additive_trait'
 #' create_custom_trait(
+#'   phenotype = "additive",
 #'   calc_phenotype_function = calc_additive_phenotype_values
 #' )
 #'
@@ -24,20 +26,14 @@
 #' # an epistatic interaction
 #' # This is the same as using 'create_epistate_trait'
 #' create_custom_trait(
-#'   calc_phenotype_function = calc_epistatic_phenotype_values,
-#'   n_snps = 2
-#' )
-#'
-#' # Create a custom trait that calculates the phenotypes from
-#' # an epistatic interaction
-#' # This is the same as using 'create_epistate_trait'
-#' create_custom_trait(
+#'   phenotype = "epistatic",
 #'   calc_phenotype_function = calc_epistatic_phenotype_values,
 #'   n_snps = 2
 #' )
 #'
 #' # A trivial trait, that shows the genotypes worked on
 #' create_custom_trait(
+#'   phenotype = "debug",
 #'   calc_phenotype_function = function(snvs) {
 #'
 #'     # Show the input
@@ -51,12 +47,13 @@
 #' @export
 #' @author Richèl J.C. Bilderbeek
 create_custom_trait <- function(
+  phenotype = "custom",
   mafs = 0.25,
   n_snps = 1,
   calc_phenotype_function = calc_random_phenotype_values
 ) {
   plinkr::create_trait(
-    phenotype = "custom",
+    phenotype = phenotype,
     mafs = mafs,
     n_snps = n_snps,
     calc_phenotype_function = calc_phenotype_function

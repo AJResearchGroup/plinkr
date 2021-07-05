@@ -11,7 +11,7 @@ install_plink <- function(
     plinkr::is_plink_installed(plink_options)
   )
 
-  plink_zip_path <- get_plink_zip_path(plink_options)
+  plink_zip_path <- plinkr::get_plink_zip_path(plink_options)
   dir.create(
     path = dirname(plink_zip_path),
     showWarnings = FALSE,

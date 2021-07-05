@@ -39,8 +39,11 @@ The phenotype is fully and perfectly determined by the genotype,
 see \link{calc_epistatic_phenotype_values} for the exact phenotypic values
 }
 \examples{
-create_additive_trait()
-create_additive_trait(maf = 0.01)
+create_epistatic_trait()
+create_epistatic_trait(maf = 0.01)
+create_epistatic_trait(n_snps = 3)
+create_epistatic_trait(regular_phenotype_value = 3.14)
+create_epistatic_trait(epistatic_phenotype_value = 2.71)
 }
 \author{
 Richèl J.C. Bilderbeek

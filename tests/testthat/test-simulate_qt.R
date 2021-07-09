@@ -32,5 +32,5 @@ test_that("use, v1.9", {
   expect_true("log" %in% names(results))
   expect_true("simfreq" %in% names(results))
 
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

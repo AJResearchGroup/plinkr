@@ -6,7 +6,6 @@ test_that("minimal use, v1.7", {
       plink_options = create_plink_v1_7_options()
     )
   )
-  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("minimal use, v1.9", {
@@ -145,5 +144,5 @@ test_that("All 95 chromosome numbers work", {
     n_individuals = 10
   )
   expect_silent(assoc(assoc_params = assoc_params))
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

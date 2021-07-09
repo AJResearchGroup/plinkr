@@ -28,5 +28,5 @@ test_that("use", {
     fam_filename = fam_filename
   )
   unlink(folder_name)
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

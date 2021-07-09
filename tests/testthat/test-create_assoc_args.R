@@ -68,7 +68,7 @@ test_that("v1.9, allow 95 chromosome", {
   # PLINK v1.9 does not support these
   expect_false("--noweb" %in% created)
 
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("v2.0", {
@@ -84,5 +84,5 @@ test_that("v2.0", {
   # PLINK v2.0 does not support this
   expect_false("--assoc" %in% created)
   expect_false("--noweb" %in% created)
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

@@ -30,5 +30,4 @@ test_that("use", {
   expect_error(check_mafs(Inf))
   expect_error(check_mafs(c()))
   expect_error(check_mafs(list()))
-
 })

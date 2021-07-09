@@ -4,5 +4,5 @@ test_that("use", {
     "must be a list"
   )
 
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

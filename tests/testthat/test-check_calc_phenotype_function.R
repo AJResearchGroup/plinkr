@@ -40,5 +40,5 @@ test_that("most return as much values as rows in snvs", {
     check_calc_phenotype_function(calc_phenotype_function),
     "must return as much phenotypes as there are individuals"
   )
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

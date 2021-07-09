@@ -4,5 +4,5 @@ test_that("use", {
     base_input_filename,
     base_output_filename = file.path(dirname(base_input_filename), "output"),
   )
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

@@ -40,5 +40,5 @@ test_that("Can handle 100 SNPs", {
       create_demo_map_table(create_random_trait(n_snps = 100))
     )
   )
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

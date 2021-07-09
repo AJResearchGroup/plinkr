@@ -14,5 +14,5 @@ test_that("cannot uninstall if PLINK is absent", {
     "Cannot uninstall a PLINK version that is absent"
   )
 
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

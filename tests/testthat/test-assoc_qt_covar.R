@@ -157,9 +157,5 @@ test_that("95 chromosome numbers work", {
     n_individuals = 10
   )
   expect_silent(assoc_qt_covar(assoc_qt_covar_params = assoc_qt_covar_params))
-  expect_silent(check_empty_plinkr_folder())
-})
-
-test_that("assoc_qt_covar tests cleans up temp files", {
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

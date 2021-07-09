@@ -26,5 +26,6 @@ test_that("files are detected", {
   file.create(normalizePath(plinkr_filename, mustWork = FALSE))
   expect_error(check_empty_plinkr_folder(plinkr_folder))
   file.remove(plinkr_filename)
-  expect_silent(check_empty_plinkr_folder())
+
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

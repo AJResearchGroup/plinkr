@@ -12,5 +12,5 @@ test_that("Windows", {
   expect_true(
     stringr::str_detect(plink_options$plink_exe_path, "plink_2_0_win")
   )
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

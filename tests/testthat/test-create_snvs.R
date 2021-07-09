@@ -38,8 +38,5 @@ test_that("3 SNPs", {
     rep(c("a", "b"), times = n_snps)
   )
   expect_equal(names(snvs), expected_names)
-})
-
-test_that("create_snvs tests cleans up temp files", {
-  expect_silent(check_empty_plinkr_folder())
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

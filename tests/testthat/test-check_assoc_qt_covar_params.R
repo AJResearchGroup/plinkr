@@ -5,5 +5,4 @@ test_that("is silent", {
 test_that("valid", {
   assoc_qt_covar_params <- create_test_assoc_qt_covar_params()
   expect_silent(check_assoc_qt_params(assoc_qt_covar_params))
-  expect_silent(check_empty_plinkr_folder())
 })

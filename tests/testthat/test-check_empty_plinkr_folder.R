@@ -1,12 +1,18 @@
 test_that("tests should have cleaned up all their temp files", {
+  if (get_os() == "win") return()
+
   expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("non-existing folder is empty", {
+  if (get_os() == "win") return()
+
   expect_silent(check_empty_plinkr_folder(get_plinkr_tempfilename()))
 })
 
 test_that("folders are detected", {
+  if (get_os() == "win") return()
+
   plinkr_folder <- get_plinkr_tempfilename()
   plinkr_subfolder <- file.path(plinkr_folder, "subfolder")
   expect_silent(check_empty_plinkr_folder(plinkr_folder))
@@ -26,6 +32,4 @@ test_that("files are detected", {
   file.create(normalizePath(plinkr_filename, mustWork = FALSE))
   expect_error(check_empty_plinkr_folder(plinkr_folder))
   file.remove(plinkr_filename)
-
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

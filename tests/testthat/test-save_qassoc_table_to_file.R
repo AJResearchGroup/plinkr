@@ -30,7 +30,7 @@ test_that("read and save must result in same file, v1.7", {
   )
   expect_identical(qassoc_table, qassoc_table_again)
   file.remove(qassoc_filename)
-  check_empty_plinkr_folder()
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("read and save must result in same file, v1.9", {

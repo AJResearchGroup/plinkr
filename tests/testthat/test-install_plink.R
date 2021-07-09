@@ -37,7 +37,7 @@ test_that("un- or install in temp plink folder", {
   if (!is_on_ci()) return()
 
   for (plink_version in get_plink_versions()) {
-    for (os in c("unix", "mac", "win")) {
+    for (os in c("unix", "mac")) {
       f <- NA
       if (plink_version == "1.7") f <- create_plink_v1_7_options
       if (plink_version == "1.9") f <- create_plink_v1_9_options

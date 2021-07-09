@@ -35,6 +35,7 @@ test_that("un- or install in temp plink folder, v1.7", {
 test_that("un- or install in temp plink folder", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
+  if (get_os() == "win") return()
 
   for (plink_version in get_plink_versions()) {
     for (os in c("unix", "mac")) {

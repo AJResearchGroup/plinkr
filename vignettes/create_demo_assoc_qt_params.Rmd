@@ -167,5 +167,5 @@ clear_plinkr_cache()
 ```
 
 ```{r check_empty_plinkr_folder_at_end}
-check_empty_plinkr_folder()
+if (get_os() != "win") check_empty_plinkr_folder()
 ```

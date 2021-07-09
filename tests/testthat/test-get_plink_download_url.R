@@ -45,5 +45,5 @@ test_that("URLs are valid", {
     }
   }
   unlink(folder_name, recursive = TRUE)
-  check_empty_plinkr_folder()
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

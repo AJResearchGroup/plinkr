@@ -34,5 +34,5 @@ test_that("use", {
   expect_true("log" %in% names(freq_within_result))
   list.files(dirname(base_miss_stat_filenames), full.names = TRUE)
   unlink(plinkr_folder, recursive = TRUE)
-  check_empty_plinkr_folder()
+  if (get_os() != "win") check_empty_plinkr_folder()
 })

@@ -43,9 +43,6 @@ if (1 == 2) { # genio example
   X
 }
 
-# Nah, use genio instead
-# ARTP2::read.bed(bed = bed_filename, bim = bim_filename, fam = fam_filename)
-
 file.remove(plink_toy_data_files)
 
 

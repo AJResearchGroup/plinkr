@@ -15,7 +15,6 @@ RoxygenNote: 7.1.1
 Depends:
     R (>= 3.5.0)
 Imports:
-    ARTP2,
     devtools,
     dplyr,
     genio,

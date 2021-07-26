@@ -52,3 +52,4 @@ test2.log
 assoc_output.log
 plink.P1.qassoc
 plink.P2.qassoc
+*.sif

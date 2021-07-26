@@ -2,7 +2,7 @@ Bootstrap: docker
 From: r-base
 
 %runscript
-    Rscript -e 'plinkr::plinkr_report.R'
+    Rscript -e 'plinkr::plinkr_report()'
 
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list

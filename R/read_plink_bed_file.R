@@ -19,11 +19,13 @@ read_plink_bed_file <- function(
   verbose = FALSE
 ) {
   testthat::expect_true(file.exists(bed_filename))
-  bed_table <- genio::read_bed(
-    file = bed_filename,
-    names_loci = names_loci,
-    names_ind = names_ind,
-    verbose = verbose
+  suppressWarnings(
+    bed_table <- genio::read_bed(
+      file = bed_filename,
+      names_loci = names_loci,
+      names_ind = names_ind,
+      verbose = verbose
+    )
   )
   bed_table
 }

@@ -23,7 +23,6 @@ readLines(plink2_output_filenames[1])
 
 if (1 == 2) { # genio example
 
-  genio::wr
   file_bed <- system.file("extdata", 'sample.bed', package = "genio", mustWork = TRUE)
   file_bim <- system.file("extdata", 'sample.bim', package = "genio", mustWork = TRUE)
   file_fam <- system.file("extdata", 'sample.fam', package = "genio", mustWork = TRUE)

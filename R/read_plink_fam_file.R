@@ -7,6 +7,8 @@ read_plink_fam_file <- function(
   verbose = FALSE
 ) {
   testthat::expect_true(file.exists(fam_filename))
-  fam_table <- genio::read_fam(fam_filename, verbose = verbose)
+  suppressWarnings(
+    fam_table <- genio::read_fam(fam_filename, verbose = verbose)
+  )
   fam_table
 }

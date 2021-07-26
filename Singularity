@@ -7,7 +7,7 @@ From: r-base
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
     apt-get update
-    apt-get -y install libssl-dev
+    apt-get -y install libssl-dev libcurl4-openssl-dev
     apt-get clean
     Rscript -e 'install.packages("remotes")'
     Rscript -e 'install.packages("devtools")'

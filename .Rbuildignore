@@ -27,3 +27,5 @@
 ^appveyor\.yml$
 ^\.appveyor\.yml$
 ^test2\.log$
+^Singularity$
+^plink.bim$

@@ -14,3 +14,6 @@ From: r-base
     Rscript -e 'remotes::install_github("richelbilderbeek/plinkr")'
     Rscript -e 'plinkr::install_plinks()'
 
+%test
+    Rscript -e 'plinkr::plinkr_report()'
+

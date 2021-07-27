@@ -29,3 +29,4 @@
 ^test2\.log$
 ^Singularity$
 ^plink.bim$
+^plinkr.sif$

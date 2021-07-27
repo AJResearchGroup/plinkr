@@ -3,9 +3,9 @@
 #' plinkr_report()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-plinkr_report <- function() {
+plinkr_report <- function(plink_optionses = plinkr::create_plink_optionses()) {
   message("OS: ", rappdirs::app_dir()$os)
-  for (plink_options in plinkr::create_plink_optionses()) {
+  for (plink_options in plink_optionses) {
     message(
       paste0("PLINK version (plinkr versioning scheme) '",
         plink_options$plink_version, "' installed: ",

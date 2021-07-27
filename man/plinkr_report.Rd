@@ -4,7 +4,7 @@
 \alias{plinkr_report}
 \title{Create a \link{plinkr} report, to be used when reporting bugs}
 \usage{
-plinkr_report()
+plinkr_report(plink_optionses = plinkr::create_plink_optionses())
 }
 \description{
 Create a \link{plinkr} report, to be used when reporting bugs

@@ -1,6 +1,9 @@
 Bootstrap: docker
 From: r-base
 
+%files
+    ~/.local/share/plinkr
+
 %runscript
     Rscript -e 'plinkr::plinkr_report()'
 

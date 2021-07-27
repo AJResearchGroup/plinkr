@@ -51,7 +51,7 @@ jobs:
       - name: Check locally, must not detect PLINKs
         run: |
           Rscript -e 'install.packages("remotes")'
-          Rscript -e 'remotes::install_github("richelbilderbeek/plinkr")'
+          Rscript -e 'remotes::install_github("richelbilderbeek/plinkr", ref = "develop")'
           Rscript -e 'plinkr::plinkr_report()'
 
       - name: Run container

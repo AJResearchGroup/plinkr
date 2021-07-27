@@ -26,7 +26,7 @@ jobs:
         run: singularity version
 
       - name: Show present working directory
-        run: echo "Present working directory: $PWD"
+        run: echo $PWD
 
       - name: Build Container
         env:

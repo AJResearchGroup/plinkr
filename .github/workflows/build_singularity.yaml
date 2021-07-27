@@ -32,7 +32,7 @@ jobs:
         run: |
          ls 
          if [ -f "${SINGULARITY_RECIPE}" ]; then
-              sudo -E SINGULARITY_TMPDIR=~/tmp SINGULARITY_CACHEDIR=~/tmp singularity build ${OUTPUT_CONTAINER} ${SINGULARITY_RECIPE}
+              sudo -E SINGULARITY_TMPDIR=tmp SINGULARITY_CACHEDIR=cache singularity build ${OUTPUT_CONTAINER} ${SINGULARITY_RECIPE}
          else
              echo "${SINGULARITY_RECIPE} is not found."
              echo "Present working directory: $PWD"

@@ -34,5 +34,5 @@ test_that("use", {
   expect_equal(snp_names, rownames(bed_table))
 
   unlink(folder_name, recursive = TRUE)
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

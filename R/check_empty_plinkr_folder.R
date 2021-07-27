@@ -10,7 +10,7 @@
 check_empty_plinkr_folder <- function(
   plinkr_folder = get_plinkr_folder()
 ) {
-  dirs <- list.dirs(plinkr_folder)
+  dirs <- normalizePath(list.dirs(plinkr_folder))
   dirs <- dirs[dirs != normalizePath(plinkr_folder, mustWork = FALSE)]
 
   if (length(dirs) != 0) {

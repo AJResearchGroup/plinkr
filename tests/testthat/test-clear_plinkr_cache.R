@@ -11,6 +11,7 @@ test_that("create file", {
   expect_equal(1, length(list.files(plinkr_cache_folder_name)))
   expect_silent(clear_plinkr_cache())
   expect_equal(0, length(list.files(plinkr_cache_folder_name)))
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("create dir", {
@@ -21,4 +22,5 @@ test_that("create dir", {
   expect_equal(2, length(list.dirs(plinkr_cache_folder_name)))
   expect_silent(clear_plinkr_cache())
   expect_equal(0, length(list.dirs(plinkr_cache_folder_name)))
+  expect_silent(check_empty_plinkr_folder())
 })

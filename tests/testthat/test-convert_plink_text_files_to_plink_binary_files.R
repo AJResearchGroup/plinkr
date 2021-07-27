@@ -1,5 +1,5 @@
 test_that("use", {
-  skip("WIP")
+  # No need for a FAM file?
   map_filename <- get_plinkr_filename("toy_v1_9.map")
   ped_filename <- get_plinkr_filename("toy_v1_9.ped")
 
@@ -23,10 +23,16 @@ test_that("use", {
   bim_table <- read_plink_bim_file(plink_binary_filenames$bim_filename)
   fam_table <- read_plink_fam_file(plink_binary_filenames$fam_filename)
   bed_table <- read_plink_bed_file_from_files(
-    bed_filename = bed_filename,
-    bim_filename = bim_filename,
-    fam_filename = fam_filename
+    bed_filename = plink_binary_filenames$bed_filename,
+    bim_filename = plink_binary_filenames$bim_filename,
+    fam_filename = plink_binary_filenames$fam_filename
   )
-  unlink(folder_name)
+
+  expect_true(all(snp_names %in% bim_table$id))
+  expect_true(all(individual_ids %in% fam_table$id))
+  expect_equal(individual_ids, colnames(bed_table))
+  expect_equal(snp_names, rownames(bed_table))
+
+  unlink(folder_name, recursive = TRUE)
   if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })

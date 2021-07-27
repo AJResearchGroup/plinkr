@@ -25,8 +25,8 @@ jobs:
       - name: Show singularity version
         run: singularity version
 
-      - name: Show present working directory
-        run: echo $PWD
+#      - name: Show present working directory
+#        run: echo $PWD
 
       - name: Build Container
         env:
@@ -35,12 +35,14 @@ jobs:
         run: |
          ls 
          if [ -f "${SINGULARITY_RECIPE}" ]; then
-              sudo -E SINGULARITY_TMPDIR=tmp SINGULARITY_CACHEDIR=cache singularity build ${OUTPUT_CONTAINER} ${SINGULARITY_RECIPE}
+              sudo -E singularity build ${OUTPUT_CONTAINER} ${SINGULARITY_RECIPE}
          else
              echo "${SINGULARITY_RECIPE} is not found."
              echo "Present working directory: $PWD"
              ls
          fi
+
+#            sudo -E SINGULARITY_TMPDIR=tmp SINGULARITY_CACHEDIR=cache singularity build ${OUTPUT_CONTAINER} ${SINGULARITY_RECIPE}
 
       - name: Test container, must detect PLINKs
         run: singularity test plinkr.sif

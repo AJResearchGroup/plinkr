@@ -9,8 +9,7 @@ From: r-base
     apt-get update
     apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev r-cran-stringi
     apt-get clean
-    Rscript -e 'install.packages("remotes")'
-    Rscript -e 'install.packages("devtools")'
+    Rscript -e 'install.packages(c("remotes", "devtools"))'
     Rscript -e 'remotes::install_github("richelbilderbeek/plinkr")'
     Rscript -e 'plinkr::install_plinks()'
 

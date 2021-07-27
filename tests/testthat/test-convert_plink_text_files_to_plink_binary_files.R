@@ -14,18 +14,18 @@ test_that("use", {
 
   # Convert
   folder_name <- get_plinkr_tempfilename()
-  plink_binary_filenames <- convert_plink_text_files_to_plink_binary_files(
+  plink_bin_filenames <- convert_plink_text_files_to_plink_bin_files(
     base_input_filename = tools::file_path_sans_ext(map_filename),
     base_output_filename = file.path(folder_name, "output"),
   )
 
   # Extract the same knowledge from the binary data
-  bim_table <- read_plink_bim_file(plink_binary_filenames$bim_filename)
-  fam_table <- read_plink_fam_file(plink_binary_filenames$fam_filename)
+  bim_table <- read_plink_bim_file(plink_bin_filenames$bim_filename)
+  fam_table <- read_plink_fam_file(plink_bin_filenames$fam_filename)
   bed_table <- read_plink_bed_file_from_files(
-    bed_filename = plink_binary_filenames$bed_filename,
-    bim_filename = plink_binary_filenames$bim_filename,
-    fam_filename = plink_binary_filenames$fam_filename
+    bed_filename = plink_bin_filenames$bed_filename,
+    bim_filename = plink_bin_filenames$bim_filename,
+    fam_filename = plink_bin_filenames$fam_filename
   )
 
   expect_true(all(snp_names %in% bim_table$id))

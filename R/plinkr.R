@@ -50,11 +50,11 @@
 #'
 #' This is a list of functions to convert \code{PLINK} and \code{PLINK2} files:
 #'
-#' * \link{convert_plink_binary_files_to_plink_text_files}:
+#' * \link{convert_plink_bin_files_to_plink_text_files}:
 #'   Convert the PLINK binary \code{.bed}, \code{.bim} and \code{.fam} files
 #'   to their equivalent plain-text/non-binary \code{.map} and \code{.ped}
 #'   files
-#' * \link{convert_plink_text_files_to_plink_binary_files}:
+#' * \link{convert_plink_text_files_to_plink_bin_files}:
 #'   Convert the PLINK plain-text/non-binary \code{.map} and \code{.ped} files
 #'   to their equivalent binary \code{.bed}, \code{.bim} and \code{.fam} files
 #' * \link{make_bed}:

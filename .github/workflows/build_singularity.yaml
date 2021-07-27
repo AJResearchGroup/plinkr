@@ -51,3 +51,6 @@ jobs:
       - name: Run container
         run: singularity run plinkr.sif
 
+      - name: Show help of container
+        run: singularity help plinkr.sif
+

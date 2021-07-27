@@ -139,9 +139,9 @@ Remember, this model is not intended to be realistic. The following contingency 
 
 ```{r}
 t_disease <- tibble::tribble(
-  ~disease , ~chinese, ~japanese,
-  "control", 34      , 11,
-  "case"   , 11      , 33
+  ~disease , ~chinese, ~japanese, # nolint
+  "control", 34      , 11,        # nolint
+  "case"   , 11      , 33         # nolint
 )
 knitr::kable(t_disease)
 ```
@@ -150,9 +150,9 @@ which shows a strong relationship between these two variables. The next table sh
 
 ```{r}
 t_variant <- tibble::tribble(
-  ~disease , ~g11, ~g12, ~g22,
-  "control", 17  , 22  , 6   ,
-  "case"   , 3   , 19  , 22
+  ~disease , ~g11, ~g12, ~g22, # nolint
+  "control", 17  , 22  , 6   , # nolint
+  "case"   , 3   , 19  , 22    # nolint
 )
 knitr::kable(t_variant)
 ```
@@ -177,9 +177,9 @@ Just typing plink and specifying a file with no further options is a good way to
 ```{r}
 if (good_to_go) {
   hapmap1_base_filename <- tools::file_path_sans_ext(hapmap1_map_filename)
-  # This only works up until approx PLINK v1.7 
+  # This only works up until approx PLINK v1.7
   run_plink(
-    args = c("--file", hapmap1_base_filename), 
+    args = c("--file", hapmap1_base_filename),
     plink_options = create_plink_v1_7_options()
   )
 }
@@ -262,7 +262,7 @@ if (good_to_go) {
   )
   bed_table <- read_plink_bed_file(
     bed_filename = bed_filename,
-    names_loci = bim_table$id, 
+    names_loci = bim_table$id,
     names_ind = fam_table$fam
   )
   knitr::kable(bed_table[1:5, 1:10])
@@ -348,7 +348,7 @@ We see, that is, for each SNP, we see the number of missing individuals (N_MISS)
 ```{r}
 if (good_to_go) {
   ggplot2::ggplot(
-    missing_result$lmiss_table, 
+    missing_result$lmiss_table,
     ggplot2::aes(x = "all", y = F_MISS)
   ) + ggplot2::geom_boxplot() +
     ggplot2::ggtitle("SNPs' genotyping rates")
@@ -369,7 +369,7 @@ As values are close to zero, this genotyping rate is high here.
 ```{r}
 if (good_to_go) {
   ggplot2::ggplot(
-    missing_result$imiss_table, 
+    missing_result$imiss_table,
     ggplot2::aes(x = "", y = F_MISS)
   ) + ggplot2::geom_boxplot() +
     ggplot2::ggtitle("Individuals' genotyping rates")

@@ -17,8 +17,10 @@ default_params_doc(
   base_output_filename,
   base_phenotype_value,
   bed_filename,
+  bed_table,
   bfile,
   bim_filename,
+  bim_table,
   calc_phenotype_function,
   confidence_interval,
   cov_filename,
@@ -26,6 +28,7 @@ default_params_doc(
   epistatic_phenotype_value,
   example_filename,
   fam_filename,
+  fam_table,
   frq_filename,
   frq_strat_filename,
   imiss_filename,
@@ -48,13 +51,16 @@ default_params_doc(
   phenotypes,
   phenotype_value_dominant,
   phenotype_value_recessive,
+  plink_bin_data,
   plink_exe_path,
   plink_folder,
   plink_options,
   plink_optionses,
+  plink_text_data,
   plink_version,
   plink_versions,
   plinkr_folder,
+  plink2_bin_data,
   qassoc_filename,
   qassoc_filenames,
   qassoc_table,
@@ -112,6 +118,14 @@ i.e. the phenotypic value for homozygotes of the common allele}
 \item{bed_filename}{name of a \code{PLINK} \code{.bed} file
 Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.}
 
+\item{bed_table}{a table that maps the SNPs to the individuals,
+of which the column names are the names of the individuals,
+the row names are the names of the SNPs,
+and the values are the SNP variant.
+Use \link{get_test_bed_table} to get a \code{.bed} table as used in testing.
+Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
+Use \link{check_bed_table} to test if a \code{.bed} table is valid.}
+
 \item{bfile}{the base filename of the binary files (i.e.
 a \code{.bed}, \code{.bim} and \code{.fam} file).
 This parameter is named after the \code{PLINK}
@@ -119,6 +133,23 @@ This parameter is named after the \code{PLINK}
 
 \item{bim_filename}{name of a \code{PLINK} \code{.bim} file
 Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.}
+
+\item{bim_table}{a tibble of the genetic mapping,
+with as many rows as SNPs.
+
+Each row contains:
+\itemize{
+\item \code{chr}: the chromosome number
+\item \code{id}: the SNP ID
+\item \code{posg}: the position
+\item \code{pos}: the position
+\item \code{ref}: something
+\item \code{alt}: something
+}
+
+Use \link{get_test_bim_table} to get a \code{.bim} table as used in testing.
+Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.
+Use \link{check_bim_table} to test if a \code{.bim} table is valid.}
 
 \item{calc_phenotype_function}{a function that calculate the phenotypes
 from genotypes. The input is the genetic data as a \link[tibble]{tibble},
@@ -163,6 +194,23 @@ epistatic phenotype is expressed}
 
 \item{fam_filename}{name of a \code{PLINK} \code{.fam} file
 Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.}
+
+\item{fam_table}{a tibble of the genetic mapping,
+with as many rows as SNPs.
+
+Each row contains:
+\itemize{
+\item \code{fam}: the family ID
+\item \code{id}: the individual's ID
+\item \code{pat}: ID of father
+\item \code{mat}: ID of mother
+\item \code{sex}: the gender
+\item \code{pheno}: a phenotype
+}
+
+Use \link{get_test_fam_table} to get a \code{.fam} table as used in testing.
+Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
+Use \link{check_fam_table} to test if a \code{.fam} table is valid.}
 
 \item{frq_filename}{name of a \code{PLINK} \code{.frq} file
 Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.}
@@ -316,6 +364,9 @@ version of the common common allele}
 for the recessive variant, i.e. that genotype that is homozygous for the
 rare allele}
 
+\item{plink_bin_data}{the genetic and phenotypic data for \code{PLINK} to work
+on, in \code{PLINK} binary format, as created by \link{create_plink_bin_data}.}
+
 \item{plink_exe_path}{path to
 the \code{PLINK} or \code{PLINK2} executable file.}
 
@@ -329,6 +380,9 @@ as created by \link{create_plink_optionses}.
 The reduplicated plural was used to express this is a list
 of \code{plink_options}, instead of one set of \code{plink_options}}
 
+\item{plink_text_data}{the genetic and phenotypic data for \code{PLINK} to work
+on, in \code{PLINK} text format, as created by \link{create_plink_text_data}.}
+
 \item{plink_version}{version of PLINK, e.g. \code{"1.7"}
 Use \link{get_plink_version} to get the \code{PLINK} version.
 Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.}
@@ -338,6 +392,9 @@ e.g. as can be obtained using \link{get_plink_versions}}
 
 \item{plinkr_folder}{name of the folder where \link{plinkr}
 stores its temporary files}
+
+\item{plink2_bin_data}{the genetic and phenotypic data for \code{PLINK2} to work
+on, in \code{PLINK2} binary format, as created by \link{create_plink2_bin_data}.}
 
 \item{qassoc_filename}{name of a \code{PLINK} \code{.qassoc} file
 Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.}

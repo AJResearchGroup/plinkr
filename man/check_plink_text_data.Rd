@@ -6,6 +6,10 @@
 \usage{
 check_plink_text_data(plink_text_data)
 }
+\arguments{
+\item{plink_text_data}{the genetic and phenotypic data for \code{PLINK} to work
+on, in \code{PLINK} text format, as created by \link{create_plink_text_data}.}
+}
 \value{
 nothing
 }

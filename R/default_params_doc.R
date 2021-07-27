@@ -31,12 +31,33 @@
 #' i.e. the phenotypic value for homozygotes of the common allele
 #' @param bed_filename name of a \code{PLINK} \code{.bed} file
 #' Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
+#' @param bed_table a table that maps the SNPs to the individuals,
+#' of which the column names are the names of the individuals,
+#' the row names are the names of the SNPs,
+#' and the values are the SNP variant.
+#' Use \link{get_test_bed_table} to get a \code{.bed} table as used in testing.
+#' Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
+#' Use \link{check_bed_table} to test if a `.bed` table is valid.
 #' @param bfile the base filename of the binary files (i.e.
 #' a \code{.bed}, \code{.bim} and \code{.fam} file).
 #' This parameter is named after the \code{PLINK}
 #' \code{--bfile} flag
 #' @param bim_filename name of a \code{PLINK} \code{.bim} file
 #' Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.
+#' @param bim_table a tibble of the genetic mapping,
+#' with as many rows as SNPs.
+#'
+#' Each row contains:
+#'  * `chr`: the chromosome number
+#'  * `id`: the SNP ID
+#'  * `posg`: the position
+#'  * `pos`: the position
+#'  * `ref`: something
+#'  * `alt`: something
+#'
+#' Use \link{get_test_bim_table} to get a \code{.bim} table as used in testing.
+#' Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.
+#' Use \link{check_bim_table} to test if a `.bim` table is valid.
 #' @param calc_phenotype_function a function that calculate the phenotypes
 #' from genotypes. The input is the genetic data as a \link[tibble]{tibble},
 #' in which each row is an individual and the columns are the SNVs.
@@ -72,6 +93,20 @@
 #' @param example_filename name of the example file
 #' @param fam_filename name of a \code{PLINK} \code{.fam} file
 #' Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
+#' @param fam_table a tibble of the genetic mapping,
+#' with as many rows as SNPs.
+#'
+#' Each row contains:
+#'  * `fam`: the family ID
+#'  * `id`: the individual's ID
+#'  * `pat`: ID of father
+#'  * `mat`: ID of mother
+#'  * `sex`: the gender
+#'  * `pheno`: a phenotype
+#'
+#' Use \link{get_test_fam_table} to get a \code{.fam} table as used in testing.
+#' Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
+#' Use \link{check_fam_table} to test if a `.fam` table is valid.
 #' @param frq_filename name of a \code{PLINK} \code{.frq} file
 #' Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.
 #' @param frq_strat_filename name of a \code{PLINK} \code{.frq.strat} file
@@ -192,6 +227,8 @@
 #' @param phenotype_value_recessive phenotypic value
 #' for the recessive variant, i.e. that genotype that is homozygous for the
 #' rare allele
+#' @param plink_bin_data the genetic and phenotypic data for `PLINK` to work
+#' on, in `PLINK` binary format, as created by \link{create_plink_bin_data}.
 #' @param plink_exe_path path to
 #'   the \code{PLINK} or \code{PLINK2} executable file.
 #' @param plink_folder folder where \code{PLINK} is installed
@@ -201,11 +238,15 @@
 #' as created by \link{create_plink_optionses}.
 #' The reduplicated plural was used to express this is a list
 #' of \code{plink_options}, instead of one set of \code{plink_options}
+#' @param plink_text_data the genetic and phenotypic data for `PLINK` to work
+#' on, in `PLINK` text format, as created by \link{create_plink_text_data}.
 #' @param plink_version version of PLINK, e.g. \code{"1.7"}
 #' Use \link{get_plink_version} to get the \code{PLINK} version.
 #' Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.
 #' @param plink_versions one or more versions of PLINK,
 #' e.g. as can be obtained using \link{get_plink_versions}
+#' @param plink2_bin_data the genetic and phenotypic data for `PLINK2` to work
+#' on, in `PLINK2` binary format, as created by \link{create_plink2_bin_data}.
 #' @param plinkr_folder name of the folder where \link{plinkr}
 #' stores its temporary files
 #' @param qassoc_filename name of a \code{PLINK} \code{.qassoc} file
@@ -262,8 +303,10 @@ default_params_doc <- function(
   base_output_filename,
   base_phenotype_value,
   bed_filename,
+  bed_table,
   bfile,
   bim_filename,
+  bim_table,
   calc_phenotype_function,
   confidence_interval,
   cov_filename,
@@ -271,6 +314,7 @@ default_params_doc <- function(
   epistatic_phenotype_value,
   example_filename,
   fam_filename,
+  fam_table,
   frq_filename,
   frq_strat_filename,
   imiss_filename,
@@ -293,13 +337,16 @@ default_params_doc <- function(
   phenotypes,
   phenotype_value_dominant,
   phenotype_value_recessive,
+  plink_bin_data,
   plink_exe_path,
   plink_folder,
   plink_options,
   plink_optionses,
+  plink_text_data,
   plink_version,
   plink_versions,
   plinkr_folder,
+  plink2_bin_data,
   qassoc_filename,
   qassoc_filenames,
   qassoc_table,

@@ -8,7 +8,7 @@
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_plink_text_data <- function(
+create_plink_bin_data <- function(
   bim_table,
   fam_table,
   bed_table

@@ -1,7 +1,7 @@
+# The plinkr R package, with the multiple PLINK versions installed
+
 Bootstrap: docker
 From: r-base
-# Create all the files needed
-#Stage: build_stage
 
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
@@ -18,9 +18,31 @@ From: r-base
 %test
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
 
-#Stage: copy_stage
+%help
 
-#%files from build_stage
-#    ../../.local/share/plinkr $HOME/.local/share/plinkr
+This container has the R package plinkr and multiple versions of PLINK installed.
 
+When using this container, set `plink_folder` to `/opt/plinkr`, for example:
 
+```
+library(plinkr)
+plink_optionses <- create_plink_optionses(plink_folder = "/opt/plinkr")
+assoc(
+  assoc_params = create_demo_assoc_params(),
+  plink_options = plink_options
+)
+```
+
+%labels
+
+    AUTHOR Richel J.C. Bilderbeek
+
+    NAME plinkr
+ 
+    DESCRIPTION The plinkr R package, with the multiple PLINK versions installed
+
+    USAGE simply run the container
+
+    URL https://github.com/richelbilderbeek/plinkr
+
+    VERSION 1.0

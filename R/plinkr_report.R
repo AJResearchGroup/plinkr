@@ -1,4 +1,5 @@
 #' Create a \link{plinkr} report, to be used when reporting bugs
+#' @inheritParams default_params_doc
 #' @examples
 #' plinkr_report()
 #' @author Richèl J.C. Bilderbeek

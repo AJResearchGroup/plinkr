@@ -13,6 +13,7 @@ make_bed <- function(
   plink_options = create_plink_v1_9_options(),
   verbose = FALSE
 ) {
+  plinkr::check_plink_is_installed(plink_options = plink_options)
   plinkr::check_base_input_filename(base_input_filename)
   plinkr::check_base_output_filename(base_output_filename)
   plinkr::check_plink_options(plink_options)

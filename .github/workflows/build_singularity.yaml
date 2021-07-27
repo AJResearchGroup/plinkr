@@ -52,5 +52,5 @@ jobs:
         run: singularity run plinkr.sif
 
       - name: Show help of container
-        run: singularity help plinkr.sif
+        run: singularity run-help plinkr.sif
 

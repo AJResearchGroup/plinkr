@@ -2,11 +2,13 @@
 
 Newest versions at top.
 
-## plinkr v0.15 (unreleased)
+## plinkr v0.15 (2021-07-28)
 
 ### NEW FEATURES
 
- * None
+ * Added a Singularity container with `plinkr` and the PLINKs installed
+ * Start of using the three types of data: `create_plink_text_data`, 
+   `create_plink_bin_data` and `create_plink2_bin_data`
 
 ### MINOR IMPROVEMENTS
 
@@ -29,20 +31,20 @@ Newest versions at top.
    to install and uninstall the PLINK tutorial data
  * Add `read_plink_assoc_adjusted_file` to read PLINK `.assoc.adjusted` files
  * Add `read_plink_lmiss_file` to read PLINK `.lmiss` files
- * Add 'read_plink_imiss_file' to read PLINK `.imiss` files
- * Add 'read_plink_frq_file' to read PLINK `.frq` files
- * Add 'read_plink_frq_strat_file' to read PLINK `.frq.strat` files
- * Add 'missing_from_bfile' to run a PLINK `--missing` analysis from
+ * Add `read_plink_imiss_file` to read PLINK `.imiss` files
+ * Add `read_plink_frq_file` to read PLINK `.frq` files
+ * Add `read_plink_frq_strat_file` to read PLINK `.frq.strat` files
+ * Add `missing_from_bfile` to run a PLINK `--missing` analysis from
    PLINK binary files
- * Add 'freq_from_bfile' to run a PLINK `--freq` analysis from
+ * Add `freq_from_bfile` to run a PLINK `--freq` analysis from
    PLINK binary files
- * Add 'freq_from_bfile_within_phe_file' to run a PLINK `--freq` analysis from
+ * Add `freq_from_bfile_within_phe_file` to run a PLINK `--freq` analysis from
    PLINK binary files with a stratification on the phenotype
- * Add 'assoc_from_bfile' to run a PLINK `--assoc` analysis from
+ * Add `assoc_from_bfile` to run a PLINK `--assoc` analysis from
    PLINK binary files
- * Add 'assoc_adjust_from_bfile' to run a PLINK `--assoc --adjust` analysis from
+ * Add `assoc_adjust_from_bfile` to run a PLINK `--assoc --adjust` analysis from
    PLINK binary files
- * Add 'assoc_qt_covar' to do a quantitative traits analysis with covariates
+ * Add `assoc_qt_covar` to do a quantitative traits analysis with covariates
 
 ### MINOR IMPROVEMENTS
 

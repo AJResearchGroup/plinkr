@@ -1,14 +1,30 @@
 test_that("use", {
-  skip("WIP")
-  plink_bin_data <- create_plink_bin_data(
-    bim_table = NULL,
-    fam_table = NULL,
-    bed_table = NULL
+  expect_silent(
+    create_plink_bin_data(
+      bim_table = get_test_bim_table(),
+      fam_table = get_test_fam_table(),
+      bed_table = get_test_bed_table()
+    )
   )
-  expect_true(is_plink_bin_data(plink_bin_data))
-  data <- create_plink2_data(
-    bim_table = NULL,
-    fam_table = NULL,
-    bed_table = NULL
+  expect_error(
+    create_plink_bin_data(
+      bim_table = "nonsense",
+      fam_table = get_test_fam_table(),
+      bed_table = get_test_bed_table()
+    )
+  )
+  expect_error(
+    create_plink_bin_data(
+      bim_table = get_test_bim_table(),
+      fam_table = "nonsense",
+      bed_table = get_test_bed_table()
+    )
+  )
+  expect_error(
+    create_plink_bin_data(
+      bim_table = get_test_bim_table(),
+      fam_table = get_test_fam_table(),
+      bed_table = "nonsense"
+    )
   )
 })

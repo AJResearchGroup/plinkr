@@ -25,4 +25,6 @@ check_plink_text_data <- function(
   }
   testthat::expect_true("ped_table" %in% names(plink_text_data))
   testthat::expect_true("map_table" %in% names(plink_text_data))
+  plinkr::check_ped_table(plink_text_data$ped_table)
+  plinkr::check_map_table(plink_text_data$map_table)
 }

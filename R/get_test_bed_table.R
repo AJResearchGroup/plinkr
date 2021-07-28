@@ -11,17 +11,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_bed_table <- function() {
-  bed_table <- plinkr::read_plink_bed_file(
-    bed_filename = get_plinkr_filename("toy_data.bed"),
-    names_loci = get_test_bim_table()$id,
-    names_ind = get_test_fam_table()$id
+  bed_table <- matrix(
+    data = as.integer(c(1, 1, 0, 2)),
+    nrow = 2,
+    ncol = 2,
+    byrow = TRUE,
+    dimnames = list(c("snp0", "snp1"), c("per0", "per1"))
   )
-  if (1 == 2) {
-    tibble::tribble(
-      ~CHR, ~SNP  , ~position_cm, ~BP, # nolint keep spaces to align content
-      1   , "snp1", 0           , 1  , # nolint keep spaces to align content
-      1   , "snp2", 0           , 2    # nolint keep spaces to align content
-    )
-  }
   bed_table
 }

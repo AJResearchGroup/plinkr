@@ -12,8 +12,14 @@ From: r-base
     Rscript -e 'remotes::install_github("richelbilderbeek/plinkr")'
     Rscript -e 'plinkr::install_plinks(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
 
+%apprun R
+exec R "$@"
+
+%apprun Rscript
+exec Rscript "$@"
+
 %runscript
-    Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
+exec R "$@"
 
 %test
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'

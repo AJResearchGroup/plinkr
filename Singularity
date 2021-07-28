@@ -45,4 +45,4 @@ assoc(
 
     URL https://github.com/richelbilderbeek/plinkr
 
-    VERSION 1.0
+    VERSION 0.15.1

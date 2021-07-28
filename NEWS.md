@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## plinkr v0.15.1 (2021-07-28)
+
+### NEW FEATURES
+
+ * Nonse
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * Singularity version matches package version
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## plinkr v0.15 (2021-07-28)
 
 ### NEW FEATURES

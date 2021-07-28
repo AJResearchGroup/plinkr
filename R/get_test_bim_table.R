@@ -15,13 +15,14 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_bim_table <- function() {
-  bim_table <- plinkr::read_plink_bim_file(get_plinkr_filename("toy_data.bim"))
-  if (1 == 2) {
-    tibble::tribble(
-      ~CHR, ~SNP  , ~position_cm, ~BP, # nolint keep spaces to align content
-      1   , "snp1", 0           , 1  , # nolint keep spaces to align content
-      1   , "snp2", 0           , 2    # nolint keep spaces to align content
-    )
-  }
+  bim_table <- tibble::tibble(
+    chr = c("1", "1"),
+    id = c("snp0", "snp1"),
+    posg = c(0, 0),
+    pos = as.integer(c(0, 1)),
+    ref = c("A", "A"),
+    alt = c("B", "B")
+  )
+  class(bim_table) <- c("spec_tbl_df", "tbl_df", "tbl", "data.frame")
   bim_table
 }

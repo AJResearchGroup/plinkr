@@ -48,9 +48,9 @@ jobs:
       - name: Test container, must detect PLINKs
         run: singularity test plinkr.sif
 
-      - name: Run container
-        run: singularity run plinkr.sif
-
       - name: Show help of container
         run: singularity run-help plinkr.sif
+
+      - name: Run container
+        run: singularity run plinkr.sif sh -c "Rscript scripts/demo_container.R"
 

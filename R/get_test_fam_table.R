@@ -11,13 +11,11 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_fam_table <- function() {
-  fam_table <- plinkr::read_plink_fam_file(get_plinkr_filename("toy_data.fam"))
-  if (1 == 2) {
-    tibble::tribble(
-      ~CHR, ~SNP  , ~position_cm, ~BP, # nolint keep spaces to align content
-      1   , "snp1", 0           , 1  , # nolint keep spaces to align content
-      1   , "snp2", 0           , 2    # nolint keep spaces to align content
-    )
-  }
+  fam_table <- tibble::tribble(
+    ~fam  ,  ~id  , ~pat, ~mat, ~sex, ~pheno, # nolint keep spaces to align content
+    "per0", "per0", "0" , "0" , 2L   , 2.0     , # nolint keep spaces to align content
+    "per1", "per1", "0" , "0" , 2L   , 1.0       # nolint keep spaces to align content
+  )
+  class(fam_table) <- c("spec_tbl_df", "tbl_df", "tbl", "data.frame")
   fam_table
 }

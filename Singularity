@@ -12,14 +12,8 @@ From: r-base
     Rscript -e 'remotes::install_github("richelbilderbeek/plinkr")'
     Rscript -e 'plinkr::install_plinks(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
 
-%apprun R
-exec R "$@"
-
-%apprun Rscript
-exec Rscript "$@"
-
 %runscript
-exec R "$@"
+exec R --vanilla --silent --no-echo "$@"
 
 %test
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
@@ -28,7 +22,13 @@ exec R "$@"
 
 This container has the R package plinkr and multiple versions of PLINK installed.
 
-When using this container, set `plink_folder` to `/opt/plinkr`, for example:
+To make the container run a script called, e.g. `script.R`, do:
+
+```
+cat script.R | ./plinkr.sif
+```
+
+Within the script, set `plink_folder` to `/opt/plinkr`, for example:
 
 ```
 library(plinkr)

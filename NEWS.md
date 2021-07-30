@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## plinkr v0.15.2 (unreleased)
+## plinkr v0.15.2 (2021-07-30)
 
 ### NEW FEATURES
 
@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Singularity container is tested to run plinkr scripts
 
 ### BUG FIXES
 

@@ -43,3 +43,9 @@ jobs:
       - name: Run container
         run: cat scripts/demo_container.R | ./plinkr.sif R
 
+      - name: Build Container2
+        run: ./scripts/build_singularity_container2.sh
+
+      - name: Run container2
+        run: cat scripts/demo_container2.R | ./plinkr2.sif R
+

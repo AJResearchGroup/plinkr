@@ -31,5 +31,6 @@ test_that("files are detected", {
   expect_silent(check_empty_plinkr_folder(plinkr_folder = plinkr_folder))
   readr::write_lines(x = "irrelevant", file = plinkr_filename)
   expect_error(check_empty_plinkr_folder(plinkr_folder = plinkr_folder))
-  file.remove(plinkr_filename)
+  unlink(plinkr_folder, recursive = TRUE)
+  expect_silent(check_empty_plinkr_folder())
 })

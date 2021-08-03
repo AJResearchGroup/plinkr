@@ -5,6 +5,7 @@ test_that("use, create_test_assoc_qt_params", {
       assoc_qt_params = create_test_assoc_qt_params()
     )
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use, create_demo_assoc_qt_params", {

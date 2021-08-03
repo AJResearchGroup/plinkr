@@ -49,3 +49,17 @@ test_that("read and save must result in same file, v1.9", {
   file.remove(qassoc_filename)
   if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })
+
+test_that("cannot write to impossible folder, v1.9", {
+  if (get_os() == "win") return()
+  qassoc_table <- read_plink_qassoc_file(
+    qassoc_filename = get_plinkr_filename("assoc_qt_output_1_snp.qassoc")
+  )
+  expect_error(
+    save_qassoc_table_to_file(
+      qassoc_table = qassoc_table,
+      qassoc_filename = "/root/assoc_qt_output_1_snp.qassoc"
+    ),
+    "permission"
+  )
+})

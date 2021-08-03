@@ -1,5 +1,4 @@
 test_that("save and read must result in same table", {
-  skip("WIP")
   cov_table <- read_plink_cov_file(
     cov_filename = get_plinkr_filename("pheno.raw")
   )
@@ -18,7 +17,6 @@ test_that("save and read must result in same table", {
 })
 
 test_that("save and read must result in same table with correct column names", {
-  skip("WIP")
   cov_table <- read_plink_cov_file(
     cov_filename = get_plinkr_filename("pheno.raw")
   )
@@ -37,7 +35,6 @@ test_that("save and read must result in same table with correct column names", {
 })
 
 test_that("sub-sub-sub folder", {
-  skip("WIP")
   cov_table <- read_plink_cov_file(
     cov_filename = get_plinkr_filename("pheno.raw")
   )
@@ -58,7 +55,6 @@ test_that("sub-sub-sub folder", {
 })
 
 test_that("write to impossible folder", {
-  skip("WIP")
   # Windows has no impossible folders
   if (get_os() == "win") return()
   cov_table <- read_plink_cov_file(

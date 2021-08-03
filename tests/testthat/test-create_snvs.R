@@ -40,3 +40,21 @@ test_that("3 SNPs", {
   expect_equal(names(snvs), expected_names)
   if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
 })
+
+test_that("4 SNPs", {
+  n_snps <- 4
+
+  snvs <- create_snvs(
+    n_snps = n_snps,
+    n_individuals = 4 * 4 * 4
+  )
+
+  expect_equal(2 * n_snps, ncol(snvs))
+  expected_names <- paste0(
+    "snv_",
+    rep(seq(from = 1, to = n_snps), each = 2),
+    rep(c("a", "b"), times = n_snps)
+  )
+  expect_equal(names(snvs), expected_names)
+  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+})

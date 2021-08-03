@@ -12,7 +12,7 @@ test_that("un- or install in temp plink folder", {
   expect_silent(uninstall_plink(plink_options))
   expect_false(is_plink_installed(plink_options))
   unlink(plink_folder, recursive = TRUE)
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("un- or install in temp plink folder, v1.7", {
@@ -29,7 +29,7 @@ test_that("un- or install in temp plink folder, v1.7", {
   expect_silent(uninstall_plink(plink_options))
   expect_false(is_plink_installed(plink_options))
   unlink(plink_folder, recursive = TRUE)
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("un- or install in temp plink folder", {
@@ -52,8 +52,8 @@ test_that("un- or install in temp plink folder", {
       expect_silent(uninstall_plink(plink_options))
       expect_false(is_plink_installed(plink_options))
       unlink(plink_folder, recursive = TRUE)
-      if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+      expect_silent(check_empty_plinkr_folder())
     }
   }
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

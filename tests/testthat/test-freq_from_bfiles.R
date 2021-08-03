@@ -27,5 +27,5 @@ test_that("use", {
   list.files(dirname(base_miss_stat_filenames), full.names = TRUE)
   unlink(plinkr_folder, recursive = TRUE)
 
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

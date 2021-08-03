@@ -48,7 +48,7 @@ test_that("error", {
     run_plink(args),
     "you should be able to copy-paste this"
   )
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("warnings", {
@@ -131,7 +131,7 @@ test_that("assoc_qt the PLINK way", {
   file.remove(phe_filename)
   file.remove(qassoc_filenames)
 
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("assoc_qt the PLINK way with phenotype file with header", {
@@ -164,5 +164,5 @@ test_that("assoc_qt the PLINK way with phenotype file with header", {
   expect_true(all(file.exists(qassoc_filenames)))
   file.remove(qassoc_filenames)
 
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

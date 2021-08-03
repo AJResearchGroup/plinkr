@@ -38,7 +38,7 @@ test_that("3 SNPs", {
     rep(c("a", "b"), times = n_snps)
   )
   expect_equal(names(snvs), expected_names)
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("4 SNPs", {
@@ -56,5 +56,5 @@ test_that("4 SNPs", {
     rep(c("a", "b"), times = n_snps)
   )
   expect_equal(names(snvs), expected_names)
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

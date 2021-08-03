@@ -55,5 +55,5 @@ test_that("for two trait, must match assoc_qt", {
   expect_false(identical(assoc_qt_result_1, assoc_qt_result_2))
   expect_identical(assoc_qt_result_all[c(1, 2), ], assoc_qt_result_1)
   expect_identical(assoc_qt_result_all[c(3, 4), ], assoc_qt_result_2)
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

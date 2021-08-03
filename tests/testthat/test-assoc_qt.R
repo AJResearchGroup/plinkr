@@ -144,5 +144,5 @@ test_that("95 chromosome numbers work", {
   )
   expect_silent(assoc_qt(assoc_qt_params = assoc_qt_params))
 
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

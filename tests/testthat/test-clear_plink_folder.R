@@ -9,5 +9,5 @@ test_that("use", {
   expect_equal(0, length(list.files(plink_folder)))
   unlink(plink_folder, recursive = TRUE)
 
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

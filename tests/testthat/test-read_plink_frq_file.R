@@ -9,5 +9,5 @@ test_that("use", {
   expect_true("A2" %in% names(frq_table))
   expect_true("MAF" %in% names(frq_table))
   expect_true("NCHROBS" %in% names(frq_table))
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

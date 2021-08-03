@@ -61,5 +61,5 @@ test_that("write to impossible folder", {
     ),
     "Cannot save 'ped_table' to path"
   )
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

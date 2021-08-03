@@ -7,5 +7,5 @@ test_that("use", {
   )
   expect_true(file.exists(sim_filename))
   file.remove(sim_filename)
-  if (get_os() != "win") expect_silent(check_empty_plinkr_folder())
+  expect_silent(check_empty_plinkr_folder())
 })

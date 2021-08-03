@@ -7,6 +7,15 @@ test_that("use", {
       assoc_qt_params = assoc_qt_params
     )
   )
+  suppressMessages(
+    expect_message(
+      assoc_qt(
+        assoc_qt_params = assoc_qt_params,
+        verbose = TRUE
+      ),
+      "PLINK"
+    )
+  )
 })
 
 test_that("use", {

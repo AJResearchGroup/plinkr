@@ -25,11 +25,11 @@ test_that("folders are detected", {
 test_that("files are detected", {
   if (get_os() == "win") return()
 
-  dir.create(get_plinkr_folder(), showWarnings = FALSE, recursive = TRUE)
-  plinkr_filename <- file.path(get_plinkr_tempfilename())
-  expect_silent(check_empty_plinkr_folder(plinkr_folder = get_plinkr_folder()))
+  plinkr_folder <- get_plinkr_tempfilename()
+  dir.create(plinkr_folder, showWarnings = FALSE, recursive = TRUE)
+  plinkr_filename <- file.path(plinkr_folder, basename(tempfile()))
+  expect_silent(check_empty_plinkr_folder(plinkr_folder = plinkr_folder))
   readr::write_lines(x = "irrelevant", file = plinkr_filename)
-  file.create(normalizePath(plinkr_filename, mustWork = FALSE))
-  expect_error(check_empty_plinkr_folder(plinkr_folder))
+  expect_error(check_empty_plinkr_folder(plinkr_folder = plinkr_folder))
   file.remove(plinkr_filename)
 })

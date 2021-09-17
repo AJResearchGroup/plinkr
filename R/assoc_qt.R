@@ -1,9 +1,15 @@
-#' Let PLINK detect an association with one ore more quantitative traits.
+#' Let PLINK detect an association with one or more quantitative traits.
 #'
-#' Let PLINK detect an association with one ore more quantitative traits.
-#' @note This function is named after the \code{--assoc} flag used by PLINK
+#' Let PLINK detect an association with one or more quantitative traits.
+#' @note This function is named after the \code{--assoc} flag used by PLINK.
 #' @inheritParams default_params_doc
-#' @return a \link[tibble]{tibble} with the following columns:
+#' @return
+#' A \link[tibble]{tibble} with the detected associations.
+#' The table with have as much rows as the number of SNPs multiplied
+#' by the number of traits.
+#'
+#' If the `assoc_qt_params` used PLINK1 text or PLINK1 binary data,
+#' the \link[tibble]{tibble} has the following columns:
 #'
 #'   * \code{trait_name}: name of the quantitive trait,
 #'     taken from the phenotype table column name
@@ -16,9 +22,6 @@
 #'   * \code{R2}: Regression r-squared
 #'   * \code{T}: Wald test (based on t-distribution)
 #'   * \code{P}: Wald test asymptotic p-value
-#'
-#' The table with have as much rows as the number of SNPs multiplied
-#' by the number of traits.
 #'
 #' Note that parameters in uppercase are named as such by PLINK.
 #' @examples

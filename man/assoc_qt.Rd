@@ -2,7 +2,7 @@
 % Please edit documentation in R/assoc_qt.R
 \name{assoc_qt}
 \alias{assoc_qt}
-\title{Let PLINK detect an association with one ore more quantitative traits.}
+\title{Let PLINK detect an association with one or more quantitative traits.}
 \usage{
 assoc_qt(
   assoc_qt_params,
@@ -23,7 +23,12 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-a \link[tibble]{tibble} with the following columns:
+A \link[tibble]{tibble} with the detected associations.
+The table with have as much rows as the number of SNPs multiplied
+by the number of traits.
+
+If the \code{assoc_qt_params} used PLINK1 text or PLINK1 binary data,
+the \link[tibble]{tibble} has the following columns:
 \itemize{
 \item \code{trait_name}: name of the quantitive trait,
 taken from the phenotype table column name
@@ -38,16 +43,13 @@ taken from the phenotype table column name
 \item \code{P}: Wald test asymptotic p-value
 }
 
-The table with have as much rows as the number of SNPs multiplied
-by the number of traits.
-
 Note that parameters in uppercase are named as such by PLINK.
 }
 \description{
-Let PLINK detect an association with one ore more quantitative traits.
+Let PLINK detect an association with one or more quantitative traits.
 }
 \note{
-This function is named after the \code{--assoc} flag used by PLINK
+This function is named after the \code{--assoc} flag used by PLINK.
 }
 \examples{
 if (is_plink_installed()) {

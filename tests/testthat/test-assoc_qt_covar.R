@@ -1,4 +1,6 @@
 test_that("use", {
+  expect_silent(check_empty_plinkr_folder())
+
   skip("No covariates yet")
   if (!is_plink_installed()) return()
   set.seed(314)
@@ -147,8 +149,9 @@ test_that("PLINK cannot handle quadallelic SNPs", {
 })
 
 test_that("95 chromosome numbers work", {
+  expect_silent(check_empty_plinkr_folder())
+
   skip("No covariates yet")
-  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
   set.seed(314)

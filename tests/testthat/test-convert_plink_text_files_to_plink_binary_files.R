@@ -35,5 +35,6 @@ test_that("use", {
   expect_equal(snp_names, rownames(bed_table))
 
   unlink(folder_name, recursive = TRUE)
+
   expect_silent(check_empty_plinkr_folder())
 })

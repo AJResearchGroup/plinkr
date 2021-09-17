@@ -1,5 +1,6 @@
 test_that("minimal use, v1.7", {
-  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  expect_silent(check_empty_plinkr_folder())
+
   if (!is_plink_installed()) return()
   expect_silent(
     assoc(

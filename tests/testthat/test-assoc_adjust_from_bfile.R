@@ -1,4 +1,6 @@
 test_that("use", {
+  expect_silent(check_empty_plinkr_folder())
+
   if (!is_plink_installed()) return()
   if (!is_plink_tutorial_data_installed()) return()
 

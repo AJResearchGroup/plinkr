@@ -79,6 +79,7 @@ convert_plink_text_data_to_plink_bin_data <- function( # nolint indeed a long fu
   file.remove(plink_bin_filenames$bed_filename)
   file.remove(plink_bin_filenames$bim_filename)
   file.remove(plink_bin_filenames$fam_filename)
+  file.remove(plink_bin_filenames$log_filename)
 
   plink_bin_data
 }

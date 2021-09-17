@@ -1,4 +1,6 @@
 test_that("minimal use, using PLINK1 text data", {
+  expect_silent(check_empty_plinkr_folder())
+
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_test_assoc_qt_params()
@@ -86,6 +88,8 @@ test_that("demo on random only", {
 })
 
 test_that("demo on two randoms", {
+  expect_silent(check_empty_plinkr_folder())
+
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
@@ -97,6 +101,8 @@ test_that("demo on two randoms", {
 })
 
 test_that("number of individuals", {
+  expect_silent(check_empty_plinkr_folder())
+
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
@@ -165,7 +171,8 @@ test_that("PLINK cannot handle quadallelic SNPs", {
 })
 
 test_that("95 chromosome numbers work", {
-  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  expect_silent(check_empty_plinkr_folder())
+
   if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
   set.seed(314)

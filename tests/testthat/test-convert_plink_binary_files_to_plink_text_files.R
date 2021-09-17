@@ -1,4 +1,6 @@
 test_that("use", {
+  expect_silent(check_empty_plinkr_folder())
+
   skip("TODO: convert_plink_bin_files_to_plink_text_files")
   convert_plink_bin_files_to_plink_text_files(
     base_input_filename,

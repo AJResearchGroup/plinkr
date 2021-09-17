@@ -31,6 +31,7 @@ a list with the following elements:
 \item \code{bed_filename}: the full \code{.bed} filename
 \item \code{bim_filename}: the full \code{.bim} filename
 \item \code{fam_filename}: the full \code{.fam} filename
+\item \code{log_filename}: the full \code{.log} filename
 }
 }
 \description{

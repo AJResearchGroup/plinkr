@@ -1,4 +1,5 @@
 test_that("minimal use, v1.7", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed()) return()
   expect_silent(
     assoc(
@@ -20,6 +21,7 @@ test_that("minimal use, v1.9", {
 })
 
 test_that("minimal use v2.0", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   skip("Cannot assoc with PLINK2 yet")
   if (!is_plink_installed()) return()
   set.seed(314)

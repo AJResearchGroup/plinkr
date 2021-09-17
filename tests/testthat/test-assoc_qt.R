@@ -33,7 +33,7 @@ test_that("minimal use, using PLINK1 binary data", {
 
   expect_silent(
     assoc_qt(
-      assoc_qt_params = assoc_qt_params
+      assoc_qt_params = assoc_qt_params_as_bin_data
     )
   )
   suppressMessages(

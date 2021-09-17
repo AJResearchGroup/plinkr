@@ -35,7 +35,6 @@ convert_plink_text_data_to_plink_bin_data <- function( # nolint indeed a long fu
 
   # Save PLINK1 text files to temp folder
   base_input_filename <- plinkr::get_plinkr_tempfilename(fileext = "")
-  testthat::expect_true(base_input_filename != base_output_filename)
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
   plinkr::save_ped_table_to_file(
@@ -49,6 +48,7 @@ convert_plink_text_data_to_plink_bin_data <- function( # nolint indeed a long fu
 
   # Convert to PLINK1 binary format
   base_output_filename <- plinkr::get_plinkr_tempfilename(fileext = "")
+  testthat::expect_true(base_input_filename != base_output_filename)
   plink_bin_filenames <- plinkr::convert_plink_text_files_to_plink_bin_files(
     base_input_filename = base_input_filename,
     base_output_filename = base_output_filename,

@@ -4,6 +4,9 @@
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return Nothing. Will \link{stop} if the \code{map_table} is invalid
+#' @examples
+#' check_map_table(get_test_map_table())
+#' check_map_table(read_plink_map_file(get_plink_example_filename("toy.map")))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_map_table <- function(map_table) {

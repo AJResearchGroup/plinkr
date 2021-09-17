@@ -6,6 +6,7 @@
 #' @return Nothing. Will \link{stop} if the \code{bim_table} is invalid
 #' @examples
 #' check_bim_table(get_test_bim_table())
+#' check_bim_table(read_plink_bim_file(get_plinkr_filename("toy_data.bim")))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_bim_table <- function(bim_table) {

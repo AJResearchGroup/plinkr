@@ -1,7 +1,10 @@
-#' Check if a \code{.ped} is valid. Will \link{stop} if not
+#' Check if a `.ped` table is valid. Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return Nothing.
 #'   Will \link{stop} if the pedigree table is invalid.
+#' @examples
+#' check_ped_table(get_test_ped_table())
+#' check_ped_table(read_plink_ped_file(get_plink_example_filename("toy.ped")))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_ped_table <- function(ped_table) {

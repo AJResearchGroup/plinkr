@@ -6,6 +6,7 @@
 #' @return Nothing. Will \link{stop} if the \code{fam_table} is invalid
 #' @examples
 #' check_fam_table(get_test_fam_table())
+#' check_fam_table(read_plink_fam_file(get_plinkr_filename("toy_data.fam")))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_fam_table <- function(fam_table) {

@@ -33,6 +33,7 @@ Will \link{stop} if not
 }
 \examples{
 check_fam_table(get_test_fam_table())
+check_fam_table(read_plink_fam_file(get_plinkr_filename("toy_data.fam")))
 }
 \author{
 Richèl J.C. Bilderbeek

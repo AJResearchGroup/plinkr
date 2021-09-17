@@ -30,6 +30,10 @@ Nothing. Will \link{stop} if the \code{map_table} is invalid
 Check if a genetic mapping \code{.map} table is valid.
 Will \link{stop} if not
 }
+\examples{
+check_map_table(get_test_map_table())
+check_map_table(read_plink_map_file(get_plink_example_filename("toy.map")))
+}
 \author{
 Richèl J.C. Bilderbeek
 }

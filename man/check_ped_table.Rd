@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_ped_table.R
 \name{check_ped_table}
 \alias{check_ped_table}
-\title{Check if a \code{.ped} is valid. Will \link{stop} if not}
+\title{Check if a \code{.ped} table is valid. Will \link{stop} if not}
 \usage{
 check_ped_table(ped_table)
 }
@@ -38,7 +38,11 @@ Nothing.
 Will \link{stop} if the pedigree table is invalid.
 }
 \description{
-Check if a \code{.ped} is valid. Will \link{stop} if not
+Check if a \code{.ped} table is valid. Will \link{stop} if not
+}
+\examples{
+check_ped_table(get_test_ped_table())
+check_ped_table(read_plink_ped_file(get_plink_example_filename("toy.ped")))
 }
 \author{
 Richèl J.C. Bilderbeek

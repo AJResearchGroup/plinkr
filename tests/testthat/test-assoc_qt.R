@@ -1,7 +1,34 @@
-test_that("use", {
+test_that("minimal use, using PLINK1 text data", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_test_assoc_qt_params()
+  expect_silent(
+    assoc_qt(
+      assoc_qt_params = assoc_qt_params
+    )
+  )
+  suppressMessages(
+    expect_message(
+      assoc_qt(
+        assoc_qt_params = assoc_qt_params,
+        verbose = TRUE
+      ),
+      "PLINK"
+    )
+  )
+})
+
+test_that("minimal use, using PLINK1 binary data", {
+  skip("Issue 16. Issue #16. Do assoc_qt using PLINK1 binary data")
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  assoc_qt_params_as_text_data <- create_test_assoc_qt_params()
+  expect_true(is_plink_text_data(assoc_qt_params_as_text_data))
+  assoc_qt_params_as_bin_data <- convert_plink_text_data_to_plink_bin_data(
+    assoc_qt_params_as_text_data
+  )
+  expect_true(is_plink_bin_data(assoc_qt_params_as_bin_data))
+
   expect_silent(
     assoc_qt(
       assoc_qt_params = assoc_qt_params

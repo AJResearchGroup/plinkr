@@ -6,7 +6,7 @@
 #' @return Nothing. Will \link{stop} if the \code{map_table} is invalid
 #' @examples
 #' check_map_table(get_test_map_table())
-#' check_map_table(read_plink_map_file(get_plink_example_filename("toy.map")))
+#' check_map_table(read_plink_map_file(get_plinkr_filenames("toy_v1_9.map")))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_map_table <- function(map_table) {

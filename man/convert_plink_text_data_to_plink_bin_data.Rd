@@ -42,12 +42,11 @@ The other list elements are left as-is.
 Convert the \code{PLINK} text data to \code{PLINK} binary data.
 }
 \examples{
-assoc_qt_params_as_text_data <- create_test_assoc_qt_params()
-expect_true(is_plink_text_data(assoc_qt_params_as_text_data))
-assoc_qt_params_as_bin_data <- convert_plink_text_data_to_plink_bin_data(
-  assoc_qt_params_as_text_data
-)
-expect_true(is_plink_bin_data(assoc_qt_params_as_bin_data))
+if (is_plink_installed(plink_options = create_plink_v1_9_options())) {
+  convert_plink_text_data_to_plink_bin_data(
+    create_test_assoc_qt_params()
+  )
+}
 }
 \author{
 Richèl J.C. Bilderbeek

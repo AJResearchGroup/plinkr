@@ -16,6 +16,8 @@ test_that("minimal use, using PLINK1 text data", {
       "PLINK"
     )
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("minimal use, using PLINK1 binary data", {
@@ -43,6 +45,8 @@ test_that("minimal use, using PLINK1 binary data", {
       "PLINK"
     )
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use", {

@@ -42,7 +42,7 @@ Check if a \code{.ped} table is valid. Will \link{stop} if not
 }
 \examples{
 check_ped_table(get_test_ped_table())
-check_ped_table(read_plink_ped_file(get_plink_example_filename("toy.ped")))
+check_ped_table(read_plink_ped_file(get_plinkr_filename("toy_v1_9.ped")))
 }
 \author{
 Richèl J.C. Bilderbeek

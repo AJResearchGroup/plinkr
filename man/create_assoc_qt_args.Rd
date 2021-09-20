@@ -3,7 +3,8 @@
 \name{create_assoc_qt_args}
 \alias{create_assoc_qt_args}
 \title{Create the command-line arguments to call PLINK or PLINK2
-to do a quantitative trait analysis}
+to do a quantitative trait analysis,
+depending on the type of data.}
 \usage{
 create_assoc_qt_args(assoc_qt_params, plink_options = create_plink_options())
 }
@@ -20,7 +21,8 @@ the command-line arguments
 }
 \description{
 Create the command-line arguments to call PLINK or PLINK2
-to do a quantitative trait analysis
+to do a quantitative trait analysis,
+depending on the type of data.
 }
 \author{
 Richèl J.C. Bilderbeek

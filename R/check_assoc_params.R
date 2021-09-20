@@ -7,13 +7,11 @@
 #' @export
 check_assoc_params <- function(assoc_params) {
   testthat::expect_true(is.list(assoc_params))
-  testthat::expect_true("ped_table" %in% names(assoc_params))
-  testthat::expect_true("map_table" %in% names(assoc_params))
+  testthat::expect_true("data" %in% names(assoc_params))
   testthat::expect_true("maf" %in% names(assoc_params))
   testthat::expect_true("base_input_filename" %in% names(assoc_params))
   testthat::expect_true("base_output_filename" %in% names(assoc_params))
-  testthat::expect_silent(plinkr::check_ped_table(assoc_params$ped_table))
-  testthat::expect_silent(plinkr::check_map_table(assoc_params$map_table))
+  testthat::expect_silent(plinkr::check_data(assoc_params$data))
   testthat::expect_silent(
     plinkr::check_base_input_filename(assoc_params$base_input_filename)
   )
@@ -25,7 +23,7 @@ check_assoc_params <- function(assoc_params) {
 
   testthat::expect_true(
     all(
-      assoc_params$ped_table$case_control_code %in% c(1, 2)
+      assoc_params$data$ped_table$case_control_code %in% c(1, 2)
     )
   )
 

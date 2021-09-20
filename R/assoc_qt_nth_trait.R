@@ -26,8 +26,8 @@ assoc_qt_nth_trait <- function(
   plinkr::check_assoc_qt_params(assoc_qt_params)
 
   # Do not be smart yet
-  ped_table <- assoc_qt_params$ped_table
-  map_table <- assoc_qt_params$map_table
+  ped_table <- assoc_qt_params$data$ped_table
+  map_table <- assoc_qt_params$data$map_table
   phe_table <- assoc_qt_params$phe_table
   maf <- assoc_qt_params$maf
 

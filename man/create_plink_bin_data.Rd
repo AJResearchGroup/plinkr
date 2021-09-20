@@ -47,7 +47,9 @@ the row names are the names of the SNPs,
 and the values are the SNP variant.
 Use \link{get_test_bed_table} to get a \code{.bed} table as used in testing.
 Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
-Use \link{check_bed_table} to test if a \code{.bed} table is valid.}
+Use \link{check_bed_table} to test if a \code{.bed} table is valid.
+See also the \code{bed} file format reference at
+\url{https://www.cog-genomics.org/plink2/formats#bed}}
 }
 \description{
 Create a set of \code{PLINK} binary data

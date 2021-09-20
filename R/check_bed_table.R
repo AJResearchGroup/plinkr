@@ -22,6 +22,6 @@
 check_bed_table <- function(bed_table) {
   testthat::expect_true("matrix" %in% class(bed_table))
   testthat::expect_true("array" %in% class(bed_table))
-  testthat::expect_true(all(bed_table >= 0))
-  testthat::expect_true(all(bed_table <= 4))
+  testthat::expect_true(all(is.na(bed_table) | bed_table >= 0))
+  testthat::expect_true(all(is.na(bed_table) | bed_table <= 4))
 }

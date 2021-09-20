@@ -40,6 +40,7 @@ test_that("for one trait, must match assoc_qt", {
   expect_identical(assoc_qt_result_all, assoc_qt_result_nth)
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("for two trait, must match assoc_qt", {

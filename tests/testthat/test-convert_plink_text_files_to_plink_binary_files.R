@@ -1,6 +1,5 @@
 test_that("use", {
   if (!is_plink_installed(plink_options = create_plink_v1_9_options())) return()
-  # No need for a FAM file?
   map_filename <- get_plinkr_filename("toy_v1_9.map")
   ped_filename <- get_plinkr_filename("toy_v1_9.ped")
 
@@ -37,4 +36,5 @@ test_that("use", {
   unlink(folder_name, recursive = TRUE)
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

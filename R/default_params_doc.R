@@ -38,6 +38,8 @@
 #' Use \link{get_test_bed_table} to get a \code{.bed} table as used in testing.
 #' Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
 #' Use \link{check_bed_table} to test if a `.bed` table is valid.
+#' See also the `bed` file format reference at
+#' \url{https://www.cog-genomics.org/plink2/formats#bed}
 #' @param bfile the base filename of the binary files (i.e.
 #' a \code{.bed}, \code{.bim} and \code{.fam} file).
 #' This parameter is named after the \code{PLINK}

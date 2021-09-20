@@ -102,7 +102,7 @@ assoc_qt_on_plink_bin_data <- function(
   plinkr::run_plink(
     args = args,
     plink_options = plink_options,
-    verbose = verbose
+    verbose = TRUE
   )
 
   qassoc_table <- plinkr::read_plink_qassoc_files(

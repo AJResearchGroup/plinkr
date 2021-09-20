@@ -38,20 +38,20 @@ assoc_qt <- function(
   # Other inputs are checked in the specific function called
   plinkr::check_assoc_qt_params(assoc_qt_params)
   qassoc_table <- NULL
-  if (is_plink_text_data(assoc_qt_params)) {
+  if (is_plink_text_data(assoc_qt_params$data)) {
     qassoc_table <- plinkr::assoc_qt_on_plink_text_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
-  } else if (is_plink_bin_data(assoc_qt_params)) {
+  } else if (is_plink_bin_data(assoc_qt_params$data)) {
     qassoc_table <- plinkr::assoc_qt_on_plink_bin_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
   } else {
-    testthat::expect_true(is_plink2_bin_data(assoc_qt_params))
+    testthat::expect_true(is_plink2_bin_data(assoc_qt_params$data))
     qassoc_table <- plinkr::assoc_qt_on_plink2_bin_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,

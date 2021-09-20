@@ -9,18 +9,15 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_assoc_params <- function(
-  ped_table = get_test_ped_table(),
-  map_table = get_test_map_table(),
+  data = create_test_plink_text_data(),
   confidence_interval = 0.95,
   maf = get_lowest_maf()
 ) {
-  plinkr::check_ped_table(ped_table = ped_table)
-  plinkr::check_map_table(map_table = map_table)
+  plinkr::check_data(data = data)
   plinkr::check_confidence_interval(confidence_interval = confidence_interval)
   plinkr::check_maf(maf = maf)
   plinkr::create_assoc_params(
-    ped_table = ped_table,
-    map_table = map_table,
+    data = data,
     confidence_interval = confidence_interval,
     maf = maf
   )

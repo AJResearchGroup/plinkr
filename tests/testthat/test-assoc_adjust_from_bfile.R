@@ -1,4 +1,5 @@
 test_that("use", {
+  clear_plinkr_cache()
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
@@ -37,4 +38,5 @@ test_that("use", {
   list.files(dirname(base_assoc_filenames), full.names = TRUE)
   unlink(plinkr_folder, recursive = TRUE)
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

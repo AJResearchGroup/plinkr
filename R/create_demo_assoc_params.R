@@ -67,8 +67,10 @@ create_demo_assoc_params <- function(
   names(phe_table) <- c(names(phe_table)[1:2], "case_control_code")
   ped_table$case_control_code <- phe_table$case_control_code
   plinkr::create_assoc_params(
-    ped_table = ped_table,
-    map_table = map_table,
+    data = create_plink_text_data(
+      ped_table = ped_table,
+      map_table = map_table
+    ),
     confidence_interval = confidence_interval
   )
 }

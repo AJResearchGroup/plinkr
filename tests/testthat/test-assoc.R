@@ -39,7 +39,7 @@ test_that("verbose", {
   if (!is_plink_installed()) return()
   set.seed(314)
   expect_message(
-    assoc(create_test_assoc_params(), verbose = TRUE)
+    assoc(assoc_params = create_test_assoc_params(), verbose = TRUE)
   )
 })
 

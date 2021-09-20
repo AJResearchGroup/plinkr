@@ -20,6 +20,7 @@ test_that("minimal use, using PLINK1 text data", {
   )
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("use", {
@@ -100,6 +101,9 @@ test_that("number of individuals", {
   )
   # One traits times one SNP = one association
   expect_equal(1, nrow(assoc_qt_results))
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("demo on additive only", {
@@ -112,20 +116,27 @@ test_that("demo on additive only", {
   )
   # 1 trait times 1 SNP = 1 association
   expect_equal(nrow(assoc_qt_results), 1)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("use quantitative traits that are either 1 or 2", {
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_test_assoc_qt_params()
   n_individuals <- nrow(assoc_qt_params$phe_table)
-  assoc_qt_params$phe_table$case_control_code <- NULL
+  assoc_qt_params$phe_table$P1 <- NULL
   assoc_qt_params$phe_table$special_phenotype <- sample(
     c(1, 2), size = n_individuals, replace = TRUE)
   expect_error(
     assoc_qt_on_plink_text_data(
       assoc_qt_params = assoc_qt_params
-    )
+    ),
+    "Phenotytic values match case-control values"
   )
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 
@@ -145,7 +156,7 @@ test_that("PLINK cannot handle triallelic SNPs", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache()
 })
 
 test_that("PLINK cannot handle quadallelic SNPs", {

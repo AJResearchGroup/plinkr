@@ -18,4 +18,15 @@ check_bim_table <- function(bim_table) {
   testthat::expect_equal("pos", names(bim_table)[4])
   testthat::expect_equal("ref", names(bim_table)[5])
   testthat::expect_equal("alt", names(bim_table)[6])
+  is_too_highs <- bim_table$chr > 95
+  chromosome_numbers <- bim_table$chr[is_too_highs]
+  if (any(bim_table$chr > 95)) {
+    stop(
+      "plinkr allows a maximum of 95 chromosomes, as \n",
+      "default PLINK can handle a maximum of 95 chromosomes. \n",
+      "(see https://www.cog-genomics.org/plink/1.9/input#chr_set) \n",
+      "Found chromosome numbers with values: ",
+      paste0(chromosome_numbers, collapse = ", ")
+    )
+  }
 }

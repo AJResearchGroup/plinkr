@@ -1,5 +1,6 @@
 #' Create the command-line arguments to call PLINK or PLINK2
-#' to do a quantitative trait analysis
+#' to do a quantitative trait analysis,
+#' depending on the type of data.
 #' @inheritParams default_params_doc
 #' @return the command-line arguments
 #' @author Richèl J.C. Bilderbeek
@@ -10,7 +11,11 @@ create_assoc_qt_args <- function(
 ) {
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_options(plink_options)
-  if (plink_options$plink_version == "1.7") {
+
+  if (is_plink_text_data(assoc_qt_params$data)) {
+    testthat::expect_true(
+      plink_options$plink_version %in% plinkr::get_plink1_versions()
+    )
     return(
       c(
         "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
@@ -25,11 +30,14 @@ create_assoc_qt_args <- function(
       )
     )
   }
-  if (plink_options$plink_version == "1.9") {
+  if (plinkr::is_plink_bin_data(assoc_qt_params$data)) {
+
     return(
       c(
-        "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
-        "--ped", paste0(assoc_qt_params$base_input_filename, ".ped"),
+        "--bfile", assoc_qt_params$base_input_filename, # PLINK adds prefix # nolint
+        # "--bfile", paste0(assoc_qt_params$base_input_filename, ".bed"), # PLINK adds prefix # nolint
+        # "--bim", paste0(assoc_qt_params$base_input_filename, ".bim"), # PLINK cannot specify this # nolint
+        # "--fam", paste0(assoc_qt_params$base_input_filename, ".fam"), # PLINK cannot specify this # nolint
         "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
         "--all-pheno",
         "--assoc",
@@ -40,7 +48,11 @@ create_assoc_qt_args <- function(
       )
     )
   }
-  testthat::expect_true(plink_options$plink_version == "2.0")
+
+  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params))
+  testthat::expect_true(
+    plink_options$plink_version %in% plinkr::get_plink2_versions()
+  )
   c(
     "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
     "--ped", paste0(assoc_qt_params$base_input_filename, ".ped"),

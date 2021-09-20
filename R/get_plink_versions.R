@@ -1,6 +1,6 @@
-#' Get the supported version of PLINK
+#' Get the supported version of PLINK and PLINK2
 #'
-#' Get the supported version of PLINK as string.
+#' Get the supported version of PLINK and PLINK2 as string.
 #'
 #' Use \link{create_plink_optionses} to obtain a list
 #' of \code{plink_options}.
@@ -9,5 +9,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_plink_versions <- function() {
-  c("1.7", "1.9", "2.0")
+  c(
+    plinkr::get_plink1_versions(),
+    plinkr::get_plink2_versions()
+  )
 }

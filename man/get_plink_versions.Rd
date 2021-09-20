@@ -2,12 +2,12 @@
 % Please edit documentation in R/get_plink_versions.R
 \name{get_plink_versions}
 \alias{get_plink_versions}
-\title{Get the supported version of PLINK}
+\title{Get the supported version of PLINK and PLINK2}
 \usage{
 get_plink_versions()
 }
 \description{
-Get the supported version of PLINK as string.
+Get the supported version of PLINK and PLINK2 as string.
 }
 \details{
 Use \link{create_plink_optionses} to obtain a list

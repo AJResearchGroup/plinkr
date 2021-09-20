@@ -4,11 +4,15 @@
 \alias{is_plink_bin_data}
 \title{Determine if the \code{plink_bin_data} is indeed \code{PLINK} bin data}
 \usage{
-is_plink_bin_data(plink_bin_data)
+is_plink_bin_data(plink_bin_data, verbose = FALSE)
 }
 \arguments{
 \item{plink_bin_data}{the genetic and phenotypic data for \code{PLINK} to work
 on, in \code{PLINK} binary format, as created by \link{create_plink_bin_data}.}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \description{
 Determine if the \code{plink_bin_data} is indeed \code{PLINK} bin data

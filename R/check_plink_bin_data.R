@@ -20,10 +20,10 @@ check_plink_bin_data <- function(
       "Tip: use 'plinkr::create_plink_bin_data()'\n"
     )
   }
+  testthat::expect_true("bed_table" %in% names(plink_bin_data))
   testthat::expect_true("bim_table" %in% names(plink_bin_data))
   testthat::expect_true("fam_table" %in% names(plink_bin_data))
-  testthat::expect_true("bed_table" %in% names(plink_bin_data))
+  plinkr::check_bed_table(plink_bin_data$bed_table)
   plinkr::check_bim_table(plink_bin_data$bim_table)
   plinkr::check_fam_table(plink_bin_data$fam_table)
-  plinkr::check_bed_table(plink_bin_data$bed_table)
 }

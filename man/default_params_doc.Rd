@@ -25,6 +25,7 @@ default_params_doc(
   confidence_interval,
   cov_filename,
   cov_table,
+  data,
   epistatic_phenotype_value,
   example_filename,
   fam_filename,
@@ -186,6 +187,20 @@ These names match the PLINK column
 names (\url{https://www.cog-genomics.org/plink/1.9/input#pheno}).
 Use \link{read_plink_cov_file} to read a covariates file.
 Use \link{check_cov_table} to test if a covariates table is valid.}
+
+\item{data}{PLINK or PLINK2 text or binary data:
+\itemize{
+\item PLINK text data:
+a \code{.ped} table (see \link{read_plink_ped_file})
+and a \code{.map} (see \link{read_plink_map_file}),
+as created by \link{create_plink_text_data}.
+\item PLINK binary data:
+a \code{.bed} table (see \link{read_plink_bed_file})
+a \code{.bim} table (see \link{read_plink_bim_file})
+and a \code{.fam} (see \link{read_plink_fam_file}),
+as created by \link{create_plink_bin_data}.
+\item PLINK2 binary data: use \link{create_plink2_bin_data}
+}}
 
 \item{epistatic_phenotype_value}{the phenotypic value when the
 epistatic phenotype is expressed}

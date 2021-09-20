@@ -86,8 +86,10 @@ create_demo_assoc_qt_params <- function(
     traits = traits
   )
   plinkr::create_assoc_qt_params(
-    ped_table = ped_table,
-    map_table = map_table,
+    data = create_plink_text_data(
+      ped_table = ped_table,
+      map_table = map_table
+    ),
     phe_table = phe_table
   )
 }

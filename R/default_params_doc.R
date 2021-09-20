@@ -88,6 +88,19 @@
 #' Use \link{check_cov_table} to test if a covariates table is valid.
 #' @param cov_filename name of a covariates (\code{.cov}) file.
 #' Use \link{read_plink_cov_file} to read a covariates file.
+#' @param data PLINK or PLINK2 text or binary data:
+#'
+#'  * PLINK text data:
+#'    a `.ped` table (see \link{read_plink_ped_file})
+#'    and a `.map` (see \link{read_plink_map_file}),
+#'    as created by \link{create_plink_text_data}.
+#'  * PLINK binary data:
+#'    a `.bed` table (see \link{read_plink_bed_file})
+#'    a `.bim` table (see \link{read_plink_bim_file})
+#'    and a `.fam` (see \link{read_plink_fam_file}),
+#'    as created by \link{create_plink_bin_data}.
+#'  * PLINK2 binary data: use \link{create_plink2_bin_data}
+#'
 #' @param epistatic_phenotype_value the phenotypic value when the
 #' epistatic phenotype is expressed
 #' @param example_filename name of the example file
@@ -311,6 +324,7 @@ default_params_doc <- function(
   confidence_interval,
   cov_filename,
   cov_table,
+  data,
   epistatic_phenotype_value,
   example_filename,
   fam_filename,

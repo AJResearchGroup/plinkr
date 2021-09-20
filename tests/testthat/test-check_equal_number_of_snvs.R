@@ -1,8 +1,33 @@
-test_that("use, create_test_assoc_qt_params", {
+test_that("use, create_test_assoc_qt_params, PLINK text", {
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
       assoc_qt_params = create_test_assoc_qt_params()
+    )
+  )
+  expect_silent(check_empty_plinkr_folder())
+})
+
+test_that("use, create_test_assoc_qt_params, PLINK binary data", {
+  set.seed(314)
+  expect_silent(
+    check_equal_number_of_snvs(
+      assoc_qt_params = create_test_assoc_qt_params(
+        data = create_test_plink_bin_data()
+      )
+    )
+  )
+  expect_silent(check_empty_plinkr_folder())
+})
+
+test_that("use, create_test_assoc_qt_params, PLINK2 binary data", {
+  skip("'create_test_plink2_bin_data' not yet implemented")
+  set.seed(314)
+  expect_silent(
+    check_equal_number_of_snvs(
+      assoc_qt_params = create_test_assoc_qt_params(
+        data = create_test_plink2_bin_data()
+      )
     )
   )
   expect_silent(check_empty_plinkr_folder())

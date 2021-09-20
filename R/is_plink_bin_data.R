@@ -10,13 +10,17 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_plink_bin_data <- function(
-  plink_bin_data
+  plink_bin_data,
+  verbose = FALSE
 ) {
+  plinkr::check_verbose(verbose)
   result <- FALSE
   tryCatch({
     plinkr::check_plink_bin_data(plink_bin_data = plink_bin_data)
     result <- TRUE
-  }, error = function(e) {} # nolint indeed ignore error
+  }, error = function(e) {
+      if (verbose) message(e$message)
+    }
   )
   result
 }

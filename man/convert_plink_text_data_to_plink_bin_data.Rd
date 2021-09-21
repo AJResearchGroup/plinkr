@@ -44,7 +44,7 @@ Convert the \code{PLINK} text data to \code{PLINK} binary data.
 \examples{
 if (is_plink_installed(plink_options = create_plink_v1_9_options())) {
   convert_plink_text_data_to_plink_bin_data(
-    create_test_assoc_qt_params()
+    create_test_assoc_qt_params()$data
   )
 }
 }

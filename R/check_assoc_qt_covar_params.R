@@ -7,8 +7,7 @@
 #' @export
 check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
   testthat::expect_true(is.list(assoc_qt_covar_params))
-  testthat::expect_true("ped_table" %in% names(assoc_qt_covar_params))
-  testthat::expect_true("map_table" %in% names(assoc_qt_covar_params))
+  testthat::expect_true("data" %in% names(assoc_qt_covar_params))
   testthat::expect_true("phe_table" %in% names(assoc_qt_covar_params))
   testthat::expect_true("cov_table" %in% names(assoc_qt_covar_params))
   testthat::expect_true("maf" %in% names(assoc_qt_covar_params))
@@ -19,10 +18,7 @@ check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
     "base_output_filename" %in% names(assoc_qt_covar_params)
   )
   testthat::expect_silent(
-    plinkr::check_ped_table(assoc_qt_covar_params$data$ped_table)
-  )
-  testthat::expect_silent(
-    plinkr::check_map_table(assoc_qt_covar_params$data$map_table)
+    plinkr::check_data(assoc_qt_covar_params$data)
   )
   testthat::expect_silent(
     plinkr::check_phe_table(assoc_qt_covar_params$phe_table)

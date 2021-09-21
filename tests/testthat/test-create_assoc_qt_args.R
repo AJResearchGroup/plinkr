@@ -17,6 +17,7 @@ test_that("use, v1.9", {
 })
 
 test_that("use, v2.0", {
+  skip("No PLINK2 yet")
   expect_silent(
     create_assoc_qt_args(
       assoc_qt_params = create_test_assoc_qt_params(),

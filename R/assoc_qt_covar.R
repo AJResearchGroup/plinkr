@@ -37,8 +37,8 @@ assoc_qt_covar <- function(
   plinkr::check_verbose(verbose)
 
   # Do not be smart yet
-  ped_table <- assoc_qt_covar_params$ped_table
-  map_table <- assoc_qt_covar_params$map_table
+  ped_table <- assoc_qt_covar_params$data$ped_table
+  map_table <- assoc_qt_covar_params$data$map_table
   phe_table <- assoc_qt_covar_params$phe_table
   cov_table <- assoc_qt_covar_params$cov_table
   phenotype_names <- names(assoc_qt_covar_params$phe_table)[c(-1, -2)]

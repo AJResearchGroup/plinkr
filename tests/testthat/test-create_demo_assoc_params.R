@@ -9,7 +9,7 @@ test_that("n_individuals", {
     n_individuals = n_individuals
   )
   expect_silent(check_assoc_params(assoc_params))
-  expect_equal(n_individuals, nrow(assoc_params$ped_table))
+  expect_equal(n_individuals, nrow(assoc_params$data$ped_table))
 })
 
 test_that("random", {

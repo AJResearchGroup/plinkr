@@ -24,27 +24,27 @@ assoc_params <- create_demo_assoc_params(
   ),
   n_individuals = 5000
 )
-testthat::expect_true(sum(assoc_params$ped_table$case_control_code == 1) > 500)
-testthat::expect_true(sum(assoc_params$ped_table$case_control_code == 2) > 500)
-cases <- which(assoc_params$ped_table$case_control_code == 1)[1:500]
-controls <- which(assoc_params$ped_table$case_control_code == 2)[1:500]
-assoc_params$ped_table <- assoc_params$ped_table[c(cases, controls), ]
-assoc_params$ped_table$family_id <- seq_len(1000)
-testthat::expect_equal(500, sum(assoc_params$ped_table$case_control_code == 1))
-testthat::expect_true(500, sum(assoc_params$ped_table$case_control_code == 2))
+testthat::expect_true(sum(assoc_params$data$ped_table$case_control_code == 1) > 500)
+testthat::expect_true(sum(assoc_params$data$ped_table$case_control_code == 2) > 500)
+cases <- which(assoc_params$data$ped_table$case_control_code == 1)[1:500]
+controls <- which(assoc_params$data$ped_table$case_control_code == 2)[1:500]
+assoc_params$data$ped_table <- assoc_params$data$ped_table[c(cases, controls), ]
+assoc_params$data$ped_table$family_id <- seq_len(1000)
+testthat::expect_equal(500, sum(assoc_params$data$ped_table$case_control_code == 1))
+testthat::expect_true(500, sum(assoc_params$data$ped_table$case_control_code == 2))
 assoc_results <- assoc(assoc_params)
 
 
 # Hide the case-control values
-assoc_params$ped_table$case_control_code <- 0
+assoc_params$data$ped_table$case_control_code <- 0
 ped_filename <- "~/mystery.ped"
 map_filename <- "~/mystery.map"
 plinkr::save_ped_table_to_file(
-  ped_table = assoc_params$ped_table,
+  ped_table = assoc_params$data$ped_table,
   ped_filename = ped_filename
 )
 plinkr::save_map_table_to_file(
-  map_table = assoc_params$map_table,
+  map_table = assoc_params$data$map_table,
   map_filename = map_filename
 )
 plinkr::read_plink_log_file("plink.log")

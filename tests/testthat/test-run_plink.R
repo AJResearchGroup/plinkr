@@ -62,11 +62,11 @@ test_that("warnings", {
   map_filename <- get_plinkr_tempfilename()
   phe_filename <- get_plinkr_tempfilename()
   save_ped_table_to_file(
-    ped_table = assoc_qt_params$ped_table,
+    ped_table = assoc_qt_params$data$ped_table,
     ped_filename = ped_filename
   )
   save_map_table_to_file(
-    map_table = assoc_qt_params$map_table,
+    map_table = assoc_qt_params$data$map_table,
     map_filename = map_filename
   )
   save_phe_table_to_file(
@@ -101,11 +101,11 @@ test_that("assoc_qt the PLINK way", {
   map_filename <- get_plinkr_tempfilename()
   phe_filename <- get_plinkr_tempfilename()
   save_ped_table_to_file(
-    ped_table = assoc_qt_params$ped_table,
+    ped_table = assoc_qt_params$data$ped_table,
     ped_filename = ped_filename
   )
   save_map_table_to_file(
-    map_table = assoc_qt_params$map_table,
+    map_table = assoc_qt_params$data$map_table,
     map_filename = map_filename
   )
   save_phe_table_to_file(

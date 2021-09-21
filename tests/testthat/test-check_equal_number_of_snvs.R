@@ -47,10 +47,10 @@ test_that("use, create_demo_assoc_qt_params", {
 test_that("detect mismatch", {
   assoc_qt_params <- create_demo_assoc_qt_params()
   # Creates two SNVs
-  assoc_qt_params$ped_table <- create_demo_ped_table(
+  assoc_qt_params$data$ped_table <- create_demo_ped_table(
     traits = rep(list(create_random_trait()), 2)
   )
-  assoc_qt_params$map_table <- create_demo_map_table(
+  assoc_qt_params$data$map_table <- create_demo_map_table(
     traits = create_random_trait() # 1
   )
   expect_error(

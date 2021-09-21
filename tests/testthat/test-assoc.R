@@ -95,7 +95,7 @@ test_that("number of individuals", {
 test_that("error when case-controls are not 1 or 2", {
   if (!is_plink_installed()) return()
   assoc_params <- create_test_assoc_params()
-  n_individuals <- nrow(assoc_params$ped_table)
+  n_individuals <- nrow(assoc_params$data$ped_table)
   assoc_params$data$ped_table$case_control_code <- 314
   expect_error(
     assoc(

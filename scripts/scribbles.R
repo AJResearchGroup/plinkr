@@ -173,7 +173,7 @@ assoc_params <- create_demo_assoc_params(
   ),
   n_individuals = 100
 )
-assoc_params$ped_table$case_control_code
+assoc_params$data$ped_table$case_control_code
 assoc(assoc_params)
 
 

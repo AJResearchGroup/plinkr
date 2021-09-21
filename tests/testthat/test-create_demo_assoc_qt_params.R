@@ -9,7 +9,7 @@ test_that("n_individuals", {
     n_individuals = n_individuals
   )
   expect_silent(check_assoc_qt_params(assoc_qt_params))
-  expect_equal(n_individuals, nrow(assoc_qt_params$ped_table))
+  expect_equal(n_individuals, nrow(assoc_qt_params$data$ped_table))
   expect_equal(n_individuals, nrow(assoc_qt_params$phe_table))
 })
 
@@ -24,27 +24,27 @@ test_that("MAFs", {
     n_individuals = n_individuals
   )
   expect_silent(check_assoc_qt_params(assoc_qt_params))
-  expect_equal(n_individuals, nrow(assoc_qt_params$ped_table))
+  expect_equal(n_individuals, nrow(assoc_qt_params$data$ped_table))
   expect_equal(n_individuals, nrow(assoc_qt_params$phe_table))
   # First SNP
   n_expect_major_alleles <- n_individuals * (1.0 - mafs[1])
   expect_equal(
     n_expect_major_alleles,
-    sum(assoc_qt_params$ped_table$snv_1a == "A")
+    sum(assoc_qt_params$data$ped_table$snv_1a == "A")
   )
   expect_equal(
     n_expect_major_alleles,
-    sum(assoc_qt_params$ped_table$snv_1b == "A")
+    sum(assoc_qt_params$data$ped_table$snv_1b == "A")
   )
   # Second SNP
   n_expect_major_alleles <- n_individuals * (1.0 - mafs[2])
   expect_equal(
     n_expect_major_alleles,
-    sum(assoc_qt_params$ped_table$snv_2a == "A")
+    sum(assoc_qt_params$data$ped_table$snv_2a == "A")
   )
   expect_equal(
     n_expect_major_alleles,
-    sum(assoc_qt_params$ped_table$snv_2b == "A")
+    sum(assoc_qt_params$data$ped_table$snv_2b == "A")
   )
 })
 

@@ -19,10 +19,10 @@ check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
     "base_output_filename" %in% names(assoc_qt_covar_params)
   )
   testthat::expect_silent(
-    plinkr::check_ped_table(assoc_qt_covar_params$ped_table)
+    plinkr::check_ped_table(assoc_qt_covar_params$data$ped_table)
   )
   testthat::expect_silent(
-    plinkr::check_map_table(assoc_qt_covar_params$map_table)
+    plinkr::check_map_table(assoc_qt_covar_params$data$map_table)
   )
   testthat::expect_silent(
     plinkr::check_phe_table(assoc_qt_covar_params$phe_table)

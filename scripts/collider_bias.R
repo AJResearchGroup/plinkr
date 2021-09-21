@@ -13,8 +13,8 @@ n_males <- length(male_indices)
 n_females <- length(female_indices)
 testthat::expect_equal(n_females, n_males)
 
-assoc_qt_params$ped_table$sex_code[male_indices] <- male_sex_code
-assoc_qt_params$ped_table$sex_code[female_indices] <- female_sex_code
+assoc_qt_params$data$ped_table$sex_code[male_indices] <- male_sex_code
+assoc_qt_params$data$ped_table$sex_code[female_indices] <- female_sex_code
 assoc_qt_params$phe_table$random <- NULL
 assoc_qt_params$phe_table$height <- NA
 assoc_qt_params$phe_table$height[male_indices] <- rnorm(

@@ -2,22 +2,22 @@
 set.seed(314)
 assoc_params <- create_demo_assoc_params()
 save_map_table_to_file(
-  map_table = assoc_params$map_table,
+  map_table = assoc_params$data$map_table,
   file.path(system.file("extdata", package = "plinkr"), "demo_assoc.map")
 )
 save_ped_table_to_file(
-  ped_table = assoc_params$ped_table,
+  ped_table = assoc_params$data$ped_table,
   file.path(system.file("extdata", package = "plinkr"), "demo_assoc.ped")
 )
 
 set.seed(314)
 assoc_qt_params <- create_demo_assoc_qt_params()
 save_map_table_to_file(
-  map_table = assoc_qt_params$map_table,
+  map_table = assoc_qt_params$data$map_table,
   file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt.map")
 )
 save_ped_table_to_file(
-  ped_table = assoc_qt_params$ped_table,
+  ped_table = assoc_qt_params$data$ped_table,
   file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt.ped")
 )
 save_phe_table_to_file(

@@ -27,11 +27,13 @@ test_that("minimal use, using PLINK1 binary data", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params_as_text_data <- create_test_assoc_qt_params()
-  expect_true(is_plink_text_data(assoc_qt_params_as_text_data))
-  assoc_qt_params_as_bin_data <- convert_plink_text_data_to_plink_bin_data(
-    assoc_qt_params_as_text_data
+  expect_true(is_plink_text_data(assoc_qt_params_as_text_data$data))
+
+  assoc_qt_params_as_bin_data <- assoc_qt_params_as_text_data
+  assoc_qt_params_as_bin_data$data <- convert_plink_text_data_to_plink_bin_data(
+    assoc_qt_params_as_text_data$data
   )
-  expect_true(is_plink_bin_data(assoc_qt_params_as_bin_data))
+  expect_true(is_plink_bin_data(assoc_qt_params_as_bin_data$data))
 
   expect_silent(
     assoc_qt(

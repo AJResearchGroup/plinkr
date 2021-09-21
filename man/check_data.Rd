@@ -6,8 +6,31 @@
 \usage{
 check_data(data)
 }
+\arguments{
+\item{data}{PLINK or PLINK2 text or binary data:
+\itemize{
+\item PLINK text data:
+a \code{.ped} table (see \link{read_plink_ped_file})
+and a \code{.map} (see \link{read_plink_map_file}),
+as created by \link{create_plink_text_data}.
+\item PLINK binary data:
+a \code{.bed} table (see \link{read_plink_bed_file})
+a \code{.bim} table (see \link{read_plink_bim_file})
+and a \code{.fam} (see \link{read_plink_fam_file}),
+as created by \link{create_plink_bin_data}.
+\item PLINK2 binary data: use \link{create_plink2_bin_data}
+}}
+}
 \description{
 Check if the data is valid.
 The data can be in PLINK text, PLINK binary or PLINK2 binary format.
 Will \link{stop} if the data is not in any of these formats
+}
+\examples{
+check_data(data = create_test_plink_text_data())
+check_data(data = create_test_plink_bin_data())
+check_data(data = create_test_plink2_bin_data())
+}
+\author{
+Richèl J.C. Bilderbeek
 }

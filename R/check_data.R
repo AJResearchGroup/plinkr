@@ -3,6 +3,13 @@
 #' Check if the data is valid.
 #' The data can be in PLINK text, PLINK binary or PLINK2 binary format.
 #' Will \link{stop} if the data is not in any of these formats
+#' @inheritParams default_params_doc
+#' @examples
+#' check_data(data = create_test_plink_text_data())
+#' check_data(data = create_test_plink_bin_data())
+#' check_data(data = create_test_plink2_bin_data())
+#' @author Richèl J.C. Bilderbeek
+#' @export
 check_data <- function(data) {
   if (!is.list(data)) {
     stop(

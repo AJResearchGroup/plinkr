@@ -5,8 +5,7 @@
 \title{Create parameters for the \link{assoc} function}
 \usage{
 create_assoc_params(
-  ped_table,
-  map_table,
+  data,
   confidence_interval = 0.95,
   maf = get_lowest_maf(),
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
@@ -14,47 +13,19 @@ create_assoc_params(
 )
 }
 \arguments{
-\item{ped_table}{a 'pedigree' table.
-
-A \code{ped_table} is a \link[tibble]{tibble} with these columns:
+\item{data}{PLINK or PLINK2 text or binary data:
 \itemize{
-\item \code{FID} The family ID
-\item \code{IID} Within-family ID (cannot be zero)
-\item \code{within_family_id_father} Within-family ID of father
-(\code{0} if father isn't in dataset)
-\item \code{within_family_id_mother} Within-family ID of mother
-(\code{0} if mother isn't in dataset)
-\item \code{sex_code} Sex code
-(\code{1} = male, \code{2} = female, \code{0} = unknown)
-\item \code{case_control_code} Case control code
-(\code{1} = control, \code{2} = case,
-\code{9}/\code{0}/non-numeric = missing data if case/control)
-\item \code{snv_[x][y]} Nucleotide for the \code{x}th variant
-for haplotype \code{y} (\code{y} is either \code{a} or \code{b})
-in the \code{.map file} (\code{0} = no call)
-}
-
-The \code{FID} and \code{IID} column names match the PLINK names, see
-\url{https://www.cog-genomics.org/plink/1.9/input#pheno}.
-
-Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
-Use \link{check_ped_table} to test if a pedigree table is valid.}
-
-\item{map_table}{a genetic mapping table.
-
-A \code{map_table} is a \link[tibble]{tibble} with the following columns:
-\itemize{
-\item \code{CHR}: the chromosome code or contig name.
-The chromosome number cannot exceed 95
-(\url{https://www.cog-genomics.org/plink/1.9/input#chr_set})
-\item \code{SNP}: Variant identifier
-\item \code{position_cm}: Position in morgans or centimorgans.
-This value is optional. Zeroes denote it is unused
-\item \code{BP}: Base-pair coordinat
-}
-
-Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
-Use \link{check_map_table} to test if a genetic mapping table is valid.}
+\item PLINK text data:
+a \code{.ped} table (see \link{read_plink_ped_file})
+and a \code{.map} (see \link{read_plink_map_file}),
+as created by \link{create_plink_text_data}.
+\item PLINK binary data:
+a \code{.bed} table (see \link{read_plink_bed_file})
+a \code{.bim} table (see \link{read_plink_bim_file})
+and a \code{.fam} (see \link{read_plink_fam_file}),
+as created by \link{create_plink_bin_data}.
+\item PLINK2 binary data: use \link{create_plink2_bin_data}
+}}
 
 \item{confidence_interval}{confidence interval, a value between (and
 excluding both) 0.0 and 1.0. The confidence interval helps assess

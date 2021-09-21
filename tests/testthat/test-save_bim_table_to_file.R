@@ -35,13 +35,14 @@ test_that("Give error due to too high chromosome number", {
   assoc_params_with_plink_text_data <- create_demo_assoc_params(
     n_individuals = 2
   )
-  assoc_params_with_plink_bin_data <- convert_plink_text_data_to_plink_bin_data(
-    assoc_params_with_plink_text_data
+  assoc_params_with_plink_bin_data <- assoc_params_with_plink_text_data
+  assoc_params_with_plink_bin_data$data <- convert_plink_text_data_to_plink_bin_data(
+    assoc_params_with_plink_text_data$data
   )
-  assoc_params_with_plink_bin_data$bim_table$chr <- 123
+  assoc_params_with_plink_bin_data$data$bim_table$chr <- 123
   expect_error(
     save_bim_table_to_file(
-      bim_table = assoc_params_with_plink_bin_data$bim_table,
+      bim_table = assoc_params_with_plink_bin_data$data$bim_table,
       bim_filename = "irrelevant_except_for_the_extension.bim"
     ),
     "default PLINK can handle a maximum of 95 chromosomes"

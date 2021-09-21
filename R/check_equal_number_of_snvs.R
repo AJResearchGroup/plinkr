@@ -26,7 +26,7 @@ check_equal_number_of_snvs <- function(
         "Number of SNVs in pedigree (.ped) table: ", n_snvs_in_ped_table
       )
     }
-  } else if (plinkr::is_plink_bin_data(data)) {
+  } else if (plinkr::is_plink_bin_data(assoc_qt_params$data)) {
     n_snvs_in_bed_table <- nrow(assoc_qt_params$data$bed_table)
     n_snvs_in_bim_table <- nrow(assoc_qt_params$data$bim_table)
     if (n_snvs_in_bed_table != n_snvs_in_bed_table) {
@@ -39,7 +39,7 @@ check_equal_number_of_snvs <- function(
       )
     }
   } else {
-    testthat::expect_true(plinkr::is_plink2_bin_data(data))
+    testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
     stop("TODO")
   }
 

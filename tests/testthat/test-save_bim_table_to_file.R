@@ -31,6 +31,7 @@ test_that("sub-sub-sub folder", {
 })
 
 test_that("Give error due to too high chromosome number", {
+  if (!is_plink_installed()) return()
   set.seed(314)
   assoc_params_with_plink_text_data <- create_demo_assoc_params(
     n_individuals = 2

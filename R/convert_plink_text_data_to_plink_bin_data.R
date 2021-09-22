@@ -18,7 +18,7 @@
 #' @examples
 #' if (is_plink_installed(plink_options = create_plink_v1_9_options())) {
 #'   convert_plink_text_data_to_plink_bin_data(
-#'     create_test_assoc_qt_params()$data
+#'     plink_text_data = create_test_plink_text_data()
 #'   )
 #' }
 #' @author Richèl J.C. Bilderbeek
@@ -28,6 +28,14 @@ convert_plink_text_data_to_plink_bin_data <- function( # nolint indeed a long fu
   plink_options = create_plink_v1_9_options(),
   verbose = FALSE
 ) {
+  plinkr::check_plink_options(plink_options)
+
+  if (plink_options$plink_version %in% get_plink2_versions()) {
+    stop(
+      "PLINK2 cannot convert '.map' and '.ped' files. ",
+      "Use PLINK v1.7 or v1.9 instead. "
+    )
+  }
   # Copy
   plink_bin_data <- plink_text_data
   plink_bin_data$ped_table <- NULL

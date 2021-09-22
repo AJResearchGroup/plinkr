@@ -12,4 +12,5 @@ clear_plinkr_cache <- function(
   unlink(dirs, recursive = TRUE)
   files <- list.files(plinkr_folder, full.names = TRUE)
   file.remove(files)
+  invisible(plinkr_folder)
 }

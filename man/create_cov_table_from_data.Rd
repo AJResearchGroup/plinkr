@@ -36,6 +36,9 @@ The column names match the PLINK names, see
 Create a single-covariate table from pedigree (\code{.ped}) table.
 The individuals' family and within-family ID's are copied.
 }
+\examples{
+create_cov_table_from_data(data = create_test_plink_text_data())
+}
 \author{
 Richèl J.C. Bilderbeek
 }

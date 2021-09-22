@@ -57,8 +57,8 @@ Create PLINK text data for testing
 }
 \details{
 These is the same tables as can be obtained by reading
-the PLINK v1.7 example files called \code{test.ped}.
-and \code{test.map}.
+the PLINK v1.7 example files called
+\code{test.ped} and \code{test.map}.
 }
 \examples{
 data <- create_test_plink_text_data()

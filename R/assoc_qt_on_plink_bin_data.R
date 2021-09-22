@@ -46,7 +46,7 @@ assoc_qt_on_plink_bin_data <- function(
       "Tip 2: If the data is in PLINK text format, ",
       "use 'assoc_qt_on_plink_text_data'. \n",
       "Tip 3: If the data is in PLINK2 binary format, ",
-      "use 'assoc_qt_on_plink2_bin_data'. \n",
+      "use 'assoc_qt_on_plink2_bin_data'. \n"
     )
   }
 
@@ -102,7 +102,7 @@ assoc_qt_on_plink_bin_data <- function(
   plinkr::run_plink(
     args = args,
     plink_options = plink_options,
-    verbose = TRUE
+    verbose = verbose
   )
 
   qassoc_table <- plinkr::read_plink_qassoc_files(

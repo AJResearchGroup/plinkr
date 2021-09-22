@@ -3,8 +3,8 @@
 #' Create PLINK text data for testing
 #'
 #' These is the same tables as can be obtained by reading
-#' the PLINK v1.7 example files called \code{test.ped}.
-#' and \code{test.map}.
+#' the PLINK v1.7 example files called
+#' \code{test.ped} and \code{test.map}.
 #' @inheritParams default_params_doc
 #' @examples
 #' data <- create_test_plink_text_data()
@@ -17,9 +17,7 @@ create_test_plink_text_data <- function(
   ped_table = get_test_ped_table(),
   map_table = get_test_map_table()
 ) {
-  plinkr::check_ped_table(ped_table = ped_table)
-  plinkr::check_map_table(map_table = map_table)
-  list(
+  plinkr::create_plink_text_data(
     ped_table = ped_table,
     map_table = map_table
   )

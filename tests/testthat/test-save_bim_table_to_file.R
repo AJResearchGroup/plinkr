@@ -33,17 +33,11 @@ test_that("sub-sub-sub folder", {
 test_that("Give error due to too high chromosome number", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_params_with_plink_text_data <- create_demo_assoc_params(
-    n_individuals = 2
-  )
-  assoc_params_with_plink_bin_data <- assoc_params_with_plink_text_data
-  assoc_params_with_plink_bin_data$data <- convert_plink_text_data_to_plink_bin_data(
-    assoc_params_with_plink_text_data$data
-  )
-  assoc_params_with_plink_bin_data$data$bim_table$chr <- 123
+  data <- create_test_plink_bin_data()
+  data$bim_table$chr <- 123
   expect_error(
     save_bim_table_to_file(
-      bim_table = assoc_params_with_plink_bin_data$data$bim_table,
+      bim_table = data$bim_table,
       bim_filename = "irrelevant_except_for_the_extension.bim"
     ),
     "default PLINK can handle a maximum of 95 chromosomes"

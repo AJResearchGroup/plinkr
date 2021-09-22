@@ -27,7 +27,9 @@ test_that("use", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_test_assoc_qt_params()
-  assoc_qt_result <- assoc_qt_on_plink_text_data(assoc_qt_params = assoc_qt_params)
+  assoc_qt_result <- assoc_qt_on_plink_text_data(
+    assoc_qt_params = assoc_qt_params
+  )
   expect_true(tibble::is_tibble(assoc_qt_result))
   expect_true("CHR" %in% names(assoc_qt_result))
   expect_true("SNP" %in% names(assoc_qt_result))
@@ -125,7 +127,7 @@ test_that("use quantitative traits that are either 1 or 2", {
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_test_assoc_qt_params()
   n_individuals <- nrow(assoc_qt_params$phe_table)
-  assoc_qt_params$phe_table$P1 <- NULL
+  assoc_qt_params$phe_table$P1 <- NULL # nolint PLINK uses uppercase
   assoc_qt_params$phe_table$special_phenotype <- sample(
     c(1, 2), size = n_individuals, replace = TRUE)
   expect_error(

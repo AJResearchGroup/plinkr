@@ -9,7 +9,7 @@ test_that("use", {
   file.remove(fam_filename)
 
   check_empty_plinkr_folder()
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })
 
 test_that("sub-sub-sub folder", {

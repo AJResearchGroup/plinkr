@@ -14,5 +14,5 @@ test_that("use", {
   expect_true(is_plink_bin_data(plink_bin_data$data))
 
   expect_silent(check_empty_plinkr_folder())
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })

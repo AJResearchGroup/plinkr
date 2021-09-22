@@ -18,7 +18,7 @@ test_that("use, v1.7", {
   unlink(dirname(base_output_filename), recursive = TRUE)
 
   check_empty_plinkr_folder()
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })
 
 test_that("use, from files, v1.9", {
@@ -42,7 +42,7 @@ test_that("use, from files, v1.9", {
   unlink(folder, recursive = TRUE)
 
   check_empty_plinkr_folder()
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })
 
 test_that("use, from test data, v1.9", {

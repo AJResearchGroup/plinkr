@@ -40,7 +40,7 @@ test_that("use", {
   expect_true("P" %in% names(assoc_qt_result))
 
   expect_silent(check_empty_plinkr_folder())
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })
 
 test_that("default demo", {
@@ -54,7 +54,7 @@ test_that("default demo", {
   expect_equal(12, nrow(assoc_qt_results))
 
   expect_silent(check_empty_plinkr_folder())
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })
 
 test_that("demo on random only", {
@@ -69,7 +69,7 @@ test_that("demo on random only", {
   expect_equal(nrow(assoc_qt_results), 1)
 
   expect_silent(check_empty_plinkr_folder())
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })
 
 test_that("demo on two randoms", {
@@ -174,7 +174,7 @@ test_that("PLINK cannot handle quadallelic SNPs", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })
 
 test_that("95 chromosome numbers work", {
@@ -190,5 +190,5 @@ test_that("95 chromosome numbers work", {
   expect_silent(assoc_qt_on_plink_text_data(assoc_qt_params = assoc_qt_params))
 
   expect_silent(check_empty_plinkr_folder())
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })

@@ -9,7 +9,7 @@ test_that("use", {
   file.remove(bim_filename)
 
   check_empty_plinkr_folder()
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 })
 
 test_that("sub-sub-sub folder", {
@@ -50,7 +50,7 @@ test_that("Give error due to too high chromosome number", {
   )
 
   check_empty_plinkr_folder()
-  # clear_plinkr_cache() # nolint
+  clear_plinkr_cache() # nolint
 
 })
 

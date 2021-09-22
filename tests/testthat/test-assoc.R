@@ -8,6 +8,8 @@ test_that("minimal use, v1.7", {
       plink_options = create_plink_v1_7_options()
     )
   )
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("minimal use, v1.9", {
@@ -41,6 +43,7 @@ test_that("verbose", {
   expect_message(
     assoc(assoc_params = create_test_assoc_params(), verbose = TRUE)
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("confidence interval", {
@@ -59,6 +62,7 @@ test_that("use, test", {
   assoc_result <- assoc(assoc_params = assoc_params)
   expect_true("assoc_table" %in% names(assoc_result))
   expect_true("log" %in% names(assoc_result))
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use, demo", {
@@ -90,6 +94,7 @@ test_that("number of individuals", {
   assoc_results <- assoc(assoc_params = assoc_params)
   # One traits times one SNP = one association
   expect_equal(1, nrow(assoc_results$assoc_table))
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("error when case-controls are not 1 or 2", {
@@ -148,4 +153,5 @@ test_that("All 95 chromosome numbers work", {
   )
   expect_silent(assoc(assoc_params = assoc_params))
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

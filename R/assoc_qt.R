@@ -51,7 +51,7 @@ assoc_qt <- function(
       verbose = verbose
     )
   } else {
-    testthat::expect_true(is_plink2_bin_data(assoc_qt_params$data))
+    testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
     qassoc_table <- plinkr::assoc_qt_on_plink2_bin_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,

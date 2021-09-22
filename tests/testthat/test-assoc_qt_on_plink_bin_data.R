@@ -1,7 +1,6 @@
 test_that("minimal use, from files", {
-  skip("Issue 16. Issue #16. Do assoc_qt using PLINK1 binary data")
   if (!is_plink_installed()) return()
-  data <- create_test_plink_bin_data()
+  data <- convert_plink_text_data_to_plink_bin_data(create_test_plink_text_data())
   assoc_qt_params <- create_test_assoc_qt_params(
     data = data,
     phe_table = create_phe_table_from_data(data)
@@ -9,11 +8,8 @@ test_that("minimal use, from files", {
   expect_true(
     is_plink_bin_data(plink_bin_data = assoc_qt_params$data)
   )
-
-  expect_silent(
-    assoc_qt_on_plink_bin_data(
-      assoc_qt_params = assoc_qt_params
-    )
+  assoc_qt_on_plink_bin_data(
+    assoc_qt_params = assoc_qt_params
   )
   suppressMessages(
     expect_message(

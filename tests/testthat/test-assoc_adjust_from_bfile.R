@@ -1,4 +1,5 @@
 test_that("use", {
+  skip("embedded nul in string")
   clear_plinkr_cache()
   expect_silent(check_empty_plinkr_folder())
 
@@ -38,7 +39,7 @@ test_that("use", {
   bfile <- base_binary_filenames
   out <- base_assoc_filenames
   assoc_results <- assoc_adjust_from_bfile(
-    bfile = bfile,
+    bfile = base_binary_filenames,
     out = out
   )
   expect_true("assoc_table" %in% names(assoc_results))
@@ -46,6 +47,7 @@ test_that("use", {
   expect_true("log" %in% names(assoc_results))
   list.files(dirname(base_assoc_filenames), full.names = TRUE)
   unlink(plinkr_folder, recursive = TRUE)
+
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
+  clear_plinkr_cache() # nolint
 })

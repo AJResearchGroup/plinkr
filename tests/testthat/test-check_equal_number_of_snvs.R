@@ -6,6 +6,7 @@ test_that("use, create_test_assoc_qt_params, PLINK text", {
     )
   )
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("use, create_test_assoc_qt_params, PLINK binary data", {
@@ -67,4 +68,5 @@ test_that("detect mismatch", {
   )
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

@@ -20,7 +20,7 @@ test_that("minimal use, using PLINK1 text data", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
+  clear_plinkr_cache() # nolint
 })
 
 test_that("use", {
@@ -103,7 +103,7 @@ test_that("number of individuals", {
   expect_equal(1, nrow(assoc_qt_results))
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
+  clear_plinkr_cache() # nolint
 })
 
 test_that("demo on additive only", {
@@ -156,7 +156,7 @@ test_that("PLINK cannot handle triallelic SNPs", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
+  clear_plinkr_cache() # nolint
 })
 
 test_that("PLINK cannot handle quadallelic SNPs", {

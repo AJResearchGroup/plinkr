@@ -1,4 +1,5 @@
 test_that("use", {
+  skip("embedded nul in string")
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()

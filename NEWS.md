@@ -2,11 +2,14 @@
 
 Newest versions at top.
 
-## plinkr v0.15.3 (unreleased)
+## plinkr v0.16 (2021-09-22)
 
 ### NEW FEATURES
 
- * Nonse
+ * Use a `data` function argument, that can be either 
+   be PLINK1 text data (read from `.ped` and `.map` files),
+   PLINK 1 binary data (read from `.bed`, `.bim` and `.fam` files)
+   or PLINK2 binary data (not yet implemented)
 
 ### MINOR IMPROVEMENTS
 

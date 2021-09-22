@@ -26,6 +26,14 @@ test_that("use", {
     base_input_filename = hapmap1_base_filename,
     base_output_filename = base_binary_filenames
   )
+  if (1 == 2) {
+    # Just checking
+    bed_table <- read_plink_bed_file_from_files(
+      bed_filename = stringr::str_subset(binary_filenames, "\\.bed$"),
+      bim_filename = stringr::str_subset(binary_filenames, "\\.bim$"),
+      fam_filename = stringr::str_subset(binary_filenames, "\\.fam$")
+    )
+  }
 
   bfile <- base_binary_filenames
   out <- base_assoc_filenames
@@ -34,6 +42,7 @@ test_that("use", {
     out = out
   )
   expect_true("assoc_table" %in% names(assoc_results))
+  expect_true("assoc_adjusted_table" %in% names(assoc_results))
   expect_true("log" %in% names(assoc_results))
   list.files(dirname(base_assoc_filenames), full.names = TRUE)
   unlink(plinkr_folder, recursive = TRUE)

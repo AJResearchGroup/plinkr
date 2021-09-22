@@ -1,0 +1,42 @@
+
+@----------------------------------------------------------@
+|        PLINK!       |     v1.07      |   10/Aug/2009     |
+|----------------------------------------------------------|
+|  (C) 2009 Shaun Purcell, GNU General Public License, v2  |
+|----------------------------------------------------------|
+|  For documentation, citation & bug-report instructions:  |
+|        http://pngu.mgh.harvard.edu/purcell/plink/        |
+@----------------------------------------------------------@
+
+Skipping web check... [ --noweb ] 
+Writing this text to log file [ /home/richel/test_v1_7_after_make-bed.log ]
+Analysis started: Wed Sep 22 11:05:37 2021
+
+Options in effect:
+	--file test
+	--make-bed
+	--out /home/richel/test_v1_7_after_make-bed
+	--noweb
+
+2 (of 2) markers to be included from [ test.map ]
+6 individuals read from [ test.ped ] 
+6 individuals with nonmissing phenotypes
+Assuming a disease phenotype (1=unaff, 2=aff, 0=miss)
+Missing phenotype value is also -9
+3 cases, 3 controls and 0 missing
+6 males, 0 females, and 0 of unspecified sex
+Before frequency and genotyping pruning, there are 2 SNPs
+6 founders and 0 non-founders found
+Total genotyping rate in remaining individuals is 1
+0 SNPs failed missingness test ( GENO > 1 )
+0 SNPs failed frequency test ( MAF < 0 )
+After frequency and genotyping pruning, there are 2 SNPs
+After filtering, 3 cases, 3 controls and 0 missing
+After filtering, 6 males, 0 females, and 0 of unspecified sex
+Writing pedigree information to [ /home/richel/test_v1_7_after_make-bed.fam ] 
+Writing map (extended format) information to [ /home/richel/test_v1_7_after_make-bed.bim ] 
+Writing genotype bitfile to [ /home/richel/test_v1_7_after_make-bed.bed ] 
+Using (default) SNP-major mode
+
+Analysis finished: Wed Sep 22 11:05:37 2021
+

@@ -1,6 +1,10 @@
 #' Create PLINK text data for testing
 #'
 #' Create PLINK text data for testing
+#'
+#' These is the same tables as can be obtained by reading
+#' the PLINK v1.7 example files called \code{test.ped}.
+#' and \code{test.map}.
 #' @inheritParams default_params_doc
 #' @examples
 #' data <- create_test_plink_text_data()

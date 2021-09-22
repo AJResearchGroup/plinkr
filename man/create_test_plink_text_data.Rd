@@ -55,6 +55,11 @@ Use \link{check_map_table} to test if a genetic mapping table is valid.}
 \description{
 Create PLINK text data for testing
 }
+\details{
+These is the same tables as can be obtained by reading
+the PLINK v1.7 example files called \code{test.ped}.
+and \code{test.map}.
+}
 \examples{
 data <- create_test_plink_text_data()
 is_plink_text_data(data)

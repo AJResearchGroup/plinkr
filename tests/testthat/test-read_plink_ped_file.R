@@ -81,7 +81,9 @@ test_that("save and load result from get_test_ped_table()", {
   )
   ped_table_again <- read_plink_ped_file(ped_filename = ped_filename)
   expect_identical(ped_table, ped_table_again)
-  file.remove(ped_filename)
+
+
+  expect_true(file.remove(ped_filename)) # Fails on Appveyoy
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

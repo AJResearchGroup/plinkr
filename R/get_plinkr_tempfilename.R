@@ -15,9 +15,12 @@ get_plinkr_tempfilename <- function(
   pattern = "file",
   fileext = ""
 ) {
-  tempfile(
-    pattern = pattern,
-    tmpdir = plinkr::get_plinkr_folder(),
-    fileext = fileext
+  normalizePath(
+    tempfile(
+      pattern = pattern,
+      tmpdir = plinkr::get_plinkr_folder(),
+      fileext = fileext
+    ),
+    mustWork = FALSE
   )
 }

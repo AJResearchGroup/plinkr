@@ -1,5 +1,4 @@
 test_that("use", {
-  skip("embedded nul in string")
   clear_plinkr_cache()
   expect_silent(check_empty_plinkr_folder())
 

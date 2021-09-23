@@ -33,8 +33,20 @@ read_plink_assoc_file <- function(assoc_filename) {
   text_lines_raw <- readr::read_lines(
     assoc_filename
   )
-  # There is whitespace at start and end
-  text_lines <- stringr::str_trim(text_lines_raw)
+
+  # stringr::str_trim **sometimes** gives an 'embedded nul in string'
+  # error.
+  # This has been reported at https://github.com/tidyverse/stringr/issues/399 .
+  # Until then, just try multiple times :-)
+  text_lines <- NA
+  while (length(text_lines) == 1 && is.na(text_lines)) {
+    # There is whitespace at start and end
+    tryCatch(
+      text_lines <- stringr::str_trim(text_lines_raw),
+      error = function(e) {} # nolint ignore
+
+    )
+  }
 
   text_matrix <- stringr::str_split(
     string = text_lines,

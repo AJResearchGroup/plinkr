@@ -92,4 +92,5 @@ test_that("minimal use, using PLINK1 binary data and a phenotype file", {
   expect_true(all(before$P != after$P))
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

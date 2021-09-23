@@ -1,5 +1,4 @@
 test_that("use", {
-  skip("Error: embedded nul in string")
   if (!is_plink_installed()) return()
   if (!is_plink_tutorial_data_installed()) return()
 

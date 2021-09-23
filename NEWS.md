@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## plinkr v0.16.1 (unreleased)
+## plinkr v0.16.1 (2021-09-23)
 
 ### NEW FEATURES
 
@@ -14,7 +14,9 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * None
+ * stringr::str_trim **sometimes** gives an 'embedded nul in string' error.
+   This has been reported at https://github.com/tidyverse/stringr/issues/399.
+   Until then, a workaround is used
 
 ### DEPRECATED AND DEFUNCT
 

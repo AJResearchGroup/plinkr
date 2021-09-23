@@ -41,6 +41,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_ped_file <- function(ped_filename) {
+  testthat::expect_true(file.exists(ped_filename))
   # Use str_trim as PLINK adds whitespace around text
   table <- stringr::str_split(
     string = stringr::str_trim(

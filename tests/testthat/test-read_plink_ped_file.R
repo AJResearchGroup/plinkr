@@ -97,11 +97,11 @@ test_that("save and load result from create_demo_ped_table()", {
 })
 
 test_that("read PLINK tutorial files", {
-  skip("'hapmap1.ped' takes too long to load, Issue 18, Issue #18")
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_tutorial_data_installed()) return()
   ped_filename <- stringr::str_subset(
     get_plink_tutorial_data_filenames(), "hapmap1.ped"
   )
-  read_plink_ped_file(ped_filename)
+  t <- read_plink_ped_file(ped_filename)
+  # Ignore t, R Studio cannot put this on screen
 })

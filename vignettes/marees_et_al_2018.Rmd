@@ -1,0 +1,227 @@
+---
+title: "marees_et_al_2018"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{marees_et_al_2018}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This vignette is based on the article [1], 
+using the supplemented code at [2]
+ 
+ 
+```{r setup}
+library(plinkr)
+```
+
+```
+################ Explanation of the main script ##########################
+
+# This tutorial uses freely available HapMap data: hapmap3_r3_b36_fwd.consensus.qc. We simulated a binary outcome measure (i.e., a binary phenotypic trait) and added this to the dataset. The outcome measure was only simulated for the founders in the HapMap data. This data set will be referred to as HapMap_3_r3_1. 
+# The HapMap data, without our simulated outcome measure, can also be obtained from http://hapmap.ncbi.nlm.nih.gov/downloads/genotypes/2010-05_phaseIII/plink_format/ 
+# It is essential for the execution of the tutorial that that all scripts belonging to this tutorial are in the same directory on your UNIX workstation.
+# Many scripts include comments which explain how these scripts work. Note, in order to complete the tutorial it is essential to execute all commands in this tutorial.
+# This script can also be used for your own data analysis, to use it as such, replace the name of the HapMap file with the name of your own data file. 
+# Furthermore, this script is based on a binary outcome measure, and is therefore not applicable for quantitative outcome measures (this would require some adaptations)
+# Note, most GWAS studies are performed on an ethnic homogenous population, in which population outliers are removed. The HapMap data, used for this tutorial, contains multiple distinct ethnic groups, which makes it problematic for analysis.
+# Therefore, we have selected only the EUR individuals of the complete HapMap sample for the tutorials 1-3. This selection is already performed in the HapMap_3_r3_1 file from our GitHub page.
+# The Rscripts used in this tutorial are all executed from the Unix command line.
+# Therefore, this tutorial and the other tutorials from our GitHub page, can be completed simply by copy-and-pasting all commands from the main scripts into the Unix terminal.
+# For a thorough theoretical explanation of all QC steps we refer to the article accompanying this tutorial entitled A tutorial on conducting Genome-Wide-Association Studies: Quality control and statistical analysis (https://www.ncbi.nlm.nih.gov/pubmed/29484742).
+
+
+##############################################################
+############### START ANALISIS ###############################
+##############################################################
+
+# Change directory to a folder on your UNIX device containing all files from 1_QC_GWAS.zip. 
+cd HOME/{user}/{path/folder containing your files}
+
+### Step 1 ### 
+
+# Investigate missingness per individual and per SNP and make histograms.
+plink --bfile HapMap_3_r3_1 --missing    
+# output: plink.imiss and plink.lmiss, these files show respectively the proportion of missing SNPs per individual and the proportion of missing individuals per SNP.
+
+
+# Generate plots to visualize the missingness results.
+Rscript --no-save hist_miss.R
+
+# Delete SNPs and individuals with high levels of missingness, explanation of this and all following steps can be found in box 1 and table 1 of the article mentioned in the comments of this script.
+# The following two QC commands will not remove any SNPs or individuals. However, it is good practice to start the QC with these non-stringent thresholds.  
+# Delete SNPs with missingness >0.2.
+plink --bfile HapMap_3_r3_1 --geno 0.2 --make-bed --out HapMap_3_r3_2
+
+# Delete individuals with missingness >0.2.
+plink --bfile HapMap_3_r3_2 --mind 0.2 --make-bed --out HapMap_3_r3_3
+
+# Delete SNPs with missingness >0.02.
+plink --bfile HapMap_3_r3_3 --geno 0.02 --make-bed --out HapMap_3_r3_4
+
+# Delete individuals with missingness >0.02.
+plink --bfile HapMap_3_r3_4 --mind 0.02 --make-bed --out HapMap_3_r3_5
+
+###################################################################
+### Step2 ####
+
+# Check for sex discrepancy.
+# Subjects who were a priori determined as females must have a F value of <0.2, and subjects who were a priori determined as males must have a F value >0.8. This F value is based on the X chromosome inbreeding (homozygosity) estimate.
+# Subjects who do not fulfil these requirements are flagged "PROBLEM" by PLINK.
+
+plink --bfile HapMap_3_r3_5 --check-sex 
+
+# Generate plots to visualize the sex-check results.
+Rscript --no-save gender_check.R
+# These checks indicate that there is one woman with a sex discrepancy, F value of 0.99. (When using other datasets often a few discrepancies will be found). 
+
+# The following two scripts can be used to deal with individuals with a sex discrepancy.
+# Note, please use one of the two options below to generate the bfile hapmap_r23a_6, this file we will use in the next step of this tutorial.
+
+# 1) Delete individuals with sex discrepancy.
+grep "PROBLEM" plink.sexcheck| awk '{print$1,$2}'> sex_discrepancy.txt
+# This command generates a list of individuals with the status PROBLEM.
+plink --bfile HapMap_3_r3_5 --remove sex_discrepancy.txt --make-bed --out HapMap_3_r3_6 
+# This command removes the list of individuals with the status PROBLEM.
+
+# 2) impute-sex.
+#plink --bfile HapMap_3_r3_5 --impute-sex --make-bed --out HapMap_3_r3_6
+# This imputes the sex based on the genotype information into your data set.
+
+###################################################
+### Step 3 ### 
+
+# Generate a bfile with autosomal SNPs only and delete SNPs with a low minor allele frequency (MAF).
+
+# Select autosomal SNPs only (i.e., from chromosomes 1 to 22).
+awk '{ if ($1 >= 1 && $1 <= 22) print $2 }' HapMap_3_r3_6.bim > snp_1_22.txt
+plink --bfile HapMap_3_r3_6 --extract snp_1_22.txt --make-bed --out HapMap_3_r3_7
+
+# Generate a plot of the MAF distribution.
+plink --bfile HapMap_3_r3_7 --freq --out MAF_check
+Rscript --no-save MAF_check.R
+
+# Remove SNPs with a low MAF frequency.
+plink --bfile HapMap_3_r3_7 --maf 0.05 --make-bed --out HapMap_3_r3_8
+# 1073226 SNPs are left
+# A conventional MAF threshold for a regular GWAS is between 0.01 or 0.05, depending on sample size.
+
+
+####################################################
+### Step 4 ###
+
+# Delete SNPs which are not in Hardy-Weinberg equilibrium (HWE).
+# Check the distribution of HWE p-values of all SNPs.
+
+plink --bfile HapMap_3_r3_8 --hardy
+# Selecting SNPs with HWE p-value below 0.00001, required for one of the two plot generated by the next Rscript, allows to zoom in on strongly deviating SNPs. 
+awk '{ if ($9 <0.00001) print $0 }' plink.hwe>plinkzoomhwe.hwe
+Rscript --no-save hwe.R
+
+# By default the --hwe option in plink only filters for controls.
+# Therefore, we use two steps, first we use a stringent HWE threshold for controls, followed by a less stringent threshold for the case data.
+plink --bfile HapMap_3_r3_8 --hwe 1e-6 --make-bed --out HapMap_hwe_filter_step1
+
+# The HWE threshold for the cases filters out only SNPs which deviate extremely from HWE. 
+# This second HWE step only focusses on cases because in the controls all SNPs with a HWE p-value < hwe 1e-6 were already removed
+plink --bfile HapMap_hwe_filter_step1 --hwe 1e-10 --hwe-all --make-bed --out HapMap_3_r3_9
+
+# Theoretical background for this step is given in our accompanying article: https://www.ncbi.nlm.nih.gov/pubmed/29484742 .
+
+############################################################
+### step 5 ###
+
+# Generate a plot of the distribution of the heterozygosity rate of your subjects.
+# And remove individuals with a heterozygosity rate deviating more than 3 sd from the mean.
+
+# Checks for heterozygosity are performed on a set of SNPs which are not highly correlated.
+# Therefore, to generate a list of non-(highly)correlated SNPs, we exclude high inversion regions (inversion.txt [High LD regions]) and prune the SNPs using the command --indep-pairwise.
+# The parameters 50 5 0.2 stand respectively for: the window size, the number of SNPs to shift the window at each step, and the multiple correlation coefficient for a SNP being regressed on all other SNPs simultaneously.
+
+plink --bfile HapMap_3_r3_9 --exclude inversion.txt --range --indep-pairwise 50 5 0.2 --out indepSNP
+# Note, don't delete the file indepSNP.prune.in, we will use this file in later steps of the tutorial.
+
+plink --bfile HapMap_3_r3_9 --extract indepSNP.prune.in --het --out R_check
+# This file contains your pruned data set.
+
+# Plot of the heterozygosity rate distribution
+Rscript --no-save check_heterozygosity_rate.R
+
+# The following code generates a list of individuals who deviate more than 3 standard deviations from the heterozygosity rate mean.
+# For data manipulation we recommend using UNIX. However, when performing statistical calculations R might be more convenient, hence the use of the Rscript for this step:
+Rscript --no-save heterozygosity_outliers_list.R
+
+# Output of the command above: fail-het-qc.txt .
+# When using our example data/the HapMap data this list contains 2 individuals (i.e., two individuals have a heterozygosity rate deviating more than 3 SD's from the mean).
+# Adapt this file to make it compatible for PLINK, by removing all quotation marks from the file and selecting only the first two columns.
+sed 's/"// g' fail-het-qc.txt | awk '{print$1, $2}'> het_fail_ind.txt
+
+# Remove heterozygosity rate outliers.
+plink --bfile HapMap_3_r3_9 --remove het_fail_ind.txt --make-bed --out HapMap_3_r3_10
+
+
+############################################################
+### step 6 ###
+
+# It is essential to check datasets you analyse for cryptic relatedness.
+# Assuming a random population sample we are going to exclude all individuals above the pihat threshold of 0.2 in this tutorial.
+
+# Check for relationships between individuals with a pihat > 0.2.
+plink --bfile HapMap_3_r3_10 --extract indepSNP.prune.in --genome --min 0.2 --out pihat_min0.2
+
+# The HapMap dataset is known to contain parent-offspring relations. 
+# The following commands will visualize specifically these parent-offspring relations, using the z values. 
+awk '{ if ($8 >0.9) print $0 }' pihat_min0.2.genome>zoom_pihat.genome
+
+# Generate a plot to assess the type of relationship.
+Rscript --no-save Relatedness.R
+
+# The generated plots show a considerable amount of related individuals (explentation plot; PO = parent-offspring, UN = unrelated individuals) in the Hapmap data, this is expected since the dataset was constructed as such.
+# Normally, family based data should be analyzed using specific family based methods. In this tutorial, for demonstrative purposes, we treat the relatedness as cryptic relatedness in a random population sample.
+# In this tutorial, we aim to remove all 'relatedness' from our dataset.
+# To demonstrate that the majority of the relatedness was due to parent-offspring we only include founders (individuals without parents in the dataset).
+
+plink --bfile HapMap_3_r3_10 --filter-founders --make-bed --out HapMap_3_r3_11
+
+# Now we will look again for individuals with a pihat >0.2.
+plink --bfile HapMap_3_r3_11 --extract indepSNP.prune.in --genome --min 0.2 --out pihat_min0.2_in_founders
+# The file 'pihat_min0.2_in_founders.genome' shows that, after exclusion of all non-founders, only 1 individual pair with a pihat greater than 0.2 remains in the HapMap data.
+# This is likely to be a full sib or DZ twin pair based on the Z values. Noteworthy, they were not given the same family identity (FID) in the HapMap data.
+
+# For each pair of 'related' individuals with a pihat > 0.2, we recommend to remove the individual with the lowest call rate. 
+plink --bfile HapMap_3_r3_11 --missing
+# Use an UNIX text editor (e.g., vi(m) ) to check which individual has the highest call rate in the 'related pair'. 
+
+# Generate a list of FID and IID of the individual(s) with a Pihat above 0.2, to check who had the lower call rate of the pair.
+# In our dataset the individual 13291  NA07045 had the lower call rate.
+vi 0.2_low_call_rate_pihat.txt
+i 
+13291  NA07045
+# Press esc on keyboard!
+:x
+# Press enter on keyboard
+# In case of multiple 'related' pairs, the list generated above can be extended using the same method as for our lone 'related' pair.
+
+# Delete the individuals with the lowest call rate in 'related' pairs with a pihat > 0.2 
+plink --bfile HapMap_3_r3_11 --remove 0.2_low_call_rate_pihat.txt --make-bed --out HapMap_3_r3_12
+
+################################################################################################################################
+
+# CONGRATULATIONS!! You've just succesfully completed the first tutorial! You are now able to conduct a proper genetic QC. 
+
+# For the next tutorial, using the script: 2_Main_script_MDS.txt, you need the following files:
+# - The bfile HapMap_3_r3_12 (i.e., HapMap_3_r3_12.fam,HapMap_3_r3_12.bed, and HapMap_3_r3_12.bim
+# - indepSNP.prune.in
+```
+
+# References
+
+ * [1] Marees, Andries T., et al. "A tutorial on conducting genome‐wide association studies: Quality control and statistical analysis." International journal of methods in psychiatric research 27.2 (2018): e1608. [https://onlinelibrary.wiley.com/doi/10.1002/mpr.1608](https://onlinelibrary.wiley.com/doi/10.1002/mpr.1608)
+ * [2] [https://github.com/MareesAT/GWA_tutorial](https://github.com/MareesAT/GWA_tutorial)

@@ -13,6 +13,9 @@ test_that("save and read must result in same file, v1.9", {
     readr::read_lines(qassoc_filename_again)
   )
   file.remove(qassoc_filename_again)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("read and save must result in same file, v1.7", {
@@ -30,7 +33,9 @@ test_that("read and save must result in same file, v1.7", {
   )
   expect_identical(qassoc_table, qassoc_table_again)
   file.remove(qassoc_filename)
+
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("read and save must result in same file, v1.9", {
@@ -47,7 +52,9 @@ test_that("read and save must result in same file, v1.9", {
   )
   expect_identical(qassoc_table, qassoc_table_again)
   file.remove(qassoc_filename)
+
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("cannot write to impossible folder, v1.9", {
@@ -62,4 +69,7 @@ test_that("cannot write to impossible folder, v1.9", {
     ),
     "permission"
   )
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

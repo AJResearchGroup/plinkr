@@ -12,6 +12,9 @@ test_that("save and read must result in same table", {
   )
   expect_equal(phe_table, phe_table_again)
   file.remove(phe_filename)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("save and read must result in same table, file with custom header", {
@@ -45,6 +48,9 @@ test_that("save and read must result in same table, file with custom header", {
   )
   expect_equal(phe_table, phe_table_again)
   file.remove(phe_filename)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 
@@ -64,6 +70,10 @@ test_that("save and read must result in same table with correct column names", {
   )
   expect_equal(names(phe_table), names(phe_table_again))
   file.remove(phe_filename)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+
 })
 
 test_that("sub-sub-sub folder", {
@@ -84,6 +94,9 @@ test_that("sub-sub-sub folder", {
     dirname(dirname(dirname(dirname(dirname(phe_filename))))),
     recursive = TRUE
   )
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("write to impossible folder", {
@@ -100,4 +113,7 @@ test_that("write to impossible folder", {
     ),
     "Cannot save 'phe_table' to path"
   )
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

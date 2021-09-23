@@ -9,6 +9,7 @@ test_that("use", {
   expect_error(uninstall_plink_tutorial_data(plink_folder = plink_folder))
 
   unlink(plink_folder, recursive = TRUE)
+
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
 })

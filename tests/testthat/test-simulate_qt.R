@@ -7,6 +7,10 @@ test_that("use", {
   expect_true(is.list(results))
   expect_true("log" %in% names(results))
   expect_true("simfreq" %in% names(results))
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+
 })
 
 test_that("use, v1.7", {
@@ -19,6 +23,9 @@ test_that("use, v1.7", {
   expect_true(is.list(results))
   expect_true("log" %in% names(results))
   expect_true("simfreq" %in% names(results))
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("use, v1.9", {
@@ -33,4 +40,6 @@ test_that("use, v1.9", {
   expect_true("simfreq" %in% names(results))
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+
 })

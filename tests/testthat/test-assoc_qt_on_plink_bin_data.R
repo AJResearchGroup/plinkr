@@ -1,6 +1,8 @@
 test_that("minimal use, from files", {
   if (!is_plink_installed()) return()
-  data <- convert_plink_text_data_to_plink_bin_data(create_test_plink_text_data())
+  data <- convert_plink_text_data_to_plink_bin_data(
+    create_test_plink_text_data()
+  )
   assoc_qt_params <- create_test_assoc_qt_params(
     data = data,
     phe_table = create_phe_table_from_data(data)

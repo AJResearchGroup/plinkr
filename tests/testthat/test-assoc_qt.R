@@ -79,7 +79,7 @@ test_that("minimal use, using PLINK1 binary data and a phenotype file", {
   )
   before <- assoc_qt(assoc_qt_params = assoc_qt_params)
 
-  assoc_qt_params$phe_table$P1 <- runif(n = nrow(assoc_qt_params$phe_table))
+  assoc_qt_params$phe_table$P1 <- runif(n = nrow(assoc_qt_params$phe_table)) # nolint PLINK naming scheme
 
   after <- assoc_qt(assoc_qt_params = assoc_qt_params)
   expect_equal(before$CHR, after$CHR)

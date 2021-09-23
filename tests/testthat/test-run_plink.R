@@ -6,6 +6,9 @@ test_that("show help, v1.7", {
       plink_options = create_plink_v1_7_options()
     )
   )
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
 })
 
 test_that("show help, v1.9", {
@@ -132,6 +135,7 @@ test_that("assoc_qt the PLINK way", {
   file.remove(qassoc_filenames)
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
 })
 
 test_that("assoc_qt the PLINK way with phenotype file with header", {
@@ -165,4 +169,5 @@ test_that("assoc_qt the PLINK way with phenotype file with header", {
   file.remove(qassoc_filenames)
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
 })

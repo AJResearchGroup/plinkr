@@ -54,6 +54,10 @@ test_that("multiple traits", {
   expect_true("phenotype_2" %in% names(phenotypes))
   expect_equal(6, nrow(phenotypes))
   file.remove(phe_filename)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+
 })
 
 test_that("read PLINK tutorial file pop.phe", {

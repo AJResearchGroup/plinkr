@@ -82,6 +82,9 @@ test_that("save and load result from get_test_ped_table()", {
   ped_table_again <- read_plink_ped_file(ped_filename = ped_filename)
   expect_identical(ped_table, ped_table_again)
   file.remove(ped_filename)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("save and load result from create_demo_ped_table()", {
@@ -94,6 +97,9 @@ test_that("save and load result from create_demo_ped_table()", {
   ped_table_again <- read_plink_ped_file(ped_filename = ped_filename)
   expect_identical(ped_table, ped_table_again)
   file.remove(ped_filename)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("read PLINK tutorial files", {

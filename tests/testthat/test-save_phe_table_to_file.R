@@ -11,7 +11,7 @@ test_that("save and read must result in same table", {
     phe_filename = phe_filename
   )
   expect_equal(phe_table, phe_table_again)
-  file.remove(phe_filename)
+  file.remove(phe_filename) # Fails on AppVeyor?
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
@@ -47,7 +47,7 @@ test_that("save and read must result in same table, file with custom header", {
     phe_filename = phe_filename
   )
   expect_equal(phe_table, phe_table_again)
-  file.remove(phe_filename)
+  file.remove(phe_filename) # Fails on AppVeyor?
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
@@ -69,7 +69,7 @@ test_that("save and read must result in same table with correct column names", {
     phe_filename = phe_filename
   )
   expect_equal(names(phe_table), names(phe_table_again))
-  file.remove(phe_filename)
+  file.remove(phe_filename) # Fails on AppVeyor?
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

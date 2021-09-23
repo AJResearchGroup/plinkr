@@ -13,7 +13,10 @@ test_that("save and read must result in same table", {
   expect_equal(names(cov_table), names(cov_table_again))
   expect_equal(nrow(cov_table), nrow(cov_table_again))
   expect_equal(ncol(cov_table), ncol(cov_table_again))
-  file.remove(cov_filename)
+  file.remove(cov_filename) # Fails on AppVeyor?
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("save and read must result in same table with correct column names", {
@@ -31,7 +34,10 @@ test_that("save and read must result in same table with correct column names", {
     cov_filename = cov_filename
   )
   expect_equal(names(cov_table), names(cov_table_again))
-  file.remove(cov_filename)
+  file.remove(cov_filename) # Fails on AppVeyor?
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("sub-sub-sub folder", {

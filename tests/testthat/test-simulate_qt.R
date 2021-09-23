@@ -10,7 +10,6 @@ test_that("use", {
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
-
 })
 
 test_that("use, v1.7", {
@@ -41,5 +40,4 @@ test_that("use, v1.9", {
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
-
 })

@@ -32,7 +32,7 @@ test_that("read and save must result in same file, v1.7", {
     qassoc_filename = qassoc_filename
   )
   expect_identical(qassoc_table, qassoc_table_again)
-  file.remove(qassoc_filename)
+  file.remove(qassoc_filename) # Fails on AppVeyor?
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

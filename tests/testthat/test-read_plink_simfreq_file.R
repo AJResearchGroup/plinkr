@@ -1,4 +1,6 @@
 test_that("use", {
+  expect_silent(check_empty_plinkr_folder())
+
   simfreq_filename <- system.file(
     "extdata",
     "plink.simfreq",
@@ -13,4 +15,8 @@ test_that("use", {
   expect_true("allele_frequency_upper_bound" %in% names(simfreqs))
   expect_true("additive_genetic_variance" %in% names(simfreqs))
   expect_true("dominance_deviation" %in% names(simfreqs))
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
+
 })

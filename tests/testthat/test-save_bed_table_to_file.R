@@ -1,4 +1,6 @@
 test_that("minimal use", {
+  expect_silent(check_empty_plinkr_folder())
+
   bed_filename <- get_plinkr_tempfilename(fileext = ".bed")
   save_bed_table_to_file(
     bed_table = get_test_bed_table(),
@@ -7,7 +9,7 @@ test_that("minimal use", {
   expect_true(file.exists(bed_filename))
   file.remove(bed_filename)
 
-  check_empty_plinkr_folder()
+  expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache() # nolint
 })
 

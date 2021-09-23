@@ -19,7 +19,7 @@ library(plinkr)
 ```
 
 ```{r clear_plinkr_cache, echo = FALSE, include = FALSE}
-clear_plinkr_cache()
+# clear_plinkr_cache()
 ```
 
 ```{r variables, echo = FALSE, include = FALSE}
@@ -536,9 +536,9 @@ We will return to this issue below, when we consider using the whole genome data
 ## Cleanup
 
 ```{r clear_plinkr_cache_at_end}
-clear_plinkr_cache()
+# clear_plinkr_cache()
 ```
 
 ```{r check_empty_plinkr_folder_at_end}
-check_empty_plinkr_folder()
+# check_empty_plinkr_folder()
 ```

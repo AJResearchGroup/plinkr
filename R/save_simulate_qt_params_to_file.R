@@ -13,6 +13,7 @@ save_simulate_qt_params_to_file <- function( # nolint indeed a long function nam
   line <- paste(
     simulate_qt_params, collapse = " "
   )
+  dir.create(dirname(sim_filename), showWarnings = FALSE, recursive = TRUE)
   readr::write_lines(x = line, file = sim_filename)
   testthat::expect_true(file.exists(sim_filename))
 }

@@ -14,13 +14,42 @@ knitr::opts_chunk$set(
 )
 ```
 
-This vignette is based on the article [1], 
-using the supplemented code at [2]
- 
- 
 ```{r setup}
 library(plinkr)
 ```
+
+```{r clear_plinkr_cache, echo = FALSE, include = FALSE}
+clear_plinkr_cache()
+```
+
+This vignette is based on the article [1], 
+using the supplemented code at [2]
+
+For it, we need PLINK to be installed.
+
+```{r check_plink_is_installed}
+if (!is_plink_installed()) {
+  message("PLINK is not installed")
+  message("Tip: use 'plinkr::install_plinks()'")
+}
+```
+
+Also, we need the data installed
+
+```{r check_marees_et_al_data_is_installed}
+if (!is_marees_et_al_data_installed()) {
+  message("Marees et al. data is not installed")
+  message("Tip: use 'plinkr::install_marees_et_al_data()'")
+}
+```
+
+```{r good_to_go}
+good_to_go <- FALSE
+if (is_plink_installed() && is_plink_tutorial_data_installed()) {
+  good_to_go <- TRUE
+}
+```
+
 
 ```
 ################ Explanation of the main script ##########################
@@ -225,3 +254,11 @@ plink --bfile HapMap_3_r3_11 --remove 0.2_low_call_rate_pihat.txt --make-bed --o
 
  * [1] Marees, Andries T., et al. "A tutorial on conducting genome‐wide association studies: Quality control and statistical analysis." International journal of methods in psychiatric research 27.2 (2018): e1608. [https://onlinelibrary.wiley.com/doi/10.1002/mpr.1608](https://onlinelibrary.wiley.com/doi/10.1002/mpr.1608)
  * [2] [https://github.com/MareesAT/GWA_tutorial](https://github.com/MareesAT/GWA_tutorial)
+
+```{r clear_plinkr_cache_at_end}
+clear_plinkr_cache()
+```
+
+```{r check_empty_plinkr_folder_at_end}
+check_empty_plinkr_folder()
+```

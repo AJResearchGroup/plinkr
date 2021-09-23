@@ -19,6 +19,10 @@ The \code{PLINK} tutorial can be found at
 \url{http://zzz.bwh.harvard.edu/plink/tutorial.shtml}
 and is done in the \code{plink_tutorial} vignette
 }
+\examples{
+is_plink_tutorial_data_installed()
+is_plink_tutorial_data_installed(plink_folder = "absent_folder")
+}
 \author{
 Richèl J.C. Bilderbeek
 }

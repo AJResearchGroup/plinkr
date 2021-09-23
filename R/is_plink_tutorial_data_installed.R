@@ -7,6 +7,9 @@
 #' @inheritParams default_params_doc
 #' @return \code{TRUE} if the \code{PLINK} tutorial data
 #' is installed, \code{FALSE} otherwise
+#' @examples
+#' is_plink_tutorial_data_installed()
+#' is_plink_tutorial_data_installed(plink_folder = "absent_folder")
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_plink_tutorial_data_installed <- function( # nolint indeed a long function name

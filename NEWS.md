@@ -14,7 +14,9 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * None
+ * stringi::str_trim **sometimes** gives an 'embedded nul in string' error.
+   This has been reported at https://github.com/gagolews/stringi/issues/458.
+   Until then, a workaround is used
 
 ### DEPRECATED AND DEFUNCT
 

@@ -17,9 +17,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_frq_strat_file <- function(frq_strat_filename) {
-  # stringr::str_trim **sometimes** gives an 'embedded nul in string'
-  # error.
-  # This has been reported at https://github.com/tidyverse/stringr/issues/399 .
+  # stringi::str_trim **sometimes** gives an 'embedded nul in string' error.
+  # This has been reported at https://github.com/gagolews/stringi/issues/458 .
   # Until then, just try multiple times :-)
   table <- NA
   while (length(table) == 1 && is.na(table)) {

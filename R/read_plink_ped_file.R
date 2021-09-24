@@ -43,41 +43,16 @@
 read_plink_ped_file <- function(ped_filename) {
   testthat::expect_true(file.exists(ped_filename))
 
-  # stringi::str_trim **sometimes** gives an 'embedded nul in string' error.
-  # This has been reported at https://github.com/gagolews/stringi/issues/458 .
-  # Until then, just try multiple times :-)
-  table <- NA
-  while (length(table) == 1 && is.na(table)) {
-    # Use str_trim as PLINK adds whitespace around text
-
-    # FAILS
-    # table <- stringr::str_split(
-    #   stringi::stri_trim_both( # Workaround at https://github.com/gagolews/stringi/issues/458 # nolint
-    #     as.character( # Workaround at https://github.com/gagolews/stringi/issues/458 # nolint
-    #       readr::read_lines(
-    #         file = ped_filename,
-    #         skip_empty_rows = TRUE
-    #       )
-    #     )
-    #   ),
-    #   pattern = "[:blank:]+",
-    #   simplify = TRUE
-    # )
-
-    tryCatch(
-      table <- stringr::str_split(
-        string = stringr::str_trim(
-          readr::read_lines(
-            file = ped_filename,
-            skip_empty_rows = TRUE
-          )
-        ),
-        pattern = "[:blank:]+",
-        simplify = TRUE
-      ),
-      error = function(e) {} # nolint ignore error
-    )
-  }
+  table <- stringr::str_split(
+    plinkr::safe_str_trim(
+      readr::read_lines(
+        file = ped_filename,
+        skip_empty_rows = TRUE
+      )
+    ),
+    pattern = "[:blank:]+",
+    simplify = TRUE
+  )
   t <- tibble::as_tibble(table, .name_repair = "minimal")
   testthat::expect_true(ncol(t) >= 6)
   testthat::expect_equal(ncol(t) %% 2, 0)

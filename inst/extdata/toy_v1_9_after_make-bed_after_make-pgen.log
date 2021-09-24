@@ -1,0 +1,23 @@
+PLINK v2.00a2.3LM 64-bit Intel (24 Jan 2020)
+Options in effect:
+  --bfile /home/richel/GitHubs/plinkr/inst/extdata/toy_v1_9_after_make-bed
+  --make-pgen
+  --out /home/richel/toy_v1_9_after_make-bed_after_make-pgen
+
+Hostname: N141CU
+Working directory: /home/richel/GitHubs/plinkr/inst/extdata
+Start time: Fri Sep 24 14:30:54 2021
+
+Random number seed: 1632486654
+7650 MiB RAM detected; reserving 3825 MiB for main workspace.
+Using up to 8 compute threads.
+2 samples (0 females, 2 males; 2 founders) loaded from
+/home/richel/GitHubs/plinkr/inst/extdata/toy_v1_9_after_make-bed.fam.
+2 variants loaded from
+/home/richel/GitHubs/plinkr/inst/extdata/toy_v1_9_after_make-bed.bim.
+1 binary phenotype loaded (1 case, 1 control).
+Writing /home/richel/toy_v1_9_after_make-bed_after_make-pgen.psam ... done.
+Writing /home/richel/toy_v1_9_after_make-bed_after_make-pgen.pvar ... done.
+Writing /home/richel/toy_v1_9_after_make-bed_after_make-pgen.pgen ... done.
+
+End time: Fri Sep 24 14:30:54 2021

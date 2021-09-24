@@ -79,5 +79,3 @@ These are package(s) I dare not rely on:
    as described im the literature, specifically the
    Tidyverse guidelines
 
-
-

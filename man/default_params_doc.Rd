@@ -45,6 +45,8 @@ default_params_doc(
   out,
   ped_filename,
   ped_table,
+  pgen_filename,
+  pgen_table,
   phenotype,
   phe_filename,
   phenotype_increase,
@@ -62,6 +64,10 @@ default_params_doc(
   plink_versions,
   plinkr_folder,
   plink2_bin_data,
+  psam_filename,
+  psam_table,
+  pvar_filename,
+  pvar_table,
   qassoc_filename,
   qassoc_filenames,
   qassoc_table,
@@ -326,6 +332,12 @@ The \code{FID} and \code{IID} column names match the PLINK names, see
 Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
 
+\item{pgen_filename}{name of a \code{PLINK2} \code{.pgen} file
+Use \link{read_plink2_pgen_file} to read a \code{PLINK2} \code{.pgen} file}
+
+\item{pgen_table}{a \link{matrix} that maps the individuals
+to their SNPs. TODO}
+
 \item{phenotype}{one phenotype, named after its genetic background:
 \itemize{
 \item \code{random} the phenotype is a random value,
@@ -412,6 +424,35 @@ stores its temporary files}
 
 \item{plink2_bin_data}{the genetic and phenotypic data for \code{PLINK2} to work
 on, in \code{PLINK2} binary format, as created by \link{create_plink2_bin_data}.}
+
+\item{psam_filename}{name of a \code{PLINK2} \code{.psam} file
+Use \link{read_plink2_psam_file} to read a \code{PLINK2} \code{.psam} file}
+
+\item{psam_table}{a \link[tibble]{tibble} with as much rows as
+individuals. It has the following columns:
+\itemize{
+\item \code{FID}: the family ID
+\item \code{IID}: the within-family ID
+\item \code{SEX}: the sex
+\item \code{PHENO1}: a phenotypic value
+}
+
+The uppercase column names are those as used by PLINK2.}
+
+\item{pvar_filename}{name of a \code{PLINK2} \code{.pvar} file
+Use \link{read_plink2_pvar_file} to read a \code{PLINK2} \code{.pvar} file}
+
+\item{pvar_table}{a \link[tibble]{tibble} with as much rows as
+SNPs. It has the following columns:
+\itemize{
+\item \code{CHROM}: the chromosome
+\item \code{POS}: the position on the chromosome
+\item \code{ID}: the SNP ID
+\item \code{REF}: the reference variant
+\item \code{ALT}: the alternate variant
+}
+
+The uppercase column names are those as used by PLINK2.}
 
 \item{qassoc_filename}{name of a \code{PLINK} \code{.qassoc} file
 Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.}

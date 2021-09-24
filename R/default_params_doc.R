@@ -200,6 +200,10 @@
 #'
 #' Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 #' Use \link{check_ped_table} to test if a pedigree table is valid.
+#' @param pgen_filename name of a `PLINK2` `.pgen` file
+#' Use \link{read_plink2_pgen_file} to read a `PLINK2` `.pgen` file
+#' @param pgen_table a \link{matrix} that maps the individuals
+#'   to their SNPs. TODO
 #' @param phenotype one phenotype, named after its genetic background:
 #'
 #'  * \code{random} the phenotype is a random value,
@@ -264,6 +268,29 @@
 #' on, in `PLINK2` binary format, as created by \link{create_plink2_bin_data}.
 #' @param plinkr_folder name of the folder where \link{plinkr}
 #' stores its temporary files
+#' @param psam_filename name of a `PLINK2` `.psam` file
+#' Use \link{read_plink2_psam_file} to read a `PLINK2` `.psam` file
+#' @param psam_table a \link[tibble]{tibble} with as much rows as
+#' individuals. It has the following columns:
+#'
+#'  * `FID`: the family ID
+#'  * `IID`: the within-family ID
+#'  * `SEX`: the sex
+#'  * `PHENO1`: a phenotypic value
+#'
+#' The uppercase column names are those as used by PLINK2.
+#' @param pvar_filename name of a `PLINK2` `.pvar` file
+#' Use \link{read_plink2_pvar_file} to read a `PLINK2` `.pvar` file
+#' @param pvar_table  a \link[tibble]{tibble} with as much rows as
+#' SNPs. It has the following columns:
+#'
+#'  * `CHROM`: the chromosome
+#'  * `POS`: the position on the chromosome
+#'  * `ID`: the SNP ID
+#'  * `REF`: the reference variant
+#'  * `ALT`: the alternate variant
+#'
+#' The uppercase column names are those as used by PLINK2.
 #' @param qassoc_filename name of a \code{PLINK} \code{.qassoc} file
 #' Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.
 #' @param qassoc_filenames name of one or more
@@ -346,6 +373,8 @@ default_params_doc <- function(
   out,
   ped_filename,
   ped_table,
+  pgen_filename,
+  pgen_table,
   phenotype,
   phe_filename,
   phenotype_increase,
@@ -363,6 +392,10 @@ default_params_doc <- function(
   plink_versions,
   plinkr_folder,
   plink2_bin_data,
+  psam_filename,
+  psam_table,
+  pvar_filename,
+  pvar_table,
   qassoc_filename,
   qassoc_filenames,
   qassoc_table,

@@ -23,6 +23,12 @@ install_github("richelbilderbeek/plinkr")
 
 This assumes you have the `remotes` package installed.
 
+### Install `pgenlibr`
+
+```
+remotes::install_github("chrchang/plink-ng/2.0/pgenlibr")
+```
+
 ## Install all PLINK versions
 
 `plinkr` uses multiple version of PLINK. To install them all:

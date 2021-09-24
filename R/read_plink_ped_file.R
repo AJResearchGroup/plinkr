@@ -49,6 +49,21 @@ read_plink_ped_file <- function(ped_filename) {
   table <- NA
   while (length(table) == 1 && is.na(table)) {
     # Use str_trim as PLINK adds whitespace around text
+
+    # FAILS
+    # table <- stringr::str_split(
+    #   stringi::stri_trim_both( # Workaround at https://github.com/gagolews/stringi/issues/458 # nolint
+    #     as.character( # Workaround at https://github.com/gagolews/stringi/issues/458 # nolint
+    #       readr::read_lines(
+    #         file = ped_filename,
+    #         skip_empty_rows = TRUE
+    #       )
+    #     )
+    #   ),
+    #   pattern = "[:blank:]+",
+    #   simplify = TRUE
+    # )
+
     tryCatch(
       table <- stringr::str_split(
         string = stringr::str_trim(

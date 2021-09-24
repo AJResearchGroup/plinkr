@@ -7,7 +7,7 @@
 safe_str_trim <- function(string) {
   while (1) {
     tryCatch(
-      return(stringr::str_trim(string)),
+      return(stringr::str_trim(as.character(string))),
       error = function(e) {} # nolint ignore
     )
   }

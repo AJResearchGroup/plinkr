@@ -42,8 +42,7 @@
 #' @export
 read_plink_ped_file <- function(ped_filename) {
   testthat::expect_true(file.exists(ped_filename))
-
-  table <- stringr::str_split(
+  table <- plinkr::safe_str_split(
     readr::read_lines(
       file = ped_filename,
       skip_empty_rows = TRUE

@@ -1,5 +1,4 @@
-test_that("minimal use", {
-  skip("Need 'save_psam_table_to_file'")
+test_that("exactly re-recreate .psam file", {
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
 
   psam_filename <- get_plinkr_filename(
@@ -17,6 +16,14 @@ test_that("minimal use", {
   )
 
   expect_true(file.exists(psam_filename_again))
+  expect_equal(
+    readr::read_lines(psam_filename),
+    readr::read_lines(psam_filename_again)
+  )
+  expect_equal(
+    as.vector(tools::md5sum(psam_filename)),
+    as.vector(tools::md5sum(psam_filename_again))
+  )
   file.remove(psam_filename_again)
 
   expect_silent(check_empty_plinkr_folder())

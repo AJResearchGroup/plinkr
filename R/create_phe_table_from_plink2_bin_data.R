@@ -23,5 +23,5 @@
 #' @export
 create_phe_table_from_plink2_bin_data <- function(plink2_bin_data) { # nolint indeed a long and descriptive name
   plinkr::check_plink2_bin_data(plink2_bin_data)
-  "TODO"
+  plinkr::create_phe_table_from_psam_table(plink2_bin_data$psam_table)
 }

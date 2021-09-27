@@ -19,7 +19,6 @@ test_that("use, PLINK bin data", {
 })
 
 test_that("use, PLINK2 bin data", {
-  skip("'create_phe_table_from_plink2_bin_data' is stub")
   expect_silent(
     check_phe_table(
       create_phe_table_from_data(

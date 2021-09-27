@@ -142,7 +142,6 @@ test_that("PLINK cannot handle quadallelic SNPs", {
 
 test_that("All 95 chromosome numbers work", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
   # Upper limit set by PLINK is 95
   # https://github.com/chrchang/plink-ng/issues/182
@@ -151,7 +150,7 @@ test_that("All 95 chromosome numbers work", {
     trait = create_random_case_control_trait(n_snps = 95),
     n_individuals = 10
   )
-  expect_silent(assoc(assoc_params = assoc_params))
+  assoc(assoc_params = assoc_params)
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
 })

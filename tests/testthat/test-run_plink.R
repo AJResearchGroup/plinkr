@@ -93,7 +93,6 @@ test_that("warnings", {
 
 test_that("assoc_qt the PLINK way", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
@@ -140,7 +139,6 @@ test_that("assoc_qt the PLINK way", {
 
 test_that("assoc_qt the PLINK way with phenotype file with header", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
   # Without header works
   args <- c(

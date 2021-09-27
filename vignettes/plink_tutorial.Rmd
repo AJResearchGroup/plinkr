@@ -85,19 +85,25 @@ Now `hapmap1.ped`, of which we'll only show the first 10 columns:
 
 ```{r read_hapmap1_ped}
 if (good_to_go) {
-  hapmap1_ped_filename <- stringr::str_subset(
-    tutorial_data_filenames, "hapmap1.ped"
-  )
-  ped_table <- plinkr::read_plink_ped_file(hapmap1_ped_filename)
-  n_individuals <- nrow(ped_table)
-  knitr::kable(ped_table[1:5, 1:10])
+  # Cannot do so until stringi::stri_split is fixed
+  if (1 == 2) {
+    hapmap1_ped_filename <- stringr::str_subset(
+      tutorial_data_filenames, "hapmap1.ped"
+    )
+    ped_table <- plinkr::read_plink_ped_file(hapmap1_ped_filename)
+    n_individuals <- nrow(ped_table)
+    knitr::kable(ped_table[1:5, 1:10])
+  }
 }
 ```
 The number of rows of the pedigree table equals the number of individuals, which equals `r n_individuals`. The number of columns equals 6 plus twice the number of SNPs.
 
 ```{r}
 if (good_to_go) {
-  testthat::expect_equal(ncol(ped_table), 6 + (2 * n_snps))
+  # Cannot do so until stringi::stri_split is fixed
+  if (1 == 2) {
+    testthat::expect_equal(ncol(ped_table), 6 + (2 * n_snps))
+  }
 }
 ```
 

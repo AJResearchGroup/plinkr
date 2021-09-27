@@ -182,14 +182,13 @@ test_that("PLINK cannot handle quadallelic SNPs", {
 test_that("95 chromosome numbers work", {
   expect_silent(check_empty_plinkr_folder())
 
-  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
     traits = create_random_trait(n_snps = 95),
     n_individuals = 10
   )
-  expect_silent(assoc_qt_on_plink_text_data(assoc_qt_params = assoc_qt_params))
+  assoc_qt_on_plink_text_data(assoc_qt_params = assoc_qt_params)
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache() # nolint

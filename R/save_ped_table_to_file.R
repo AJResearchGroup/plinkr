@@ -39,9 +39,7 @@ save_ped_table_to_file <- function(
     text_vector[i] <- paste0(text_matrix[i, ], collapse = " ")
   }
 
-
-
-  text_vector <- stringr::str_trim(text_vector)
+  text_vector <- plinkr::safe_str_trim(text_vector)
 
   dir.create(
     path = dirname(ped_filename),

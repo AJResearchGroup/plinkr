@@ -22,7 +22,7 @@ read_plink_map_file <- function(map_filename) {
     file = map_filename,
     skip_empty_rows = TRUE
   )
-  text <- stringr::str_trim(untrimmed_text)
+  text <- plinkr::safe_str_trim(untrimmed_text)
 
   table <- stringr::str_split(
     string = text,

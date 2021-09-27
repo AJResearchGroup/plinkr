@@ -15,6 +15,7 @@ RoxygenNote: 7.1.2
 Depends:
     R (>= 3.5.0)
 Imports:
+    data.table,
     devtools,
     dplyr,
     genio,

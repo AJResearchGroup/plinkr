@@ -14,7 +14,7 @@
 read_plink_imiss_file <- function(imiss_filename) {
   # Use str_trim as PLINK adds whitespace around text
   table <- stringr::str_split(
-    string = stringr::str_trim(
+    plinkr::safe_str_trim(
       readr::read_lines(
         file = imiss_filename,
         skip_empty_rows = TRUE

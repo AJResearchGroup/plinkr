@@ -13,7 +13,6 @@ test_that("use PLINK1 bin data", {
 })
 
 test_that("use PLINK2 bin data", {
-  skip("No PLINK2 bin data yet")
   assoc_params <- create_test_assoc_params(data = create_test_plink2_bin_data())
   expect_silent(check_assoc_params(assoc_params))
 })

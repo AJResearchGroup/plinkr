@@ -16,26 +16,36 @@
 #' @export
 plink2_assoc <- function(
   assoc_params,
-  plink_options = create_plink_options(),
+  plink_options = create_plink_v2_0_options(),
   verbose = FALSE
 ) {
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
-  testthat::expect_equal("2.0", plink_options$plink_version)
-  stop("TODO")
+
+  testthat::expect_true(plink_options$plink_version %in% get_plink2_versions())
+
+  # else, convert to PLINK2 binary format
+  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_params$data))
+
+
   # Filenames
-  ped_filename <- paste0(assoc_params$base_input_filename, ".ped")
-  map_filename <- paste0(assoc_params$base_input_filename, ".map")
-  assoc_filename <- paste0(assoc_params$base_output_filename, ".assoc")
+  pgen_filename <- paste0(assoc_params$base_input_filename, ".pgen")
+  psam_filename <- paste0(assoc_params$base_input_filename, ".psam")
+  pvar_filename <- paste0(assoc_params$base_input_filename, ".pvar")
 
   # 'save_' functions will check for success themselves
-  plinkr::save_ped_table_to_file(
-    ped_table = assoc_params$data$ped_table,
-    ped_filename = ped_filename
+  stop("Need help of 'pgenlibr' to save a .pgen file")
+  plinkr::save_pgen_table_to_file( # need
+    pgen_table = assoc_params$data$pgen_table,
+    pgen_filename = pgen_filename
   )
-  plinkr::save_map_table_to_file(
-    map_table = assoc_params$data$map_table,
-    map_filename = map_filename
+  plinkr::save_psam_table_to_file(
+    psam_table = assoc_params$data$psam_table,
+    psam_filename = psam_filename
+  )
+  plinkr::save_pvar_table_to_file(
+    pvar_table = assoc_params$data$pvar_table,
+    pvar_filename = pvar_filename
   )
 
   # PLINK will not do so and will not give an error

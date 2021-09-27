@@ -39,4 +39,3 @@ test_that("PLINK1 does not convert PLINK1 bin to PLINK2 binary", {
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache() # nolint
 })
-

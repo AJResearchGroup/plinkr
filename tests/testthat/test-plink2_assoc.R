@@ -21,7 +21,9 @@ test_that("run", {
   )
 
   plink2_assoc(
-    assoc_params = create_assoc_params()
+    assoc_params = create_assoc_params(
+      data = create_plink2_bin_data()
+    )
   )
 
 

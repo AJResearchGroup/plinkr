@@ -73,7 +73,7 @@ test_that("v1.9, allow 95 chromosome", {
 
 test_that("v2.0", {
   skip("WIP: no idea to call PLINK2 to do assoc yet")
-  assoc_params <- create_test_assoc_params()
+  assoc_params <- create_test_assoc_params(data = create_plink2_bin_data())
   created <- create_assoc_args(
     assoc_params = assoc_params,
     plink_options = create_plink_v2_0_options()

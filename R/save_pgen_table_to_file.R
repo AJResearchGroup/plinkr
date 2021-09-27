@@ -20,7 +20,7 @@ save_pgen_table_to_file <- function(
   verbose = FALSE
 ) {
   plinkr::check_pgen_table(pgen_table)
-  stop("No help of 'pgenlibr' to save a .pgen file")
+  stop("Need help of 'pgenlibr' to save a .pgen file")
 
   dir.create(dirname(pgen_filename), showWarnings = FALSE, recursive = TRUE)
 

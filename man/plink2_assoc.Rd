@@ -6,7 +6,7 @@
 \usage{
 plink2_assoc(
   assoc_params,
-  plink_options = create_plink_options(),
+  plink_options = create_plink_v2_0_options(),
   verbose = FALSE
 )
 }

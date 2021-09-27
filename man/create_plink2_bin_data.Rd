@@ -4,10 +4,52 @@
 \alias{create_plink2_bin_data}
 \title{Create a set of \code{PLINK2} binary data}
 \usage{
-create_plink2_bin_data()
+create_plink2_bin_data(
+  pgen_table = get_test_pgen_table(),
+  psam_table = get_test_psam_table(),
+  pvar_table = get_test_pvar_table()
+)
+}
+\arguments{
+\item{pgen_table}{a \link{matrix} that maps the individuals
+to their SNPs. TODO}
+
+\item{psam_table}{a \link[tibble]{tibble} with as much rows as
+individuals. It has the following columns:
+\itemize{
+\item \code{FID}: the family ID
+\item \code{IID}: the within-family ID
+\item \code{SEX}: the sex
+\item \code{PHENO1}: a phenotypic value
+}
+
+The uppercase column names are those as used by PLINK2.}
+
+\item{pvar_table}{a \link[tibble]{tibble} with as much rows as
+SNPs. It has the following columns:
+\itemize{
+\item \code{CHROM}: the chromosome
+\item \code{POS}: the position on the chromosome
+\item \code{ID}: the SNP ID
+\item \code{REF}: the reference variant
+\item \code{ALT}: the alternate variant
+}
+
+The uppercase column names are those as used by PLINK2.}
 }
 \description{
 Create a set of \code{PLINK2} binary data
+}
+\examples{
+create_plink_bin_data(
+  bim_table = get_test_bim_table(),
+  fam_table = get_test_fam_table(),
+  bed_table = get_test_bed_table()
+)
+}
+\seealso{
+use \link{create_test_plink_bin_data} to create a set
+of \code{PLINK} binary data to be used in testing
 }
 \author{
 Richèl J.C. Bilderbeek

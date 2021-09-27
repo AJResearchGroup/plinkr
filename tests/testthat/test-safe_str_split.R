@@ -7,9 +7,10 @@ test_that("use", {
   lines <- readr::read_lines(ped_filename)
   expect_silent(
     safe_str_split(
-      lines,
+      string = lines,
       pattern = "[:blank:]+",
-      simplify = TRUE
+      simplify = TRUE,
+      verbose = TRUE
     )
   )
 })

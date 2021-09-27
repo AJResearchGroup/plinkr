@@ -9,7 +9,7 @@ This has been not been reported, yet a similar report is at
 https://github.com/gagolews/stringi/issues/458 .
 Until then, use the workaround}
 \usage{
-safe_str_split(string, pattern, simplify = FALSE)
+safe_str_split(string, pattern, simplify = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{string}{one or more strings}
@@ -17,6 +17,10 @@ safe_str_split(string, pattern, simplify = FALSE)
 \item{pattern}{regex, see \link[stringr]{str_split}}
 
 \item{simplify}{simplify, see \link[stringr]{str_split}}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \description{
 Call \link[stringr]{str_split} safely

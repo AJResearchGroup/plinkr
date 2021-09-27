@@ -1,12 +1,13 @@
 test_that("minimal use", {
   expect_silent(
     read_plink2_pvar_file(
-      get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pvar.pvar")
+      get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.pvar")
     )
   )
 })
 
 test_that("create, read, save, read, PLINK2", {
+  skip("Need 'save_pvar_table_to_file'")
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
 
   pvar_filename <- get_plinkr_filename(

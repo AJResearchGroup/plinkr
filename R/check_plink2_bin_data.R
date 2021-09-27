@@ -17,7 +17,13 @@ check_plink2_bin_data <- function(
       "Tip: use 'plinkr::create_plink2_bin_data()'\n"
     )
   }
-  # No idea yet what the elements are
-  testthat::expect_true("unknown_table_name" %in% names(plink2_bin_data))
+  testthat::expect_true("pgen_table" %in% names(plink2_bin_data))
+  testthat::expect_true("psam_filename" %in% names(plink2_bin_data))
+  testthat::expect_true("pvar_filename" %in% names(plink2_bin_data))
+
+  plinkr::check_pgen_table(plink2_bin_data$pgen_table)
+  plinkr::check_psam_table(plink2_bin_data$psam_table)
+  plinkr::check_pvar_table(plink2_bin_data$pvar_table)
+
   invisible(plink2_bin_data)
 }

@@ -1,12 +1,4 @@
 test_that("minimal use", {
-  expect_silent(
-    read_plink2_psam_file(
-      get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.psam")
-    )
-  )
-})
-
-test_that("create, read, save, read, PLINK2", {
   skip("Need 'save_psam_table_to_file'")
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
 
@@ -24,15 +16,8 @@ test_that("create, read, save, read, PLINK2", {
     psam_filename = psam_filename_again
   )
 
-  # Read the table again
-  psam_table_again <- read_plink2_psam_file(
-    psam_filename = psam_filename_again
-  )
-
-  expect_identical(psam_table, psam_table_again)
-
+  expect_true(file.exists(psam_filename_again))
   file.remove(psam_filename_again)
-  unlink(folder_name, recursive = TRUE)
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

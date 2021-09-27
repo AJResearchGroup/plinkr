@@ -18,9 +18,9 @@ test_that("use", {
   )
   base_output_filename <- file.path(get_plinkr_tempfilename(), "output")
   filenames <- make_pgen(
-    base_input_filename = tools::file_path_sans_ext(ped_filename),
+    base_input_filename = tools::file_path_sans_ext(bed_filename),
     base_output_filename = base_output_filename,
-    plink_options = create_plink_v1_7_options()
+    plink_options = create_plink_v2_0_options()
   )
   expect_equal(
     filenames,

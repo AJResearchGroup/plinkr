@@ -24,11 +24,14 @@ read_plink_map_file <- function(map_filename) {
   )
   text <- plinkr::safe_str_trim(untrimmed_text)
 
-  table <- stringr::str_split(
-    string = text,
-    pattern = "[:blank:]+",
-    simplify = TRUE
+  table <- plinkr::safe_str_split(
+    string = text
   )
+  # table <- stringr::str_split(
+  #   string = text,
+  #   pattern = "[:blank:]+", # nolint, just use ' +' in strsplit
+  #   simplify = TRUE
+  # )
   tibble::tibble(
     CHR = as.numeric(table[, 1]),
     SNP = table[, 2],

@@ -22,11 +22,14 @@ read_plink_qassoc_file <- function(
   # Remove empty lines (added by PLINK v1.7)
   text_lines <- text_lines[text_lines != ""]
 
-  text_matrix <- stringr::str_split(
-    string = text_lines,
-    pattern = "[:blank:]+",
-    simplify = TRUE
+  text_matrix <- plinkr::safe_str_split(
+    string = text_lines
   )
+  # text_matrix <- stringr::str_split(
+  #   string = text_lines,
+  #   pattern = "[:blank:]+", # nolint, just use ' +' in strsplit
+  #   simplify = TRUE
+  # )
   if (nrow(text_matrix) > 2) {
     t <- tibble::as_tibble(
       text_matrix[-1, ],

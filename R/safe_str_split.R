@@ -9,13 +9,14 @@
 safe_str_split <- function(
   string
 ) {
+  split_strs <- strsplit(
+    x = string,
+    split = "( |\\t)+"
+  )
+  n_rows <- length(split_strs)
+  n_cols <- length(split_strs[[1]])
   return(
-    unlist(
-      strsplit(
-        x = string,
-        split = " +"
-      )
-    )
+    matrix(data = unlist(split_strs), nrow = n_rows, ncol = n_cols, byrow = TRUE)
   )
   # Don't use stringr, nor stringi, as it may give a segfault,
   # for example, running the test 'read PLINK tutorial files':
@@ -45,24 +46,25 @@ safe_str_split <- function(
   # 18: tryCatch(withCallingHandlers({    eval(code, test_env)    if (!handled && !is.null(test)) {        skip_empty()    }}, expectation = handle_expectation, skip = handle_skip, warning = handle_warning,     message = handle_message, error = handle_error), error = handle_fatal,     skip = function(e) {    })
   # 19: test_code(desc, code, env = parent.frame(), reporter = reporter)
   # 20: test_that("read PLINK tutorial files", {    expect_equal(1 + 1, 2)    if (!is_plink_tutorial_data_installed())         return()    ped_filename <- stringr::str_subset(get_plink_tutorial_data_filenames(),         "hapmap1.ped")    t <- read_plink_ped_file(ped_filename)}
-  i <- 1
-  while (i < 100) {
-    tryCatch(
-      return(
-        stringr::str_split(
-          as.character(string),
-          pattern = "[:blank:]+",
-          simplify = TRUE
-        )
-      ),
-      error = function(e) {
-        testthat::expect_true(
-          stringr::str_detect(e$message, "embedded nul in string"))
-      }
-    )
-    if (verbose) {
-      message(i)
-    }
-    i <- i + 1
-  }
+
+  # i <- 1
+  # while (i < 100) {
+  #   tryCatch(
+  #     return(
+  #       stringr::str_split(
+  #         as.character(string),
+  #         pattern = "[:blank:]+",
+  #         simplify = TRUE
+  #       )
+  #     ),
+  #     error = function(e) {
+  #       testthat::expect_true(
+  #         stringr::str_detect(e$message, "embedded nul in string"))
+  #     }
+  #   )
+  #   if (verbose) {
+  #     message(i)
+  #   }
+  #   i <- i + 1
+  # }
 }

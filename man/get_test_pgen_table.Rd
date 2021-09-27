@@ -13,7 +13,8 @@ a \code{.pgen} table
 Get a simple \code{.pgen} table,
 as can be used in testing.
 This is the same table as can be obtained by reading
-the plinkr example file called \code{toy_v1_9_after_make-bed_after_make-pgen.pgen}.
+the plinkr example file called
+\code{toy_v1_9_after_make-bed_after_make-pgen.pgen}.
 }
 \note{
 The function has the word \code{get} in its name,

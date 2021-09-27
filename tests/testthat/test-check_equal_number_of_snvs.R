@@ -22,7 +22,6 @@ test_that("use, create_test_assoc_qt_params, PLINK binary data", {
 })
 
 test_that("use, create_test_assoc_qt_params, PLINK2 binary data", {
-  skip("'create_test_plink2_bin_data' not yet implemented")
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
@@ -32,6 +31,7 @@ test_that("use, create_test_assoc_qt_params, PLINK2 binary data", {
     )
   )
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("use, create_demo_assoc_qt_params", {

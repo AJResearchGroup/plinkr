@@ -6,7 +6,7 @@ test_that("run", {
 
   # Convert
   folder_name <- get_plinkr_tempfilename()
-  plink_bin_filenames <- convert_plink_text_files_to_plink_bin_files(
+  plink_bin_filenames <- convert_plink_text_files_to_plink2_bin_files(
     base_input_filename = tools::file_path_sans_ext(map_filename),
     base_output_filename = file.path(folder_name, "output"),
   )

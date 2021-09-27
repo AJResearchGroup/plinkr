@@ -15,6 +15,8 @@ default_params_doc(
   assoc_qt_params,
   base_input_filename,
   base_output_filename,
+  base_output_plink1_filename,
+  base_output_plink2_filename,
   base_phenotype_value,
   bed_filename,
   bed_table,
@@ -58,6 +60,8 @@ default_params_doc(
   plink_exe_path,
   plink_folder,
   plink_options,
+  plink1_options,
+  plink2_options,
   plink_optionses,
   plink_text_data,
   plink_version,
@@ -118,6 +122,12 @@ used as input for \code{PLINK}/\code{PLINK2}}
 
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}
+
+\item{base_output_plink1_filename}{temporary folder to create the \code{PLINK}
+binary files in}
+
+\item{base_output_plink2_filename}{temporary folder to create the \code{PLINK2}
+binary files in}
 
 \item{base_phenotype_value}{the base phenotypic value for an additive trait,
 i.e. the phenotypic value for homozygotes of the common allele}
@@ -403,6 +413,14 @@ the \code{PLINK} or \code{PLINK2} executable file.}
 
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
+
+\item{plink1_options}{the \code{PLINK} version,
+as created by \link{create_plink_options},
+for any version of \code{PLINK}}
+
+\item{plink2_options}{the \code{PLINK2} version,
+as created by \link{create_plink_options},
+for any version of \code{PLINK2}}
 
 \item{plink_optionses}{a list of one or more options to run PLINK,
 as created by \link{create_plink_optionses}.

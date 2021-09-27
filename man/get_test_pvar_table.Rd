@@ -13,7 +13,8 @@ a \code{.pvar} table
 Get a simple \code{.pvar} table,
 as can be used in testing.
 This is the same table as can be obtained by reading
-the plinkr example file called \code{toy_v1_9_after_make-bed_after_make-pgen.pvar}.
+the plinkr example file called
+\code{toy_v1_9_after_make-bed_after_make-pgen.pvar}.
 }
 \note{
 The function has the word \code{get} in its name,

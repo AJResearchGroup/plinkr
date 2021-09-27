@@ -75,6 +75,32 @@ assoc_qt(assoc_qt_params)
  * See the vignette `create_demo_assoc_qt_params` for many
    examples how data can be simulated
 
+### PLINK and PLINK2 files conversions
+
+`plinkr` allows to convert between any PLINK and PLINK2 files.
+
+From               |To                 |Function name
+-------------------|-------------------|----------------------------------------------
+PLINK1 text files  |PLINK1 binary files|`convert_plink_text_files_to_plink_bin_files`
+PLINK1 text files  |PLINK2 binary files|`convert_plink_text_files_to_plink2_bin_files`
+PLINK1 binary files|PLINK text files   |`convert_plink_bin_files_to_plink_text_files`
+PLINK1 binary files|PLINK2 binary files|`convert_plink_bin_files_to_plink2_bin_files`
+PLINK2 binary files|PLINK text files   |`convert_plink2_bin_files_to_plink_text_files`
+PLINK2 binary files|PLINK binary files |`convert_plink2_bin_files_to_plink_bin_files`
+
+### PLINK and PLINK2 data conversions
+
+`plinkr` allows to convert between any PLINK and PLINK2 data.
+
+From              |To                |Function name
+------------------|------------------|--------------------------------------------
+PLINK1 text data  |PLINK1 binary data|`convert_plink_text_data_to_plink_bin_data`
+PLINK1 text data  |PLINK2 binary data|`convert_plink_text_data_to_plink2_bin_data`
+PLINK1 binary data|PLINK text data   |`convert_plink_bin_data_to_plink_text_data`
+PLINK1 binary data|PLINK2 binary data|`convert_plink_bin_data_to_plink2_bin_data`
+PLINK2 binary data|PLINK text data   |`convert_plink2_bin_data_to_plink_text_data`
+PLINK2 binary data|PLINK binary data |`convert_plink2_bin_data_to_plink_bin_data`
+
 ## FAQ
 
 See [doc/faq.md](doc/faq.md)

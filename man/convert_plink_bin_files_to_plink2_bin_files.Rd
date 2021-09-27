@@ -37,6 +37,33 @@ a list with the following elements:
 \description{
 Convert \code{PLINK} binary data files to \code{PLINK2} binary data files
 }
+\seealso{
+these are the functions to convert between the \code{PLINK} and
+\code{PLINK2} files:
+\itemize{
+\item To convert from PLINK1 text files
+\itemize{
+\item to PLINK1 binary files:
+use \link{convert_plink_text_files_to_plink_bin_files}
+\item to PLINK2 binary files,
+use \link{convert_plink_text_files_to_plink2_bin_files}
+}
+\item To convert from PLINK1 binary files
+\itemize{
+\item to PLINK text files,
+use \link{convert_plink_bin_files_to_plink_text_files}
+\item to PLINK2 binary files,
+use \link{convert_plink_bin_files_to_plink2_bin_files}
+}
+\item To convert from PLINK2 binary files
+\itemize{
+\item to PLINK text files,
+use \link{convert_plink2_bin_files_to_plink_text_files}
+\item to PLINK binary files,
+use \link{convert_plink2_bin_files_to_plink_bin_files}
+}
+}
+}
 \author{
 Richèl J.C. Bilderbeek
 }

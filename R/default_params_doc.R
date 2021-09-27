@@ -27,6 +27,10 @@
 #' used as input for \code{PLINK}/\code{PLINK2}
 #' @param base_output_filename the base of the filenames that are
 #' used as output for \code{PLINK}/\code{PLINK2}
+#' @param base_output_plink1_filename temporary folder to create the `PLINK`
+#' binary files in
+#' @param base_output_plink2_filename temporary folder to create the `PLINK2`
+#' binary files in
 #' @param base_phenotype_value the base phenotypic value for an additive trait,
 #' i.e. the phenotypic value for homozygotes of the common allele
 #' @param bed_filename name of a \code{PLINK} \code{.bed} file
@@ -253,6 +257,12 @@
 #' @param plink_folder folder where \code{PLINK} is installed
 #' @param plink_options options to run PLINK,
 #' as created by \link{create_plink_options}
+#' @param plink1_options the `PLINK` version,
+#' as created by \link{create_plink_options},
+#' for any version of `PLINK`
+#' @param plink2_options the `PLINK2` version,
+#' as created by \link{create_plink_options},
+#' for any version of `PLINK2`
 #' @param plink_optionses a list of one or more options to run PLINK,
 #' as created by \link{create_plink_optionses}.
 #' The reduplicated plural was used to express this is a list
@@ -343,6 +353,8 @@ default_params_doc <- function(
   assoc_qt_params,
   base_input_filename,
   base_output_filename,
+  base_output_plink1_filename,
+  base_output_plink2_filename,
   base_phenotype_value,
   bed_filename,
   bed_table,
@@ -386,6 +398,8 @@ default_params_doc <- function(
   plink_exe_path,
   plink_folder,
   plink_options,
+  plink1_options,
+  plink2_options,
   plink_optionses,
   plink_text_data,
   plink_version,

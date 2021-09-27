@@ -13,7 +13,8 @@ a \code{.psam} table
 Get a simple \code{.psam} table,
 as can be used in testing.
 This is the same table as can be obtained by reading
-the plinkr example file called \code{toy_v1_9_after_make-bed_after_make-pgen.psam}.
+the plinkr example file called
+\code{toy_v1_9_after_make-bed_after_make-pgen.psam}.
 }
 \note{
 The function has the word \code{get} in its name,

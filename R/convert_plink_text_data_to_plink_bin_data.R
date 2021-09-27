@@ -15,6 +15,25 @@
 #'  * `bed_table` (see \link{check_bed_table})
 #'
 #' The other list elements are left as-is.
+#' @seealso these are the functions to convert between the `PLINK` and
+#' `PLINK2` formats:
+#'
+#'  * To convert from PLINK1 text data
+#'    * to PLINK1 binary data:
+#'      use \link{convert_plink_text_data_to_plink_bin_data}
+#'    * to PLINK2 binary data,
+#'      use \link{convert_plink_text_data_to_plink2_bin_data}
+#'  * To convert from PLINK1 binary data
+#'    * to PLINK text data,
+#'      use \link{convert_plink_bin_data_to_plink_text_data}
+#'    * to PLINK2 binary data,
+#'      use \link{convert_plink_bin_data_to_plink2_bin_data}
+#'  * To convert from PLINK2 binary data
+#'    * to PLINK text data,
+#'      use \link{convert_plink2_bin_data_to_plink_text_data}
+#'    * to PLINK binary data,
+#'      use \link{convert_plink2_bin_data_to_plink_bin_data}
+#'
 #' @examples
 #' if (is_plink_installed(plink_options = create_plink_v1_9_options())) {
 #'   convert_plink_text_data_to_plink_bin_data(

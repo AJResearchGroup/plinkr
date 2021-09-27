@@ -1,0 +1,11 @@
+test_that("use", {
+  expect_silent(check_pvar_table(get_test_pvar_table()))
+  expect_error(check_pvar_table("Nonsense"))
+  expect_error(check_pvar_table(NULL))
+  expect_error(check_pvar_table(NA))
+  expect_error(check_pvar_table(3.14))
+  expect_error(check_pvar_table(42))
+  expect_error(check_pvar_table(c()))
+  expect_error(check_pvar_table(c(1, 2)))
+  expect_error(check_pvar_table(list()))
+})

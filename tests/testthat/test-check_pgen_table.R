@@ -1,0 +1,11 @@
+test_that("use", {
+  expect_silent(check_pgen_table(get_test_pgen_table()))
+  expect_error(check_pgen_table("Nonsense"))
+  expect_error(check_pgen_table(NULL))
+  expect_error(check_pgen_table(NA))
+  expect_error(check_pgen_table(3.14))
+  expect_error(check_pgen_table(42))
+  expect_error(check_pgen_table(c()))
+  expect_error(check_pgen_table(c(1, 2)))
+  expect_error(check_pgen_table(list()))
+})

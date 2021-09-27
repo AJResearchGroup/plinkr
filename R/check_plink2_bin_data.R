@@ -18,8 +18,8 @@ check_plink2_bin_data <- function(
     )
   }
   testthat::expect_true("pgen_table" %in% names(plink2_bin_data))
-  testthat::expect_true("psam_filename" %in% names(plink2_bin_data))
-  testthat::expect_true("pvar_filename" %in% names(plink2_bin_data))
+  testthat::expect_true("psam_table" %in% names(plink2_bin_data))
+  testthat::expect_true("pvar_table" %in% names(plink2_bin_data))
 
   plinkr::check_pgen_table(plink2_bin_data$pgen_table)
   plinkr::check_psam_table(plink2_bin_data$psam_table)

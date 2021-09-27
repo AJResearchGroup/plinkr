@@ -1,0 +1,11 @@
+test_that("use", {
+  expect_silent(check_psam_table(get_test_psam_table()))
+  expect_error(check_psam_table("Nonsense"))
+  expect_error(check_psam_table(NULL))
+  expect_error(check_psam_table(NA))
+  expect_error(check_psam_table(3.14))
+  expect_error(check_psam_table(42))
+  expect_error(check_psam_table(c()))
+  expect_error(check_psam_table(c(1, 2)))
+  expect_error(check_psam_table(list()))
+})

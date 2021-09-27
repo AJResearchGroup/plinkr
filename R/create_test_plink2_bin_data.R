@@ -5,6 +5,8 @@
 #' @export
 create_test_plink2_bin_data <- function() {
   list(
-    unknown_table_name = "unknown"
+    pgen_table = get_test_pgen_table(),
+    psam_table = get_test_psam_table(),
+    pvar_table = get_test_pvar_table()
   )
 }

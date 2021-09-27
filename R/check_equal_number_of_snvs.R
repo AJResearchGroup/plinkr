@@ -40,7 +40,18 @@ check_equal_number_of_snvs <- function(
     }
   } else {
     testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
-    stop("TODO")
+    n_snvs_in_pgen_table <- nrow(assoc_qt_params$data$pgen_table)
+    n_snvs_in_pvar_table <- nrow(assoc_qt_params$data$pvar_table)
+    if (n_snvs_in_pgen_table != n_snvs_in_pvar_table) {
+      stop(
+        "Different number of SNVs in the genetic mapping (.pvar) table \n",
+        "and the individuals' SNP mapping (.pgen) table \n",
+        "Number of SNVs in genetic mapping (.pvar) table: ",
+        n_snvs_in_pgen_table, " \n",
+        "Number of SNVs in genotype (.pgen) table: ",
+        n_snvs_in_pvar_table
+      )
+    }
   }
 
   invisible(assoc_qt_params)

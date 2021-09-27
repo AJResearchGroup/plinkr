@@ -17,7 +17,6 @@ test_that("use PLINK1 bin data", {
 })
 
 test_that("use PLINK2 bin data", {
-  skip("No PLINK2 bin data yet")
   assoc_qt_params <- create_test_assoc_qt_params(
     data = create_test_plink2_bin_data()
   )

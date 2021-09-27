@@ -4,10 +4,7 @@
 #' This has been not been reported, yet a similar report is at
 #' https://github.com/gagolews/stringi/issues/458 .
 #' Until then, use the workaround
-#' @inheritParams default_params_doc
 #' @param string one or more strings
-#' @param pattern regex, see \link[stringr]{str_split}
-#' @param simplify simplify, see \link[stringr]{str_split}
 #' @export
 safe_str_split <- function(
   string

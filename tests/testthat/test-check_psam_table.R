@@ -1,5 +1,5 @@
 test_that("use", {
-  expect_silent(check_psam_table(get_test_psam_table()))
+  expect_silent(check_psam_table(psam_table = get_test_psam_table()))
   expect_error(check_psam_table("Nonsense"))
   expect_error(check_psam_table(NULL))
   expect_error(check_psam_table(NA))

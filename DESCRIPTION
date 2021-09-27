@@ -19,6 +19,7 @@ Imports:
     devtools,
     dplyr,
     genio,
+    pgenlibr,
     pryr,
     purrr,
     rappdirs,

@@ -36,12 +36,6 @@ read_plink_assoc_adjusted_file <- function(assoc_adjusted_filename) {
   text_matrix <- plinkr::safe_str_split(
     string = text_lines
   )
-  # text_matrix <- stringr::str_split(
-  #   string = text_lines,
-  #   pattern = "[:blank:]+", # nolint, just use ' +' in strsplit
-  #   simplify = TRUE
-  # )
-
   if (nrow(text_matrix) > 2) {
     t <- tibble::as_tibble(
       text_matrix[-1, ],

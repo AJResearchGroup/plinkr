@@ -3,7 +3,8 @@
 #' Get a simple `.psam` table,
 #' as can be used in testing.
 #' This is the same table as can be obtained by reading
-#' the plinkr example file called `toy_v1_9_after_make-bed_after_make-pgen.psam`.
+#' the plinkr example file called
+#' `toy_v1_9_after_make-bed_after_make-pgen.psam`.
 #' @return a `.psam` table
 #' @note The function has the word `get` in its name,
 #' as getting the result is trivial. When getting the result is non-trivial,

@@ -17,19 +17,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_frq_strat_file <- function(frq_strat_filename) {
-  # stringi::str_trim **sometimes** gives an 'embedded nul in string' error.
-  # This has been reported at https://github.com/gagolews/stringi/issues/458 .
-  # Until then, just try multiple times :-)
-  # table <- stringr::str_split(
-  #   plinkr::safe_str_trim(
-  #     readr::read_lines(
-  #       file = frq_strat_filename,
-  #       skip_empty_rows = TRUE
-  #     )
-  #   ),
-  #   pattern = "[:blank:]+", # nolint, just use ' +' in strsplit
-  #   simplify = TRUE
-  # )
   table <- plinkr::safe_str_split(
     plinkr::safe_str_trim(
       readr::read_lines(

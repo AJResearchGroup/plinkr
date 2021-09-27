@@ -15,9 +15,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_frq_file <- function(frq_filename) {
-  # stringi::str_trim **sometimes** gives an 'embedded nul in string' error.
-  # This has been reported at https://github.com/gagolews/stringi/issues/458 .
-  # Until then, just try multiple times :-)
   table <- plinkr::safe_str_split(
     plinkr::safe_str_trim(
       readr::read_lines(
@@ -26,16 +23,6 @@ read_plink_frq_file <- function(frq_filename) {
       )
     )
   )
-  # table <- stringr::str_split(
-  #   plinkr::safe_str_trim(
-  #     readr::read_lines(
-  #       file = frq_filename,
-  #       skip_empty_rows = TRUE
-  #     )
-  #   ),
-  #   pattern = "[:blank:]+", # nolint, just use ' +' in strsplit
-  #   simplify = TRUE
-  # )
   t <- tibble::as_tibble(table[-1, ], .name_repair = "minimal")
   names(t) <- table[1, ]
   expected_names <- c(

@@ -33,18 +33,8 @@ read_plink_assoc_file <- function(assoc_filename) {
   text_lines_raw <- readr::read_lines(
     assoc_filename
   )
-
-  # stringi::str_trim **sometimes** gives an 'embedded nul in string' error.
-  # This has been reported at https://github.com/gagolews/stringi/issues/458 .
-  # Until then, just try multiple times :-)
   text_lines <- plinkr::safe_str_trim(text_lines_raw)
-
   text_matrix <- plinkr::safe_str_split(string = text_lines)
-  # text_matrix <- stringr::str_split(
-  #   string = text_lines,
-  #   pattern = "[:blank:]+", # nolint, just use ' +' in strsplit
-  #   simplify = TRUE
-  # )
 
   if (nrow(text_matrix) > 2) {
     t <- tibble::as_tibble(

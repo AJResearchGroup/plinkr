@@ -48,13 +48,6 @@ read_plink_ped_file <- function(ped_filename) {
       skip_empty_rows = TRUE
     )
   )
-  # table <- plinkr::safe_str_split(
-  #   string = readr::read_lines(
-  #     file = ped_filename,
-  #     skip_empty_rows = TRUE
-  #   ),
-  #   pattern = "[:blank:]+" # nolint, just use ' +' in strsplit
-  # )
   t <- tibble::as_tibble(table, .name_repair = "minimal")
   testthat::expect_true(ncol(t) >= 6)
   testthat::expect_equal(ncol(t) %% 2, 0)

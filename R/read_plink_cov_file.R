@@ -25,12 +25,6 @@ read_plink_cov_file <- function(
   text_matrix <- plinkr::safe_str_split(
     string = text_lines
   )
-  # text_matrix <- stringr::str_split(
-  #   string = text_lines,
-  #   pattern = "[:blank:]+", # nolint, just use ' +' in strsplit
-  #   simplify = TRUE
-  # )
-
   # The column names FID and IID match the PLINK names of the same
   # data in the phenotype files,
   # https://www.cog-genomics.org/plink/1.9/input#pheno

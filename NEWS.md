@@ -2,11 +2,11 @@
 
 Newest versions at top.
 
-## plinkr v0.16.2 (Unreleased)
+## plinkr v0.16.2 (2021-09-28)
 
 ### NEW FEATURES
 
- * None
+ * Can convert PLINK1 text files to PLINK1 binary files to PLINK2 binary files
 
 ### MINOR IMPROVEMENTS
 
@@ -14,9 +14,10 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * stringi::str_trim **sometimes** gives an 'embedded nul in string' error.
+ * `stringi::stri_trim_both` and `stringi::stri_split_regex` **sometimes** 
+   gives an 'embedded nul in string' error or a segfault.
    This has been reported at https://github.com/gagolews/stringi/issues/458.
-   Until then, a workaround is used
+   Until then, a workaround with base R is used
 
 ### DEPRECATED AND DEFUNCT
 

@@ -41,10 +41,10 @@ The uppercase column names are those as used by PLINK2.}
 Create a set of \code{PLINK2} binary data
 }
 \examples{
-create_plink_bin_data(
-  bim_table = get_test_bim_table(),
-  fam_table = get_test_fam_table(),
-  bed_table = get_test_bed_table()
+create_plink2_bin_data(
+  pgen_table = get_test_pgen_table(),
+  psam_table = get_test_psam_table(),
+  pvar_table = get_test_pvar_table()
 )
 }
 \seealso{

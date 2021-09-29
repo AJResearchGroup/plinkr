@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * `pgen_table` can have SNP IDs as column names and individuals' IDs as row names
 
 ### BUG FIXES
 

@@ -11,6 +11,8 @@
 #' @export
  read_plink2_pgen_file <- function(
   pgen_filename,
+  names_loci,
+  names_ind,
   verbose = FALSE
 ) {
    pgen <- pgenlibr::NewPgen(pgen_filename)
@@ -18,5 +20,8 @@
      pgen = pgen,
      variant_subset = 1:pgenlibr::GetVariantCt(pgen)
    )
-   pgen_table
+   pgen_array <- as.array(pgen_table)
+   colnames(pgen_array) <- names_loci
+   rownames(pgen_array) <- names_ind
+   pgen_array
 }

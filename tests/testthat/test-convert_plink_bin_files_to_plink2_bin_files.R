@@ -34,14 +34,20 @@ test_that("use, test_v1_7_after_make-bed", {
 
 
   # Extract the same knowledge from the binary data
-  pgen_table <- read_plink2_pgen_file(plink2_bin_filenames$pgen_filename)
   psam_table <- read_plink2_psam_file(plink2_bin_filenames$psam_filename)
   pvar_table <- read_plink2_pvar_file(plink2_bin_filenames$pvar_filename)
+  pgen_table <- read_plink2_pgen_file(
+    plink2_bin_filenames$pgen_filename,
+    names_loci = pvar_table$ID, # nolint PLINK2 variable name
+    names_ind = psam_table$IID # nolint PLINK2 variable name
+  )
 
   expect_true(all(snp_names %in% pvar_table$ID))
   expect_true(all(individual_ids %in% psam_table$IID))
-  # TODO expect_equal(individual_ids, colnames(pgen_table))
-  # TODO expect_equal(snp_names, rownames(pgen_table))
+  expect_equal(nrow(pgen_table), n_individuals)
+  expect_equal(ncol(pgen_table), n_snps)
+  expect_equal(snp_names, colnames(pgen_table))
+  expect_equal(individual_ids, rownames(pgen_table))
 
   unlink(folder_name, recursive = TRUE)
 

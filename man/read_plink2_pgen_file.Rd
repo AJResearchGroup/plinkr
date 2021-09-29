@@ -4,7 +4,7 @@
 \alias{read_plink2_pgen_file}
 \title{Read a \code{PLINK2} \code{.pgen} file}
 \usage{
-read_plink2_pgen_file(pgen_filename, verbose = FALSE)
+read_plink2_pgen_file(pgen_filename, names_loci, names_ind, verbose = FALSE)
 }
 \arguments{
 \item{pgen_filename}{name of a \code{PLINK2} \code{.pgen} file

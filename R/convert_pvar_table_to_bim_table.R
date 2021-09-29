@@ -27,7 +27,7 @@ convert_pvar_table_to_bim_table <- function( # nolint indeed a long function nam
   #
   # where (from https://www.cog-genomics.org/plink2/formats#bim):
   #
-  #  * posg: Position in morgans or centimorgans (safe to use dummy value of '0')
+  #  * posg: Position in morgans or centimorgans (safe to use dummy value of '0') # nolint indeed a long line
   #  * pos: Base-pair coordinate (1-based; limited to 231-2)
 
   bim_table <- tibble::tibble(

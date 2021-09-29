@@ -12,8 +12,10 @@ test_that("use", {
   )
 
   # What we know about the data
-  pgen_table <- read_plink2_pgen_file(
-    pgen_filename = pgen_filename
+  pgen_table <- read_plink2_pgen_file_from_files(
+    pgen_filename = pgen_filename,
+    psam_filename = psam_filename,
+    pvar_filename = pvar_filename
   )
   psam_table <- read_plink2_psam_file(
     psam_filename = psam_filename

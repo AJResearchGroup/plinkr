@@ -51,7 +51,6 @@ convert_plink2_bin_data_to_plink_bin_data <- function( # nolint indeed a long fu
   plinkr::check_plink2_bin_data(plink2_bin_data)
   plinkr::check_plink_options(plink_options)
 
-
   if (plink_options$plink_version %in% get_plink1_versions()) {
     stop(
       "PLINK cannot convert '.bed', '.bim' and '.fam' files ",

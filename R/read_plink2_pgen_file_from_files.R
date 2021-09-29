@@ -9,10 +9,16 @@
 #' without those two accessory files.
 #' @inheritParams default_params_doc
 #' @examples
-#' read_plink_pgen_file_from_files(
-#'   pgen_filename = get_plinkr_filename("demo_assoc.bed"),
-#'   psam_filename = get_plinkr_filename("demo_assoc.bim"),
-#'   pvar_filename = get_plinkr_filename("demo_assoc.fam")
+#' read_plink2_pgen_file_from_files(
+#'   pgen_filename = get_plinkr_filename(
+#'     "toy_v1_9_after_make-bed_after_make-pgen.pgen"
+#'   ),
+#'   psam_filename = get_plinkr_filename(
+#'     "toy_v1_9_after_make-bed_after_make-pgen.psam"
+#'   ),
+#'   pvar_filename = get_plinkr_filename(
+#'     "toy_v1_9_after_make-bed_after_make-pgen.pvar"
+#'   )
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export

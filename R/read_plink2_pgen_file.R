@@ -1,12 +1,18 @@
 #' Read a `PLINK2` `.pgen` file
-#' @note this function is inspired by
-#' \url{https://github.com/simingz/ctwas/blob/main/R/ctwas_read_data.R#L112}
 #' @inheritParams default_params_doc
+#' @return a `.pgen` table
+#' @seealso use \link{read_plink2_pgen_file_from_files} to read
+#' a `PLINK2` `.pgen` file with column and rownames obtained from
+#' the two other `PLINK2` data files
 #' @examples
 #' pgen_filename <- get_plinkr_filename(
-#'   "toy_v1_9_after_make-bed_after_make-pgen.pgen"
+#'   "test_v1_7_after_make-bed_after_make-pgen.pgen"
 #' )
-#' read_plink2_pgen_file(pgen_filename)
+#' read_plink2_pgen_file(
+#'   pgen_filename = pgen_filename,
+#'   names_loci = paste0("snp_", 1:2),
+#'   names_ind = paste0("person_", letters[1:6])
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
  read_plink2_pgen_file <- function(

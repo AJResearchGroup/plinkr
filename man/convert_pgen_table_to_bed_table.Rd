@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_pgen_table_to_bed_table.R
 \name{convert_pgen_table_to_bed_table}
 \alias{convert_pgen_table_to_bed_table}
-\title{Convert the \code{PLINK2} binary data to \code{PLINK} binary data}
+\title{Convert a \code{PLINK2} \code{.pgen} table to a \code{PLINK} \code{.bed} table}
 \usage{
 convert_pgen_table_to_bed_table(pgen_table, verbose = FALSE)
 }
@@ -15,59 +15,10 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-the same \link{list} that was used as input,
-except that the following elements
-\itemize{
-\item \code{pgen_table} (see \link{check_pgen_table})
-\item \code{psam_table} (see \link{check_psam_table})
-\item \code{pvar_table} (see \link{check_pvar_table})
-}
-
-are replaced by:
-\itemize{
-\item \code{bim_table} (see \link{check_bim_table})
-\item \code{fam_table} (see \link{check_fam_table})
-\item \code{bed_table} (see \link{check_bed_table})
-}
-
-The other list elements are left as-is.
+a \code{PLINK} \code{.bed} table
 }
 \description{
-Convert the \code{PLINK2} binary data to \code{PLINK} binary data
-}
-\examples{
-if (is_plink_installed(plink_options = create_plink_v2_0_options())) {
-  convert_plink2_bin_data_to_plink_bin_data(
-    plink2_bin_data = create_test_plink2_bin_data()
-  )
-}
-}
-\seealso{
-these are the functions to convert between the \code{PLINK} and
-\code{PLINK2} formats:
-\itemize{
-\item To convert from PLINK1 text data
-\itemize{
-\item to PLINK1 binary data:
-use \link{convert_plink_text_data_to_plink_bin_data}
-\item to PLINK2 binary data,
-use \link{convert_plink_text_data_to_plink2_bin_data}
-}
-\item To convert from PLINK1 binary data
-\itemize{
-\item to PLINK text data,
-use \link{convert_plink_bin_data_to_plink_text_data}
-\item to PLINK2 binary data,
-use \link{convert_plink_bin_data_to_plink2_bin_data}
-}
-\item To convert from PLINK2 binary data
-\itemize{
-\item to PLINK text data,
-use \link{convert_plink2_bin_data_to_plink_text_data}
-\item to PLINK binary data,
-use \link{convert_plink2_bin_data_to_plink_bin_data}
-}
-}
+Convert a \code{PLINK2} \code{.pgen} table to a \code{PLINK} \code{.bed} table
 }
 \author{
 Richèl J.C. Bilderbeek

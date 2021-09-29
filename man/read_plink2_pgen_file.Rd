@@ -14,18 +14,26 @@ Use \link{read_plink2_pgen_file} to read a \code{PLINK2} \code{.pgen} file}
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
+\value{
+a \code{.pgen} table
+}
 \description{
 Read a \code{PLINK2} \code{.pgen} file
 }
-\note{
-this function is inspired by
-\url{https://github.com/simingz/ctwas/blob/main/R/ctwas_read_data.R#L112}
-}
 \examples{
 pgen_filename <- get_plinkr_filename(
-  "toy_v1_9_after_make-bed_after_make-pgen.pgen"
+  "test_v1_7_after_make-bed_after_make-pgen.pgen"
 )
-read_plink2_pgen_file(pgen_filename)
+read_plink2_pgen_file(
+  pgen_filename = pgen_filename,
+  names_loci = paste0("snp_", 1:2),
+  names_ind = paste0("person_", letters[1:6])
+)
+}
+\seealso{
+use \link{read_plink2_pgen_file_from_files} to read
+a \code{PLINK2} \code{.pgen} file with column and rownames obtained from
+the two other \code{PLINK2} data files
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -97,8 +97,10 @@ convert_plink_bin_data_to_plink2_bin_data <- function( # nolint indeed a long fu
   file.remove(fam_filename)
 
   # Add PLINK2 binary files to list
-  plink2_bin_data$pgen_table <- plinkr::read_plink2_pgen_file(
+  plink2_bin_data$pgen_table <- plinkr::read_plink2_pgen_file_from_files(
     pgen_filename = plink2_bin_filenames$pgen_filename,
+    psam_filename = plink2_bin_filenames$psam_filename,
+    pvar_filename = plink2_bin_filenames$pvar_filename,
     verbose = verbose
   )
   plink2_bin_data$psam_table <- plinkr::read_plink2_psam_file(

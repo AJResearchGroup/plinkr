@@ -1,4 +1,5 @@
 test_that("use", {
+  clear_plinkr_cache()
   expect_silent(check_empty_plinkr_folder())
 
   skip("TODO: convert_plink_bin_files_to_plink_text_files")

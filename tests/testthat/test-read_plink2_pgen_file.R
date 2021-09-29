@@ -5,7 +5,7 @@ test_that("minimal use", {
         "test_v1_7_after_make-bed_after_make-pgen.pgen"
       ),
       names_loci = c("snp1", "snp2"),
-      names_ind = rep("1", 6)
+      names_ind = as.character(seq(1, 6))
     )
   )
 

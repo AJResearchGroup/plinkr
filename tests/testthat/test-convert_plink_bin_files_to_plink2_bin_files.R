@@ -89,7 +89,11 @@ test_that("use, toy_v1_9_after_make-bed", {
 
 
   # Extract the same knowledge from the binary data
-  pgen_table <- read_plink2_pgen_file(plink2_bin_filenames$pgen_filename)
+  pgen_table <- read_plink2_pgen_file_from_files(
+    pgen_filename = plink2_bin_filenames$pgen_filename,
+    psam_filename = plink2_bin_filenames$psam_filename,
+    pvar_filename = plink2_bin_filenames$pvar_filename,
+  )
   psam_table <- read_plink2_psam_file(plink2_bin_filenames$psam_filename)
   pvar_table <- read_plink2_pvar_file(plink2_bin_filenames$pvar_filename)
 

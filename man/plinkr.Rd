@@ -74,11 +74,11 @@ Convert the (non-binary) \code{.map} and \code{.ped} files to their binary
 
 This is a list of functions to save \code{PLINK} and \code{PLINK2} files:
 \itemize{
-\item \link{save_map_table_to_file}:
+\item \link{save_map_table}:
 save a genetic mapping table to a \code{PLINK} \code{.map} file
-\item \link{save_ped_table_to_file}:
+\item \link{save_ped_table}:
 save a pedigree table to a \code{PLINK} \code{.ped} file
-\item \link{save_phe_table_to_file}:
+\item \link{save_phe_table}:
 save a phenotype table to a \code{PLINK} phenotype file
 }
 

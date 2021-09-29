@@ -279,14 +279,48 @@ test_that("use, from test data, v1.9", {
 # PLINK2 v2.0
 #
 ################################################################################
-test_that("use, v2.0", {
+test_that("use, PLINK2, PLINK text data, must fail", {
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
+
   expect_error(
     make_bed(
-      base_input_filename = "irrelevant",
+      base_input_filename = tools::file_path_sans_ext(
+        get_plinkr_filename("toy_v1_9.map")
+      ),
       base_output_filename = "irrelevant",
       plink_options = create_plink_v2_0_options()
     ),
-    "PLINK2 cannot convert '.map' and '.ped' files"
+    "No PLINK2 binary files \\(.pgen, .psam and .pvar\\) files found"
   )
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+})
+
+test_that("use, PLINK2, PLINK2 binary data, works", {
+  if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
+
+  base_output_filename <- file.path(
+    get_plinkr_tempfilename(), "make_bed_results_from_plink2_data"
+  )
+
+  filenames <- make_bed(
+    base_input_filename = tools::file_path_sans_ext(
+      get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.pgen")
+    ),
+    base_output_filename = base_output_filename,
+    plink_options = create_plink_v2_0_options()
+  )
+  expect_equal(
+    filenames,
+    list.files(
+      path = dirname(base_output_filename),
+      pattern = "make_bed_results_from_plink2_data",
+      full.names = TRUE
+    )
+  )
+  file.remove(filenames)
+  unlink(dirname(filenames[1]), recursive = TRUE)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

@@ -3,8 +3,8 @@
 %   R/check_plink_version_and_data_can_work_together.R
 \name{check_plink_version_and_data_can_work_together}
 \alias{check_plink_version_and_data_can_work_together}
-\title{Check that the \code{PLINK}/\code{PLINK2} version can work together with
-the data (\code{PLINK} text data, \code{PLINK} binary data, \code{PLINK2} binary data).}
+\title{Internal function to check if the \code{PLINK}/\code{PLINK2} version can work together
+with the data.}
 \usage{
 check_plink_version_and_data_can_work_together(data, plink_options)
 }

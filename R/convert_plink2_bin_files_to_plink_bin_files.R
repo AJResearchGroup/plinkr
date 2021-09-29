@@ -38,10 +38,10 @@ convert_plink2_bin_files_to_plink_bin_files <- function( # nolint indeed a long 
     plink_options = plink_options,
     verbose = verbose
   )
-  bed_filename <- stringr::str_subset(plink2_bin_filenames, "\\.bed$")
-  bim_filename <- stringr::str_subset(plink2_bin_filenames, "\\.bim$")
-  fam_filename <- stringr::str_subset(plink2_bin_filenames, "\\.fam$")
-  log_filename <- stringr::str_subset(plink2_bin_filenames, "\\.log$")
+  bed_filename <- stringr::str_subset(plink_bin_filenames, "\\.bed$")
+  bim_filename <- stringr::str_subset(plink_bin_filenames, "\\.bim$")
+  fam_filename <- stringr::str_subset(plink_bin_filenames, "\\.fam$")
+  log_filename <- stringr::str_subset(plink_bin_filenames, "\\.log$")
   testthat::expect_equal(1, length(bed_filename))
   testthat::expect_equal(1, length(bim_filename))
   testthat::expect_equal(1, length(fam_filename))

@@ -4,9 +4,15 @@ test_that("use", {
 
 
 
-  pgen_filename <- get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.pgen")
-  psam_filename <- get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.psam")
-  pvar_filename <- get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.pvar")
+  pgen_filename <- get_plinkr_filename(
+    "toy_v1_9_after_make-bed_after_make-pgen.pgen"
+  )
+  psam_filename <- get_plinkr_filename(
+    "toy_v1_9_after_make-bed_after_make-pgen.psam"
+  )
+  pvar_filename <- get_plinkr_filename(
+    "toy_v1_9_after_make-bed_after_make-pgen.pvar"
+  )
 
   # What we know about the data
   pgen_table <- read_plink2_pgen_file(

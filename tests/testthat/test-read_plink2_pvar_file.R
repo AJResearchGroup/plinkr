@@ -7,7 +7,6 @@ test_that("minimal use", {
 })
 
 test_that("create, read, save, read, PLINK2", {
-  skip("Need 'save_pvar_table_to_file'")
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
 
   pvar_filename <- get_plinkr_filename(

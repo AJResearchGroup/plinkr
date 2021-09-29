@@ -11,8 +11,10 @@ create_plink2_bin_data(
 )
 }
 \arguments{
-\item{pgen_table}{a \link{matrix} that maps the individuals
-to their SNPs. TODO}
+\item{pgen_table}{an \link{array} that maps the individuals
+to their SNPs, with as much rows as individuals, and as much
+SNPs as columns. Optionally, the row names are the individuals' IDs,
+where the column names are the SNP ID's}
 
 \item{psam_table}{a \link[tibble]{tibble} with as much rows as
 individuals. It has the following columns:

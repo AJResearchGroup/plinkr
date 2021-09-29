@@ -206,8 +206,10 @@
 #' Use \link{check_ped_table} to test if a pedigree table is valid.
 #' @param pgen_filename name of a `PLINK2` `.pgen` file
 #' Use \link{read_plink2_pgen_file} to read a `PLINK2` `.pgen` file
-#' @param pgen_table a \link{matrix} that maps the individuals
-#'   to their SNPs. TODO
+#' @param pgen_table an \link{array} that maps the individuals
+#'   to their SNPs, with as much rows as individuals, and as much
+#'   SNPs as columns. Optionally, the row names are the individuals' IDs,
+#'   where the column names are the SNP ID's
 #' @param phenotype one phenotype, named after its genetic background:
 #'
 #'  * \code{random} the phenotype is a random value,

@@ -345,8 +345,10 @@ Use \link{check_ped_table} to test if a pedigree table is valid.}
 \item{pgen_filename}{name of a \code{PLINK2} \code{.pgen} file
 Use \link{read_plink2_pgen_file} to read a \code{PLINK2} \code{.pgen} file}
 
-\item{pgen_table}{a \link{matrix} that maps the individuals
-to their SNPs. TODO}
+\item{pgen_table}{an \link{array} that maps the individuals
+to their SNPs, with as much rows as individuals, and as much
+SNPs as columns. Optionally, the row names are the individuals' IDs,
+where the column names are the SNP ID's}
 
 \item{phenotype}{one phenotype, named after its genetic background:
 \itemize{

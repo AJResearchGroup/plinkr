@@ -19,8 +19,8 @@ create_plink_bin_data <- function(
   plinkr::check_fam_table(fam_table = fam_table)
   plinkr::check_bed_table(bed_table = bed_table)
   list(
+    bed_table = bed_table,
     bim_table = bim_table,
-    fam_table = fam_table,
-    bed_table = bed_table
+    fam_table = fam_table
   )
 }

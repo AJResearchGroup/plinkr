@@ -38,4 +38,15 @@ get_test_pgen_table <- function() {
       "toy_v1_9_after_make-bed_after_make-pgen.pvar"
     )
   )
+  plinkr::read_plink2_pgen_file_from_files(
+    pgen_filename = plinkr::get_plinkr_filename(
+      "test_v1_7_after_make-bed_after_make-pgen.pgen"
+    ),
+    psam_filename = plinkr::get_plinkr_filename(
+      "test_v1_7_after_make-bed_after_make-pgen.psam"
+    ),
+    pvar_filename = plinkr::get_plinkr_filename(
+      "test_v1_7_after_make-bed_after_make-pgen.pvar"
+    )
+  )
 }

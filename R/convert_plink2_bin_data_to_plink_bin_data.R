@@ -128,4 +128,5 @@ convert_plink2_bin_data_to_plink_bin_data <- function( # nolint indeed a long fu
 
     plink_bin_data
   }
+  plink_bin_data
 }

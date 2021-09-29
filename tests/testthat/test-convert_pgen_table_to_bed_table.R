@@ -7,3 +7,4 @@ test_that("use", {
   expect_equal(ncol(pgen_table), ncol(bed_table))
   expect_identical(pgen_table, bed_table)
 })
+

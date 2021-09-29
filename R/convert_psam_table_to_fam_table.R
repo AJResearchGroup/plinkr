@@ -23,7 +23,7 @@ convert_psam_table_to_fam_table <- function( # nolint indeed a long function nam
   # per1  per1  0     0         2     1
 
   fam_table <- tibble::tibble(
-    fam = psam_table$FID,
+    fam = as.character(psam_table$FID),
     id = psam_table$IID,
     pat = 0,
     mat = 0,

@@ -1,8 +1,5 @@
 test_that("use", {
-  skip("Need 'convert_plink2_bin_files_to_plink_bin_files'")
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
-
-
 
   pgen_filename <- get_plinkr_filename(
     "toy_v1_9_after_make-bed_after_make-pgen.pgen"
@@ -39,15 +36,19 @@ test_that("use", {
 
 
   # Extract the same knowledge from the binary data
-  bed_table <- read_plink_bed_file(plink_bin_filenames$bed_filename)
+  bed_table <- read_plink_bed_file_from_files(
+    bed_filename = plink_bin_filenames$bed_filename,
+    bim_filename = plink_bin_filenames$bim_filename,
+    fam_filename = plink_bin_filenames$fam_filename
+  )
   bim_table <- read_plink_bim_file(plink_bin_filenames$bim_filename)
   fam_table <- read_plink_fam_file(plink_bin_filenames$fam_filename)
 
-  # HIERO
-  expect_true(all(snp_names %in% pvar_table$ID))
-  expect_true(all(individual_ids %in% psam_table$IID))
-  # TODO expect_equal(individual_ids, colnames(pgen__table))
-  # TODO expect_equal(snp_names, rownames(pgen__table))
+  expect_true(all(snp_names %in% bim_table$id))
+  expect_true(all(individual_ids %in% fam_table$id))
+
+  expect_equal(individual_ids, colnames(bed_table))
+  expect_equal(snp_names, rownames(bed_table))
 
   unlink(folder_name, recursive = TRUE)
 

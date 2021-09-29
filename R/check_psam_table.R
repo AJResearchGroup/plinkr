@@ -15,4 +15,6 @@ check_psam_table <- function(psam_table) {
   testthat::expect_equal("IID", names(psam_table)[2])
   testthat::expect_equal("SEX", names(psam_table)[3])
   testthat::expect_equal("PHENO1", names(psam_table)[4])
+  testthat::expect_true(is.character(psam_table$IID))
+
 }

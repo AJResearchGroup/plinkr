@@ -120,9 +120,9 @@ assoc_qt_on_plink2_bin_data <- function(
     message(paste(plinkr::read_plink_log_file(log_filename), collapse = "\n"))
   }
 
-  file.remove(bed_filename)
-  file.remove(bim_filename)
-  file.remove(fam_filename)
+  file.remove(pgen_filename)
+  file.remove(psam_filename)
+  file.remove(pvar_filename)
   file.remove(phe_filename)
   for (qassoc_filename in qassoc_filenames) file.remove(qassoc_filename)
   file.remove(log_filename)

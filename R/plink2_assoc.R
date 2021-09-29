@@ -32,6 +32,7 @@ plink2_assoc <- function(
   pgen_filename <- paste0(assoc_params$base_input_filename, ".pgen")
   psam_filename <- paste0(assoc_params$base_input_filename, ".psam")
   pvar_filename <- paste0(assoc_params$base_input_filename, ".pvar")
+  assoc_filename <- paste0(assoc_params$base_output_filename, ".assoc")
 
   # 'save_' functions will check for success themselves
   stop("Need help of 'pgenlibr' to save a .pgen file")
@@ -64,7 +65,6 @@ plink2_assoc <- function(
     assoc_params = assoc_params,
     plink_options = plink_options
   )
-  # assoc_from_bfile()
 
   plinkr::run_plink(
     args = args,
@@ -73,8 +73,9 @@ plink2_assoc <- function(
   )
   assoc_table <- plinkr::read_plink_assoc_file(assoc_filename)
 
-  file.remove(map_filename)
-  file.remove(ped_filename)
+  file.remove(pgen_filename)
+  file.remove(psam_filename)
+  file.remove(pvar_filename)
   file.remove(assoc_filename)
   testthat::expect_equal(
     0,

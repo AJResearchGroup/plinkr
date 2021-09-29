@@ -5,12 +5,22 @@
 \title{Create a set of \code{PLINK} binary data to be used in testing}
 \usage{
 create_test_plink_bin_data(
+  bed_table = get_test_bed_table(),
   bim_table = get_test_bim_table(),
-  fam_table = get_test_fam_table(),
-  bed_table = get_test_bed_table()
+  fam_table = get_test_fam_table()
 )
 }
 \arguments{
+\item{bed_table}{a table that maps the SNPs to the individuals,
+of which the column names are the names of the individuals,
+the row names are the names of the SNPs,
+and the values are the SNP variant.
+Use \link{get_test_bed_table} to get a \code{.bed} table as used in testing.
+Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
+Use \link{check_bed_table} to test if a \code{.bed} table is valid.
+See also the \code{bed} file format reference at
+\url{https://www.cog-genomics.org/plink2/formats#bed}}
+
 \item{bim_table}{a tibble of the genetic mapping,
 with as many rows as SNPs.
 
@@ -44,16 +54,6 @@ Each row contains:
 Use \link{get_test_fam_table} to get a \code{.fam} table as used in testing.
 Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
 Use \link{check_fam_table} to test if a \code{.fam} table is valid.}
-
-\item{bed_table}{a table that maps the SNPs to the individuals,
-of which the column names are the names of the individuals,
-the row names are the names of the SNPs,
-and the values are the SNP variant.
-Use \link{get_test_bed_table} to get a \code{.bed} table as used in testing.
-Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
-Use \link{check_bed_table} to test if a \code{.bed} table is valid.
-See also the \code{bed} file format reference at
-\url{https://www.cog-genomics.org/plink2/formats#bed}}
 }
 \description{
 Create a set of \code{PLINK} binary data to be used in testing

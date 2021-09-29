@@ -31,7 +31,6 @@ test_that("create, read, save, read, PLINK2", {
   expect_identical(pvar_table, pvar_table_again)
 
   file.remove(pvar_filename_again)
-  unlink(folder_name, recursive = TRUE)
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

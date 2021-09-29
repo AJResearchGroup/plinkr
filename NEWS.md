@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## plinkr v0.16.3 (unreleased)
+## plinkr v0.17 (unreleased)
 
 ### NEW FEATURES
 
@@ -18,7 +18,7 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * None
+ * Remove redundant '_to_file' in 'save_[something]' function names
 
 ## plinkr v0.16.2 (2021-09-28)
 

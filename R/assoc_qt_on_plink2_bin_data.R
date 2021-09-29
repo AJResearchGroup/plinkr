@@ -80,7 +80,7 @@ assoc_qt_on_plink2_bin_data <- function(
       base_input_filename = base_input_filename
     )
     testthat::expect_true(plinkr::has_plink_bin_files(base_input_filename))
-    plinkr::make_bed_with_plink2(
+    plinkr::make_pgen(
       base_input_filename = base_input_filename,
       base_output_filename = base_input_filename,
       plink_options = plink_options,

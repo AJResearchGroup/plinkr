@@ -40,7 +40,7 @@ check_equal_number_of_snvs <- function(
     }
   } else {
     testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
-    n_snvs_in_pgen_table <- nrow(assoc_qt_params$data$pgen_table)
+    n_snvs_in_pgen_table <- ncol(assoc_qt_params$data$pgen_table)
     n_snvs_in_pvar_table <- nrow(assoc_qt_params$data$pvar_table)
     if (n_snvs_in_pgen_table != n_snvs_in_pvar_table) {
       stop(

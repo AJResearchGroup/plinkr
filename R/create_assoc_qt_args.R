@@ -62,6 +62,7 @@ create_assoc_qt_args <- function(
   c(
     "--pfile", assoc_qt_params$base_input_filename,
     "--glm",
+    "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
     "--allow-extra-chr",
     "--chr-set", 95,
     "--maf", assoc_qt_params$maf,

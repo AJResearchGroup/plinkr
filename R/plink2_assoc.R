@@ -64,6 +64,8 @@ plink2_assoc <- function(
     assoc_params = assoc_params,
     plink_options = plink_options
   )
+  # assoc_from_bfile()
+
   plinkr::run_plink(
     args = args,
     plink_options = plink_options,

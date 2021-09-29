@@ -24,6 +24,16 @@ test_that("use, 1 SNP with NAs", {
   )
 })
 
+test_that("use, 1 SNP with NANs", {
+  expect_silent(
+    read_plink_qassoc_file(
+      qassoc_filename = get_plinkr_filename(
+        "qassoc_output_with_nan.qassoc"
+      )
+    )
+  )
+})
+
 test_that("abuse", {
   expect_error(
     read_plink_qassoc_file(

@@ -39,15 +39,14 @@ read_plink_qassoc_file <- function(
     )
   }
   names(t) <- text_matrix[1, ]
+  # The suppressWarnings are there when values can be NA
   t$CHR <- as.numeric(t$CHR) # nolint PLINK coding style
   t$BP <- as.numeric(t$BP) # nolint PLINK coding style
   t$NMISS <- as.numeric(t$NMISS) # nolint PLINK coding style
-  t$BETA <- as.numeric(t$BETA) # nolint PLINK coding style
-  t$SE <- as.numeric(t$SE) # nolint PLINK coding style
-  t$R2 <- as.numeric(t$R2) # nolint PLINK coding style
-  # T may be NA
+  t$BETA <- suppressWarnings(as.numeric(t$BETA)) # nolint PLINK coding style
+  t$SE <- suppressWarnings(as.numeric(t$SE)) # nolint PLINK coding style
+  t$R2 <- suppressWarnings(as.numeric(t$R2)) # nolint PLINK coding style
   t$T <- suppressWarnings(as.numeric(t$T)) # nolint PLINK coding style
-  # P may be NA
   t$P <- suppressWarnings(as.numeric(t$P)) # nolint PLINK coding style
   t
 }

@@ -20,22 +20,21 @@ assoc_qt_on_plink2_bin_data <- function(
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_options(plink_options)
   plinkr::check_verbose(verbose)
-  if (!plinkr::is_plink2_bin_data(assoc_qt_params$data)) {
-    stop(
-      "'assoc_qt_params' is not PLINK2 binary data. \n",
-      "Tip 1: use 'assoc_qt' to let plinkr detect the type of PLINK data. \n",
-      "Tip 2: If the data is in PLINK text format, ",
-      "use 'assoc_qt_on_plink_text_data'. \n",
-      "Tip 3: If the data is in PLINK binary format, ",
-      "use 'assoc_qt_on_plink_bin_data'. \n"
-    )
-  }
-  if (plink_options$plink_version %in% plinkr::get_plink1_versions()) {
-    stop(
-      "PLINK cannot work with PLINK2 binary data. ",
-      "Tip: use 'plink_options = create_plink_v2_0_options()' to use PLINK2"
-    )
-  }
+  plinkr::check_plink_version_and_data_can_work_together(
+    data = assoc_qt_params$data,
+    plink_options = plink_options
+  )
+  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
+  # if (!plinkr::is_plink2_bin_data(assoc_qt_params$data)) {
+  #   stop(
+  #     "'assoc_qt_params' is not PLINK2 binary data. \n",
+  #     "Tip 1: use 'assoc_qt' to let plinkr detect the type of PLINK data. \n",
+  #     "Tip 2: If the data is in PLINK text format, ",
+  #     "use 'assoc_qt_on_plink_text_data'. \n",
+  #     "Tip 3: If the data is in PLINK binary format, ",
+  #     "use 'assoc_qt_on_plink_bin_data'. \n"
+  #   )
+  # }
 
   # Do not be smart yet
   pgen_table <- assoc_qt_params$data$pgen_table

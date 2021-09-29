@@ -11,17 +11,15 @@ create_assoc_qt_args <- function(
 ) {
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_options(plink_options)
+  plinkr::check_plink_version_and_data_can_work_together(
+    data = assoc_qt_params$data,
+    plink_options = plink_options
+  )
 
   if (is_plink_text_data(assoc_qt_params$data)) {
-    if (plink_options$plink_version %in% plinkr::get_plink2_versions()) {
-      stop(
-        "PLINK2 cannot work with PLINK text data. ",
-        "Tip 1: use 'plink_options = create_plink_v1_9_options()' ",
-        "to the PLINK instead ",
-        "Tip 2: use 'convert_plink_text_data_to_plink2_bin_data' ",
-        "to convert the data to PLINK2 binary data. "
-      )
-    }
+    testthat::expect_true(
+      plink_options$plink_version %in% plinkr::get_plink1_versions()
+    )
     return(
       c(
         "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
@@ -37,16 +35,9 @@ create_assoc_qt_args <- function(
     )
   }
   if (plinkr::is_plink_bin_data(assoc_qt_params$data)) {
-    if (plink_options$plink_version %in% plinkr::get_plink2_versions()) {
-      stop(
-        "PLINK2 cannot work with PLINK binary data. ",
-        "Tip 1: use 'plink_options = create_plink_v1_9_options()' ",
-        "to the PLINK instead ",
-        "Tip 2: use 'convert_plink_bin_data_to_plink2_bin_data' ",
-        "to convert the data to PLINK2 binary data. "
-      )
-    }
-
+    testthat::expect_true(
+      plink_options$plink_version %in% plinkr::get_plink1_versions()
+    )
     return(
       c(
         "--bfile", assoc_qt_params$base_input_filename, # PLINK adds prefix # nolint

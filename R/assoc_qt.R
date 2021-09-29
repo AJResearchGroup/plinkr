@@ -37,6 +37,11 @@ assoc_qt <- function(
 ) {
   # Other inputs are checked in the specific function called
   plinkr::check_assoc_qt_params(assoc_qt_params)
+  plinkr::check_plink_options(plink_options)
+  plinkr::check_plink_version_and_data_can_work_together(
+    data = assoc_qt_params$data,
+    plink_options = plink_options
+  )
   qassoc_table <- NULL
   if (is_plink_text_data(assoc_qt_params$data)) {
     qassoc_table <- plinkr::assoc_qt_on_plink_text_data(

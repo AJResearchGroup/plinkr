@@ -18,7 +18,7 @@ test_that("create, read, save, read, PLINK2", {
 
   # Save the table
   pvar_filename_again <- get_plinkr_tempfilename(fileext = ".pvar")
-  save_pvar_table_to_file(
+  save_pvar_table(
     pvar_table = pvar_table,
     pvar_filename = pvar_filename_again
   )

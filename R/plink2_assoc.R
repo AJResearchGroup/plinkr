@@ -35,15 +35,15 @@ plink2_assoc <- function(
 
   # 'save_' functions will check for success themselves
   stop("Need help of 'pgenlibr' to save a .pgen file")
-  plinkr::save_pgen_table_to_file(
+  plinkr::save_pgen_table(
     pgen_table = assoc_params$data$pgen_table,
     pgen_filename = pgen_filename
   )
-  plinkr::save_psam_table_to_file(
+  plinkr::save_psam_table(
     psam_table = assoc_params$data$psam_table,
     psam_filename = psam_filename
   )
-  plinkr::save_pvar_table_to_file(
+  plinkr::save_pvar_table(
     pvar_table = assoc_params$data$pvar_table,
     pvar_filename = pvar_filename
   )

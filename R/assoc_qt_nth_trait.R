@@ -47,15 +47,15 @@ assoc_qt_nth_trait <- function(
   log_filename <- paste0(base_output_filename, ".log")
 
   # 'save_' functions will check for success themselves
-  plinkr::save_ped_table_to_file(
+  plinkr::save_ped_table(
     ped_table = ped_table,
     ped_filename = ped_filename
   )
-  plinkr::save_map_table_to_file(
+  plinkr::save_map_table(
     map_table = map_table,
     map_filename = map_filename
   )
-  plinkr::save_phe_table_to_file(
+  plinkr::save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )

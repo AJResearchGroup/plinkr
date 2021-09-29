@@ -45,7 +45,7 @@ assoc_qt_on_plink2_bin_data <- function(
   # Save all PLINK2 binary data to file
   if (1 == 2) {
     # This is what one wants to write,
-    # but it fails as 'save_pgen_table_to_file' does not exist,
+    # but it fails as 'save_pgen_table' does not exist,
     # due to an absent feature in 'pgenlibr', which was requested at
     # https://github.com/chrchang/plink-ng/issues/194
     # Do not be smart yet
@@ -54,15 +54,15 @@ assoc_qt_on_plink2_bin_data <- function(
     pvar_table <- assoc_qt_params$data$pvar_table
 
     # 'save_' functions will check for success themselves
-    plinkr::save_pgen_table_to_file(
+    plinkr::save_pgen_table(
       pgen_table = pgen_table,
       pgen_filename = pgen_filename
     )
-    plinkr::save_psam_table_to_file(
+    plinkr::save_psam_table(
       psam_table = psam_table,
       psam_filename = psam_filename
     )
-    plinkr::save_pvar_table_to_file(
+    plinkr::save_pvar_table(
       pvar_table = pvar_table,
       pvar_filename = pvar_filename
     )
@@ -91,7 +91,7 @@ assoc_qt_on_plink2_bin_data <- function(
   testthat::expect_true(file.exists(pgen_filename))
   testthat::expect_true(file.exists(psam_filename))
   testthat::expect_true(file.exists(pvar_filename))
-  plinkr::save_phe_table_to_file(
+  plinkr::save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )

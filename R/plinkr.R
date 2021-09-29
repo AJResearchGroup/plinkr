@@ -63,11 +63,11 @@
 #'
 #' This is a list of functions to save \code{PLINK} and \code{PLINK2} files:
 #'
-#' * \link{save_map_table_to_file}:
+#' * \link{save_map_table}:
 #'   save a genetic mapping table to a \code{PLINK} \code{.map} file
-#' * \link{save_ped_table_to_file}:
+#' * \link{save_ped_table}:
 #'   save a pedigree table to a \code{PLINK} \code{.ped} file
-#' * \link{save_phe_table_to_file}:
+#' * \link{save_phe_table}:
 #'   save a phenotype table to a \code{PLINK} phenotype file
 #'
 #' This is a list of functions to get simple/example/testing

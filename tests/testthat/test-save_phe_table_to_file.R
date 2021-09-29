@@ -3,7 +3,7 @@ test_that("save and read must result in same table", {
     phe_filename = get_plinkr_filename("pheno.raw")
   )
   phe_filename <- get_plinkr_tempfilename()
-  save_phe_table_to_file(
+  save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )
@@ -22,7 +22,7 @@ test_that("save and read must result in same table, file with custom header", {
     phe_filename = get_plinkr_filename("pheno_with_standard_header.phe")
   )
   phe_filename <- get_plinkr_tempfilename()
-  save_phe_table_to_file(
+  save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )
@@ -39,7 +39,7 @@ test_that("save and read must result in same table, file with custom header", {
     phe_filename = get_plinkr_filename("pheno_with_custom_header.phe")
   )
   phe_filename <- get_plinkr_tempfilename()
-  save_phe_table_to_file(
+  save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )
@@ -60,7 +60,7 @@ test_that("save and read must result in same table with correct column names", {
   )
   names(phe_table) <- c(names(phe_table)[1:2], "my_phenotype")
   phe_filename <- get_plinkr_tempfilename()
-  save_phe_table_to_file(
+  save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )
@@ -84,7 +84,7 @@ test_that("sub-sub-sub folder", {
     get_plinkr_tempfilename(),
     "sub", "sub", "sub", "folder", "test.phe"
   )
-  save_phe_table_to_file(
+  save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )
@@ -107,7 +107,7 @@ test_that("write to impossible folder", {
   )
   phe_filename <- "/root/test.phe"
   expect_error(
-    save_phe_table_to_file(
+    save_phe_table(
       phe_table = phe_table,
       phe_filename = phe_filename
     ),

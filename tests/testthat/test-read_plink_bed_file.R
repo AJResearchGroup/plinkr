@@ -30,7 +30,7 @@ test_that("create, read, save, read, PLINK v1.7", {
 
   # Save the table
   bed_filename_again <- get_plinkr_tempfilename(fileext = ".bed")
-  save_bed_table_to_file(
+  save_bed_table(
     bed_table = bed_table,
     bed_filename = bed_filename_again
   )
@@ -78,7 +78,7 @@ test_that("create, read, save, read, PLINK v1.9", {
 
   # Save the table
   bed_filename_again <- get_plinkr_tempfilename(fileext = ".bed")
-  save_bed_table_to_file(
+  save_bed_table(
     bed_table = bed_table,
     bed_filename = bed_filename_again
   )

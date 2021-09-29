@@ -3,7 +3,7 @@ test_that("save and read must result in same table", {
     cov_filename = get_plinkr_filename("pheno.raw")
   )
   cov_filename <- get_plinkr_tempfilename()
-  save_cov_table_to_file(
+  save_cov_table(
     cov_table = cov_table,
     cov_filename = cov_filename
   )
@@ -25,7 +25,7 @@ test_that("save and read must result in same table with correct column names", {
   )
   names(cov_table) <- c(names(cov_table)[1:2], "my_phenotype")
   cov_filename <- get_plinkr_tempfilename()
-  save_cov_table_to_file(
+  save_cov_table(
     cov_table = cov_table,
     cov_filename = cov_filename
   )
@@ -48,7 +48,7 @@ test_that("sub-sub-sub folder", {
     get_plinkr_tempfilename(),
     "sub", "sub", "sub", "folder", "test.phe"
   )
-  save_cov_table_to_file(
+  save_cov_table(
     cov_table = cov_table,
     cov_filename = cov_filename
   )
@@ -68,7 +68,7 @@ test_that("write to impossible folder", {
   )
   cov_filename <- "/root/test.phe"
   expect_error(
-    save_cov_table_to_file(
+    save_cov_table(
       cov_table = cov_table,
       cov_filename = cov_filename
     ),

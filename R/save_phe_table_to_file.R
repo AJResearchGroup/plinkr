@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_phe_table_to_file <- function(
+save_phe_table <- function(
   phe_table,
   phe_filename
 ) {
@@ -28,7 +28,7 @@ save_phe_table_to_file <- function(
       stop(
         "Cannot save 'phe_table' to path '", phe_filename, "'. \n",
         "Maybe no permission to do so? \n",
-        "Note that 'save_phe_table_to_file' will (try to) create ",
+        "Note that 'save_phe_table' will (try to) create ",
         "the (sub)folders needed. \n",
         "Error message: ", e$message
       )

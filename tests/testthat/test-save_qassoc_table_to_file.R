@@ -4,7 +4,7 @@ test_that("save and read must result in same file, v1.9", {
     qassoc_filename = get_plinkr_filename("assoc_qt_output_1_snp.qassoc")
   )
   qassoc_filename_again <- get_plinkr_tempfilename()
-  save_qassoc_table_to_file(
+  save_qassoc_table(
     qassoc_table = qassoc_table,
     qassoc_filename = qassoc_filename_again
   )
@@ -23,7 +23,7 @@ test_that("read and save must result in same file, v1.7", {
     qassoc_filename = get_plinkr_filename("assoc_qt_output_1_snp.qassoc")
   )
   qassoc_filename <- get_plinkr_tempfilename()
-  save_qassoc_table_to_file(
+  save_qassoc_table(
     qassoc_table = qassoc_table,
     qassoc_filename = qassoc_filename,
     plink_options = create_plink_v1_7_options()
@@ -43,7 +43,7 @@ test_that("read and save must result in same file, v1.9", {
     qassoc_filename = get_plinkr_filename("assoc_qt_output_1_snp.qassoc")
   )
   qassoc_filename <- get_plinkr_tempfilename()
-  save_qassoc_table_to_file(
+  save_qassoc_table(
     qassoc_table = qassoc_table,
     qassoc_filename = qassoc_filename
   )
@@ -63,7 +63,7 @@ test_that("cannot write to impossible folder, v1.9", {
     qassoc_filename = get_plinkr_filename("assoc_qt_output_1_snp.qassoc")
   )
   expect_error(
-    save_qassoc_table_to_file(
+    save_qassoc_table(
       qassoc_table = qassoc_table,
       qassoc_filename = "/root/assoc_qt_output_1_snp.qassoc"
     ),

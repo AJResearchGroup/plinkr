@@ -5,14 +5,14 @@
 #' @examples
 #' bim_table <- get_test_bim_table()
 #' bim_filename <- get_plinkr_tempfilename(fileext = ".bim")
-#' save_bim_table_to_file(
+#' save_bim_table(
 #'   bim_table = bim_table,
 #'   bim_filename = bim_filename
 #' )
 #' file.remove(bim_filename)
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_bim_table_to_file <- function(
+save_bim_table <- function(
   bim_table,
   bim_filename,
   verbose = FALSE

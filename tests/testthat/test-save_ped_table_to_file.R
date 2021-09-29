@@ -1,7 +1,7 @@
 test_that("minimal use, using get_test_ped_table", {
   ped_table <- get_test_ped_table()
   ped_filename <- get_plinkr_tempfilename()
-  save_ped_table_to_file(
+  save_ped_table(
     ped_table = ped_table,
     ped_filename = ped_filename
   )
@@ -19,7 +19,7 @@ test_that("detailed use, exactly re-create PLINK v1.7 file", {
     ped_filename = plink_ped_filename
   )
   ped_filename <- get_plinkr_tempfilename()
-  save_ped_table_to_file(
+  save_ped_table(
     ped_table = ped_table,
     ped_filename = ped_filename
   )
@@ -36,7 +36,7 @@ test_that("sub-sub-sub folder", {
     get_plinkr_tempfilename(),
     "sub", "sub", "sub", "folder", "test.ped"
   )
-  save_ped_table_to_file(
+  save_ped_table(
     ped_table = ped_table,
     ped_filename = ped_filename
   )
@@ -55,7 +55,7 @@ test_that("write to impossible folder", {
   ped_filename <- "/root/test.ped"
 
   expect_error(
-    save_ped_table_to_file(
+    save_ped_table(
       ped_table = ped_table,
       ped_filename = ped_filename
     ),

@@ -5,14 +5,14 @@
 #' @examples
 #' bed_table <- get_test_bed_table()
 #' bed_filename <- get_plinkr_tempfilename(fileext = ".bed")
-#' save_bed_table_to_file(
+#' save_bed_table(
 #'   bed_table = bed_table,
 #'   bed_filename = bed_filename
 #' )
 #' file.remove(bed_filename)
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_bed_table_to_file <- function(
+save_bed_table <- function(
   bed_table,
   bed_filename,
   verbose = FALSE

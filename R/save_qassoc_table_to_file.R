@@ -4,7 +4,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_qassoc_table_to_file <- function(
+save_qassoc_table <- function(
   qassoc_table,
   qassoc_filename,
   plink_options = create_plink_options()
@@ -50,7 +50,7 @@ save_qassoc_table_to_file <- function(
       stop(
         "Cannot save 'qassoc_table' to path '", qassoc_filename, "'. \n",
         "Maybe no permission to do so? \n",
-        "Note that 'save_qassoc_table_to_file' will (try to) create ",
+        "Note that 'save_qassoc_table' will (try to) create ",
         "the (sub)folders needed. \n",
         "Error message: ", e$message
       )

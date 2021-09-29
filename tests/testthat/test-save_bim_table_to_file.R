@@ -1,7 +1,7 @@
 test_that("use", {
   bim_table <- get_test_bim_table()
   bim_filename <- get_plinkr_tempfilename(fileext = ".bim")
-  save_bim_table_to_file(
+  save_bim_table(
     bim_table = bim_table,
     bim_filename = bim_filename
   )
@@ -18,7 +18,7 @@ test_that("sub-sub-sub folder", {
     get_plinkr_tempfilename(),
     "sub", "sub", "sub", "folder", "test.bim"
   )
-  save_bim_table_to_file(
+  save_bim_table(
     bim_table = bim_table,
     bim_filename = bim_filename
   )
@@ -36,7 +36,7 @@ test_that("Give error due to too high chromosome number", {
   data <- create_test_plink_bin_data()
   data$bim_table$chr <- 123
   expect_error(
-    save_bim_table_to_file(
+    save_bim_table(
       bim_table = data$bim_table,
       bim_filename = "irrelevant_except_for_the_extension.bim"
     ),
@@ -57,7 +57,7 @@ test_that("write to impossible folder", {
 
   # Error by genio
   expect_error(
-    save_bim_table_to_file(
+    save_bim_table(
       bim_table = bim_table,
       bim_filename = bim_filename
     ),

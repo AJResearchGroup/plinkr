@@ -6,7 +6,7 @@
 #' pgen_table <- get_test_pgen_table()
 #' pgen_filename <- get_plinkr_tempfilename(fileext = ".pgen")
 #' if (1 == 2) {
-#'   save_pgen_table_to_file(
+#'   save_pgen_table(
 #'     pgen_table = pgen_table,
 #'     pgen_filename = pgen_filename
 #'   )
@@ -14,7 +14,7 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_pgen_table_to_file <- function(
+save_pgen_table <- function(
   pgen_table,
   pgen_filename,
   verbose = FALSE

@@ -51,7 +51,7 @@ test_that("use, v1.9", {
 
 test_that("read and write must result in exact same file", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  # See test-save_map_table_to_file
+  # See test-save_map_table
 })
 
 test_that("use, plinkr example", {

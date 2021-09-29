@@ -69,15 +69,15 @@ convert_plink_bin_data_to_plink2_bin_data <- function( # nolint indeed a long fu
   bed_filename <- paste0(base_input_filename, ".bed")
   bim_filename <- paste0(base_input_filename, ".bim")
   fam_filename <- paste0(base_input_filename, ".fam")
-  plinkr::save_bed_table_to_file(
+  plinkr::save_bed_table(
     bed_filename = bed_filename,
     bed_table = plink_bin_data$bed_table
   )
-  plinkr::save_bim_table_to_file(
+  plinkr::save_bim_table(
     bim_filename = bim_filename,
     bim_table = plink_bin_data$bim_table
   )
-  plinkr::save_fam_table_to_file(
+  plinkr::save_fam_table(
     fam_filename = fam_filename,
     fam_table = plink_bin_data$fam_table
   )

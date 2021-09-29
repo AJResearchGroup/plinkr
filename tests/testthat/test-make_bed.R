@@ -249,11 +249,11 @@ test_that("use, from test data, v1.9", {
   map_filename <- file.path(folder, "input.map")
   ped_filename <- file.path(folder, "input.ped")
   assoc_params <- create_test_assoc_params()
-  save_map_table_to_file(
+  save_map_table(
     map_table = assoc_params$data$map_table,
     map_filename = map_filename
   )
-  save_ped_table_to_file(
+  save_ped_table(
     ped_table = assoc_params$data$ped_table,
     ped_filename = ped_filename
   )

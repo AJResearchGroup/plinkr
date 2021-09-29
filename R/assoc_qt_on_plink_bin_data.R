@@ -75,20 +75,20 @@ assoc_qt_on_plink_bin_data <- function(
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
   # 'save_' functions will check for success themselves
-  plinkr::save_bed_table_to_file(
+  plinkr::save_bed_table(
     bed_table = bed_table,
     bed_filename = bed_filename
   )
-  plinkr::save_bim_table_to_file(
+  plinkr::save_bim_table(
     bim_table = bim_table,
     bim_filename = bim_filename
   )
-  plinkr::save_fam_table_to_file(
+  plinkr::save_fam_table(
     fam_table = fam_table,
     fam_filename = fam_filename
   )
 
-  plinkr::save_phe_table_to_file(
+  plinkr::save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )

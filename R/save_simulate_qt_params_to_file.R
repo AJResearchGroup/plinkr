@@ -5,7 +5,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_simulate_qt_params_to_file <- function( # nolint indeed a long function name
+save_simulate_qt_params <- function( # nolint indeed a long function name
   simulate_qt_params,
   sim_filename
 ) {

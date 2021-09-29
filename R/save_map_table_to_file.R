@@ -4,7 +4,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_map_table_to_file <- function(
+save_map_table <- function(
   map_table,
   map_filename,
   plink_options = create_plink_options()
@@ -47,7 +47,7 @@ save_map_table_to_file <- function(
       stop(
         "Cannot save 'map_table' to path '", map_filename, "'. \n",
         "Maybe no permission to do so? \n",
-        "Note that 'save_map_table_to_file' will (try to) create ",
+        "Note that 'save_map_table' will (try to) create ",
         "the (sub)folders needed. \n",
         "Error message: ", e$message
       )

@@ -28,7 +28,7 @@ test_that("create, read, save, read, PLINK v1.7", {
 
   # Save the table
   fam_filename_again <- get_plinkr_tempfilename(fileext = ".fam")
-  save_fam_table_to_file(
+  save_fam_table(
     fam_table = fam_table,
     fam_filename = fam_filename_again
   )
@@ -65,7 +65,7 @@ test_that("create, read, save, read, PLINK v1.9", {
 
   # Save the table
   fam_filename_again <- get_plinkr_tempfilename(fileext = ".fam")
-  save_fam_table_to_file(
+  save_fam_table(
     fam_table = fam_table,
     fam_filename = fam_filename_again
   )

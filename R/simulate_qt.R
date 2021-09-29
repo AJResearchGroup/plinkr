@@ -13,7 +13,7 @@ simulate_qt <- function(
 ) {
   plinkr::check_plink_options(plink_options)
   # Create input files
-  plinkr::save_simulate_qt_params_to_file(
+  plinkr::save_simulate_qt_params(
     simulate_qt_params = simulate_qt_params,
     sim_filename = temp_sim_filename
   )

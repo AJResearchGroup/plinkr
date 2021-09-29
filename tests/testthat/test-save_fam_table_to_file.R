@@ -1,7 +1,7 @@
 test_that("use", {
   fam_table <- get_test_fam_table()
   fam_filename <- get_plinkr_tempfilename(fileext = ".fam")
-  save_fam_table_to_file(
+  save_fam_table(
     fam_table = fam_table,
     fam_filename = fam_filename
   )
@@ -18,7 +18,7 @@ test_that("sub-sub-sub folder", {
     get_plinkr_tempfilename(),
     "sub", "sub", "sub", "folder", "test.fam"
   )
-  save_fam_table_to_file(
+  save_fam_table(
     fam_table = fam_table,
     fam_filename = fam_filename
   )
@@ -39,7 +39,7 @@ test_that("write to impossible folder", {
 
   # Error by genio
   expect_error(
-    save_fam_table_to_file(
+    save_fam_table(
       fam_table = fam_table,
       fam_filename = fam_filename
     ),

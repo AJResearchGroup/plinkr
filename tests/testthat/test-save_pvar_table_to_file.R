@@ -10,7 +10,7 @@ test_that("exactly re-recreate .pvar file", {
 
   # Save the table
   pvar_filename_again <- get_plinkr_tempfilename(fileext = ".pvar")
-  save_pvar_table_to_file(
+  save_pvar_table(
     pvar_table = pvar_table,
     pvar_filename = pvar_filename_again
   )

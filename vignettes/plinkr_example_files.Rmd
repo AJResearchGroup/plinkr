@@ -113,7 +113,7 @@ testthat::expect_equal(
 
 ```{r}
 if (1 == 2) {
-  plinkr::save_phe_table_to_file(
+  plinkr::save_phe_table(
     phe_table = assoc_qt_params$phe_table,
     phe_filename = get_plinkr_filename("demo_assoc_qt.phe")
   )

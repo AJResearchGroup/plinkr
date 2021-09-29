@@ -2,7 +2,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_cov_table_to_file <- function(
+save_cov_table <- function(
   cov_table,
   cov_filename
 ) {
@@ -28,7 +28,7 @@ save_cov_table_to_file <- function(
       stop(
         "Cannot save 'cov_table' to path '", cov_filename, "'. \n",
         "Maybe no permission to do so? \n",
-        "Note that 'save_cov_table_to_file' will (try to) create ",
+        "Note that 'save_cov_table' will (try to) create ",
         "the (sub)folders needed. \n",
         "Error message: ", e$message
       )

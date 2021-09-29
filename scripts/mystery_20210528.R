@@ -39,11 +39,11 @@ assoc_results <- assoc(assoc_params)
 assoc_params$data$ped_table$case_control_code <- 0
 ped_filename <- "~/mystery.ped"
 map_filename <- "~/mystery.map"
-plinkr::save_ped_table_to_file(
+plinkr::save_ped_table(
   ped_table = assoc_params$data$ped_table,
   ped_filename = ped_filename
 )
-plinkr::save_map_table_to_file(
+plinkr::save_map_table(
   map_table = assoc_params$data$map_table,
   map_filename = map_filename
 )

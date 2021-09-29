@@ -106,7 +106,7 @@ test_that("5. test data, PLINK2, PLINK1 bin data, must fail", {
 })
 
 test_that("6. test data, PLINK2, PLINK2 bin data", {
-  skip("Need 'save_pgen_to_file'")
+  skip("Need 'save_pgen'")
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()

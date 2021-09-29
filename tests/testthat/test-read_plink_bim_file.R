@@ -28,7 +28,7 @@ test_that("create, read, save, read, PLINK v1.7", {
 
   # Save the table
   bim_filename_again <- get_plinkr_tempfilename(fileext = ".bim")
-  save_bim_table_to_file(
+  save_bim_table(
     bim_table = bim_table,
     bim_filename = bim_filename_again
   )
@@ -65,7 +65,7 @@ test_that("create, read, save, read, PLINK v1.9", {
 
   # Save the table
   bim_filename_again <- get_plinkr_tempfilename(fileext = ".bim")
-  save_bim_table_to_file(
+  save_bim_table(
     bim_table = bim_table,
     bim_filename = bim_filename_again
   )

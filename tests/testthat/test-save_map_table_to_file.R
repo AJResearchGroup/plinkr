@@ -1,7 +1,7 @@
 test_that("use", {
   map_table <- get_test_map_table()
   map_filename <- get_plinkr_tempfilename()
-  save_map_table_to_file(
+  save_map_table(
     map_table = map_table,
     map_filename = map_filename
   )
@@ -19,7 +19,7 @@ test_that("detailed use, recreate v1.7 test.map file exactly", {
     map_filename = plink_map_filename
   )
   map_filename <- get_plinkr_tempfilename()
-  save_map_table_to_file(
+  save_map_table(
     map_table = map_table,
     map_filename = map_filename,
     plink_options = create_plink_v1_7_options()
@@ -44,7 +44,7 @@ test_that("detailed use, recreate v1.9 test.map file exactly", {
     map_filename = plink_map_filename
   )
   map_filename <- get_plinkr_tempfilename()
-  save_map_table_to_file(
+  save_map_table(
     map_table = map_table,
     map_filename = map_filename,
     plink_options = create_plink_v1_9_options()
@@ -65,7 +65,7 @@ test_that("sub-sub-sub folder", {
     get_plinkr_tempfilename(),
     "sub", "sub", "sub", "folder", "test.map"
   )
-  save_map_table_to_file(
+  save_map_table(
     map_table = map_table,
     map_filename = map_filename
   )
@@ -84,7 +84,7 @@ test_that("Give error due to too high chromosome number", {
   )
   assoc_params$data$map_table$CHR <- 123 # nolint PLINK coding style
   expect_error(
-    save_map_table_to_file(
+    save_map_table(
       map_table = assoc_params$data$map_table,
       map_filename = "irrelevant"
     ),
@@ -100,7 +100,7 @@ test_that("write to impossible folder", {
   map_filename <- "/root/test.map"
 
   expect_error(
-    save_map_table_to_file(
+    save_map_table(
       map_table = map_table,
       map_filename = map_filename
     ),

@@ -5,14 +5,14 @@
 #' @examples
 #' fam_table <- get_test_fam_table()
 #' fam_filename <- get_plinkr_tempfilename(fileext = ".fam")
-#' save_fam_table_to_file(
+#' save_fam_table(
 #'   fam_table = fam_table,
 #'   fam_filename = fam_filename
 #' )
 #' file.remove(fam_filename)
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_fam_table_to_file <- function(
+save_fam_table <- function(
   fam_table,
   fam_filename,
   verbose = FALSE

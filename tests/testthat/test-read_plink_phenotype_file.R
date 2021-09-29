@@ -36,7 +36,7 @@ test_that("multiple traits", {
   )
   phe_table$phenotype_2 <- stats::runif(nrow(phe_table))
   phe_filename <- get_plinkr_tempfilename()
-  save_phe_table_to_file(
+  save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
   )

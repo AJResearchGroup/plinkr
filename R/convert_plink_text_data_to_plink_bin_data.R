@@ -64,11 +64,11 @@ convert_plink_text_data_to_plink_bin_data <- function( # nolint indeed a long fu
   base_input_filename <- plinkr::get_plinkr_tempfilename(fileext = "")
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
-  plinkr::save_ped_table_to_file(
+  plinkr::save_ped_table(
     ped_filename = ped_filename,
     ped_table = plink_text_data$ped_table
   )
-  plinkr::save_map_table_to_file(
+  plinkr::save_map_table(
     map_filename = map_filename,
     map_table = plink_text_data$map_table
   )

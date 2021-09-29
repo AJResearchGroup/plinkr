@@ -5,14 +5,14 @@
 #' @examples
 #' psam_table <- get_test_psam_table()
 #' psam_filename <- get_plinkr_tempfilename(fileext = ".psam")
-#' save_psam_table_to_file(
+#' save_psam_table(
 #'   psam_table = psam_table,
 #'   psam_filename = psam_filename
 #' )
 #' file.remove(psam_filename)
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_psam_table_to_file <- function(
+save_psam_table <- function(
   psam_table,
   psam_filename,
   verbose = FALSE

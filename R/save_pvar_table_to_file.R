@@ -5,14 +5,14 @@
 #' @examples
 #' pvar_table <- get_test_pvar_table()
 #' pvar_filename <- get_plinkr_tempfilename(fileext = ".pvar")
-#' save_pvar_table_to_file(
+#' save_pvar_table(
 #'   pvar_table = pvar_table,
 #'   pvar_filename = pvar_filename
 #' )
 #' file.remove(pvar_filename)
 #' @author Richèl J.C. Bilderbeek
 #' @export
-save_pvar_table_to_file <- function(
+save_pvar_table <- function(
   pvar_table,
   pvar_filename,
   verbose = FALSE

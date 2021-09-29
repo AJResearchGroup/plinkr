@@ -18,7 +18,7 @@ test_that("create, read, save, read, PLINK2", {
 
   # Save the table
   psam_filename_again <- get_plinkr_tempfilename(fileext = ".psam")
-  save_psam_table_to_file(
+  save_psam_table(
     psam_table = psam_table,
     psam_filename = psam_filename_again
   )

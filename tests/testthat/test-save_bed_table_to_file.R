@@ -2,7 +2,7 @@ test_that("minimal use", {
   expect_silent(check_empty_plinkr_folder())
 
   bed_filename <- get_plinkr_tempfilename(fileext = ".bed")
-  save_bed_table_to_file(
+  save_bed_table(
     bed_table = get_test_bed_table(),
     bed_filename = bed_filename
   )
@@ -19,7 +19,7 @@ test_that("sub-sub-sub folder", {
     get_plinkr_tempfilename(),
     "sub", "sub", "sub", "folder", "test.bed"
   )
-  save_bed_table_to_file(
+  save_bed_table(
     bed_table = bed_table,
     bed_filename = bed_filename
   )
@@ -40,7 +40,7 @@ test_that("write to impossible folder", {
 
   # Error by genio
   expect_error(
-    save_bed_table_to_file(
+    save_bed_table(
       bed_table = bed_table,
       bed_filename = bed_filename
     ),

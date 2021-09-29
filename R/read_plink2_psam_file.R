@@ -9,6 +9,6 @@
    df <- data.table::fread(psam_filename)
    names(df) <- c("FID", names(df)[-1])
    psam_table <- tibble::tibble(df)
-   psam_table$IID <- as.character(psam_table$IID)
+   psam_table$IID <- as.character(psam_table$IID) # nolint PLINK2 notation
    psam_table
 }

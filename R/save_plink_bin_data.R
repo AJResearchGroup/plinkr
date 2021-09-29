@@ -21,11 +21,11 @@ save_plink_bin_data <- function(
     bed_filename = bed_filename
   )
   plinkr::save_bim_table(
-    bim_table = bim_table,
+    bim_table = plink_bin_data$bim_table,
     bim_filename = bim_filename
   )
   plinkr::save_fam_table(
-    fam_table = fam_table,
+    fam_table = plink_bin_data$fam_table,
     fam_filename = fam_filename
   )
   c(

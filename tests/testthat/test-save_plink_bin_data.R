@@ -1,5 +1,4 @@
-test_that("use", {
-  skip("Cannot read freshly saved .bed file")
+test_that("can save", {
   base_input_filename <- file.path(
     get_plinkr_tempfilename(),
     "save_plink_bin_data"

@@ -174,3 +174,61 @@ test_that("test data, PLINK1, PLINK1 bin data, phenotype file", {
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
 })
+
+#
+# Compare results and speed
+#
+
+test_that("Compare assoc_qt results of PLINK v1.7, v1.9 and PLINK2 2.0", {
+  if (!is_plink_installed()) return()
+
+  # Goal is to see the results of the PLINK versions
+  set.seed(314)
+  assoc_qt_params <- create_demo_assoc_qt_params(
+    n_individuals = 1000,
+    traits = create_random_trait(n_snps = 1000)
+  )
+  assoc_qt_params$data$map_table$CHR <- 1
+  # PLINK v1.9 with text files
+  expect_true(is_plink_text_data(assoc_qt_params$data))
+  start_plink_text_time <- Sys.time()
+  assoc_qt_result_plink_text <- assoc_qt(
+    assoc_qt_params = assoc_qt_params,
+    plink_options = create_plink_v1_9_options()
+  )
+  end_plink_text_time <- Sys.time()
+  # PLINK v1.9 with bin files
+  assoc_qt_params$data <- convert_plink_text_data_to_plink_bin_data(
+    assoc_qt_params$data
+  )
+  expect_true(is_plink_bin_data(assoc_qt_params$data))
+  start_plink_bin_time <- Sys.time()
+  assoc_qt_result_plink_bin <- assoc_qt(
+    assoc_qt_params = assoc_qt_params,
+    plink_options = create_plink_v1_9_options()
+  )
+  end_plink_bin_time <- Sys.time()
+  # PLINK v2.0 with PLINK2 binary files
+  assoc_qt_params$data <- convert_plink_bin_data_to_plink2_bin_data(
+    assoc_qt_params$data
+  )
+  expect_true(is_plink2_bin_data(assoc_qt_params$data))
+  start_plink2_bin_time <- Sys.time()
+  assoc_qt_result_plink2_bin <- assoc_qt(
+    assoc_qt_params = assoc_qt_params,
+    plink_options = create_plink_v2_0_options()
+  )
+  end_plink2_bin_time <- Sys.time()
+  assoc_qt_result_plink_text
+  assoc_qt_result_plink_bin
+  assoc_qt_result_plink2_bin
+
+  dt_plink_text <- end_plink_text_time - start_plink_text_time
+  dt_plink_bin <- end_plink_bin_time - start_plink_bin_time
+  dt_plink2_bin <- end_plink2_bin_time - start_plink2_bin_time
+  dt_plink_text
+  dt_plink_bin
+  dt_plink2_bin
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+})

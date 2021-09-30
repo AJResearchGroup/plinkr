@@ -73,6 +73,7 @@ convert_plink2_bin_data_to_plink_bin_data <- function( # nolint indeed a long fu
   plink_bin_data$fam_table <- plinkr::convert_psam_table_to_fam_table(
     psam_table = plink2_bin_data$psam_table
   )
+  plinkr::check_plink_bin_data(plink_bin_data)
   plink_bin_data
 
   if (1 == 2) {

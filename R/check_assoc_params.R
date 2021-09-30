@@ -19,7 +19,7 @@ check_assoc_params <- function(assoc_params) {
     plinkr::check_base_output_filename(assoc_params$base_output_filename)
   )
 
-  plinkr::check_equal_number_of_snvs(assoc_params)
+  plinkr::check_equal_number_of_snvs(assoc_params$data)
 
   testthat::expect_true(
     all(

@@ -21,5 +21,5 @@ check_assoc_qt_params <- function(assoc_qt_params) {
   testthat::expect_silent(
     plinkr::check_base_output_filename(assoc_qt_params$base_output_filename)
   )
-  plinkr::check_equal_number_of_snvs(assoc_qt_params)
+  plinkr::check_equal_number_of_snvs(assoc_qt_params$data)
 }

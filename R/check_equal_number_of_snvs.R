@@ -1,22 +1,26 @@
-#' Internal function, called by \link{check_assoc_qt_params}
+#' Internal function
 #'
-#' Check if the \code{assoc_qt_params} has the same number of
-#' SNVs in the genetic mapping and the pedigree table.
+#' Check if the data has the same number of
+#' SNVs in its tables.
 #' Will \link{stop} if not.
 #' @inheritParams default_params_doc
+#' @examples
+#' check_equal_number_of_snvs(create_test_plink_text_data())
+#' check_equal_number_of_snvs(create_test_plink_bin_data())
+#' check_equal_number_of_snvs(create_test_plink2_bin_data())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_equal_number_of_snvs <- function(
-  assoc_qt_params
+  data
 ) {
-  # Call check_assoc_qt_params would result in recursion
-  testthat::expect_true(is.list(assoc_qt_params))
-  testthat::expect_true("data" %in% names(assoc_qt_params))
-  testthat::expect_silent(plinkr::check_data(assoc_qt_params$data))
+  # Do not use 'check_data' as this results in recursion
+  # testthat::expect_silent(plinkr::check_data(data))
 
-  if (plinkr::is_plink_text_data(assoc_qt_params$data)) {
-    n_snvs_in_ped_table <- (ncol(assoc_qt_params$data$ped_table) - 6) / 2
-    n_snvs_in_map_table <- nrow(assoc_qt_params$data$map_table)
+
+  if ("ped_table" %in% names(data)) {
+    testthat::expect_true("map_table" %in% names(data))
+    n_snvs_in_ped_table <- (ncol(data$ped_table) - 6) / 2
+    n_snvs_in_map_table <- nrow(data$map_table)
     if (n_snvs_in_ped_table != n_snvs_in_map_table) {
       stop(
         "Different number of SNVs in the genetic mapping (.map) table \n",
@@ -26,9 +30,10 @@ check_equal_number_of_snvs <- function(
         "Number of SNVs in pedigree (.ped) table: ", n_snvs_in_ped_table
       )
     }
-  } else if (plinkr::is_plink_bin_data(assoc_qt_params$data)) {
-    n_snvs_in_bed_table <- nrow(assoc_qt_params$data$bed_table)
-    n_snvs_in_bim_table <- nrow(assoc_qt_params$data$bim_table)
+  } else if ("bed_table" %in% names(data)) {
+    testthat::expect_true("bim_table" %in% names(data))
+    n_snvs_in_bed_table <- nrow(data$bed_table)
+    n_snvs_in_bim_table <- nrow(data$bim_table)
     if (n_snvs_in_bed_table != n_snvs_in_bed_table) {
       stop(
         "Different number of SNVs in the genetic mapping (.map) table \n",
@@ -39,9 +44,11 @@ check_equal_number_of_snvs <- function(
       )
     }
   } else {
-    testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
-    n_snvs_in_pgen_table <- ncol(assoc_qt_params$data$pgen_table)
-    n_snvs_in_pvar_table <- nrow(assoc_qt_params$data$pvar_table)
+    testthat::expect_true("pgen_table" %in% names(data))
+    testthat::expect_true("pvar_table" %in% names(data))
+    testthat::expect_true("psam_table" %in% names(data))
+    n_snvs_in_pgen_table <- ncol(data$pgen_table)
+    n_snvs_in_pvar_table <- nrow(data$pvar_table)
     if (n_snvs_in_pgen_table != n_snvs_in_pvar_table) {
       stop(
         "Different number of SNVs in the genetic mapping (.pvar) table \n",
@@ -54,5 +61,5 @@ check_equal_number_of_snvs <- function(
     }
   }
 
-  invisible(assoc_qt_params)
+  invisible(data)
 }

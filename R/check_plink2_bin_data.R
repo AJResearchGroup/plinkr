@@ -24,6 +24,6 @@ check_plink2_bin_data <- function(
   plinkr::check_pgen_table(plink2_bin_data$pgen_table)
   plinkr::check_psam_table(plink2_bin_data$psam_table)
   plinkr::check_pvar_table(plink2_bin_data$pvar_table)
-
+  plinkr::check_equal_number_of_snvs(plink2_bin_data)
   invisible(plink2_bin_data)
 }

@@ -35,5 +35,5 @@ check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
       assoc_qt_covar_params$base_output_filename
     )
   )
-  plinkr::check_equal_number_of_snvs(assoc_qt_covar_params)
+  plinkr::check_equal_number_of_snvs(assoc_qt_covar_params$data)
 }

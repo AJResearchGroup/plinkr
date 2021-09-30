@@ -56,6 +56,8 @@ test_that("create, read, save, read, PLINK2", {
 
 test_that("demonstrate .pgen row/column ordering differs from genio's .bed", {
 
+  if (!is_plink_installed()) return()
+
   # Convert data
   # 1. Create an asymmetrical PLINK1 text data set
   # 2. Convert to an asymmetrical PLINK1 binary data set

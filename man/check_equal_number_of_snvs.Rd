@@ -2,19 +2,34 @@
 % Please edit documentation in R/check_equal_number_of_snvs.R
 \name{check_equal_number_of_snvs}
 \alias{check_equal_number_of_snvs}
-\title{Internal function, called by \link{check_assoc_qt_params}}
+\title{Internal function}
 \usage{
-check_equal_number_of_snvs(assoc_qt_params)
+check_equal_number_of_snvs(data)
 }
 \arguments{
-\item{assoc_qt_params}{parameters to do an association analysis
-for a quantitative trait (i.e. using \link{assoc_qt}),
-as can be created by \link{create_assoc_qt_params}}
+\item{data}{PLINK or PLINK2 text or binary data:
+\itemize{
+\item PLINK text data:
+a \code{.ped} table (see \link{read_plink_ped_file})
+and a \code{.map} (see \link{read_plink_map_file}),
+as created by \link{create_plink_text_data}.
+\item PLINK binary data:
+a \code{.bed} table (see \link{read_plink_bed_file})
+a \code{.bim} table (see \link{read_plink_bim_file})
+and a \code{.fam} (see \link{read_plink_fam_file}),
+as created by \link{create_plink_bin_data}.
+\item PLINK2 binary data: use \link{create_plink2_bin_data}
+}}
 }
 \description{
-Check if the \code{assoc_qt_params} has the same number of
-SNVs in the genetic mapping and the pedigree table.
+Check if the data has the same number of
+SNVs in its tables.
 Will \link{stop} if not.
+}
+\examples{
+check_equal_number_of_snvs(create_test_plink_text_data())
+check_equal_number_of_snvs(create_test_plink_bin_data())
+check_equal_number_of_snvs(create_test_plink2_bin_data())
 }
 \author{
 Richèl J.C. Bilderbeek

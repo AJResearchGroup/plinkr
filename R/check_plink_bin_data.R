@@ -26,4 +26,5 @@ check_plink_bin_data <- function(
   plinkr::check_bed_table(plink_bin_data$bed_table)
   plinkr::check_bim_table(plink_bin_data$bim_table)
   plinkr::check_fam_table(plink_bin_data$fam_table)
+  plinkr::check_equal_number_of_snvs(plink_bin_data)
 }

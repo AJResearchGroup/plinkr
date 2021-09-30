@@ -20,7 +20,9 @@ Use \link{check_verbose} to detect if this argument is valid.}
 a \code{PLINK} \code{.bed} table
 }
 \description{
-Convert a \code{PLINK2} \code{.pgen} table to a \code{PLINK} \code{.bed} table
+Convert a \code{PLINK2} \code{.pgen} table to a \code{PLINK} \code{.bed} table.
+To do so, simply transpose a \code{.pgen} table,
+see \url{https://github.com/chrchang/plink-ng/issues/195}
 }
 \author{
 Richèl J.C. Bilderbeek

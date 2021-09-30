@@ -2,7 +2,7 @@ test_that("use, create_test_assoc_qt_params, PLINK text", {
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
-      assoc_qt_params = create_test_assoc_qt_params()
+      create_test_assoc_qt_params()$data
     )
   )
   expect_silent(check_empty_plinkr_folder())
@@ -13,9 +13,7 @@ test_that("use, create_test_assoc_qt_params, PLINK binary data", {
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
-      assoc_qt_params = create_test_assoc_qt_params(
-        data = create_test_plink_bin_data()
-      )
+      data = create_test_plink_bin_data()
     )
   )
   expect_silent(check_empty_plinkr_folder())
@@ -25,9 +23,7 @@ test_that("use, create_test_assoc_qt_params, PLINK2 binary data", {
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
-      assoc_qt_params = create_test_assoc_qt_params(
-        data = create_test_plink2_bin_data()
-      )
+      data = create_test_plink2_bin_data()
     )
   )
   expect_silent(check_empty_plinkr_folder())
@@ -40,7 +36,7 @@ test_that("use, create_demo_assoc_qt_params", {
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
-      assoc_qt_params = create_demo_assoc_qt_params()
+      data = create_demo_assoc_qt_params()$data
     )
   )
 })
@@ -56,13 +52,13 @@ test_that("detect mismatch", {
   )
   expect_error(
     check_equal_number_of_snvs(
-      assoc_qt_params = assoc_qt_params
+      data = assoc_qt_params$data
     ),
     "ped.*2"
   )
   expect_error(
     check_equal_number_of_snvs(
-      assoc_qt_params = assoc_qt_params
+      data = assoc_qt_params$data
     ),
     "map.*1"
   )

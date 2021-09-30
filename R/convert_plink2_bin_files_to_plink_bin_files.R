@@ -1,4 +1,4 @@
-#' Convert `PLINK` binary data files to `PLINK2` binary data files
+#' Convert `PLINK2` binary data files to `PLINK` binary data files
 #' @inheritParams default_params_doc
 #' @return a list with the following elements:
 #'  * `bed_filename`: the full `.bed` filename

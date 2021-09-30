@@ -2,11 +2,12 @@
 
 Newest versions at top.
 
-## plinkr v0.17 (unreleased)
+## plinkr v0.17 (2021-09-30)
 
 ### NEW FEATURES
 
- * None
+ * Can convert PLINK2 binary files to PLINK1 binary files
+ * Can do `assoc_qt` with PLINK2 binary data
 
 ### MINOR IMPROVEMENTS
 

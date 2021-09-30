@@ -83,9 +83,9 @@ From               |To                 |Function name
 -------------------|-------------------|----------------------------------------------
 PLINK1 text files  |PLINK1 binary files|`convert_plink_text_files_to_plink_bin_files`
 PLINK1 text files  |PLINK2 binary files|`convert_plink_text_files_to_plink2_bin_files`
-PLINK1 binary files|PLINK text files   |`convert_plink_bin_files_to_plink_text_files`
+PLINK1 binary files|PLINK text files   |`convert_plink_bin_files_to_plink_text_files` :construction:
 PLINK1 binary files|PLINK2 binary files|`convert_plink_bin_files_to_plink2_bin_files`
-PLINK2 binary files|PLINK text files   |`convert_plink2_bin_files_to_plink_text_files`
+PLINK2 binary files|PLINK text files   |`convert_plink2_bin_files_to_plink_text_files` :construction:
 PLINK2 binary files|PLINK binary files |`convert_plink2_bin_files_to_plink_bin_files`
 
 ### PLINK and PLINK2 data conversions
@@ -96,9 +96,9 @@ From              |To                |Function name
 ------------------|------------------|--------------------------------------------
 PLINK1 text data  |PLINK1 binary data|`convert_plink_text_data_to_plink_bin_data`
 PLINK1 text data  |PLINK2 binary data|`convert_plink_text_data_to_plink2_bin_data`
-PLINK1 binary data|PLINK text data   |`convert_plink_bin_data_to_plink_text_data`
+PLINK1 binary data|PLINK text data   |`convert_plink_bin_data_to_plink_text_data` :construction:
 PLINK1 binary data|PLINK2 binary data|`convert_plink_bin_data_to_plink2_bin_data`
-PLINK2 binary data|PLINK text data   |`convert_plink2_bin_data_to_plink_text_data`
+PLINK2 binary data|PLINK text data   |`convert_plink2_bin_data_to_plink_text_data` :construction:
 PLINK2 binary data|PLINK binary data |`convert_plink2_bin_data_to_plink_bin_data`
 
 ## FAQ

@@ -27,32 +27,36 @@ get_test_pgen_table <- function() {
     pgen_table
   }
   # TODO: simplify to work without reading a file
-  if (1 == 2) {
+  if (1 == 1) {
     # An asymmetrical table,
     #   * columns: SNPs
     #   * rows: individuals
-    plinkr::read_plink2_pgen_file_from_files(
-      pgen_filename = plinkr::get_plinkr_filename(
-        "test_v1_7_after_make-bed_after_make-pgen.pgen"
-      ),
-      psam_filename = plinkr::get_plinkr_filename(
-        "test_v1_7_after_make-bed_after_make-pgen.psam"
-      ),
-      pvar_filename = plinkr::get_plinkr_filename(
-        "test_v1_7_after_make-bed_after_make-pgen.pvar"
+    return(
+      plinkr::read_plink2_pgen_file_from_files(
+        pgen_filename = plinkr::get_plinkr_filename(
+          "test_v1_7_after_make-bed_after_make-pgen.pgen"
+        ),
+        psam_filename = plinkr::get_plinkr_filename(
+          "test_v1_7_after_make-bed_after_make-pgen.psam"
+        ),
+        pvar_filename = plinkr::get_plinkr_filename(
+          "test_v1_7_after_make-bed_after_make-pgen.pvar"
+        )
+      )
+    )
+  } else {
+    return(
+      plinkr::read_plink2_pgen_file_from_files(
+        pgen_filename = plinkr::get_plinkr_filename(
+          "toy_v1_9_after_make-bed_after_make-pgen.pgen"
+        ),
+        psam_filename = plinkr::get_plinkr_filename(
+          "toy_v1_9_after_make-bed_after_make-pgen.psam"
+        ),
+        pvar_filename = plinkr::get_plinkr_filename(
+          "toy_v1_9_after_make-bed_after_make-pgen.pvar"
+        )
       )
     )
   }
-
-  plinkr::read_plink2_pgen_file_from_files(
-    pgen_filename = plinkr::get_plinkr_filename(
-      "toy_v1_9_after_make-bed_after_make-pgen.pgen"
-    ),
-    psam_filename = plinkr::get_plinkr_filename(
-      "toy_v1_9_after_make-bed_after_make-pgen.psam"
-    ),
-    pvar_filename = plinkr::get_plinkr_filename(
-      "toy_v1_9_after_make-bed_after_make-pgen.pvar"
-    )
-  )
 }

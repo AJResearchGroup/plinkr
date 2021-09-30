@@ -1,0 +1,30 @@
+PLINK v2.00a2.3LM 64-bit Intel (24 Jan 2020)
+Options in effect:
+  --allow-extra-chr
+  --chr-set 95
+  --glm
+  --maf 2.2250738585072e-308
+  --out /home/richel/.cache/plinkr/filea1bf4a690b37/assoc_output
+  --pfile /home/richel/.cache/plinkr/filea1bf57472e1c/assoc_input
+  --pheno /home/richel/.cache/plinkr/filea1bf57472e1c/assoc_input.phe
+
+Hostname: N141CU
+Working directory: /home/richel/GitHubs/plinkr
+Start time: Thu Sep 30 13:53:32 2021
+
+Random number seed: 1633002812
+7650 MiB RAM detected; reserving 3825 MiB for main workspace.
+Using up to 8 compute threads.
+3 samples (0 females, 3 males; 3 founders) loaded from
+/home/richel/.cache/plinkr/filea1bf57472e1c/assoc_input.psam.
+4 variants loaded from
+/home/richel/.cache/plinkr/filea1bf57472e1c/assoc_input.pvar.
+3 quantitative phenotypes loaded.
+Calculating allele frequencies... done.
+--glm: Skipping constant quantitative phenotype 'epistatic'.
+--glm linear regression on quantitative phenotypes #1-2: done.
+Results written to
+/home/richel/.cache/plinkr/filea1bf4a690b37/assoc_output.<phenotype
+name>.glm.linear .
+
+End time: Thu Sep 30 13:53:32 2021

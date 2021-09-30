@@ -36,9 +36,11 @@ assoc_qt_on_plink2_bin_data <- function(
   psam_filename <- paste0(base_input_filename, ".psam")
   pvar_filename <- paste0(base_input_filename, ".pvar")
   phe_filename <- paste0(base_input_filename, ".phe")
+
+
   qassoc_filenames <- paste0(
     assoc_qt_params$base_output_filename, ".", phenotype_names,
-    ".qassoc"
+    ".glm.linear"
   )
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
@@ -113,7 +115,7 @@ assoc_qt_on_plink2_bin_data <- function(
     verbose = verbose
   )
 
-  qassoc_table <- plinkr::read_plink_qassoc_files(
+  qassoc_table <- plinkr::read_plink2_qassoc_files(
     qassoc_filenames = qassoc_filenames
   )
   if (verbose) {
@@ -124,7 +126,11 @@ assoc_qt_on_plink2_bin_data <- function(
   file.remove(psam_filename)
   file.remove(pvar_filename)
   file.remove(phe_filename)
-  for (qassoc_filename in qassoc_filenames) file.remove(qassoc_filename)
+  for (qassoc_filename in qassoc_filenames) {
+    if (file.exists(qassoc_filename)) {
+      file.remove(qassoc_filename)
+    }
+  }
   file.remove(log_filename)
   testthat::expect_equal(
     0,

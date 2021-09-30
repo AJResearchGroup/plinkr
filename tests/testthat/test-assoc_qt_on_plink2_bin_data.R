@@ -1,6 +1,4 @@
 test_that("test data, PLINK2, PLINK2 bin data", {
-  skip("Need 'save_pgen'. HERE. HIERO")
-
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
@@ -12,8 +10,7 @@ test_that("test data, PLINK2, PLINK2 bin data", {
 
   assoc_qt_on_plink2_bin_data(
     assoc_qt_params = assoc_qt_params,
-    plink_options = create_plink_v2_0_options(),
-    verbose = TRUE
+    plink_options = create_plink_v2_0_options()
   )
   suppressMessages(
     expect_message(

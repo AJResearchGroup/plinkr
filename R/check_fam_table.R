@@ -11,7 +11,7 @@
 #' @export
 check_fam_table <- function(fam_table) {
   testthat::expect_true(tibble::is_tibble(fam_table))
-  testthat::expect_equal(6, ncol(fam_table))
+  testthat::expect_equal(6, ncol(fam_table)) # genio expects this
   testthat::expect_equal("fam", names(fam_table)[1])
   testthat::expect_equal("id", names(fam_table)[2])
   testthat::expect_equal("pat", names(fam_table)[3])

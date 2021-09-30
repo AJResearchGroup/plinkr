@@ -1,0 +1,23 @@
+PLINK v2.00a2.3LM 64-bit Intel (24 Jan 2020)
+Options in effect:
+  --bfile /home/richel/.cache/plinkr/file628c6bd26be5/plink_bin
+  --make-pgen
+  --out /home/richel/.cache/plinkr/file628c6bd26be5/plink2_bin
+
+Hostname: N141CU
+Working directory: /home/richel/GitHubs/plinkr
+Start time: Thu Sep 30 11:40:24 2021
+
+Random number seed: 1632994824
+7650 MiB RAM detected; reserving 3825 MiB for main workspace.
+Using up to 8 compute threads.
+3 samples (0 females, 3 males; 3 founders) loaded from
+/home/richel/.cache/plinkr/file628c6bd26be5/plink_bin.fam.
+4 variants loaded from
+/home/richel/.cache/plinkr/file628c6bd26be5/plink_bin.bim.
+Note: No phenotype data present.
+Writing /home/richel/.cache/plinkr/file628c6bd26be5/plink2_bin.psam ... done.
+Writing /home/richel/.cache/plinkr/file628c6bd26be5/plink2_bin.pvar ... done.
+Writing /home/richel/.cache/plinkr/file628c6bd26be5/plink2_bin.pgen ... done.
+
+End time: Thu Sep 30 11:40:24 2021

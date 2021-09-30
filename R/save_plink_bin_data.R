@@ -28,6 +28,33 @@ save_plink_bin_data <- function(
     fam_table = plink_bin_data$fam_table,
     fam_filename = fam_filename
   )
+  if (1 == 1) {
+    # Check if the saved files can be read as well
+    # Cannot use expect silent
+    tryCatch(
+      {
+        plinkr::check_plink_bed_file_from_files(
+          bed_filename = bed_filename,
+          bim_filename = bim_filename,
+          fam_filename = fam_filename
+        )
+      }, error = function(e) {
+        saveRDS(plink_bin_data$bed_table, "~/bad_bed_table.RDS")
+        stop(
+          "Cannot read freshly saved .bed file. ",
+          "bed_filename: ", bed_filename, " \n",
+          "bim_filename: ", bim_filename, " \n",
+          "fam_filename: ", fam_filename, " \n",
+          " \n",
+          "bed_table: \n\n", plink_bin_data$bed_table,
+          "knitr::kable(bed_table): \n\n", knitr::kable(plink_bin_data$bed_table)
+        )
+      }
+    )
+    plinkr::read_plink_bim_file(bim_filename = bim_filename)
+    plinkr::read_plink_fam_file(fam_filename = fam_filename)
+  }
+
   c(
     bed_filename,
     bim_filename,

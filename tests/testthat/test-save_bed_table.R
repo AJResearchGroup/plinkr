@@ -13,6 +13,24 @@ test_that("minimal use", {
   clear_plinkr_cache() # nolint
 })
 
+test_that("a .bed table has SNPs on the rows, and individuals on the columns", {
+  expect_silent(check_empty_plinkr_folder())
+
+  file_bed <- system.file("extdata", "sample.bed", package = "genio")
+  file_bim <- system.file("extdata", "sample.bim", package = "genio")
+  file_fam <- system.file("extdata", "sample.fam", package = "genio")
+  # read annotation tables
+  bim <- genio::read_bim(file_bim, verbose = FALSE)
+  fam <- genio::read_fam(file_fam, verbose = FALSE)
+
+  # read an existing Plink *.bim file
+  # pass locus and individual IDs as vectors, setting data dimensions too
+  bed_table <- genio::read_bed(file_bed, bim$id, fam$id, verbose = FALSE)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
+})
+
 test_that("sub-sub-sub folder", {
   bed_table <- get_test_bed_table()
   bed_filename <- file.path(

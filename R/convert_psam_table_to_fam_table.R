@@ -22,13 +22,19 @@ convert_psam_table_to_fam_table <- function( # nolint indeed a long function nam
   # per0  per0  0     0         2     2
   # per1  per1  0     0         2     1
 
+  # Note that 'psam_table$PHENO1' may be absent [why?],
+  # yet 'fam_table$pheno' must exist
+  pheno <- 0
+  if ("PHENO1" %in% names(psam_table)) {
+    pheno <- psam_table$PHENO1 # nolingt PLINK2 variable name
+  }
   fam_table <- tibble::tibble(
     fam = as.character(psam_table$FID),
     id = psam_table$IID,
     pat = 0,
     mat = 0,
     sex = psam_table$SEX,
-    pheno = psam_table$PHENO1
+    pheno = pheno
   )
   plinkr::check_fam_table(fam_table)
   fam_table

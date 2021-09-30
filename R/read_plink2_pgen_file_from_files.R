@@ -1,11 +1,11 @@
-#' Read a \code{PLINK}/\code{PLINK2} \code{.bed} file
-#' using a \code{.bim} and \code{.fam} file.
+#' Read a `PLINK2` `.pgen` file
+#' using a `.psam` and `.pvar` file.
 #'
-#' Read a \code{PLINK}/\code{PLINK2} \code{.bed} file
-#' using a \code{.bim} and \code{.fam} file.
+#' Read a `PLINK2` `.pgen` file
+#' using a `.psam` and `.pvar` file.
 #' These two accessory files are used to extract the names
 #' of the individuals and the names of the loci.
-#' Use \link{read_plink_pgen_file} to read a \code{.bed} file
+#' Use \link{read_plink2_pgen_file} to read a `.pgen` file
 #' without those two accessory files.
 #' @inheritParams default_params_doc
 #' @examples

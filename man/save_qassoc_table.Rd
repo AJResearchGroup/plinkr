@@ -12,8 +12,9 @@ save_qassoc_table(
 }
 \arguments{
 \item{qassoc_table}{the table that hold the result of an association
-with a quantitative trait, as created by \code{PLINK}
-and stored as a \code{.qassoc} file.}
+with a quantitative trait, as created by \code{PLINK}/\code{PLINK2}
+and stored as a \code{.qassoc} file (for \code{PLINK}) or
+\verb{[basename].<phenotype>.glm.linear} (for \code{PLINK2}).}
 
 \item{qassoc_filename}{name of a \code{PLINK} \code{.qassoc} file
 Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.}

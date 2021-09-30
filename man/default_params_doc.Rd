@@ -13,6 +13,7 @@ default_params_doc(
   assoc_params,
   assoc_qt_covar_params,
   assoc_qt_params,
+  assoc_table,
   base_input_filename,
   base_output_filename,
   base_output_plink1_filename,
@@ -116,6 +117,11 @@ as can be created by \link{create_assoc_qt_covar_params}}
 \item{assoc_qt_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc_qt}),
 as can be created by \link{create_assoc_qt_params}}
+
+\item{assoc_table}{the table that hold the result of a
+case-control association, as created by \code{PLINK}/\code{PLINK2}
+and stored as a \code{.assoc} file (for \code{PLINK}) or
+\verb{[basename].<phenotype>.[?TODO].linear} (for \code{PLINK2}).}
 
 \item{base_input_filename}{the base of the filenames that are
 used as input for \code{PLINK}/\code{PLINK2}}
@@ -483,8 +489,9 @@ Use \link{read_plink_qassoc_files} to read one or more
 \code{PLINK} \code{.qassoc} files.}
 
 \item{qassoc_table}{the table that hold the result of an association
-with a quantitative trait, as created by \code{PLINK}
-and stored as a \code{.qassoc} file.}
+with a quantitative trait, as created by \code{PLINK}/\code{PLINK2}
+and stored as a \code{.qassoc} file (for \code{PLINK}) or
+\verb{[basename].<phenotype>.glm.linear} (for \code{PLINK2}).}
 
 \item{regular_phenotype_value}{the regular phenotypic value}
 

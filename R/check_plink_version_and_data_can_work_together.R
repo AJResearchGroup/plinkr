@@ -13,7 +13,8 @@
 #' PLINK2        | PLINK1 text data| Error
 #' PLINK2        | PLINK1 bin data | Error
 #' PLINK2        | PLINK2 bin data | OK
-#
+#' @inheritParams default_params_doc
+#' @return nothing
 #' @export
 check_plink_version_and_data_can_work_together <- function( # nolint indeed a long function name
   data,

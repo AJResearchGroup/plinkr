@@ -2,8 +2,8 @@
 % Please edit documentation in R/read_plink2_pgen_file_from_files.R
 \name{read_plink2_pgen_file_from_files}
 \alias{read_plink2_pgen_file_from_files}
-\title{Read a \code{PLINK}/\code{PLINK2} \code{.bed} file
-using a \code{.bim} and \code{.fam} file.}
+\title{Read a \code{PLINK2} \code{.pgen} file
+using a \code{.psam} and \code{.pvar} file.}
 \usage{
 read_plink2_pgen_file_from_files(
   pgen_filename,
@@ -27,11 +27,11 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \description{
-Read a \code{PLINK}/\code{PLINK2} \code{.bed} file
-using a \code{.bim} and \code{.fam} file.
+Read a \code{PLINK2} \code{.pgen} file
+using a \code{.psam} and \code{.pvar} file.
 These two accessory files are used to extract the names
 of the individuals and the names of the loci.
-Use \link{read_plink_pgen_file} to read a \code{.bed} file
+Use \link{read_plink2_pgen_file} to read a \code{.pgen} file
 without those two accessory files.
 }
 \examples{

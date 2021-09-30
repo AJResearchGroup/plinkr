@@ -69,9 +69,7 @@ safe_str_split <- function(
             stringr::str_detect(e$message, "embedded nul in string"))
         }
       )
-      if (verbose) {
-        message(i)
-      }
+      message(i)
       i <- i + 1
     }
   }

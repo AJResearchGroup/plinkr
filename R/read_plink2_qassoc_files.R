@@ -30,7 +30,7 @@ read_plink2_qassoc_files <- function(qassoc_filenames) {
     # Results written to
     # /home/richel/.cache/plinkr/filea1bf11dda19e/assoc_output.<phenotypename>.glm.linear # nolint indeed long
     #
-    qassocs[[i]]$PHENO <- stringr::str_match(
+    qassocs[[i]]$PHENO <- stringr::str_match( # nolint follow PLINK2 notation
       qassoc_filenames[i],
       ".*\\.([^\\.]+)\\.glm\\.linear"
     )[1, 2]

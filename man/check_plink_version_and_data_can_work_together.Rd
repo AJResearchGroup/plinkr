@@ -8,6 +8,27 @@ with the data.}
 \usage{
 check_plink_version_and_data_can_work_together(data, plink_options)
 }
+\arguments{
+\item{data}{PLINK or PLINK2 text or binary data:
+\itemize{
+\item PLINK text data:
+a \code{.ped} table (see \link{read_plink_ped_file})
+and a \code{.map} (see \link{read_plink_map_file}),
+as created by \link{create_plink_text_data}.
+\item PLINK binary data:
+a \code{.bed} table (see \link{read_plink_bed_file})
+a \code{.bim} table (see \link{read_plink_bim_file})
+and a \code{.fam} (see \link{read_plink_fam_file}),
+as created by \link{create_plink_bin_data}.
+\item PLINK2 binary data: use \link{create_plink2_bin_data}
+}}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+}
+\value{
+nothing
+}
 \description{
 Check that the \code{PLINK}/\code{PLINK2} version can work together with
 the data (\code{PLINK} text data, \code{PLINK} binary data, \code{PLINK2} binary data).

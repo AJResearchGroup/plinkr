@@ -6,6 +6,12 @@
 \usage{
 check_assoc_table(assoc_table)
 }
+\arguments{
+\item{assoc_table}{the table that hold the result of a
+case-control association, as created by \code{PLINK}/\code{PLINK2}
+and stored as a \code{.assoc} file (for \code{PLINK}) or
+\verb{[basename].<phenotype>.[?TODO].linear} (for \code{PLINK2}).}
+}
 \value{
 Nothing. Will \link{stop} if the \code{.assoc} is invalid
 }

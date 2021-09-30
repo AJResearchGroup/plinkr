@@ -27,14 +27,3 @@ test_that("minimal use, demo_assoc_qt", {
     )
   )
 })
-
-test_that("minimal use, demo_assoc_qt", {
-  expect_silent(
-    read_plink_bed_file_from_files(
-      bed_filename = "/home/richel/.cache/plinkr/file57fb49a63f1/assoc_input.bed",
-      bim_filename = "/home/richel/.cache/plinkr/file57fb49a63f1/assoc_input.bim",
-      fam_filename = "/home/richel/.cache/plinkr/file57fb49a63f1/assoc_input.fam"
-    )
-  )
-})
-

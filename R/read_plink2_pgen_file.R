@@ -1,5 +1,7 @@
 #' Read a `PLINK2` `.pgen` file
 #' @inheritParams default_params_doc
+#' @param names_loci see \link[genio]{read_bed}
+#' @param names_ind see \link[genio]{read_bed}
 #' @return a `.pgen` table
 #' @seealso use \link{read_plink2_pgen_file_from_files} to read
 #' a `PLINK2` `.pgen` file with column and rownames obtained from

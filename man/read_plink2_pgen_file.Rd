@@ -10,6 +10,10 @@ read_plink2_pgen_file(pgen_filename, names_loci, names_ind, verbose = FALSE)
 \item{pgen_filename}{name of a \code{PLINK2} \code{.pgen} file
 Use \link{read_plink2_pgen_file} to read a \code{PLINK2} \code{.pgen} file}
 
+\item{names_loci}{see \link[genio]{read_bed}}
+
+\item{names_ind}{see \link[genio]{read_bed}}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}

@@ -65,3 +65,34 @@ test_that("write to impossible folder", {
     "Could not open BED file `/root/test.bed` for writing: Permission denied"
   )
 })
+
+test_that("unsavable data?", {
+
+  skip("Maybe noise")
+  assoc_qt_params <- create_demo_assoc_qt_params()
+  assoc_qt_params$data <- convert_plink_text_data_to_plink2_bin_data(
+    assoc_qt_params$data
+  )
+  plink_bin_data <- plinkr::convert_plink2_bin_data_to_plink_bin_data(
+    assoc_qt_params$data
+  )
+  testthat::expect_true(plinkr::is_plink_bin_data(plink_bin_data))
+  base_input_filename <- get_plinkr_tempfilename()
+  bin_filenames <- plinkr::save_plink_bin_data(
+    plink_bin_data = plink_bin_data,
+    base_input_filename = base_input_filename
+  )
+  plinkr::read_plink_bed_file_from_files(
+    bed_filename = bin_filenames[1],
+    bim_filename = bin_filenames[2],
+    fam_filename = bin_filenames[3]
+  )
+
+
+  plinkr::read_plink_bin_files(
+    base_input_filename = base_input_filename
+  )
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
+})

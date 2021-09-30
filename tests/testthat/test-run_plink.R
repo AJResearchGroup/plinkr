@@ -52,6 +52,7 @@ test_that("error", {
     "you should be able to copy-paste this"
   )
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("warnings", {

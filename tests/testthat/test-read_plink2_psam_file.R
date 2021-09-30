@@ -4,6 +4,8 @@ test_that("minimal use", {
       get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.psam")
     )
   )
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("create, read, save, read, PLINK2", {

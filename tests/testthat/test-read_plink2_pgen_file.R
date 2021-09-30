@@ -145,4 +145,8 @@ test_that("demonstrate .pgen row/column ordering differs from genio's .bed", {
     psam_filename = paste0(plink2_bin_base_input_filename, ".psam"),
     pvar_filename = paste0(plink2_bin_base_input_filename, ".pvar")
   )
+
+  unlink(folder, recursive = TRUE)
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })

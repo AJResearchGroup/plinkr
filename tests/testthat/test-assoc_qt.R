@@ -386,7 +386,7 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
 
   # PLINK v1.9 with text files
   assoc_qt_params$data <- plink_text_filenames
-  expect_true(is_plink_text_data(assoc_qt_params$data))
+  expect_true(is_plink_text_filenames(assoc_qt_params$data))
   start_plink_text_time <- Sys.time()
   assoc_qt_result_plink_text <- assoc_qt(
     assoc_qt_params = assoc_qt_params,

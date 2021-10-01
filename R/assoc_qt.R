@@ -68,6 +68,5 @@ assoc_qt <- function(
       verbose = verbose
     )
   }
-  plinkr::check_assoc_qt_result(assoc_qt_result)
   assoc_qt_result
 }

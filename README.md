@@ -22,6 +22,8 @@ See [doc/install.md](doc/install.md)
 
 ### Running PLINK
 
+`plinkr` can seamlessly run any `PLINK` or `PLINK2` versions.
+
 Run PLINK:
 
 ```
@@ -64,9 +66,21 @@ plinkr::run_plink(
 
 ### Demonstrate a quantitative trait analysis
 
+`plinkr` can seamlessly use `PLINK`/`PLINK2` in-memory-data or files.
+
 ```
 library(plinkr)
 assoc_qt_params <- create_demo_assoc_qt_params()
+assoc_qt(assoc_qt_params)
+```
+
+To convert the in-memory data to PLINK binary format and do the same
+quantitative trait analysis:
+
+```
+assoc_qt_params$data <- convert_plink_text_data_to_plink_bin_data(
+  assoc_qt_params$data
+)
 assoc_qt(assoc_qt_params)
 ```
 
@@ -77,20 +91,20 @@ assoc_qt(assoc_qt_params)
 
 ### Associations
 
-Association type|Data type        |General function                   |Specialized function
-----------------|-----------------|-----------------------------------|------------------------------------------
-Case-control    |PLINK1 text data |`assoc`                            |`assoc_on_plink_text_data`
-Case-control    |PLINK1 bin data  |`assoc`                            |`assoc_on_plink_bin_data`
-Case-control    |PLINK2 bin data  |`assoc`                            |`assoc_on_plink2_bin_data`
-Case-control    |PLINK1 text files|`assoc_on_files` :construction:    |`assoc_on_plink_text_files` :construction:
-Case-control    |PLINK1 bin files |`assoc_on_files` :construction:    |`assoc_on_plink_bin_files` :construction:
-Case-control    |PLINK2 bin files |`assoc_on_files` :construction:    |`assoc_on_plink2_bin_files` :construction:
-Quantitative    |PLINK1 text data |`assoc_qt`                         |`assoc_qt_on_plink_text_data`
-Quantitative    |PLINK1 bin data  |`assoc_qt`                         |`assoc_qt_on_plink_bin_data`
-Quantitative    |PLINK2 bin data  |`assoc_qt`                         |`assoc_qt_on_plink2_bin_data`
-Quantitative    |PLINK1 text files|`assoc_qt_on_files` :construction: |`assoc_qt_on_plink_text_files` :construction:
-Quantitative    |PLINK1 bin files |`assoc_qt_on_files` :construction: |`assoc_qt_on_plink_bin_files` :construction:
-Quantitative    |PLINK2 bin files |`assoc_qt_on_files` :construction: |`assoc_qt_on_plink2_bin_files` :construction:
+Association type|Data type        |General function          |Specialized function
+----------------|-----------------|--------------------------|------------------------------------------
+Case-control    |PLINK1 text data |`assoc`                   |`assoc_on_plink_text_data`
+Case-control    |PLINK1 bin data  |`assoc`                   |`assoc_on_plink_bin_data`
+Case-control    |PLINK2 bin data  |`assoc`                   |`assoc_on_plink2_bin_data`
+Case-control    |PLINK1 text files|`assoc` :construction:    |`assoc_on_plink_text_files` :construction:
+Case-control    |PLINK1 bin files |`assoc` :construction:    |`assoc_on_plink_bin_files` :construction:
+Case-control    |PLINK2 bin files |`assoc` :construction:    |`assoc_on_plink2_bin_files` :construction:
+Quantitative    |PLINK1 text data |`assoc_qt`                |`assoc_qt_on_plink_text_data`
+Quantitative    |PLINK1 bin data  |`assoc_qt`                |`assoc_qt_on_plink_bin_data`
+Quantitative    |PLINK2 bin data  |`assoc_qt`                |`assoc_qt_on_plink2_bin_data`
+Quantitative    |PLINK1 text files|`assoc_qt` :construction: |`assoc_qt_on_plink_text_files` :construction:
+Quantitative    |PLINK1 bin files |`assoc_qt` :construction: |`assoc_qt_on_plink_bin_files` :construction:
+Quantitative    |PLINK2 bin files |`assoc_qt` :construction: |`assoc_qt_on_plink2_bin_files` :construction:
 
 ### PLINK and PLINK2 files conversions
 

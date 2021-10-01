@@ -1,5 +1,5 @@
 test_that("use", {
-  check_plink_bin_filenames <- create_plink_bin_filenames(
+  plink_bin_filenames <- create_plink_bin_filenames(
     bed_filename = "file.bed",
     bim_filename = "file.bim",
     fam_filename = "file.fam"
@@ -13,5 +13,4 @@ test_that("use", {
   expect_error(check_plink_bin_filenames(c()))
   expect_error(check_plink_bin_filenames(c(1, 2)))
   expect_error(check_plink_bin_filenames(list()))
-
 })

@@ -46,14 +46,17 @@ run_plink <- function(
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
-  plinkr::check_plink_args(args)
+  plinkr::check_plink_args(
+    args = args,
+    plink_options = plink_options
+  )
   plinkr::check_plink_options(plink_options)
   plinkr::check_plink_is_installed(plink_options)
 
   # Will freeze otherwise
-  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
-    args <- c(args, "--noweb")
-  }
+  # if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+  #   args <- c(args, "--noweb")
+  # }
   plink_exe_path <- plink_options$plink_exe_path
   if (verbose) {
     message(

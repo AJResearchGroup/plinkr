@@ -5,13 +5,38 @@
 #' @examples
 #' check_plink_args("--version")
 #' @export
-check_plink_args <- function(args) {
+check_plink_args <- function(
+  args,
+  plink_options = create_plink_options()
+) {
 
   if (length(args) == 0) {
     stop(
       "'args' must have at least one element"
     )
   }
+  if (plink_options$plink_version == "1.7") {
+    if (!"--noweb" %in% args) {
+      stop(
+        "'args' must have '--noweb' for PLINK version 1.7, ",
+        "as 'plinkr' will freeze otherwise \n",
+        "args: ", paste(args, collapse = " "), " \n",
+        "Tip: add '--noweb' to 'args'"
+      )
+    }
+  } else {
+    if ("--noweb" %in% args) {
+      stop(
+        "'args' must not have '--noweb' for PLINK version above v1.7, ",
+        "as this flag is obsolete \n",
+        "plink version: ", plink_options$plink_version, " \n",
+        "args: ", paste(args, collapse = " "), " \n",
+        "Tip: remove '--noweb' from 'args'"
+      )
+    }
+  }
+
+
   if ("--covar" %in% args) {
     bad_other_args <- c(
       "--assoc",

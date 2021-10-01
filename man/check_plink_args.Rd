@@ -4,11 +4,14 @@
 \alias{check_plink_args}
 \title{Check if the PLINK version is valid, will stop if not}
 \usage{
-check_plink_args(args)
+check_plink_args(args, plink_options = create_plink_options())
 }
 \arguments{
 \item{args}{arguments for the \code{PLINK} or \code{PLINK2} executable.
 Use \link{check_plink_args} to check if these are valid}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
 }
 \value{
 nothing

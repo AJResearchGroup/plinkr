@@ -26,9 +26,9 @@ Will \link{stop} if the data is not in any of these formats
 check_data(data = create_test_plink_text_data())
 check_data(data = create_test_plink_bin_data())
 check_data(data = create_test_plink2_bin_data())
-check_data(data = create_test_plink_text_files())
-check_data(data = create_test_plink_bin_files())
-check_data(data = create_test_plink2_bin_files())
+check_data(data = create_test_plink_text_filenames())
+check_data(data = create_test_plink_bin_filenames())
+check_data(data = create_test_plink2_bin_filenames())
 }
 \author{
 Richèl J.C. Bilderbeek

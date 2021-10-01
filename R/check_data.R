@@ -37,13 +37,13 @@ check_data <- function(data) {
   if (plinkr::is_plink2_bin_data(data)) {
     return(invisible(data))
   }
-  if (plinkr::is_plink_text_files(data)) {
+  if (plinkr::is_plink_text_filenames(plink_text_filenames = data)) {
     return(invisible(data))
   }
-  if (plinkr::is_plink_bin_files(data)) {
+  if (plinkr::is_plink_bin_filenames(plink_bin_filenames = data)) {
     return(invisible(data))
   }
-  if (plinkr::is_plink2_bin_files(data)) {
+  if (plinkr::is_plink2_bin_filenames(plink2_bin_filenames = data)) {
     return(invisible(data))
   }
   stop(

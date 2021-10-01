@@ -2,6 +2,9 @@ test_that("use", {
   expect_silent(check_data(data = create_test_plink_text_data()))
   expect_silent(check_data(data = create_test_plink_bin_data()))
   expect_silent(check_data(data = create_test_plink2_bin_data()))
+  expect_silent(check_data(data = create_test_plink_text_filenames()))
+  expect_silent(check_data(data = create_test_plink_bin_filenames()))
+  expect_silent(check_data(data = create_test_plink2_bin_filenames()))
 })
 
 test_that("abuse", {

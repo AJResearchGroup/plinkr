@@ -1,14 +1,14 @@
-#' Create a `plink_text_filenames`
+#' Create a set of `plink_text_filenames` to be used in testing.
 #'
-#' Create a `plink_text_filenames`,
-#' which is a list of `PLINK` text filenames
+#' Create a set of `plink_text_filenames` to be used in testing.
 #' @inheritParams default_params_doc
 #' @return a list with the following elements:
 #'
 #'  * `map_filename`: the `.map` filename
 #'  * `ped_filename`: the `.ped` filename
+#'
 #' @seealso Use \link{create_plink_text_filenames} to creata a set
-#' of `PLINK` text filenames to be used in testing.
+#' of `PLINK` text filenames.
 #'
 #' `plinkr` has the following functions to create sets of filenames,
 #' depending on the data:
@@ -18,20 +18,15 @@
 #'  * `PLINK2` binary files: use \link{create_plink2_bin_filenames}
 #'
 #' @examples
-#' create_plink_text_filenames(
-#'   map_filename = "file.map",
-#'   ped_filename = "file.ped"
-#' )
+#' create_test_plink_text_filenames()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_plink_text_filenames <- function(
-  map_filename,
-  ped_filename
+create_test_plink_text_filenames <- function(
+  map_filename = "test.map",
+  ped_filename = "test.ped"
 ) {
-  plink_text_filenames <- list(
+  plinkr::create_plink_text_filenames(
     map_filename = map_filename,
     ped_filename = ped_filename
   )
-  plinkr::check_plink_text_filenames(plink_text_filenames)
-  plink_text_filenames
 }

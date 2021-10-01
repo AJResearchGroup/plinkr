@@ -1,7 +1,6 @@
-#' Create a `plink2_bin_filenames`
+#' Create a `plink2_bin_filenames` to be used in testing.
 #'
-#' Create a `plink2_bin_filenames`,
-#' which is a list of `PLINK2` binary filenames
+#' Create a `plink2_bin_filenames` to be used in testing.
 #' @inheritParams default_params_doc
 #' @return a list with the following elements:
 #'
@@ -19,23 +18,17 @@
 #'  * `PLINK2` binary files: use \link{create_plink2_bin_filenames}
 #'
 #' @examples
-#' create_plink2_bin_filenames(
-#'   pgen_filename = "file.pgen",
-#'   psam_filename = "file.psam",
-#'   pvar_filename = "file.pvar"
-#' )
+#' create_test_plink2_bin_filenames()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_plink2_bin_filenames <- function(
-  pgen_filename,
-  psam_filename,
-  pvar_filename
+create_test_plink2_bin_filenames <- function(
+  pgen_filename = "test.pgen",
+  psam_filename = "test.psam",
+  pvar_filename = "test.pvar"
 ) {
-  plink2_bin_filenames <- list(
+  plinkr::create_plink2_bin_filenames(
     pgen_filename = pgen_filename,
     psam_filename = psam_filename,
     pvar_filename = pvar_filename
   )
-  plinkr::check_plink2_bin_filenames(plink2_bin_filenames)
-  plink2_bin_filenames
 }

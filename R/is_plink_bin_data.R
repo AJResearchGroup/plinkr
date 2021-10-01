@@ -9,9 +9,9 @@
 #'
 #' @examples
 #' plink_bin_data <- create_plink_bin_data(
+#'   bed_table = get_test_bed_table(),
 #'   bim_table = get_test_bim_table(),
-#'   fam_table = get_test_fam_table(),
-#'   bed_table = get_test_bed_table()
+#'   fam_table = get_test_fam_table()
 #' )
 #' is_plink_bin_data(plink_bin_data)
 #' @author Richèl J.C. Bilderbeek

@@ -1,8 +1,10 @@
-#' Let PLINK2 detect an association with one or more quantitative traits
-#' with data in PLINK2 binary format.
+#' Let `PLINK2` detect an association with one or more quantitative traits
+#' with data in `PLINK2` binary format.
 #'
-#' Let PLINK2 detect an association with one or more quantitative traits.
-#' with data in PLINK2 binary format.
+#' Let `PLINK2` detect an association with one or more quantitative traits
+#' with data in `PLINK2` binary format.
+#' @seealso use \link{assoc_qt_on_plink2_bin_data} to work on files that
+#' already exist.
 #' @note This function is named after the \code{--assoc} flag used by PLINK.
 #' @inheritParams default_params_doc
 #' @return

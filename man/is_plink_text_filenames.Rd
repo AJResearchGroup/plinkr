@@ -8,6 +8,10 @@ text files' names}
 is_plink_text_filenames(plink_text_filenames, verbose = FALSE)
 }
 \arguments{
+\item{plink_text_filenames}{the text data files' names for \code{PLINK}
+to work on,
+as created by \link{create_plink_text_filenames}.}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}

@@ -58,6 +58,7 @@ default_params_doc(
   phenotype_value_dominant,
   phenotype_value_recessive,
   plink_bin_data,
+  plink_bin_filenames,
   plink_exe_path,
   plink_folder,
   plink_options,
@@ -65,10 +66,12 @@ default_params_doc(
   plink2_options,
   plink_optionses,
   plink_text_data,
+  plink_text_filenames,
   plink_version,
   plink_versions,
   plinkr_folder,
   plink2_bin_data,
+  plink2_bin_filenames,
   psam_filename,
   psam_table,
   pvar_filename,
@@ -408,8 +411,12 @@ version of the common common allele}
 for the recessive variant, i.e. that genotype that is homozygous for the
 rare allele}
 
-\item{plink_bin_data}{the genetic and phenotypic data for \code{PLINK} to work
-on, in \code{PLINK} binary format, as created by \link{create_plink_bin_data}.}
+\item{plink_bin_data}{the in-memory binary data for \code{PLINK} to work on,
+as created by \link{create_plink_bin_data}.}
+
+\item{plink_bin_filenames}{the binary data files' names for \code{PLINK}
+to work on,
+as created by \link{create_plink_bin_filenames}.}
 
 \item{plink_exe_path}{path to
 the \code{PLINK} or \code{PLINK2} executable file.}
@@ -435,6 +442,10 @@ of \code{plink_options}, instead of one set of \code{plink_options}}
 \item{plink_text_data}{the genetic and phenotypic data for \code{PLINK} to work
 on, in \code{PLINK} text format, as created by \link{create_plink_text_data}.}
 
+\item{plink_text_filenames}{the text data files' names for \code{PLINK}
+to work on,
+as created by \link{create_plink_text_filenames}.}
+
 \item{plink_version}{version of PLINK, e.g. \code{"1.7"}
 Use \link{get_plink_version} to get the \code{PLINK} version.
 Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.}
@@ -447,6 +458,10 @@ stores its temporary files}
 
 \item{plink2_bin_data}{the genetic and phenotypic data for \code{PLINK2} to work
 on, in \code{PLINK2} binary format, as created by \link{create_plink2_bin_data}.}
+
+\item{plink2_bin_filenames}{the binary data files' names for \code{PLINK2}
+to work on,
+as created by \link{create_plink2_bin_filenames}.}
 
 \item{psam_filename}{name of a \code{PLINK2} \code{.psam} file
 Use \link{read_plink2_psam_file} to read a \code{PLINK2} \code{.psam} file}

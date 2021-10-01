@@ -8,6 +8,10 @@ binary files' names}
 is_plink_bin_filenames(plink_bin_filenames, verbose = FALSE)
 }
 \arguments{
+\item{plink_bin_filenames}{the binary data files' names for \code{PLINK}
+to work on,
+as created by \link{create_plink_bin_filenames}.}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}

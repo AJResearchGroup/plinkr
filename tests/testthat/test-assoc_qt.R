@@ -360,6 +360,32 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
     traits = create_random_trait(n_snps = 1000)
   )
   assoc_qt_params$data$map_table$CHR <- 1
+
+  # Convert the data
+  plink_text_data <- assoc_qt_params$data
+  plink_bin_data <- convert_plink_text_data_to_plink_bin_data(
+    assoc_qt_params$data
+  )
+  plink2_bin_data <- convert_plink_text_data_to_plink2_bin_data(
+    assoc_qt_params$data
+  )
+  expect_silent(check_plink_text_data(plink_text_data))
+  expect_silent(check_plink_bin_data(plink_bin_data))
+  expect_silent(check_plink2_bin_data(plink2_bin_data))
+
+  # Save the data
+  plink_text_filenames <- save_plink_text_data(plink_text_data)
+  plink_bin_filenames <- save_plink_bin_data(plink_bin_data)
+  plink2_bin_filenames <- save_plink2_bin_data(plink2_bin_data)
+  save_phe_table(
+    assoc_qt_params$phe_table,
+    phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
+  )
+  expect_silent(check_plink_text_filenames(plink_text_filenames))
+  expect_silent(check_plink_bin_filenames(plink_bin_filenames))
+  expect_silent(check_plink2_bin_filenames(plink2_bin_filenames))
+
+
   # PLINK v1.9 with text files
   expect_true(is_plink_text_data(assoc_qt_params$data))
   start_plink_text_time <- Sys.time()

@@ -6,6 +6,11 @@
 \usage{
 check_plink_text_filenames(plink_text_filenames)
 }
+\arguments{
+\item{plink_text_filenames}{the text data files' names for \code{PLINK}
+to work on,
+as created by \link{create_plink_text_filenames}.}
+}
 \value{
 nothing
 }

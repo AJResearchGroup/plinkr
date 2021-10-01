@@ -7,8 +7,8 @@
 is_plink_bin_data(plink_bin_data, verbose = FALSE)
 }
 \arguments{
-\item{plink_bin_data}{the genetic and phenotypic data for \code{PLINK} to work
-on, in \code{PLINK} binary format, as created by \link{create_plink_bin_data}.}
+\item{plink_bin_data}{the in-memory binary data for \code{PLINK} to work on,
+as created by \link{create_plink_bin_data}.}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

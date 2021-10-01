@@ -6,6 +6,11 @@
 \usage{
 check_plink2_bin_filenames(plink2_bin_filenames)
 }
+\arguments{
+\item{plink2_bin_filenames}{the binary data files' names for \code{PLINK2}
+to work on,
+as created by \link{create_plink2_bin_filenames}.}
+}
 \value{
 nothing
 }

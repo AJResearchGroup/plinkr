@@ -253,8 +253,11 @@
 #' @param phenotype_value_recessive phenotypic value
 #' for the recessive variant, i.e. that genotype that is homozygous for the
 #' rare allele
-#' @param plink_bin_data the genetic and phenotypic data for `PLINK` to work
-#' on, in `PLINK` binary format, as created by \link{create_plink_bin_data}.
+#' @param plink_bin_data the in-memory binary data for `PLINK` to work on,
+#' as created by \link{create_plink_bin_data}.
+#' @param plink_bin_filenames the binary data files' names for `PLINK`
+#' to work on,
+#' as created by \link{create_plink_bin_filenames}.
 #' @param plink_exe_path path to
 #'   the \code{PLINK} or \code{PLINK2} executable file.
 #' @param plink_folder folder where \code{PLINK} is installed
@@ -272,6 +275,9 @@
 #' of \code{plink_options}, instead of one set of \code{plink_options}
 #' @param plink_text_data the genetic and phenotypic data for `PLINK` to work
 #' on, in `PLINK` text format, as created by \link{create_plink_text_data}.
+#' @param plink_text_filenames the text data files' names for `PLINK`
+#' to work on,
+#' as created by \link{create_plink_text_filenames}.
 #' @param plink_version version of PLINK, e.g. \code{"1.7"}
 #' Use \link{get_plink_version} to get the \code{PLINK} version.
 #' Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.
@@ -279,6 +285,9 @@
 #' e.g. as can be obtained using \link{get_plink_versions}
 #' @param plink2_bin_data the genetic and phenotypic data for `PLINK2` to work
 #' on, in `PLINK2` binary format, as created by \link{create_plink2_bin_data}.
+#' @param plink2_bin_filenames the binary data files' names for `PLINK2`
+#' to work on,
+#' as created by \link{create_plink2_bin_filenames}.
 #' @param plinkr_folder name of the folder where \link{plinkr}
 #' stores its temporary files
 #' @param psam_filename name of a `PLINK2` `.psam` file
@@ -400,6 +409,7 @@ default_params_doc <- function(
   phenotype_value_dominant,
   phenotype_value_recessive,
   plink_bin_data,
+  plink_bin_filenames,
   plink_exe_path,
   plink_folder,
   plink_options,
@@ -407,10 +417,12 @@ default_params_doc <- function(
   plink2_options,
   plink_optionses,
   plink_text_data,
+  plink_text_filenames,
   plink_version,
   plink_versions,
   plinkr_folder,
   plink2_bin_data,
+  plink2_bin_filenames,
   psam_filename,
   psam_table,
   pvar_filename,

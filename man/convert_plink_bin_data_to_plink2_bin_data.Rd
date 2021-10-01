@@ -11,8 +11,8 @@ convert_plink_bin_data_to_plink2_bin_data(
 )
 }
 \arguments{
-\item{plink_bin_data}{the genetic and phenotypic data for \code{PLINK} to work
-on, in \code{PLINK} binary format, as created by \link{create_plink_bin_data}.}
+\item{plink_bin_data}{the in-memory binary data for \code{PLINK} to work on,
+as created by \link{create_plink_bin_data}.}
 
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}

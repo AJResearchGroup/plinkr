@@ -27,12 +27,16 @@ test_that("minimal use, v1.9", {
 
 test_that("minimal use v2.0", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  skip("Cannot assoc with PLINK2 yet")
+  skip("Need help of 'pgenlibr' to save a .pgen file")
   if (!is_plink_installed()) return()
   set.seed(314)
+  assoc_params <- create_test_assoc_params()
+  assoc_params$data <- convert_plink_text_data_to_plink2_bin_data(
+    plink_text_data = assoc_params$data
+  )
   expect_silent(
     assoc(
-      create_test_assoc_params(),
+      assoc_params = assoc_params,
       plink_options = create_plink_v2_0_options(),
       verbose = TRUE
     )

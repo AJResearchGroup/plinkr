@@ -32,7 +32,6 @@ test_that("use, create_test_assoc_qt_params, PLINK2 binary data", {
 
 test_that("use, create_demo_assoc_qt_params", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  skip("Fail on Codecov")
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(

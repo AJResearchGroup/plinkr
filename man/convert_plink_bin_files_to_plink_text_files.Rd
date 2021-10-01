@@ -4,7 +4,12 @@
 \alias{convert_plink_bin_files_to_plink_text_files}
 \title{Convert PLINK binary files to PLINK plain-text files}
 \usage{
-convert_plink_bin_files_to_plink_text_files()
+convert_plink_bin_files_to_plink_text_files(
+  base_input_filename,
+  base_output_filename,
+  plink_options = create_plink_options(),
+  verbose = FALSE
+)
 }
 \description{
 Convert PLINK binary files to PLINK plain-text files

@@ -19,6 +19,23 @@
 #'      use \link{convert_plink2_bin_files_to_plink_bin_files}
 #' @export
 convert_plink_bin_files_to_plink_text_files <- function( # nolint indeed a long function name
+  base_input_filename,
+  base_output_filename,
+  plink_options = create_plink_options(),
+  verbose = FALSE
 ) {
-  stop("TODO")
+  stop("Depends on 'convert_plink_bin_data_to_plink_text_data'")
+  plink_bin_data <- plinkr::read_plink_bin_data(
+    base_input_filename = base_input_filename
+  )
+  plink_text_data <- plinkr::convert_plink_bin_data_to_plink_text_data(
+    plink_bin_data = plink_bin_data,
+    plink_options = plink_options,
+    verbose = verbose
+  )
+  plinkr::save_plink_text_data(
+    plink_text_data = plink_text_data,
+    base_input_filename = base_output_filename,
+    verbose = verbose
+  )
 }

@@ -170,11 +170,24 @@ test_that("assoc_qt the PLINK way with phenotype file with header", {
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache() # nolint
 
+
+})
+
+test_that("detect invalid combinations of commands", {
+  if (!is_plink_installed()) return()
   # From https://zzz.bwh.harvard.edu/plink/data.shtml#covar
   #
   # Not all commands accept covariates, and PLINK will not always give you
   # an error or warning. The basic association (--assoc, --mh, --model, --tdt,
   # --dfam, and --qfam) do not accept covariates, neither do the basic
   # haplotype association methods (--hap-assoc, --hap-tdt).
+  expect_error(
+    run_plink(
+      args = c("--assoc", "--covar")
+    ),
+    "'--assoc' does not accept convariates"
+  )
 
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
 })

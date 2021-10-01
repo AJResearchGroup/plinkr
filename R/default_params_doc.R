@@ -6,7 +6,8 @@
 #' By default, this value is set to true,
 #' hence \link{plinkr} will skip this check.
 #' Use \link{get_plink_version} to get the current \code{PLINK} version.
-#' @param args arguments for the \code{PLINK} executable
+#' @param args arguments for the `PLINK` or `PLINK2` executable.
+#' Use \link{check_plink_args} to check if these are valid
 #' @param assoc_adjusted_filename name of a \code{PLINK}
 #' \code{.assoc.adjusted} file.
 #' Use \link{read_plink_assoc_adjusted_file}

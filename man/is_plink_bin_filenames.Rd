@@ -20,6 +20,9 @@ binary files' names
 Determine if the \code{plink_bin_files} is indeed a set of \code{PLINK}
 binary files' names
 }
+\note{
+the singular verb \code{is} is used to indicate it is one data structure.
+}
 \examples{
 is_plink_bin_filesnames(create_test_plink_bin_filenames())
 }

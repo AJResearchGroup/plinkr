@@ -7,7 +7,8 @@
 run_plink(args, plink_options = create_plink_options(), verbose = FALSE)
 }
 \arguments{
-\item{args}{arguments for the PLINK executable}
+\item{args}{arguments for the \code{PLINK} or \code{PLINK2} executable.
+Use \link{check_plink_args} to check if these are valid}
 
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}

@@ -1,5 +1,6 @@
 #' Check if the PLINK version is valid, will stop if not
 #' @inheritParams default_params_doc
+#' @return nothing
 #' @author Richèl J.C. Bilderbeek
 #' @examples
 #' check_plink_version("1.7")
@@ -22,4 +23,5 @@ check_plink_version <- function(plink_version) {
       "Valid values: ", paste0(plink_versions, collapse = " ")
     )
   }
+  invisible(plink_version)
 }

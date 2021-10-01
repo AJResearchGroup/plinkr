@@ -1,6 +1,5 @@
 #' Run PLINK from arguments
 #' @inheritParams default_params_doc
-#' @param args arguments for the PLINK executable
 #' @return the text that PLINK returns
 #' @examples
 #' if (is_plink_installed(create_plink_v1_7_options())) {
@@ -47,6 +46,7 @@ run_plink <- function(
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
+  plinkr::check_plink_args(args)
   plinkr::check_plink_options(plink_options)
   plinkr::check_plink_is_installed(plink_options)
 

@@ -11,6 +11,9 @@ check_plink_version(plink_version)
 Use \link{get_plink_version} to get the \code{PLINK} version.
 Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.}
 }
+\value{
+nothing
+}
 \description{
 Check if the PLINK version is valid, will stop if not
 }

@@ -18,7 +18,10 @@ text files' names
 }
 \description{
 Determine if the \code{plink_text_files} is indeed a set of \code{PLINK}
-text files' names
+text files' names.
+}
+\note{
+the singular verb \code{is} is used to indicate it is one data structure.
 }
 \examples{
 is_plink_text_filenames(create_test_plink_text_filenames())

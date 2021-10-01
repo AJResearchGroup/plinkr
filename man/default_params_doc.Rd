@@ -95,7 +95,8 @@ By default, this value is set to true,
 hence \link{plinkr} will skip this check.
 Use \link{get_plink_version} to get the current \code{PLINK} version.}
 
-\item{args}{arguments for the \code{PLINK} executable}
+\item{args}{arguments for the \code{PLINK} or \code{PLINK2} executable.
+Use \link{check_plink_args} to check if these are valid}
 
 \item{assoc_adjusted_filename}{name of a \code{PLINK}
 \code{.assoc.adjusted} file.

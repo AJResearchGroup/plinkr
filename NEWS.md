@@ -6,7 +6,7 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Check PLINK arguments to give an error for commands that do not accept covariates, as PLINK will not always give you an error or warning
 
 ### MINOR IMPROVEMENTS
 

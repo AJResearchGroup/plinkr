@@ -23,27 +23,14 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-A \link[tibble]{tibble} with the detected associations.
-The table with have as much rows as the number of SNPs multiplied
-by the number of traits.
-
-If the \code{assoc_qt_params} used PLINK1 text or PLINK1 binary data,
-the \link[tibble]{tibble} has the following columns:
+A \code{assoc_qt_result}, which is a list
+which is a \link{list} with elements:
 \itemize{
-\item \code{trait_name}: name of the quantitive trait,
-taken from the phenotype table column name
-\item \code{CHR}: Chromosome number
-\item \code{SNP}: SNP identifier
-\item \code{BP}: Physical position (base-pair)
-\item \code{NMISS}: Number of non-missing genotypes
-\item \code{BETA}: Regression coefficient
-\item \code{SE}: Standard error
-\item \code{R2}: Regression r-squared
-\item \code{T}: Wald test (based on t-distribution)
-\item \code{P}: Wald test asymptotic p-value
+\item \code{qassoc_table}: the quantitative analysis results table,
+as can be checked by \link{check_qassoc_table}
+\item \code{log}: the text from the log file created by \code{PLINK}/\code{PLINK2}
+when doing \link{assoc_qt}
 }
-
-Note that parameters in uppercase are named as such by PLINK.
 }
 \description{
 Let PLINK detect an association with one or more quantitative traits.

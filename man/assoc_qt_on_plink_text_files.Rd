@@ -7,7 +7,7 @@ with files in \code{PLINK} text format.}
 \usage{
 assoc_qt_on_plink_text_files(
   assoc_qt_params,
-  plink_options = create_plink_v2_0_options(),
+  plink_options = create_plink_v1_9_options(),
   verbose = FALSE
 )
 }

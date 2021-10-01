@@ -100,7 +100,7 @@ assoc_qt_on_plink2_bin_data <- function(
   log_filename <- assoc_qt_result$log_filename
 
   assoc_qt_result <- list(
-    assoc_qt_table = plinkr::read_plink2_qassoc_files(qassoc_filenames),
+    qassoc_table = plinkr::read_plink2_qassoc_files(qassoc_filenames),
     log = plinkr::read_plink_log_file(log_filename)
   )
 
@@ -126,6 +126,6 @@ assoc_qt_on_plink2_bin_data <- function(
     dirname(assoc_qt_params$base_output_filename),
     recursive = TRUE
   )
-
+  plinkr::check_assoc_qt_result(assoc_qt_result)
   assoc_qt_result
 }

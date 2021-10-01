@@ -39,7 +39,7 @@ test_that("test data, PLINK2, PLINK2 bin files", {
         plink_options = create_plink_v2_0_options(),
         verbose = TRUE
       ),
-      "PLINK"
+      "you should be able to copy paste this"
     )
   )
 

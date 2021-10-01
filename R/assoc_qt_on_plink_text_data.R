@@ -135,8 +135,10 @@ assoc_qt_on_plink_text_data <- function(
     dirname(assoc_qt_params$base_output_filename),
     recursive = TRUE
   )
-  list(
+  assoc_qt_result <- list(
     qassoc_table = qassoc_table,
     log = log
   )
+  plinkr::check_assoc_qt_result(assoc_qt_result)
+  assoc_qt_result
 }

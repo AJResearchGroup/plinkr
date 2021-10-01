@@ -19,7 +19,7 @@ test_that("minimal use, from files", {
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
-      "PLINK"
+      "you should be able to copy paste this"
     )
   )
 
@@ -47,7 +47,7 @@ test_that("minimal use, simulated data", {
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
-      "PLINK"
+      "you should be able to copy paste this"
     )
   )
 
@@ -71,7 +71,10 @@ test_that("minimal use, simulated data, matches PLINK1 text data results", {
     assoc_qt_params = assoc_qt_params
   )
 
-  expect_identical(assoc_qt_results_text, assoc_qt_results_bin)
+  expect_identical(
+    assoc_qt_results_text$qassoc_table,
+    assoc_qt_results_bin$qassoc_table
+  )
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

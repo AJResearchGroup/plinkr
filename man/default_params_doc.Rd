@@ -13,6 +13,7 @@ default_params_doc(
   assoc_params,
   assoc_qt_covar_params,
   assoc_qt_params,
+  assoc_qt_result,
   assoc_table,
   base_input_filename,
   base_output_filename,
@@ -121,6 +122,15 @@ as can be created by \link{create_assoc_qt_covar_params}}
 \item{assoc_qt_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc_qt}),
 as can be created by \link{create_assoc_qt_params}}
+
+\item{assoc_qt_result}{the result of \link{assoc_qt},
+which is a \link{list} with elements:
+\itemize{
+\item \code{qassoc_table}: the quantitative analysis results table,
+as can be checked by \link{check_qassoc_table}
+\item \code{log}: the text from the log file created by \code{PLINK}/\code{PLINK2}
+when doing \link{assoc_qt}
+}}
 
 \item{assoc_table}{the table that hold the result of a
 case-control association, as created by \code{PLINK}/\code{PLINK2}

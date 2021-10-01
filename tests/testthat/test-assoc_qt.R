@@ -26,7 +26,7 @@ test_that("1. test data, PLINK1, PLINK1 text data", {
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
-      "PLINK"
+      "you should be able to copy paste this"
     )
   )
 
@@ -48,7 +48,7 @@ test_that("2. test data, PLINK1, PLINK1 bin data", {
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
-      "PLINK"
+      "you should be able to copy paste this"
     )
   )
 
@@ -130,7 +130,7 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
           plink_options = create_plink_v2_0_options(),
           verbose = TRUE
         ),
-        "PLINK"
+        "you should be able to copy paste this"
       )
     )
   )
@@ -171,7 +171,7 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
-      "PLINK"
+      "you should be able to copy paste this"
     )
   )
 
@@ -200,7 +200,7 @@ test_that("8. test filenames, PLINK1, PLINK1 bin filenames", {
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
-      "PLINK"
+      "you should be able to copy paste this"
     )
   )
 
@@ -292,7 +292,7 @@ test_that("12. test filenames, PLINK2, PLINK2 bin filenames", {
           plink_options = create_plink_v2_0_options(),
           verbose = TRUE
         ),
-        "PLINK"
+        "you should be able to copy paste this"
       )
     )
   )

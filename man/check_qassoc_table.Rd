@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_qassoc_table.R
 \name{check_qassoc_table}
 \alias{check_qassoc_table}
-\title{Check if a genetic mapping \code{.qassoc} table is valid.}
+\title{Check if a \code{qassoc_table} is valid.}
 \usage{
 check_qassoc_table(qassoc_table)
 }
@@ -16,7 +16,7 @@ and stored as a \code{.qassoc} file (for \code{PLINK}) or
 Nothing. Will \link{stop} if the \code{qassoc_table} is invalid
 }
 \description{
-Check if a genetic mapping \code{.qassoc} table is valid.
+Check if a \code{qassoc_table} is valid.
 Will \link{stop} if not
 }
 \author{

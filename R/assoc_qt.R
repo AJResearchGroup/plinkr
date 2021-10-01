@@ -4,26 +4,13 @@
 #' @note This function is named after the \code{--assoc} flag used by PLINK.
 #' @inheritParams default_params_doc
 #' @return
-#' A \link[tibble]{tibble} with the detected associations.
-#' The table with have as much rows as the number of SNPs multiplied
-#' by the number of traits.
+#' A `assoc_qt_result`, which is a list
+#' which is a \link{list} with elements:
 #'
-#' If the `assoc_qt_params` used PLINK1 text or PLINK1 binary data,
-#' the \link[tibble]{tibble} has the following columns:
-#'
-#'   * \code{trait_name}: name of the quantitive trait,
-#'     taken from the phenotype table column name
-#'   * \code{CHR}: Chromosome number
-#'   * \code{SNP}: SNP identifier
-#'   * \code{BP}: Physical position (base-pair)
-#'   * \code{NMISS}: Number of non-missing genotypes
-#'   * \code{BETA}: Regression coefficient
-#'   * \code{SE}: Standard error
-#'   * \code{R2}: Regression r-squared
-#'   * \code{T}: Wald test (based on t-distribution)
-#'   * \code{P}: Wald test asymptotic p-value
-#'
-#' Note that parameters in uppercase are named as such by PLINK.
+#'  * `qassoc_table`: the quantitative analysis results table,
+#'    as can be checked by \link{check_qassoc_table}
+#'  * `log`: the text from the log file created by `PLINK`/`PLINK2`
+#'    when doing \link{assoc_qt}
 #' @examples
 #' if (is_plink_installed()) {
 #'   assoc_qt(create_demo_assoc_qt_params())
@@ -42,44 +29,45 @@ assoc_qt <- function(
     data = assoc_qt_params$data,
     plink_options = plink_options
   )
-  qassoc_table <- NULL
+  assoc_qt_result <- NULL
   if (plinkr::is_plink_text_data(assoc_qt_params$data)) {
-    qassoc_table <- plinkr::assoc_qt_on_plink_text_data(
+    assoc_qt_result <- plinkr::assoc_qt_on_plink_text_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
   } else if (plinkr::is_plink_bin_data(assoc_qt_params$data)) {
-    qassoc_table <- plinkr::assoc_qt_on_plink_bin_data(
+    assoc_qt_result <- plinkr::assoc_qt_on_plink_bin_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
   } else if (plinkr::is_plink2_bin_data(assoc_qt_params$data)) {
-    qassoc_table <- plinkr::assoc_qt_on_plink2_bin_data(
+    assoc_qt_result <- plinkr::assoc_qt_on_plink2_bin_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
   } else if (plinkr::is_plink_text_filenames(assoc_qt_params$data)) {
-    qassoc_table <- plinkr::assoc_qt_on_plink_text_files(
+    assoc_qt_result <- plinkr::assoc_qt_on_plink_text_files(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
   } else if (plinkr::is_plink_bin_filenames(assoc_qt_params$data)) {
-    qassoc_table <- plinkr::assoc_qt_on_plink_bin_files(
+    assoc_qt_result <- plinkr::assoc_qt_on_plink_bin_files(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
   } else {
     testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_qt_params$data))
-    qassoc_table <- plinkr::assoc_qt_on_plink2_bin_files(
+    assoc_qt_result <- plinkr::assoc_qt_on_plink2_bin_files(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
   }
-  qassoc_table
+  plinkr::check_assoc_qt_result(assoc_qt_result)
+  assoc_qt_result
 }

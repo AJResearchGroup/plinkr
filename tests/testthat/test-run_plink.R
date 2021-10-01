@@ -185,7 +185,7 @@ test_that("detect invalid combinations of commands", {
     run_plink(
       args = c("--assoc", "--covar")
     ),
-    "'--assoc' does not accept convariates"
+    "'--assoc' does not accept covariates"
   )
 
   expect_silent(check_empty_plinkr_folder())

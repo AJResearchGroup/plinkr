@@ -8,6 +8,9 @@
 #' check_data(data = create_test_plink_text_data())
 #' check_data(data = create_test_plink_bin_data())
 #' check_data(data = create_test_plink2_bin_data())
+#' check_data(data = create_test_plink_text_files())
+#' check_data(data = create_test_plink_bin_files())
+#' check_data(data = create_test_plink2_bin_files())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_data <- function(data) {
@@ -34,11 +37,23 @@ check_data <- function(data) {
   if (plinkr::is_plink2_bin_data(data)) {
     return(invisible(data))
   }
+  if (plinkr::is_plink_text_files(data)) {
+    return(invisible(data))
+  }
+  if (plinkr::is_plink_bin_files(data)) {
+    return(invisible(data))
+  }
+  if (plinkr::is_plink2_bin_files(data)) {
+    return(invisible(data))
+  }
   stop(
     "Unknown data format. \n",
     "names(data): ", names(data), " \n",
     "Tip 1: for PLINK text data, use 'create_plink_text_data'. \n",
     "Tip 2: for PLINK binary data, use 'create_plink_bin_data'. \n",
-    "Tip 3: for PLINK2 binary data, use 'create_plink2_bin_data'. \n"
+    "Tip 3: for PLINK2 binary data, use 'create_plink2_bin_data'. \n",
+    "Tip 4: for PLINK text files, use 'create_plink_text_files'. \n",
+    "Tip 5: for PLINK binary files, use 'create_plink_bin_files'. \n",
+    "Tip 6: for PLINK2 binary files, use 'create_plink2_bin_files'. \n"
   )
 }

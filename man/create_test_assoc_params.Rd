@@ -11,18 +11,14 @@ create_test_assoc_params(
 )
 }
 \arguments{
-\item{data}{PLINK or PLINK2 text or binary data:
+\item{data}{the data source, which can be:
 \itemize{
-\item PLINK text data:
-a \code{.ped} table (see \link{read_plink_ped_file})
-and a \code{.map} (see \link{read_plink_map_file}),
-as created by \link{create_plink_text_data}.
-\item PLINK binary data:
-a \code{.bed} table (see \link{read_plink_bed_file})
-a \code{.bim} table (see \link{read_plink_bim_file})
-and a \code{.fam} (see \link{read_plink_fam_file}),
-as created by \link{create_plink_bin_data}.
-\item PLINK2 binary data: use \link{create_plink2_bin_data}
+\item PLINK text data, as created by \link{create_plink_text_data}.
+\item PLINK binary data, as created by \link{create_plink_bin_data}.
+\item PLINK2 binary data, as created by \link{create_plink2_bin_data}.
+\item PLINK text filenames, as created by \link{create_plink_text_filenames}.
+\item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
+\item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
 }}
 
 \item{confidence_interval}{confidence interval, a value between (and

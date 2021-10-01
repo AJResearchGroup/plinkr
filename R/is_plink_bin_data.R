@@ -1,5 +1,12 @@
 #' Determine if the `plink_bin_data` is indeed `PLINK` bin data
 #' @inheritParams default_params_doc
+#' @return \link{TRUE} if the `plink_bin_data` is indeed `PLINK` binary data
+#' @seealso `plinkr` has multiple functions to test if a type of data is valid:
+#'
+#'  * `PLINK` text data: use \link{is_plink_text_data}
+#'  * `PLINK` binary data: use \link{is_plink_bin_data}
+#'  * `PLINK2` binary data: use \link{is_plink2_bin_data}
+#'
 #' @examples
 #' plink_bin_data <- create_plink_bin_data(
 #'   bim_table = get_test_bim_table(),

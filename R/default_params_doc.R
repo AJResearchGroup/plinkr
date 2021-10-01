@@ -98,18 +98,14 @@
 #' Use \link{check_cov_table} to test if a covariates table is valid.
 #' @param cov_filename name of a covariates (\code{.cov}) file.
 #' Use \link{read_plink_cov_file} to read a covariates file.
-#' @param data PLINK or PLINK2 text or binary data:
+#' @param data the data source, which can be:
 #'
-#'  * PLINK text data:
-#'    a `.ped` table (see \link{read_plink_ped_file})
-#'    and a `.map` (see \link{read_plink_map_file}),
-#'    as created by \link{create_plink_text_data}.
-#'  * PLINK binary data:
-#'    a `.bed` table (see \link{read_plink_bed_file})
-#'    a `.bim` table (see \link{read_plink_bim_file})
-#'    and a `.fam` (see \link{read_plink_fam_file}),
-#'    as created by \link{create_plink_bin_data}.
-#'  * PLINK2 binary data: use \link{create_plink2_bin_data}
+#'  * PLINK text data, as created by \link{create_plink_text_data}.
+#'  * PLINK binary data, as created by \link{create_plink_bin_data}.
+#'  * PLINK2 binary data, as created by \link{create_plink2_bin_data}.
+#'  * PLINK text filenames, as created by \link{create_plink_text_filenames}.
+#'  * PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
+#'  * PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
 #'
 #' @param epistatic_phenotype_value the phenotypic value when the
 #' epistatic phenotype is expressed

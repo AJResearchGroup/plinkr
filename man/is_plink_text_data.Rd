@@ -10,6 +10,9 @@ is_plink_text_data(plink_text_data)
 \item{plink_text_data}{the genetic and phenotypic data for \code{PLINK} to work
 on, in \code{PLINK} text format, as created by \link{create_plink_text_data}.}
 }
+\value{
+\link{TRUE} if the \code{plink_text_data} is indeed \code{PLINK} text data
+}
 \description{
 Determine if the \code{plink_text_data} is indeed \code{PLINK} text data
 }
@@ -19,6 +22,14 @@ plink_text_data <- create_plink_text_data(
   map_table = get_test_map_table()
 )
 is_plink_text_data(plink_text_data)
+}
+\seealso{
+\code{plinkr} has multiple functions to test if a type of data is valid:
+\itemize{
+\item \code{PLINK} text data: use \link{is_plink_text_data}
+\item \code{PLINK} binary data: use \link{is_plink_bin_data}
+\item \code{PLINK2} binary data: use \link{is_plink2_bin_data}
+}
 }
 \author{
 Richèl J.C. Bilderbeek

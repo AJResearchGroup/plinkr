@@ -27,6 +27,14 @@ the full paths to the \code{.bed}, \code{.bim} and \code{.fam} files created
 \description{
 Save \code{PLINK} binary data to files.
 }
+\seealso{
+to save \code{PLINK}/\code{PLINK2} data use:
+\itemize{
+\item \link{save_plink_text_data}: to save \code{PLINK} text data
+\item \link{save_plink_bin_data}: to save \code{PLINK} binary data
+\item \link{save_plink2_bin_data}: to save \code{PLINK2} binary data
+}
+}
 \author{
 Richèl J.C. Bilderbeek
 }

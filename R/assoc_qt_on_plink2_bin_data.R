@@ -46,51 +46,11 @@ assoc_qt_on_plink2_bin_data <- function(
   )
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
-  # Save all PLINK2 binary data to file
-  if (1 == 2) {
-    # This is what one wants to write,
-    # but it fails as 'save_pgen_table' does not exist,
-    # due to an absent feature in 'pgenlibr', which was requested at
-    # https://github.com/chrchang/plink-ng/issues/194
-    # Do not be smart yet
-    pgen_table <- assoc_qt_params$data$pgen_table
-    psam_table <- assoc_qt_params$data$psam_table
-    pvar_table <- assoc_qt_params$data$pvar_table
-
-    # 'save_' functions will check for success themselves
-    plinkr::save_pgen_table(
-      pgen_table = pgen_table,
-      pgen_filename = pgen_filename
-    )
-    plinkr::save_psam_table(
-      psam_table = psam_table,
-      psam_filename = psam_filename
-    )
-    plinkr::save_pvar_table(
-      pvar_table = pvar_table,
-      pvar_filename = pvar_filename
-    )
-  } else {
-    # This is a workaround:
-    #   1. convert the data to PLINK1 binary data
-    #   2. save the PLINK1 binary data to file
-    #   3. make PLINK2 convert the PLINK1 binary files to PLINK2 binary files
-    plink_bin_data <- plinkr::convert_plink2_bin_data_to_plink_bin_data(
-      assoc_qt_params$data
-    )
-    testthat::expect_true(plinkr::is_plink_bin_data(plink_bin_data))
-    plinkr::save_plink_bin_data(
-      plink_bin_data = plink_bin_data,
-      base_input_filename = base_input_filename
-    )
-    testthat::expect_true(plinkr::has_plink_bin_files(base_input_filename))
-    plinkr::make_pgen(
-      base_input_filename = base_input_filename,
-      base_output_filename = base_input_filename,
-      plink_options = plink_options,
-      verbose = verbose
-    )
-  }
+  plinkr::save_plink2_bin_data(
+    plink2_bin_data = assoc_qt_params$data,
+    base_input_filename = base_input_filename,
+    verbose = verbose
+  )
 
   testthat::expect_true(file.exists(pgen_filename))
   testthat::expect_true(file.exists(psam_filename))

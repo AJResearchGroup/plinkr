@@ -10,8 +10,27 @@ is_plink2_bin_data(plink2_bin_data)
 \item{plink2_bin_data}{the genetic and phenotypic data for \code{PLINK2} to work
 on, in \code{PLINK2} binary format, as created by \link{create_plink2_bin_data}.}
 }
+\value{
+\link{TRUE} if the \code{plink2_bin_data} is indeed \code{PLINK2} binary data
+}
 \description{
 Determine if the \code{plink2_bin_data} is indeed \code{PLINK2} binary data
+}
+\examples{
+plink2_bin_data <- create_plink2_bin_data(
+  pgen_table = get_test_pgen_table(),
+  psam_table = get_test_psam_table(),
+  pvar_table = get_test_pvar_table()
+)
+is_plink2_bin_data(plink2_bin_data)
+}
+\seealso{
+\code{plinkr} has multiple functions to test if a type of data is valid:
+\itemize{
+\item \code{PLINK} text data: use \link{is_plink_text_data}
+\item \code{PLINK} binary data: use \link{is_plink_bin_data}
+\item \code{PLINK2} binary data: use \link{is_plink2_bin_data}
+}
 }
 \author{
 Richèl J.C. Bilderbeek

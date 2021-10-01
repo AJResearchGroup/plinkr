@@ -22,7 +22,12 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-the full paths to the \code{.bed}, \code{.bim} and \code{.fam} files created
+a \code{plink_bin_filenames}, which is a \link{list} with elements:
+\itemize{
+\item \code{bed_filename}: the full path to the \code{.bed} filename created
+\item \code{bim_filename}: the full path to the \code{.bim} filename created
+\item \code{fam_filename}: the full path to the \code{.fam} filename created
+}
 }
 \description{
 Save \code{PLINK} binary data to files.

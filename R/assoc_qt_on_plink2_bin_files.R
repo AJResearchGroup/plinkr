@@ -18,23 +18,20 @@ assoc_qt_on_plink2_bin_files <- function(
   plink_options = create_plink_v2_0_options(),
   verbose = FALSE
 ) {
-  # NOT NOW
-  #plinkr::check_assoc_qt_params(assoc_qt_params)
+  plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_options(plink_options)
   plinkr::check_verbose(verbose)
-  # NOT NOW
-  # plinkr::check_plink_version_and_data_can_work_together(
-  #   data = assoc_qt_params$data,
-  #   plink_options = plink_options
-  # )
-  # testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
-
+  plinkr::check_plink_version_and_data_can_work_together(
+    data = assoc_qt_params$data,
+    plink_options = plink_options
+  )
+  testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_qt_params$data))
 
   # Filenames
   base_input_filename <- assoc_qt_params$base_input_filename
-  pgen_filename <- paste0(base_input_filename, ".pgen")
-  psam_filename <- paste0(base_input_filename, ".psam")
-  pvar_filename <- paste0(base_input_filename, ".pvar")
+  pgen_filename <- assoc_qt_params$data$pgen_filename
+  psam_filename <- assoc_qt_params$data$psam_filename
+  pvar_filename <- assoc_qt_params$data$pvar_filename
   phe_filename <- paste0(base_input_filename, ".phe")
 
   testthat::expect_true(file.exists(pgen_filename))

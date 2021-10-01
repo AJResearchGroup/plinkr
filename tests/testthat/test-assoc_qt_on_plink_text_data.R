@@ -61,6 +61,9 @@ test_that("default demo", {
 
 test_that("demo on random only", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache() # nolint
+
   assoc_qt_params <- create_demo_assoc_qt_params(
     traits = create_random_trait()
   )

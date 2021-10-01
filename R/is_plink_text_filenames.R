@@ -1,5 +1,10 @@
 #' Determine if the `plink_text_files` is indeed a set of `PLINK`
 #' text files' names
+#'
+#' Determine if the `plink_text_files` is indeed a set of `PLINK`
+#' text files' names.
+#'
+#' @note the singular verb `is` is used to indicate it is one data structure.
 #' @inheritParams default_params_doc
 #' @return \link{TRUE} if the `plink_text_files` is indeed a set of `PLINK`
 #' text files' names

@@ -34,8 +34,8 @@ save_plink_text_data <- function(
     plinkr::check_map_table(plinkr::read_plink_map_file(map_filename))
     plinkr::check_ped_table(plinkr::read_plink_ped_file(ped_filename))
   }
-  c(
-    map_filename,
-    ped_filename
+  plinkr::create_plink_text_filenames(
+    map_filename = map_filename,
+    ped_filename = ped_filename
   )
 }

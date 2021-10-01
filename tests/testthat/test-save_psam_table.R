@@ -1,5 +1,8 @@
 test_that("exactly re-recreate .psam file", {
+
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
+
+  clear_plinkr_cache()
 
   psam_filename <- get_plinkr_filename(
     "toy_v1_9_after_make-bed_after_make-pgen.psam"

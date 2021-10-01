@@ -2,7 +2,12 @@
 #'
 #' Save `PLINK` binary data to files.
 #' @inheritParams default_params_doc
-#' @return the full paths to the `.bed`, `.bim` and `.fam` files created
+#' @return a `plink_bin_filenames`, which is a \link{list} with elements:
+#'
+#'  * `bed_filename`: the full path to the `.bed` filename created
+#'  * `bim_filename`: the full path to the `.bim` filename created
+#'  * `fam_filename`: the full path to the `.fam` filename created
+#'
 #' @seealso to save `PLINK`/`PLINK2` data use:
 #'
 #'  * \link{save_plink_text_data}: to save `PLINK` text data
@@ -34,9 +39,9 @@ save_plink_bin_data <- function(
     fam_table = plink_bin_data$fam_table,
     fam_filename = fam_filename
   )
-  c(
-    bed_filename,
-    bim_filename,
-    fam_filename
+  plinkr::create_plink_bin_filenames(
+    bed_filename = bed_filename,
+    bim_filename = bim_filename,
+    fam_filename = fam_filename
   )
 }

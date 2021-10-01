@@ -1,4 +1,4 @@
-#' Create the command-line arguments to call PLINK or PLINK2
+#' Create the command-line arguments to call `PLINK` or `PLINK2`
 #' to do a quantitative trait analysis,
 #' depending on the type of data.
 #' @inheritParams default_params_doc
@@ -16,7 +16,7 @@ create_assoc_qt_args <- function(
     plink_options = plink_options
   )
 
-  if (is_plink_text_data(assoc_qt_params$data)) {
+  if (plinkr::is_plink_text_data(assoc_qt_params$data)) {
     testthat::expect_true(
       plink_options$plink_version %in% plinkr::get_plink1_versions()
     )
@@ -40,10 +40,7 @@ create_assoc_qt_args <- function(
     )
     return(
       c(
-        "--bfile", assoc_qt_params$base_input_filename, # PLINK adds prefix # nolint
-        # "--bfile", paste0(assoc_qt_params$base_input_filename, ".bed"), # PLINK adds prefix # nolint
-        # "--bim", paste0(assoc_qt_params$base_input_filename, ".bim"), # PLINK cannot specify this # nolint
-        # "--fam", paste0(assoc_qt_params$base_input_filename, ".fam"), # PLINK cannot specify this # nolint
+        "--bfile", assoc_qt_params$base_input_filename, # PLINK adds prefix
         "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
         "--all-pheno",
         "--assoc",
@@ -54,18 +51,74 @@ create_assoc_qt_args <- function(
       )
     )
   }
-
-  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
+  if (plinkr::is_plink2_bin_data(assoc_qt_params$data)) {
+    testthat::expect_true(
+      plink_options$plink_version %in% plinkr::get_plink2_versions()
+    )
+    return(
+      c(
+        "--pfile", assoc_qt_params$base_input_filename,
+        "--glm",
+        "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
+        "--allow-extra-chr",
+        "--chr-set", 95,
+        "--maf", assoc_qt_params$maf,
+        "--out", assoc_qt_params$base_output_filename
+      )
+    )
+  }
+  if (plinkr::is_plink_text_filenames(assoc_qt_params$data)) {
+    testthat::expect_true(
+      plink_options$plink_version %in% plinkr::get_plink1_versions()
+    )
+    return(
+      c(
+        "--map", assoc_qt_params$data$map_filename,
+        "--ped", assoc_qt_params$data$ped_filename,
+        "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
+        "--all-pheno",
+        "--assoc",
+        "--allow-extra-chr",
+        "--chr-set", 95,
+        "--maf", assoc_qt_params$maf,
+        "--out", assoc_qt_params$base_output_filename
+      )
+    )
+  }
+  if (plinkr::is_plink_bin_filenames(assoc_qt_params$data)) {
+    testthat::expect_true(
+      plink_options$plink_version %in% plinkr::get_plink1_versions()
+    )
+    return(
+      c(
+        "--bed", assoc_qt_params$data$bed_filename,
+        "--bim", assoc_qt_params$data$bim_filename,
+        "--fam", assoc_qt_params$data$fam_filename,
+        "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
+        "--all-pheno",
+        "--assoc",
+        "--allow-extra-chr",
+        "--chr-set", 95,
+        "--maf", assoc_qt_params$maf,
+        "--out", assoc_qt_params$base_output_filename
+      )
+    )
+  }
+  testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_qt_params$data))
   testthat::expect_true(
     plink_options$plink_version %in% plinkr::get_plink2_versions()
   )
-  c(
-    "--pfile", assoc_qt_params$base_input_filename,
-    "--glm",
-    "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
-    "--allow-extra-chr",
-    "--chr-set", 95,
-    "--maf", assoc_qt_params$maf,
-    "--out", assoc_qt_params$base_output_filename
+  return(
+    c(
+      "--pgen", assoc_qt_params$data$pgen_filename,
+      "--psam", assoc_qt_params$data$psam_filename,
+      "--pvar", assoc_qt_params$data$pvar_filename,
+      "--glm",
+      "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
+      "--allow-extra-chr",
+      "--chr-set", 95,
+      "--maf", assoc_qt_params$maf,
+      "--out", assoc_qt_params$base_output_filename
+    )
   )
 }

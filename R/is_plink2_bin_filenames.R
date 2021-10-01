@@ -1,5 +1,9 @@
 #' Determine if the `plink2_bin_files` is indeed a set of `PLINK2`
 #' binary files' names
+#'
+#' Determine if the `plink2_bin_files` is indeed a set of `PLINK2`
+#' binary files' names
+#' @note the singular verb `is` is used to indicate it is one data structure.
 #' @inheritParams default_params_doc
 #' @return \link{TRUE} if the `plink2_bin_files` is indeed a set of `PLINK`
 #' binary files' names

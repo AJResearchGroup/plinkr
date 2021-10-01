@@ -1,4 +1,6 @@
 test_that("can save", {
+  clear_plinkr_cache()
+
   base_input_filename <- file.path(
     get_plinkr_tempfilename(),
     "save_plink2_bin_data"

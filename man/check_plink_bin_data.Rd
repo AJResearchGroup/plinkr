@@ -21,6 +21,15 @@ Will \link{stop} if not.
 plink_bin_data <- create_test_plink_bin_data()
 check_plink_bin_data(plink_bin_data)
 }
+\seealso{
+\code{plinkr} has the following functions to check if in-memory \code{data}
+is valid:
+\itemize{
+\item \code{PLINK} text data: use \link{check_plink_text_data}
+\item \code{PLINK} binary data: use \link{check_plink_bin_data}
+\item \code{PLINK2} binary data: use \link{check_plink2_bin_data}
+}
+}
 \author{
 Richèl J.C. Bilderbeek
 }

@@ -43,21 +43,39 @@ assoc_qt <- function(
     plink_options = plink_options
   )
   qassoc_table <- NULL
-  if (is_plink_text_data(assoc_qt_params$data)) {
+  if (plinkr::is_plink_text_data(assoc_qt_params$data)) {
     qassoc_table <- plinkr::assoc_qt_on_plink_text_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
-  } else if (is_plink_bin_data(assoc_qt_params$data)) {
+  } else if (plinkr::is_plink_bin_data(assoc_qt_params$data)) {
     qassoc_table <- plinkr::assoc_qt_on_plink_bin_data(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose
     )
-  } else {
-    testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
+  } else if (plinkr::is_plink2_bin_data(assoc_qt_params$data)) {
     qassoc_table <- plinkr::assoc_qt_on_plink2_bin_data(
+      assoc_qt_params = assoc_qt_params,
+      plink_options = plink_options,
+      verbose = verbose
+    )
+  } else if (plinkr::is_plink_text_filenames(assoc_qt_params$data)) {
+    qassoc_table <- plinkr::assoc_qt_on_plink_text_files(
+      assoc_qt_params = assoc_qt_params,
+      plink_options = plink_options,
+      verbose = verbose
+    )
+  } else if (plinkr::is_plink_bin_filenames(assoc_qt_params$data)) {
+    qassoc_table <- plinkr::assoc_qt_on_plink_bin_files(
+      assoc_qt_params = assoc_qt_params,
+      plink_options = plink_options,
+      verbose = verbose
+    )
+  } else {
+    testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_qt_params$data))
+    qassoc_table <- plinkr::assoc_qt_on_plink2_bin_files(
       assoc_qt_params = assoc_qt_params,
       plink_options = plink_options,
       verbose = verbose

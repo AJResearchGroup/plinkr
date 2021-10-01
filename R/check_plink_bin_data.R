@@ -5,6 +5,13 @@
 #'
 #' @inheritParams default_params_doc
 #' @return nothing
+#' @seealso `plinkr` has the following functions to check if in-memory `data`
+#' is valid:
+#'
+#'  * `PLINK` text data: use \link{check_plink_text_data}
+#'  * `PLINK` binary data: use \link{check_plink_bin_data}
+#'  * `PLINK2` binary data: use \link{check_plink2_bin_data}
+#'
 #' @examples
 #' plink_bin_data <- create_test_plink_bin_data()
 #' check_plink_bin_data(plink_bin_data)

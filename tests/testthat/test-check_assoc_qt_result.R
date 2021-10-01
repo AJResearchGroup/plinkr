@@ -1,5 +1,11 @@
-test_that("use", {
-  expect_equal(2 * 2, 4)
-  skip("check_assoc_qt_result")
-
+test_that("minimal use", {
+  expect_error(check_assoc_qt_result("nonsense"))
+  expect_error(check_assoc_qt_result(NULL))
+  expect_error(check_assoc_qt_result(NA))
+  expect_error(check_assoc_qt_result(42))
+  expect_error(check_assoc_qt_result(3.14))
+  expect_error(check_assoc_qt_result(c()))
+  expect_error(check_assoc_qt_result(c(4, 2)))
+  expect_error(check_assoc_qt_result(list()))
+  expect_error(check_assoc_qt_result(list(a = 4, b = 2)))
 })

@@ -1,4 +1,5 @@
 test_that("minimal use, using PLINK1 text data", {
+  clear_plinkr_cache() # nolint
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
@@ -15,7 +16,7 @@ test_that("minimal use, using PLINK1 text data", {
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
-      "PLINK"
+      "you should be able to copy paste this"
     )
   )
 

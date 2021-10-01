@@ -34,6 +34,9 @@ make_bed_with_plink <- function(
     "--make-bed",
     "--out", base_output_filename
   )
+  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+    args <- c(args, "--noweb")
+  }
   plinkr::run_plink(
     args = args,
     plink_options = plink_options,

@@ -11,6 +11,8 @@
 #  6 | PLINK2        | PLINK2 bin data | OK
 #
 test_that("1. test data, PLINK1, PLINK1 text data", {
+  clear_plinkr_cache()
+
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
@@ -344,10 +346,6 @@ test_that("13. test data, PLINK1, PLINK1 bin data, phenotype file", {
   clear_plinkr_cache()
 })
 
-#
-# Compare results and speed
-#
-
 test_that("Compare assoc_qt results and speed of PLINKs", {
   expect_equal(1 + 1, 2) # To prevent 'No test' warning
   return()
@@ -387,6 +385,7 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
 
 
   # PLINK v1.9 with text files
+  assoc_qt_params$data <- plink_text_filenames
   expect_true(is_plink_text_data(assoc_qt_params$data))
   start_plink_text_time <- Sys.time()
   assoc_qt_result_plink_text <- assoc_qt(
@@ -395,10 +394,8 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
   )
   end_plink_text_time <- Sys.time()
   # PLINK v1.9 with bin files
-  assoc_qt_params$data <- convert_plink_text_data_to_plink_bin_data(
-    assoc_qt_params$data
-  )
-  expect_true(is_plink_bin_data(assoc_qt_params$data))
+  assoc_qt_params$data <- plink_bin_filenames
+  expect_true(is_plink_bin_filenames(assoc_qt_params$data))
   start_plink_bin_time <- Sys.time()
   assoc_qt_result_plink_bin <- assoc_qt(
     assoc_qt_params = assoc_qt_params,
@@ -406,10 +403,8 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
   )
   end_plink_bin_time <- Sys.time()
   # PLINK v2.0 with PLINK2 binary files
-  assoc_qt_params$data <- convert_plink_bin_data_to_plink2_bin_data(
-    assoc_qt_params$data
-  )
-  expect_true(is_plink2_bin_data(assoc_qt_params$data))
+  assoc_qt_params$data <- plink2_bin_filenames
+  expect_true(is_plink2_bin_filenames(assoc_qt_params$data))
   start_plink2_bin_time <- Sys.time()
   assoc_qt_result_plink2_bin <- assoc_qt(
     assoc_qt_params = assoc_qt_params,

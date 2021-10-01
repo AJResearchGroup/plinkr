@@ -46,7 +46,8 @@ assoc_qt_on_plink2_bin_data <- function(
   )
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
-  plinkr::save_plink2_bin_data(
+  # Convert data from in-memory to paths
+  assoc_qt_params$data <- plinkr::save_plink2_bin_data(
     plink2_bin_data = assoc_qt_params$data,
     base_input_filename = base_input_filename,
     verbose = verbose
@@ -60,29 +61,48 @@ assoc_qt_on_plink2_bin_data <- function(
     phe_filename = phe_filename
   )
 
-  # PLINK will not do so and will not give an error
-  dir.create(
-    dirname(assoc_qt_params$base_output_filename),
-    showWarnings = FALSE,
-    recursive = TRUE
-  )
 
-  args <- plinkr::create_assoc_qt_args(
-    assoc_qt_params = assoc_qt_params,
-    plink_options = plink_options
-  )
-  plinkr::run_plink(
-    args = args,
-    plink_options = plink_options,
-    verbose = verbose
-  )
 
-  qassoc_table <- plinkr::read_plink2_qassoc_files(
-    qassoc_filenames = qassoc_filenames
-  )
-  if (verbose) {
-    message(paste(plinkr::read_plink_log_file(log_filename), collapse = "\n"))
+  if (1 == 1) {
+    assoc_qt_result <- plinkr::assoc_qt_on_plink2_bin_files(
+      assoc_qt_params = assoc_qt_params,
+      plink_options = plink_options,
+      verbose = verbose
+
+    )
+  } else {
+    # PLINK will not do so and will not give an error
+    dir.create(
+      dirname(assoc_qt_params$base_output_filename),
+      showWarnings = FALSE,
+      recursive = TRUE
+    )
+
+    args <- plinkr::create_assoc_qt_args(
+      assoc_qt_params = assoc_qt_params,
+      plink_options = plink_options
+    )
+    plinkr::run_plink(
+      args = args,
+      plink_options = plink_options,
+      verbose = verbose
+    )
+
+    qassoc_table <- plinkr::read_plink2_qassoc_files(
+      qassoc_filenames = qassoc_filenames
+    )
+    if (verbose) {
+      message(paste(plinkr::read_plink_log_file(log_filename), collapse = "\n"))
+    }
   }
+
+  qassoc_filenames <- assoc_qt_result$qassoc_filenames
+  log_filename <- assoc_qt_result$log_filename
+
+  assoc_qt_result <- list(
+    assoc_qt_table = plinkr::read_plink2_qassoc_files(qassoc_filenames),
+    log = plinkr::read_plink_log_file(log_filename)
+  )
 
   file.remove(pgen_filename)
   file.remove(psam_filename)
@@ -107,7 +127,5 @@ assoc_qt_on_plink2_bin_data <- function(
     recursive = TRUE
   )
 
-  qassoc_table
-
-
+  assoc_qt_result
 }

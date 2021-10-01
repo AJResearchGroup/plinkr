@@ -36,6 +36,7 @@ test_that("convert with PLINK v1.7 and v1.9 must match", {
 })
 
 test_that("PLINK2 does not convert PLINK1 text to PLINK1 binary", {
+  clear_plinkr_cache() # nolint
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()

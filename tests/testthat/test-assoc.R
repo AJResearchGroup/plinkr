@@ -1,4 +1,6 @@
 test_that("minimal use, v1.7", {
+
+  clear_plinkr_cache()
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
@@ -39,6 +41,9 @@ test_that("minimal use v2.0", {
 
 test_that("verbose", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   expect_message(
     assoc(assoc_params = create_test_assoc_params(), verbose = TRUE)

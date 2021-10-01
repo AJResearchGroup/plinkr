@@ -34,11 +34,6 @@ test_that("--noweb", {
   )
 })
 
-if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
-  args <- c(args, "--noweb")
-}
-
-
 test_that("detect invalid combinations of commands", {
   # From https://zzz.bwh.harvard.edu/plink/data.shtml#covar
   #

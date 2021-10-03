@@ -9,6 +9,16 @@
 safe_str_split <- function(
   string
 ) {
+  return(
+    stringr::str_split(
+      string,
+      pattern = "[:blank:]+",
+      simplify = TRUE
+    )
+  )
+
+  stop("Old code")
+
   # See the stringr code below
   split_strs <- strsplit(
     x = string,

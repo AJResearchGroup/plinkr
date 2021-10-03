@@ -1,4 +1,7 @@
 test_that("minimal use, from files", {
+  clear_plinkr_cache()
+  expect_silent(check_empty_plinkr_folder())
+
   if (!is_plink_installed()) return()
   data <- convert_plink_text_data_to_plink_bin_data(
     create_test_plink_text_data()
@@ -24,6 +27,7 @@ test_that("minimal use, from files", {
   )
 
   expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("minimal use, simulated data", {

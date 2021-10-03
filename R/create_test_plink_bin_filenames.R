@@ -21,7 +21,7 @@
 #' create_test_plink_bin_filenames()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_test_plink_bin_filenames <- function(
+create_test_plink_bin_filenames <- function( # nolint indeed a long function name
   bed_filename = "test.bed",
   bim_filename = "test.bim",
   fam_filename = "test.fam"

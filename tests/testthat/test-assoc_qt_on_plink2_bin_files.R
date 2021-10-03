@@ -27,7 +27,9 @@ test_that("test data, PLINK2, PLINK2 bin files", {
     pvar_filename = get_plinkr_filename("assoc_qt_on_plink2_bin_files.pvar")
   )
   check_plink2_bin_filenames(assoc_qt_params$data)
-  assoc_qt_params$base_input_filename <- tools::file_path_sans_ext(get_plinkr_filename("assoc_qt_on_plink2_bin_files.phe"))
+  assoc_qt_params$base_input_filename <- tools::file_path_sans_ext(
+    get_plinkr_filename("assoc_qt_on_plink2_bin_files.phe")
+  )
   assoc_qt_filenames <- assoc_qt_on_plink2_bin_files(
     assoc_qt_params = assoc_qt_params
   )

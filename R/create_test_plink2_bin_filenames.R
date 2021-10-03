@@ -21,7 +21,7 @@
 #' create_test_plink2_bin_filenames()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_test_plink2_bin_filenames <- function(
+create_test_plink2_bin_filenames <- function( # nolint indeed a long function name
   pgen_filename = "test.pgen",
   psam_filename = "test.psam",
   pvar_filename = "test.pvar"

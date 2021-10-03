@@ -21,7 +21,7 @@
 #' create_test_plink_text_filenames()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_test_plink_text_filenames <- function(
+create_test_plink_text_filenames <- function( # nolint indeed a long function name
   map_filename = "test.map",
   ped_filename = "test.ped"
 ) {

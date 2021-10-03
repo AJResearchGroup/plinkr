@@ -357,7 +357,7 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
     n_individuals = 1000,
     traits = create_random_trait(n_snps = 1000)
   )
-  assoc_qt_params$data$map_table$CHR <- 1
+  assoc_qt_params$data$map_table$CHR <- 1 # nolint PLINK2 variable naming
 
   # Convert the data
   plink_text_data <- assoc_qt_params$data

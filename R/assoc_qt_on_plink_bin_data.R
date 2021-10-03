@@ -56,9 +56,6 @@ assoc_qt_on_plink_bin_data <- function(
   }
 
   # Do not be smart yet
-  bed_table <- assoc_qt_params$data$bed_table
-  bim_table <- assoc_qt_params$data$bim_table
-  fam_table <- assoc_qt_params$data$fam_table
   phe_table <- assoc_qt_params$phe_table
   phenotype_names <- names(assoc_qt_params$phe_table)[c(-1, -2)]
 

@@ -31,7 +31,7 @@ missing_from_bfile <- function(
   }
   plinkr::run_plink(
     args = args,
-    plink_options =plink_options
+    plink_options = plink_options
   )
   miss_stat_filenames <- list.files(
     dirname(base_miss_stat_filenames),

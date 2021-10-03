@@ -24,7 +24,9 @@ is_plink2_bin_filenames <- function(
   plinkr::check_verbose(verbose)
   result <- FALSE
   tryCatch({
-    plinkr::check_plink2_bin_filenames(plink2_bin_filenames = plink2_bin_filenames)
+    plinkr::check_plink2_bin_filenames(
+      plink2_bin_filenames = plink2_bin_filenames
+    )
     result <- TRUE
   }, error = function(e) {
       if (verbose) message(e$message)

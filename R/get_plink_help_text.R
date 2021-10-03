@@ -28,7 +28,7 @@ get_plink_help_text <- function(
   }
   plinkr::run_plink(
     args = args,
-    plink_options =plink_options
+    plink_options = plink_options
   )
 
   plinkr::run_plink(

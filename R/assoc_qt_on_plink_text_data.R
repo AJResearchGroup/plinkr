@@ -56,15 +56,11 @@ assoc_qt_on_plink_text_data <- function(
   }
 
   # Do not be smart yet
-  ped_table <- assoc_qt_params$data$ped_table
-  map_table <- assoc_qt_params$data$map_table
   phe_table <- assoc_qt_params$phe_table
   phenotype_names <- names(assoc_qt_params$phe_table)[c(-1, -2)]
 
   # Filenames
   base_input_filename <- assoc_qt_params$base_input_filename
-  ped_filename <- paste0(base_input_filename, ".ped")
-  map_filename <- paste0(base_input_filename, ".map")
   phe_filename <- paste0(base_input_filename, ".phe")
   qassoc_filenames <- paste0(
     assoc_qt_params$base_output_filename, ".", phenotype_names,
@@ -81,33 +77,11 @@ assoc_qt_on_plink_text_data <- function(
   testthat::expect_true(file.exists(assoc_qt_params$data$map_filename))
   testthat::expect_true(file.exists(assoc_qt_params$data$ped_filename))
 
-  if (1 == 1) {
-    qassoc_result <- plinkr::assoc_qt_on_plink_text_files(
-      assoc_qt_params = assoc_qt_params,
-      plink_options = plink_options,
-      verbose = verbose
-    )
-  }  else {
-
-    # PLINK will not do so and will not give an error
-    dir.create(
-      dirname(assoc_qt_params$base_output_filename),
-      showWarnings = FALSE,
-      recursive = TRUE
-    )
-
-    # Load from files
-
-    args <- plinkr::create_assoc_qt_args(
-      assoc_qt_params = assoc_qt_params,
-      plink_options = plink_options
-    )
-    plinkr::run_plink(
-      args = args,
-      plink_options = plink_options,
-      verbose = verbose
-    )
-  }
+  qassoc_result <- plinkr::assoc_qt_on_plink_text_files(
+    assoc_qt_params = assoc_qt_params,
+    plink_options = plink_options,
+    verbose = verbose
+  )
   qassoc_filenames <- qassoc_result$qassoc_filenames
   log_filename <- qassoc_result$log_filename
 

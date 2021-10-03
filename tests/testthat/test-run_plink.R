@@ -2,7 +2,7 @@ test_that("show help, v1.7", {
   if (!is_plink_installed()) return()
   expect_silent(
     run_plink(
-      args = "--help",
+      args = c("--help", "--noweb"),
       plink_options = create_plink_v1_7_options()
     )
   )

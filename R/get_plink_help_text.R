@@ -22,8 +22,17 @@
 get_plink_help_text <- function(
   plink_options = create_plink_options()
 ) {
+  args <- "--help"
+  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+    args <- c(args, "--noweb")
+  }
   plinkr::run_plink(
-    args = "--help",
+    args = args,
+    plink_options =plink_options
+  )
+
+  plinkr::run_plink(
+    args = args,
     plink_options = plink_options
   )
 }

@@ -8,8 +8,8 @@
 #' @export
 check_assoc_qt_result <- function(assoc_qt_result) {
   testthat::expect_true(is.list(assoc_qt_result))
-  expect_true("qassoc_table" %in% names(assoc_qt_result))
-  expect_true("log" %in% names(assoc_qt_result))
+  testthat::expect_true("qassoc_table" %in% names(assoc_qt_result))
+  testthat::expect_true("log" %in% names(assoc_qt_result))
   plinkr::check_qassoc_table(assoc_qt_result$qassoc_table)
   invisible(assoc_qt_result)
 }

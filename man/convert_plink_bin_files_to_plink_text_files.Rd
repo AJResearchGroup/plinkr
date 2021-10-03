@@ -11,6 +11,23 @@ convert_plink_bin_files_to_plink_text_files(
   verbose = FALSE
 )
 }
+\arguments{
+\item{base_input_filename}{the base of the filenames that are
+used as input for \code{PLINK}/\code{PLINK2}}
+
+\item{base_output_filename}{the base of the filenames that are
+used as output for \code{PLINK}/\code{PLINK2}}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
+}
+\value{
+the full paths to the \code{.bed}, \code{.bim} and \code{.fam} files created
+}
 \description{
 Convert PLINK binary files to PLINK plain-text files
 }

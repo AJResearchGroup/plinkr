@@ -1,4 +1,6 @@
 #' Convert PLINK binary files to PLINK plain-text files
+#' @inheritParams default_params_doc
+#' @return the full paths to the `.bed`, `.bim` and `.fam` files created
 #' @seealso these are the functions to convert between the `PLINK` and
 #' `PLINK2` files:
 #'

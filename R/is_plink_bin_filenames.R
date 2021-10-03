@@ -14,7 +14,7 @@
 #'  * `PLINK2` binary files: use \link{is_plink2_bin_filenames}
 #'
 #' @examples
-#' is_plink_bin_filesnames(create_test_plink_bin_filenames())
+#' is_plink_bin_filenames(create_test_plink_bin_filenames())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_plink_bin_filenames <- function(

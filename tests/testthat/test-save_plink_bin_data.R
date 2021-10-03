@@ -1,4 +1,8 @@
 test_that("can save", {
+  expect_silent(check_empty_plinkr_folder())
+
+  if (!is_plink_installed()) return()
+
   base_input_filename <- file.path(
     get_plinkr_tempfilename(),
     "save_plink_bin_data"

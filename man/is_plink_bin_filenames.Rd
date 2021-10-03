@@ -28,7 +28,7 @@ binary files' names
 the singular verb \code{is} is used to indicate it is one data structure.
 }
 \examples{
-is_plink_bin_filesnames(create_test_plink_bin_filenames())
+is_plink_bin_filenames(create_test_plink_bin_filenames())
 }
 \seealso{
 \code{plinkr} has multiple functions to test if a set of files is valid:

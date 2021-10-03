@@ -25,6 +25,7 @@ save_plink2_bin_data <- function(
   plinkr::check_plink2_bin_data(plink2_bin_data)
   plinkr::check_base_input_filename(base_input_filename)
   plinkr::check_verbose(verbose)
+  plinkr::check_plink_is_installed(plink_options = plink_options)
 
   # PLINK2 files to be created
   pgen_filename <- paste0(base_input_filename, ".pgen")

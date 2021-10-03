@@ -40,7 +40,7 @@ assoc_qt_on_plink2_bin_files <- function(
   testthat::expect_true(file.exists(phe_filename))
 
   phe_table <- plinkr::read_plink_phe_file(phe_filename = phe_filename)
-  phenotype_names <- names(assoc_qt_params$phe_table)[c(-1, -2)]
+  phenotype_names <- names(phe_table)[c(-1, -2)]
   qassoc_filenames <- paste0(
     assoc_qt_params$base_output_filename, ".", phenotype_names,
     ".glm.linear"

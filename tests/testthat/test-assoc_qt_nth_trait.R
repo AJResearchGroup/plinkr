@@ -1,5 +1,6 @@
 test_that("use", {
   expect_silent(check_empty_plinkr_folder())
+
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_test_assoc_qt_params()
   expect_silent(

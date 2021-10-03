@@ -16,17 +16,25 @@
 freq_from_bfile_within_phe_file <- function( # nolint indeed a long function name
   bfile,
   phe_filename,
-  out
+  out,
+  plink_options = create_plink_options(),
+  verbose = FALSE
 ) {
   base_binary_filenames <- bfile
   base_freq_stat_filenames <- out
+  args <- c(
+    "--bfile", base_binary_filenames,
+    "--freq",
+    "--within", phe_filename,
+    "--out", base_freq_stat_filenames
+  )
+  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+    args <- c(args, "--noweb")
+  }
   plinkr::run_plink(
-    args = c(
-      "--bfile", base_binary_filenames,
-      "--freq",
-      "--within", phe_filename,
-      "--out", base_freq_stat_filenames
-    )
+    args = args,
+    plink_options = plink_options,
+    verbose = verbose
   )
   freq_stat_filenames <- list.files(
     dirname(base_freq_stat_filenames),

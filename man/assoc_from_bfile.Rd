@@ -5,7 +5,12 @@
 \title{Let \code{PLINK}/\code{PLINK2}
 do a binary-trait/case-control association}
 \usage{
-assoc_from_bfile(bfile, out)
+assoc_from_bfile(
+  bfile,
+  out,
+  plink_options = create_plink_options(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{bfile}{the base filename of the binary files (i.e.
@@ -16,6 +21,13 @@ This parameter is named after the \code{PLINK}
 \item{out}{the base filename of the output files.
 This parameter is named after the \code{PLINK}
 \code{--out} flag}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
 a \link{list} with the following columns:

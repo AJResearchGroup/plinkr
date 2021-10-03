@@ -185,7 +185,7 @@ if (good_to_go) {
   hapmap1_base_filename <- tools::file_path_sans_ext(hapmap1_map_filename)
   # This only works up until approx PLINK v1.7
   run_plink(
-    args = c("--file", hapmap1_base_filename),
+    args = c("--file", hapmap1_base_filename, "--noweb"),
     plink_options = create_plink_v1_7_options()
   )
 }
@@ -298,7 +298,7 @@ To specify that the input data are in binary format, as opposed to the normal te
 ```{r}
 if (good_to_go) {
   plinkr::run_plink(
-    args = c("--bfile", base_binary_filenames),
+    args = c("--bfile", base_binary_filenames, "--noweb"),
     plink_options = create_plink_v1_7_options()
   )
 }

@@ -23,17 +23,25 @@
 #' @export
 assoc_adjust_from_bfile <- function(
   bfile,
-  out
+  out,
+  plink_options = create_plink_options(),
+  verbose = FALSE
 ) {
   base_binary_filenames <- bfile
   base_assoc_filenames <- out
+  args <- c(
+    "--bfile", base_binary_filenames,
+    "--assoc",
+    "--adjust",
+    "--out", base_assoc_filenames
+  )
+  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+    args <- c(args, "--noweb")
+  }
   plinkr::run_plink(
-    args = c(
-      "--bfile", base_binary_filenames,
-      "--assoc",
-      "--adjust",
-      "--out", base_assoc_filenames
-    )
+    args = args,
+    plink_options = plink_options,
+    verbose = verbose
   )
   assoc_filenames <- list.files(
     dirname(base_assoc_filenames),

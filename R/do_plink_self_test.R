@@ -25,13 +25,17 @@ do_plink_self_test <- function(
   )
 
   # plink --ped file1.ped --map file1.map --maf 0.05 --assoc
+  args <- c(
+    "--ped", ped_filename,
+    "--map", map_filename,
+    "--maf", "0.05",
+    "--assoc"
+  )
+  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+    args <- c(args, "--noweb")
+  }
   plinkr::run_plink(
-    args = c(
-      "--ped", ped_filename,
-      "--map", map_filename,
-      "--maf", "0.05",
-      "--assoc"
-    ),
+    args = args,
     plink_options = plink_options,
     verbose = verbose
   )

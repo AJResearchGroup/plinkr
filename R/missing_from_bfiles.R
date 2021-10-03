@@ -15,17 +15,23 @@
 #' @export
 missing_from_bfile <- function(
   bfile,
-  out
+  out,
+  plink_options = create_plink_options()
 ) {
   base_binary_filenames <- bfile
   base_miss_stat_filenames <- out
+
+  args <- c(
+    "--bfile", base_binary_filenames,
+    "--missing",
+    "--out", base_miss_stat_filenames
+  )
+  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+    args <- c(args, "--noweb")
+  }
   plinkr::run_plink(
-    args = c(
-      "--bfile", base_binary_filenames,
-      "--missing",
-      "--out", base_miss_stat_filenames
-    ),
-    plink_options = create_plink_v1_7_options()
+    args = args,
+    plink_options =plink_options
   )
   miss_stat_filenames <- list.files(
     dirname(base_miss_stat_filenames),

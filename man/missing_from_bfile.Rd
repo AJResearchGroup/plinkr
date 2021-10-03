@@ -5,7 +5,7 @@
 \title{Let \code{PLINK}/\code{PLINK2}
 calculate the missing rates summary statistic.}
 \usage{
-missing_from_bfile(bfile, out)
+missing_from_bfile(bfile, out, plink_options = create_plink_options())
 }
 \arguments{
 \item{bfile}{the base filename of the binary files (i.e.
@@ -16,6 +16,9 @@ This parameter is named after the \code{PLINK}
 \item{out}{the base filename of the output files.
 This parameter is named after the \code{PLINK}
 \code{--out} flag}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
 }
 \value{
 a \link{list} with the following elements:

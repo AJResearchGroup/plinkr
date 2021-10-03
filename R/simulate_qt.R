@@ -24,6 +24,9 @@ simulate_qt <- function(
     "--simulate-qt", temp_sim_filename,
     "--simulate-n", n_individuals
   )
+  if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
+    args <- c(args, "--noweb")
+  }
   plinkr::run_plink(
     args,
     plink_options = plink_options,

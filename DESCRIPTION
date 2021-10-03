@@ -24,6 +24,7 @@ Imports:
     purrr,
     rappdirs,
     readr,
+    stringi (>= 1.7.4.9002),
     stringr,
     tibble,
     tidyr

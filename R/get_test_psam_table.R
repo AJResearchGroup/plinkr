@@ -20,12 +20,12 @@
 #' @export
 get_test_psam_table <- function() {
   psam_table <- tibble::tribble(
-    ~FID, ~IID,         ~SEX, ~PHENO1,
-    "1" , "1000000000", 1,    1,
-    "1" , "1000000001", 1,    2
+    ~FID, ~IID,         ~SEX, ~PHENO1, # nolint PLINK2 variable name
+    "1" , "1000000000", 1,    1,       # nolint use this layout for readability
+    "1" , "1000000001", 1,    2        # nolint use this layout for readability
   )
 
-  psam_table$SEX <- as.integer(psam_table$SEX)
-  psam_table$PHENO1 <- as.integer(psam_table$PHENO1)
+  psam_table$SEX <- as.integer(psam_table$SEX) # nolint PLINK2 variable names
+  psam_table$PHENO1 <- as.integer(psam_table$PHENO1) # nolint PLINK2 variable names
   psam_table
 }

@@ -8,7 +8,7 @@
   pvar_filename
 ) {
    testthat::expect_true(file.exists(pvar_filename))
-   df <- data.table::fread(pvar_filename, skip = "#CHROM")
+   df <- data.table::fread(pvar_filename, skip = "#CHROM", data.table = FALSE)
    names(df) <- c("CHROM", names(df)[-1])
    pvar_table <- tibble::tibble(df)
    pvar_table

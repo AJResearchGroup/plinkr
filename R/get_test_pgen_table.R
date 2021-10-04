@@ -14,49 +14,14 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_pgen_table <- function() {
-  if (1 == 2) {
-      pgen_table <- tibble::tibble(
-      chr = c("1", "1"),
-      id = c("snp0", "snp1"),
-      posg = c(0, 0),
-      pos = as.integer(c(0, 1)),
-      ref = c("A", "A"),
-      alt = c("B", "B")
-    )
-    class(pgen_table) <- c("spec_tbl_df", "tbl_df", "tbl", "data.frame")
-    pgen_table
-  }
-  # TODO: simplify to work without reading a file
-  if (1 == 1) {
-    # An asymmetrical table,
-    #   * columns: SNPs
-    #   * rows: individuals
-    return(
-      plinkr::read_plink2_pgen_file_from_files(
-        pgen_filename = plinkr::get_plinkr_filename(
-          "test_v1_7_after_make-bed_after_make-pgen.pgen"
-        ),
-        psam_filename = plinkr::get_plinkr_filename(
-          "test_v1_7_after_make-bed_after_make-pgen.psam"
-        ),
-        pvar_filename = plinkr::get_plinkr_filename(
-          "test_v1_7_after_make-bed_after_make-pgen.pvar"
-        )
-      )
-    )
-  } else {
-    return(
-      plinkr::read_plink2_pgen_file_from_files(
-        pgen_filename = plinkr::get_plinkr_filename(
-          "toy_v1_9_after_make-bed_after_make-pgen.pgen"
-        ),
-        psam_filename = plinkr::get_plinkr_filename(
-          "toy_v1_9_after_make-bed_after_make-pgen.psam"
-        ),
-        pvar_filename = plinkr::get_plinkr_filename(
-          "toy_v1_9_after_make-bed_after_make-pgen.pvar"
-        )
-      )
-    )
-  }
+  pgen_table <- array(
+    data = c(
+      2, 1, 0, 1, 0, 0,
+      1, 1, 2, 0, 1, 0
+    ),
+    dim = c(6, 2)
+  )
+  colnames(pgen_table) <- paste0("snp", c(1, 2))
+  rownames(pgen_table) <- as.character(seq(1, 6))
+  pgen_table
 }

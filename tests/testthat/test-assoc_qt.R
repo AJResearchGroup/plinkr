@@ -383,7 +383,32 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
   expect_silent(check_plink_bin_filenames(plink_bin_filenames))
   expect_silent(check_plink2_bin_filenames(plink2_bin_filenames))
 
-
+  datas <- list(plink_text_filenames, plink_bin_filenames, plink2_bin_filenames)
+  plink_optionses <- create_plink_optionses()
+  times <- tidyr::expand_grid(
+    data = datas,
+    plink_options = plink_optionses,
+    time_sec = NA
+  )
+  for (i in seq_len(nrow(times))) {
+    message(i)
+    if (
+      can_plink_version_and_data_can_work_together(
+        data = times$data[[i]],
+        plink_options = times$plink_options[[i]]
+      )
+    ) {
+      assoc_qt_params$data <- times$data[[i]]
+      start_time <- Sys.time()
+      assoc_qt_result_plink_text <- assoc_qt(
+        assoc_qt_params = assoc_qt_params,
+        plink_options = times$plink_options[[i]]
+      )
+      end_time <- Sys.time()
+      times$time_sec[i] <- end_time - start_time
+    }
+  }
+  times
   # PLINK v1.9 with text files
   assoc_qt_params$data <- plink_text_filenames
   expect_true(is_plink_text_filenames(assoc_qt_params$data))

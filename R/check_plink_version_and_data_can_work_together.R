@@ -34,6 +34,17 @@ check_plink_version_and_data_can_work_together <- function( # nolint indeed a lo
         "to convert the data to PLINK text data). "
       )
     }
+    if (plinkr::is_plink2_bin_filenames(data)) {
+      stop(
+        "PLINK cannot work with PLINK2 binary files. ",
+        "Tip 1: use 'plink_options = create_plink_v2_0_options()' ",
+        "to the PLINK2 instead ",
+        "Tip 2: use 'convert_plink2_bin_files_to_plink_bin_files' ",
+        "to convert the files to PLINK binary files ",
+        "(or use 'convert_plink2_bin_files_to_plink_text_files' ",
+        "to convert the files to PLINK text files). "
+      )
+    }
   } else {
     testthat::expect_true(
       plink_options$plink_version %in% get_plink2_versions()
@@ -42,18 +53,36 @@ check_plink_version_and_data_can_work_together <- function( # nolint indeed a lo
       stop(
         "PLINK2 cannot work with PLINK text data. ",
         "Tip 1: use 'plink_options = create_plink_v1_9_options()' ",
-        "to the PLINK instead ",
+        "to use PLINK instead ",
         "Tip 2: use 'convert_plink_text_data_to_plink2_bin_data' ",
         "to convert the data to PLINK2 binary data. "
+      )
+    }
+    if (plinkr::is_plink_text_filenames(data)) {
+      stop(
+        "PLINK2 cannot work with PLINK text files. ",
+        "Tip 1: use 'plink_options = create_plink_v1_9_options()' ",
+        "to use PLINK instead ",
+        "Tip 2: use 'convert_plink_text_files_to_plink2_bin_files' ",
+        "to convert the data to PLINK2 binary files. "
       )
     }
     if (plinkr::is_plink_bin_data(data)) {
       stop(
         "PLINK2 cannot work with PLINK binary data. ",
         "Tip 1: use 'plink_options = create_plink_v1_9_options()' ",
-        "to the PLINK instead ",
+        "to use PLINK instead ",
         "Tip 2: use 'convert_plink_bin_data_to_plink2_bin_data' ",
         "to convert the data to PLINK2 binary data. "
+      )
+    }
+    if (plinkr::is_plink_bin_filenames(data)) {
+      stop(
+        "PLINK2 cannot work with PLINK binary files. ",
+        "Tip 1: use 'plink_options = create_plink_v1_9_options()' ",
+        "to use PLINK instead ",
+        "Tip 2: use 'convert_plink_bin_files_to_plink2_bin_files' ",
+        "to convert the files to PLINK2 binary files. "
       )
     }
   }

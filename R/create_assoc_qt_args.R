@@ -26,13 +26,14 @@ create_assoc_qt_args <- function(
       "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
       "--all-pheno",
       "--assoc",
-      "--allow-extra-chr",
-      "--chr-set", 95,
       "--maf", assoc_qt_params$maf,
       "--out", assoc_qt_params$base_output_filename
     )
     if(plink_options$plink_version == "1.7") {
       args <- c(args, "--noweb")
+    }
+    if(plink_options$plink_version == "1.9") {
+      args <- c(args, "--allow-extra-chr", "--chr-set", 95)
     }
     return(args)
   }
@@ -45,13 +46,14 @@ create_assoc_qt_args <- function(
       "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
       "--all-pheno",
       "--assoc",
-      "--allow-extra-chr",
-      "--chr-set", 95,
       "--maf", assoc_qt_params$maf,
       "--out", assoc_qt_params$base_output_filename
     )
     if(plink_options$plink_version == "1.7") {
       args <- c(args, "--noweb")
+    }
+    if(plink_options$plink_version == "1.9") {
+      args <- c(args, "--allow-extra-chr", "--chr-set", 95)
     }
     return(args)
   }
@@ -81,13 +83,14 @@ create_assoc_qt_args <- function(
       "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
       "--all-pheno",
       "--assoc",
-      "--allow-extra-chr",
-      "--chr-set", 95,
       "--maf", assoc_qt_params$maf,
       "--out", assoc_qt_params$base_output_filename
     )
     if(plink_options$plink_version == "1.7") {
       args <- c(args, "--noweb")
+    }
+    if(plink_options$plink_version == "1.9") {
+      args <- c(args, "--allow-extra-chr", "--chr-set", 95)
     }
     return(args)
   }
@@ -102,13 +105,14 @@ create_assoc_qt_args <- function(
       "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
       "--all-pheno",
       "--assoc",
-      "--allow-extra-chr",
-      "--chr-set", 95,
       "--maf", assoc_qt_params$maf,
       "--out", assoc_qt_params$base_output_filename
     )
     if(plink_options$plink_version == "1.7") {
       args <- c(args, "--noweb")
+    }
+    if(plink_options$plink_version == "1.9") {
+      args <- c(args, "--allow-extra-chr", "--chr-set", 95)
     }
     return(args)
   }

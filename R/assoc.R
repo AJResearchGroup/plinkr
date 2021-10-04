@@ -1,7 +1,8 @@
-#' Let \code{PLINK}/\code{PLINK2} detect an association for a binary trait.
+#' Let `PLINK`/`PLINK2` detect an association
+#' for a case/control or binary trait.
 #'
-#' @note This function is named after the \code{--assoc} flag
-#' used by \code{PLINK}
+#' Let `PLINK`/`PLINK2` detect an association
+#' for a case/control or binary trait.
 #' @inheritParams default_params_doc
 #' @return a \link{list} with the following columns:
 #' * \code{assoc_table}: a \link[tibble]{tibble} with associations
@@ -9,6 +10,9 @@
 #'   See \link{read_plink_assoc_file} for an explanation of the
 #'   column names.
 #' * \code{log}: the log file as text as created by \code{PLINK}
+#' @note This function is named after the \code{--assoc} flag,
+#' as used by `PLINK`
+#' @seealso Use \link{assoc_qt} to do an association on quantitative traits
 #' @examples
 #' if (is_plink_installed()) {
 #'   assoc(create_demo_assoc_params())

@@ -2,7 +2,8 @@
 % Please edit documentation in R/assoc.R
 \name{assoc}
 \alias{assoc}
-\title{Let \code{PLINK}/\code{PLINK2} detect an association for a binary trait.}
+\title{Let \code{PLINK}/\code{PLINK2} detect an association
+for a case/control or binary trait.}
 \usage{
 assoc(assoc_params, plink_options = create_plink_options(), verbose = FALSE)
 }
@@ -29,16 +30,20 @@ column names.
 }
 }
 \description{
-Let \code{PLINK}/\code{PLINK2} detect an association for a binary trait.
+Let \code{PLINK}/\code{PLINK2} detect an association
+for a case/control or binary trait.
 }
 \note{
-This function is named after the \code{--assoc} flag
-used by \code{PLINK}
+This function is named after the \code{--assoc} flag,
+as used by \code{PLINK}
 }
 \examples{
 if (is_plink_installed()) {
   assoc(create_demo_assoc_params())
 }
+}
+\seealso{
+Use \link{assoc_qt} to do an association on quantitative traits
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -2,7 +2,8 @@
 % Please edit documentation in R/assoc_qt.R
 \name{assoc_qt}
 \alias{assoc_qt}
-\title{Let PLINK detect an association with one or more quantitative traits.}
+\title{Let \code{PLINK}/\code{PLINK2} detect an association
+with one or more quantitative traits.}
 \usage{
 assoc_qt(
   assoc_qt_params,
@@ -33,7 +34,8 @@ when doing \link{assoc_qt}
 }
 }
 \description{
-Let PLINK detect an association with one or more quantitative traits.
+Let \code{PLINK}/\code{PLINK2} detect an association
+with one or more quantitative traits.
 }
 \note{
 This function is named after the \code{--assoc} flag used by PLINK.
@@ -42,6 +44,9 @@ This function is named after the \code{--assoc} flag used by PLINK.
 if (is_plink_installed()) {
   assoc_qt(create_demo_assoc_qt_params())
 }
+}
+\seealso{
+Use \link{assoc} to do a case-control association
 }
 \author{
 Richèl J.C. Bilderbeek

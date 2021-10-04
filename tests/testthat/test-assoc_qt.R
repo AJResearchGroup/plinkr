@@ -153,7 +153,7 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
 test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
   expect_silent(check_empty_plinkr_folder())
 
-  skip("assoc_qt 7")
+  skip("assoc_qt 7: leaves files")
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_test_assoc_qt_params(
     data = create_test_plink_text_data()

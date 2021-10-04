@@ -48,7 +48,7 @@ assoc_qt_on_plink_bin_files <- function(
     plink_options = plink_options,
     verbose = verbose
   )
-  testthat::expect_true(file.exists(qassoc_filenames))
+  testthat::expect_true(all(file.exists(qassoc_filenames)))
   testthat::expect_true(file.exists(log_filename))
   list(
     qassoc_filenames = qassoc_filenames,

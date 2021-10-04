@@ -1,7 +1,8 @@
-#' Let PLINK detect an association with one or more quantitative traits.
+#' Let `PLINK`/`PLINK2` detect an association
+#' with one or more quantitative traits.
 #'
-#' Let PLINK detect an association with one or more quantitative traits.
-#' @note This function is named after the \code{--assoc} flag used by PLINK.
+#' Let `PLINK`/`PLINK2` detect an association
+#' with one or more quantitative traits.
 #' @inheritParams default_params_doc
 #' @return
 #' A `assoc_qt_result`, which is a list
@@ -11,6 +12,8 @@
 #'    as can be checked by \link{check_qassoc_table}
 #'  * `log`: the text from the log file created by `PLINK`/`PLINK2`
 #'    when doing \link{assoc_qt}
+#' @note This function is named after the \code{--assoc} flag used by PLINK.
+#' @seealso Use \link{assoc} to do a case-control association
 #' @examples
 #' if (is_plink_installed()) {
 #'   assoc_qt(create_demo_assoc_qt_params())

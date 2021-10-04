@@ -34,7 +34,11 @@ read_plink_assoc_file <- function(assoc_filename) {
     assoc_filename
   )
   text_lines <- stringr::str_trim(text_lines_raw)
-  text_matrix <- plinkr::safe_str_split(string = text_lines)
+  text_matrix <- stringr::str_split(
+    string = text_lines,
+    pattern = "[:blank:]+",
+    simplify = TRUE
+  )
 
   if (nrow(text_matrix) > 2) {
     t <- tibble::as_tibble(

@@ -12,13 +12,15 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_imiss_file <- function(imiss_filename) {
-  table <- plinkr::safe_str_split(
-    stringr::str_trim(
+  table <- stringr::str_split(
+    string = stringr::str_trim(
       readr::read_lines(
         file = imiss_filename,
         skip_empty_rows = TRUE
       )
-    )
+    ),
+    pattern = "[:blank:]+",
+    simplify = TRUE
   )
   t <- tibble::as_tibble(table[-1, ], .name_repair = "minimal")
   names(t) <- table[1, ]

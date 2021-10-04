@@ -12,13 +12,15 @@
 #' @export
 read_plink_lmiss_file <- function(lmiss_filename) {
 
-  table <- stringr::str_trim(
-    plinkr::safe_str_trim(
+  table <- stringr::str_split(
+    stringr::str_trim(
       readr::read_lines(
         file = lmiss_filename,
         skip_empty_rows = TRUE
       )
-    )
+    ),
+    pattern = "[:blank:]+",
+    simplify = TRUE
   )
   t <- tibble::as_tibble(table[-1, ], .name_repair = "minimal")
   names(t) <- table[1, ]

@@ -39,7 +39,6 @@ jobs:
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_github("OchoaLab/genio")
           remotes::install_github("chrchang/plink-ng/2.0/pgenlibr")
-          remotes::install_github("gagolews/stringi")
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("covr")

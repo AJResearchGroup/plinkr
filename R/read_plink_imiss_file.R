@@ -13,7 +13,7 @@
 #' @export
 read_plink_imiss_file <- function(imiss_filename) {
   table <- plinkr::safe_str_split(
-    plinkr::safe_str_trim(
+    stringr::str_trim(
       readr::read_lines(
         file = imiss_filename,
         skip_empty_rows = TRUE

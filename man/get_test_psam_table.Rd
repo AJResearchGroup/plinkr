@@ -23,6 +23,11 @@ the word \code{create} is used.
 }
 \examples{
 get_test_psam_table()
+
+# Same as:
+plinkr::read_plink2_psam_file(
+  plinkr::get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.psam")
+)
 }
 \author{
 Richèl J.C. Bilderbeek

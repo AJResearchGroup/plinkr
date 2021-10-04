@@ -28,10 +28,7 @@ read_plink_assoc_adjusted_file <- function(assoc_adjusted_filename) {
   text_lines_raw <- readr::read_lines(
     assoc_adjusted_filename
   )
-  # stringi::str_trim **sometimes** gives an 'embedded nul in string' error.
-  # This has been reported at https://github.com/gagolews/stringi/issues/458 .
-  # Until then, just try multiple times :-)
-  text_lines <- plinkr::safe_str_trim(text_lines_raw)
+  text_lines <- stringr::str_trim(text_lines_raw)
 
   text_matrix <- plinkr::safe_str_split(
     string = text_lines

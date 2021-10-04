@@ -3,7 +3,7 @@
 \name{safe_str_trim}
 \alias{safe_str_trim}
 \title{Call \link[stringr]{str_trim} safely
-stringi::str_trim \strong{sometimes} gives an 'embedded nul in string' error.
+stringi::str_trim \strong{sometimes} gave an 'embedded nul in string' error.
 This has been reported at https://github.com/gagolews/stringi/issues/458 .
 Until then, just try multiple times :-)}
 \usage{
@@ -14,7 +14,7 @@ safe_str_trim(string)
 }
 \description{
 Call \link[stringr]{str_trim} safely
-stringi::str_trim \strong{sometimes} gives an 'embedded nul in string' error.
+stringi::str_trim \strong{sometimes} gave an 'embedded nul in string' error.
 This has been reported at https://github.com/gagolews/stringi/issues/458 .
 Until then, just try multiple times :-)
 }

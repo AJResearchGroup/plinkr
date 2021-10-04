@@ -33,7 +33,7 @@ read_plink_assoc_file <- function(assoc_filename) {
   text_lines_raw <- readr::read_lines(
     assoc_filename
   )
-  text_lines <- plinkr::safe_str_trim(text_lines_raw)
+  text_lines <- stringr::str_trim(text_lines_raw)
   text_matrix <- plinkr::safe_str_split(string = text_lines)
 
   if (nrow(text_matrix) > 2) {

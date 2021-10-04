@@ -3,11 +3,8 @@
 \name{safe_str_split}
 \alias{safe_str_split}
 \title{Call \link[stringr]{str_split} safely
-stringi::stri_split_regex \strong{sometimes} gives an
-'embedded nul in string' error.
-This has been not been reported, yet a similar report is at
-https://github.com/gagolews/stringi/issues/458 .
-Until then, use the workaround}
+stringi::stri_split_regex \strong{sometimes} gave an
+'embedded nul in string' error.}
 \usage{
 safe_str_split(string)
 }
@@ -16,9 +13,6 @@ safe_str_split(string)
 }
 \description{
 Call \link[stringr]{str_split} safely
-stringi::stri_split_regex \strong{sometimes} gives an
+stringi::stri_split_regex \strong{sometimes} gave an
 'embedded nul in string' error.
-This has been not been reported, yet a similar report is at
-https://github.com/gagolews/stringi/issues/458 .
-Until then, use the workaround
 }

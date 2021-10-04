@@ -11,7 +11,8 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 read_plink_lmiss_file <- function(lmiss_filename) {
-  table <- plinkr::safe_str_split(
+
+  table <- stringr::str_trim(
     plinkr::safe_str_trim(
       readr::read_lines(
         file = lmiss_filename,

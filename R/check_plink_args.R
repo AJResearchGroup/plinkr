@@ -15,7 +15,27 @@ check_plink_args <- function(
       "'args' must have at least one element"
     )
   }
+
   if (plink_options$plink_version == "1.7") {
+
+    if ("--allow-extra-chr" %in% args) {
+      stop(
+        "'args' invalid: '--allow-extra-chr' ",
+        "did not yet exist in PLINK v1.7. \n",
+        "Tip: use 'plink_options = create_plink_v1_9_options()' ",
+        "to use PLINK v1.9 instead"
+      )
+    }
+    if ("--chr-set" %in% args) {
+      stop(
+        "'args' invalid: '--chr-set' ",
+        "did not yet exist in PLINK v1.7. \n",
+        "Tip: use 'plink_options = create_plink_v1_9_options()' ",
+        "to use PLINK v1.9 instead"
+      )
+    }
+
+
     if (!"--noweb" %in% args) {
       stop(
         "'args' must have '--noweb' for PLINK version 1.7, ",

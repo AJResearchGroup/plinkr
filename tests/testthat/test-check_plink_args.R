@@ -7,6 +7,23 @@ test_that("basic use", {
   )
 })
 
+test_that("v1.7 non-existing options", {
+  expect_error(
+    check_plink_args(
+      args = c("--allow-extra-chr", "--noweb"),
+      plink_options = create_plink_v1_7_options()
+    ),
+    "'args' invalid: '--allow-extra-chr' did not yet exist in PLINK v1.7"
+  )
+  expect_error(
+    check_plink_args(
+      args = c("--chr-set", "--noweb"),
+      plink_options = create_plink_v1_7_options()
+    ),
+    "'args' invalid: '--chr-set' did not yet exist in PLINK v1.7"
+  )
+})
+
 test_that("--noweb", {
   # In PLINK v1.7 --noweb is vital, as plinkr will freeze otherwise
   # In PLINK v1.9 and PLINK2 v2.0 --noweb is not longer used

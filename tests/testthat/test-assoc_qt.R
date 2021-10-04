@@ -355,7 +355,7 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
   set.seed(314)
   assoc_qt_params <- create_demo_assoc_qt_params(
     n_individuals = 1000,
-    traits = create_random_trait(n_snps = 1000)
+    traits = rep(list(create_random_trait(n_snps = 10)), times = 100)
   )
   assoc_qt_params$data$map_table$CHR <- 1 # nolint PLINK2 variable naming
 
@@ -387,11 +387,15 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
   plink_optionses <- create_plink_optionses()
   times <- tidyr::expand_grid(
     data = datas,
+    data_type = NA,
     plink_options = plink_optionses,
+    plink_version = NA,
     time_sec = NA
   )
   for (i in seq_len(nrow(times))) {
     message(i)
+    times$data_type[i] <- names(times$data[[i]])[1]
+    times$plink_version[i] <- times$plink_options[[i]]$plink_version
     if (
       can_plink_version_and_data_can_work_together(
         data = times$data[[i]],
@@ -409,48 +413,6 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
     }
   }
   times
-  # PLINK v1.9 with text files
-  assoc_qt_params$data <- plink_text_filenames
-  expect_true(is_plink_text_filenames(assoc_qt_params$data))
-  start_plink_text_time <- Sys.time()
-  assoc_qt_result_plink_text <- assoc_qt(
-    assoc_qt_params = assoc_qt_params,
-    plink_options = create_plink_v1_9_options()
-  )
-  end_plink_text_time <- Sys.time()
-  # PLINK v1.9 with bin files
-  assoc_qt_params$data <- plink_bin_filenames
-  expect_true(is_plink_bin_filenames(assoc_qt_params$data))
-  start_plink_bin_time <- Sys.time()
-  assoc_qt_result_plink_bin <- assoc_qt(
-    assoc_qt_params = assoc_qt_params,
-    plink_options = create_plink_v1_9_options()
-  )
-  end_plink_bin_time <- Sys.time()
-  # PLINK v2.0 with PLINK2 binary files
-  assoc_qt_params$data <- plink2_bin_filenames
-  expect_true(is_plink2_bin_filenames(assoc_qt_params$data))
-  start_plink2_bin_time <- Sys.time()
-  assoc_qt_result_plink2_bin <- assoc_qt(
-    assoc_qt_params = assoc_qt_params,
-    plink_options = create_plink_v2_0_options()
-  )
-  end_plink2_bin_time <- Sys.time()
-
-  # View the resulting associations found
-  assoc_qt_result_plink_text
-  assoc_qt_result_plink_bin
-  assoc_qt_result_plink2_bin
-
-  # View the times it took
-  dt_plink_text <- end_plink_text_time - start_plink_text_time
-  dt_plink_bin <- end_plink_bin_time - start_plink_bin_time
-  dt_plink2_bin <- end_plink2_bin_time - start_plink2_bin_time
-  dt_plink_text
-  dt_plink_bin
-  dt_plink2_bin
-  # Note that this comparison is unfair, as when assoc_qt
-  # is called, the files need to be created
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

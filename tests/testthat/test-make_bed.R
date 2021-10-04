@@ -293,10 +293,12 @@ test_that("use, PLINK2, PLINK text data, must fail", {
     "No PLINK2 binary files \\(.pgen, .psam and .pvar\\) files found"
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("use, PLINK2, PLINK2 binary data, works", {
+  clear_plinkr_cache()
+  expect_silent(check_empty_plinkr_folder())
+
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
 
   base_output_filename <- file.path(

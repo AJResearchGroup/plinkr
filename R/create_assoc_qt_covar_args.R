@@ -12,7 +12,8 @@ create_assoc_qt_covar_args <- function(
   plinkr::check_plink_options(plink_options)
   # Use args without covar
   assoc_qt_args <- plinkr::create_assoc_qt_args(
-    assoc_qt_params = assoc_qt_covar_params
+    assoc_qt_params = assoc_qt_covar_params,
+    plink_options = plink_options
   )
   # --out and output base filename must remain last
   first_args <- utils::head(assoc_qt_args, n = -2)
@@ -26,6 +27,10 @@ create_assoc_qt_covar_args <- function(
     first_args,
     covar_args,
     last_args
+  )
+  plinkr::check_plink_args(
+    args = assoc_qt_covar_args,
+    plink_options = plink_options
   )
   assoc_qt_covar_args
 }

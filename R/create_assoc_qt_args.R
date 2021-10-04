@@ -17,59 +17,26 @@ create_assoc_qt_args <- function(
   )
 
   if (plinkr::is_plink_text_data(assoc_qt_params$data)) {
-    testthat::expect_true(
-      plink_options$plink_version %in% plinkr::get_plink1_versions()
+    return(
+      plinkr::create_assoc_qt_args_on_plink_text_data(
+        assoc_qt_params = assoc_qt_params,
+        plink_options = plink_options
+      )
     )
-    args <- c(
-      "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
-      "--ped", paste0(assoc_qt_params$base_input_filename, ".ped"),
-      "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
-      "--all-pheno",
-      "--assoc",
-      "--maf", assoc_qt_params$maf,
-      "--out", assoc_qt_params$base_output_filename
-    )
-    if(plink_options$plink_version == "1.7") {
-      args <- c(args, "--noweb")
-    }
-    if(plink_options$plink_version == "1.9") {
-      args <- c(args, "--allow-extra-chr", "--chr-set", 95)
-    }
-    return(args)
   }
   if (plinkr::is_plink_bin_data(assoc_qt_params$data)) {
-    testthat::expect_true(
-      plink_options$plink_version %in% plinkr::get_plink1_versions()
+    return(
+      plinkr::create_assoc_qt_args_on_plink_bin_data(
+        assoc_qt_params = assoc_qt_params,
+        plink_options = plink_options
+      )
     )
-    args <- c(
-      "--bfile", assoc_qt_params$base_input_filename, # PLINK adds prefix
-      "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
-      "--all-pheno",
-      "--assoc",
-      "--maf", assoc_qt_params$maf,
-      "--out", assoc_qt_params$base_output_filename
-    )
-    if(plink_options$plink_version == "1.7") {
-      args <- c(args, "--noweb")
-    }
-    if(plink_options$plink_version == "1.9") {
-      args <- c(args, "--allow-extra-chr", "--chr-set", 95)
-    }
-    return(args)
   }
   if (plinkr::is_plink2_bin_data(assoc_qt_params$data)) {
-    testthat::expect_true(
-      plink_options$plink_version %in% plinkr::get_plink2_versions()
-    )
     return(
-      c(
-        "--pfile", assoc_qt_params$base_input_filename,
-        "--glm",
-        "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
-        "--allow-extra-chr",
-        "--chr-set", 95,
-        "--maf", assoc_qt_params$maf,
-        "--out", assoc_qt_params$base_output_filename
+      plinkr::create_assoc_qt_args_on_plink2_bin_data(
+        assoc_qt_params = assoc_qt_params,
+        plink_options = plink_options
       )
     )
   }
@@ -86,10 +53,10 @@ create_assoc_qt_args <- function(
       "--maf", assoc_qt_params$maf,
       "--out", assoc_qt_params$base_output_filename
     )
-    if(plink_options$plink_version == "1.7") {
+    if (plink_options$plink_version == "1.7") {
       args <- c(args, "--noweb")
     }
-    if(plink_options$plink_version == "1.9") {
+    if (plink_options$plink_version == "1.9") {
       args <- c(args, "--allow-extra-chr", "--chr-set", 95)
     }
     return(args)
@@ -108,10 +75,10 @@ create_assoc_qt_args <- function(
       "--maf", assoc_qt_params$maf,
       "--out", assoc_qt_params$base_output_filename
     )
-    if(plink_options$plink_version == "1.7") {
+    if (plink_options$plink_version == "1.7") {
       args <- c(args, "--noweb")
     }
-    if(plink_options$plink_version == "1.9") {
+    if (plink_options$plink_version == "1.9") {
       args <- c(args, "--allow-extra-chr", "--chr-set", 95)
     }
     return(args)

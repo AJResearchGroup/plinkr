@@ -2,8 +2,13 @@
 #' @inheritParams default_params_doc
 #' @return the text that PLINK returns
 #' @examples
+#' # Minimal example: show the PLINK help
 #' if (is_plink_installed(create_plink_v1_7_options())) {
-#'   run_plink("--help", create_plink_v1_7_options())
+#'   # Without '--noweb', plinkr freezes with PLINK v1.7
+#'   run_plink(
+#'     args = c("--help", "--noweb"),
+#'     create_plink_v1_7_options()
+#'   )
 #' }
 #'
 #' if (is_plink_installed(create_plink_v1_9_options())) {
@@ -14,6 +19,9 @@
 #'   run_plink("--help", create_plink_v2_0_options())
 #' }
 #'
+#' # Do a case-control association
+#' # Note: using 'plinkr::assoc' is safer, easier and has a uniform
+#' # interface accross PLINK versions
 #' plink_options <- create_plink_v1_9_options()
 #' if (is_plink_installed(plink_options)) {
 #'
@@ -25,7 +33,6 @@
 #'     "toy.map", plink_options
 #'   )
 #'
-#'   # Do a case-control association
 #'   run_plink(
 #'     args = c(
 #'      "--ped", ped_filename,

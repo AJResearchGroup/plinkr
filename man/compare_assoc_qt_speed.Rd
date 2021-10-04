@@ -7,7 +7,8 @@ for (one or) multiple versions of \code{PLINK}/\code{PLINK2}}
 \usage{
 compare_assoc_qt_speed(
   assoc_qt_params,
-  plink_optionses = create_plink_optionses()
+  plink_optionses = create_plink_optionses(),
+  verbose = FALSE
 )
 }
 \arguments{
@@ -19,6 +20,10 @@ as can be created by \link{create_assoc_qt_params}}
 as created by \link{create_plink_optionses}.
 The reduplicated plural was used to express this is a list
 of \code{plink_options}, instead of one set of \code{plink_options}}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
 A \link[tibble]{tibble}

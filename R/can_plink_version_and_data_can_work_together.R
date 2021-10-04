@@ -4,7 +4,7 @@
 #' of `PLINK`/`PLINK2` can work together
 #' @author Richèl J.C. Bilderbeek
 #' @export
-can_plink_version_and_data_can_work_together <- function(
+can_plink_version_and_data_can_work_together <- function( # nolint indeed a long function name
   data,
   plink_options,
   verbose = FALSE

@@ -11,23 +11,21 @@
 #' the word `create` is used.
 #' @examples
 #' get_test_psam_table()
+#'
+#' # Same as:
+#' plinkr::read_plink2_psam_file(
+#'   plinkr::get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.psam")
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_psam_table <- function() {
-  if (1 == 2) {
-    psam_table <- tibble::tibble(
-      chr = c("1", "1"),
-      id = c("snp0", "snp1"),
-      posg = c(0, 0),
-      pos = as.integer(c(0, 1)),
-      ref = c("A", "A"),
-      alt = c("B", "B")
-    )
-    class(psam_table) <- c("spec_tbl_df", "tbl_df", "tbl", "data.frame")
-    psam_table
-  }
-  # TODO: simplify to work without reading a file
-  plinkr::read_plink2_psam_file(
-    plinkr::get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.psam")
+  psam_table <- tibble::tribble(
+    ~FID, ~IID,         ~SEX, ~PHENO1,
+    "1" , "1000000000", 1,    1,
+    "1" , "1000000001", 1,    2
   )
+
+  psam_table$SEX <- as.integer(psam_table$SEX)
+  psam_table$PHENO1 <- as.integer(psam_table$PHENO1)
+  psam_table
 }

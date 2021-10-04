@@ -2,15 +2,20 @@
 
 Newest versions at top.
 
-## plinkr v0.17.1 (unreleased)
+## plinkr v0.17.1 (2021-10-04)
 
 ### NEW FEATURES
 
- * Check PLINK arguments to give an error for commands that do not accept covariates, as PLINK will not always give you an error or warning
+ * Added 'compare_assoc_qt_speed' to compare speed of PLINK versions and
+   types of data, #26
+ * Check PLINK arguments to give an error for commands that are ignored,
+   as PLINK will not always give you an error or warning
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Use `stringi` version v1.7.5, #21
+ * Simplify some `get_test_` functions
+ * Improve code coverage
 
 ### BUG FIXES
 

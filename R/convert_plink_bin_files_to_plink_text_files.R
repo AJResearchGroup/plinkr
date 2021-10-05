@@ -26,10 +26,10 @@ convert_plink_bin_files_to_plink_text_files <- function( # nolint indeed a long 
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
-  stop("Depends on 'convert_plink_bin_data_to_plink_text_data'")
   plink_bin_data <- plinkr::read_plink_bin_data(
     base_input_filename = base_input_filename
   )
+  stop("Depends on 'convert_plink_bin_data_to_plink_text_data'")
   plink_text_data <- plinkr::convert_plink_bin_data_to_plink_text_data(
     plink_bin_data = plink_bin_data,
     plink_options = plink_options,

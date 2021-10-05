@@ -37,9 +37,18 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 convert_plink_bin_data_to_plink_text_data <- function( # nolint indeed a long function name
-  plink_bin_data,
-  plink_options = create_plink_v1_9_options(),
-  verbose = FALSE
+  plink_bin_data
 ) {
-  stop("TODO")
+  plinkr::check_plink_bin_data(plink_bin_data)
+  ped_table <- plinkr::convert_bed_and_fam_tables_to_ped_table(
+    bed_table = plink_bin_data$bed_table,
+    fam_table = plink_bin_data$fam_table
+  )
+  map_table <- plinkr::convert_bim_table_to_map_table(
+    bim_table = plink_bin_data$bim_table
+  )
+  plinkr::create_plink_text_data(
+    ped_table = ped_table,
+    map_table = map_table
+  )
 }

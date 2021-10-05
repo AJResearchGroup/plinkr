@@ -19,8 +19,18 @@ compare_assoc_qt_speed <- function(
   plink_bin_data <- convert_plink_text_data_to_plink_bin_data(
     assoc_qt_params$data
   )
+
+  #
+  base_output_plink1_filename <- plinkr::get_plinkr_tempfilename(
+    pattern = "convert_plink_text_data_to_plink2_bin_data", fileext = ""
+  )
+  base_output_plink2_filename <- plinkr::get_plinkr_tempfilename(
+    pattern = "convert_plink_text_data_to_plink2_bin_data", fileext = ""
+  )
   plink2_bin_data <- convert_plink_text_data_to_plink2_bin_data(
-    assoc_qt_params$data
+    assoc_qt_params$data,
+    base_output_plink1_filename = base_output_plink1_filename,
+    base_output_plink2_filename = base_output_plink2_filename
   )
   testthat::expect_silent(check_plink_text_data(plink_text_data))
   testthat::expect_silent(check_plink_bin_data(plink_bin_data))
@@ -81,5 +91,22 @@ compare_assoc_qt_speed <- function(
   }
   times$data <- NULL
   times$plink_options <- NULL
+
+  # Cleanup
+  file.remove(plink_text_filenames$map_filename)
+  file.remove(plink_text_filenames$ped_filename)
+  file.remove(plink_bin_filenames$bed_filename)
+  file.remove(plink_bin_filenames$bim_filename)
+  file.remove(plink_bin_filenames$fam_filename)
+  file.remove(plink2_bin_filenames$pgen_filename)
+  file.remove(plink2_bin_filenames$psam_filename)
+  file.remove(plink2_bin_filenames$pvar_filename)
+  unlink(dirname(assoc_qt_params$base_input_filename), recursive = TRUE)
+  unlink(dirname(assoc_qt_params$base_output_filename), recursive = TRUE)
+  unlink(dirname(assoc_qt_params$base_output_filename), recursive = TRUE)
+  unlink(dirname(base_output_plink2_filename), recursive = TRUE)
+  unlink(dirname(base_output_plink2_filename), recursive = TRUE)
+
+  base_output_plink1_filename
   times
 }

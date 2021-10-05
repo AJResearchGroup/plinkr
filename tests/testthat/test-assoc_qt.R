@@ -158,7 +158,10 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
   assoc_qt_params <- create_test_assoc_qt_params(
     data = create_test_plink_text_data()
   )
-  assoc_qt_params$data <- save_plink_text_data(assoc_qt_params$data)
+  assoc_qt_params$data <- save_plink_text_data(
+    plink_text_data = assoc_qt_params$data,
+    base_input_filename = assoc_qt_params$base_input_filename
+  )
   save_phe_table(
     phe_table = assoc_qt_params$phe_table,
     phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
@@ -174,6 +177,8 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
       "you should be able to copy paste this"
     )
   )
+
+  unlink(dirname(assoc_qt_params$base_input_filename), recursive = TRUE)
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

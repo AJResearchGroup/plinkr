@@ -40,9 +40,8 @@ convert_plink_bin_data_to_plink_text_data <- function( # nolint indeed a long fu
   plink_bin_data
 ) {
   plinkr::check_plink_bin_data(plink_bin_data)
-  ped_table <- plinkr::convert_bed_and_fam_tables_to_ped_table(
-    bed_table = plink_bin_data$bed_table,
-    fam_table = plink_bin_data$fam_table
+  ped_table <- plinkr::convert_plink_bin_data_to_ped_table(
+    plink_bin_data = plink_bin_data
   )
   map_table <- plinkr::convert_bim_table_to_map_table(
     bim_table = plink_bin_data$bim_table

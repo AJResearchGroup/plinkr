@@ -152,3 +152,17 @@ test_that("demonstrate .pgen row/column ordering differs from genio's .bed", {
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
 })
+
+test_that("can read .bed files as well?", {
+  skip("By default, all BED files are SNP-major mode, #27")
+  expect_silent(
+    read_plink2_pgen_file(
+      pgen_filename = get_plinkr_filename(
+        "test_v1_7_after_make-bed.bed"
+      ),
+      names_loci = c("snp1", "snp2"),
+      names_ind = as.character(seq(1, 6))
+    )
+  )
+
+})

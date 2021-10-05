@@ -4,22 +4,11 @@
 \alias{convert_plink_bin_data_to_plink_text_data}
 \title{Convert the \code{PLINK} binary data to \code{PLINK} text data}
 \usage{
-convert_plink_bin_data_to_plink_text_data(
-  plink_bin_data,
-  plink_options = create_plink_v1_9_options(),
-  verbose = FALSE
-)
+convert_plink_bin_data_to_plink_text_data(plink_bin_data)
 }
 \arguments{
 \item{plink_bin_data}{the in-memory binary data for \code{PLINK} to work on,
 as created by \link{create_plink_bin_data}.}
-
-\item{plink_options}{options to run PLINK,
-as created by \link{create_plink_options}}
-
-\item{verbose}{the verbosity of a function.
-Set to \link{TRUE} for more output.
-Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
 the same \link{list} that was used as input,

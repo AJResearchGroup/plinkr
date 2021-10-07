@@ -6,15 +6,16 @@
 for (one or) multiple versions of \code{PLINK}/\code{PLINK2}}
 \usage{
 compare_assoc_qt_speed(
-  assoc_qt_params,
+  n_individuals = 5,
+  n_phenotypes = 3,
+  n_snps_per_phenotype = 4,
   plink_optionses = create_plink_optionses(),
   verbose = FALSE
 )
 }
 \arguments{
-\item{assoc_qt_params}{parameters to do an association analysis
-for a quantitative trait (i.e. using \link{assoc_qt}),
-as can be created by \link{create_assoc_qt_params}}
+\item{n_individuals}{the number of individuals.
+Use \link{check_n_individuals} to check if this is a valid value}
 
 \item{plink_optionses}{a list of one or more options to run PLINK,
 as created by \link{create_plink_optionses}.

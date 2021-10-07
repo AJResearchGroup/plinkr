@@ -6,14 +6,35 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 compare_assoc_qt_speed <- function(
-  assoc_qt_params,
+  n_individuals = 5,
+  n_phenotypes = 3,
+  n_snps_per_phenotype = 4,
   plink_optionses = create_plink_optionses(),
   verbose = FALSE
 ) {
+  if (verbose) {
+    message(
+      Sys.time(), ": simulating data for ", n_individuals, " individuals, ",
+      n_phenotypes, " phenotypes and ", n_snps_per_phenotype,
+      " SNPS per phenotype"
+    )
+  }
+  assoc_qt_params <- plinkr::create_demo_assoc_qt_params(
+    n_individuals = n_individuals,
+    traits = rep(
+      list(plinkr::create_random_trait(n_snps = n_snps_per_phenotype)),
+      times = n_phenotypes
+    )
+  )
+  assoc_qt_params$data$map_table$CHR <- 1 # nolint PLINK2 variable naming
+
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_optionses(plink_optionses)
 
-  # Convert the data
+  if (verbose) {
+    message(Sys.time(), ": converting the data")
+  }
+
   testthat::expect_true(plinkr::is_plink_text_data(assoc_qt_params$data))
   plink_text_data <- assoc_qt_params$data
   plink_bin_data <- convert_plink_text_data_to_plink_bin_data(
@@ -36,7 +57,9 @@ compare_assoc_qt_speed <- function(
   testthat::expect_silent(check_plink_bin_data(plink_bin_data))
   testthat::expect_silent(check_plink2_bin_data(plink2_bin_data))
 
-  # Save the data
+  if (verbose) {
+    message(Sys.time(), ": saving the data to file")
+  }
   plink_text_filenames <- save_plink_text_data(plink_text_data)
   plink_bin_filenames <- save_plink_bin_data(plink_bin_data)
   plink2_bin_filenames <- save_plink2_bin_data(plink2_bin_data)
@@ -66,7 +89,7 @@ compare_assoc_qt_speed <- function(
     times$plink_version[i] <- times$plink_options[[i]]$plink_version
     if (verbose) {
     message(
-        "#", i,
+        Sys.time(), ": #", i,
         " for data ", times$data_type[i],
         " for PLINK ", times$plink_version[i]
       )

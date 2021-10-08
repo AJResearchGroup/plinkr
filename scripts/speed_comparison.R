@@ -26,10 +26,14 @@ t
 readr::write_csv(t, "speed_comparison.csv")
 
 
-t <- plinkr::compare_assoc_qt_speed(
-  n_individuals = 1000,
-  n_phenotypes = 100,
-  n_snps_per_phenotype = 1000,
-  plink_optionses = list(plinkr::create_plink_v1_7_options()),
-  verbose = TRUE
-)
+if (1 == 2) {
+
+  # There are hints that PLINK v1.7 cannot handle this
+  t <- plinkr::compare_assoc_qt_speed(
+    n_individuals = 1000,
+    n_phenotypes = 100,
+    n_snps_per_phenotype = 1000,
+    plink_optionses = list(plinkr::create_plink_v1_7_options()),
+    verbose = TRUE
+  )
+}

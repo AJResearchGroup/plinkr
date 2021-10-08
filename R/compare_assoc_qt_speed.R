@@ -12,6 +12,13 @@ compare_assoc_qt_speed <- function(
   plink_optionses = create_plink_optionses(),
   verbose = FALSE
 ) {
+  testthat::expect_true(n_individuals >= 1)
+  testthat::expect_true(n_phenotypes >= 1)
+  testthat::expect_true(n_snps_per_phenotype >= 1)
+  testthat::expect_true(n_individuals > 1)
+  plinkr::check_plink_optionses(plink_optionses)
+  plinkr::check_verbose(verbose)
+
   if (verbose) {
     message(
       Sys.time(), ": simulating data for ", n_individuals, " individuals, ",
@@ -37,7 +44,7 @@ compare_assoc_qt_speed <- function(
 
   testthat::expect_true(plinkr::is_plink_text_data(assoc_qt_params$data))
   plink_text_data <- assoc_qt_params$data
-  plink_bin_data <- convert_plink_text_data_to_plink_bin_data(
+  plink_bin_data <- plinkr::convert_plink_text_data_to_plink_bin_data(
     assoc_qt_params$data
   )
 
@@ -48,28 +55,28 @@ compare_assoc_qt_speed <- function(
   base_output_plink2_filename <- plinkr::get_plinkr_tempfilename(
     pattern = "convert_plink_text_data_to_plink2_bin_data", fileext = ""
   )
-  plink2_bin_data <- convert_plink_text_data_to_plink2_bin_data(
+  plink2_bin_data <- plinkr::convert_plink_text_data_to_plink2_bin_data(
     assoc_qt_params$data,
     base_output_plink1_filename = base_output_plink1_filename,
     base_output_plink2_filename = base_output_plink2_filename
   )
-  testthat::expect_silent(check_plink_text_data(plink_text_data))
-  testthat::expect_silent(check_plink_bin_data(plink_bin_data))
-  testthat::expect_silent(check_plink2_bin_data(plink2_bin_data))
+  testthat::expect_silent(plinkr::check_plink_text_data(plink_text_data))
+  testthat::expect_silent(plinkr::check_plink_bin_data(plink_bin_data))
+  testthat::expect_silent(plinkr::check_plink2_bin_data(plink2_bin_data))
 
   if (verbose) {
     message(Sys.time(), ": saving the data to file")
   }
-  plink_text_filenames <- save_plink_text_data(plink_text_data)
-  plink_bin_filenames <- save_plink_bin_data(plink_bin_data)
-  plink2_bin_filenames <- save_plink2_bin_data(plink2_bin_data)
-  save_phe_table(
+  plink_text_filenames <- plinkr::save_plink_text_data(plink_text_data)
+  plink_bin_filenames <- plinkr::save_plink_bin_data(plink_bin_data)
+  plink2_bin_filenames <- plinkr::save_plink2_bin_data(plink2_bin_data)
+  plinkr::save_phe_table(
     assoc_qt_params$phe_table,
     phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
   )
-  testthat::expect_silent(check_plink_text_filenames(plink_text_filenames))
-  testthat::expect_silent(check_plink_bin_filenames(plink_bin_filenames))
-  testthat::expect_silent(check_plink2_bin_filenames(plink2_bin_filenames))
+  testthat::expect_silent(plinkr::check_plink_text_filenames(plink_text_filenames))
+  testthat::expect_silent(plinkr::check_plink_bin_filenames(plink_bin_filenames))
+  testthat::expect_silent(plinkr::check_plink2_bin_filenames(plink2_bin_filenames))
 
   datas <- list(
     plink_text_filenames,
@@ -95,7 +102,7 @@ compare_assoc_qt_speed <- function(
       )
     }
     if (
-      can_plink_version_and_data_can_work_together(
+      plinkr::can_plink_version_and_data_can_work_together(
         data = times$data[[i]],
         plink_options = times$plink_options[[i]],
         verbose = verbose
@@ -103,7 +110,7 @@ compare_assoc_qt_speed <- function(
     ) {
       assoc_qt_params$data <- times$data[[i]]
       start_time <- Sys.time()
-      assoc_qt_result_plink_text <- assoc_qt(
+      assoc_qt_result_plink_text <- plinkr::assoc_qt(
         assoc_qt_params = assoc_qt_params,
         plink_options = times$plink_options[[i]],
         verbose = verbose
@@ -129,7 +136,5 @@ compare_assoc_qt_speed <- function(
   unlink(dirname(assoc_qt_params$base_output_filename), recursive = TRUE)
   unlink(dirname(base_output_plink2_filename), recursive = TRUE)
   unlink(dirname(base_output_plink2_filename), recursive = TRUE)
-
-  base_output_plink1_filename
   times
 }

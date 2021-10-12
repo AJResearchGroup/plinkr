@@ -1,6 +1,7 @@
 # poster_sbw2021
 
  * [poster_sbw2021.odg](poster_sbw2021.odg)
+ * Video of poster flash-talk: [YouTube](https://youtu.be/jHSbaPSzS7M), [download (.ogv)](http://richelbilderbeek.nl/plinkr_flash_talk_20211012.ogv)
 
 ## Design rules
 

@@ -132,6 +132,10 @@ PLINK1 binary data|PLINK2 binary data|`convert_plink_bin_data_to_plink2_bin_data
 PLINK2 binary data|PLINK text data   |`convert_plink2_bin_data_to_plink_text_data` :construction:
 PLINK2 binary data|PLINK binary data |`convert_plink2_bin_data_to_plink_bin_data`
 
+## Singularity container
+
+ * [Find the latest 'plinkr' Singularity container](https://cloud.sylabs.io/library/search;query=plinkr)
+
 ## FAQ
 
 See [doc/faq.md](doc/faq.md)

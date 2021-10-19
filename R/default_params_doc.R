@@ -184,7 +184,9 @@
 #' Use \link{check_map_table} to test if a genetic mapping table is valid.
 #' @param n_individuals the number of individuals.
 #' Use \link{check_n_individuals} to check if this is a valid value
+#' @param n_phenotypes the number of phenotypes
 #' @param n_snps the number of SNPs
+#' @param n_snps_per_phenotype the number of SNPs that determine one phenotype
 #' @param os name of the operating system,
 #' as returned by \link[rappdirs]{app_dir}
 #' @param out the base filename of the output files.
@@ -412,7 +414,9 @@ default_params_doc <- function(
   map_filename,
   map_table,
   n_individuals,
+  n_phenotypes,
   n_snps,
+  n_snps_per_phenotype,
   os,
   out,
   ped_filename,

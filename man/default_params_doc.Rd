@@ -45,7 +45,9 @@ default_params_doc(
   map_filename,
   map_table,
   n_individuals,
+  n_phenotypes,
   n_snps,
+  n_snps_per_phenotype,
   os,
   out,
   ped_filename,
@@ -327,7 +329,11 @@ Use \link{check_map_table} to test if a genetic mapping table is valid.}
 \item{n_individuals}{the number of individuals.
 Use \link{check_n_individuals} to check if this is a valid value}
 
+\item{n_phenotypes}{the number of phenotypes}
+
 \item{n_snps}{the number of SNPs}
+
+\item{n_snps_per_phenotype}{the number of SNPs that determine one phenotype}
 
 \item{os}{name of the operating system,
 as returned by \link[rappdirs]{app_dir}}

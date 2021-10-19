@@ -17,6 +17,10 @@ compare_assoc_qt_speed(
 \item{n_individuals}{the number of individuals.
 Use \link{check_n_individuals} to check if this is a valid value}
 
+\item{n_phenotypes}{the number of phenotypes}
+
+\item{n_snps_per_phenotype}{the number of SNPs that determine one phenotype}
+
 \item{plink_optionses}{a list of one or more options to run PLINK,
 as created by \link{create_plink_optionses}.
 The reduplicated plural was used to express this is a list

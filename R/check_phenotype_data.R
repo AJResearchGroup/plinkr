@@ -15,7 +15,7 @@ check_phenotype_data <- function(phenotype_data) {
   if (!is.list(phenotype_data)) {
     stop(
       "'phenotype_data' must be a list  \n",
-      "Actual class: ", class(data), " \n",
+      "Actual class: ", class(phenotype_data), " \n",
       "Tip 1: for using in-memory data, use 'create_phenotype_data'. \n",
       "Tip 2: for using a filename, use 'create_phenotype_filename'. \n"
     )
@@ -33,7 +33,7 @@ check_phenotype_data <- function(phenotype_data) {
   }
   stop(
     "Unknown data format. \n",
-    "names(data): ", names(data), " \n",
+    "names(data): ", names(phenotype_data), " \n",
     "Tip 1: for using in-memory data, use 'create_phenotype_data'. \n",
     "Tip 2: for using a filename, use 'create_phenotype_filename'. \n"
   )

@@ -13,8 +13,7 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Depends:
-    R (>= 3.5.0),
-    stringi (>= 1.7.4.9002)
+    R (>= 3.5.0)
 Imports:
     data.table,
     devtools,
@@ -25,6 +24,7 @@ Imports:
     purrr,
     rappdirs,
     readr,
+    stringi (>= 1.7.4.9002),
     stringr,
     tibble,
     tidyr

@@ -6,6 +6,11 @@
 \usage{
 check_phenotype_data(phenotype_data)
 }
+\arguments{
+\item{phenotype_data}{phenotype data in the form of either
+a filename to a phenotype file (\code{phenotype_data_filename})
+or a list with a phenotype table (\code{phenotype_data_table})}
+}
 \description{
 Check if the \code{phenotype_data} is valid.
 The \code{phenotype_data} can be a filename (\code{phe_filename})
@@ -15,8 +20,8 @@ or a \link[tibble]{tibble} (\code{phe_table})
 Will \link{stop} if the data is not in any of these formats
 }
 \examples{
-check_phenotype_data(phenotype_data = create_test_phenotype_data())
-check_phenotype_data(phenotype_data = create_test_phenotype_filename())
+check_phenotype_data(phenotype_data = create_test_phenotype_data_table())
+check_phenotype_data(phenotype_data = create_test_phenotype_data_filename())
 }
 \author{
 Richèl J.C. Bilderbeek

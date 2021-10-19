@@ -7,8 +7,8 @@
 #' Will \link{stop} if the data is not in any of these formats
 #' @inheritParams default_params_doc
 #' @examples
-#' check_phenotype_data(phenotype_data = create_test_phenotype_data())
-#' check_phenotype_data(phenotype_data = create_test_phenotype_filename())
+#' check_phenotype_data(phenotype_data = create_test_phenotype_data_table())
+#' check_phenotype_data(phenotype_data = create_test_phenotype_data_filename())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_phenotype_data <- function(phenotype_data) {

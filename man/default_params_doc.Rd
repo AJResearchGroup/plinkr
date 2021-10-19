@@ -59,6 +59,7 @@ default_params_doc(
   phenotype_increase,
   phe_table,
   phenotypes,
+  phenotype_data,
   phenotype_data_filename,
   phenotype_data_table,
   phenotype_value_dominant,
@@ -425,6 +426,10 @@ see \link{calc_additive_phenotype_values} for the exact calculation
 \item \code{epistatic} the phenotype is epistatic,
 see \link{calc_epistatic_phenotype_values} for the exact calculation
 }}
+
+\item{phenotype_data}{phenotype data in the form of either
+a filename to a phenotype file (\code{phenotype_data_filename})
+or a list with a phenotype table (\code{phenotype_data_table})}
 
 \item{phenotype_data_filename}{phenotype data
 (as checked by \link{check_phenotype_data}))

@@ -259,6 +259,9 @@
 #'    see \link{calc_additive_phenotype_values} for the exact calculation
 #'  * \code{epistatic} the phenotype is epistatic,
 #'    see \link{calc_epistatic_phenotype_values} for the exact calculation
+#' @param phenotype_data phenotype data in the form of either
+#' a filename to a phenotype file (`phenotype_data_filename`)
+#' or a list with a phenotype table (`phenotype_data_table`)
 #' @param phenotype_data_filename phenotype data
 #' (as checked by \link{check_phenotype_data}))
 #' in the form of a \link{list} with a filename to a phenotype table
@@ -428,6 +431,7 @@ default_params_doc <- function(
   phenotype_increase,
   phe_table,
   phenotypes,
+  phenotype_data,
   phenotype_data_filename,
   phenotype_data_table,
   phenotype_value_dominant,

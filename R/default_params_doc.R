@@ -21,6 +21,9 @@
 #' for a quantitative trait with covariates
 #' (i.e. using \link{assoc_qt_covar}),
 #' as can be created by \link{create_assoc_qt_covar_params}
+#' @param assoc_qt_data data use to used by \link{assoc_qt},
+#' which equals 'regular' data (see \link{check_data}) and a
+#' phenotype table/file
 #' @param assoc_qt_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc_qt}),
 #' as can be created by \link{create_assoc_qt_params}
@@ -254,6 +257,12 @@
 #'    see \link{calc_additive_phenotype_values} for the exact calculation
 #'  * \code{epistatic} the phenotype is epistatic,
 #'    see \link{calc_epistatic_phenotype_values} for the exact calculation
+#' @param phenotype_data_filename phenotype data
+#' (as checked by \link{check_phenotype_data}))
+#' in the form of a \link{list} with a filename to a phenotype table
+#' @param phenotype_data_table phenotype data
+#' (as checked by \link{check_phenotype_data}))
+#' in the form of a \link{list} with an in-memory phenotype table
 #' @param phenotype_value_dominant phenotypic value
 #' for the dominant variant, i.e. that genotype that has at least one
 #' version of the common common allele
@@ -370,6 +379,7 @@ default_params_doc <- function(
   assoc_filename,
   assoc_params,
   assoc_qt_covar_params,
+  assoc_qt_data,
   assoc_qt_params,
   assoc_qt_result,
   assoc_table,
@@ -414,6 +424,8 @@ default_params_doc <- function(
   phenotype_increase,
   phe_table,
   phenotypes,
+  phenotype_data_filename,
+  phenotype_data_table,
   phenotype_value_dominant,
   phenotype_value_recessive,
   plink_bin_data,

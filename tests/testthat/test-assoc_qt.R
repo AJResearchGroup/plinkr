@@ -1,3 +1,34 @@
+test_that("Use uniform interface", {
+  skip("Future uniform interface")
+  clear_plinkr_cache()
+
+  expect_silent(check_empty_plinkr_folder())
+
+  if (!is_plink_installed()) return()
+  assoc_qt_data <- create_test_assoc_qt_data(
+    data = create_test_plink_text_data()
+  )
+  assoc_qt_params <- create_test_assoc_qt_params(
+    data = create_test_plink_text_data()
+  )
+  assoc_qt(
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = assoc_qt_params
+  )
+  suppressMessages(
+    expect_message(
+      assoc_qt(
+        assoc_qt_params = assoc_qt_params,
+        verbose = TRUE
+      ),
+      "you should be able to copy paste this"
+    )
+  )
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+})
+
 #
 # Minimal runs on data
 #

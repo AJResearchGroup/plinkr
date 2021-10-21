@@ -34,7 +34,7 @@ Create a single-phenotype table from pedigree (\code{.psam}) table.
 The individuals' family and within-family ID's are copied.
 The \code{pheno} is copied as well, but
 renamed to \code{P1} and divided by ten.
-In this way, PLINK traits the phenotype table as having quantitative
+In this way, PLINK treats the phenotype table as having quantitative
 traits.
 }
 \examples{

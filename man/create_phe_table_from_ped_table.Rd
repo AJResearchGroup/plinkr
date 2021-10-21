@@ -49,7 +49,7 @@ Create a single-phenotype table from pedigree (\code{.ped}) table.
 The individuals' family and within-family ID's are copied.
 The \code{case_control_code} is copied as well, but
 renamed to \code{trait} and divided by then.
-In this way, PLINK traits the phenotype table as having quantitative
+In this way, PLINK treats the phenotype table as having quantitative
 traits.
 }
 \author{

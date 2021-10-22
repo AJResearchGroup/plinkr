@@ -29,7 +29,7 @@ create_demo_assoc_qt_covar_params <- function( # nolint indeed a long function n
   plinkr::check_traits(traits)
 
   # Add a demo covariates table to the
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     n_individuals = n_individuals,
     traits = traits
   )

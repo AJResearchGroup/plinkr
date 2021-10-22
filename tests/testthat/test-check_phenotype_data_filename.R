@@ -19,4 +19,3 @@ test_that("use", {
   expect_error(check_phenotype_data_filename("nonsense"))
   expect_error(check_phenotype_data_filename(42))
 })
-

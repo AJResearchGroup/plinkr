@@ -19,7 +19,7 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
 # n_individuals = 1000,
 # n_phenotypes = 100,
 # n_snps_per_phenotype = 10,
-# verbose = TRUE
+# verbose = TRUE                                                                # nolint
 # )
 # t
 # |data_type               |plink_version | time_sec|
@@ -38,7 +38,7 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
 #   n_individuals = 1000,
 #   n_phenotypes = 100,
 #   n_snps_per_phenotype = 100,
-#   verbose = TRUE
+#   verbose = TRUE                                                              # nolint
 # )
 # |data_type               |plink_version |  time_sec|
 # |:-----------------------|:-------------|---------:|

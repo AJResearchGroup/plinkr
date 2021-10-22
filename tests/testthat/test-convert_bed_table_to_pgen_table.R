@@ -18,4 +18,3 @@ test_that("convert twice", {
   )
   expect_identical(bed_table, bed_table_again)
 })
-

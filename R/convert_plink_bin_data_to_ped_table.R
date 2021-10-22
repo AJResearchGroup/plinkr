@@ -18,7 +18,6 @@ convert_plink_bin_data_to_ped_table <- function( # nolint indeed a long function
     sex_code = plink_bin_data$fam_table$sex,
     case_control_code = plink_bin_data$fam_table$pheno
   )
-  snp_names <- plink_bin_data$bim_table$id
   n_snps <- nrow(plink_bin_data$bim_table)
   snv_names <- paste0(
     "snv_",

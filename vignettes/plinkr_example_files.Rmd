@@ -78,7 +78,7 @@ testthat::expect_equal(
 
 ```{r}
 set.seed(314)
-assoc_qt_params <- create_demo_assoc_qt_data()
+assoc_qt_data <- create_demo_assoc_qt_data()
 ```
 
 Glance at the data:
@@ -92,7 +92,7 @@ knitr::kable(assoc_qt_data$data$ped_table)
 ```
 
 ```{r}
-knitr::kable(assoc_qt_params$phe_table)
+knitr::kable(assoc_qt_data$phenotype_data$phe_table)
 ```
 
 Should be equal:

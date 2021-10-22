@@ -10,4 +10,3 @@ test_that("minimal use, test_v1_7", {
   check_empty_plinkr_folder()
   clear_plinkr_cache()
 })
-

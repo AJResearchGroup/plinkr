@@ -5,18 +5,17 @@ test_that("minimal use, using PLINK1 text data", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
-  assoc_qt_params <- create_test_assoc_qt_params()
 
   # Cannot do expect_silent, as a newline is produced
   assoc_qt_on_plink_text_data(
     assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_params = create_test_assoc_qt_params()
   )
   suppressMessages(
     expect_message(
       assoc_qt_on_plink_text_data(
         assoc_qt_data = assoc_qt_data,
-        assoc_qt_params = assoc_qt_params,
+        assoc_qt_params = create_test_assoc_qt_params(),
         verbose = TRUE
       ),
       "you should be able to copy paste this"
@@ -31,10 +30,9 @@ test_that("use", {
   if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
-  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt_result <- assoc_qt_on_plink_text_data(
     assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_params = create_test_assoc_qt_params()
   )
   expect_silent(check_assoc_qt_result(assoc_qt_result))
 
@@ -133,10 +131,10 @@ test_that("demo on additive only", {
 
 test_that("use quantitative traits that are either 1 or 2", {
   if (!is_plink_installed()) return()
-  assoc_qt_params <- create_test_assoc_qt_params()
-  n_individuals <- nrow(assoc_qt_params$phe_table)
-  assoc_qt_params$phe_table$P1 <- NULL # nolint PLINK uses uppercase
-  assoc_qt_params$phe_table$special_phenotype <- sample(
+  assoc_qt_data <- create_test_assoc_qt_data()
+  n_individuals <- nrow(assoc_qt_data$phenotype_data$phe_table)
+  assoc_qt_data$phenotype_data$phe_table$P1 <- NULL # nolint PLINK uses uppercase
+  assoc_qt_data$phenotype_data$phe_table$special_phenotype <- sample(
     c(1, 2), size = n_individuals, replace = TRUE)
   expect_error(
     assoc_qt_on_plink_text_data(
@@ -181,7 +179,7 @@ test_that("PLINK cannot handle quadallelic SNPs", {
   expect_warning(
     assoc_qt_on_plink_text_data(
       assoc_qt_data = assoc_qt_data,
-      assoc_qt_params = assoc_qt_params
+      assoc_qt_params = create_test_assoc_qt_params()
     ),
     "Variant 1 quadallelic; setting rarest alleles missing"
   )
@@ -201,7 +199,7 @@ test_that("95 chromosome numbers work", {
   )
   assoc_qt_on_plink_text_data(
     assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_params = create_test_assoc_qt_params()
   )
 
   expect_silent(check_empty_plinkr_folder())

@@ -74,9 +74,15 @@ compare_assoc_qt_speed <- function(
     assoc_qt_params$phe_table,
     phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
   )
-  testthat::expect_silent(plinkr::check_plink_text_filenames(plink_text_filenames))
-  testthat::expect_silent(plinkr::check_plink_bin_filenames(plink_bin_filenames))
-  testthat::expect_silent(plinkr::check_plink2_bin_filenames(plink2_bin_filenames))
+  testthat::expect_silent(
+    plinkr::check_plink_text_filenames(plink_text_filenames)
+  )
+  testthat::expect_silent(
+    plinkr::check_plink_bin_filenames(plink_bin_filenames)
+  )
+  testthat::expect_silent(
+    plinkr::check_plink2_bin_filenames(plink2_bin_filenames)
+  )
 
   datas <- list(
     plink_text_filenames,

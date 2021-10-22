@@ -66,7 +66,7 @@ Here, we get simple set of parameters, as to be used in testing,
 or -in this case- a simple demonstration:
  
 ```{r}
-assoc_qt_params <- create_test_assoc_qt_params()
+assoc_qt_data <- create_test_assoc_qt_data()
 ```
 
 ### The mapping table
@@ -94,7 +94,7 @@ one phenotype. Instead, we use a table of one or more phenotypic
 values:
 
 ```{r}
-knitr::kable(assoc_qt_params$phe_table)
+knitr::kable(assoc_qt_data$phenotype_data$phe_table)
 ```
 
 These trait values, that is the values in the column `trait`,
@@ -103,6 +103,7 @@ are clearly artificial.
 ### The minor allele frequency (MAF)
 
 ```{r}
+assoc_qt_params <- create_test_assoc_qt_params()
 message(assoc_qt_params$maf)
 ```
 
@@ -119,6 +120,7 @@ we can detect the association between genotype and the single trait:
 ```{r}
 if (is_plink_installed()) {
   t <- assoc_qt(
+    assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params
   )
   knitr::kable(t)
@@ -183,6 +185,7 @@ we can detect the association between genotype and the two traits:
 ```{r}
 if (is_plink_installed()) {
   t <- assoc_qt(
+    assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params
   )
   knitr::kable(t)

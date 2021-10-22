@@ -27,4 +27,3 @@ test_that("use, PLINK2 bin data", {
     )
   )
 })
-

@@ -6,7 +6,7 @@
 #' create_test_phenotype_data_filename()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_test_phenotype_data_table <- function(
+create_test_phenotype_data_table <- function( # nolint indeed a long function name
   phe_table = plinkr::get_test_phe_table()
 ) {
   plinkr::create_phenotype_data_table(phe_table = phe_table)

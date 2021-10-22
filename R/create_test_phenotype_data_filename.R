@@ -6,7 +6,7 @@
 #' create_test_phenotype_data_filename()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_test_phenotype_data_filename <- function(
+create_test_phenotype_data_filename <- function( # nolint indeed a long function name
   phe_filename = get_plinkr_filename("pheno_with_standard_header.phe")
 ) {
   plinkr::create_phenotype_data_filename(

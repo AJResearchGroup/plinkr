@@ -21,7 +21,7 @@
 #' create_phe_table_from_data(create_test_plink2_bin_data())
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_phenotype_data_table_from_data <- function(data) {
+create_phenotype_data_table_from_data <- function(data) { # nolint indeed a long function name
   list(
     phe_table = create_phe_table_from_data(data)
   )

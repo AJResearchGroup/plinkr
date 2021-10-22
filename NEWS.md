@@ -21,7 +21,7 @@ Newest versions at top.
 ### DEPRECATED AND DEFUNCT
 
  * Renamed `create_demo_assoc_qt_params` to `create_demo_assoc_qt_data`
-
+ * Removed `assoc_qt_nth_trait`
 
 ## plinkr v0.17.1 (2021-10-04)
 

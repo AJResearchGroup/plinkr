@@ -203,7 +203,7 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
     plink_text_data = assoc_qt_data$data,
     base_input_filename = assoc_qt_params$base_input_filename
   )
-  save_phe_table(
+    save_phe_table(
     phe_table = assoc_qt_params$phe_table,
     phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
   )

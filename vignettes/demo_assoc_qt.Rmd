@@ -72,7 +72,7 @@ Here, we get simple set of parameters, as to be used in testing,
 or -in this case- a simple demonstration:
  
 ```{r}
-assoc_qt_params <- create_demo_assoc_qt_data(
+assoc_qt_data <- create_demo_assoc_qt_data(
   n_individuals = 16
 )
 ```
@@ -80,7 +80,7 @@ assoc_qt_params <- create_demo_assoc_qt_data(
 ### The mapping table
 
 ```{r}
-knitr::kable(assoc_qt_params$data$map_table)
+knitr::kable(assoc_qt_data$data$map_table)
 ```
 
 ### The pedigree table
@@ -93,7 +93,7 @@ The PLINK example \code{.ped} contains:
 Show only the pedigree:
 
 ```{r}
-knitr::kable(assoc_qt_params$data$ped_table[, 1:6])
+knitr::kable(assoc_qt_data$data$ped_table[, 1:6])
 ```
 
 Note that the pedigree table has a column called `case_control_code`,
@@ -102,7 +102,7 @@ which will be completely ignored.
 Show only the SNP calls:
 
 ```{r}
-knitr::kable(assoc_qt_params$data$ped_table[, -(1:6)])
+knitr::kable(assoc_qt_data$data$ped_table[, -(1:6)])
 ```
 
 
@@ -114,7 +114,7 @@ one phenotype. Instead, we use a table of one or more phenotypic
 values:
 
 ```{r}
-knitr::kable(assoc_qt_params$phe_table)
+knitr::kable(assoc_qt_data$phenotype_data$phe_table)
 ```
 
 The phenotypes are named after their relationship to the
@@ -132,8 +132,9 @@ genotype:
 ### The minor allele frequency (MAF)
 
 
-```{r}
-message(assoc_qt_params$maf)
+```
+# TODO
+message(assoc_qt_data$maf)
 ```
 
 The `maf` (named after the PLINK `--maf` flag)
@@ -147,10 +148,11 @@ SNPs are analysed.
 With the mapping, pedigree and phenotype table, 
 we can detect the association between genotype and the two traits:
 
-```{r}
+```
+# TODO
 if (is_plink_installed()) {
   t <- assoc_qt(
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_data = assoc_qt_data
   )
   knitr::kable(t)
 }

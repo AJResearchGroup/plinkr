@@ -4,15 +4,18 @@ test_that("minimal use, using PLINK1 text data", {
 
   if (!is_plink_installed()) return()
   set.seed(314)
+  assoc_qt_data <- create_test_assoc_qt_data()
   assoc_qt_params <- create_test_assoc_qt_params()
 
   # Cannot do expect_silent, as a newline is produced
   assoc_qt_on_plink_text_data(
+    assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params
   )
   suppressMessages(
     expect_message(
       assoc_qt_on_plink_text_data(
+        assoc_qt_data = assoc_qt_data,
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
@@ -27,8 +30,10 @@ test_that("minimal use, using PLINK1 text data", {
 test_that("use", {
   if (!is_plink_installed()) return()
   set.seed(314)
+  assoc_qt_data <- create_test_assoc_qt_data()
   assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt_result <- assoc_qt_on_plink_text_data(
+    assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params
   )
   expect_silent(check_assoc_qt_result(assoc_qt_result))
@@ -58,11 +63,12 @@ test_that("demo on random only", {
 
   clear_plinkr_cache() # nolint
 
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait()
   )
   assoc_qt_result <- assoc_qt_on_plink_text_data(
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = create_test_assoc_qt_params()
   )
   # 1 trait times 1 SNP = 1 association
   expect_equal(nrow(assoc_qt_result$qassoc_table), 1)
@@ -76,11 +82,12 @@ test_that("demo on two randoms", {
 
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     traits = rep(list(create_random_trait()), 2)
   )
   assoc_qt_result <- assoc_qt_on_plink_text_data(
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = create_test_assoc_qt_params()
   )
   # 2 trait times 2 SNP = 4 association
   expect_equal(nrow(assoc_qt_result$qassoc_table), 4)
@@ -91,12 +98,13 @@ test_that("number of individuals", {
 
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     n_individuals = 3,
     traits = create_random_trait()
   )
   assoc_qt_result <- assoc_qt_on_plink_text_data(
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = create_test_assoc_qt_params()
   )
   # One traits times one SNP = one association
   expect_equal(1, nrow(assoc_qt_result$qassoc_table))
@@ -107,11 +115,12 @@ test_that("number of individuals", {
 
 test_that("demo on additive only", {
   if (!is_plink_installed()) return()
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_additive_trait()
   )
   assoc_qt_result <- assoc_qt_on_plink_text_data(
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = create_test_assoc_qt_params()
   )
   expect_silent(check_assoc_qt_result(assoc_qt_result))
 
@@ -131,7 +140,8 @@ test_that("use quantitative traits that are either 1 or 2", {
     c(1, 2), size = n_individuals, replace = TRUE)
   expect_error(
     assoc_qt_on_plink_text_data(
-      assoc_qt_params = assoc_qt_params
+      assoc_qt_data = assoc_qt_data,
+      assoc_qt_params = create_test_assoc_qt_params()
     ),
     "Phenotytic values match case-control values"
   )
@@ -145,13 +155,14 @@ test_that("use quantitative traits that are either 1 or 2", {
 test_that("PLINK cannot handle triallelic SNPs", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(mafs = c(0.3, 0.2)),
     n_individuals = 10
   )
   expect_warning(
     assoc_qt_on_plink_text_data(
-      assoc_qt_params = assoc_qt_params
+      assoc_qt_data = assoc_qt_data,
+      assoc_qt_params = create_test_assoc_qt_params()
     ),
     "Variant 1 triallelic; setting rarest alleles missing."
   )
@@ -163,12 +174,13 @@ test_that("PLINK cannot handle triallelic SNPs", {
 test_that("PLINK cannot handle quadallelic SNPs", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
     n_individuals = 10
   )
   expect_warning(
     assoc_qt_on_plink_text_data(
+      assoc_qt_data = assoc_qt_data,
       assoc_qt_params = assoc_qt_params
     ),
     "Variant 1 quadallelic; setting rarest alleles missing"
@@ -183,11 +195,14 @@ test_that("95 chromosome numbers work", {
 
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(n_snps = 95),
     n_individuals = 10
   )
-  assoc_qt_on_plink_text_data(assoc_qt_params = assoc_qt_params)
+  assoc_qt_on_plink_text_data(
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = assoc_qt_params
+  )
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache() # nolint

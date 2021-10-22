@@ -37,6 +37,10 @@ read_plink_phe_file(
   phe_filename = get_plinkr_filename("pheno.raw")
 )
 }
+\seealso{
+use \link{get_test_phe_table} to get a phenotype table,
+to be used in testing
+}
 \author{
 Richèl J.C. Bilderbeek
 }

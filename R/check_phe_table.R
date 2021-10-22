@@ -4,6 +4,8 @@
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return Nothing. Will \link{stop} if the \code{phe_table} is invalid
+#' @examples
+#' check_phe_table(get_test_phe_table())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_phe_table <- function(phe_table) {

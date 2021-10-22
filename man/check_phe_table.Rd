@@ -29,6 +29,9 @@ Nothing. Will \link{stop} if the \code{phe_table} is invalid
 Check if a phenotype table is valid.
 Will \link{stop} if not
 }
+\examples{
+check_phe_table(get_test_phe_table())
+}
 \author{
 Richèl J.C. Bilderbeek
 }

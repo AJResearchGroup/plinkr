@@ -7,7 +7,8 @@
 check_assoc_qt_data(assoc_qt_data)
 }
 \arguments{
-\item{assoc_qt_data}{data use to used by \link{assoc_qt},
+\item{assoc_qt_data}{data use to used by \link{assoc_qt}
+(as created by \link{create_assoc_qt_data}),
 which equals 'regular' data (see \link{check_data}) and a
 phenotype table/file}
 }

@@ -15,6 +15,8 @@
 #' The \code{FID}, \code{IID} and \code{Px} column names
 #' match the PLINK names, see
 #' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
+#' @seealso use \link{get_test_phe_table} to get a phenotype table,
+#' to be used in testing
 #' @examples
 #' read_plink_phe_file(
 #'   phe_filename = get_plinkr_filename("pheno.raw")

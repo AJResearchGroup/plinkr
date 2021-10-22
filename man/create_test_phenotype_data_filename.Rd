@@ -4,7 +4,13 @@
 \alias{create_test_phenotype_data_filename}
 \title{Create a \code{phenotype_data_filename} to be used in testing}
 \usage{
-create_test_phenotype_data_filename()
+create_test_phenotype_data_filename(
+  phe_filename = get_plinkr_filename("pheno_with_standard_header.phe")
+)
+}
+\arguments{
+\item{phe_filename}{name of a phenotype (\code{.phe}) file.
+Use \link{read_plink_phe_file} to read a raw phenotype file.}
 }
 \description{
 Create a \code{phenotype_data_filename} to be used in testing

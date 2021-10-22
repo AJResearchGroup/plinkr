@@ -1,14 +1,13 @@
 #' Create a `phenotype_data_table` to be used in testing
 #'
 #' Create a `phenotype_data_table` to be used in testing
+#' @inheritParams default_params_doc
 #' @examples
 #' create_test_phenotype_data_filename()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_test_phenotype_data_table <- function() {
-  list(
-    phe_table = plinkr::read_plink_phe_file(
-      plinkr::create_test_phenotype_data_filename()$phe_filename
-    )
-  )
+create_test_phenotype_data_table <- function(
+  phe_table = plinkr::get_test_phe_table()
+) {
+  plinkr::create_phenotype_data_table(phe_table = phe_table)
 }

@@ -21,7 +21,8 @@
 #' for a quantitative trait with covariates
 #' (i.e. using \link{assoc_qt_covar}),
 #' as can be created by \link{create_assoc_qt_covar_params}
-#' @param assoc_qt_data data use to used by \link{assoc_qt},
+#' @param assoc_qt_data data use to used by \link{assoc_qt}
+#' (as created by \link{create_assoc_qt_data}),
 #' which equals 'regular' data (see \link{check_data}) and a
 #' phenotype table/file
 #' @param assoc_qt_params parameters to do an association analysis

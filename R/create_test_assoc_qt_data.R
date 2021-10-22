@@ -10,7 +10,7 @@
 #' @export
 create_test_assoc_qt_data <- function(
   data = create_test_plink_text_data(),
-  phenotype_data = create_phenotype_data_table_from_data(data = data) #plinkr::create_phe_table_from_data(data = data)
+  phenotype_data = create_phenotype_data_table_from_data(data = data)
 ) {
   plinkr::check_data(data = data)
   plinkr::check_phenotype_data(phenotype_data)

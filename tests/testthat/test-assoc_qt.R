@@ -5,12 +5,8 @@ test_that("Use uniform interface", {
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
-  assoc_qt_data <- create_test_assoc_qt_data(
-    data = create_test_plink_text_data()
-  )
-  assoc_qt_params <- create_test_assoc_qt_params(
-    data = create_test_plink_text_data()
-  )
+  assoc_qt_data <- create_test_assoc_qt_data()
+  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt(
     assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params
@@ -18,6 +14,7 @@ test_that("Use uniform interface", {
   suppressMessages(
     expect_message(
       assoc_qt(
+        assoc_qt_data = assoc_qt_data,
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),

@@ -42,7 +42,7 @@ This function is named after the \code{--assoc} flag used by PLINK.
 }
 \examples{
 if (is_plink_installed()) {
-  assoc_qt(create_demo_assoc_qt_params())
+  assoc_qt(create_demo_assoc_qt_data())
 }
 }
 \seealso{

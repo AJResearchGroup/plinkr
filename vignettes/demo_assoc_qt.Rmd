@@ -72,7 +72,7 @@ Here, we get simple set of parameters, as to be used in testing,
 or -in this case- a simple demonstration:
  
 ```{r}
-assoc_qt_params <- create_demo_assoc_qt_params(
+assoc_qt_params <- create_demo_assoc_qt_data(
   n_individuals = 16
 )
 ```

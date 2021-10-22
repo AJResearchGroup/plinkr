@@ -386,7 +386,7 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
 
   # Goal is to see the results of the PLINK versions
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params(
+  assoc_qt_params <- create_demo_assoc_qt_data(
     n_individuals = 1000,
     traits = rep(list(create_random_trait(n_snps = 10)), times = 100)
   )

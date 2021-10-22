@@ -1,4 +1,4 @@
-#' Create a set of \code{assoc_qt} parameters
+#' Create a set of \link{assoc_qt} data
 #' to demonstrate PLINKs \code{--assoc_qt} functionality
 #'
 #' This function creates:
@@ -13,31 +13,30 @@
 #'    * `epistatic`: a trait that is epistatic,
 #'      see \link{calc_epistatic_phenotype_values} for the exact calculation
 #'
-#' @note This function is named after the \code{--assoc} PLINK flag.
 #' @examples
 #' # Default
-#' create_demo_assoc_qt_params()
+#' create_demo_assoc_qt_data()
 #'
 #' # Add more individuals
-#' create_demo_assoc_qt_params(n_individuals = 5)
+#' create_demo_assoc_qt_data(n_individuals = 5)
 #'
 #' # Use a random trait
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_qt_data(
 #'   traits = create_random_trait()
 #' )
 #'
 #' # Use an additive trait
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_qt_data(
 #'   traits = create_additive_trait()
 #' )
 #'
 #' # Use an epistatic trait
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_qt_data(
 #'   traits = create_epistatic_trait()
 #' )
 #'
 #' # Use an additive and random trait
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_qt_data(
 #'   traits = list(
 #'     create_additive_trait(),
 #'     create_random_trait()
@@ -47,12 +46,12 @@
 #' # Use three random traits
 #' # Don't forget to put the trait in a list, else 'rep' will
 #' # concatenate the traits in one list
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_qt_data(
 #'   traits = rep(list(create_random_trait()), 3)
 #' )
 #'
 #' # Use two additive traits with different minor allele frequencies
-#' create_demo_assoc_qt_params(
+#' create_demo_assoc_qt_data(
 #'   traits = list(
 #'     create_additive_trait(maf = 0.01),
 #'     create_additive_trait(maf = 0.10)
@@ -61,7 +60,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_demo_assoc_qt_params <- function(
+create_demo_assoc_qt_data <- function(
   n_individuals = 3,
   traits = create_demo_traits()
 ) {
@@ -85,11 +84,15 @@ create_demo_assoc_qt_params <- function(
     ped_table = ped_table,
     traits = traits
   )
-  plinkr::create_assoc_qt_params(
+  phenotype_data <- create_phenotype_data_table(
+    phe_table = phe_table
+  )
+
+  plinkr::create_assoc_qt_data(
     data = create_plink_text_data(
       ped_table = ped_table,
       map_table = map_table
     ),
-    phe_table = phe_table
+    phenotype_data = phenotype_data
   )
 }

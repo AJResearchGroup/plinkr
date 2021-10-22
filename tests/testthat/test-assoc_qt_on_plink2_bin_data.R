@@ -2,7 +2,7 @@ test_that("test data, PLINK2, PLINK2 bin data", {
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
-  assoc_qt_params <- create_demo_assoc_qt_params()
+  assoc_qt_params <- create_demo_assoc_qt_data()
   assoc_qt_params$data <- convert_plink_text_data_to_plink2_bin_data(
     assoc_qt_params$data
   )

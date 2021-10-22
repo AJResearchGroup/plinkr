@@ -30,18 +30,18 @@ test_that("use, create_test_assoc_qt_params, PLINK2 binary data", {
   clear_plinkr_cache()
 })
 
-test_that("use, create_demo_assoc_qt_params", {
+test_that("use, create_demo_assoc_qt_data", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
-      data = create_demo_assoc_qt_params()$data
+      data = create_demo_assoc_qt_data()$data
     )
   )
 })
 
 test_that("detect mismatch", {
-  assoc_qt_params <- create_demo_assoc_qt_params()
+  assoc_qt_params <- create_demo_assoc_qt_data()
   # Creates two SNVs
   assoc_qt_params$data$ped_table <- create_demo_ped_table(
     traits = rep(list(create_random_trait()), 2)

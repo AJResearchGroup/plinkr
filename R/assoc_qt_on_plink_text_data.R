@@ -28,7 +28,7 @@
 #' Note that parameters in uppercase are named as such by PLINK.
 #' @examples
 #' if (is_plink_installed()) {
-#'   assoc_qt(create_demo_assoc_qt_params())
+#'   assoc_qt(create_demo_assoc_qt_data())
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

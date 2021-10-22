@@ -2,6 +2,27 @@
 
 Newest versions at top.
 
+
+
+## plinkr v0.18 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * Renamed `create_demo_assoc_qt_params` to `create_demo_assoc_qt_data`
+
+
 ## plinkr v0.17.1 (2021-10-04)
 
 ### NEW FEATURES

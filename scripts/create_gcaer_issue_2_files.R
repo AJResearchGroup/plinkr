@@ -5,7 +5,7 @@
 library(plinkr)
 
 # Simulate data in PLINK1 text format
-assoc_qt_params <- create_demo_assoc_qt_params(
+assoc_qt_params <- create_demo_assoc_qt_data(
   n_individuals = 10,
   traits = create_demo_traits()
 )

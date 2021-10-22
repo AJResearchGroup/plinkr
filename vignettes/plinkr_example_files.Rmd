@@ -78,7 +78,7 @@ testthat::expect_equal(
 
 ```{r}
 set.seed(314)
-assoc_qt_params <- create_demo_assoc_qt_params()
+assoc_qt_params <- create_demo_assoc_qt_data()
 ```
 
 Glance at the data:

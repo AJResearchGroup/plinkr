@@ -1,5 +1,5 @@
 n_individuals <- 1000
-assoc_qt_params <- create_demo_assoc_qt_params(
+assoc_qt_params <- create_demo_assoc_qt_data(
   n_individuals = n_individuals,
   traits = create_random_trait()
 )

@@ -40,7 +40,7 @@ test_that("use", {
 test_that("default demo", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params()
+  assoc_qt_params <- create_demo_assoc_qt_data()
   assoc_qt_result <- assoc_qt_on_plink_text_data(
     assoc_qt_params = assoc_qt_params
   )
@@ -56,7 +56,7 @@ test_that("demo on random only", {
 
   clear_plinkr_cache() # nolint
 
-  assoc_qt_params <- create_demo_assoc_qt_params(
+  assoc_qt_params <- create_demo_assoc_qt_data(
     traits = create_random_trait()
   )
   assoc_qt_result <- assoc_qt_on_plink_text_data(
@@ -74,7 +74,7 @@ test_that("demo on two randoms", {
 
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params(
+  assoc_qt_params <- create_demo_assoc_qt_data(
     traits = rep(list(create_random_trait()), 2)
   )
   assoc_qt_result <- assoc_qt_on_plink_text_data(
@@ -89,7 +89,7 @@ test_that("number of individuals", {
 
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params(
+  assoc_qt_params <- create_demo_assoc_qt_data(
     n_individuals = 3,
     traits = create_random_trait()
   )
@@ -105,7 +105,7 @@ test_that("number of individuals", {
 
 test_that("demo on additive only", {
   if (!is_plink_installed()) return()
-  assoc_qt_params <- create_demo_assoc_qt_params(
+  assoc_qt_params <- create_demo_assoc_qt_data(
     traits = create_additive_trait()
   )
   assoc_qt_result <- assoc_qt_on_plink_text_data(
@@ -143,7 +143,7 @@ test_that("use quantitative traits that are either 1 or 2", {
 test_that("PLINK cannot handle triallelic SNPs", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params(
+  assoc_qt_params <- create_demo_assoc_qt_data(
     traits = create_random_trait(mafs = c(0.3, 0.2)),
     n_individuals = 10
   )
@@ -161,7 +161,7 @@ test_that("PLINK cannot handle triallelic SNPs", {
 test_that("PLINK cannot handle quadallelic SNPs", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params(
+  assoc_qt_params <- create_demo_assoc_qt_data(
     traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
     n_individuals = 10
   )
@@ -181,7 +181,7 @@ test_that("95 chromosome numbers work", {
 
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_params(
+  assoc_qt_params <- create_demo_assoc_qt_data(
     traits = create_random_trait(n_snps = 95),
     n_individuals = 10
   )

@@ -26,7 +26,7 @@ compare_assoc_qt_speed <- function(
       " SNPS per phenotype"
     )
   }
-  assoc_qt_params <- plinkr::create_demo_assoc_qt_params(
+  assoc_qt_params <- plinkr::create_demo_assoc_qt_data(
     n_individuals = n_individuals,
     traits = rep(
       list(plinkr::create_random_trait(n_snps = n_snps_per_phenotype)),

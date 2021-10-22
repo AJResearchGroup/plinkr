@@ -16,7 +16,7 @@
 #' @seealso Use \link{assoc} to do a case-control association
 #' @examples
 #' if (is_plink_installed()) {
-#'   assoc_qt(create_demo_assoc_qt_params())
+#'   assoc_qt(create_demo_assoc_qt_data())
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

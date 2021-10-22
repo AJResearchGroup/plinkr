@@ -87,7 +87,7 @@ files and data structures:
 \itemize{
 \item \link{create_demo_assoc_params}:
 create parameters to demonstrate a binary/case-control trait analysis
-\item \link{create_demo_assoc_qt_params}:
+\item \link{create_demo_assoc_qt_data}:
 create parameters to demonstrate a quantitative trait analysis
 \item \link{create_demo_map_table}:
 create a genetic map to demonstrate an association analysis,

@@ -3,10 +3,10 @@ test_that("test data, PLINK2, PLINK2 bin data", {
 
   if (!is_plink_installed()) return()
   assoc_qt_params <- create_demo_assoc_qt_data()
-  assoc_qt_params$data <- convert_plink_text_data_to_plink2_bin_data(
-    assoc_qt_params$data
+  assoc_qt_data$data <- convert_plink_text_data_to_plink2_bin_data(
+    assoc_qt_data$data
   )
-  check_plink2_bin_data(assoc_qt_params$data)
+  check_plink2_bin_data(assoc_qt_data$data)
 
   assoc_qt_on_plink2_bin_data(
     assoc_qt_params = assoc_qt_params,

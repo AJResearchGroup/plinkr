@@ -72,7 +72,7 @@ assoc_qt_params <- create_test_assoc_qt_params()
 ### The mapping table
 
 ```{r}
-knitr::kable(assoc_qt_params$data$map_table)
+knitr::kable(assoc_qt_data$data$map_table)
 ```
 
 ### The pedigree table
@@ -80,7 +80,7 @@ knitr::kable(assoc_qt_params$data$map_table)
 The PLINK example \code{.ped} contains, among others, the pedigree of the individuals:
 
 ```{r}
-knitr::kable(assoc_qt_params$data$ped_table)
+knitr::kable(assoc_qt_data$data$ped_table)
 ```
 
 Note that the pedigree table has a column called `case_control_code`,

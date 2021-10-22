@@ -14,23 +14,31 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_qt_on_plink_text_files <- function(
+  assoc_qt_data,
   assoc_qt_params,
   plink_options = create_plink_v1_9_options(),
   verbose = FALSE
 ) {
   plinkr::check_assoc_qt_params(assoc_qt_params)
-  plinkr::check_plink_text_filenames(assoc_qt_params$data)
+  plinkr::check_plink_text_filenames(assoc_qt_data$data)
 
-  testthat::expect_true(file.exists(assoc_qt_params$data$map_filename))
-  testthat::expect_true(file.exists(assoc_qt_params$data$ped_filename))
-
+  testthat::expect_true(file.exists(assoc_qt_data$data$map_filename))
+  testthat::expect_true(file.exists(assoc_qt_data$data$ped_filename))
   phe_filename <- paste0(assoc_qt_params$base_input_filename, ".phe")
-  phe_table <- plinkr::read_plink_phe_file(phe_filename)
-  phenotype_names <- names(phe_table)[c(-1, -2)]
-  qassoc_filenames <- paste0(
-    assoc_qt_params$base_output_filename, ".", phenotype_names,
-    ".qassoc"
-  )
+
+  # Phenotype data: save if in-memory
+  if (plinkr::is_phenotype_data_table(assoc_qt_data$phenotype_data)) {
+    assoc_qt_data$phenotype_data <- plinkr::save_phenotype_data_table(
+      phenotype_data_table = assoc_qt_data$phenotype_data,
+      phe_filename = phe_filename
+    )
+    testthat::expect_true(file.exists(phe_filename))
+    testthat::expect_equal(
+      assoc_qt_data$phenotype_data$phe_filename,
+      phe_filename
+    )
+  }
+
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
   dir.create(
@@ -40,6 +48,7 @@ assoc_qt_on_plink_text_files <- function(
   )
 
   args <- plinkr::create_assoc_qt_args(
+    assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params,
     plink_options = plink_options
   )
@@ -48,6 +57,12 @@ assoc_qt_on_plink_text_files <- function(
     plink_options = plink_options,
     verbose = verbose
   )
+  qassoc_filenames <- list.files(
+    path = dirname(assoc_qt_params$base_output_filename),
+    pattern = "\\..*\\.qassoc",
+    full.names = TRUE
+  )
+
   list(
     qassoc_filenames = qassoc_filenames,
     log_filename = log_filename

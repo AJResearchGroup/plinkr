@@ -33,7 +33,7 @@ compare_assoc_qt_speed <- function(
       times = n_phenotypes
     )
   )
-  assoc_qt_params$data$map_table$CHR <- 1 # nolint PLINK2 variable naming
+  assoc_qt_data$data$map_table$CHR <- 1 # nolint PLINK2 variable naming
 
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_optionses(plink_optionses)
@@ -42,10 +42,10 @@ compare_assoc_qt_speed <- function(
     message(Sys.time(), ": converting the data")
   }
 
-  testthat::expect_true(plinkr::is_plink_text_data(assoc_qt_params$data))
-  plink_text_data <- assoc_qt_params$data
+  testthat::expect_true(plinkr::is_plink_text_data(assoc_qt_data$data))
+  plink_text_data <- assoc_qt_data$data
   plink_bin_data <- plinkr::convert_plink_text_data_to_plink_bin_data(
-    assoc_qt_params$data
+    assoc_qt_data$data
   )
 
   #
@@ -56,7 +56,7 @@ compare_assoc_qt_speed <- function(
     pattern = "convert_plink_text_data_to_plink2_bin_data", fileext = ""
   )
   plink2_bin_data <- plinkr::convert_plink_text_data_to_plink2_bin_data(
-    assoc_qt_params$data,
+    assoc_qt_data$data,
     base_output_plink1_filename = base_output_plink1_filename,
     base_output_plink2_filename = base_output_plink2_filename
   )
@@ -108,7 +108,7 @@ compare_assoc_qt_speed <- function(
         verbose = verbose
       )
     ) {
-      assoc_qt_params$data <- times$data[[i]]
+      assoc_qt_data$data <- times$data[[i]]
       start_time <- Sys.time()
       assoc_qt_result_plink_text <- plinkr::assoc_qt(
         assoc_qt_params = assoc_qt_params,

@@ -6,47 +6,52 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_assoc_qt_args <- function(
+  assoc_qt_data,
   assoc_qt_params,
   plink_options = create_plink_options()
 ) {
+  plinkr::check_assoc_qt_data(assoc_qt_data)
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_options(plink_options)
   plinkr::check_plink_version_and_data_can_work_together(
-    data = assoc_qt_params$data,
+    data = assoc_qt_data$data,
     plink_options = plink_options
   )
 
-  if (plinkr::is_plink_text_data(assoc_qt_params$data)) {
+  if (plinkr::is_plink_text_data(assoc_qt_data$data)) {
     return(
       plinkr::create_assoc_qt_args_on_plink_text_data(
+        assoc_qt_data = assoc_qt_data,
         assoc_qt_params = assoc_qt_params,
         plink_options = plink_options
       )
     )
   }
-  if (plinkr::is_plink_bin_data(assoc_qt_params$data)) {
+  if (plinkr::is_plink_bin_data(assoc_qt_data$data)) {
     return(
       plinkr::create_assoc_qt_args_on_plink_bin_data(
+        assoc_qt_data = assoc_qt_data,
         assoc_qt_params = assoc_qt_params,
         plink_options = plink_options
       )
     )
   }
-  if (plinkr::is_plink2_bin_data(assoc_qt_params$data)) {
+  if (plinkr::is_plink2_bin_data(assoc_qt_data$data)) {
     return(
       plinkr::create_assoc_qt_args_on_plink2_bin_data(
+        assoc_qt_data = assoc_qt_data,
         assoc_qt_params = assoc_qt_params,
         plink_options = plink_options
       )
     )
   }
-  if (plinkr::is_plink_text_filenames(assoc_qt_params$data)) {
+  if (plinkr::is_plink_text_filenames(assoc_qt_data$data)) {
     testthat::expect_true(
       plink_options$plink_version %in% plinkr::get_plink1_versions()
     )
     args <- c(
-      "--map", assoc_qt_params$data$map_filename,
-      "--ped", assoc_qt_params$data$ped_filename,
+      "--map", assoc_qt_data$data$map_filename,
+      "--ped", assoc_qt_data$data$ped_filename,
       "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
       "--all-pheno",
       "--assoc",
@@ -61,14 +66,14 @@ create_assoc_qt_args <- function(
     }
     return(args)
   }
-  if (plinkr::is_plink_bin_filenames(assoc_qt_params$data)) {
+  if (plinkr::is_plink_bin_filenames(assoc_qt_data$data)) {
     testthat::expect_true(
       plink_options$plink_version %in% plinkr::get_plink1_versions()
     )
     args <- c(
-      "--bed", assoc_qt_params$data$bed_filename,
-      "--bim", assoc_qt_params$data$bim_filename,
-      "--fam", assoc_qt_params$data$fam_filename,
+      "--bed", assoc_qt_data$data$bed_filename,
+      "--bim", assoc_qt_data$data$bim_filename,
+      "--fam", assoc_qt_data$data$fam_filename,
       "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
       "--all-pheno",
       "--assoc",
@@ -83,15 +88,15 @@ create_assoc_qt_args <- function(
     }
     return(args)
   }
-  testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_qt_params$data))
+  testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_qt_data$data))
   testthat::expect_true(
     plink_options$plink_version %in% plinkr::get_plink2_versions()
   )
   return(
     c(
-      "--pgen", assoc_qt_params$data$pgen_filename,
-      "--psam", assoc_qt_params$data$psam_filename,
-      "--pvar", assoc_qt_params$data$pvar_filename,
+      "--pgen", assoc_qt_data$data$pgen_filename,
+      "--psam", assoc_qt_data$data$psam_filename,
+      "--pvar", assoc_qt_data$data$pvar_filename,
       "--glm",
       "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
       "--allow-extra-chr",

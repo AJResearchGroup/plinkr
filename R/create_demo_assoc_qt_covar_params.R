@@ -35,13 +35,13 @@ create_demo_assoc_qt_covar_params <- function( # nolint indeed a long function n
   )
 
   cov_table <- plinkr::create_cov_table_from_ped_table(
-    assoc_qt_params$data$ped_table
+    assoc_qt_data$data$ped_table
   )
   cov_table[, 3] <- stats::runif(n = nrow(cov_table))
   plinkr::create_assoc_qt_covar_params(
     data = create_plink_text_data(
-      ped_table = assoc_qt_params$data$ped_table,
-      map_table = assoc_qt_params$data$map_table
+      ped_table = assoc_qt_data$data$ped_table,
+      map_table = assoc_qt_data$data$map_table
     ),
     phe_table = assoc_qt_params$phe_table,
     cov_table = cov_table

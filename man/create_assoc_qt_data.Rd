@@ -21,10 +21,19 @@ create_assoc_qt_data(data, phenotype_data)
 a filename to a phenotype file (\code{phenotype_data_filename})
 or a list with a phenotype table (\code{phenotype_data_table})}
 }
+\value{
+an \code{assoc_qt_data} structure
+}
 \description{
 Create the data needed (in this case, 'regular' data and phenotype
 data) to detect associations with quantitative traits,
 as used by \link{assoc_qt}.
+}
+\examples{
+create_assoc_qt_data(
+  data = create_test_plink_text_data(),
+  phenotype_data = create_test_phenotype_data_table()
+)
 }
 \author{
 Richèl J.C. Bilderbeek

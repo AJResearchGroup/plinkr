@@ -13,11 +13,11 @@ save_ped_table(
 set.seed(314)
 assoc_qt_params <- create_demo_assoc_qt_data()
 save_map_table(
-  map_table = assoc_qt_params$data$map_table,
+  map_table = assoc_qt_data$data$map_table,
   file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt.map")
 )
 save_ped_table(
-  ped_table = assoc_qt_params$data$ped_table,
+  ped_table = assoc_qt_data$data$ped_table,
   file.path(system.file("extdata", package = "plinkr"), "demo_assoc_qt.ped")
 )
 save_phe_table(

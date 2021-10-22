@@ -12,7 +12,7 @@ check_assoc_qt_params <- function(assoc_qt_params) {
   testthat::expect_true("maf" %in% names(assoc_qt_params))
   testthat::expect_true("base_input_filename" %in% names(assoc_qt_params))
   testthat::expect_true("base_output_filename" %in% names(assoc_qt_params))
-  testthat::expect_silent(plinkr::check_data(assoc_qt_params$data))
+  testthat::expect_silent(plinkr::check_data(assoc_qt_data$data))
   testthat::expect_silent(plinkr::check_phe_table(assoc_qt_params$phe_table))
   testthat::expect_silent(plinkr::check_maf(assoc_qt_params$maf))
   testthat::expect_silent(

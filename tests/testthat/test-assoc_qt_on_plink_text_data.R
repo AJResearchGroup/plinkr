@@ -40,9 +40,11 @@ test_that("use", {
 test_that("default demo", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_data()
+  assoc_qt_data <- create_demo_assoc_qt_data()
+
   assoc_qt_result <- assoc_qt_on_plink_text_data(
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = create_test_assoc_params()
   )
   # three traits times four SNPs = 12 association
   expect_equal(12, nrow(assoc_qt_result$qassoc_table))

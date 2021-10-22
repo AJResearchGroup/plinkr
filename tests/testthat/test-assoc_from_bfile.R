@@ -1,4 +1,5 @@
 test_that("use", {
+  clear_plinkr_cache()
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()

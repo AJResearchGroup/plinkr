@@ -32,19 +32,21 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_qt_on_plink_bin_data <- function(
+  assoc_qt_data,
   assoc_qt_params,
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
+  plinkr::check_assoc_qt_data(assoc_qt_data)
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_options(plink_options)
   plinkr::check_verbose(verbose)
   plinkr::check_plink_version_and_data_can_work_together(
-    data = assoc_qt_params$data,
+    data = assoc_qt_data$data,
     plink_options = plink_options
   )
 
-  if (!plinkr::is_plink_bin_data(assoc_qt_params$data)) {
+  if (!plinkr::is_plink_bin_data(assoc_qt_data$data)) {
     stop(
       "'assoc_qt_params' is not PLINK binary data. \n",
       "Tip 1: use 'assoc_qt' to let plinkr detect the type of PLINK data. \n",
@@ -55,32 +57,22 @@ assoc_qt_on_plink_bin_data <- function(
     )
   }
 
-  # Do not be smart yet
-  phe_table <- assoc_qt_params$phe_table
-  phenotype_names <- names(assoc_qt_params$phe_table)[c(-1, -2)]
-
   # Filenames
   base_input_filename <- assoc_qt_params$base_input_filename
   bed_filename <- paste0(base_input_filename, ".bed")
   bim_filename <- paste0(base_input_filename, ".bim")
   fam_filename <- paste0(base_input_filename, ".fam")
   phe_filename <- paste0(base_input_filename, ".phe")
-  qassoc_filenames <- paste0(
-    assoc_qt_params$base_output_filename, ".", phenotype_names,
-    ".qassoc"
-  )
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
   # 'save_' functions will check for success themselves
-  assoc_qt_params$data <- save_plink_bin_data(
-    plink_bin_data = assoc_qt_params$data,
+  assoc_qt_data$data <- save_plink_bin_data(
+    plink_bin_data = assoc_qt_data$data,
     base_input_filename = assoc_qt_params$base_input_filename
   )
-  plinkr::save_phe_table(
-    phe_table = phe_table,
-    phe_filename = phe_filename
-  )
+
   assoc_qt_result <- plinkr::assoc_qt_on_plink_bin_files(
+    assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params,
     plink_options = plink_options,
     verbose = verbose

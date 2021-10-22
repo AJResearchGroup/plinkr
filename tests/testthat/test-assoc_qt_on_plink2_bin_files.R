@@ -5,14 +5,14 @@ test_that("test data, PLINK2, PLINK2 bin files", {
   assoc_qt_params <- create_demo_assoc_qt_data()
 
   if (1 == 2) {
-    assoc_qt_params$data <- convert_plink_text_data_to_plink2_bin_data(
-      assoc_qt_params$data
+    assoc_qt_data$data <- convert_plink_text_data_to_plink2_bin_data(
+      assoc_qt_data$data
     )
-    check_plink2_bin_data(assoc_qt_params$data)
+    check_plink2_bin_data(assoc_qt_data$data)
     # Create the files needed
     assoc_qt_params$base_input_filename <- "~/assoc_qt_on_plink2_bin_files"
     plink2_bin_filenames <- save_plink2_bin_data(
-      plink2_bin_data = assoc_qt_params$data,
+      plink2_bin_data = assoc_qt_data$data,
       base_input_filename = assoc_qt_params$base_input_filename,
     )
     save_phe_table(
@@ -21,12 +21,12 @@ test_that("test data, PLINK2, PLINK2 bin files", {
     )
   }
 
-  assoc_qt_params$data <- create_plink2_bin_filenames(
+  assoc_qt_data$data <- create_plink2_bin_filenames(
     pgen_filename = get_plinkr_filename("assoc_qt_on_plink2_bin_files.pgen"),
     psam_filename = get_plinkr_filename("assoc_qt_on_plink2_bin_files.psam"),
     pvar_filename = get_plinkr_filename("assoc_qt_on_plink2_bin_files.pvar")
   )
-  check_plink2_bin_filenames(assoc_qt_params$data)
+  check_plink2_bin_filenames(assoc_qt_data$data)
   assoc_qt_params$base_input_filename <- tools::file_path_sans_ext(
     get_plinkr_filename("assoc_qt_on_plink2_bin_files.phe")
   )

@@ -15,6 +15,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_qt_on_plink2_bin_data <- function(
+  assoc_qt_data,
   assoc_qt_params,
   plink_options = create_plink_options(),
   verbose = FALSE
@@ -23,14 +24,10 @@ assoc_qt_on_plink2_bin_data <- function(
   plinkr::check_plink_options(plink_options)
   plinkr::check_verbose(verbose)
   plinkr::check_plink_version_and_data_can_work_together(
-    data = assoc_qt_params$data,
+    data = assoc_qt_data$data,
     plink_options = plink_options
   )
-  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_params$data))
-
-  #
-  phe_table <- assoc_qt_params$phe_table
-  phenotype_names <- names(assoc_qt_params$phe_table)[c(-1, -2)]
+  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_qt_data$data))
 
   # Filenames
   base_input_filename <- assoc_qt_params$base_input_filename
@@ -38,17 +35,11 @@ assoc_qt_on_plink2_bin_data <- function(
   psam_filename <- paste0(base_input_filename, ".psam")
   pvar_filename <- paste0(base_input_filename, ".pvar")
   phe_filename <- paste0(base_input_filename, ".phe")
-
-
-  qassoc_filenames <- paste0(
-    assoc_qt_params$base_output_filename, ".", phenotype_names,
-    ".glm.linear"
-  )
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
   # Convert data from in-memory to paths
-  assoc_qt_params$data <- plinkr::save_plink2_bin_data(
-    plink2_bin_data = assoc_qt_params$data,
+  assoc_qt_data$data <- plinkr::save_plink2_bin_data(
+    plink2_bin_data = assoc_qt_data$data,
     base_input_filename = base_input_filename,
     verbose = verbose
   )
@@ -56,45 +47,13 @@ assoc_qt_on_plink2_bin_data <- function(
   testthat::expect_true(file.exists(pgen_filename))
   testthat::expect_true(file.exists(psam_filename))
   testthat::expect_true(file.exists(pvar_filename))
-  plinkr::save_phe_table(
-    phe_table = phe_table,
-    phe_filename = phe_filename
+
+  assoc_qt_result <- plinkr::assoc_qt_on_plink2_bin_files(
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = assoc_qt_params,
+    plink_options = plink_options,
+    verbose = verbose
   )
-
-
-
-  if (1 == 1) {
-    assoc_qt_result <- plinkr::assoc_qt_on_plink2_bin_files(
-      assoc_qt_params = assoc_qt_params,
-      plink_options = plink_options,
-      verbose = verbose
-
-    )
-  } else {
-    # PLINK will not do so and will not give an error
-    dir.create(
-      dirname(assoc_qt_params$base_output_filename),
-      showWarnings = FALSE,
-      recursive = TRUE
-    )
-
-    args <- plinkr::create_assoc_qt_args(
-      assoc_qt_params = assoc_qt_params,
-      plink_options = plink_options
-    )
-    plinkr::run_plink(
-      args = args,
-      plink_options = plink_options,
-      verbose = verbose
-    )
-
-    qassoc_table <- plinkr::read_plink2_qassoc_files(
-      qassoc_filenames = qassoc_filenames
-    )
-    if (verbose) {
-      message(paste(plinkr::read_plink_log_file(log_filename), collapse = "\n"))
-    }
-  }
 
   qassoc_filenames <- assoc_qt_result$qassoc_filenames
   log_filename <- assoc_qt_result$log_filename

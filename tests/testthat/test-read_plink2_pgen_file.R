@@ -71,10 +71,10 @@ test_that("demonstrate .pgen row/column ordering differs from genio's .bed", {
   # Convert data
   # 1. Create an asymmetrical PLINK1 text data set
   assoc_qt_params <- create_demo_assoc_qt_data()
-  plink_text_data <- assoc_qt_params$data
-  n_individuals <- nrow(assoc_qt_params$data$ped_table)
+  plink_text_data <- assoc_qt_data$data
+  n_individuals <- nrow(assoc_qt_data$data$ped_table)
   expect_equal(3, n_individuals)
-  n_snps <- nrow(assoc_qt_params$data$map_table)
+  n_snps <- nrow(assoc_qt_data$data$map_table)
   expect_equal(4, n_snps)
   expect_true(n_snps != n_individuals) # must be asymetric
 

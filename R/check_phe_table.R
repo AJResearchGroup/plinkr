@@ -22,7 +22,7 @@ check_phe_table <- function(phe_table) {
     trait_values <- as.numeric(t(phe_table[, col_index]))
     if (all(trait_values %in% c(0, 1, 2))) {
       stop(
-        "Phenotytic values match case-control values  \n",
+        "Phenotypic values match case-control values  \n",
         "in column '", names(phe_table)[col_index], "'. \n",
         "PLINK will always treat these valuse as case-control values\n",
         "and do a case-control analysis. \n",

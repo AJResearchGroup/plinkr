@@ -6,6 +6,7 @@
 to do a quantitative trait analysis with covariates}
 \usage{
 create_assoc_qt_covar_args(
+  assoc_qt_covar_data,
   assoc_qt_covar_params,
   plink_options = create_plink_options()
 )

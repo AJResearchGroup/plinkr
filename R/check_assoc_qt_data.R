@@ -20,6 +20,6 @@ check_assoc_qt_data <- function(assoc_qt_data) {
   testthat::expect_true("data" %in% names(assoc_qt_data))
   testthat::expect_true("phenotype_data" %in% names(assoc_qt_data))
   plinkr::check_data(assoc_qt_data$data)
-  plinkr::check_phenotype_data(assoc_qt_data$phenotype_data)
+  plinkr::check_phenotype_data(phenotype_data = assoc_qt_data$phenotype_data)
   invisible(assoc_qt_data)
 }

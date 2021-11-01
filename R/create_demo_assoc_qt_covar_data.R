@@ -21,7 +21,7 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_demo_assoc_qt_covar_params <- function( # nolint indeed a long function name
+create_demo_assoc_qt_covar_data <- function( # nolint indeed a long function name
   n_individuals = 3,
   traits = create_demo_traits()
 ) {
@@ -38,12 +38,9 @@ create_demo_assoc_qt_covar_params <- function( # nolint indeed a long function n
     assoc_qt_data$data$ped_table
   )
   cov_table[, 3] <- stats::runif(n = nrow(cov_table))
-  plinkr::create_assoc_qt_covar_params(
-    data = create_plink_text_data(
-      ped_table = assoc_qt_data$data$ped_table,
-      map_table = assoc_qt_data$data$map_table
-    ),
-    phe_table = assoc_qt_params$phe_table,
+  plinkr::create_assoc_qt_covar_data(
+    data = assoc_qt_data$data,
+    phenotype_data = assoc_qt_data$phenotype_data,
     cov_table = cov_table
   )
 }

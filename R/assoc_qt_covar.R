@@ -24,14 +24,17 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_qt_covar <- function(
+  assoc_qt_covar_data,
   assoc_qt_covar_params,
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
+  plinkr::check_assoc_qt_covar_data(assoc_qt_covar_data)
   plinkr::check_assoc_qt_covar_params(assoc_qt_covar_params)
   plinkr::check_plink_options(plink_options)
   plinkr::check_verbose(verbose)
 
+  stop("Not yet")
   # Do not be smart yet
   ped_table <- assoc_qt_covar_params$data$ped_table
   map_table <- assoc_qt_covar_params$data$map_table

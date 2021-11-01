@@ -10,13 +10,14 @@ test_that("test data, PLINK2, PLINK2 bin data", {
 
   assoc_qt_on_plink2_bin_data(
     assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = assoc_qt_params,
+    assoc_qt_params = create_test_assoc_params(),
     plink_options = create_plink_v2_0_options()
   )
   suppressMessages(
     expect_message(
       assoc_qt(
-        assoc_qt_params = assoc_qt_params,
+        assoc_qt_data = assoc_qt_data,
+        assoc_qt_params = create_test_assoc_params(),
         plink_options = create_plink_v2_0_options(),
         verbose = TRUE
       ),

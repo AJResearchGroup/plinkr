@@ -5,6 +5,7 @@
 \title{Let PLINK detect an association with one ore more quantitative traits.}
 \usage{
 assoc_qt_covar(
+  assoc_qt_covar_data,
   assoc_qt_covar_params,
   plink_options = create_plink_options(),
   verbose = FALSE

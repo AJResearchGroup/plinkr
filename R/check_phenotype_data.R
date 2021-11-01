@@ -25,7 +25,7 @@ check_phenotype_data <- function(phenotype_data) {
   # if (plinkr::is_plink_text_data(data)) {                                     # nolint
   #   plinkr::check_plink_text_data(data)                                       # nolint
   # } else if ...                                                               # nolint
-  if (plinkr::is_phenotype_data_table(phenotype_data)) {
+  if (plinkr::is_phenotype_data_table(phenotype_data_table = phenotype_data)) {
     return(invisible(phenotype_data))
   }
   if (plinkr::is_phenotype_data_filename(phenotype_data)) {

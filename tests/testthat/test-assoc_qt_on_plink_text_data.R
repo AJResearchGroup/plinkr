@@ -141,7 +141,7 @@ test_that("use quantitative traits that are either 1 or 2", {
       assoc_qt_data = assoc_qt_data,
       assoc_qt_params = create_test_assoc_qt_params()
     ),
-    "Phenotytic values match case-control values"
+    "Unknown data format"
   )
 
   expect_silent(check_empty_plinkr_folder())

@@ -9,6 +9,7 @@ compare_assoc_qt_speed(
   n_individuals = 5,
   n_phenotypes = 3,
   n_snps_per_phenotype = 4,
+  assoc_qt_params = create_test_assoc_qt_params(),
   plink_optionses = create_plink_optionses(),
   verbose = FALSE
 )
@@ -20,6 +21,10 @@ Use \link{check_n_individuals} to check if this is a valid value}
 \item{n_phenotypes}{the number of phenotypes}
 
 \item{n_snps_per_phenotype}{the number of SNPs that determine one phenotype}
+
+\item{assoc_qt_params}{parameters to do an association analysis
+for a quantitative trait (i.e. using \link{assoc_qt}),
+as can be created by \link{create_assoc_qt_params}}
 
 \item{plink_optionses}{a list of one or more options to run PLINK,
 as created by \link{create_plink_optionses}.

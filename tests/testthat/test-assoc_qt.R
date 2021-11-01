@@ -4,7 +4,7 @@ test_that("Use uniform interface", {
 
   if (!is_plink_installed()) return()
   assoc_qt_data <- create_test_assoc_qt_data()
-  assoc_qt_data <- create_test_assoc_qt_data()
+  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt(
     assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params
@@ -47,13 +47,13 @@ test_that("1. test data, PLINK1, PLINK1 text data", {
   )
   assoc_qt(
     assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_params = create_test_assoc_qt_params()
   )
   suppressMessages(
     expect_message(
       assoc_qt(
         assoc_qt_data = assoc_qt_data,
-        assoc_qt_params = assoc_qt_params,
+        assoc_qt_params = create_test_assoc_qt_params(),
         verbose = TRUE
       ),
       "you should be able to copy paste this"
@@ -192,10 +192,11 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
 # 12 | PLINK2        | PLINK2 bin filenames | OK
 #
 test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
+  clear_plinkr_cache()
   expect_silent(check_empty_plinkr_folder())
 
-  skip("assoc_qt 7: leaves files")
   if (!is_plink_installed()) return()
+  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_text_data()
   )
@@ -203,15 +204,23 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
     plink_text_data = assoc_qt_data$data,
     base_input_filename = assoc_qt_params$base_input_filename
   )
-    save_phe_table(
-    phe_table = assoc_qt_params$phe_table,
+  assoc_qt_data$phenotype_data <- save_phenotype_data_table(
+    phenotype_data_table = assoc_qt_data$phenotype_data,
     phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
   )
+  check_assoc_qt_data(assoc_qt_data)
 
-  assoc_qt(assoc_qt_params = assoc_qt_params)
+  assoc_qt_result_filenames <- assoc_qt(
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = assoc_qt_params
+  )
+  file.remove(assoc_qt_result_filenames$qassoc_filenames)
+  file.remove(assoc_qt_result_filenames$log_filename)
+
   suppressMessages(
     expect_message(
-      assoc_qt(
+      assoc_qt_result_filenames <- assoc_qt(
+        assoc_qt_data = assoc_qt_data,
         assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
@@ -219,7 +228,11 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
     )
   )
 
+  file.remove(assoc_qt_result_filenames$qassoc_filenames)
+  file.remove(assoc_qt_result_filenames$log_filename)
+  unlink(dirname(assoc_qt_data$phenotype_data$phe_filename), recursive = TRUE)
   unlink(dirname(assoc_qt_params$base_input_filename), recursive = TRUE)
+  unlink(dirname(assoc_qt_params$base_output_filename), recursive = TRUE)
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_assoc_qt_covar_args.R
 \name{create_assoc_qt_covar_args}
 \alias{create_assoc_qt_covar_args}
-\title{Create the command-line arguments to call PLINK or PLINK2
+\title{Create the command-line arguments to call \code{PLINK} or \code{PLINK2}
 to do a quantitative trait analysis with covariates}
 \usage{
 create_assoc_qt_covar_args(
@@ -24,7 +24,7 @@ as created by \link{create_plink_options}}
 the command-line arguments
 }
 \description{
-Create the command-line arguments to call PLINK or PLINK2
+Create the command-line arguments to call \code{PLINK} or \code{PLINK2}
 to do a quantitative trait analysis with covariates
 }
 \author{

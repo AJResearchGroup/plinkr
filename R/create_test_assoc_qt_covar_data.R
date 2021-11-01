@@ -13,8 +13,8 @@ create_test_assoc_qt_covar_data <- function( # nolint indeed a long function nam
   phenotype_data = plinkr::create_phenotype_data_table_from_data(
     data = data
   ),
-  cov_table = plinkr::create_cov_table_from_ped_table(
-    ped_table = phenotype_data$phe_table
+  cov_table = plinkr::create_cov_table_from_data(
+    data = data
   )
 ) {
   plinkr::check_data(data = data)

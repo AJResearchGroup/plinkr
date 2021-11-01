@@ -9,6 +9,7 @@ compare_assoc_qt_speed <- function(
   n_individuals = 5,
   n_phenotypes = 3,
   n_snps_per_phenotype = 4,
+  assoc_qt_params = create_test_assoc_qt_params(),
   plink_optionses = create_plink_optionses(),
   verbose = FALSE
 ) {
@@ -16,6 +17,7 @@ compare_assoc_qt_speed <- function(
   testthat::expect_true(n_phenotypes >= 1)
   testthat::expect_true(n_snps_per_phenotype >= 1)
   testthat::expect_true(n_individuals > 1)
+  plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_optionses(plink_optionses)
   plinkr::check_verbose(verbose)
 
@@ -26,7 +28,7 @@ compare_assoc_qt_speed <- function(
       " SNPS per phenotype"
     )
   }
-  assoc_qt_params <- plinkr::create_demo_assoc_qt_data(
+  assoc_qt_data <- plinkr::create_demo_assoc_qt_data(
     n_individuals = n_individuals,
     traits = rep(
       list(plinkr::create_random_trait(n_snps = n_snps_per_phenotype)),
@@ -35,7 +37,7 @@ compare_assoc_qt_speed <- function(
   )
   assoc_qt_data$data$map_table$CHR <- 1 # nolint PLINK2 variable naming
 
-  plinkr::check_assoc_qt_params(assoc_qt_params)
+  plinkr::check_assoc_qt_data(assoc_qt_data)
   plinkr::check_plink_optionses(plink_optionses)
 
   if (verbose) {
@@ -56,7 +58,7 @@ compare_assoc_qt_speed <- function(
     pattern = "convert_plink_text_data_to_plink2_bin_data", fileext = ""
   )
   plink2_bin_data <- plinkr::convert_plink_text_data_to_plink2_bin_data(
-    assoc_qt_data$data,
+    plink_text_data = assoc_qt_data$data,
     base_output_plink1_filename = base_output_plink1_filename,
     base_output_plink2_filename = base_output_plink2_filename
   )
@@ -71,8 +73,8 @@ compare_assoc_qt_speed <- function(
   plink_bin_filenames <- plinkr::save_plink_bin_data(plink_bin_data)
   plink2_bin_filenames <- plinkr::save_plink2_bin_data(plink2_bin_data)
   plinkr::save_phe_table(
-    assoc_qt_params$phe_table,
-    phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
+    assoc_qt_data$phenotype_data$phe_table,
+    phe_filename = paste0(assoc_qt_data$base_input_filename, ".phe")
   )
   testthat::expect_silent(
     plinkr::check_plink_text_filenames(plink_text_filenames)
@@ -117,6 +119,7 @@ compare_assoc_qt_speed <- function(
       assoc_qt_data$data <- times$data[[i]]
       start_time <- Sys.time()
       assoc_qt_result_plink_text <- plinkr::assoc_qt(
+        assoc_qt_data = assoc_qt_data,
         assoc_qt_params = assoc_qt_params,
         plink_options = times$plink_options[[i]],
         verbose = verbose

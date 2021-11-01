@@ -10,12 +10,12 @@ test_that("use", {
   )
 
   expect_silent(
-    create_assoc_qt_covar_params(
+    create_assoc_qt_covar_data(
       data = create_plink_text_data(
         ped_table = ped_table,
         map_table = map_table
       ),
-      phe_table = phe_table,
+      phenotype_data = create_phenotype_data_table(phe_table = phe_table),
       cov_table = cov_table
     )
   )

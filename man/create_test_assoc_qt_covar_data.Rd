@@ -7,8 +7,7 @@
 create_test_assoc_qt_covar_data(
   data = create_test_plink_text_data(),
   phenotype_data = plinkr::create_phenotype_data_table_from_data(data = data),
-  cov_table = plinkr::create_cov_table_from_ped_table(ped_table =
-    phenotype_data$phe_table)
+  cov_table = plinkr::create_cov_table_from_data(data = data)
 )
 }
 \arguments{

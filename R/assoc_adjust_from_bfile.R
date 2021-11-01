@@ -68,7 +68,7 @@ assoc_adjust_from_bfile <- function(
   )
   testthat::expect_true(file.exists(assoc_filename))
   testthat::expect_true(file.exists(assoc_adjusted_filename))
-  testthat::expect_true(file.exists(log_filename))
+testthat::expect_true(file.exists(log_filename))
   assoc_result <- list(
     assoc_table = plinkr::read_plink_assoc_file(assoc_filename),
     assoc_adjusted_table = plinkr::read_plink_assoc_adjusted_file(

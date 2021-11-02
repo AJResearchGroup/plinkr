@@ -25,6 +25,7 @@ assoc_qt_on_plink_text_files <- function(
   testthat::expect_true(file.exists(assoc_qt_data$data$map_filename))
   testthat::expect_true(file.exists(assoc_qt_data$data$ped_filename))
   phe_filename <- paste0(assoc_qt_params$base_input_filename, ".phe")
+  plinkr::check_phe_filename(phe_filename)
 
   # Phenotype data: save if in-memory
   if (plinkr::is_phenotype_data_table(assoc_qt_data$phenotype_data)) {

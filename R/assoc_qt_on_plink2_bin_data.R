@@ -35,6 +35,7 @@ assoc_qt_on_plink2_bin_data <- function(
   psam_filename <- paste0(base_input_filename, ".psam")
   pvar_filename <- paste0(base_input_filename, ".pvar")
   phe_filename <- paste0(base_input_filename, ".phe")
+  plinkr::check_phe_filename(phe_filename)
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
   # Convert data from in-memory to paths

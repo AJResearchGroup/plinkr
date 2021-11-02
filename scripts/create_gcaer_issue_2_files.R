@@ -15,6 +15,7 @@ base_input_filename <- "~/gcaer_issue_2_text"
 ped_filename <- paste0(base_input_filename, ".ped")
 map_filename <- paste0(base_input_filename, ".map")
 phe_filename <- paste0(base_input_filename, ".phe")
+plinkr::check_phe_filename(phe_filename)
 base_output_filename <- "~/gcaer_issue_2_bin"
 plinkr::save_ped_table(
   ped_table = assoc_qt_data$data$ped_table,

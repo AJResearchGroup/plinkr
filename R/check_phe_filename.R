@@ -18,11 +18,11 @@ check_phe_filename <- function(phe_filename) {
   if (
     !stringr::str_detect(
       string = phe_filename,
-      pattern = "^[[:alnum:]]+\\.phe$"
+      pattern = "^[[:graph:]]+\\.phe$"
     )
   ) {
     stop(
-      "'phe_filename' must match regex '^[[:alnum:]]+\\.phe$' \n",
+      "'phe_filename' must match regex '^[[:graph:]]+\\.phe$' \n",
       "phe_filename: ", phe_filename
     )
   }

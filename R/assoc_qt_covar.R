@@ -47,6 +47,7 @@ assoc_qt_covar <- function(
   ped_filename <- paste0(base_input_filename, ".ped")
   map_filename <- paste0(base_input_filename, ".map")
   phe_filename <- paste0(base_input_filename, ".phe")
+  plinkr::check_phe_filename(phe_filename)
   cov_filename <- paste0(base_input_filename, ".cov")
   qassoc_filenames <- paste0(
     assoc_qt_covar_params$base_output_filename, ".", phenotype_names,

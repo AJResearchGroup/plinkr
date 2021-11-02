@@ -43,7 +43,6 @@ jobs:
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("covr")
           remotes::install_cran("lintr")
-          remotes::install_cran("cleanr")
           remotes::install_github("MangoTheCat/goodpractice")
         shell: Rscript {0}
 
@@ -63,10 +62,6 @@ jobs:
 
       - name: Lint
         run: lintr::lint_package()
-        shell: Rscript {0}
-
-      - name: Cleanr
-        run: cleanr::check_package(getwd(), check_return = FALSE)
         shell: Rscript {0}
 
       - name: Install plinkr

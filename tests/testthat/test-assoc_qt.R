@@ -155,10 +155,11 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink2_bin_data()
   )
+  assoc_qt_params <- create_test_assoc_qt_params()
   expect_warning(
     assoc_qt(
       assoc_qt_data = assoc_qt_data,
-      assoc_qt_params = create_test_assoc_qt_params(),
+      assoc_qt_params = assoc_qt_params,
       plink_options = create_plink_v2_0_options()
     ),
     "--glm remaining control count is less than 10x predictor count for"

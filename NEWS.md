@@ -2,13 +2,11 @@
 
 Newest versions at top.
 
-
-
-## plinkr v0.18 (unreleased)
+## plinkr v0.18 (2021-11-02)
 
 ### NEW FEATURES
 
- * None
+ * Uniform interface
 
 ### MINOR IMPROVEMENTS
 

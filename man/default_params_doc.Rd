@@ -11,6 +11,7 @@ default_params_doc(
   assoc_adjusted_filename,
   assoc_filename,
   assoc_params,
+  assoc_qt_covar_data,
   assoc_qt_covar_params,
   assoc_qt_data,
   assoc_qt_params,
@@ -119,6 +120,11 @@ Use \link{read_plink_assoc_file} to read a \code{PLINK} \code{.assoc} file.}
 \item{assoc_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc}),
 as can be created by \link{create_assoc_params}}
+
+\item{assoc_qt_covar_data}{data to do an association analysis
+for a quantitative trait with covariates
+(i.e. using \link{assoc_qt_covar}),
+as can be created by \link{create_assoc_qt_covar_data}}
 
 \item{assoc_qt_covar_params}{parameters to do an association analysis
 for a quantitative trait with covariates

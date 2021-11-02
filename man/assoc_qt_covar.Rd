@@ -12,6 +12,11 @@ assoc_qt_covar(
 )
 }
 \arguments{
+\item{assoc_qt_covar_data}{data to do an association analysis
+for a quantitative trait with covariates
+(i.e. using \link{assoc_qt_covar}),
+as can be created by \link{create_assoc_qt_covar_data}}
+
 \item{assoc_qt_covar_params}{parameters to do an association analysis
 for a quantitative trait with covariates
 (i.e. using \link{assoc_qt_covar}),

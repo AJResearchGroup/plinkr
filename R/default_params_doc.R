@@ -17,6 +17,10 @@
 #' @param assoc_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc}),
 #' as can be created by \link{create_assoc_params}
+#' @param assoc_qt_covar_data data to do an association analysis
+#' for a quantitative trait with covariates
+#' (i.e. using \link{assoc_qt_covar}),
+#' as can be created by \link{create_assoc_qt_covar_data}
 #' @param assoc_qt_covar_params parameters to do an association analysis
 #' for a quantitative trait with covariates
 #' (i.e. using \link{assoc_qt_covar}),
@@ -385,6 +389,7 @@ default_params_doc <- function(
   assoc_adjusted_filename,
   assoc_filename,
   assoc_params,
+  assoc_qt_covar_data,
   assoc_qt_covar_params,
   assoc_qt_data,
   assoc_qt_params,

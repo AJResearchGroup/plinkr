@@ -6,6 +6,12 @@
 \usage{
 check_assoc_qt_covar_data(assoc_qt_covar_data)
 }
+\arguments{
+\item{assoc_qt_covar_data}{data to do an association analysis
+for a quantitative trait with covariates
+(i.e. using \link{assoc_qt_covar}),
+as can be created by \link{create_assoc_qt_covar_data}}
+}
 \value{
 Nothing.
 }

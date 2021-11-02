@@ -72,9 +72,10 @@ test_that("2. test data, PLINK1, PLINK1 bin data", {
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_bin_data()
   )
+  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt(
     assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = create_test_assoc_qt_params()
+    assoc_qt_params = assoc_qt_params
   )
   suppressMessages(
     expect_message(

@@ -89,9 +89,13 @@ test_that("demo on two randoms", {
   )
   # 2 trait times 2 SNP = 4 association
   expect_equal(nrow(assoc_qt_result$qassoc_table), 4)
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 })
 
 test_that("number of individuals", {
+  clear_plinkr_cache()
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()

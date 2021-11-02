@@ -16,8 +16,7 @@
 #' @note This function is named after the \code{--assoc}
 #' and \code{--covar} PLINK flags.
 #' @examples
-#' # Default
-#' create_demo_assoc_qt_covar_params()
+#' create_demo_assoc_qt_covar_data()
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export

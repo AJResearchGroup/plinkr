@@ -2,6 +2,9 @@ test_that("un- or install in temp plink folder", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
 
+  clear_plinkr_cache()
+  expect_silent(check_empty_plinkr_folder())
+
   plink_folder <- get_plinkr_tempfilename()
   plink_options <- create_plink_v1_9_options(
     plink_folder = plink_folder
@@ -18,6 +21,9 @@ test_that("un- or install in temp plink folder", {
 test_that("un- or install in temp plink folder, v1.7", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
+
+  clear_plinkr_cache()
+  expect_silent(check_empty_plinkr_folder())
 
   plink_folder <- get_plinkr_tempfilename()
   plink_options <- create_plink_v1_7_options(
@@ -36,6 +42,8 @@ test_that("un- or install in temp plink folder", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
   if (get_os() == "win") return()
+  clear_plinkr_cache()
+  expect_silent(check_empty_plinkr_folder())
 
   for (plink_version in get_plink_versions()) {
     for (os in c("unix", "mac")) {

@@ -33,6 +33,8 @@ test_that("use both two types of phenotype data", {
 })
 
 test_that("convert", {
+  if (!is_plink_installed()) return()
+
   # PLINK text
   assoc_qt_data <- create_test_assoc_qt_data()
   expect_true(is_plink_text_data(assoc_qt_data$data))

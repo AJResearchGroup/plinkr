@@ -6,6 +6,8 @@
 #' @return nothing
 #' @examples
 #' check_phe_filename("a.phe")
+#' check_phe_filename("/folder/a.phe")
+#' check_phe_filename("~/a.phe")
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_phe_filename <- function(phe_filename) {

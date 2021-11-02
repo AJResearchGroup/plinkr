@@ -6,5 +6,5 @@ test_that("use", {
   expect_error(check_phe_filename(".phe"))
   expect_error(check_phe_filename(""))
   expect_error(check_phe_filename("."))
-  expect_error(check_phe_filename("a.phe.phe"))
+  expect_silent(check_phe_filename("a.phe.phe"))
 })

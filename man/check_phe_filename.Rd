@@ -20,6 +20,8 @@ Calls \link{stop} if not
 }
 \examples{
 check_phe_filename("a.phe")
+check_phe_filename("/folder/a.phe")
+check_phe_filename("~/a.phe")
 }
 \author{
 Richèl J.C. Bilderbeek

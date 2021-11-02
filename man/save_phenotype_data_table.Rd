@@ -11,7 +11,8 @@ save_phenotype_data_table(phenotype_data_table, phe_filename)
 (as checked by \link{check_phenotype_data}))
 in the form of a \link{list} with an in-memory phenotype table}
 
-\item{phe_filename}{name of a phenotype (\code{.phe}) file.
+\item{phe_filename}{name of a phenotype (\code{.phe}) file,
+as checked by \link{check_phe_filename}.
 Use \link{read_plink_phe_file} to read a raw phenotype file.}
 }
 \value{

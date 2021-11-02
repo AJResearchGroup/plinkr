@@ -6,6 +6,9 @@ save_phe_table <- function(
   phe_table,
   phe_filename
 ) {
+  plinkr::check_phe_table(phe_table)
+  plinkr::check_phe_filename(phe_filename)
+
   # A .phe file does not have a header
   text_matrix_header <- t(as.matrix(names(phe_table)))
   text_matrix_body <- as.matrix(phe_table)

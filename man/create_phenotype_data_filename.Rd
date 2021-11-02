@@ -7,7 +7,8 @@
 create_phenotype_data_filename(phe_filename)
 }
 \arguments{
-\item{phe_filename}{name of a phenotype (\code{.phe}) file.
+\item{phe_filename}{name of a phenotype (\code{.phe}) file,
+as checked by \link{check_phe_filename}.
 Use \link{read_plink_phe_file} to read a raw phenotype file.}
 }
 \description{

@@ -20,6 +20,7 @@ freq_from_bfile_within_phe_file <- function( # nolint indeed a long function nam
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
+  plinkr::check_phe_filename(phe_filename = phe_filename)
   base_binary_filenames <- bfile
   base_freq_stat_filenames <- out
   args <- c(

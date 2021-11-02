@@ -234,7 +234,8 @@
 #'    * \code{AA} 11.0
 #'    * \code{AT} 10.5
 #'    * \code{TT} 10.0
-#' @param phe_filename name of a phenotype (\code{.phe}) file.
+#' @param phe_filename name of a phenotype (\code{.phe}) file,
+#' as checked by \link{check_phe_filename}.
 #' Use \link{read_plink_phe_file} to read a raw phenotype file.
 #' @param phenotype_increase the phenotypic value increase per rare allele,
 #' for an additive trait.

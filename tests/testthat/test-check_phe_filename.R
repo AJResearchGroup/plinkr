@@ -1,0 +1,8 @@
+test_that("use", {
+  expect_silent(check_phe_filename("a.phe"))
+  expect_error(check_phe_filename(c("a.phe", "b.phe")))
+  expect_error(check_phe_filename(".phe"))
+  expect_error(check_phe_filename(""))
+  expect_error(check_phe_filename("."))
+  expect_error(check_phe_filename("a.phe.phe"))
+})

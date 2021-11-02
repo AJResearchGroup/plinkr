@@ -11,6 +11,7 @@ save_phenotype_data_table <- function(
   phe_filename
 ) {
   plinkr::check_phenotype_data_table(phenotype_data_table)
+  plinkr::check_phe_filename(phe_filename)
   plinkr::save_phe_table(
     phe_table = phenotype_data_table$phe_table,
     phe_filename = phe_filename

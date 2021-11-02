@@ -20,7 +20,8 @@ a \code{.bed}, \code{.bim} and \code{.fam} file).
 This parameter is named after the \code{PLINK}
 \code{--bfile} flag}
 
-\item{phe_filename}{name of a phenotype (\code{.phe}) file.
+\item{phe_filename}{name of a phenotype (\code{.phe}) file,
+as checked by \link{check_phe_filename}.
 Use \link{read_plink_phe_file} to read a raw phenotype file.}
 
 \item{out}{the base filename of the output files.

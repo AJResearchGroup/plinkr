@@ -49,7 +49,7 @@ convert_plink_text_data_to_plink_bin_data <- function( # nolint indeed a long fu
 ) {
   plinkr::check_plink_options(plink_options)
 
-  if (plink_options$plink_version %in% get_plink2_versions()) {
+  if (plink_options$plink_version %in% plinkr::get_plink2_versions()) {
     stop(
       "PLINK2 cannot convert '.map' and '.ped' files. ",
       "Use PLINK v1.7 or v1.9 instead. "

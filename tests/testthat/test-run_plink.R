@@ -58,7 +58,7 @@ test_that("error", {
 test_that("warnings", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
     n_individuals = 10
   )

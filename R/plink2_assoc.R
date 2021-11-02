@@ -22,7 +22,9 @@ plink2_assoc <- function(
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
 
-  testthat::expect_true(plink_options$plink_version %in% get_plink2_versions())
+  testthat::expect_true(
+    plink_options$plink_version %in% plinkr::get_plink2_versions()
+  )
 
   # else, convert to PLINK2 binary format
   testthat::expect_true(plinkr::is_plink2_bin_data(assoc_params$data))

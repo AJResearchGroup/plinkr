@@ -47,7 +47,7 @@ check_plink_version_and_data_can_work_together <- function( # nolint indeed a lo
     }
   } else {
     testthat::expect_true(
-      plink_options$plink_version %in% get_plink2_versions()
+      plink_options$plink_version %in% plinkr::get_plink2_versions()
     )
     if (plinkr::is_plink_text_data(data)) {
       stop(

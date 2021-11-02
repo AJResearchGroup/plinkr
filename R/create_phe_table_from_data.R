@@ -29,6 +29,15 @@ create_phe_table_from_data <- function(data) { # nolint indeed a long and descri
   if (plinkr::is_plink_bin_data(data)) {
     return(plinkr::create_phe_table_from_plink_bin_data(data))
   }
-  testthat::expect_true(plinkr::is_plink2_bin_data(data))
-  plinkr::create_phe_table_from_plink2_bin_data(data)
+  if (plinkr::is_plink2_bin_data(data)) {
+    return(plinkr::create_phe_table_from_plink2_bin_data(data))
+  }
+  if (plinkr::is_plink_text_filenames(data)) {
+    return(plinkr::create_phe_table_from_plink_text_filenames(data))
+  }
+  if (plinkr::is_plink_bin_filenames(data)) {
+    return(plinkr::create_phe_table_from_plink_bin_filenames(data))
+  }
+  testthat::expect_true(plinkr::is_plink2_bin_filenames(data))
+  plinkr::create_phe_table_from_plink_bin2_filenames(data)
 }

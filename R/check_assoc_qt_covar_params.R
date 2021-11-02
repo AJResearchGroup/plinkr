@@ -7,24 +7,12 @@
 #' @export
 check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
   testthat::expect_true(is.list(assoc_qt_covar_params))
-  testthat::expect_true("data" %in% names(assoc_qt_covar_params))
-  testthat::expect_true("phe_table" %in% names(assoc_qt_covar_params))
-  testthat::expect_true("cov_table" %in% names(assoc_qt_covar_params))
   testthat::expect_true("maf" %in% names(assoc_qt_covar_params))
   testthat::expect_true(
     "base_input_filename" %in% names(assoc_qt_covar_params)
   )
   testthat::expect_true(
     "base_output_filename" %in% names(assoc_qt_covar_params)
-  )
-  testthat::expect_silent(
-    plinkr::check_data(assoc_qt_covar_params$data)
-  )
-  testthat::expect_silent(
-    plinkr::check_phe_table(assoc_qt_covar_params$phe_table)
-  )
-  testthat::expect_silent(
-    plinkr::check_cov_table(assoc_qt_covar_params$cov_table)
   )
   testthat::expect_silent(plinkr::check_maf(assoc_qt_covar_params$maf))
   testthat::expect_silent(
@@ -35,5 +23,4 @@ check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
       assoc_qt_covar_params$base_output_filename
     )
   )
-  plinkr::check_equal_number_of_snvs(assoc_qt_covar_params$data)
 }

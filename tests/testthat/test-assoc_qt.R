@@ -388,19 +388,28 @@ test_that("13. test data, PLINK1, PLINK1 bin data, phenotype file", {
   assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(
     assoc_qt_data$data
   )
-  before <- assoc_qt(assoc_qt_params = assoc_qt_params)
+  assoc_qt_params <- create_test_assoc_qt_params()
+  before <- assoc_qt(
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = assoc_qt_params
+  )
 
-  assoc_qt_params$phe_table$P1 <- runif(n = nrow(assoc_qt_params$phe_table)) # nolint PLINK naming scheme
+  assoc_qt_data$phenotype_data$phe_table$P1 <- runif( # nolint PLINK naming scheme
+    n = nrow(assoc_qt_data$phenotype_data$phe_table)
+  )
 
-  after <- assoc_qt(assoc_qt_params = assoc_qt_params)
-  expect_equal(before$CHR, after$CHR)
-  expect_equal(before$BP, after$BP)
-  expect_equal(before$NMISS, after$NMISS)
-  expect_true(all(before$BETA != after$BETA))
-  expect_true(all(before$SE != after$SE))
-  expect_true(all(before$R2 != after$R2))
-  expect_true(all(before$T != after$T))
-  expect_true(all(before$P != after$P))
+  after <- assoc_qt(
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = assoc_qt_params
+  )
+  expect_equal(before$CHR, after$CHR) # nolint PLINK naming scheme
+  expect_equal(before$BP, after$BP) # nolint PLINK naming scheme
+  expect_equal(before$NMISS, after$NMISS) # nolint PLINK naming scheme
+  expect_true(all(before$BETA != after$BETA)) # nolint PLINK naming scheme
+  expect_true(all(before$SE != after$SE)) # nolint PLINK naming scheme
+  expect_true(all(before$R2 != after$R2)) # nolint PLINK naming scheme
+  expect_true(all(before$T != after$T)) # nolint PLINK naming scheme
+  expect_true(all(before$P != after$P)) # nolint PLINK naming scheme
 
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

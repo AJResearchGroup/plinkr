@@ -74,7 +74,7 @@ compare_assoc_qt_speed <- function(
   plink2_bin_filenames <- plinkr::save_plink2_bin_data(plink2_bin_data)
   plinkr::save_phe_table(
     assoc_qt_data$phenotype_data$phe_table,
-    phe_filename = paste0(assoc_qt_data$base_input_filename, ".phe")
+    phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
   )
   testthat::expect_silent(
     plinkr::check_plink_text_filenames(plink_text_filenames)

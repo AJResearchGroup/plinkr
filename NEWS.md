@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## plinkr v0.18.0.1 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## plinkr v0.18 (2021-11-02)
 
 ### NEW FEATURES

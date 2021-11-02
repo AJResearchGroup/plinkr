@@ -2,7 +2,7 @@ test_that("save and read must result in same table", {
   phe_table <- read_plink_phe_file(
     phe_filename = get_plinkr_filename("pheno.raw")
   )
-  phe_filename <- get_plinkr_tempfilename()
+  phe_filename <- get_plinkr_tempfilename(fileext = ".phe")
   save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
@@ -21,7 +21,7 @@ test_that("save and read must result in same table, file with custom header", {
   phe_table <- read_plink_phe_file(
     phe_filename = get_plinkr_filename("pheno_with_standard_header.phe")
   )
-  phe_filename <- get_plinkr_tempfilename()
+  phe_filename <- get_plinkr_tempfilename(fileext = ".phe")
   save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
@@ -38,7 +38,7 @@ test_that("save and read must result in same table, file with custom header", {
   phe_table <- read_plink_phe_file(
     phe_filename = get_plinkr_filename("pheno_with_custom_header.phe")
   )
-  phe_filename <- get_plinkr_tempfilename()
+  phe_filename <- get_plinkr_tempfilename(fileext = ".phe")
   save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename
@@ -59,7 +59,7 @@ test_that("save and read must result in same table with correct column names", {
     phe_filename = get_plinkr_filename("pheno.raw")
   )
   names(phe_table) <- c(names(phe_table)[1:2], "my_phenotype")
-  phe_filename <- get_plinkr_tempfilename()
+  phe_filename <- get_plinkr_tempfilename(fileext = ".phe")
   save_phe_table(
     phe_table = phe_table,
     phe_filename = phe_filename

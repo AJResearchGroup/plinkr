@@ -96,13 +96,13 @@ test_that("assoc_qt the PLINK way", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_qt_params <- create_demo_assoc_qt_data(
+  assoc_qt_data <- create_demo_assoc_qt_data(
     traits = rep(list(create_random_trait(n_snps = 1)), 2),
     n_individuals = 10
   )
-  ped_filename <- get_plinkr_tempfilename()
-  map_filename <- get_plinkr_tempfilename()
-  phe_filename <- get_plinkr_tempfilename()
+  ped_filename <- get_plinkr_tempfilename(fileext = ".ped")
+  map_filename <- get_plinkr_tempfilename(fileext = ".map")
+  phe_filename <- get_plinkr_tempfilename(fileext = ".phe")
   save_ped_table(
     ped_table = assoc_qt_data$data$ped_table,
     ped_filename = ped_filename
@@ -112,7 +112,7 @@ test_that("assoc_qt the PLINK way", {
     map_filename = map_filename
   )
   save_phe_table(
-    phe_table = assoc_qt_params$phe_table,
+    phe_table = assoc_qt_data$phenotype_data$phe_table,
     phe_filename = phe_filename
   )
   args <- c(

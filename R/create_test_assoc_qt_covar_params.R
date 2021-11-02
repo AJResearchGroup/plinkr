@@ -15,7 +15,7 @@
 #' create_test_assoc_qt_covar_params()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_test_assoc_qt_covar_params <- function(
+create_test_assoc_qt_covar_params <- function( # nolint indeed a long function name
   maf = get_lowest_maf(),
   base_input_filename = file.path(
     get_plinkr_tempfilename(), "assoc_qt_covar_input"

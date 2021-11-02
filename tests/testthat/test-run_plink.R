@@ -62,9 +62,9 @@ test_that("warnings", {
     traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
     n_individuals = 10
   )
-  ped_filename <- get_plinkr_tempfilename()
-  map_filename <- get_plinkr_tempfilename()
-  phe_filename <- get_plinkr_tempfilename()
+  ped_filename <- get_plinkr_tempfilename(fileext = ".ped")
+  map_filename <- get_plinkr_tempfilename(fileext = ".map")
+  phe_filename <- get_plinkr_tempfilename(fileext = ".phe")
   save_ped_table(
     ped_table = assoc_qt_data$data$ped_table,
     ped_filename = ped_filename
@@ -74,7 +74,7 @@ test_that("warnings", {
     map_filename = map_filename
   )
   save_phe_table(
-    phe_table = assoc_qt_params$phe_table,
+    phe_table = assoc_qt_data$phenotype_data$phe_table,
     phe_filename = phe_filename
   )
   args <- c(
@@ -125,7 +125,7 @@ test_that("assoc_qt the PLINK way", {
   expect_silent(run_plink(args))
 
   qassoc_filenames <- paste0(
-    "plink.", names(assoc_qt_params$phe_table)[c(-1, -2)],
+    "plink.", names(assoc_qt_data$phenotype_data$phe_table)[c(-1, -2)],
     ".qassoc"
   )
   expect_true(all(file.exists(qassoc_filenames)))

@@ -109,7 +109,6 @@ test_that("save and load result from create_demo_ped_table()", {
 })
 
 test_that("read PLINK tutorial files", {
-  skip("Cannot read 'hapmap1.ped' without stringi")
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_tutorial_data_installed()) return()
   ped_filename <- stringr::str_subset(

@@ -28,5 +28,8 @@
 ^\.appveyor\.yml$
 ^test2\.log$
 ^Singularity$
-^plink.bim$
-^plinkr.sif$
+^plink\.bim$
+^plinkr\.sif$
+^plink\.random_1\.qassoc$
+^plink\.random_2\.qassoc$
+

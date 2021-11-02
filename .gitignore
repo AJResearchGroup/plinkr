@@ -53,3 +53,5 @@ assoc_output.log
 plink.P1.qassoc
 plink.P2.qassoc
 *.sif
+plink.random_1.qassoc
+plink.random_2.qassoc

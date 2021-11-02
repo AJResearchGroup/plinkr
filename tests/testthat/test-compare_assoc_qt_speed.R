@@ -8,8 +8,7 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
   t <- compare_assoc_qt_speed(
     n_individuals = 5,
     n_phenotypes = 4,
-    n_snps_per_phenotype = 3,
-    verbose = TRUE
+    n_snps_per_phenotype = 3
   )
   t
   knitr::kable(t)

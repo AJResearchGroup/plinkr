@@ -1,6 +1,8 @@
 test_that("un- or install in temp plink folder", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
+  clear_plinkr_cache()
+  expect_silent(check_empty_plinkr_folder())
 
   for (os in c("unix", "mac", "win")) {
     plink_folder <- get_plinkr_tempfilename()

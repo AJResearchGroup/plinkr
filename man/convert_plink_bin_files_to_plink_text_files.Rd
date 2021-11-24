@@ -58,3 +58,6 @@ use \link{convert_plink2_bin_files_to_plink_bin_files}
 }
 }
 }
+\author{
+Richèl J.C. Bilderbeek
+}

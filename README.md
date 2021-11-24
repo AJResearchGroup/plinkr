@@ -118,6 +118,12 @@ PLINK1 binary files|PLINK text files   |`convert_plink_bin_files_to_plink_text_f
 PLINK1 binary files|PLINK2 binary files|`convert_plink_bin_files_to_plink2_bin_files`
 PLINK2 binary files|PLINK text files   |`convert_plink2_bin_files_to_plink_text_files` :construction:
 PLINK2 binary files|PLINK binary files |`convert_plink2_bin_files_to_plink_bin_files`
+:construction:     |:construction:     |:construction:
+any type of files  |PLINK text files   |`convert_files_to_plink_text_files` :construction:
+any type of files  |PLINK1 binary files|`convert_files_to_plink_bin_files` :construction:
+any type of files  |PLINK2 binary files|`convert_files_to_plink2_bin_files` :construction:
+PLINK1 binary files|SAIGE files        |`create_bgen_files_for_saige` :construction:
+PLINK1 binary files|PLINK2 VCF files   |`convert_plink_bin_files_to_plink_vcf_files` :construction:
 
 ### PLINK and PLINK2 data conversions
 

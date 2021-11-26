@@ -6,7 +6,7 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Added `convert_plink_bin_files_to_plink_text_files`
 
 ### MINOR IMPROVEMENTS
 

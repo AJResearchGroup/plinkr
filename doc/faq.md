@@ -79,3 +79,13 @@ These are package(s) I dare not rely on:
    as described im the literature, specifically the
    Tidyverse guidelines
 
+# What about the logo
+
+I searched DuckDuckGo Image Search for a transparent public domain
+image using the search term `pink`:
+
+```
+https://duckduckgo.com/?q=pink&t=ffab&iar=images&iaf=type%3Atransparent%2Clicense%3APublic%2Ccolor%3AMonochrome&iax=images&ia=images&iai=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2018%2F04%2F22%2F22%2F03%2Fsilhouette-3342563_640.png
+```
+
+I modified the image in KolorPaint and added the R logo.

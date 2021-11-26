@@ -114,7 +114,7 @@ From               |To                 |Function name
 -------------------|-------------------|----------------------------------------------
 PLINK1 text files  |PLINK1 binary files|`convert_plink_text_files_to_plink_bin_files`
 PLINK1 text files  |PLINK2 binary files|`convert_plink_text_files_to_plink2_bin_files`
-PLINK1 binary files|PLINK text files   |`convert_plink_bin_files_to_plink_text_files` :construction:
+PLINK1 binary files|PLINK text files   |`convert_plink_bin_files_to_plink_text_files`
 PLINK1 binary files|PLINK2 binary files|`convert_plink_bin_files_to_plink2_bin_files`
 PLINK2 binary files|PLINK text files   |`convert_plink2_bin_files_to_plink_text_files` :construction:
 PLINK2 binary files|PLINK binary files |`convert_plink2_bin_files_to_plink_bin_files`

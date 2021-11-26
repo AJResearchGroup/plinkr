@@ -27,24 +27,18 @@ convert_plink_bin_files_to_plink_text_files <- function( # nolint indeed a long 
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
-  # From https://www.cog-genomics.org/plink/1.9/data#recode
-  # plink --bfile binary_fileset --recode --out new_text_fileset
-
-  # Convert to vcf
-  # plink --bfile binary_fileset --recode vcf-iid --out new_vcf
-
-  plink_bin_data <- plinkr::read_plink_bin_data(
-    base_input_filename = base_input_filename
+  args <- plinkr::create_convert_plink_bin_files_to_plink_text_files_args(
+    base_input_filename = base_input_filename,
+    base_output_filename = base_output_filename,
+    plink_options = plink_options
   )
-  stop("Depends on 'convert_plink_bin_data_to_plink_text_data'")
-  plink_text_data <- plinkr::convert_plink_bin_data_to_plink_text_data(
-    plink_bin_data = plink_bin_data,
+  plinkr::run_plink(
+    args = args,
     plink_options = plink_options,
     verbose = verbose
   )
-  plinkr::save_plink_text_data(
-    plink_text_data = plink_text_data,
-    base_input_filename = base_output_filename,
-    verbose = verbose
+  list.files(
+    path = base_output_filename,
+    full.names = TRUE
   )
 }

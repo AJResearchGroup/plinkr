@@ -7,7 +7,7 @@
 convert_plink_bin_files_to_plink_text_files(
   base_input_filename,
   base_output_filename,
-  plink_options = create_plink_options(),
+  plink_options = create_plink_v1_9_options(),
   verbose = FALSE
 )
 }
@@ -26,7 +26,12 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-the full paths to the \code{.bed}, \code{.bim} and \code{.fam} files created
+the a list with elements:
+\itemize{
+\item \code{log_filename}: the full path to the created log file
+\item \code{map_filename}: the full path to the created \code{.map} file
+\item \code{ped_filename}: the full path to the created \code{.ped} file
+}
 }
 \description{
 Convert PLINK binary files to PLINK plain-text files

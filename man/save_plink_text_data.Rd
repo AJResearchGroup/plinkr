@@ -27,6 +27,55 @@ the full paths to the \code{.bed}, \code{.bim} and \code{.fam} files created
 \description{
 Save \code{PLINK} text data to files.
 }
+\examples{
+#
+# Example 1: using plinkr::create_test_plink_text_data
+#
+
+# Folder and base filename to save to
+base_input_filename <- file.path(
+  get_plinkr_tempfilename(),
+  "save_plink_text_data"
+)
+
+# Create PLINK text data
+plink_text_data <- create_test_plink_text_data()
+
+# Save. Convenient: filenames are returned!
+plink_text_filenames <- save_plink_text_data(
+  plink_text_data = plink_text_data,
+  base_input_filename = base_input_filename
+)
+
+# Cleanup
+file.remove(plink_text_filenames$map_filename)
+file.remove(plink_text_filenames$ped_filename)
+unlink(dirname(base_input_filename), recursive = TRUE)
+
+#
+# Example 2: using plinkr::create_demo_assoc_qt_data
+#
+
+# Folder and base filename to save to
+base_input_filename <- file.path(
+  get_plinkr_tempfilename(),
+  "save_plink_text_with_demo_assoc_qt_data"
+)
+
+# Create PLINK text data
+assoc_qt_data <- create_demo_assoc_qt_data()
+
+# Save. Convenient: filenames are returned!
+plink_text_filenames <- save_plink_text_data(
+  plink_text_data = create_test_plink_text_data(),
+  base_input_filename = base_input_filename
+)
+
+# Cleanup
+file.remove(plink_text_filenames$map_filename)
+file.remove(plink_text_filenames$ped_filename)
+unlink(dirname(base_input_filename), recursive = TRUE)
+}
 \seealso{
 to save \code{PLINK}/\code{PLINK2} data use:
 \itemize{

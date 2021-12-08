@@ -31,7 +31,8 @@ is valid:
 \item \code{PLINK} text data: use \link{check_plink_text_data}
 \item \code{PLINK} binary data: use \link{check_plink_bin_data}
 \item \code{PLINK2} binary data: use \link{check_plink2_bin_data}
-\item any of these: use \link{check_data}
+\item any \code{PLINK}/\code{PLINK2} data: use \link{check_data}
+\item quantitative trait analysis data: use \link{check_assoc_qt_data}
 }
 }
 \author{

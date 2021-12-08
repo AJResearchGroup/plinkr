@@ -30,6 +30,8 @@ is_plink2_bin_data(plink2_bin_data)
 \item \code{PLINK} text data: use \link{is_plink_text_data}
 \item \code{PLINK} binary data: use \link{is_plink_bin_data}
 \item \code{PLINK2} binary data: use \link{is_plink2_bin_data}
+\item any type of \code{PLINK}/\code{PLINK2} data: use \link{is_data}
+\item associative trait analysis data: use \link{is_assoc_qt_data}
 }
 }
 \author{

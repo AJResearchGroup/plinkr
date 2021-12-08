@@ -1,0 +1,13 @@
+test_that("use", {
+  expect_silent(check_fids(fids = "1"))
+  expect_silent(check_fids("Doe"))
+  expect_silent(check_fids(c("1", "2")))
+  expect_error(check_fids(NA))
+  expect_error(check_fids(NULL))
+  expect_error(check_fids(Inf))
+  expect_error(check_fids(""))
+  expect_error(check_fids(c("1", "")))
+  expect_error(check_fids(c()))
+  expect_error(check_fids(3.14))
+  expect_error(check_fids(42))
+})

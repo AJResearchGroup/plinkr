@@ -7,6 +7,8 @@ Newest versions at top.
 ### NEW FEATURES
 
  * Added `convert_plink_bin_files_to_plink_text_files`
+ * Added `rename_fids` to rename all family IDs in any in-memory data
+ * Added `rename_iids` to rename all within-family IDs in any in-memory data
 
 ### MINOR IMPROVEMENTS
 

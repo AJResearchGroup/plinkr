@@ -1,8 +1,6 @@
-#' Determine if the `plink_text_data` is indeed `PLINK` text data
-#'
-#' Determine if the `plink_text_data` is indeed `PLINK` text data
+#' Determine if the `data` is indeed `PLINK` bin data
 #' @inheritParams default_params_doc
-#' @return \link{TRUE} if the `plink_text_data` is indeed `PLINK` text data
+#' @return \link{TRUE} if the `data` is indeed `PLINK` binary data
 #' @seealso `plinkr` has multiple functions to test if a type of data is valid:
 #'
 #'  * `PLINK` text data: use \link{is_plink_text_data}
@@ -12,21 +10,26 @@
 #'  * associative trait analysis data: use \link{is_assoc_qt_data}
 #'
 #' @examples
-#' plink_text_data <- create_plink_text_data(
-#'   ped_table = get_test_ped_table(),
-#'   map_table = get_test_map_table()
+#' data <- create_data(
+#'   bed_table = get_test_bed_table(),
+#'   bim_table = get_test_bim_table(),
+#'   fam_table = get_test_fam_table()
 #' )
-#' is_plink_text_data(plink_text_data)
+#' is_data(data)
 #' @author Richèl J.C. Bilderbeek
 #' @export
-is_plink_text_data <- function(
-  plink_text_data
+is_data <- function(
+  data,
+  verbose = FALSE
 ) {
+  plinkr::check_verbose(verbose)
   result <- FALSE
   tryCatch({
-    plinkr::check_plink_text_data(plink_text_data = plink_text_data)
+    plinkr::check_data(data = data)
     result <- TRUE
-  }, error = function(e) {} # nolint indeed ignore error
+  }, error = function(e) {
+      if (verbose) message(e$message)
+    }
   )
   result
 }

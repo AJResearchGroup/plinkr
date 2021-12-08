@@ -11,7 +11,8 @@
 #'  * `PLINK` text data: use \link{check_plink_text_data}
 #'  * `PLINK` binary data: use \link{check_plink_bin_data}
 #'  * `PLINK2` binary data: use \link{check_plink2_bin_data}
-#'  * any of these: use \link{check_data}
+#'  * any `PLINK`/`PLINK2` data: use \link{check_data}
+#'  * quantitative trait analysis data: use \link{check_assoc_qt_data}
 #'
 #' @examples
 #' plink_bin_data <- create_test_plink_bin_data()

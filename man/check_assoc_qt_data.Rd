@@ -12,6 +12,9 @@ check_assoc_qt_data(assoc_qt_data)
 which equals 'regular' data (see \link{check_data}) and a
 phenotype table/file}
 }
+\value{
+nothing.
+}
 \description{
 Check if the \code{assoc_qt_data} is valid.
 }
@@ -23,6 +26,17 @@ Check if the \code{assoc_qt_data} is valid.
 }
 
 Will \link{stop} if the \code{assoc_qt_data} is invalid
+}
+\seealso{
+\code{plinkr} has the following functions to check if in-memory \code{data}
+is valid:
+\itemize{
+\item \code{PLINK} text data: use \link{check_plink_text_data}
+\item \code{PLINK} binary data: use \link{check_plink_bin_data}
+\item \code{PLINK2} binary data: use \link{check_plink2_bin_data}
+\item any \code{PLINK}/\code{PLINK2} data: use \link{check_data}
+\item quantitative trait analysis data: use \link{check_assoc_qt_data}
+}
 }
 \author{
 Richèl J.C. Bilderbeek

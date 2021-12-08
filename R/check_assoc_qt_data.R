@@ -8,6 +8,16 @@
 #'
 #' Will \link{stop} if the `assoc_qt_data` is invalid
 #' @inheritParams default_params_doc
+#' @return nothing.
+#' @seealso `plinkr` has the following functions to check if in-memory `data`
+#' is valid:
+#'
+#'  * `PLINK` text data: use \link{check_plink_text_data}
+#'  * `PLINK` binary data: use \link{check_plink_bin_data}
+#'  * `PLINK2` binary data: use \link{check_plink2_bin_data}
+#'  * any `PLINK`/`PLINK2` data: use \link{check_data}
+#'  * quantitative trait analysis data: use \link{check_assoc_qt_data}
+#'
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_assoc_qt_data <- function(assoc_qt_data) {

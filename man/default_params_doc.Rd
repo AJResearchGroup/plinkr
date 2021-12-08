@@ -36,6 +36,8 @@ default_params_doc(
   example_filename,
   fam_filename,
   fam_table,
+  fid,
+  fids,
   frq_filename,
   frq_strat_filename,
   imiss_filename,
@@ -277,6 +279,12 @@ Each row contains:
 Use \link{get_test_fam_table} to get a \code{.fam} table as used in testing.
 Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
 Use \link{check_fam_table} to test if a \code{.fam} table is valid.}
+
+\item{fid}{the family ID, which is called \code{FID} in \code{PLINK}.
+Use \link{check_fid} to check if a \code{fid} is valid.}
+
+\item{fids}{one or more family IDs (which are called \code{FID}s in \code{PLINK}).
+Use \link{check_fids} to check if the elements of \code{fids} are valid.}
 
 \item{frq_filename}{name of a \code{PLINK} \code{.frq} file
 Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.}

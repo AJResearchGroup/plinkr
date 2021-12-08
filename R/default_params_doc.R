@@ -142,6 +142,10 @@
 #' Use \link{get_test_fam_table} to get a \code{.fam} table as used in testing.
 #' Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
 #' Use \link{check_fam_table} to test if a `.fam` table is valid.
+#' @param fid the family ID, which is called `FID` in `PLINK`.
+#' Use \link{check_fid} to check if a `fid` is valid.
+#' @param fids one or more family IDs (which are called `FID`s in `PLINK`).
+#' Use \link{check_fids} to check if the elements of `fids` are valid.
 #' @param frq_filename name of a \code{PLINK} \code{.frq} file
 #' Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.
 #' @param frq_strat_filename name of a \code{PLINK} \code{.frq.strat} file
@@ -414,6 +418,8 @@ default_params_doc <- function(
   example_filename,
   fam_filename,
   fam_table,
+  fid,
+  fids,
   frq_filename,
   frq_strat_filename,
   imiss_filename,

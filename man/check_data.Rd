@@ -17,6 +17,9 @@ check_data(data)
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
 }}
 }
+\value{
+nothing.
+}
 \description{
 Check if the data is valid.
 The data can be in PLINK text, PLINK binary or PLINK2 binary format.
@@ -29,6 +32,16 @@ check_data(data = create_test_plink2_bin_data())
 check_data(data = create_test_plink_text_filenames())
 check_data(data = create_test_plink_bin_filenames())
 check_data(data = create_test_plink2_bin_filenames())
+}
+\seealso{
+\code{plinkr} has the following functions to check if in-memory \code{data}
+is valid:
+\itemize{
+\item \code{PLINK} text data: use \link{check_plink_text_data}
+\item \code{PLINK} binary data: use \link{check_plink_bin_data}
+\item \code{PLINK2} binary data: use \link{check_plink2_bin_data}
+\item any of these: use \link{check_data}
+}
 }
 \author{
 Richèl J.C. Bilderbeek

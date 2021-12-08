@@ -28,6 +28,7 @@ is valid:
 \item \code{PLINK} text data: use \link{check_plink_text_data}
 \item \code{PLINK} binary data: use \link{check_plink_bin_data}
 \item \code{PLINK2} binary data: use \link{check_plink2_bin_data}
+\item any of these: use \link{check_data}
 }
 }
 \author{

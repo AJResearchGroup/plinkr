@@ -4,6 +4,14 @@
 #' The data can be in PLINK text, PLINK binary or PLINK2 binary format.
 #' Will \link{stop} if the data is not in any of these formats
 #' @inheritParams default_params_doc
+#' @return nothing.
+#' @seealso `plinkr` has the following functions to check if in-memory `data`
+#' is valid:
+#'
+#'  * `PLINK` text data: use \link{check_plink_text_data}
+#'  * `PLINK` binary data: use \link{check_plink_bin_data}
+#'  * `PLINK2` binary data: use \link{check_plink2_bin_data}
+#'  * any of these: use \link{check_data}
 #' @examples
 #' check_data(data = create_test_plink_text_data())
 #' check_data(data = create_test_plink_bin_data())

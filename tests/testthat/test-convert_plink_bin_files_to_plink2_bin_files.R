@@ -1,7 +1,6 @@
 test_that("use, test_v1_7_after_make-bed", {
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
 
-  expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
 
   bed_filename <- get_plinkr_filename("test_v1_7_after_make-bed.bed")

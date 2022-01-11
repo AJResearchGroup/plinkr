@@ -50,9 +50,9 @@ convert_plink_bin_files_to_plink_text_files <- function( # nolint indeed a long 
     pattern = tools::file_path_sans_ext(basename(base_output_filename)),
     full.names = TRUE
   )
-  log_filename <- stringr::str_subset(plink_bin_filenames, "\\.log$")
-  map_filename <- stringr::str_subset(plink_bin_filenames, "\\.map$")
-  ped_filename <- stringr::str_subset(plink_bin_filenames, "\\.ped$")
+  log_filename <- stringr::str_subset(plink_text_filenames, "\\.log$")
+  map_filename <- stringr::str_subset(plink_text_filenames, "\\.map$")
+  ped_filename <- stringr::str_subset(plink_text_filenames, "\\.ped$")
   testthat::expect_equal(1, length(log_filename))
   testthat::expect_equal(1, length(map_filename))
   testthat::expect_equal(1, length(ped_filename))

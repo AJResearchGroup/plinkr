@@ -9,10 +9,9 @@ test_that("use", {
     ),
     base_output_filename = base_output_filename
   )
-  expect_silent(
-    plinkr::read_plink_map_file(
-      map_filename = plink_text_filenames$map_filename
-    )
+  # Cannot be silent, as it produces output
+  plinkr::read_plink_map_file(
+    map_filename = plink_text_filenames$map_filename
   )
   # Cannot be silent, as it produces output
   plinkr::read_plink_ped_file(

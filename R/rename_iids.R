@@ -5,7 +5,7 @@
 #' @examples
 #' # Use PLINK text data
 #' data_before <- create_test_plink_text_data()
-#' new_iids <- 1 + data_before$ped_table$IID
+#' new_iids <- as.character(1 + data_before$ped_table$IID)
 #' # the .ped table has the new iids
 #' data_after <- rename_iids(
 #'   data = data_before,
@@ -14,7 +14,7 @@
 #'
 #' # Use data used by plink::assoc_qt
 #' data_before <- create_test_assoc_qt_data()
-#' new_iids <- 1 + data_before$ped_table$IID
+#' new_iids <- as.character(1 + data_before$data$ped_table$IID)
 #' # the .ped and .phe tables have the new iids
 #' data_after <- rename_iids(
 #'   data = data_before,

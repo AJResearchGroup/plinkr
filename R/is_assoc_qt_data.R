@@ -15,10 +15,7 @@
 #'  * associative trait analysis data: use \link{is_assoc_qt_data}
 #'
 #' @examples
-#' assoc_qt_data <- create_assoc_qt_data(
-#'   ped_table = get_test_ped_table(),
-#'   map_table = get_test_map_table()
-#' )
+#' assoc_qt_data <- create_test_assoc_qt_data()
 #' is_assoc_qt_data(assoc_qt_data)
 #' @author Richèl J.C. Bilderbeek
 #' @export

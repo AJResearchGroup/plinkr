@@ -2,6 +2,30 @@ test_that("minimal use", {
   check_assoc_qt_data(create_test_assoc_qt_data())
 })
 
+test_that("use files", {
+
+  # The files
+  pgen_filename <- get_plinkr_filename("assoc_qt_on_plink2_bin_files.pgen")
+  psam_filename <- get_plinkr_filename("assoc_qt_on_plink2_bin_files.psam")
+  pvar_filename <- get_plinkr_filename("assoc_qt_on_plink2_bin_files.pvar")
+  phe_filename <- get_plinkr_filename("assoc_qt_on_plink2_bin_files.phe")
+
+  # Pack into data
+  data <- create_plink2_bin_filenames(
+    pgen_filename = pgen_filename,
+    psam_filename = psam_filename,
+    pvar_filename = pvar_filename
+  )
+  phenotype_data <- create_phenotype_data_filename(
+    phe_filename = phe_filename
+  )
+  assoc_qt_data <- create_assoc_qt_data(
+    data = data,
+    phenotype_data = phenotype_data
+  )
+  check_assoc_qt_data(assoc_qt_data)
+})
+
 test_that("use different types of (randomly picked) data", {
   check_assoc_qt_data(
     create_assoc_qt_data(

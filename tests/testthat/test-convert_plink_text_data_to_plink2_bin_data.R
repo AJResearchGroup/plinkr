@@ -1,5 +1,5 @@
 test_that("minimal use", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
 
   if (!is_plink_installed(plink_options = create_plink_v1_9_options())) return()
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
@@ -13,11 +13,10 @@ test_that("minimal use", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("PLINK2 does not convert PLINK1 text to PLINK1 binary", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
 
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
 
@@ -30,5 +29,4 @@ test_that("PLINK2 does not convert PLINK1 text to PLINK1 binary", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })

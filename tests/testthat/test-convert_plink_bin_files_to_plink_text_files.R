@@ -1,4 +1,6 @@
 test_that("use", {
+  if (!is_plink_installed()) return()
+
   base_output_filename <- file.path(
     plinkr::get_plinkr_tempfilename(),
     "base_output_filename"

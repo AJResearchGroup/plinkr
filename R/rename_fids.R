@@ -5,7 +5,7 @@
 #' @examples
 #' # Use PLINK text data
 #' data_before <- create_test_plink_text_data()
-#' new_fids <- 1 + data_before$ped_table$FID
+#' new_fids <- as.character(1 + data_before$ped_table$FID)
 #' # the .ped table has the new FIDs
 #' data_after <- rename_fids(
 #'   data = data_before,
@@ -14,7 +14,7 @@
 #'
 #' # Use data used by plink::assoc_qt
 #' data_before <- create_test_assoc_qt_data()
-#' new_fids <- 1 + data_before$ped_table$FID
+#' new_fids <- as.character(1 + data_before$data$ped_table$FID)
 #' # the .ped and .phe tables have the new FIDs
 #' data_after <- rename_fids(
 #'   data = data_before,

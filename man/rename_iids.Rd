@@ -16,6 +16,9 @@ rename_iids(data, iids)
 \item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
 }}
+
+\item{iids}{one or more within-family IDs,
+as can be checked by \link{check_iids}}
 }
 \value{
 the data with renamed family IDs

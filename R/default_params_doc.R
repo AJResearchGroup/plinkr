@@ -151,6 +151,9 @@
 #' @param frq_strat_filename name of a \code{PLINK} \code{.frq.strat} file
 #' Use \link{read_plink_frq_strat_file}
 #' to read a \code{PLINK} \code{.frq.strat} file.
+#' @param iid a within-family ID, as can be checked by \link{check_iid}
+#' @param iids one or more within-family IDs,
+#' as can be checked by \link{check_iids}
 #' @param imiss_filename name of a \code{PLINK} \code{.imiss} file
 #' Use \link{read_plink_imiss_file} to read a \code{PLINK} \code{.imiss} file.
 #' @param lmiss_filename name of a \code{PLINK} \code{.lmiss} file
@@ -422,6 +425,8 @@ default_params_doc <- function(
   fids,
   frq_filename,
   frq_strat_filename,
+  iid,
+  iids,
   imiss_filename,
   lmiss_filename,
   log_filename,

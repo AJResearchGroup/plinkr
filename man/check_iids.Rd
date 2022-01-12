@@ -6,6 +6,10 @@
 \usage{
 check_iids(iids)
 }
+\arguments{
+\item{iids}{one or more within-family IDs,
+as can be checked by \link{check_iids}}
+}
 \value{
 nothing
 }

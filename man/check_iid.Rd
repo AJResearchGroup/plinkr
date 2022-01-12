@@ -6,6 +6,9 @@
 \usage{
 check_iid(iid)
 }
+\arguments{
+\item{iid}{a within-family ID, as can be checked by \link{check_iid}}
+}
 \value{
 nothing
 }

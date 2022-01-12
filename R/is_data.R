@@ -10,12 +10,12 @@
 #'  * associative trait analysis data: use \link{is_assoc_qt_data}
 #'
 #' @examples
-#' data <- create_data(
-#'   bed_table = get_test_bed_table(),
-#'   bim_table = get_test_bim_table(),
-#'   fam_table = get_test_fam_table()
-#' )
-#' is_data(data)
+#' is_data(data = create_test_plink_text_data())
+#' is_data(data = create_test_plink_bin_data())
+#' is_data(data = create_test_plink2_bin_data())
+#' is_data(data = create_test_plink_text_filenames())
+#' is_data(data = create_test_plink_bin_filenames())
+#' is_data(data = create_test_plink2_bin_filenames())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_data <- function(

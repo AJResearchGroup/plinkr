@@ -28,12 +28,12 @@ Use \link{check_verbose} to detect if this argument is valid.}
 Determine if the \code{data} is indeed \code{PLINK} bin data
 }
 \examples{
-data <- create_data(
-  bed_table = get_test_bed_table(),
-  bim_table = get_test_bim_table(),
-  fam_table = get_test_fam_table()
-)
-is_data(data)
+is_data(data = create_test_plink_text_data())
+is_data(data = create_test_plink_bin_data())
+is_data(data = create_test_plink2_bin_data())
+is_data(data = create_test_plink_text_filenames())
+is_data(data = create_test_plink_bin_filenames())
+is_data(data = create_test_plink2_bin_filenames())
 }
 \seealso{
 \code{plinkr} has multiple functions to test if a type of data is valid:

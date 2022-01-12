@@ -145,3 +145,4 @@ PLINK2 binary data|PLINK binary data |`convert_plink2_bin_data_to_plink_bin_data
 ## FAQ
 
 See [doc/faq.md](doc/faq.md)
+

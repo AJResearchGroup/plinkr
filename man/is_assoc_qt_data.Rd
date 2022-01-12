@@ -22,10 +22,7 @@ Determine if the \code{assoc_qt_data} is indeed data used for a
 quantitative trait analysis (as done by \link{assoc_qt})
 }
 \examples{
-assoc_qt_data <- create_assoc_qt_data(
-  ped_table = get_test_ped_table(),
-  map_table = get_test_map_table()
-)
+assoc_qt_data <- create_test_assoc_qt_data()
 is_assoc_qt_data(assoc_qt_data)
 }
 \seealso{

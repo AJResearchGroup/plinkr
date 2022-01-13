@@ -20,7 +20,7 @@ Newest versions at top.
 
  * None
 
-## plinkr v0.18.0.1
+## plinkr v0.18.0.1 (2022-01-13)
 
 ### NEW FEATURES
 

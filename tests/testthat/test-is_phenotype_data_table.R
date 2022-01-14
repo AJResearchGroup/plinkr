@@ -11,4 +11,5 @@ test_that("use", {
       )
     )
   )
+  expect_message(is_phenotype_data_table("nonsense", verbose = TRUE))
 })

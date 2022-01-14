@@ -33,15 +33,15 @@ rename_iids <- function(
     data$ped_table$IID <- iids
     return(data)
   }
-  if (plinkr::is_assoc_qt_data(data)) {
-    testthat::expect_equal(length(iids), length(data$data$ped_table$IID))
-    # The line below mostly protects against 'phenotype_data' consisting
-    # of a file name
-    testthat::expect_equal(names(data$phenotype_data), "phe_table")
-    testthat::expect_equal(length(iids), length(data$phenotype_data$phe_table$IID))
-    data$data$ped_table$IID <- iids
-    data$phenotype_data$phe_table$IID <- iids
-    return(data)
-  }
-  stop("TODO: unimplemented type of data")
+  # Other types are not implemented yet
+  testthat::expect_true(plinkr::is_assoc_qt_data(data))
+
+  testthat::expect_equal(length(iids), length(data$data$ped_table$IID))
+  # The line below mostly protects against 'phenotype_data' consisting
+  # of a file name
+  testthat::expect_equal(names(data$phenotype_data), "phe_table")
+  testthat::expect_equal(length(iids), length(data$phenotype_data$phe_table$IID))
+  data$data$ped_table$IID <- iids
+  data$phenotype_data$phe_table$IID <- iids
+  data
 }

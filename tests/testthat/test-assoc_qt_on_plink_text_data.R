@@ -209,3 +209,23 @@ test_that("95 chromosome numbers work", {
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache() # nolint
 })
+
+test_that("use incorrect data", {
+
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  assoc_qt_data <- create_test_assoc_qt_data()
+  assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(
+    assoc_qt_data$data
+  )
+  expect_false(is_plink_text_data(assoc_qt_data$data))
+  expect_error(
+    assoc_qt_on_plink_text_data(
+      assoc_qt_data = assoc_qt_data,
+      assoc_qt_params = create_test_assoc_qt_params()
+    ),
+    "'assoc_qt_params' is not PLINK text data"
+  )
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+})

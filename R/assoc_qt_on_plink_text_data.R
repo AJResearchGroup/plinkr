@@ -56,7 +56,7 @@ assoc_qt_on_plink_text_data <- function(
       "Tip 2: If the data is in PLINK binary format, ",
         "use 'assoc_qt_on_plink_bin_data'. \n",
       "Tip 3: If the data is in PLINK2 binary format, ",
-      "use 'assoc_qt_on_plink2_bin_data'. \n",
+      "use 'assoc_qt_on_plink2_bin_data'. \n"
     )
   }
 

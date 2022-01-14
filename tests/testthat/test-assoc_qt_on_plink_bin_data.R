@@ -20,7 +20,7 @@ test_that("minimal use, from files", {
   )
   suppressMessages(
     expect_message(
-      assoc_qt(
+      assoc_qt_on_plink_bin_data(
         assoc_qt_data = assoc_qt_data,
         assoc_qt_params = create_test_assoc_qt_params(),
         verbose = TRUE
@@ -87,6 +87,23 @@ test_that("minimal use, simulated data, matches PLINK1 text data results", {
     assoc_qt_results_bin$qassoc_table
   )
 
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
+})
+
+test_that("use incorrect data", {
+
+  if (!is_plink_installed()) return()
+  set.seed(314)
+  assoc_qt_data <- create_test_assoc_qt_data()
+  expect_false(is_plink_bin_data(assoc_qt_data$data))
+  expect_error(
+    assoc_qt_on_plink_bin_data(
+      assoc_qt_data = assoc_qt_data,
+      assoc_qt_params = create_test_assoc_qt_params()
+    ),
+    "'assoc_qt_params' is not PLINK binary data"
+  )
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
 })

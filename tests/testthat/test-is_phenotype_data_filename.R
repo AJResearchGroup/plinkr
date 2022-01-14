@@ -11,4 +11,5 @@ test_that("use", {
       list(phe_table = create_demo_phe_table())
     )
   )
+  expect_message(is_phenotype_data_filename("nonsense", verbose = TRUE))
 })

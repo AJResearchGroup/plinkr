@@ -33,15 +33,15 @@ rename_fids <- function(
     data$ped_table$FID <- fids
     return(data)
   }
-  if (plinkr::is_assoc_qt_data(data)) {
-    testthat::expect_equal(length(fids), length(data$data$ped_table$FID))
-    # The line below mostly protects against 'phenotype_data' consisting
-    # of a file name
-    testthat::expect_equal(names(data$phenotype_data), "phe_table")
-    testthat::expect_equal(length(fids), length(data$phenotype_data$phe_table$FID))
-    data$data$ped_table$FID <- fids
-    data$phenotype_data$phe_table$FID <- fids
-    return(data)
-  }
-  stop("TODO: unimplemented type of data")
+  # Other types are not implemented yet
+  testthat::expect_true(plinkr::is_assoc_qt_data(data))
+
+  testthat::expect_equal(length(fids), length(data$data$ped_table$FID))
+  # The line below mostly protects against 'phenotype_data' consisting
+  # of a file name
+  testthat::expect_equal(names(data$phenotype_data), "phe_table")
+  testthat::expect_equal(length(fids), length(data$phenotype_data$phe_table$FID))
+  data$data$ped_table$FID <- fids
+  data$phenotype_data$phe_table$FID <- fids
+  data
 }

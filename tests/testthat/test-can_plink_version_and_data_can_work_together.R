@@ -12,4 +12,12 @@ test_that("use", {
       plink_options = create_plink_v2_0_options()
     )
   )
+  expect_message(
+    can_plink_version_and_data_can_work_together(
+      data = create_test_plink_text_data(),
+      plink_options = create_plink_v2_0_options(),
+      verbose = TRUE
+    ),
+    "PLINK2 cannot work with PLINK text data"
+  )
 })

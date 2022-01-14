@@ -5,11 +5,17 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
 
   # Goal is to see the results of the PLINK versions
   set.seed(314)
-  t <- compare_assoc_qt_speed(
-    n_individuals = 5,
-    n_phenotypes = 4,
-    n_snps_per_phenotype = 3
+  t <- NA
+  expect_message(
+    t <- compare_assoc_qt_speed(
+      n_individuals = 5,
+      n_phenotypes = 4,
+      n_snps_per_phenotype = 3,
+      verbose = TRUE
+    ),
+    "simulating data"
   )
+
   t
   knitr::kable(t)
 

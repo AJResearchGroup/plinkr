@@ -52,3 +52,27 @@ test_that("PLINK2 does not convert PLINK1 text to PLINK1 binary", {
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache() # nolint
 })
+
+
+test_that("create_demo_assoc_qt_data", {
+  expect_silent(check_empty_plinkr_folder())
+
+  if (!is_plink_installed(plink_options = create_plink_v1_9_options())) return()
+
+  create_demo_assoc_qt_data()
+  plink_text_data <- plinkr::create_demo_assoc_qt_data(
+    n_individuals = 3,
+    traits = plinkr::create_additive_trait()
+  )
+  expect_true(is_plink_text_data(plink_text_data$data))
+
+  plink_bin_data <- plink_text_data
+  plink_bin_data$data <- convert_plink_text_data_to_plink_bin_data(
+    plink_text_data = plink_text_data$data
+  )
+  expect_true(is_plink_bin_data(plink_bin_data$data))
+
+  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache() # nolint
+})
+

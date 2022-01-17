@@ -42,10 +42,23 @@ The other list elements are left as-is.
 Convert the \code{PLINK} text data to \code{PLINK} binary data.
 }
 \examples{
-if (is_plink_installed(plink_options = create_plink_v1_9_options())) {
-  convert_plink_text_data_to_plink_bin_data(
-    plink_text_data = create_test_plink_text_data()
-  )
+if (is_on_ci()) {
+  if (is_plink_installed(plink_options = create_plink_v1_9_options())) {
+
+    # Use testing data
+    convert_plink_text_data_to_plink_bin_data(
+      plink_text_data = create_test_plink_text_data()
+    )
+
+    # Use simulated data
+    assoc_qt_data <- create_demo_assoc_qt_data()
+    # Is PLINK text data
+    is_plink_text_data(assoc_qt_data$data)
+    assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(
+      assoc_qt_data$data
+    )
+    is_plink_bin_data(assoc_qt_data$data)
+  }
 }
 }
 \seealso{

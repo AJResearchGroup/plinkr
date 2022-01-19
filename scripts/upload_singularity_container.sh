@@ -3,7 +3,6 @@
 
 singularity remote use SylabsCloud
 
-
 # Log in, prevents error:
 #
 # FATAL:   Unable to push image to library: request did not succeed: Unauthorized (401 Unauthorized)
@@ -18,6 +17,6 @@ echo "To sign the container, paste your passphrase"
 singularity sign plinkr.sif
 
 # Upload the latest version
-singularity push plinkr.sif library://richelbilderbeek/default/plinkr:v0.18.0.2
+singularity push plinkr.sif library://richelbilderbeek/default/plinkr:0.18.0.2
 
 

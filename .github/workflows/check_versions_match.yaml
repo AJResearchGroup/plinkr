@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          install.packages(c("stringr", "readr"))
+          install.packages(c("stringr", "readr", "testthat"))
         shell: Rscript {0}
 
       - name: Check that versions match

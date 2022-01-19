@@ -1,5 +1,5 @@
 test_that("use", {
-  expect_silent(check_iid(fid = "1"))
+  expect_silent(check_iid(iid = "1"))
   expect_silent(check_iid("BantuKenya"))
   expect_error(check_iid(NA))
   expect_error(check_iid(NULL))

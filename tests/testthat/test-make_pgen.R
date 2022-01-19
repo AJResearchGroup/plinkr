@@ -35,6 +35,20 @@ test_that("use", {
   clear_plinkr_cache() # nolint
 })
 
+
+test_that("Error when using PLINK1", {
+  if (!is_plink_installed(plink_options = create_plink_v1_7_options())) return()
+  bed_filename <- get_plinkr_filename("toy_v1_9_after_make-bed.bed")
+  expect_error(
+    make_pgen(
+      base_input_filename = tools::file_path_sans_ext(bed_filename),
+      base_output_filename = "irrelevant",
+      plink_options = create_plink_v1_7_options()
+    ),
+    "Tip: use .create_plink_v2_0_options"
+  )
+})
+
 test_that("files exactly reproduced, from v1.7", {
   plink_options <- create_plink_v2_0_options()
 

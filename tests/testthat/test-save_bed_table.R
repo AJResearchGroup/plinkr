@@ -13,6 +13,16 @@ test_that("minimal use", {
   clear_plinkr_cache() # nolint
 })
 
+test_that("must have .bed extension", {
+  expect_error(
+    save_bed_table(
+      bed_table = get_test_bed_table(),
+      bed_filename = "irrelevant.not_bed"
+    ),
+    "must have the '.bed' filename extension"
+  )
+})
+
 test_that("a .bed table has SNPs on the rows, and individuals on the columns", {
   expect_silent(check_empty_plinkr_folder())
 

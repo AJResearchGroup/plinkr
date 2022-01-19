@@ -50,14 +50,14 @@ convert_plink_text_data_to_plink2_bin_data <- function( # nolint indeed a long f
 
   if (plink1_options$plink_version %in% plinkr::get_plink2_versions()) {
     stop(
-      "PLINK2 cannot convert '.map' and '.ped' files. ",
+      "PLINK2 cannot convert PLINK text data to PLINK binary data . ",
       "Use PLINK v1.7 or v1.9 instead. ",
       "Tip: use 'plink1_options = create_plink_v1_9_options()'"
     )
   }
   if (plink2_options$plink_version %in% plinkr::get_plink1_versions()) {
     stop(
-      "PLINK cannot convert '.bed', '.bim' and '.fam' files. ",
+      "PLINK cannot convert PLINK binary data to PLINK2 binary data . ",
       "Use PLINK v2.0 instead. ",
       "Tip: use 'plink2_options = create_plink_v2_0_options()'"
     )

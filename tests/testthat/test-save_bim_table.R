@@ -30,6 +30,19 @@ test_that("sub-sub-sub folder", {
   )
 })
 
+test_that("filename must end with .bim", {
+  bim_table <- get_test_bim_table()
+  bim_filename <- get_plinkr_tempfilename(fileext = ".not_bim")
+  expect_error(
+    save_bim_table(
+      bim_table = bim_table,
+      bim_filename = bim_filename
+    ),
+    "'bim_filename' must have the '.bim' filename extension"
+  )
+  check_empty_plinkr_folder()
+})
+
 test_that("Give error due to too high chromosome number", {
   if (!is_plink_installed()) return()
   set.seed(314)

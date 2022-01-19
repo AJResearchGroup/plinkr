@@ -30,6 +30,30 @@ test_that("sub-sub-sub folder", {
   )
 })
 
+test_that("use", {
+  fam_table <- get_test_fam_table()
+  fam_filename <- get_plinkr_tempfilename(fileext = ".fam")
+  save_fam_table(
+    fam_table = fam_table,
+    fam_filename = fam_filename
+  )
+  expect_true(file.exists(fam_filename))
+  file.remove(fam_filename)
+
+  check_empty_plinkr_folder()
+  clear_plinkr_cache() # nolint
+})
+
+test_that("must have .fam extension", {
+  expect_error(
+    save_fam_table(
+      fam_table = get_test_fam_table(),
+      fam_filename = "irrelevant.not_fam"
+    ),
+    "must have the '.fam' filename extension"
+  )
+})
+
 test_that("write to impossible folder", {
   # Windows has no impossible folders
   if (get_os() == "win") return()

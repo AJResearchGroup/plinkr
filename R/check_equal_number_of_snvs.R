@@ -15,6 +15,11 @@ check_equal_number_of_snvs <- function(
 ) {
   # Do not use 'check_data' as this results in recursion
   # testthat::expect_silent(plinkr::check_data(data)) # nolint indeed, that code :-)
+  testthat::expect_true(
+    plinkr::is_plink_text_data(data) ||
+      plinkr::is_plink_bin_data(data) ||
+      plinkr::is_plink2_bin_data(data)
+  )
 
 
   if ("ped_table" %in% names(data)) {

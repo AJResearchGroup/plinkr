@@ -6,9 +6,10 @@ test_that("run", {
 
   # Convert
   folder_name <- get_plinkr_tempfilename()
-  plink_bin_filenames <- convert_plink_text_files_to_plink2_bin_files(
+  plink2_bin_filenames <- convert_plink_text_files_to_plink2_bin_files(
     base_input_filename = tools::file_path_sans_ext(map_filename),
-    base_output_filename = file.path(folder_name, "output"),
+    base_output_plink1_filename = file.path(folder_name, "plink1_output"),
+    base_output_plink2_filename = file.path(folder_name, "plink2_output")
   )
 
   # Extract the same knowledge from the binary data
@@ -19,10 +20,16 @@ test_that("run", {
     bim_filename = plink_bin_filenames$bim_filename,
     fam_filename = plink_bin_filenames$fam_filename
   )
+  base_input_filename <- tools::file_path_sans_ext(plink2_bin_filenames$pgen_filename)
 
+  # Need help of 'pgenlibr' to save a .pgen file
   plink2_assoc(
     assoc_params = create_assoc_params(
-      data = create_plink2_bin_data()
+      data = create_plink2_bin_filenames(
+        pgen_filename = plink2_bin_filenames$pgen_filename,
+        psam_filename = plink2_bin_filenames$psam_filename,
+        pvar_filename = plink2_bin_filenames$pvar_filename
+      )
     )
   )
 

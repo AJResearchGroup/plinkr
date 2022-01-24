@@ -84,15 +84,17 @@ create_demo_assoc_qt_data <- function(
     ped_table = ped_table,
     traits = traits
   )
-  phenotype_data <- create_phenotype_data_table(
+  data <- plinkr::create_plink_text_data(
+    ped_table = ped_table,
+    map_table = map_table
+  )
+  plinkr::check_data(data)
+  phenotype_data <- plinkr::create_phenotype_data_table(
     phe_table = phe_table
   )
 
   plinkr::create_assoc_qt_data(
-    data = create_plink_text_data(
-      ped_table = ped_table,
-      map_table = map_table
-    ),
+    data = data,
     phenotype_data = phenotype_data
   )
 }

@@ -2,23 +2,25 @@
 % Please edit documentation in R/convert_plink_bin_data_to_ped_table.R
 \name{convert_plink_bin_data_to_ped_table}
 \alias{convert_plink_bin_data_to_ped_table}
-\title{Convert \code{PLINK} data to a \code{PLINK} \code{.ped} table}
+\title{Convert \code{PLINK} binary data to a \code{PLINK} \code{.ped} table}
 \usage{
-convert_plink_bin_data_to_ped_table(plink_bin_data, verbose = FALSE)
+convert_plink_bin_data_to_ped_table(plink_bin_data)
 }
 \arguments{
 \item{plink_bin_data}{the in-memory binary data for \code{PLINK} to work on,
 as created by \link{create_plink_bin_data}.}
-
-\item{verbose}{the verbosity of a function.
-Set to \link{TRUE} for more output.
-Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
 a \code{PLINK} \code{.ped} table
 }
 \description{
-Convert \code{PLINK} data to a \code{PLINK} \code{.ped} table
+Convert \code{PLINK} binary data to a \code{PLINK} \code{.ped} table
+}
+\examples{
+plink_bin_data <- create_test_plink_bin_data()
+ped_table <- convert_plink_bin_data_to_ped_table(
+  plink_bin_data = plink_bin_data
+)
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -1,13 +1,17 @@
-#' Convert `PLINK` data to a `PLINK` `.ped` table
+#' Convert `PLINK` binary data to a `PLINK` `.ped` table
 #'
-#' Convert `PLINK` data to a `PLINK` `.ped` table
+#' Convert `PLINK` binary data to a `PLINK` `.ped` table
 #' @inheritParams default_params_doc
 #' @return a `PLINK` `.ped` table
+#' @examples
+#' plink_bin_data <- create_test_plink_bin_data()
+#' ped_table <- convert_plink_bin_data_to_ped_table(
+#'   plink_bin_data = plink_bin_data
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 convert_plink_bin_data_to_ped_table <- function( # nolint indeed a long function name
-  plink_bin_data,
-  verbose = FALSE
+  plink_bin_data
 ) {
   plinkr::check_plink_bin_data(plink_bin_data)
   ped_table_lhs <- tibble::tibble(

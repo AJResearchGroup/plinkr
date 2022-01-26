@@ -39,9 +39,17 @@
 #' @export
 convert_plink2_bin_data_to_plink_text_data <- function( # nolint indeed a long function name
   plink2_bin_data,
-  plink_options = create_plink_v1_9_options(),
-  plink2_options = create_plink_v2_0_options(),
+  plink_options = create_plink_v2_0_options(),
   verbose = FALSE
 ) {
-  stop("TODO")
+  # Input is checked here:
+  plink_bin_data <- plinkr::convert_plink2_bin_data_to_plink_bin_data(
+    plink2_bin_data = plink2_bin_data,
+    plink_options = plink2_options,
+    verbose = verbose
+  )
+  plink_text_data <- plinkr::convert_plink_bin_data_to_plink_text_data(
+    plink_bin_data = plink_bin_data
+  )
+  plink_text_data
 }

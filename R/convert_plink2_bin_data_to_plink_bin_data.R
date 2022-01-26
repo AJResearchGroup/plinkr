@@ -50,12 +50,14 @@ convert_plink2_bin_data_to_plink_bin_data <- function( # nolint indeed a long fu
 ) {
   plinkr::check_plink2_bin_data(plink2_bin_data)
   plinkr::check_plink_options(plink_options)
+  plinkr::check_verbose(verbose)
 
   if (plink_options$plink_version %in% get_plink1_versions()) {
     stop(
-      "PLINK cannot convert '.bed', '.bim' and '.fam' files ",
-      "to PLINK2 format ('.pgen', '.psam', '.pvar')",
-      "Use PLINK2 v2.0 instead. "
+      "PLINK cannot convert PLINK2 ('.pgen', '.psam' and '.pvar') files",
+      "Use PLINK2 v2.0 instead. ",
+      " ",
+      "Tip: use 'plink_options = create_plink_v2_0_options()'"
     )
   }
   # Copy

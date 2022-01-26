@@ -54,9 +54,9 @@ convert_plink2_bin_data_to_plink_bin_data <- function( # nolint indeed a long fu
 
   if (plink_options$plink_version %in% get_plink1_versions()) {
     stop(
-      "PLINK cannot convert PLINK2 ('.pgen', '.psam' and '.pvar') files",
-      "Use PLINK2 v2.0 instead. ",
-      " ",
+      "PLINK cannot convert PLINK2 ('.pgen', '.psam' and '.pvar') files. \n",
+      "Use PLINK2 v2.0 instead. \n",
+      " \n",
       "Tip: use 'plink_options = create_plink_v2_0_options()'"
     )
   }

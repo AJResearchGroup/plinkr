@@ -20,7 +20,9 @@ test_that("run", {
     bim_filename = plink_bin_filenames$bim_filename,
     fam_filename = plink_bin_filenames$fam_filename
   )
-  base_input_filename <- tools::file_path_sans_ext(plink2_bin_filenames$pgen_filename)
+  base_input_filename <- tools::file_path_sans_ext(
+    plink2_bin_filenames$pgen_filename
+  )
 
   # Need help of 'pgenlibr' to save a .pgen file
   plink2_assoc(

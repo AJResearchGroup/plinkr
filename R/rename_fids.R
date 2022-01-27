@@ -30,7 +30,7 @@ rename_fids <- function(
 
   if (plinkr::is_plink_text_data(data)) {
     testthat::expect_equal(length(fids), length(data$ped_table$FID))
-    data$ped_table$FID <- fids
+    data$ped_table$FID <- fids # nolint PLINK use uppercase column names
     return(data)
   }
   # Other types are not implemented yet
@@ -40,8 +40,11 @@ rename_fids <- function(
   # The line below mostly protects against 'phenotype_data' consisting
   # of a file name
   testthat::expect_equal(names(data$phenotype_data), "phe_table")
-  testthat::expect_equal(length(fids), length(data$phenotype_data$phe_table$FID))
-  data$data$ped_table$FID <- fids
-  data$phenotype_data$phe_table$FID <- fids
+  testthat::expect_equal(
+    length(fids),
+    length(data$phenotype_data$phe_table$FID)
+  )
+  data$data$ped_table$FID <- fids # nolint PLINK use uppercase column names
+  data$phenotype_data$phe_table$FID <- fids # nolint PLINK use uppercase column names
   data
 }

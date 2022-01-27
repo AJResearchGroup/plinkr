@@ -7,7 +7,8 @@
 convert_plink2_bin_files_to_plink_text_files(
   base_input_filename,
   base_output_filename = file.path(dirname(base_input_filename), "output"),
-  plink_options = create_plink_v2_0_options(),
+  plink_options = create_plink_v1_9_options(),
+  plink2_options = create_plink_v2_0_options(),
   verbose = FALSE
 )
 }
@@ -20,6 +21,10 @@ used as output for \code{PLINK}/\code{PLINK2}}
 
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
+
+\item{plink2_options}{the \code{PLINK2} version,
+as created by \link{create_plink_options},
+for any version of \code{PLINK2}}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

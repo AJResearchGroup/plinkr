@@ -12,13 +12,15 @@
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_convert_plink_bin_files_to_plink_text_files_args <- function(
+create_convert_plink_bin_files_to_plink_text_files_args <- function( # nolint indeed a long function name
   base_input_filename,
   base_output_filename,
   plink_options = create_plink_v1_9_options()
 ) {
   plinkr::check_base_input_filename(base_input_filename = base_input_filename)
-  plinkr::check_base_output_filename(base_output_filename = base_output_filename)
+  plinkr::check_base_output_filename(
+    base_output_filename = base_output_filename
+  )
   plinkr::check_plink_options(plink_options)
   # From https://www.cog-genomics.org/plink/1.9/data#recode
   # plink --bfile binary_fileset --recode --out new_text_fileset

@@ -20,4 +20,3 @@ check_fid <- function(fid) {
   testthat::expect_true(nchar(fid) >= 1)
   invisible(fid)
 }
-

@@ -75,4 +75,3 @@ test_that("create_demo_assoc_qt_data", {
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache() # nolint
 })
-

@@ -30,7 +30,7 @@ rename_iids <- function(
 
   if (plinkr::is_plink_text_data(data)) {
     testthat::expect_equal(length(iids), length(data$ped_table$IID))
-    data$ped_table$IID <- iids
+    data$ped_table$IID <- iids  # nolint PLINK use uppercase column names
     return(data)
   }
   # Other types are not implemented yet
@@ -40,8 +40,11 @@ rename_iids <- function(
   # The line below mostly protects against 'phenotype_data' consisting
   # of a file name
   testthat::expect_equal(names(data$phenotype_data), "phe_table")
-  testthat::expect_equal(length(iids), length(data$phenotype_data$phe_table$IID))
-  data$data$ped_table$IID <- iids
-  data$phenotype_data$phe_table$IID <- iids
+  testthat::expect_equal(
+    length(iids),
+    length(data$phenotype_data$phe_table$IID)
+  )
+  data$data$ped_table$IID <- iids # nolint PLINK use uppercase column names
+  data$phenotype_data$phe_table$IID <- iids # nolint PLINK use uppercase column names
   data
 }

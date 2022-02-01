@@ -1,5 +1,5 @@
 test_that("use", {
-  skip(" Allow subsetting on random SNPs, Issue #33, Issue 33")
+  skip("Allow subsetting on random SNPs, Issue #33, Issue 33")
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = rep(list(create_random_trait()), 10)
   )

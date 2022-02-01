@@ -16,7 +16,7 @@ test_that("use", {
   )
   expect_false(
     has_plink_text_files(
-      tools::file_path_sans_ext(
+      base_input_filename = tools::file_path_sans_ext(
         get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.pgen")
       )
     )

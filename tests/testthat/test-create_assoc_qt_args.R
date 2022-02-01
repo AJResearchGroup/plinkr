@@ -20,6 +20,8 @@
 ################################################################################
 test_that("use, PLINK v1.7, PLINK text data", {
 
+  clear_plinkr_cache()
+
   expect_silent(
     args <- create_assoc_qt_args(
       assoc_qt_data = create_test_assoc_qt_data(),
@@ -27,12 +29,14 @@ test_that("use, PLINK v1.7, PLINK text data", {
       plink_options = create_plink_v1_7_options()
     )
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use, PLINK v1.7, PLINK bin data", {
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
 
   assoc_qt_data <- create_test_assoc_qt_data()
   assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(
@@ -45,12 +49,14 @@ test_that("use, PLINK v1.7, PLINK bin data", {
       plink_options = create_plink_v1_7_options()
     )
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use, PLINK v1.7, PLINK2 bin data", {
-  expect_silent(check_empty_plinkr_folder())
-
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data()
   assoc_qt_data$data <- convert_plink_text_data_to_plink2_bin_data(
     assoc_qt_data$data
@@ -63,12 +69,15 @@ test_that("use, PLINK v1.7, PLINK2 bin data", {
     ),
     "PLINK cannot work with PLINK2 binary data"
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 ################################################################################
 # PLINK v1.9
 ################################################################################
 test_that("use, PLINK v1.9, PLINK text data", {
+  clear_plinkr_cache()
+
   expect_silent(
     create_assoc_qt_args(
       assoc_qt_data = create_test_assoc_qt_data(),
@@ -76,10 +85,12 @@ test_that("use, PLINK v1.9, PLINK text data", {
       plink_options = create_plink_v1_9_options()
     )
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use, PLINK v1.9, PLINK bin data", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 
   if (!is_plink_installed()) return()
   assoc_qt_data <- create_test_assoc_qt_data()
@@ -93,10 +104,12 @@ test_that("use, PLINK v1.9, PLINK bin data", {
       plink_options = create_plink_v1_9_options()
     )
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use, PLINK v1.9, PLINK2 bin data", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 
   if (!is_plink_installed()) return()
   assoc_qt_data <- create_test_assoc_qt_data()
@@ -111,13 +124,14 @@ test_that("use, PLINK v1.9, PLINK2 bin data", {
     ),
     "PLINK cannot work with PLINK2 binary data"
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 ################################################################################
 # PLINK2
 ################################################################################
 test_that("use, PLINK2, PLINK text data", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 
   if (!is_plink_installed()) return()
   assoc_qt_data <- create_test_assoc_qt_data()
@@ -130,10 +144,11 @@ test_that("use, PLINK2, PLINK text data", {
     ),
     "PLINK2 cannot work with PLINK text data"
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use, PLINK2, PLINK binary data", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 
   if (!is_plink_installed()) return()
   assoc_qt_data <- create_test_assoc_qt_data()
@@ -148,10 +163,11 @@ test_that("use, PLINK2, PLINK binary data", {
     ),
     "PLINK2 cannot work with PLINK binary data"
   )
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("use, PLINK2, PLINK2 binary data", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 
   if (!is_plink_installed()) return()
   assoc_qt_data <- create_test_assoc_qt_data()
@@ -165,4 +181,5 @@ test_that("use, PLINK2, PLINK2 binary data", {
       plink_options = create_plink_v2_0_options()
     )
   )
+  expect_silent(check_empty_plinkr_folder())
 })

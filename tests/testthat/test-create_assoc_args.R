@@ -1,5 +1,8 @@
 test_that("minimal use", {
-  expect_silent(
+
+  clear_plinkr_cache()
+
+    expect_silent(
     create_assoc_args(
       assoc_params = create_test_assoc_params(),
       plink_options = create_plink_v1_7_options()
@@ -17,9 +20,14 @@ test_that("minimal use", {
       plink_options = create_plink_v2_0_options()
     )
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("v1.7", {
+
+  clear_plinkr_cache()
+
   assoc_params <- create_test_assoc_params()
   created <- create_assoc_args(
     assoc_params = assoc_params,
@@ -43,9 +51,13 @@ test_that("v1.7", {
   expect_false("--allow-extra-chr" %in% created)
   expect_false("--chr-set" %in% created)
 
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("v1.9, allow 95 chromosome", {
+
+  clear_plinkr_cache()
+
   assoc_params <- create_test_assoc_params()
   created <- create_assoc_args(
     assoc_params = assoc_params,

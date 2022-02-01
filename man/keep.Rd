@@ -5,7 +5,7 @@
 \title{Filter \code{PLINK} and \code{PLINK2} data on their family ID}
 \usage{
 keep(
-  plink_filenames,
+  base_input_filename,
   sample_ids,
   plink_options = create_plink_v1_9_options(),
   temp_folder = plinkr::get_plinkr_tempfilename(),
@@ -14,6 +14,9 @@ keep(
 )
 }
 \arguments{
+\item{base_input_filename}{the base of the filenames that are
+used as input for \code{PLINK}/\code{PLINK2}}
+
 \item{sample_ids}{sample IDs, which is a \link[tibble]{tibble}
 with two columns: the first column holds the family ID
 (called \code{fid} or \code{FID} by PLINK/PLINK2),

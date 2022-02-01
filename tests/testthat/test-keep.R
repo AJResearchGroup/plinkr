@@ -3,7 +3,7 @@ test_that("use PLINK1", {
   sample_ids <- phe_table[, 1:2]
 
   keep(
-    plink_bin_filenames =
+    plink_filenames = create_test_plink_text_filenames()
   )
 })
 

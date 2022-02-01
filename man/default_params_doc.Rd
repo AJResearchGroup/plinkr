@@ -92,10 +92,12 @@ default_params_doc(
   qassoc_filenames,
   qassoc_table,
   regular_phenotype_value,
+  sample_ids,
   sim_filename,
   simfreq_filename,
   simulate_qt_params,
   snvs,
+  temp_folder,
   temp_sim_filename,
   trait,
   traits,
@@ -566,6 +568,13 @@ and stored as a \code{.qassoc} file (for \code{PLINK}) or
 
 \item{regular_phenotype_value}{the regular phenotypic value}
 
+\item{sample_ids}{sample IDs, which is a \link[tibble]{tibble}
+with two columns: the first column holds the family ID
+(called \code{fid} or \code{FID} by PLINK/PLINK2),
+the second column holds the within-family ID
+(called \code{iid} or \code{IID} by PLINK/PLINK2),
+as can be checked by \link{check_sample_ids}}
+
 \item{sim_filename}{name of a \code{PLINK} \code{.sim} file}
 
 \item{simfreq_filename}{name of a \code{PLINK} \code{.simfreq} file}
@@ -585,6 +594,8 @@ as this is how a SNP works; a SNP from A to C is a different one (and
 has a different SNP ID) than a SNP that encodes a mutation
 for A to G.
 Use \link{create_snvs} to create a \code{snvs}.}
+
+\item{temp_folder}{temporary folder to store results in}
 
 \item{temp_sim_filename}{temporary file to store simulation
 parameters, which is a \code{PLINK} \code{.sim} file}

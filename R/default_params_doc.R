@@ -358,6 +358,12 @@
 #' and stored as a \code{.qassoc} file (for `PLINK`) or
 #' `[basename].<phenotype>.glm.linear` (for `PLINK2`).
 #' @param regular_phenotype_value the regular phenotypic value
+#' @param sample_ids sample IDs, which is a \link[tibble]{tibble}
+#' with two columns: the first column holds the family ID
+#' (called `fid` or `FID` by PLINK/PLINK2),
+#' the second column holds the within-family ID
+#' (called `iid` or `IID` by PLINK/PLINK2),
+#' as can be checked by \link{check_sample_ids}
 #' @param sim_filename name of a \code{PLINK} \code{.sim} file
 #' @param simfreq_filename name of a \code{PLINK} \code{.simfreq} file
 #' @param simulate_qt_params the parameters for a quantitative
@@ -374,6 +380,7 @@
 #' has a different SNP ID) than a SNP that encodes a mutation
 #' for A to G.
 #' Use \link{create_snvs} to create a \code{snvs}.
+#' @param temp_folder temporary folder to store results in
 #' @param temp_sim_filename temporary file to store simulation
 #'   parameters, which is a \code{PLINK} \code{.sim} file
 #' @param trait one trait with a clear genetic architecture and a known
@@ -477,10 +484,12 @@ default_params_doc <- function(
   qassoc_filenames,
   qassoc_table,
   regular_phenotype_value,
+  sample_ids,
   sim_filename,
   simfreq_filename,
   simulate_qt_params,
   snvs,
+  temp_folder,
   temp_sim_filename,
   trait,
   traits,

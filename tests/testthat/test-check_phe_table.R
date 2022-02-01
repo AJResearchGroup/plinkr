@@ -3,6 +3,14 @@ test_that("use", {
     phe_filename = get_plinkr_filename("pheno.raw")
   )
   expect_silent(check_phe_table(phe_table))
+
+  expect_error(check_phe_table(""))
+  expect_error(check_phe_table(NA))
+  expect_error(check_phe_table(NULL))
+  expect_error(check_phe_table(Inf))
+  expect_error(check_phe_table(3.14))
+  expect_error(check_phe_table(42))
+  expect_error(check_phe_table(c("random", "")))
 })
 
 test_that("use", {

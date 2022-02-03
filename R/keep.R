@@ -17,7 +17,7 @@ keep <- function(
   plinkr::check_sample_ids(sample_ids)
   readr::write_delim(sample_ids, sample_ids_filename)
 
-  # /home/richel/.local/share/plinkr/plink_1_9_unix/plink --bfile toy_data --keep sample_ids.txt --make-bed --out tmp
+  # /home/richel/.local/share/plinkr/plink_1_9_unix/plink --bfile toy_data --keep sample_ids.txt --make-bed --out tmp # nolint indeed long
   args <- c(
     "--keep"
   )

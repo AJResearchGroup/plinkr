@@ -5,7 +5,7 @@ test_that("use", {
 
   expect_error(
     check_plink_filenames("nonsense"),
-    "'plink_filenames' is not a collection of PLINK text files, PLINK binary files, nor PLINK2 binary files"
+    "'plink_filenames' is not a collection of PLINK text files, PLINK binary files, nor PLINK2 binary files" # nolint indeed a long line, but did not want to use paste0 here
   )
   expect_error(check_plink_filenames(list(x = "nonsense")))
   expect_error(check_plink_filenames(""))

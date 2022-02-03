@@ -6,16 +6,13 @@
 #'   assoc_qt_data <- create_demo_assoc_qt_data()
 #'
 #'   # PLINK text data
-#'   get_minor_alelle_frequencies(
-#'     data = assoc_qt_data$data
-#'   )
+#'   get_minor_alelle_frequencies(assoc_qt_data$data)
 #'
 #'   # PLINK binary data
 #'   assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(
 #'     assoc_qt_data$data
-#'   get_minor_alelle_frequencies(
-#'     data = assoc_qt_data$data
 #'   )
+#'   get_minor_alelle_frequencies(assoc_qt_data$data)
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

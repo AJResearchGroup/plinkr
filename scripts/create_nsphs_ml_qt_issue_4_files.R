@@ -9,12 +9,22 @@
 base_input_filename <- "~/nsphs_ml_qt_issue_4_bin"
 phe_filename <- paste0(base_input_filename, ".phe")
 
-# Simulate data in PLINK1 text format
 set.seed(42)
+n_individuals <- 10
+n_traits <- 500
+traits <- list()
+for (i in seq_len(n_traits)) {
+  traits[[i]] <- create_random_trait(mafs = 0.49 * i / n_traits)
+}
+
 assoc_qt_data <- plinkr::create_demo_assoc_qt_data(
-  n_individuals = 10,
-  traits = rep(list(create_random_trait()), 10)
+  n_individuals = n_individuals,
+  traits = traits
 )
+
+minor_allele_frequencies <- plinkr::get_minor_alelle_frequencies(assoc_qt_data)
+
+
 
 # Convert PLINK1 text format to PLINK1 binary format
 assoc_qt_data$data <- plinkr::convert_plink_text_data_to_plink_bin_data(

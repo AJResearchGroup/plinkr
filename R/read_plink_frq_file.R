@@ -38,8 +38,8 @@ read_plink_frq_file <- function(frq_filename) {
   testthat::expect_equal(expected_names, names(t))
 
   t$CHR <- as.numeric(t$CHR) # nolint use PLINK notation
-  t$A1 <- as.numeric(t$A1) # nolint use PLINK notation
-  t$A2 <- as.numeric(t$A2) # nolint use PLINK notation
+  t$A1 <- as.character(t$A1) # nolint use PLINK notation
+  t$A2 <- as.character(t$A2) # nolint use PLINK notation
   t$MAF <- as.numeric(t$MAF) # nolint use PLINK notation
   t$NCHROBS <- as.numeric(t$NCHROBS) # nolint use PLINK notation
   t

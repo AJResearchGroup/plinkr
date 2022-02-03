@@ -1,15 +1,19 @@
+# https://github.com/richelbilderbeek/nsphs_ml_qt/issues/4
+#
+# Output must be in PLINK binary format
+#
 # Needed for https://github.com/richelbilderbeek/gcaer/issues/2
 #
 # Output must be in PLINK binary format
 #
-base_input_filename <- "~/gcaer_issue_2_bin"
+base_input_filename <- "~/nsphs_ml_qt_issue_4_bin"
 phe_filename <- paste0(base_input_filename, ".phe")
 
 # Simulate data in PLINK1 text format
 set.seed(42)
 assoc_qt_data <- plinkr::create_demo_assoc_qt_data(
   n_individuals = 10,
-  traits = plinkr::create_demo_traits()
+  traits = rep(list(create_random_trait()), 10)
 )
 
 # Convert PLINK1 text format to PLINK1 binary format

@@ -6,6 +6,7 @@
 \usage{
 get_minor_alelle_frequencies(
   data,
+  plink_options = create_plink_options(),
   plink_temp_folder = plinkr::get_plinkr_tempfilename(),
   verbose = FALSE
 )
@@ -20,6 +21,9 @@ get_minor_alelle_frequencies(
 \item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
 }}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

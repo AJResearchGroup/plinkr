@@ -21,6 +21,7 @@
 #' @export
 get_minor_alelle_frequencies <- function(
   data,
+  plink_options = create_plink_options(),
   plink_temp_folder = plinkr::get_plinkr_tempfilename(),
   verbose = FALSE
 ) {
@@ -40,7 +41,11 @@ get_minor_alelle_frequencies <- function(
       "--freq",
       "--out", plink_temp_filename
     )
-    plinkr::run_plink(args = args, verbose = verbose)
+    plinkr::run_plink(
+      args = args,
+      plink_options = plink_options,
+      verbose = verbose
+    )
     file.remove(as.character(unlist(plink_text_filenames)))
 
     frq_filename <- paste0(plink_temp_filename, ".frq")
@@ -64,7 +69,11 @@ get_minor_alelle_frequencies <- function(
       "--freq",
       "--out", plink_temp_filename
     )
-    plinkr::run_plink(args = args, verbose = verbose)
+    plinkr::run_plink(
+      args = args,
+      plink_options = plink_options,
+      verbose = verbose
+    )
     file.remove(as.character(unlist(plink_bin_filenames)))
 
     frq_filename <- paste0(plink_temp_filename, ".frq")

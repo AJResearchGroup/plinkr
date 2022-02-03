@@ -6,7 +6,7 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Added 'get_minor_alelle_frequencies'
 
 ### MINOR IMPROVEMENTS
 

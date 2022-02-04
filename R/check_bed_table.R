@@ -2,6 +2,11 @@
 #'
 #' Check if a \code{.bed} table is valid.
 #' Will \link{stop} if not
+#'
+#' The `class` of a `bed_table` must be:
+#'  * `matrix`: on older versions of R, probably before v4.0
+#'  * c(`matrix`, `array`): on newer versions of R, probably from v4.0
+#'
 #' @inheritParams default_params_doc
 #' @return Nothing. Will \link{stop} if the \code{bed_table} is invalid
 #' @examples
@@ -20,9 +25,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_bed_table <- function(bed_table) {
-  if (!"array" %in% class(bed_table) || !"matrix" %in% class(bed_table)) {
+  is_matrix_class <- class(bed_table) == "matrix"
+  is_matrix_array_class <- class(bed_table) == c("matrix", "array")
+  if (!is_matrix_class && !is_matrix_array_class) {
     stop(
-      "'bed_table' does not have class type 'c(\"matrix\", \"array\")'. \n",
+      "'bed_table' does not have class types 'c(\"matrix\", \"array\")', ",
+        "nor '\"matrix\"' \n",
       "'class(bed_table)': ", class(bed_table)
     )
   }

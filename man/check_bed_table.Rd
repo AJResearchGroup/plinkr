@@ -24,6 +24,13 @@ Nothing. Will \link{stop} if the \code{bed_table} is invalid
 Check if a \code{.bed} table is valid.
 Will \link{stop} if not
 }
+\details{
+The \code{class} of a \code{bed_table} must be:
+\itemize{
+\item \code{matrix}: on older versions of R, probably before v4.0
+\item c(\code{matrix}, \code{array}): on newer versions of R, probably from v4.0
+}
+}
 \examples{
 # Simple .bed table
 check_bed_table(get_test_bed_table())

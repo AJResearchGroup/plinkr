@@ -11,7 +11,7 @@ test_that("abuse", {
   class(bed_table) <- "data.frame"
   expect_error(
     check_bed_table(bed_table),
-    "'bed_table' does not have class type 'c\\(\"matrix\", \"array\"\\)'"
+    "'bed_table' does not have class types 'c\\(\"matrix\", \"array\"\\)', nor '\"matrix\"'" # nolint indeed long, but I did not want to use 'paste' here
   )
   # Change class names to either 'array' or 'matrix', which is impossible
   if (1 == 2) {

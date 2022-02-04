@@ -7,6 +7,7 @@
 #
 #
 #
+base_input_filename <- "~/GitHubs/nsphs_ml_qt/inst/extdata/nsphs_ml_qt_issue_4_bin"
 base_input_filename <- "~/nsphs_ml_qt_issue_4_bin"
 phe_filename <- paste0(base_input_filename, ".phe")
 

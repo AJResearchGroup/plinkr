@@ -20,8 +20,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_bed_table <- function(bed_table) {
+  if (!"array" %in% class(bed_table) || !"matrix" %in% class(bed_table)) {
+    stop(
+      "'bed_table' does not have class type 'c(\"matrix\", \"array\")'. \n",
+      "'class(bed_table)': ", class(bed_table)
+    )
+  }
   testthat::expect_true("matrix" %in% class(bed_table))
-  testthat::expect_true("array" %in% class(bed_table))
   testthat::expect_true(all(is.na(bed_table) | bed_table >= 0))
   testthat::expect_true(all(is.na(bed_table) | bed_table <= 4))
 }

@@ -23,6 +23,12 @@
 check_plink_text_filenames <- function(
   plink_text_filenames
 ) {
+  if (!is.list(plink_text_filenames)) {
+    stop(
+      "'plink_text_filenames' must be a list. \n",
+      "class(plink_text_filenames): ", class(plink_text_filenames)
+    )
+  }
   testthat::expect_true(is.list(plink_text_filenames))
   testthat::expect_true("map_filename" %in% names(plink_text_filenames))
   testthat::expect_true("ped_filename" %in% names(plink_text_filenames))

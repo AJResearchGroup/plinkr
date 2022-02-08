@@ -156,6 +156,10 @@
 #' as can be checked by \link{check_iids}
 #' @param imiss_filename name of a \code{PLINK} \code{.imiss} file
 #' Use \link{read_plink_imiss_file} to read a \code{PLINK} \code{.imiss} file.
+#' @param ld_window_r2 the minimal squared correlation coefficient (also
+#' known as `r^2`) between markers. This parameter is named after the
+#' `--ld_window_r2` flag, as documented at
+#' \url{https://www.cog-genomics.org/plink/1.9/ld}.
 #' @param lmiss_filename name of a \code{PLINK} \code{.lmiss} file
 #' Use \link{read_plink_lmiss_file} to read a \code{PLINK} \code{.lmiss} file.
 #' @param log_filename name of a \code{PLINK} \code{.log} file
@@ -434,6 +438,7 @@ default_params_doc <- function(
   frq_strat_filename,
   iid,
   iids,
+  ld_window_r2,
   imiss_filename,
   lmiss_filename,
   log_filename,

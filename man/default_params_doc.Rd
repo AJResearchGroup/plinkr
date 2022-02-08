@@ -42,6 +42,7 @@ default_params_doc(
   frq_strat_filename,
   iid,
   iids,
+  ld_window_r2,
   imiss_filename,
   lmiss_filename,
   log_filename,
@@ -301,6 +302,11 @@ to read a \code{PLINK} \code{.frq.strat} file.}
 
 \item{iids}{one or more within-family IDs,
 as can be checked by \link{check_iids}}
+
+\item{ld_window_r2}{the minimal squared correlation coefficient (also
+known as \code{r^2}) between markers. This parameter is named after the
+\code{--ld_window_r2} flag, as documented at
+\url{https://www.cog-genomics.org/plink/1.9/ld}.}
 
 \item{imiss_filename}{name of a \code{PLINK} \code{.imiss} file
 Use \link{read_plink_imiss_file} to read a \code{PLINK} \code{.imiss} file.}

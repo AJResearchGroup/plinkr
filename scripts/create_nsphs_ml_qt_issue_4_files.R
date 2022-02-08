@@ -92,6 +92,9 @@ plinkr::save_phe_table(
 
 
 # Read again and verify
+# * Must have SNPs with MAF < 1%, to test if PLINK filters these away
+# * Must have SNPs in LD > 0.2 to test if PLINK filters these away
+# * Output must be in PLINK binary format
 plink_bin_data <- read_plink_bin_data(
   base_input_filename = base_input_filename
 )
@@ -105,3 +108,5 @@ marker_correlation_coefficients_table <- plinkr::get_marker_correlation_coeffici
 )
 testthat::expect_true(length(marker_correlation_coefficients_table$R) > 0)
 
+
+# Use plink

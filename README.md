@@ -100,6 +100,7 @@ File extension      |`plink` read function
 `.adjusted`         |`read_plink_adjusted_file`
 `.allele.no.snp`    |:construction: 
 `.assoc`            |`read_plink_assoc_file`
+`.assoc.adjusted`   |`read_plink_assoc_adjusted_file`
 `.assoc.dosage`     |:construction: 
 `.assoc.fisher`     |:construction: 
 `.assoc.linear`     |:construction: 
@@ -109,6 +110,8 @@ File extension      |`plink` read function
 `.beagle.dat`       |:construction:
 `.bed`              |`read_plink_bed_file`
 `.bim`              |`read_plink_bin_file`
+PLINK binary data   |`read_plink_bin_data`
+PLINK2 binary data  |`read_plink2_bin_data`
 `.blocks*`          |:construction: 
 `.chr-*.dat`        |:construction: 
 `.chr-*.map`        |:construction: 
@@ -121,7 +124,7 @@ File extension      |`plink` read function
 `.cnv.indiv`        |:construction: 
 `.cnv.overlap`      |:construction: 
 `.cnv.summary`      |:construction: 
-`.cov`              |:construction: 
+`.cov`              |`read_plink_cov_file`
 `.dfam`             |:construction: 
 `.diff`             |:construction: 
 `.dist`             |:construction:
@@ -133,7 +136,7 @@ File extension      |`plink` read function
 `.frq`              |`read_plink_frq_file` 
 `.frq.cc`           |:construction: 
 `.frq.count`        |:construction: 
-`.frq.strat`        |:construction: 
+`.frq.strat`        |`read_plink_frq_strat_file` 
 `.frqx`             |:construction: 
 `.fst`              |:construction: 
 `.gen`              |:construction: 
@@ -159,6 +162,7 @@ File extension      |`plink` read function
 `.lgen`             |:construction: 
 `.list`             |:construction: 
 `.lmiss`            |`read_plink_lmiss_file` 
+`.log`              |`read_plink_log_file` 
 `.map`              |`read_plink_map_file` 
 `.mdist`            |:construction: 
 `.mdist.missing`    |:construction: 
@@ -175,6 +179,7 @@ File extension      |`plink` read function
 `.out.dosage`       |:construction: 
 `.ped`              |`read_plink_ped_file` 
 `.perm`             |:construction: 
+`.phe`              |`read_plink_phe_file` 
 `.pphe`             |:construction: 
 `.prob`             |:construction: 
 `.profile`          |:construction: 
@@ -199,6 +204,7 @@ File extension      |`plink` read function
 `.tags.list`        |:construction: 
 `.tdt`              |:construction: 
 `.tdt.poo`          |:construction: 
+PLINK text data     |`read_plink_text_data`
 `.tfam`             |:construction: 
 `.tped`             |:construction: 
 `.traw`             |:construction: 

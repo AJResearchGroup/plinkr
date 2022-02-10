@@ -89,6 +89,123 @@ assoc_qt(assoc_qt_params)
  * See the vignette `create_demo_assoc_qt_params` for many
    examples how data can be simulated
 
+### File I/O
+
+`plinkr` can read and save many types of PLINK files.
+Below is an overview. 
+List from [the PLINK file format reference](https://www.cog-genomics.org/plink2/formats).
+
+File extension      |`plink` read function
+--------------------|--------------------------
+`.adjusted`         |`read_plink_adjusted_file`
+`.allele.no.snp`    |:construction: 
+`.assoc`            |`read_plink_assoc_file`
+`.assoc.dosage`     |:construction: 
+`.assoc.fisher`     |:construction: 
+`.assoc.linear`     |:construction: 
+`.assoc.logistic`   |:construction: 
+`.auto.R`           |:construction: 
+`.bcf`              |:construction: 
+`.beagle.dat`       |:construction:
+`.bed`              |`read_plink_bed_file`
+`.bim`              |`read_plink_bin_file`
+`.blocks*`          |:construction: 
+`.chr-*.dat`        |:construction: 
+`.chr-*.map`        |:construction: 
+`.clst`             |:construction: 
+`.clumped*`         |:construction: 
+`.cluster*`         |:construction: 
+`.cmh`              |:construction: 
+`.cmh2`             |:construction: 
+`.cnv`              |:construction: 
+`.cnv.indiv`        |:construction: 
+`.cnv.overlap`      |:construction: 
+`.cnv.summary`      |:construction: 
+`.cov`              |:construction: 
+`.dfam`             |:construction: 
+`.diff`             |:construction: 
+`.dist`             |:construction:
+`.dupvar`           |:construction: 
+`.eigenvec*`        |:construction:
+`.epi.*`            |:construction:
+`.fam`              |`read_plink_fam_file` 
+`.flipscan`         |:construction: 
+`.frq`              |`read_plink_frq_file` 
+`.frq.cc`           |:construction: 
+`.frq.count`        |:construction: 
+`.frq.strat`        |:construction: 
+`.frqx`             |:construction: 
+`.fst`              |:construction: 
+`.gen`              |:construction: 
+`.genome`           |:construction: 
+`.grm`              |:construction: 
+`.grm.N.bin`        |:construction: 
+`.grm.bin`          |:construction: 
+`.gvar`             |:construction: 
+`.het`              |:construction: 
+`.hh`               |:construction: 
+`.hom`              |:construction: 
+`.hom.indiv`        |:construction:
+`.hom.overlap*`     |:construction: 
+`.hom.summary`      |:construction: 
+`.homog`            |:construction: 
+`.hwe`              |:construction: 
+`.ibc`              |:construction: 
+`.imiss`            |`read_plink_imiss_file` 
+`.info`             |:construction: 
+`.lasso`            |:construction: 
+`.ld`               |`read_plink_ld_file` 
+`.ldset`            |:construction: 
+`.lgen`             |:construction: 
+`.list`             |:construction: 
+`.lmiss`            |`read_plink_lmiss_file` 
+`.map`              |`read_plink_map_file` 
+`.mdist`            |:construction: 
+`.mdist.missing`    |:construction: 
+`.mds`              |:construction: 
+`.*mendel`          |:construction: 
+`.meta`             |:construction: 
+`.mibs`             |:construction: 
+`.missing`          |:construction: 
+`.missing.hap`      |:construction: 
+`.model`            |:construction: 
+`.mperm`            |:construction: 
+`.nearest`          |:construction: 
+`.occur.dosage`     |:construction: 
+`.out.dosage`       |:construction: 
+`.ped`              |`read_plink_ped_file` 
+`.perm`             |:construction: 
+`.pphe`             |:construction: 
+`.prob`             |:construction: 
+`.profile`          |:construction: 
+`.qassoc`           |`read_plink_qassoc_file` 
+`.qassoc.gxe`       |:construction: 
+`.qassoc.means`     |:construction: 
+`.qfam.*`           |:construction: 
+`.range.report`     |:construction: 
+`.raw`              |:construction: 
+`.recode.*.txt`     |:construction: 
+`.recode.phase.inp` |:construction: 
+`.recode.strct_in`  |:construction: 
+`.ref`              |:construction: 
+`.rel`              |:construction: 
+`.rlist`            |:construction: 
+`.sample`           |:construction: 
+`.set`              |:construction: 
+`.set.{perm,mperm}` |:construction: 
+`.set.table`        |:construction: 
+`.sexcheck`         |:construction: 
+`.simfreq`          |`read_plink_simfreq_file` 
+`.tags.list`        |:construction: 
+`.tdt`              |:construction: 
+`.tdt.poo`          |:construction: 
+`.tfam`             |:construction: 
+`.tped`             |:construction: 
+`.traw`             |:construction: 
+`.twolocus`         |:construction: 
+`.var.ranges`       |:construction: 
+`.vcf`              |:construction:
+
 ### Associations
 
 Association type|Data type        |General function          |Specialized function

@@ -73,6 +73,7 @@ default_params_doc(
   plink_bin_data,
   plink_bin_filenames,
   plink_exe_path,
+  plink_filenames,
   plink_folder,
   plink_options,
   plink1_options,
@@ -488,6 +489,11 @@ as created by \link{create_plink_bin_filenames}.}
 \item{plink_exe_path}{path to
 the \code{PLINK} or \code{PLINK2} executable file.}
 
+\item{plink_filenames}{a list of filenames that
+is a collection of \code{PLINK} text files, \code{PLINK} binary files
+or \code{PLINK2} binary files. For example, for \code{PLINK} text files,
+this list has elements \code{map_filename} and \code{ped_filename}}
+
 \item{plink_folder}{folder where \code{PLINK} is installed}
 
 \item{plink_options}{options to run PLINK,
@@ -619,11 +625,6 @@ as, for example, created by \link{create_demo_traits}.}
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
-
-\item{plink_filenames}{a list of filenames that
-is a collection of \code{PLINK} text files, \code{PLINK} binary files
-or \code{PLINK2} binary files. For example, for \code{PLINK} text files,
-this list has elements \code{map_filename} and \code{ped_filename}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

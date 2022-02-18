@@ -37,7 +37,7 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-get_marker_correlation_coefficients_table <- function(
+get_marker_correlation_coefficients_table <- function( # nolint indeed a long function name
   data,
   ld_window_r2 = 0.2,
   plink_options = create_plink_options(),

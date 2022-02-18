@@ -473,6 +473,7 @@ default_params_doc <- function(
   plink_bin_data,
   plink_bin_filenames,
   plink_exe_path,
+  plink_filenames,
   plink_folder,
   plink_options,
   plink1_options,

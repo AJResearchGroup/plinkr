@@ -35,6 +35,8 @@ test_that("save and read must result in same table, file with custom header", {
 
 
 test_that("save and read must result in same table, file with custom header", {
+  clear_plinkr_cache()
+
   phe_table <- read_plink_phe_file(
     phe_filename = get_plinkr_filename("pheno_with_custom_header.phe")
   )
@@ -50,11 +52,12 @@ test_that("save and read must result in same table, file with custom header", {
   file.remove(phe_filename) # Fails on AppVeyor?
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 
 test_that("save and read must result in same table with correct column names", {
+  clear_plinkr_cache()
+
   phe_table <- read_plink_phe_file(
     phe_filename = get_plinkr_filename("pheno.raw")
   )
@@ -72,11 +75,11 @@ test_that("save and read must result in same table with correct column names", {
   file.remove(phe_filename) # Fails on AppVeyor?
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
-
 })
 
 test_that("sub-sub-sub folder", {
+  clear_plinkr_cache()
+
   phe_table <- read_plink_phe_file(
     phe_filename = get_plinkr_filename("pheno.raw")
   )
@@ -96,12 +99,13 @@ test_that("sub-sub-sub folder", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("write to impossible folder", {
   # Windows has no impossible folders
   if (get_os() == "win") return()
+  clear_plinkr_cache()
+
   phe_table <- read_plink_phe_file(
     phe_filename = get_plinkr_filename("pheno.raw")
   )
@@ -115,5 +119,4 @@ test_that("write to impossible folder", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

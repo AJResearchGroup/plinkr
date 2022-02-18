@@ -19,13 +19,13 @@
 get_minor_alelle_frequencies <- function(
   data,
   plink_options = create_plink_options(),
-  plink_temp_folder = plinkr::get_plinkr_tempfilename(),
+  temp_folder = plinkr::get_plinkr_tempfilename(),
   verbose = FALSE
 ) {
   plinkr::check_data(data)
   if (plinkr::is_plink_text_data(data)) {
     plink_temp_filename <- file.path(
-      plink_temp_folder,
+      temp_folder,
       "get_minor_alelle_frequencies"
     )
     plink_text_filenames <- plinkr::save_plink_text_data(
@@ -53,7 +53,7 @@ get_minor_alelle_frequencies <- function(
   }
   if (plinkr::is_plink_bin_data(data)) {
     plink_temp_filename <- file.path(
-      plink_temp_folder,
+      temp_folder,
       "get_minor_alelle_frequencies"
     )
     plink_bin_filenames <- plinkr::save_plink_bin_data(

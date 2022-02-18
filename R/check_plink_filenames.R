@@ -5,8 +5,9 @@
 #' @inheritParams default_params_doc
 #' @return Nothing. Will \link{stop} if the `plink_filenames` is invalid
 #' @examples
-#' # For PLINK, a .phe table contains the sample IDs
-#' phe_table <- get_test_phe_table()
+#' check_plink_filenames(create_test_plink_text_filenames())
+#' check_plink_filenames(create_test_plink_bin_filenames())
+#' check_plink_filenames(create_test_plink2_bin_filenames())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_plink_filenames <- function(plink_filenames) {

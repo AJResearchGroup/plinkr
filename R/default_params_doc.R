@@ -2,18 +2,18 @@
 #' documentation.
 #'
 #' @param add_noweb add the \code{--noweb} option, which prevents
-#' that \code{PLINK} will check if it is in its latest version.
+#' that `PLINK` will check if it is in its latest version.
 #' By default, this value is set to true,
 #' hence \link{plinkr} will skip this check.
-#' Use \link{get_plink_version} to get the current \code{PLINK} version.
+#' Use \link{get_plink_version} to get the current `PLINK` version.
 #' @param args arguments for the `PLINK` or `PLINK2` executable.
 #' Use \link{check_plink_args} to check if these are valid
-#' @param assoc_adjusted_filename name of a \code{PLINK}
+#' @param assoc_adjusted_filename name of a `PLINK`
 #' \code{.assoc.adjusted} file.
 #' Use \link{read_plink_assoc_adjusted_file}
-#' to read a \code{PLINK} \code{.assoc.adjusted} file.
-#' @param assoc_filename name of a \code{PLINK} \code{.assoc} file.
-#' Use \link{read_plink_assoc_file} to read a \code{PLINK} \code{.assoc} file.
+#' to read a `PLINK` \code{.assoc.adjusted} file.
+#' @param assoc_filename name of a `PLINK` \code{.assoc} file.
+#' Use \link{read_plink_assoc_file} to read a `PLINK` \code{.assoc} file.
 #' @param assoc_params parameters to do an association analysis
 #' for a quantitative trait (i.e. using \link{assoc}),
 #' as can be created by \link{create_assoc_params}
@@ -44,32 +44,32 @@
 #' and stored as a \code{.assoc} file (for `PLINK`) or
 #' `[basename].<phenotype>.[?TODO].linear` (for `PLINK2`).
 #' @param base_input_filename the base of the filenames that are
-#' used as input for \code{PLINK}/\code{PLINK2}
+#' used as input for `PLINK`/`PLINK2`
 #' @param base_output_filename the base of the filenames that are
-#' used as output for \code{PLINK}/\code{PLINK2}
+#' used as output for `PLINK`/`PLINK2`
 #' @param base_output_plink1_filename temporary folder to create the `PLINK`
 #' binary files in
 #' @param base_output_plink2_filename temporary folder to create the `PLINK2`
 #' binary files in
 #' @param base_phenotype_value the base phenotypic value for an additive trait,
 #' i.e. the phenotypic value for homozygotes of the common allele
-#' @param bed_filename name of a \code{PLINK} \code{.bed} file
-#' Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
+#' @param bed_filename name of a `PLINK` \code{.bed} file
+#' Use \link{read_plink_bed_file} to read a `PLINK` \code{.bed} file.
 #' @param bed_table a table that maps the SNPs to the individuals,
 #' of which the column names are the names of the individuals,
 #' the row names are the names of the SNPs,
 #' and the values are the SNP variant.
 #' Use \link{get_test_bed_table} to get a \code{.bed} table as used in testing.
-#' Use \link{read_plink_bed_file} to read a \code{PLINK} \code{.bed} file.
+#' Use \link{read_plink_bed_file} to read a `PLINK` \code{.bed} file.
 #' Use \link{check_bed_table} to test if a `.bed` table is valid.
 #' See also the `bed` file format reference at
 #' \url{https://www.cog-genomics.org/plink2/formats#bed}
 #' @param bfile the base filename of the binary files (i.e.
 #' a \code{.bed}, \code{.bim} and \code{.fam} file).
-#' This parameter is named after the \code{PLINK}
+#' This parameter is named after the `PLINK`
 #' \code{--bfile} flag
-#' @param bim_filename name of a \code{PLINK} \code{.bim} file
-#' Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.
+#' @param bim_filename name of a `PLINK` \code{.bim} file
+#' Use \link{read_plink_bim_file} to read a `PLINK` \code{.bim} file.
 #' @param bim_table a tibble of the genetic mapping,
 #' with as many rows as SNPs.
 #'
@@ -82,7 +82,7 @@
 #'  * `alt`: something
 #'
 #' Use \link{get_test_bim_table} to get a \code{.bim} table as used in testing.
-#' Use \link{read_plink_bim_file} to read a \code{PLINK} \code{.bim} file.
+#' Use \link{read_plink_bim_file} to read a `PLINK` \code{.bim} file.
 #' Use \link{check_bim_table} to test if a `.bim` table is valid.
 #' @param calc_phenotype_function a function that calculate the phenotypes
 #' from genotypes. The input is the genetic data as a \link[tibble]{tibble},
@@ -126,8 +126,8 @@
 #' @param epistatic_phenotype_value the phenotypic value when the
 #' epistatic phenotype is expressed
 #' @param example_filename name of the example file
-#' @param fam_filename name of a \code{PLINK} \code{.fam} file
-#' Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
+#' @param fam_filename name of a `PLINK` \code{.fam} file
+#' Use \link{read_plink_fam_file} to read a `PLINK` \code{.fam} file.
 #' @param fam_table a tibble of the genetic mapping,
 #' with as many rows as SNPs.
 #'
@@ -140,32 +140,32 @@
 #'  * `pheno`: a phenotype
 #'
 #' Use \link{get_test_fam_table} to get a \code{.fam} table as used in testing.
-#' Use \link{read_plink_fam_file} to read a \code{PLINK} \code{.fam} file.
+#' Use \link{read_plink_fam_file} to read a `PLINK` \code{.fam} file.
 #' Use \link{check_fam_table} to test if a `.fam` table is valid.
 #' @param fid the family ID, which is called `FID` in `PLINK`.
 #' Use \link{check_fid} to check if a `fid` is valid.
 #' @param fids one or more family IDs (which are called `FID`s in `PLINK`).
 #' Use \link{check_fids} to check if the elements of `fids` are valid.
-#' @param frq_filename name of a \code{PLINK} \code{.frq} file
-#' Use \link{read_plink_frq_file} to read a \code{PLINK} \code{.frq} file.
-#' @param frq_strat_filename name of a \code{PLINK} \code{.frq.strat} file
+#' @param frq_filename name of a `PLINK` \code{.frq} file
+#' Use \link{read_plink_frq_file} to read a `PLINK` \code{.frq} file.
+#' @param frq_strat_filename name of a `PLINK` \code{.frq.strat} file
 #' Use \link{read_plink_frq_strat_file}
-#' to read a \code{PLINK} \code{.frq.strat} file.
+#' to read a `PLINK` \code{.frq.strat} file.
 #' @param iid a within-family ID, as can be checked by \link{check_iid}
 #' @param iids one or more within-family IDs,
 #' as can be checked by \link{check_iids}
-#' @param imiss_filename name of a \code{PLINK} \code{.imiss} file
-#' Use \link{read_plink_imiss_file} to read a \code{PLINK} \code{.imiss} file.
+#' @param imiss_filename name of a `PLINK` \code{.imiss} file
+#' Use \link{read_plink_imiss_file} to read a `PLINK` \code{.imiss} file.
 #' @param ld_window_r2 the minimal squared correlation coefficient (also
 #' known as `r^2`) between markers. This parameter is named after the
 #' `--ld_window_r2` flag, as documented at
 #' \url{https://www.cog-genomics.org/plink/1.9/ld}.
-#' @param lmiss_filename name of a \code{PLINK} \code{.lmiss} file
-#' Use \link{read_plink_lmiss_file} to read a \code{PLINK} \code{.lmiss} file.
-#' @param log_filename name of a \code{PLINK} \code{.log} file
+#' @param lmiss_filename name of a `PLINK` \code{.lmiss} file
+#' Use \link{read_plink_lmiss_file} to read a `PLINK` \code{.lmiss} file.
+#' @param log_filename name of a `PLINK` \code{.log} file
 #' @param maf minor allele frequency threshold.
 #' Alleles that have a frequency lower than the MAF
-#' are excluded from the \code{PLINK} analysis.
+#' are excluded from the `PLINK` analysis.
 #' \code{maf} must be a value between zero and 0.5
 #' (i.e. excluding zero and excluding 0.5).
 #' By default, \code{maf} is set to the lowest
@@ -173,18 +173,18 @@
 #' as obtained by \link{get_lowest_maf}
 #'
 #' The parameter name \code{maf} is named after the
-#' \code{PLINK} \code{--maf} flag. This was chosen over
+#' `PLINK` \code{--maf} flag. This was chosen over
 #' more specific names such as \code{min_allele_frequency}).
 #' @param mafs one or more minor allele frequencies.
 #' These allele frequencies must be ordered decreasingly,
 #' i.e. the MAF is at the first position, where the
 #' even rarer alleles are at the second and third positions.
 #'
-#' Note that \code{PLINK} cannot handle triallelic nor
-#' quadallelic SNPs: \code{PLINK} will give a warning that it
+#' Note that `PLINK` cannot handle triallelic nor
+#' quadallelic SNPs: `PLINK` will give a warning that it
 #' is setting the rarest alleles to missing.
-#' @param map_filename name of a \code{PLINK} \code{.map} file
-#' Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
+#' @param map_filename name of a `PLINK` \code{.map} file
+#' Use \link{read_plink_map_file} to read a `PLINK` \code{.map} file.
 #' @param map_table a genetic mapping table.
 #'
 #' A \code{map_table} is a \link[tibble]{tibble} with the following columns:
@@ -196,7 +196,7 @@
 #'      This value is optional. Zeroes denote it is unused
 #'  * \code{BP}: Base-pair coordinat
 #'
-#' Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
+#' Use \link{read_plink_map_file} to read a `PLINK` \code{.map} file.
 #' Use \link{check_map_table} to test if a genetic mapping table is valid.
 #' @param n_individuals the number of individuals.
 #' Use \link{check_n_individuals} to check if this is a valid value
@@ -206,10 +206,10 @@
 #' @param os name of the operating system,
 #' as returned by \link[rappdirs]{app_dir}
 #' @param out the base filename of the output files.
-#' This parameter is named after the \code{PLINK}
+#' This parameter is named after the `PLINK`
 #' \code{--out} flag
-#' @param ped_filename name of a \code{PLINK} \code{.ped} file.
-#' Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
+#' @param ped_filename name of a `PLINK` \code{.ped} file.
+#' Use \link{read_plink_ped_file} to read a `PLINK` \code{.ped} file.
 #' @param ped_table a 'pedigree' table.
 #'
 #' A \code{ped_table} is a \link[tibble]{tibble} with these columns:
@@ -231,7 +231,7 @@
 #' The \code{FID} and \code{IID} column names match the PLINK names, see
 #' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}.
 #'
-#' Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
+#' Use \link{read_plink_ped_file} to read a `PLINK` \code{.ped} file.
 #' Use \link{check_ped_table} to test if a pedigree table is valid.
 #' @param pgen_filename name of a `PLINK2` `.pgen` file
 #' Use \link{read_plink2_pgen_file} to read a `PLINK2` `.pgen` file
@@ -297,8 +297,12 @@
 #' to work on,
 #' as created by \link{create_plink_bin_filenames}.
 #' @param plink_exe_path path to
-#'   the \code{PLINK} or \code{PLINK2} executable file.
-#' @param plink_folder folder where \code{PLINK} is installed
+#' the `PLINK` or `PLINK2` executable file.
+#' @param plink_filenames a list of filenames that
+#' is a collection of `PLINK` text files, `PLINK` binary files
+#' or `PLINK2` binary files. For example, for `PLINK` text files,
+#' this list has elements `map_filename` and `ped_filename`
+#' @param plink_folder folder where `PLINK` is installed
 #' @param plink_options options to run PLINK,
 #' as created by \link{create_plink_options}
 #' @param plink1_options the `PLINK` version,
@@ -317,8 +321,8 @@
 #' to work on,
 #' as created by \link{create_plink_text_filenames}.
 #' @param plink_version version of PLINK, e.g. \code{"1.7"}
-#' Use \link{get_plink_version} to get the \code{PLINK} version.
-#' Use \link{get_plink_versions} to get all the supported \code{PLINK} versions.
+#' Use \link{get_plink_version} to get the `PLINK` version.
+#' Use \link{get_plink_versions} to get all the supported `PLINK` versions.
 #' @param plink_versions one or more versions of PLINK,
 #' e.g. as can be obtained using \link{get_plink_versions}
 #' @param plink2_bin_data the genetic and phenotypic data for `PLINK2` to work
@@ -351,12 +355,12 @@
 #'  * `ALT`: the alternate variant
 #'
 #' The uppercase column names are those as used by PLINK2.
-#' @param qassoc_filename name of a \code{PLINK} \code{.qassoc} file
-#' Use \link{read_plink_qassoc_file} to read a \code{PLINK} \code{.qassoc} file.
+#' @param qassoc_filename name of a `PLINK` \code{.qassoc} file
+#' Use \link{read_plink_qassoc_file} to read a `PLINK` \code{.qassoc} file.
 #' @param qassoc_filenames name of one or more
-#' \code{PLINK} \code{.qassoc} files.
+#' `PLINK` \code{.qassoc} files.
 #' Use \link{read_plink_qassoc_files} to read one or more
-#' \code{PLINK} \code{.qassoc} files.
+#' `PLINK` \code{.qassoc} files.
 #' @param qassoc_table the table that hold the result of an association
 #' with a quantitative trait, as created by `PLINK`/`PLINK2`
 #' and stored as a \code{.qassoc} file (for `PLINK`) or
@@ -368,8 +372,8 @@
 #' the second column holds the within-family ID
 #' (called `iid` or `IID` by PLINK/PLINK2),
 #' as can be checked by \link{check_sample_ids}
-#' @param sim_filename name of a \code{PLINK} \code{.sim} file
-#' @param simfreq_filename name of a \code{PLINK} \code{.simfreq} file
+#' @param sim_filename name of a `PLINK` \code{.sim} file
+#' @param simfreq_filename name of a `PLINK` \code{.simfreq} file
 #' @param simulate_qt_params the parameters for a quantitative
 #'   traits simulation, as can be created by
 #'   \link{create_simulate_qt_params}
@@ -386,14 +390,14 @@
 #' Use \link{create_snvs} to create a \code{snvs}.
 #' @param temp_folder temporary folder to store results in
 #' @param temp_sim_filename temporary file to store simulation
-#'   parameters, which is a \code{PLINK} \code{.sim} file
+#'   parameters, which is a `PLINK` \code{.sim} file
 #' @param trait one trait with a clear genetic architecture and a known
 #' minor allele frequency, as created by \link{create_trait}.
 #' Use \link{is_one_trait} to detect if something is one trait
 #' @param traits one or more traits
 #' with a clear genetic architecture and a known minor allele frequency,
 #' as, for example, created by \link{create_demo_traits}.
-#' @param url \code{PLINK} download URL
+#' @param url `PLINK` download URL
 #' @param verbose the verbosity of a function.
 #' Set to \link{TRUE} for more output.
 #' Use \link{check_verbose} to detect if this argument is valid.

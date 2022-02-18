@@ -619,6 +619,11 @@ as, for example, created by \link{create_demo_traits}.}
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
+
+\item{plink_filenames}{a list of filenames that
+is a collection of \code{PLINK} text files, \code{PLINK} binary files
+or \code{PLINK2} binary files. For example, for \code{PLINK} text files,
+this list has elements \code{map_filename} and \code{ped_filename}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

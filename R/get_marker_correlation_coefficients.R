@@ -43,14 +43,14 @@ get_marker_correlation_coefficients <- function( # nolint indeed a long function
   data,
   ld_window_r2 = 0.2,
   plink_options = create_plink_options(),
-  plink_temp_folder = plinkr::get_plinkr_tempfilename(),
+  temp_folder = plinkr::get_plinkr_tempfilename(),
   verbose = FALSE
 ) {
   ld_table <- get_marker_correlation_coefficients_table(
     data = data,
     ld_window_r2 = ld_window_r2,
     plink_options = plink_options,
-    plink_temp_folder = plink_temp_folder,
+    temp_folder = temp_folder,
     verbose = verbose
   )
   ld_table$R

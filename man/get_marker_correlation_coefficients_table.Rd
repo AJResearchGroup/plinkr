@@ -9,7 +9,7 @@ get_marker_correlation_coefficients_table(
   data,
   ld_window_r2 = 0.2,
   plink_options = create_plink_options(),
-  plink_temp_folder = plinkr::get_plinkr_tempfilename(),
+  temp_folder = plinkr::get_plinkr_tempfilename(),
   verbose = FALSE
 )
 }
@@ -31,6 +31,8 @@ known as \code{r^2}) between markers. This parameter is named after the
 
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
+
+\item{temp_folder}{temporary folder to store results in}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

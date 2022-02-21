@@ -1,4 +1,7 @@
 test_that("use", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_plink_installed()) return()
+
   assoc_qt_data <- create_demo_assoc_qt_data()
 
   # PLINK text data

@@ -19,5 +19,6 @@ check_ld_window_r2 <- function(ld_window_r2) {
   testthat::expect_equal(1, length(ld_window_r2))
   testthat::expect_true(is.numeric(ld_window_r2))
   testthat::expect_false(is.na(ld_window_r2))
+  testthat::expect_true(is.finite(ld_window_r2))
   testthat::expect_true(ld_window_r2 >= 0.0)
 }

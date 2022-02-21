@@ -25,6 +25,9 @@ test_that("Windows", {
 test_that("URLs are valid", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_on_ci()) return()
+
+  clear_plinkr_cache()
+
   folder_name <- get_plinkr_tempfilename()
   dir.create(folder_name, showWarnings = FALSE, recursive = TRUE)
   destfile <- file.path(folder_name, "temp_download.zip")

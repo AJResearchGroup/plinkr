@@ -1,4 +1,7 @@
 test_that("random data, no LD", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_plink_installed()) return()
+
   set.seed(42)
   assoc_qt_data <- create_demo_assoc_qt_data(n_individuals = 100)
   assoc_qt_data$data$map_table$CHR <- 1 # nolint PLINK variable naming
@@ -25,6 +28,9 @@ test_that("random data, no LD", {
 })
 
 test_that("use", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_plink_installed()) return()
+
   set.seed(42)
   n_individuals <- 1000
   assoc_qt_data <- create_demo_assoc_qt_data(n_individuals = n_individuals)

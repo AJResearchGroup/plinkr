@@ -34,7 +34,7 @@ keep <- function(
   # --out tmp
   args <- c(
     "--bfile", bfile,
-    "--keep",
+    "--keep", sample_ids_filename,
     "--make-bed",
     "--out", base_output_filename
   )
@@ -43,9 +43,15 @@ keep <- function(
     plink_options = plink_options,
     verbose = verbose
   )
-  list.files(
-    path = dirname(base_output_filename),
-    pattern = basename(base_output_filename),
-    full.names = TRUE
+  plink_bin_filenames <- create_plink_bin_filenames(
+    bed_filename = paste0(base_output_filename, ".bed"),
+    bim_filename = paste0(base_output_filename, ".bim"),
+    fam_filename = paste0(base_output_filename, ".fam")
   )
+  plink_bin_filenames$log_filename <- paste0(base_output_filename, ".log")
+  testthat::expect_true(file.exists(plink_bin_filenames$bed_filename))
+  testthat::expect_true(file.exists(plink_bin_filenames$bim_filename))
+  testthat::expect_true(file.exists(plink_bin_filenames$fam_filename))
+  testthat::expect_true(file.exists(plink_bin_filenames$log_filename))
+  plink_bin_filenames
 }

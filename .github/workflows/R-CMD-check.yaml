@@ -16,7 +16,6 @@ jobs:
       matrix:
         install_plink: [true, false]
         os: [ubuntu-latest]
-        # os: [ubuntu-latest, macos-latest]
 
     runs-on: ubuntu-latest
     env:

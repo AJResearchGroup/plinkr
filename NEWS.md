@@ -7,6 +7,8 @@ Newest versions at top.
 ### NEW FEATURES
 
 
+ * Added 'check_fam_filename'
+ * Added 'check_phe_filename'
  * Added 'check_sample_ids'
  * Added 'check_sample_ids_filename'
  * Added 'get_marker_correlation_coefficients'

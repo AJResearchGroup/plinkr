@@ -1,0 +1,10 @@
+test_that("use", {
+  expect_silent(check_fam_filename("a.fam"))
+  expect_silent(check_fam_filename("/folder/a.fam"))
+  expect_silent(check_fam_filename("~/a.fam"))
+  expect_error(check_fam_filename(c("a.fam", "b.fam")))
+  expect_error(check_fam_filename(".fam"))
+  expect_error(check_fam_filename(""))
+  expect_error(check_fam_filename("."))
+  expect_silent(check_fam_filename("a.fam.fam"))
+})

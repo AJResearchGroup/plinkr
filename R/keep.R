@@ -8,14 +8,13 @@
 #' @export
 keep <- function(
   base_input_filename,
-  sample_ids,
+  sample_ids_filename,
   plink_options = create_plink_v1_9_options(),
   temp_folder = plinkr::get_plinkr_tempfilename(),
-  sample_ids_filename = file.path(temp_folder, "sample_ids.txt"),
   verbose = FALSE
 ) {
   plinkr::check_sample_ids(sample_ids)
-  readr::write_delim(sample_ids, sample_ids_filename)
+
 
   # /home/richel/.local/share/plinkr/plink_1_9_unix/plink --bfile toy_data --keep sample_ids.txt --make-bed --out tmp # nolint indeed long
   args <- c(

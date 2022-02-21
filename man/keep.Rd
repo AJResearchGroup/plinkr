@@ -6,10 +6,9 @@
 \usage{
 keep(
   base_input_filename,
-  sample_ids,
+  sample_ids_filename,
   plink_options = create_plink_v1_9_options(),
   temp_folder = plinkr::get_plinkr_tempfilename(),
-  sample_ids_filename = file.path(temp_folder, "sample_ids.txt"),
   verbose = FALSE
 )
 }
@@ -17,20 +16,13 @@ keep(
 \item{base_input_filename}{the base of the filenames that are
 used as input for \code{PLINK}/\code{PLINK2}}
 
-\item{sample_ids}{sample IDs, which is a \link[tibble]{tibble}
-with two columns: the first column holds the family ID
-(called \code{fid} or \code{FID} by PLINK/PLINK2),
-the second column holds the within-family ID
-(called \code{iid} or \code{IID} by PLINK/PLINK2),
-as can be checked by \link{check_sample_ids}}
+\item{sample_ids_filename}{name of a file to store \code{sample_ids}
+(see \link{check_sample_ids}) to}
 
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
 
 \item{temp_folder}{temporary folder to store results in}
-
-\item{sample_ids_filename}{name of a file to store \code{sample_ids}
-(see \link{check_sample_ids}) to}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

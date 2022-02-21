@@ -1,9 +1,9 @@
 test_that("use", {
+  clear_plinkr_cache()
   if (is_plink_installed()) {
     expect_silent(check_plink_is_installed())
   }
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("Executable is not found", {

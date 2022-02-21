@@ -40,6 +40,8 @@ test_that("use, create_demo_assoc_qt_data", {
 })
 
 test_that("detect mismatch in PLINK text data", {
+  if (!is_plink_installed()) return()
+
   clear_plinkr_cache()
 
   assoc_qt_data <- create_demo_assoc_qt_data()
@@ -67,6 +69,8 @@ test_that("detect mismatch in PLINK text data", {
 })
 
 test_that("detect mismatch in PLINK bin data", {
+  if (!is_plink_installed()) return()
+
   clear_plinkr_cache()
 
   assoc_qt_data <- create_demo_assoc_qt_data()
@@ -85,6 +89,8 @@ test_that("detect mismatch in PLINK bin data", {
 })
 
 test_that("detect mismatch in PLINK2 bin data", {
+  if (!is_plink_installed()) return()
+
   clear_plinkr_cache()
 
   assoc_qt_data <- create_demo_assoc_qt_data()

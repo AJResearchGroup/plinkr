@@ -52,6 +52,7 @@ test_that("--noweb", {
 })
 
 test_that("detect invalid combinations of commands", {
+  clear_plinkr_cache()
   # From https://zzz.bwh.harvard.edu/plink/data.shtml#covar
   #
   # Not all commands accept covariates, and PLINK will not always give you
@@ -91,5 +92,4 @@ test_that("detect invalid combinations of commands", {
     "'--hap-tdt' does not accept covariates"
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })

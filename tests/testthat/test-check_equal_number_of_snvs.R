@@ -70,14 +70,34 @@ test_that("detect mismatch in PLINK bin data", {
   clear_plinkr_cache()
 
   assoc_qt_data <- create_demo_assoc_qt_data()
-  assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(assoc_qt_data$data)
-  # Creates two SNVs
+  assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(
+    assoc_qt_data$data
+  )
+  # Remove a SNV
   assoc_qt_data$data$bim_table <- assoc_qt_data$data$bim_table[-1, ]
   expect_error(
     check_equal_number_of_snvs(
       data = assoc_qt_data$data
     ),
     "Different number of SNVs in the genotype ..bed. table"
+  )
+  expect_silent(check_empty_plinkr_folder())
+})
+
+test_that("detect mismatch in PLINK2 bin data", {
+  clear_plinkr_cache()
+
+  assoc_qt_data <- create_demo_assoc_qt_data()
+  assoc_qt_data$data <- convert_plink_text_data_to_plink2_bin_data(
+    assoc_qt_data$data
+  )
+  # Remove a SNV
+  assoc_qt_data$data$pvar_table <- assoc_qt_data$data$pvar_table[-1, ]
+  expect_error(
+    check_equal_number_of_snvs(
+      data = assoc_qt_data$data
+    ),
+    "Different number of SNVs in the genetic mapping ..pvar. table"
   )
   expect_silent(check_empty_plinkr_folder())
 })

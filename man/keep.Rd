@@ -7,8 +7,8 @@
 keep(
   base_input_filename,
   sample_ids_filename,
+  base_output_filename,
   plink_options = create_plink_v1_9_options(),
-  temp_folder = plinkr::get_plinkr_tempfilename(),
   verbose = FALSE
 )
 }
@@ -19,10 +19,11 @@ used as input for \code{PLINK}/\code{PLINK2}}
 \item{sample_ids_filename}{name of a file to store \code{sample_ids}
 (see \link{check_sample_ids}) to}
 
+\item{base_output_filename}{the base of the filenames that are
+used as output for \code{PLINK}/\code{PLINK2}}
+
 \item{plink_options}{options to run PLINK,
 as created by \link{create_plink_options}}
-
-\item{temp_folder}{temporary folder to store results in}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

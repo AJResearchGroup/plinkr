@@ -6,10 +6,13 @@ Newest versions at top.
 
 ### NEW FEATURES
 
+
  * Added 'check_sample_ids'
  * Added 'check_sample_ids_filename'
  * Added 'get_marker_correlation_coefficients'
  * Added 'get_minor_alelle_frequencies'
+ * Added 'get_sample_ids_from_fam_file'
+ * Added 'get_sample_ids_from_fam_table'
  * Added 'get_sample_ids_from_phe_file'
  * Added 'get_sample_ids_from_phe_table'
  * Added 'get_test_sample_ids'

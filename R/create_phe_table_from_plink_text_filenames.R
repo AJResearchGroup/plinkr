@@ -1,9 +1,8 @@
-#' Create a single-phenotype table from the gentic mapping (`.fam`) table
-#' within the PLINK binary data.
+#' Create a single-phenotype table from pedigree (\code{.ped}) table
+#' within the PLINK text files.
 #'
-#' Create a single-phenotype table from the gentic mapping (`.fam`) table
-#' within the PLINK binary data.
-#'
+#' Create a single-phenotype table from pedigree (\code{.ped}) table
+#' within the PLINK text files.
 #' The individuals' family and within-family ID's are copied.
 #' The \code{case_control_code} is copied as well, but
 #' renamed to \code{trait} and divided by then.
@@ -18,11 +17,9 @@
 #'
 #' The column names match the PLINK names, see
 #' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
-#' @examples
-#' create_phe_table_from_plink_bin_data(create_test_plink_bin_data())
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_phe_table_from_plink_bin_data <- function(plink_bin_data) { # nolint indeed a long and descriptive name
-  plinkr::check_plink_bin_data(plink_bin_data)
-  plinkr::create_phe_table_from_fam_table(plink_bin_data$fam_table)
+create_phe_table_from_plink_text_filenames <- function(plink_text_filenames) {
+  plinkr::check_plink_text_filenames(plink_text_filenames)
+  stop("TODO")
 }

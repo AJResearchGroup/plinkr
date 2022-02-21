@@ -37,13 +37,13 @@ check_equal_number_of_snvs <- function(
     testthat::expect_true("bim_table" %in% names(data))
     n_snvs_in_bed_table <- nrow(data$bed_table)
     n_snvs_in_bim_table <- nrow(data$bim_table)
-    if (n_snvs_in_bed_table != n_snvs_in_bed_table) {
+    if (n_snvs_in_bed_table != n_snvs_in_bim_table) {
       stop(
-        "Different number of SNVs in the genetic mapping (.map) table \n",
-        "and the pedigree (.tab) table \n",
+        "Different number of SNVs in the genotype (.bed) table \n",
+        "and the genetic mapping (.bim) table \n",
+        "Number of SNVs in genotype (.bed) table: ", n_snvs_in_bed_table, " \n",
         "Number of SNVs in genetic mapping (.bim) table: ",
-        n_snvs_in_bim_table, " \n",
-        "Number of SNVs in genotype (.bed) table: ", n_snvs_in_bed_table
+        n_snvs_in_bim_table
       )
     }
   } else {

@@ -1,28 +1,26 @@
 test_that("minimal use, v1.7", {
-
-  clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
-
   if (!is_plink_installed()) return()
-  expect_silent(
-    assoc(
-      assoc_params = create_test_assoc_params(),
-      plink_options = create_plink_v1_7_options()
-    )
-  )
-  expect_silent(check_empty_plinkr_folder())
+
   clear_plinkr_cache()
+
+  assoc(
+    assoc_params = create_test_assoc_params(),
+    plink_options = create_plink_v1_7_options()
+  )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("minimal use, v1.9", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  expect_silent(
-    assoc(
-      assoc_params = create_test_assoc_params(),
-      plink_options = create_plink_v1_9_options()
-    )
+
+  assoc(
+    assoc_params = create_test_assoc_params(),
+    plink_options = create_plink_v1_9_options()
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("minimal use v2.0", {

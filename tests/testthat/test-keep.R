@@ -1,4 +1,6 @@
 test_that("use PLINK1", {
+  if (!is_plink_installed()) return()
+
   clear_plinkr_cache()
 
   base_input_filename <- tools::file_path_sans_ext(

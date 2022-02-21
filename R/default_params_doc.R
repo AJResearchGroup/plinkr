@@ -375,6 +375,8 @@
 #' the second column holds the within-family ID
 #' (called `iid` or `IID` by PLINK/PLINK2),
 #' as can be checked by \link{check_sample_ids}
+#' @param sample_ids_filename name of a file to store `sample_ids`
+#' (see \link{check_sample_ids}) to
 #' @param sim_filename name of a `PLINK` \code{.sim} file
 #' @param simfreq_filename name of a `PLINK` \code{.simfreq} file
 #' @param simulate_qt_params the parameters for a quantitative
@@ -499,6 +501,7 @@ default_params_doc <- function(
   qassoc_table,
   regular_phenotype_value,
   sample_ids,
+  sample_ids_filename,
   sim_filename,
   simfreq_filename,
   simulate_qt_params,

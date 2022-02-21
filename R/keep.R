@@ -1,6 +1,6 @@
 #' Filter `PLINK` and `PLINK2` data on their family ID
 #'
-#' @note this function is named after the `PLINK`/`PLINK2` `--Keep`
+#' @note this function is named after the `PLINK`/`PLINK2` `--keep`
 #' parameter flag
 #' @inheritParams default_params_doc
 #' @return the names of the files created

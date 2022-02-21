@@ -29,6 +29,9 @@ as created by \link{create_plink_options}}
 
 \item{temp_folder}{temporary folder to store results in}
 
+\item{sample_ids_filename}{name of a file to store \code{sample_ids}
+(see \link{check_sample_ids}) to}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
@@ -40,7 +43,7 @@ the names of the files created
 Filter \code{PLINK} and \code{PLINK2} data on their family ID
 }
 \note{
-this function is named after the \code{PLINK}/\code{PLINK2} \code{--Keep}
+this function is named after the \code{PLINK}/\code{PLINK2} \code{--keep}
 parameter flag
 }
 \author{

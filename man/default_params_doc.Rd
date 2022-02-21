@@ -96,6 +96,7 @@ default_params_doc(
   qassoc_table,
   regular_phenotype_value,
   sample_ids,
+  sample_ids_filename,
   sim_filename,
   simfreq_filename,
   simulate_qt_params,
@@ -591,6 +592,9 @@ with two columns: the first column holds the family ID
 the second column holds the within-family ID
 (called \code{iid} or \code{IID} by PLINK/PLINK2),
 as can be checked by \link{check_sample_ids}}
+
+\item{sample_ids_filename}{name of a file to store \code{sample_ids}
+(see \link{check_sample_ids}) to}
 
 \item{sim_filename}{name of a \code{PLINK} \code{.sim} file}
 

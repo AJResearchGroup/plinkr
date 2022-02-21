@@ -42,6 +42,7 @@ default_params_doc(
   frq_strat_filename,
   iid,
   iids,
+  ld_filename,
   ld_window_r2,
   imiss_filename,
   lmiss_filename,
@@ -303,6 +304,10 @@ to read a \code{PLINK} \code{.frq.strat} file.}
 
 \item{iids}{one or more within-family IDs,
 as can be checked by \link{check_iids}}
+
+\item{ld_filename}{name of a \code{PLINK}/\code{PLINK2} linkage
+disequilibrium (\code{.ld}) file
+Use \link{read_plink_ld_file} to read a \code{PLINK} \code{.ld} file.}
 
 \item{ld_window_r2}{the minimal squared correlation coefficient (also
 known as \code{r^2}) between markers. This parameter is named after the

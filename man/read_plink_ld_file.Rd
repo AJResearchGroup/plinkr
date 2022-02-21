@@ -6,6 +6,11 @@
 \usage{
 read_plink_ld_file(ld_filename)
 }
+\arguments{
+\item{ld_filename}{name of a \code{PLINK}/\code{PLINK2} linkage
+disequilibrium (\code{.ld}) file
+Use \link{read_plink_ld_file} to read a \code{PLINK} \code{.ld} file.}
+}
 \value{
 a \link[tibble]{tibble} with column names:
 \itemize{

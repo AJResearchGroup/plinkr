@@ -30,6 +30,13 @@ assoc_from_bfile <- function(
     "--assoc",
     "--out", base_assoc_filenames
   )
+
+  dir.create(
+    dirname(out),
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
+
   if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
     args <- c(args, "--noweb")
   }

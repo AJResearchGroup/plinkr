@@ -1,6 +1,5 @@
 test_that("use", {
   clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
   if (!is_plink_tutorial_data_installed()) return()
@@ -35,5 +34,25 @@ test_that("use", {
   expect_true("log" %in% names(assoc_results))
   list.files(dirname(base_assoc_filenames), full.names = TRUE)
   unlink(plinkr_folder, recursive = TRUE)
+  expect_silent(check_empty_plinkr_folder())
+})
+
+test_that("minimal use with PLINK v1.7", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_plink_installed(plink_options = create_plink_v1_7_options())) return()
+
+  clear_plinkr_cache()
+
+  bfile <- tools::file_path_sans_ext(
+    get_plinkr_filename("toy_v1_9_after_make-bed.bed")
+  )
+  out <- file.path(get_plinkr_tempfilename(), "assoc_from_bfile")
+  assoc_results <- assoc_from_bfile(
+    bfile = bfile,
+    out = out,
+    plink_options = create_plink_v1_7_options()
+  )
+  unlink(dirname(out), recursive = TRUE)
+
   expect_silent(check_empty_plinkr_folder())
 })

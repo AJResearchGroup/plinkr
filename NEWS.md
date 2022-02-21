@@ -2,10 +2,27 @@
 
 Newest versions at top.
 
-## plinkr v0.18.0.2 (2022-02-21)
+## plinkr v0.18.0.3 (unreleased)
 
 ### NEW FEATURES
 
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
+## plinkr v0.18.0.2 (2022-02-21)
+
+### NEW FEATURES
 
  * Added 'check_fam_filename'
  * Added 'check_phe_filename'

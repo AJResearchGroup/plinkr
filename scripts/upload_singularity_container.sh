@@ -17,6 +17,6 @@ echo "To sign the container, paste your passphrase"
 singularity sign plinkr.sif
 
 # Upload the latest version
-singularity push plinkr.sif library://richelbilderbeek/default/plinkr:0.18.0.2
+singularity push plinkr.sif library://richelbilderbeek/default/plinkr:0.18.0.3
 
 

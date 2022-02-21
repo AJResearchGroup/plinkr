@@ -40,3 +40,25 @@ test_that("use", {
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()
 })
+
+test_that("use with PLINK v1.7", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_plink_installed(plink_options = create_plink_v1_7_options())) return()
+
+  clear_plinkr_cache()
+
+  bfile <- tools::file_path_sans_ext(
+    get_plinkr_filename("toy_v1_9_after_make-bed.bed")
+  )
+  out <- file.path(get_plinkr_tempfilename(), "freq_from_bfile")
+
+  freq_result <- freq_from_bfile(
+    bfile = bfile,
+    out = out,
+    plink_options = create_plink_v1_7_options()
+  )
+
+  unlink(dirname(out), recursive = TRUE)
+
+  expect_silent(check_empty_plinkr_folder())
+})

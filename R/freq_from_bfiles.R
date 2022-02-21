@@ -24,6 +24,13 @@ freq_from_bfile <- function(
     "--freq",
     "--out", base_freq_stat_filenames
   )
+
+  dir.create(
+    dirname(base_freq_stat_filenames),
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
+
   if (plink_options$plink_version == "1.7" && sum(args == "--noweb") == 0) {
     args <- c(args, "--noweb")
   }

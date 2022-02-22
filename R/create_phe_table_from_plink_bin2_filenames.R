@@ -20,7 +20,7 @@
 #' \url{https://www.cog-genomics.org/plink/1.9/input#pheno}
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_phe_table_from_plink_bin2_filenames <- function(plink2_bin_filenames) {
+create_phe_table_from_plink_bin2_filenames <- function(plink2_bin_filenames) { # nolint indeed a long function name
   plinkr::check_plink2_bin_filenames(plink2_bin_filenames)
   stop("TODO")
 }

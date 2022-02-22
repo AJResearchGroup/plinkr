@@ -25,8 +25,10 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_bed_table <- function(bed_table) {
-  is_matrix_class <- class(bed_table) == "matrix"
-  is_matrix_array_class <- class(bed_table) == c("matrix", "array")
+  is_matrix_class <- length(class(bed_table)) == 1 &&
+    class(bed_table) == "matrix"
+  is_matrix_array_class <- length(class(bed_table)) == 2 &&
+    class(bed_table) == c("matrix", "array")
   if (!is_matrix_class && !is_matrix_array_class) {
     stop(
       "'bed_table' does not have class types 'c(\"matrix\", \"array\")', ",

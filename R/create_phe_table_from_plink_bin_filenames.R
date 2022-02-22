@@ -21,7 +21,7 @@
 #' create_phe_table_from_plink_bin_data(create_test_plink_bin_data())
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_phe_table_from_plink_bin_filenames <- function(plink_bin_filenames) {
+create_phe_table_from_plink_bin_filenames <- function(plink_bin_filenames) { # nolint indeed a long function name
   plinkr::check_plink_bin_filenames(plink_bin_filenames)
   stop("TODO")
 }

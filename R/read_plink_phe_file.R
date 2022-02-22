@@ -60,6 +60,7 @@ read_plink_phe_file <- function(
   # FID is a character vector in the tutorial
   # IID is a character vector in the nsphs_ml_qt project
   FID <- NULL # nolint use Tidyverse global
+  IID <- NULL # nolint use Tidyverse global
   t <- dplyr::mutate(
     dplyr::select(t, dplyr::everything()),
     dplyr::across(dplyr::everything() & !FID & !IID, as.numeric)

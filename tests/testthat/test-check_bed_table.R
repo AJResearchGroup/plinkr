@@ -23,5 +23,4 @@ test_that("abuse", {
     class(bed_table) <- "array"
     check_bed_table(bed_table)
   }
-
 })

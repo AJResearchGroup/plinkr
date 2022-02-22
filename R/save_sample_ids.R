@@ -12,7 +12,6 @@
 #' )
 #'
 #' # Clean up
-#' file.remove(sample_ids_filename)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 save_sample_ids <- function(

@@ -19,4 +19,7 @@ singularity sign plinkr.sif
 # Upload the latest version
 singularity push plinkr.sif library://richelbilderbeek/default/plinkr:0.18.0.4
 
+if [[ $HOSTNAME == "N141CU" ]]; then
+  notify-send "Done uploading 'plinkr.sif'" "Done uploading 'plinkr.sif'"
+fi
 

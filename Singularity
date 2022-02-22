@@ -55,4 +55,4 @@ assoc(
 
     URL https://github.com/richelbilderbeek/plinkr
 
-    VERSION 0.18.0.3
+    VERSION 0.18.0.4

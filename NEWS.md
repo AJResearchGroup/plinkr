@@ -14,7 +14,7 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * None
+ * A phenotype table's IID is of type character
 
 ### DEPRECATED AND DEFUNCT
 

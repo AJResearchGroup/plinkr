@@ -1,5 +1,6 @@
 test_that("use", {
   expect_silent(check_phe_filename("a.phe"))
+  expect_silent(check_phe_filename("/home/richel/data_1/data_1.phe"))
   expect_silent(check_phe_filename("/folder/a.phe"))
   expect_silent(check_phe_filename("~/a.phe"))
   expect_error(check_phe_filename(c("a.phe", "b.phe")))

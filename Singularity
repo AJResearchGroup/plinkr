@@ -13,7 +13,9 @@ From: r-base
     Rscript -e 'plinkr::install_plinks(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
 
 %runscript
-exec R --vanilla --silent --no-echo "$@"
+echo "'plinkr.sif' running with arguments '$@'"
+exec Rscript "$@"
+# exec R --vanilla --silent --no-echo "$@"
 
 %test
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'

@@ -1,5 +1,4 @@
 # The plinkr R package, with the multiple PLINK versions installed
-
 Bootstrap: docker
 From: r-base
 
@@ -15,7 +14,6 @@ From: r-base
 %runscript
 echo "'plinkr.sif' running with arguments '$@'"
 exec Rscript "$@"
-# exec R --vanilla --silent --no-echo "$@"
 
 %test
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
@@ -27,7 +25,7 @@ This container has the R package plinkr and multiple versions of PLINK installed
 To make the container run a script called, e.g. `script.R`, do:
 
 ```
-cat script.R | ./plinkr.sif
+singularity run plinkr.sif script.R
 ```
 
 Within the script, set `plink_folder` to `/opt/plinkr`, for example:

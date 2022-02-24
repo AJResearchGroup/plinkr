@@ -13,7 +13,9 @@ From: r-base
 
 %runscript
 echo "'plinkr.sif' running with arguments '$@'"
-exec Rscript "$@"
+
+exec R --vanilla --silent --no-echo "$@"
+# exec Rscript "$@"
 
 %test
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
@@ -26,6 +28,8 @@ To make the container run a script called, e.g. `script.R`, do:
 
 ```
 singularity run plinkr.sif script.R
+
+cat script.R | ./plinkr.sif
 ```
 
 Within the script, set `plink_folder` to `/opt/plinkr`, for example:

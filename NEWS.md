@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Improve Singularity doc
 
 ### BUG FIXES
 

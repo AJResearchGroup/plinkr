@@ -2,28 +2,38 @@
 Bootstrap: docker
 From: r-base
 
+# The tidyverse R package
+# Bootstrap: library
+# From: philarevalo/default/rocker-tidyverse-rstan:1.0.0
+
+# The tidyverse R package again
+# Sorry Hindrek
+# From: hindrek/r/tidyverse:1.0.0
+
+# Worked until problems with stringr
+# Bootstrap: docker
+# From: r-base
+
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
     apt-get update
     # apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev r-cran-stringi libicu-dev
     apt-get -y install libssl-dev libcurl4-openssl-dev libxml2-dev
     apt-get clean
-    Rscript -e 'install.packages(c("remotes", "devtools", "stringi", "stringr"))'
+    Rscript -e 'install.packages(c("remotes", "devtools"))'
+    # Rscript -e 'install.packages(c("remotes", "devtools", "stringi", "stringr"))'
     Rscript -e 'remotes::install_github("richelbilderbeek/plinkr")'
 
     # From https://github.com/tidyverse/stringr/issues/320#issuecomment-560991587
-    Rscript -e 'remove.packages("stringi")'
-    Rscript -e 'remove.packages("stringr")'
-    Rscript -e 'install.packages(c("stringi", "stringr"))'
+    #Rscript -e 'remove.packages("stringi")'
+    #Rscript -e 'remove.packages("stringr")'
+    #Rscript -e 'install.packages(c("stringi", "stringr"))'
 
     Rscript -e 'plinkr::install_plinks(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
 
 %runscript
 echo "'plinkr.sif' running with arguments '$@'"
 Rscript "$@"
-
-# exec R --vanilla --silent --no-echo "$@"
-# exec Rscript "$@"
 
 %test
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
@@ -36,8 +46,6 @@ To make the container run a script called, e.g. `script.R`, do:
 
 ```
 singularity run plinkr.sif script.R
-
-cat script.R | ./plinkr.sif
 ```
 
 Within the script, set `plink_folder` to `/opt/plinkr`, for example:

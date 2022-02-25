@@ -2,11 +2,11 @@
 
 Newest versions at top.
 
-## plinkr v0.18.0.4 (unreleased)
+## plinkr v0.19 (2022-02-25)
 
 ### NEW FEATURES
 
- * None
+ * Use 'rocker/tidyverse' as the base for the Singularity container
 
 ### MINOR IMPROVEMENTS
 

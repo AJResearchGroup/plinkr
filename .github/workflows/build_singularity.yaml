@@ -25,9 +25,6 @@ jobs:
       - name: Show singularity version
         run: singularity version
 
-#      - name: Show present working directory
-#        run: echo $PWD
-
       - name: Build Container
         run: ./scripts/build_singularity_container.sh
 
@@ -37,12 +34,12 @@ jobs:
       - name: Show help of container
         run: singularity run-help plinkr.sif
 
-      - name: Show script
+      - name: Show run script
+        run: cat scripts/run_container.sh
+
+      - name: Show R script
         run: cat scripts/demo_container.R
 
       - name: Run container
-        run: singularity run --bind $PWD/scripts/ plinkr.sif scripts/demo_container.R
-
-      #- name: Run container
-      #  run: cat scripts/demo_container.R | ./plinkr.sif 
+        run: ./scripts/run_container.sh
 

@@ -12,6 +12,10 @@
 #' use in a quantitative trait analysis
 #' @seealso use \link{check_phe_table} to check if the `phe_table`
 #' is valid in general.
+#'
+#' Use \link{check_phe_file_ok_for_qt} to check if a `.phe` file
+#' holds a phenotype table that is valid
+#' for use in a quantitative trait analysis
 #' @examples
 #' check_phe_table_ok_for_qt(get_test_phe_table())
 #' @author Richèl J.C. Bilderbeek

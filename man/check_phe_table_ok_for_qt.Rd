@@ -41,7 +41,11 @@ check_phe_table_ok_for_qt(get_test_phe_table())
 }
 \seealso{
 use \link{check_phe_table} to check if the \code{phe_table}
-is valid in general
+is valid in general.
+
+Use \link{check_phe_file_ok_for_qt} to check if a \code{.phe} file
+holds a phenotype table that is valid
+for use in a quantitative trait analysis
 }
 \author{
 Richèl J.C. Bilderbeek

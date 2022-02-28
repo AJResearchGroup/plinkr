@@ -50,22 +50,23 @@ assoc_qt_on_plink_text_data <- function(
     plink_options = plink_options
   )
   plinkr::check_plink_text_data(plink_text_data = assoc_qt_data$data)
-  # if (!plinkr::is_plink_text_data(assoc_qt_data$data)) {
-  #   stop(
-  #     "'assoc_qt_data$data' is not PLINK text data. \n",
-  #     "Tip 1: use 'assoc_qt' to let plinkr detect the type of PLINK data. \n",
-  #     "Tip 2: If the data is in PLINK binary format, ",
-  #       "use 'assoc_qt_on_plink_bin_data'. \n",
-  #     "Tip 3: If the data is in PLINK2 binary format, ",
-  #     "use 'assoc_qt_on_plink2_bin_data'. \n"
-  #   )
-  # }
+  if (!plinkr::is_plink_text_data(assoc_qt_data$data)) {
+    stop(
+      "'assoc_qt_data$data' is not PLINK text data. \n",
+      "Tip 1: use 'assoc_qt' to let plinkr detect the type of PLINK data. \n",
+      "Tip 2: If the data is in PLINK binary format, ",
+        "use 'assoc_qt_on_plink_bin_data'. \n",
+      "Tip 3: If the data is in PLINK2 binary format, ",
+      "use 'assoc_qt_on_plink2_bin_data'. \n"
+    )
+  }
 
   # Filenames
   base_input_filename <- assoc_qt_params$base_input_filename
   phe_filename <- paste0(base_input_filename, ".phe")
-  plinkr::check_phe_filename(phe_filename)
+  plinkr::check_phe_file_ok_for_qt(phe_filename)
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
+  plinkr::check_phe_file_ok_for_qt(phe_filename)
 
   # Convert data from in-memory to saved files
   # Regular data

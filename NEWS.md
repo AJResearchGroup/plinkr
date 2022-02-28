@@ -6,8 +6,8 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * Added 'check_phe_table_ok_for_qt' to check if a table of phenotypic
-   values can be used in a quantitative trait analysis
+ * Added 'check_phe_file_ok_for_qt'
+ * Added 'check_phe_table_ok_for_qt'
 
 ### MINOR IMPROVEMENTS
 

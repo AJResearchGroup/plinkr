@@ -49,7 +49,6 @@ assoc_qt_on_plink_text_data <- function(
     data = assoc_qt_data$data,
     plink_options = plink_options
   )
-  plinkr::check_plink_text_data(plink_text_data = assoc_qt_data$data)
   if (!plinkr::is_plink_text_data(assoc_qt_data$data)) {
     stop(
       "'assoc_qt_data$data' is not PLINK text data. \n",
@@ -66,7 +65,6 @@ assoc_qt_on_plink_text_data <- function(
   phe_filename <- paste0(base_input_filename, ".phe")
   plinkr::check_phe_file_ok_for_qt(phe_filename)
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
-  plinkr::check_phe_file_ok_for_qt(phe_filename)
 
   # Convert data from in-memory to saved files
   # Regular data

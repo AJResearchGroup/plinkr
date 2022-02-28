@@ -37,6 +37,7 @@ assoc_qt_on_plink_text_files <- function(
       phe_filename = phe_filename
     )
     testthat::expect_true(file.exists(phe_filename))
+    plinkr::check_phe_file_ok_for_qt(phe_filename)
     testthat::expect_equal(
       assoc_qt_data$phenotype_data$phe_filename,
       phe_filename

@@ -2,6 +2,26 @@
 
 Newest versions at top.
 
+## plinkr v0.19.0.1 (unreleased)
+
+### NEW FEATURES
+
+ * Added 'check_phe_table_ok_for_qt' to check if a table of phenotypic
+   values can be used in a quantitative trait analysis
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * Added 'check_phe' does not check if a table of phenotypic
+   values can be used in a quantitative trait analysis
+
 ## plinkr v0.19 (2022-02-25)
 
 ### NEW FEATURES

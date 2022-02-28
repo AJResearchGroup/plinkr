@@ -32,6 +32,10 @@ Will \link{stop} if not
 \examples{
 check_phe_table(get_test_phe_table())
 }
+\seealso{
+use \link{check_phe_table_ok_for_qt} to check if the \code{phe_table}
+is valid for a quantitative trait analysis.
+}
 \author{
 Richèl J.C. Bilderbeek
 }

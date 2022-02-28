@@ -29,6 +29,9 @@ assoc_qt_on_plink_text_files <- function(
 
   # Phenotype data: save if in-memory
   if (plinkr::is_phenotype_data_table(assoc_qt_data$phenotype_data)) {
+    # .phe table must not have case-control values only
+    plinkr::check_phe_table_ok_for_qt(assoc_qt_data$phenotype_data$phe_table)
+
     assoc_qt_data$phenotype_data <- plinkr::save_phenotype_data_table(
       phenotype_data_table = assoc_qt_data$phenotype_data,
       phe_filename = phe_filename

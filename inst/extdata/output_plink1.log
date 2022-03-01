@@ -6,9 +6,9 @@ Options in effect:
 
 Hostname: N141CU
 Working directory: /home/richel/GitHubs/plinkr/tests/testthat
-Start time: Mon Feb 28 12:21:58 2022
+Start time: Tue Mar  1 08:15:27 2022
 
-Random number seed: 1646047318
+Random number seed: 1646118927
 7642 MB RAM detected; reserving 3821 MB for main workspace.
 Scanning .ped file... done.
 Performing single-pass .bed write (2 variants, 2 people).
@@ -28,4 +28,4 @@ Among remaining phenotypes, 1 is a case and 1 is a control.
 /home/richel/GitHubs/plinkr/inst/extdata/output_plink1.bim +
 /home/richel/GitHubs/plinkr/inst/extdata/output_plink1.fam ... done.
 
-End time: Mon Feb 28 12:21:58 2022
+End time: Tue Mar  1 08:15:27 2022

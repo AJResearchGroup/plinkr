@@ -19,7 +19,8 @@ test_that("use", {
   folder_name <- get_plinkr_tempfilename()
   plink2_bin_filenames <- convert_plink_text_files_to_plink2_bin_files(
     base_input_filename = tools::file_path_sans_ext(map_filename),
-    base_output_plink2_filename = file.path(folder_name, "output")
+    base_output_plink1_filename = file.path(folder_name, "output_plink_1"),
+    base_output_plink2_filename = file.path(folder_name, "output_plink_2")
   )
 
   # Extract the same knowledge from the binary data

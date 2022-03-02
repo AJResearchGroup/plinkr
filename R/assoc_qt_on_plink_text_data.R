@@ -59,6 +59,17 @@ assoc_qt_on_plink_text_data <- function(
       "use 'assoc_qt_on_plink2_bin_data'. \n"
     )
   }
+  if (plinkr::is_phenotype_data_table(assoc_qt_data$phenotype_data)) {
+    plinkr::check_phe_table_ok_for_qt(
+      phe_table = assoc_qt_data$phenotype_data$phe_table
+    )
+  } else {
+    testthat::expect_true(
+      plinkr::is_phenotype_data_filename(assoc_qt_data$phenotype_data)
+    )
+    plinkr::check_phe_file_ok_for_qt(assoc_qt_data$phenotype_data$phe_filename)
+  }
+  assoc_qt_data$phenotype_data$phe_table
 
   # Filenames
   base_input_filename <- assoc_qt_params$base_input_filename

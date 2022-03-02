@@ -1,8 +1,8 @@
 test_that("minimal use, using PLINK1 text data", {
-  clear_plinkr_cache() # nolint
-  expect_silent(check_empty_plinkr_folder())
-
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
 
@@ -23,11 +23,13 @@ test_that("minimal use, using PLINK1 text data", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("use", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
   assoc_qt_result <- assoc_qt_on_plink_text_data(
@@ -37,11 +39,13 @@ test_that("use", {
   expect_silent(check_assoc_qt_result(assoc_qt_result))
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("default demo", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_demo_assoc_qt_data()
 
@@ -53,13 +57,12 @@ test_that("default demo", {
   expect_equal(12, nrow(assoc_qt_result$qassoc_table))
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("demo on random only", {
   if (!is_plink_installed()) return()
 
-  clear_plinkr_cache() # nolint
+  clear_plinkr_cache()
 
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait()
@@ -72,13 +75,15 @@ test_that("demo on random only", {
   expect_equal(nrow(assoc_qt_result$qassoc_table), 1)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("demo on two randoms", {
   expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = rep(list(create_random_trait()), 2)
@@ -91,14 +96,13 @@ test_that("demo on two randoms", {
   expect_equal(nrow(assoc_qt_result$qassoc_table), 4)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("number of individuals", {
-  clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
-
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_demo_assoc_qt_data(
     n_individuals = 3,
@@ -112,11 +116,13 @@ test_that("number of individuals", {
   expect_equal(1, nrow(assoc_qt_result$qassoc_table))
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("demo on additive only", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_additive_trait()
   )
@@ -130,11 +136,13 @@ test_that("demo on additive only", {
   expect_equal(nrow(assoc_qt_result$qassoc_table), 1)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("use quantitative traits that are either 1 or 2", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data()
   n_individuals <- nrow(assoc_qt_data$phenotype_data$phe_table)
   assoc_qt_data$phenotype_data$phe_table$P1 <- NULL # nolint PLINK uses uppercase
@@ -149,13 +157,15 @@ test_that("use quantitative traits that are either 1 or 2", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 
 
 test_that("PLINK cannot handle triallelic SNPs", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(mafs = c(0.3, 0.2)),
@@ -170,11 +180,13 @@ test_that("PLINK cannot handle triallelic SNPs", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("PLINK cannot handle quadallelic SNPs", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
@@ -189,11 +201,11 @@ test_that("PLINK cannot handle quadallelic SNPs", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("95 chromosome numbers work", {
-  expect_silent(check_empty_plinkr_folder())
+
+  clear_plinkr_cache()
 
   if (!is_plink_installed()) return()
   set.seed(314)
@@ -207,12 +219,14 @@ test_that("95 chromosome numbers work", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("use incorrect data", {
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
   assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(
@@ -227,5 +241,4 @@ test_that("use incorrect data", {
     "is not PLINK text data"
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

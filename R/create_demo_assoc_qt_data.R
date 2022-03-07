@@ -80,7 +80,7 @@ create_demo_assoc_qt_data <- function(
   map_table <- plinkr::create_demo_map_table(
     traits = traits
   )
-  phe_table <- create_demo_phe_table(
+  phe_table <- plinkr::create_demo_phe_table(
     ped_table = ped_table,
     traits = traits
   )

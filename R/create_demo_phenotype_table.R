@@ -16,9 +16,6 @@ create_demo_phe_table <- function(
     traits = traits,
     ped_table = ped_table
   )
-  if (ncol(phe_table_rhs) == 2) {
-    return(phe_table_lhs)
-  }
   testthat::expect_equal(
     nrow(phe_table_lhs),
     nrow(phe_table_rhs)

@@ -38,15 +38,6 @@ test_that("MAFs", {
   )
 })
 
-test_that("random trait, 0 SNPs", {
-  traits <- create_random_trait(n_snps = 0)
-  phe_table <- create_demo_phe_table(
-      traits = traits,
-      ped_table = create_demo_ped_table(traits = traits)
-  )
-  check_phe_table(phe_table)
-})
-
 test_that("random trait, 1 SNP", {
   traits <- create_random_trait(n_snps = 1)
   expect_silent(

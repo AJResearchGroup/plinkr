@@ -28,10 +28,14 @@ create_demo_ped_table_rhs <- function(
   }
   t <- dplyr::bind_cols(tibbles, .name_repair = "minimal")
 
-  names(t) <- paste0(
+  if (ncol(t) == 0) return(t)
+
+  new_names <- paste0(
     "snv_",
     rep(seq(from = 1, to = ncol(t) / 2), each = 2),
     rep(c("a", "b"), times = ncol(t) / 2)
   )
+  testthat::expect_equal(length(names(t)), length(new_names))
+  names(t) <- new_names
   t
 }

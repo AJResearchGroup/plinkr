@@ -31,6 +31,7 @@ create_trait <- function(
 ) {
   plinkr::check_phenotypes(phenotype)
   plinkr::check_mafs(mafs)
+  plinkr::check_n_snps(n_snps)
   plinkr::check_calc_phenotype_function(calc_phenotype_function)
   list(
     phenotype = phenotype,

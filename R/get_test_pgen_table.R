@@ -23,5 +23,10 @@ get_test_pgen_table <- function() {
   )
   colnames(pgen_table) <- paste0("snp", c(1, 2))
   rownames(pgen_table) <- as.character(seq(1, 6))
+
+  my_attributes <- attributes(pgen_table)
+  my_attributes$plink_data_type <- "pgen_table"
+  attributes(pgen_table) <- my_attributes
+
   pgen_table
 }

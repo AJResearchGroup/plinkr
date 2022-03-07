@@ -17,9 +17,5 @@ test_that("use, PLINK2 bin data", {
   plink2_bin_data <- create_test_plink2_bin_data()
   n_snps <- ncol(plink2_bin_data$pgen_table)
   expect_equal(get_n_snps(plink2_bin_data$pvar_table), n_snps)
-  # Cannot distinguish .bed and .pgen
-  expect_equal(
-    get_n_snps(plink2_bin_data$pgen_table),
-    nrow(plink2_bin_data$pgen_table)
-  )
+  expect_equal(get_n_snps(plink2_bin_data$pgen_table), n_snps)
 })

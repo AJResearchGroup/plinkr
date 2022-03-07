@@ -1,0 +1,12 @@
+test_that("use", {
+  expect_silent(check_n_snps(1))
+  expect_silent(check_n_snps(2))
+  expect_error(check_n_snps(1.6))
+  expect_error(check_n_snps(-0.3))
+  expect_error(check_n_snps("nonsense"))
+  expect_error(check_n_snps(""))
+  expect_error(check_n_snps(NULL))
+  expect_error(check_n_snps(NA))
+  expect_error(check_n_snps(Inf))
+  expect_error(check_n_snps(c(1, 2)))
+})

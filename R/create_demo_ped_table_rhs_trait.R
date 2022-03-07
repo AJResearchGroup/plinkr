@@ -16,6 +16,9 @@ create_demo_ped_table_rhs_trait <- function( # nolint indeed a long function nam
   plinkr::check_trait(trait)
   testthat::expect_true(plinkr::is_one_trait(trait)) # Unsure
 
+  if (trait$n_snps == 0) {
+
+  }
   mafs <- trait$mafs
   major_allele_frequency <- 1.0 - sum(mafs)
   freqs <- c(major_allele_frequency, mafs)

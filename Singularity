@@ -50,11 +50,11 @@ assoc(
     AUTHOR Richel J.C. Bilderbeek
 
     NAME plinkr
- 
+
     DESCRIPTION The plinkr R package, with the multiple PLINK versions installed
 
     USAGE simply run the container
 
     URL https://github.com/richelbilderbeek/plinkr
 
-    VERSION 0.19
+    VERSION 0.19.1

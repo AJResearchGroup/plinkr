@@ -21,10 +21,15 @@ create_demo_phe_table_rhs <- function( # nolint indeed a long function name
   if (plinkr::is_one_trait(traits)) traits <- list(traits)
   testthat::expect_false(plinkr::is_one_trait(traits))
 
+  n_snps_total <- sum(purrr::map_dbl(traits, function(e) e$n_snps))
+  if (n_snps_total == 0) {
+    return(ped_table[, c(1, 2)])
+  }
+
+
   tibbles <- list()
 
-
-  testthat::expect_true(ncol(ped_table == 6) || "snv_1a" == names(ped_table)[7])
+  testthat::expect_true("snv_1a" == names(ped_table)[7])
   ped_col_from <- 7
   for (i in seq_along(traits)) {
     trait <- traits[[i]]

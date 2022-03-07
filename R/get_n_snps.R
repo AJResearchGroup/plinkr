@@ -15,6 +15,11 @@
 #'
 #' @export
 get_n_snps <- function(table) {
+  # First try attributes
+  if ("pgen_table" %in% attributes(table)) {
+    return(plinkr::get_n_snps_from_pgen_table(pgen_table = table))
+  }
+
   if (plinkr::is_bed_table(table)) {
     return(plinkr::get_n_snps_from_bed_table(bed_table = table))
   }
@@ -28,6 +33,8 @@ get_n_snps <- function(table) {
     return(plinkr::get_n_snps_from_ped_table(ped_table = table))
   }
   if (plinkr::is_pgen_table(table)) {
+    # This will never be reached: a .pgen table is identified similar
+    # as a .bed file, hence the use of attributes
     return(plinkr::get_n_snps_from_pgen_table(pgen_table = table))
   }
   if (plinkr::is_pvar_table(table)) {

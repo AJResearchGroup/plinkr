@@ -1,4 +1,6 @@
 test_that("use", {
+  clear_plinkr_cache()
+
   bim_table <- get_test_bim_table()
   bim_filename <- get_plinkr_tempfilename(fileext = ".bim")
   save_bim_table(
@@ -9,10 +11,11 @@ test_that("use", {
   file.remove(bim_filename)
 
   check_empty_plinkr_folder()
-  clear_plinkr_cache() # nolint
 })
 
 test_that("sub-sub-sub folder", {
+  clear_plinkr_cache()
+
   bim_table <- get_test_bim_table()
   bim_filename <- file.path(
     get_plinkr_tempfilename(),
@@ -28,9 +31,12 @@ test_that("sub-sub-sub folder", {
     dirname(dirname(dirname(dirname(dirname(bim_filename))))),
     recursive = TRUE
   )
+  check_empty_plinkr_folder()
 })
 
 test_that("filename must end with .bim", {
+  clear_plinkr_cache()
+
   bim_table <- get_test_bim_table()
   bim_filename <- get_plinkr_tempfilename(fileext = ".not_bim")
   expect_error(
@@ -45,6 +51,9 @@ test_that("filename must end with .bim", {
 
 test_that("Give error due to too high chromosome number", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   data <- create_test_plink_bin_data()
   data$bim_table$chr <- 123
@@ -55,10 +64,7 @@ test_that("Give error due to too high chromosome number", {
     ),
     "default PLINK can handle a maximum of 95 chromosomes"
   )
-
   check_empty_plinkr_folder()
-  clear_plinkr_cache() # nolint
-
 })
 
 test_that("write to impossible folder", {

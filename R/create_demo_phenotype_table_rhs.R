@@ -23,7 +23,12 @@ create_demo_phe_table_rhs <- function( # nolint indeed a long function name
 
   n_snps_total <- sum(purrr::map_dbl(traits, function(e) e$n_snps))
   if (n_snps_total == 0) {
-    return(ped_table[, c(1, 2)])
+    phe_table <- tibble::tibble(
+      FID = character(0),
+      IID = character(0),
+)
+    plinkr::check_phe_table(phe_table)
+    return(phe_table)
   }
 
 

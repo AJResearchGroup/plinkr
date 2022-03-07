@@ -95,6 +95,9 @@ test_that("warnings", {
 test_that("assoc_qt the PLINK way", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = rep(list(create_random_trait(n_snps = 1)), 2),
@@ -135,12 +138,13 @@ test_that("assoc_qt the PLINK way", {
   file.remove(qassoc_filenames)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("assoc_qt the PLINK way with phenotype file with header", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed()) return()
+  clear_plinkr_cache()
+
   # Without header works
   args <- c(
     "--ped", get_plinkr_filename("test_v1_7.ped"),
@@ -168,13 +172,12 @@ test_that("assoc_qt the PLINK way with phenotype file with header", {
   file.remove(qassoc_filenames)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
-
-
 })
 
 test_that("detect invalid combinations of commands", {
   if (!is_plink_installed()) return()
+  clear_plinkr_cache()
+
   # From https://zzz.bwh.harvard.edu/plink/data.shtml#covar
   #
   # Not all commands accept covariates, and PLINK will not always give you
@@ -189,5 +192,4 @@ test_that("detect invalid combinations of commands", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })

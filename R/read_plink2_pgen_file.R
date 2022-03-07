@@ -31,5 +31,10 @@
    pgen_array <- as.array(pgen_table)
    colnames(pgen_array) <- names_loci
    rownames(pgen_array) <- names_ind
+
+   my_attributes <- attributes(pgen_array)
+   my_attributes$plink_data_type <- "pgen_table"
+   attributes(pgen_array) <- my_attributes
+
    pgen_array
 }

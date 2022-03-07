@@ -11,5 +11,6 @@
 create_demo_phe_table_lhs <- function( # nolint indeed a long function name
   ped_table = create_demo_ped_table()
 ) {
+  plinkr::check_ped_table(ped_table)
   ped_table[, c(1, 2)]
 }

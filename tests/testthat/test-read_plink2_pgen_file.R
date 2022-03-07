@@ -164,5 +164,20 @@ test_that("can read .bed files as well?", {
       names_ind = as.character(seq(1, 6))
     )
   )
+})
 
+test_that("attribute", {
+
+  pgen_table <- read_plink2_pgen_file(
+    pgen_filename = get_plinkr_filename(
+      "test_v1_7_after_make-bed_after_make-pgen.pgen"
+    ),
+    names_loci = c("snp1", "snp2"),
+    names_ind = as.character(seq(1, 6))
+  )
+  my_attributes <- attributes(pgen_table)
+  my_attributes$plink_data_type <- "pgen_table"
+  attributes(pgen_table) <- my_attributes
+
+  expect_true("pgen_table" %in% attributes(pgen_table))
 })

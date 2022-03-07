@@ -1,5 +1,5 @@
 test_that("minimal use", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 
   bed_filename <- get_plinkr_tempfilename(fileext = ".bed")
   save_bed_table(
@@ -10,10 +10,11 @@ test_that("minimal use", {
   file.remove(bed_filename)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("must have .bed extension", {
+  clear_plinkr_cache()
+
   expect_error(
     save_bed_table(
       bed_table = get_test_bed_table(),
@@ -21,10 +22,12 @@ test_that("must have .bed extension", {
     ),
     "must have the '.bed' filename extension"
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("a .bed table has SNPs on the rows, and individuals on the columns", {
-  expect_silent(check_empty_plinkr_folder())
+  clear_plinkr_cache()
 
   file_bed <- system.file("extdata", "sample.bed", package = "genio")
   file_bim <- system.file("extdata", "sample.bim", package = "genio")
@@ -38,7 +41,6 @@ test_that("a .bed table has SNPs on the rows, and individuals on the columns", {
   bed_table <- genio::read_bed(file_bed, bim$id, fam$id, verbose = FALSE)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache() # nolint
 })
 
 test_that("sub-sub-sub folder", {

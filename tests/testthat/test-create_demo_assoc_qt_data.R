@@ -50,27 +50,27 @@ test_that("MAFs", {
 
 test_that("one random, 0 SNP", {
   # This is useful when one wants to add zero random SNPs
-  expect_silent(
-    create_demo_assoc_qt_data(
-      traits = create_random_trait(n_snps = 0)
-    )
+  assoc_qt_data <- create_demo_assoc_qt_data(
+    traits = create_random_trait(n_snps = 0)
   )
+  check_assoc_qt_data(assoc_qt_data)
+  expect_equal(2, ncol(assoc_qt_data$phenotype_data$phe_table))
 })
 
 test_that("one random, 1 SNP", {
-  expect_silent(
-    create_demo_assoc_qt_data(
-      traits = create_random_trait()
-    )
+  assoc_qt_data <- create_demo_assoc_qt_data(
+    traits = create_random_trait(n_snps = 1)
   )
+  check_assoc_qt_data(assoc_qt_data)
+  expect_equal(3, ncol(assoc_qt_data$phenotype_data$phe_table))
 })
 
 test_that("one random, 2 SNPs", {
-  expect_silent(
-    create_demo_assoc_qt_data(
-      traits = create_random_trait(n_snps = 2)
-    )
+  assoc_qt_data <- create_demo_assoc_qt_data(
+    traits = create_random_trait(n_snps = 2)
   )
+  check_assoc_qt_data(assoc_qt_data)
+  expect_equal(4, ncol(assoc_qt_data$phenotype_data$phe_table))
 })
 
 test_that("one additive, 1 SNP", {

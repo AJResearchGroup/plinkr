@@ -19,12 +19,11 @@ test_that("use", {
 
 test_that("random, 0 SNPs", {
   traits <- create_random_trait(n_snps = 0)
-  expect_error(
+  expect_silent(
     create_demo_phe_table_rhs(
       traits = traits,
       ped_table = create_demo_ped_table(traits = traits)
-    ),
-    "Phenotype table must have at least 1 SNP"
+    )
   )
 })
 

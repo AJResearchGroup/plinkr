@@ -4,6 +4,9 @@
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return Nothing. Will \link{stop} if the number of SNPs is invalid
+#' @examples
+#' check_n_snps(1)
+#' check_n_snps(2)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_n_snps <- function(n_snps) {

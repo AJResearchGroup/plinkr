@@ -48,6 +48,15 @@ test_that("MAFs", {
   )
 })
 
+test_that("one random, 0 SNP", {
+  # This is useful when one wants to add zero random SNPs
+  expect_silent(
+    create_demo_assoc_qt_data(
+      traits = create_random_trait(n_snps = 0)
+    )
+  )
+})
+
 test_that("one random, 1 SNP", {
   expect_silent(
     create_demo_assoc_qt_data(

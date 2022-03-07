@@ -13,7 +13,7 @@
 #' @author Richèl J.C. Bilderbeek
 check_traits <- function(traits) {
   testthat::expect_true(is.list(traits))
-  if (plinkr::is_one_trait(traits)) return()
+  if (plinkr::is_one_trait(traits)) return(invisible(traits))
 
   for (i in seq_along(traits)) {
     tryCatch(
@@ -26,4 +26,5 @@ check_traits <- function(traits) {
       }
     )
   }
+  invisible(traits)
 }

@@ -28,11 +28,14 @@ check_ped_table <- function(ped_table) {
   actual_names_lhs <- names(ped_table)[seq(1, 6)]
   testthat::expect_equal(actual_names_lhs, expected_names_lhs)
   n_snvs <- (ncol(ped_table) - 6) / 2
-  expected_names_rhs <- paste0(
-    "snv_",
-    rep(seq(from = 1, to = n_snvs), each = 2),
-    rep(c("a", "b"), times = n_snvs)
-  )
-  actual_names_rhs <- names(ped_table)[-seq(1, 6)]
-  testthat::expect_equal(actual_names_rhs, expected_names_rhs)
+  if (n_snvs != 0) {
+    expected_names_rhs <- paste0(
+      "snv_",
+      rep(seq(from = 1, to = n_snvs), each = 2),
+      rep(c("a", "b"), times = n_snvs)
+    )
+    actual_names_rhs <- names(ped_table)[-seq(1, 6)]
+    testthat::expect_equal(actual_names_rhs, expected_names_rhs)
+  }
+  invisible(ped_table)
 }

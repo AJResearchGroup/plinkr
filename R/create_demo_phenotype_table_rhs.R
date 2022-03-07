@@ -22,10 +22,13 @@ create_demo_phe_table_rhs <- function( # nolint indeed a long function name
   testthat::expect_false(plinkr::is_one_trait(traits))
 
   tibbles <- list()
-  testthat::expect_equal("snv_1a", names(ped_table)[7])
+
+
+  testthat::expect_true(ncol(ped_table == 6) || "snv_1a" == names(ped_table)[7])
   ped_col_from <- 7
   for (i in seq_along(traits)) {
     trait <- traits[[i]]
+    if (trait$n_snps == 0) next
     plinkr::check_phenotypes(trait$phenotype)
     ped_col_to <- ped_col_from + 1 + ((trait$n_snps - 1) * 2)
     testthat::expect_true(ped_col_to <= ncol(ped_table))
@@ -39,6 +42,9 @@ create_demo_phe_table_rhs <- function( # nolint indeed a long function name
   testthat::expect_equal(ped_col_from, ncol(ped_table) + 1)
 
   phe_table_rhs <- dplyr::bind_cols(tibbles, .name_repair = "minimal")
+  if (ncol(phe_table_rhs) == 0) {
+    return(phe_table_rhs)
+  }
 
   # Allow multiple columns with same phenotype
   col_names <- purrr::map_chr(traits, function(e) e$phenotype)

@@ -8,6 +8,19 @@ Newest versions at top.
 
  * Added 'check_phe_file_ok_for_qt'
  * Added 'check_phe_table_ok_for_qt'
+ * Added 'get_n_snps'
+ * Added 'get_n_snps_from_bed_table'
+ * Added 'get_n_snps_from_bim_table'
+ * Added 'get_n_snps_from_map_table'
+ * Added 'get_n_snps_from_ped_table'
+ * Added 'get_n_snps_from_pgen_table'
+ * Added 'get_n_snps_from_pvar_table'
+ * Added 'is_bed_table'
+ * Added 'is_bim_table'
+ * Added 'is_map_table'
+ * Added 'is_ped_table'
+ * Added 'is_pgen_table'
+ * Added 'is_pvar_table'
 
 ### MINOR IMPROVEMENTS
 

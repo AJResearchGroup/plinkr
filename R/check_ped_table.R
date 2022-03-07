@@ -1,7 +1,12 @@
-#' Check if a `.ped` table is valid. Will \link{stop} if not
+#' Check if a `.ped` table is valid.
+#'
+#' Check if a `.ped` table is valid.
+#' Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return Nothing.
 #'   Will \link{stop} if the pedigree table is invalid.
+#' @seealso use \link{is_ped_table} to determine if a table
+#' is a valid `.ped` table
 #' @examples
 #' check_ped_table(get_test_ped_table())
 #' check_ped_table(read_plink_ped_file(get_plinkr_filename("toy_v1_9.ped")))

@@ -9,12 +9,6 @@ From: rocker/tidyverse
 #From: r-base
 
 %post
-
-    echo "LC_ALL=en_US.UTF-8" >> /etc/environment
-    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-    echo "LANG=en_US.UTF-8" > /etc/locale.conf
-    locale-gen en_US.UTF-8
-
     Rscript -e 'install.packages(c("remotes", "devtools"))'
     Rscript -e 'remotes::install_github("richelbilderbeek/plinkr")'
     Rscript -e 'plinkr::install_plinks(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'

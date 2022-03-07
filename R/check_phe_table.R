@@ -12,7 +12,9 @@
 #' @export
 check_phe_table <- function(phe_table) {
   testthat::expect_true(tibble::is_tibble(phe_table))
-  testthat::expect_true(ncol(phe_table) >= 3)
+  if (ncol(phe_table) < 3) {
+    stop("Need at least 3 column in a phenotype (.phe) table")
+  }
   # PLINK names, from
   # https://www.cog-genomics.org/plink/1.9/input#pheno
   testthat::expect_equal("FID", names(phe_table)[1])

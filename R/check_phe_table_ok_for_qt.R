@@ -22,15 +22,7 @@
 #' @export
 check_phe_table_ok_for_qt <- function(phe_table) {
   plinkr::check_phe_table(phe_table)
-
   n_phenotypes <- ncol(phe_table) - 2
-  if (n_phenotypes == 0) {
-    stop(
-      "Must have at least 1 phenotype for a quantitative trait analysis. \n",
-      "n_phenotypes: ", n_phenotypes
-    )
-  }
-
   col_indices <- seq(from = 2 + 1, to = 2 + n_phenotypes)
   for (col_index in col_indices) {
     trait_values <- as.numeric(t(phe_table[, col_index]))

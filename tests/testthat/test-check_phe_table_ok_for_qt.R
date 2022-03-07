@@ -27,11 +27,10 @@ test_that("only FID and IID columns", {
   phe_table <- create_demo_phe_table()
   # All zeroes, ones and twos
   phe_table <- phe_table[, c(1, 2)]
-  check_phe_table(phe_table)
   expect_error(
     check_phe_table_ok_for_qt(
       phe_table
     ),
-    "Must have at least 1 phenotype for a quantitative trait analysis"
+    "Need at least 3 column in a phenotype ..phe. table"
   )
 })

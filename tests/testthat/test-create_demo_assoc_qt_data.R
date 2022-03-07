@@ -61,7 +61,7 @@ test_that("one random, 2 SNPs", {
     traits = create_random_trait(n_snps = 2)
   )
   check_assoc_qt_data(assoc_qt_data)
-  expect_equal(4, ncol(assoc_qt_data$phenotype_data$phe_table))
+  expect_equal(3, ncol(assoc_qt_data$phenotype_data$phe_table))
 })
 
 test_that("one additive, 1 SNP", {

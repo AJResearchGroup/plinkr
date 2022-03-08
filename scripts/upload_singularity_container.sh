@@ -17,7 +17,7 @@ echo "To sign the container, paste your passphrase"
 singularity sign plinkr.sif
 
 # Upload the latest version
-singularity push plinkr.sif library://richelbilderbeek/default/plinkr:0.19.1
+singularity push plinkr.sif library://richelbilderbeek/default/plinkr:0.19.1.1
 
 if [[ $HOSTNAME == "N141CU" ]]; then
   notify-send "Done uploading 'plinkr.sif'" "Done uploading 'plinkr.sif'"

@@ -5,39 +5,12 @@
 \title{Create parameters for the \link{assoc_qt} function}
 \usage{
 create_assoc_qt_params(
-  data,
-  phe_table,
   maf = get_lowest_maf(),
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
   base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")
 )
 }
 \arguments{
-\item{data}{the data source, which can be:
-\itemize{
-\item PLINK text data, as created by \link{create_plink_text_data}.
-\item PLINK binary data, as created by \link{create_plink_bin_data}.
-\item PLINK2 binary data, as created by \link{create_plink2_bin_data}.
-\item PLINK text filenames, as created by \link{create_plink_text_filenames}.
-\item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
-\item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
-}}
-
-\item{phe_table}{a table of phenotypes.
-
-A \code{phe_table} is a \link[tibble]{tibble} with these columns:
-\itemize{
-\item \code{FID} The family ID
-\item \code{IID} Within-family ID (cannot be zero)
-\item One or more columns of phenotype values,
-columns can have any name
-}
-
-These names match the PLINK column
-names (\url{https://www.cog-genomics.org/plink/1.9/input#pheno}).
-Use \link{read_plink_phe_file} to read a phenotype file.
-Use \link{check_phe_table} to test if a phenotype table is valid.}
-
 \item{maf}{minor allele frequency threshold.
 Alleles that have a frequency lower than the MAF
 are excluded from the \code{PLINK} analysis.

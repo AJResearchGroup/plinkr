@@ -4,15 +4,20 @@
 \alias{check_assoc_qt_params}
 \title{Check if the \code{assoc_qt_params} are valid, will stop otherwise}
 \usage{
-check_assoc_qt_params(assoc_qt_params)
+check_assoc_qt_params(assoc_qt_params, verbose = FALSE)
 }
 \arguments{
 \item{assoc_qt_params}{parameters to do an association analysis
 for a quantitative trait (i.e. using \link{assoc_qt}),
 as can be created by \link{create_assoc_qt_params}}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-Nothing.
+The \code{assoc_qt_params} with an attribute (see \link{attributes})
+to indicate it has been checked
 }
 \description{
 Check if the \code{assoc_qt_params} are valid, will stop otherwise

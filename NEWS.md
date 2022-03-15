@@ -18,7 +18,8 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * None
+ * 'assoc_qt_params' has no 'data' nor 'phe_table' anymore, 
+   as these are part of 'assoc_qt_data'
 
 ## plinkr v0.19.1 (2022-03-08)
 

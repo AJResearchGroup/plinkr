@@ -1,12 +1,12 @@
 test_that("use, create_test_assoc_qt_params, PLINK text", {
+  clear_plinkr_cache()
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
-      create_test_assoc_qt_params()$data
+      create_test_assoc_qt_data()$data
     )
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("use, create_test_assoc_qt_params, PLINK binary data", {

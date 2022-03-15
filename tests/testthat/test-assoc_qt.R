@@ -1,19 +1,15 @@
 test_that("Use uniform interface", {
-  clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data()
-  assoc_qt_params <- create_test_assoc_qt_params()
-  assoc_qt(
-    assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = assoc_qt_params
-  )
+  assoc_qt(assoc_qt_data = assoc_qt_data)
   suppressMessages(
     expect_message(
       assoc_qt(
         assoc_qt_data = assoc_qt_data,
-        assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
       "you should be able to copy paste this"
@@ -21,7 +17,6 @@ test_that("Use uniform interface", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 #
@@ -37,23 +32,20 @@ test_that("Use uniform interface", {
 #  6 | PLINK2        | PLINK2 bin data | OK
 #
 test_that("1. test data, PLINK1, PLINK1 text data", {
+  if (!is_plink_installed()) return()
+
   clear_plinkr_cache()
 
-  expect_silent(check_empty_plinkr_folder())
-
-  if (!is_plink_installed()) return()
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_text_data()
   )
   assoc_qt(
-    assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = create_test_assoc_qt_params()
+    assoc_qt_data = assoc_qt_data
   )
   suppressMessages(
     expect_message(
       assoc_qt(
         assoc_qt_data = assoc_qt_data,
-        assoc_qt_params = create_test_assoc_qt_params(),
         verbose = TRUE
       ),
       "you should be able to copy paste this"
@@ -61,27 +53,24 @@ test_that("1. test data, PLINK1, PLINK1 text data", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("2. test data, PLINK1, PLINK1 bin data", {
-  clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_bin_data()
   )
-  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt(
-    assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = assoc_qt_params
+    assoc_qt_data = assoc_qt_data
   )
   suppressMessages(
     expect_message(
       assoc_qt(
         assoc_qt_data = assoc_qt_data,
-        assoc_qt_params = assoc_qt_params,
         verbose = TRUE
       ),
       "you should be able to copy paste this"
@@ -89,77 +78,76 @@ test_that("2. test data, PLINK1, PLINK1 bin data", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("3. test data, PLINK1, PLINK2 bin data, must fail", {
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink2_bin_data()
   )
   expect_error(
     assoc_qt(
-      assoc_qt_data = assoc_qt_data,
-      assoc_qt_params = create_test_assoc_qt_params()
+      assoc_qt_data = assoc_qt_data
     ),
     "PLINK cannot work with PLINK2 binary data"
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("4. test data, PLINK2, PLINK1 text data, must fail", {
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_text_data()
   )
   expect_error(
     assoc_qt(
       assoc_qt_data = assoc_qt_data,
-      assoc_qt_params = create_test_assoc_qt_params(),
       plink_options = create_plink_v2_0_options()
     ),
     "PLINK2 cannot work with PLINK text data"
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("5. test data, PLINK2, PLINK1 bin data, must fail", {
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_bin_data()
   )
   expect_error(
     assoc_qt(
       assoc_qt_data = assoc_qt_data,
-      assoc_qt_params = create_test_assoc_qt_params(),
       plink_options = create_plink_v2_0_options()
     ),
     "PLINK2 cannot work with PLINK binary data"
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("6. test data, PLINK2, PLINK2 bin data", {
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink2_bin_data()
   )
-  assoc_qt_params <- create_test_assoc_qt_params()
   expect_warning(
     assoc_qt(
       assoc_qt_data = assoc_qt_data,
-      assoc_qt_params = assoc_qt_params,
       plink_options = create_plink_v2_0_options()
     ),
     "--glm remaining control count is less than 10x predictor count for"
@@ -169,7 +157,6 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
       expect_message(
         assoc_qt(
           assoc_qt_data = assoc_qt_data,
-          assoc_qt_params = assoc_qt_params,
           plink_options = create_plink_v2_0_options(),
           verbose = TRUE
         ),
@@ -178,7 +165,6 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
     )
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 #
@@ -194,14 +180,14 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
 # 12 | PLINK2        | PLINK2 bin filenames | OK
 #
 test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
-  clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
-
   if (!is_plink_installed()) return()
-  assoc_qt_params <- create_test_assoc_qt_params()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_text_data()
   )
+  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt_data$data <- save_plink_text_data(
     plink_text_data = assoc_qt_data$data,
     base_input_filename = assoc_qt_params$base_input_filename
@@ -237,15 +223,15 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
   unlink(dirname(assoc_qt_params$base_output_filename), recursive = TRUE)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("8. test filenames, PLINK1, PLINK1 bin filenames", {
   skip("assoc_qt 8: leaves file")
-  clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_bin_data()
   )
@@ -278,26 +264,32 @@ test_that("8. test filenames, PLINK1, PLINK1 bin filenames", {
 })
 
 test_that("9. test filenames, PLINK1, PLINK2 bin filenames, must fail", {
+
   skip("assoc_qt 9")
-  clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink2_bin_filenames()
   )
   expect_error(
-    assoc_qt(assoc_qt_params = assoc_qt_params),
+    assoc_qt(
+      assoc_qt_data = assoc_qt_data,
+      plink_options = create_plink_v1_7_options()
+    ),
     "PLINK cannot work with PLINK2 binary filenames"
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("10. test filenames, PLINK2, PLINK1 text filenames, must fail", {
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_text_filenames(),
     phenotype_data = create_test_phenotype_data_table()
@@ -305,7 +297,6 @@ test_that("10. test filenames, PLINK2, PLINK1 text filenames, must fail", {
   expect_error(
     assoc_qt(
       assoc_qt_data = assoc_qt_data,
-      assoc_qt_params = create_test_assoc_qt_params(),
       plink_options = create_plink_v2_0_options()
     ),
     "PLINK2 cannot work with PLINK text files"
@@ -314,10 +305,13 @@ test_that("10. test filenames, PLINK2, PLINK1 text filenames, must fail", {
 })
 
 test_that("11. test filenames, PLINK2, PLINK1 bin filenames, must fail", {
+
   skip("assoc_qt 11")
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink_bin_filenames(),
     phenotype_data = create_test_phenotype_data_table()
@@ -325,7 +319,6 @@ test_that("11. test filenames, PLINK2, PLINK1 bin filenames, must fail", {
   expect_error(
     assoc_qt_results_filenames <- assoc_qt(
       assoc_qt_data = assoc_qt_data,
-      assoc_qt_params = create_test_assoc_qt_params(),
       plink_options = create_plink_v2_0_options()
     ),
     "PLINK2 cannot work with PLINK binary files"
@@ -336,21 +329,24 @@ test_that("11. test filenames, PLINK2, PLINK1 bin filenames, must fail", {
 test_that("12. test filenames, PLINK2, PLINK2 bin filenames", {
 
   skip("Does not clean up well yet")
-  expect_silent(check_empty_plinkr_folder())
 
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink2_bin_data()
   )
+  assoc_qt_params <- create_test_assoc_qt_params()
   assoc_qt_data$data <- save_plink2_bin_data(assoc_qt_data$data)
   save_phe_table(
-    phe_table = assoc_qt_params$phe_table,
+    phe_table = assoc_qt_data$phenotype_data$phe_table,
     phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
   )
 
   expect_warning(
     assoc_qt_results_filenames <- assoc_qt(
-      assoc_qt_params = assoc_qt_params,
+      assoc_qt_data = assoc_qt_data,
       plink_options = create_plink_v2_0_options()
     ),
     "--glm remaining control count is less than 10x predictor count for"
@@ -359,7 +355,7 @@ test_that("12. test filenames, PLINK2, PLINK2 bin filenames", {
     suppressMessages(
       expect_message(
         assoc_qt(
-          assoc_qt_params = assoc_qt_params,
+          assoc_qt_data = assoc_qt_data,
           plink_options = create_plink_v2_0_options(),
           verbose = TRUE
         ),
@@ -390,6 +386,8 @@ test_that("12. test filenames, PLINK2, PLINK2 bin filenames", {
 
 test_that("13. test data, PLINK1, PLINK1 bin data, phenotype file", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
 
   # Goal is to see if the 'assoc_qt_params$phe_table' is actually used,
   # by doing an association, changing it, and doing an association again
@@ -423,13 +421,14 @@ test_that("13. test data, PLINK1, PLINK1 bin data, phenotype file", {
   expect_true(all(before$P != after$P)) # nolint PLINK naming scheme
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("Compare assoc_qt results and speed of PLINKs", {
   expect_equal(1 + 1, 2) # To prevent 'No test' warning
   return()
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
 
   # Goal is to see the results of the PLINK versions
   set.seed(314)
@@ -495,5 +494,4 @@ test_that("Compare assoc_qt results and speed of PLINKs", {
   times
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

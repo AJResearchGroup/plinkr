@@ -7,7 +7,7 @@ with one or more quantitative traits.}
 \usage{
 assoc_qt(
   assoc_qt_data,
-  assoc_qt_params,
+  assoc_qt_params = create_assoc_qt_params(),
   plink_options = create_plink_options(),
   verbose = FALSE
 )

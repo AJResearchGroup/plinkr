@@ -156,9 +156,9 @@ from `trait` to `trait_x`:
 ```{r}
 if (is_plink_installed()) {
   # Rename
-  names(assoc_qt_params$phe_table) <-
+  names(assoc_qt_data$phenotype_data$phe_table) <-
     c(
-      names(assoc_qt_params$phe_table)[-3],
+      names(assoc_qt_data$phenotype_data$phe_table)[-3],
       "trait_x"
     )
 }
@@ -169,10 +169,10 @@ called `trait_y`:
 
 ```{r}
 if (is_plink_installed()) {
-  assoc_qt_params$phe_table$trait_y <-
-    seq_len(nrow(assoc_qt_params$phe_table)) *
-    seq_len(nrow(assoc_qt_params$phe_table))
-  knitr::kable(assoc_qt_params$phe_table)
+  assoc_qt_data$phenotype_data$phe_table$trait_y <-
+    seq_len(nrow(assoc_qt_data$phenotype_data$phe_table)) *
+    seq_len(nrow(assoc_qt_data$phenotype_data$phe_table))
+  knitr::kable(assoc_qt_data$phenotype_data$phe_table)
 }
 ```
 

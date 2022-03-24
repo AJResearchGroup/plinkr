@@ -27,7 +27,7 @@ If applicable, add screenshots to help explain your problem.
 Show the results of running the following script:
 
 ```r
-plinkr::plink_report()
+plinkr::plinkr_report()
 ```
 
 **Additional context**

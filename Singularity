@@ -1,13 +1,5 @@
 # The plinkr R package, with the multiple PLINK versions installed
 
-#export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
-
-#1: Setting LC_TIME failed, using "C" 
-#2: Setting LC_MONETARY failed, using "C" 
-#3: Setting LC_PAPER failed, using "C" 
-#4: Setting LC_MEASUREMENT failed, using "C"
-
 # Works, see https://github.com/richelbilderbeek/tidyverse_singularity
 Bootstrap: docker
 From: rocker/tidyverse
@@ -17,6 +9,9 @@ From: rocker/tidyverse
 #From: r-base
 
 %post
+    # From https://github.com/brucemoran/Singularity/blob/8eb44591284ffb29056d234c47bf8b1473637805/shub/bases/recipe.CentOs7-R_3.5.2#L21
+    echo 'export LANG=en_US.UTF-8 LANGUAGE=C LC_ALL=C LC_CTYPE=C LC_COLLATE=C  LC_TIME=C LC_MONETARY=C LC_PAPER=C LC_MEASUREMENT=C' >> $SINGULARITY_ENVIRONMENT
+
     Rscript -e 'install.packages(c("remotes", "devtools"))'
     Rscript -e 'remotes::install_github("richelbilderbeek/plinkr")'
     Rscript -e 'plinkr::install_plinks(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'

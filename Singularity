@@ -1,5 +1,13 @@
 # The plinkr R package, with the multiple PLINK versions installed
 
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+
+#1: Setting LC_TIME failed, using "C" 
+#2: Setting LC_MONETARY failed, using "C" 
+#3: Setting LC_PAPER failed, using "C" 
+#4: Setting LC_MEASUREMENT failed, using "C"
+
 # Works, see https://github.com/richelbilderbeek/tidyverse_singularity
 Bootstrap: docker
 From: rocker/tidyverse

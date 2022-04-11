@@ -1,0 +1,11 @@
+test_that("use", {
+  expect_silent(check_snp("my_snp"))
+  expect_silent(check_snp("rs58108140"))
+  expect_error(check_snp(""))
+  expect_error(check_snp(c("rs58108140", "rs58108140")))
+  expect_error(check_snp("my space separated SNP"))
+  expect_error(check_snp("my-dash-separated-SNP"))
+  expect_error(check_snp("my,comma,separated,SNP"))
+  expect_error(check_snp(""))
+  expect_error(check_snp("."))
+})

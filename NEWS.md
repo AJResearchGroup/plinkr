@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## plinkr v0.19.2.1 (unreleased)
+
+### NEW FEATURES
+
+ * Add 'select_snps'
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## plinkr v0.19.2 (2022-03-15)
 
 ### NEW FEATURES

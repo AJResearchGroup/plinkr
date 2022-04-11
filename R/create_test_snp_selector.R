@@ -15,9 +15,9 @@
 #' )
 #' @export
 #' @author Richèl J.C. Bilderbeek
-create_test_snp_window_selector <- function(
+create_test_snp_window_selector <- function( # nolint indeed a long function name
   snp = "rs12345678",
-  window_kb = 0.002
+  window_kb = 0.001
 ) {
   plinkr::create_snp_window_selector(
     snp = snp,

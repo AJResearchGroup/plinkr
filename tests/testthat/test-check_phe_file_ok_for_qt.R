@@ -6,7 +6,7 @@ test_that("use, OK file", {
 test_that("use, invalid file", {
   phe_filename <- get_plinkr_tempfilename(fileext = ".phe")
   phe_table <- get_test_phe_table()
-  phe_table$P1 <- sample(x = c(0, 1, 2), size = nrow(phe_table), replace = TRUE)
+  phe_table$P1 <- sample(x = c(0, 1, 2), size = nrow(phe_table), replace = TRUE) # nolint PLINK variable naming convention
   save_phe_table(phe_table = phe_table, phe_filename = phe_filename)
   expect_error(
     check_phe_file_ok_for_qt(phe_filename),

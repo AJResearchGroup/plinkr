@@ -59,8 +59,12 @@ test_that("use, from files, window of 0.003 = 3 SNP", {
 })
 
 test_that("use, from data, select 1 SNP", {
-  base_input_filename <- tools::file_path_sans_ext(get_plinkr_filename("select_snps.bed"))
-  plink_bin_data <- read_plink_bin_data(base_input_filename = base_input_filename)
+  base_input_filename <- tools::file_path_sans_ext(
+    get_plinkr_filename("select_snps.bed")
+  )
+  plink_bin_data <- read_plink_bin_data(
+    base_input_filename = base_input_filename
+  )
   check_plink_bin_data(plink_bin_data)
   # Only selects the SNP
   snp_window_selector <- create_snp_window_selector(
@@ -77,8 +81,12 @@ test_that("use, from data, select 1 SNP", {
 })
 
 test_that("use, select 3 SNPs", {
-  base_input_filename <- tools::file_path_sans_ext(get_plinkr_filename("select_snps.bed"))
-  plink_bin_data <- read_plink_bin_data(base_input_filename = base_input_filename)
+  base_input_filename <- tools::file_path_sans_ext(
+    get_plinkr_filename("select_snps.bed")
+  )
+  plink_bin_data <- read_plink_bin_data(
+    base_input_filename = base_input_filename
+  )
   snp_selector <- create_snp_window_selector(
     snp = "snp_5",
     window_kb = 0.002

@@ -4,7 +4,13 @@
 \alias{select_snps}
 \title{Select SNPs}
 \usage{
-select_snps(data, snps)
+select_snps(
+  data,
+  snp_selector,
+  base_output_filename = plinkr::get_plinkr_tempfilename(),
+  plink_options = plinkr::create_plink_options(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{data}{the data source, which can be:
@@ -16,6 +22,16 @@ select_snps(data, snps)
 \item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
 }}
+
+\item{base_output_filename}{the base of the filenames that are
+used as output for \code{PLINK}/\code{PLINK2}}
+
+\item{plink_options}{options to run PLINK,
+as created by \link{create_plink_options}}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link{check_verbose} to detect if this argument is valid.}
 }
 \description{
 Select SNPs

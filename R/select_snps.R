@@ -5,26 +5,41 @@
 select_snps <- function(
   data,
   snp_selector,
-  base_output_filename = gcaer::get_gcaer_tempfilename()
+  base_output_filename = plinkr::get_plinkr_tempfilename(),
+  plink_options = plinkr::create_plink_options(),
+  verbose = FALSE
 ) {
   plinkr::check_data(data)
   plinkr::check_snp_selector(snp_selector)
   plinkr::check_base_output_filename(base_output_filename)
+  plinkr::check_plink_options(plink_options)
+  plinkr::check_verbose(verbose)
 
   if (plinkr::is_plink_bin_filenames(data)) {
-    args <- plinkr::create_snps_args(
+    args <- plinkr::create_snp_window_args(
       plink_bin_filenames = data,
-      snp_selector = snp_selector,
+      snp_window_selector = snp_selector,
       base_output_filename = base_output_filename,
       plink_options = plink_options
     )
+    dir.create(
+      dirname(base_output_filename),
+      recursive = TRUE,
+      showWarnings = FALSE
+    )
     plinkr::run_plink(
       args = args,
-      plink_options = plink_options
+      plink_options = plink_options,
+      verbose = verbose
     )
     new_data <- plinkr::read_plink_bin_data(
       base_input_filename = base_output_filename
     )
+    if (verbose) {
+      message(
+        "Create selected SNPs at files with basename ", base_output_filename
+      )
+    }
     file.remove(paste0(base_output_filename, ".bed"))
     file.remove(paste0(base_output_filename, ".bim"))
     file.remove(paste0(base_output_filename, ".fam"))
@@ -33,11 +48,21 @@ select_snps <- function(
   } else if (plinkr::is_plink_bin_data(data)) {
     plink_bin_filenames <- plinkr::save_plink_bin_data(
       plink_bin_data = data,
-      base_input_filename = base_input_filename
+      base_input_filename = base_output_filename
     )
-    new_data <- gcaer::select_snps(
+    if (verbose) {
+      message(
+        "Saved in-memory data to files: \n * ",
+        paste0(plink_bin_filenames, collapse = "\n * ")
+      )
+    }
+    base_output_filename_2 <- plinkr::get_plinkr_tempfilename()
+    new_data <- plinkr::select_snps(
       data = plink_bin_filenames,
-      snp_selector = snp_selector
+      snp_selector = snp_selector,
+      base_output_filename = base_output_filename_2,
+      plink_options = plink_options,
+      verbose = verbose
     )
     file.remove(unlist(plink_bin_filenames))
     return(new_data)

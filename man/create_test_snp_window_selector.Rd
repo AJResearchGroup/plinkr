@@ -4,7 +4,14 @@
 \alias{create_test_snp_window_selector}
 \title{Create a SNP window selector}
 \usage{
-create_test_snp_window_selector(snp = "rs12345678", window_kb = 0.002)
+create_test_snp_window_selector(snp = "rs12345678", window_kb = 0.001)
+}
+\arguments{
+\item{snp}{a SNP, e.g. \code{rs12345678},
+as can be checked by \link{check_snp}}
+
+\item{window_kb}{the window (i.e. the amount of base pairs around
+a focal SNP) in kilobases, as checked by \link{check_window_kb}}
 }
 \description{
 Create a SNP window selector,

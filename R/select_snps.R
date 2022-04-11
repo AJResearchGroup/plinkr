@@ -2,21 +2,23 @@
 #' @inheritParams default_params_doc
 #' @export
 #' @examples
-#' # Use PLINK files
-#' plink_bin_filenames <- create_plink_bin_filenames(
-#'   bed_filename = get_plinkr_filename("select_snps.bed"),
-#'   bim_filename = get_plinkr_filename("select_snps.bim"),
-#'   fam_filename = get_plinkr_filename("select_snps.fam")
-#' )
-#' # Selects 3 SNPs, with 'snp_5' in the middle
-#' snp_window_selector <- create_snp_window_selector(
-#'   snp = "snp_5",
-#'   window_kb = 0.003
-#' )
-#' plink_bin_data <- select_snps(
-#'   data = plink_bin_filenames,
-#'   snp_selector = snp_window_selector
-#' )
+#' if (is_plink_installed()) {
+#'   # Use PLINK files
+#'   plink_bin_filenames <- create_plink_bin_filenames(
+#'     bed_filename = get_plinkr_filename("select_snps.bed"),
+#'     bim_filename = get_plinkr_filename("select_snps.bim"),
+#'     fam_filename = get_plinkr_filename("select_snps.fam")
+#'   )
+#'   # Selects 3 SNPs, with 'snp_5' in the middle
+#'   snp_window_selector <- create_snp_window_selector(
+#'     snp = "snp_5",
+#'     window_kb = 0.003
+#'   )
+#'   plink_bin_data <- select_snps(
+#'     data = plink_bin_filenames,
+#'     snp_selector = snp_window_selector
+#'   )
+#' }
 #' @author Richèl J.C. Bilderbeek
 select_snps <- function(
   data,

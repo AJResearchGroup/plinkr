@@ -23,6 +23,9 @@ select_snps(
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
 }}
 
+\item{snp_selector}{a SNP selector, a way to select one or more SNPs,
+as can be checked by \link{check_snp_selector}}
+
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}
 
@@ -37,21 +40,23 @@ Use \link{check_verbose} to detect if this argument is valid.}
 Select SNPs
 }
 \examples{
-# Use PLINK files
-plink_bin_filenames <- create_plink_bin_filenames(
-  bed_filename = get_plinkr_filename("select_snps.bed"),
-  bim_filename = get_plinkr_filename("select_snps.bim"),
-  fam_filename = get_plinkr_filename("select_snps.fam")
-)
-# Selects 3 SNPs, with 'snp_5' in the middle
-snp_window_selector <- create_snp_window_selector(
-  snp = "snp_5",
-  window_kb = 0.003
-)
-plink_bin_data <- select_snps(
-  data = plink_bin_filenames,
-  snp_selector = snp_window_selector
-)
+if (is_plink_installed()) {
+  # Use PLINK files
+  plink_bin_filenames <- create_plink_bin_filenames(
+    bed_filename = get_plinkr_filename("select_snps.bed"),
+    bim_filename = get_plinkr_filename("select_snps.bim"),
+    fam_filename = get_plinkr_filename("select_snps.fam")
+  )
+  # Selects 3 SNPs, with 'snp_5' in the middle
+  snp_window_selector <- create_snp_window_selector(
+    snp = "snp_5",
+    window_kb = 0.003
+  )
+  plink_bin_data <- select_snps(
+    data = plink_bin_filenames,
+    snp_selector = snp_window_selector
+  )
+}
 }
 \author{
 Richèl J.C. Bilderbeek

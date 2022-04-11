@@ -5,6 +5,9 @@
 #' @inheritParams default_params_doc
 #' @return Nothing. Will \link{stop} if the window
 #' size (in kilobases) is invalid
+#' @note `PLINK` uses a CLI flag called `--window` that works with kilobases.
+#' To adhere to the `PLINK` interface, the word 'window' is used, yet with
+#' the unit added in the flag's name
 #' @examples
 #' check_window_kb(0.001) # 1 base pair
 #' check_window_kb(1) # 1000 base pairs

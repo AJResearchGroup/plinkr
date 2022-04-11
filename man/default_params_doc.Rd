@@ -100,13 +100,17 @@ default_params_doc(
   sim_filename,
   simfreq_filename,
   simulate_qt_params,
+  snp,
+  snp_selector,
+  snp_window_selector,
   snvs,
   temp_folder,
   temp_sim_filename,
   trait,
   traits,
   url,
-  verbose
+  verbose,
+  window_kb
 )
 }
 \arguments{
@@ -604,6 +608,17 @@ as can be checked by \link{check_sample_ids}}
 traits simulation, as can be created by
 \link{create_simulate_qt_params}}
 
+\item{snp}{a SNP, e.g. \code{rs12345678},
+as can be checked by \link{check_snp}}
+
+\item{snp_selector}{a SNP selector, a way to select one or more SNPs,
+as can be checked by \link{check_snp_selector}}
+
+\item{snp_window_selector}{a SNP selected (see \link{check_snp_selector}),
+that allows one to select a focal SNP and a range/window of SNPs around it,
+as created by \link{create_snp_window_selector}
+and checked by \link{check_snp_window_selector}}
+
 \item{snvs}{a \link[tibble]{tibble} that contains the
 two nucleotide calls for multiple individuals.
 Each column is a haplotype, hence, for a diploid organism,
@@ -634,6 +649,9 @@ as, for example, created by \link{create_demo_traits}.}
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
+
+\item{window_kb}{the window (i.e. the amount of base pairs around
+a focal SNP) in kilobases, as checked by \link{check_window_kb}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

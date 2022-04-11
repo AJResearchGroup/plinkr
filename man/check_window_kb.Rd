@@ -8,6 +8,10 @@ Will \link{stop} if not}
 \usage{
 check_window_kb(window_kb)
 }
+\arguments{
+\item{window_kb}{the window (i.e. the amount of base pairs around
+a focal SNP) in kilobases, as checked by \link{check_window_kb}}
+}
 \value{
 Nothing. Will \link{stop} if the window
 size (in kilobases) is invalid
@@ -16,6 +20,11 @@ size (in kilobases) is invalid
 Check if the window size (in kilobases) is valid.
 Check if the window size (in kilobases) is valid.
 Will \link{stop} if not
+}
+\note{
+\code{PLINK} uses a CLI flag called \code{--window} that works with kilobases.
+To adhere to the \code{PLINK} interface, the word 'window' is used, yet with
+the unit added in the flag's name
 }
 \examples{
 check_window_kb(0.001) # 1 base pair

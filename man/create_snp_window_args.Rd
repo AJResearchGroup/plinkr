@@ -16,6 +16,11 @@ create_snp_window_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
+\item{snp_window_selector}{a SNP selected (see \link{check_snp_selector}),
+that allows one to select a focal SNP and a range/window of SNPs around it,
+as created by \link{create_snp_window_selector}
+and checked by \link{check_snp_window_selector}}
+
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}
 

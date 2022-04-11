@@ -6,6 +6,10 @@
 \usage{
 check_snp(snp)
 }
+\arguments{
+\item{snp}{a SNP, e.g. \code{rs12345678},
+as can be checked by \link{check_snp}}
+}
 \value{
 nothing
 }

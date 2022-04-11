@@ -6,6 +6,13 @@
 \usage{
 create_snp_window_selector(snp, window_kb)
 }
+\arguments{
+\item{snp}{a SNP, e.g. \code{rs12345678},
+as can be checked by \link{check_snp}}
+
+\item{window_kb}{the window (i.e. the amount of base pairs around
+a focal SNP) in kilobases, as checked by \link{check_window_kb}}
+}
 \description{
 Create a SNP window selector,
 to be used in, for example, \link{select_snps}

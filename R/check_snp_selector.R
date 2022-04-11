@@ -2,6 +2,12 @@
 #'
 #' Check if SNP selector is valid.
 #' Will \link{stop} if not.
+#'
+#' Current SNP selectors are:
+#'
+#'  * A window, i.e. a focal SNP and the SNPs in range,
+#'    see \link{create_snp_window_selector}
+#'  * `[TODO]` One or more SNPs by name, see `create_snp_by_name_selector`
 #' @inheritParams default_params_doc
 #' @return Nothing.
 #' @examples

@@ -6,12 +6,24 @@
 \usage{
 check_snp_selector(snp_selector)
 }
+\arguments{
+\item{snp_selector}{a SNP selector, a way to select one or more SNPs,
+as can be checked by \link{check_snp_selector}}
+}
 \value{
 Nothing.
 }
 \description{
 Check if SNP selector is valid.
 Will \link{stop} if not.
+}
+\details{
+Current SNP selectors are:
+\itemize{
+\item A window, i.e. a focal SNP and the SNPs in range,
+see \link{create_snp_window_selector}
+\item \verb{[TODO]} One or more SNPs by name, see \code{create_snp_by_name_selector}
+}
 }
 \examples{
 # A SNP window selector

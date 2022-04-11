@@ -6,6 +6,12 @@
 \usage{
 check_snp_window_selector(snp_window_selector)
 }
+\arguments{
+\item{snp_window_selector}{a SNP selected (see \link{check_snp_selector}),
+that allows one to select a focal SNP and a range/window of SNPs around it,
+as created by \link{create_snp_window_selector}
+and checked by \link{check_snp_window_selector}}
+}
 \value{
 Nothing.
 }

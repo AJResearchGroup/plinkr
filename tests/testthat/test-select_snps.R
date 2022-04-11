@@ -1,4 +1,6 @@
 test_that("use, from files, window of 0.001 is 1 SNP", {
+  if (!is_plink_installed()) return()
+
   plink_bin_filenames <- create_plink_bin_filenames(
     bed_filename = get_plinkr_filename("select_snps.bed"),
     bim_filename = get_plinkr_filename("select_snps.bim"),
@@ -18,6 +20,8 @@ test_that("use, from files, window of 0.001 is 1 SNP", {
 })
 
 test_that("use, from files, window of 0.002 = 3 SNP", {
+  if (!is_plink_installed()) return()
+
   plink_bin_filenames <- create_plink_bin_filenames(
     bed_filename = get_plinkr_filename("select_snps.bed"),
     bim_filename = get_plinkr_filename("select_snps.bim"),
@@ -39,6 +43,8 @@ test_that("use, from files, window of 0.002 = 3 SNP", {
 })
 
 test_that("use, from files, window of 0.003 = 3 SNP", {
+  if (!is_plink_installed()) return()
+
   plink_bin_filenames <- create_plink_bin_filenames(
     bed_filename = get_plinkr_filename("select_snps.bed"),
     bim_filename = get_plinkr_filename("select_snps.bim"),
@@ -59,6 +65,8 @@ test_that("use, from files, window of 0.003 = 3 SNP", {
 })
 
 test_that("use, from data, select 1 SNP", {
+  if (!is_plink_installed()) return()
+
   base_input_filename <- tools::file_path_sans_ext(
     get_plinkr_filename("select_snps.bed")
   )
@@ -81,6 +89,8 @@ test_that("use, from data, select 1 SNP", {
 })
 
 test_that("use, select 3 SNPs", {
+  if (!is_plink_installed()) return()
+
   base_input_filename <- tools::file_path_sans_ext(
     get_plinkr_filename("select_snps.bed")
   )
@@ -100,7 +110,8 @@ test_that("use, select 3 SNPs", {
 })
 
 test_that("create the dataset", {
-  skip("Just rerun")
+  if (!is_plink_installed()) return()
+  return() # Just re-run when needed
   set.seed(42)
   base_input_filename <- file.path(
     dirname(get_plinkr_filenames()[1]),

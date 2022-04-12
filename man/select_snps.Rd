@@ -36,6 +36,9 @@ as created by \link{create_plink_options}}
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
+\value{
+a \code{plink_bin_data} (see \link{check_plink_bin_data})
+}
 \description{
 Select SNPs
 }
@@ -56,6 +59,14 @@ if (is_plink_installed()) {
     data = plink_bin_filenames,
     snp_selector = snp_window_selector
   )
+}
+}
+\seealso{
+There are multiple SNP selectors:
+\itemize{
+\item a single SNP: see \link{create_single_snp_selector}
+\item a SNP range: see \link{create_snp_range_selector}
+\item a window around a SNP: see \link{create_snp_window_selector}
 }
 }
 \author{

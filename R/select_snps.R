@@ -1,5 +1,12 @@
 #' Select SNPs
 #' @inheritParams default_params_doc
+#' @return a `plink_bin_data` (see \link{check_plink_bin_data})
+#' @seealso
+#'
+#' There are multiple SNP selectors:
+#'  * a single SNP: see \link{create_single_snp_selector}
+#'  * a SNP range: see \link{create_snp_range_selector}
+#'  * a window around a SNP: see \link{create_snp_window_selector}
 #' @export
 #' @examples
 #' if (is_plink_installed()) {

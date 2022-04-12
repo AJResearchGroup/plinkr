@@ -24,17 +24,17 @@ check_snp_selector <- function(snp_selector) {
   tryCatch({
       plinkr::check_snp_window_selector(snp_selector)
       return(invisible(snp_selector))
-    }, error = function(e) {} # Ignore
+    }, error = function(e) {} # nolint ignore
   )
   tryCatch({
     plinkr::check_single_snp_selector(snp_selector)
     return(invisible(snp_selector))
-  }, error = function(e) {} # Ignore
+  }, error = function(e) {} # nolint ignore
   )
   tryCatch({
     plinkr::check_snp_range_selector(snp_selector)
     return(invisible(snp_selector))
-  }, error = function(e) {} # Ignore
+  }, error = function(e) {} # nolint ignore
   )
   stop()
 }

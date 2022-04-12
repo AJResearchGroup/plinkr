@@ -100,8 +100,12 @@ default_params_doc(
   sim_filename,
   simfreq_filename,
   simulate_qt_params,
+  single_snp_selector,
   snp,
+  snp_from,
+  snp_range_selector,
   snp_selector,
+  snp_to,
   snp_window_selector,
   snvs,
   temp_folder,
@@ -608,13 +612,27 @@ as can be checked by \link{check_sample_ids}}
 traits simulation, as can be created by
 \link{create_simulate_qt_params}}
 
+\item{single_snp_selector}{a SNP selector (see \link{check_snp_selector})
+that allows one to select a single SNP,
+as created by \link{create_single_snp_selector}
+and checked by \link{check_single_snp_selector}}
+
 \item{snp}{a SNP, e.g. \code{rs12345678},
 as can be checked by \link{check_snp}}
+
+\item{snp_from}{a SNP (see \link{check_snp}) to start from}
+
+\item{snp_range_selector}{a SNP selector (see \link{check_snp_selector}),
+that allows one to select a range between two SNPs,
+as created by \link{create_snp_range_selector}
+and checked by \link{check_snp_range_selector}}
 
 \item{snp_selector}{a SNP selector, a way to select one or more SNPs,
 as can be checked by \link{check_snp_selector}}
 
-\item{snp_window_selector}{a SNP selected (see \link{check_snp_selector}),
+\item{snp_to}{a SNP (see \link{check_snp}) to end at}
+
+\item{snp_window_selector}{a SNP selector (see \link{check_snp_selector}),
 that allows one to select a focal SNP and a range/window of SNPs around it,
 as created by \link{create_snp_window_selector}
 and checked by \link{check_snp_window_selector}}

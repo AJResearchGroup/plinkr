@@ -18,6 +18,6 @@
 #' )
 #' @export
 #' @author Richèl J.C. Bilderbeek
-create_test_single_snp_selector <- function(snp = "rs123456") {
+create_test_single_snp_selector <- function(snp = "rs123456") { # nolint indeed a long function name
   plinkr::create_single_snp_selector(snp = snp)
 }

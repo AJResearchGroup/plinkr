@@ -6,6 +6,11 @@
 \usage{
 create_test_snp_range_selector(snp_from = "rs123456", snp_to = "rs234567")
 }
+\arguments{
+\item{snp_from}{a SNP (see \link{check_snp}) to start from}
+
+\item{snp_to}{a SNP (see \link{check_snp}) to end at}
+}
 \description{
 Create a SNP range selector,
 to be used in, for example, \link{select_snps}

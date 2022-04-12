@@ -1,6 +1,6 @@
 # Create the example files in the inst/extdata folder
 set.seed(314)
-assoc_params <- create_demo_assoc_params()
+assoc_params <- create_demo_assoc_data()
 save_map_table(
   map_table = assoc_params$data$map_table,
   file.path(system.file("extdata", package = "plinkr"), "demo_assoc.map")

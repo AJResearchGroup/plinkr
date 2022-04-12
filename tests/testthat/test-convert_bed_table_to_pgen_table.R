@@ -13,7 +13,7 @@ test_that("convert twice", {
   pgen_table <- convert_bed_table_to_pgen_table(
     bed_table = bed_table
   )
-  bed_table_again <- convert_pgen_table_to_bed_table(
+  bed_table_again <- convert_pgen_table_to_bed_tabled_table(
     pgen_table = pgen_table
   )
   expect_identical(bed_table, bed_table_again)

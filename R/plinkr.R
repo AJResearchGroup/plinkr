@@ -73,10 +73,10 @@
 #' This is a list of functions to get simple/example/testing
 #' files and data structures:
 #'
-#' * \link{create_demo_assoc_params}:
-#'   create parameters to demonstrate a binary/case-control trait analysis
+#' * \link{create_demo_assoc_data}:
+#'   create dara to demonstrate a binary/case-control trait analysis
 #' * \link{create_demo_assoc_qt_data}:
-#'   create parameters to demonstrate a quantitative trait analysis
+#'   create data to demonstrate a quantitative trait analysis
 #' * \link{create_demo_map_table}:
 #'   create a genetic map to demonstrate an association analysis,
 #'   for both binary/case-control traits as well as quantitative trait

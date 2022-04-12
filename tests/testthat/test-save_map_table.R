@@ -79,7 +79,7 @@ test_that("sub-sub-sub folder", {
 
 test_that("Give error due to too high chromosome number", {
   set.seed(314)
-  assoc_params <- create_demo_assoc_params(
+  assoc_params <- create_demo_assoc_data(
     n_individuals = 2
   )
   assoc_params$data$map_table$CHR <- 123 # nolint PLINK coding style

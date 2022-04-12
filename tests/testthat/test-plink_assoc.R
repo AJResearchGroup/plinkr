@@ -54,7 +54,7 @@ test_that("use, test", {
 test_that("use, demo", {
   if (!is_plink_installed()) return()
   set.seed(317)
-  assoc_params <- create_demo_assoc_params()
+  assoc_params <- create_demo_assoc_data()
   assoc_results <- assoc(assoc_params = assoc_params)
   # 1 traits times 1 SNP = 1 association
   expect_equal(1, nrow(assoc_results$assoc_table))
@@ -62,7 +62,7 @@ test_that("use, demo", {
 
 test_that("demo on random only", {
   if (!is_plink_installed()) return()
-  assoc_params <- create_demo_assoc_params(
+  assoc_params <- create_demo_assoc_data(
     trait = create_random_case_control_trait()
   )
   assoc_results <- plink_assoc(assoc_params = assoc_params)
@@ -73,7 +73,7 @@ test_that("demo on random only", {
 test_that("number of individuals", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_params <- create_demo_assoc_params(
+  assoc_params <- create_demo_assoc_data(
     n_individuals = 5,
     trait = create_random_case_control_trait()
   )
@@ -99,7 +99,7 @@ test_that("error when case-controls are not 1 or 2", {
 test_that("PLINK cannot handle triallelic SNPs", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_params <- create_demo_assoc_params(
+  assoc_params <- create_demo_assoc_data(
     trait = create_random_case_control_trait(mafs = c(0.3, 0.2)),
     n_individuals = 10
   )
@@ -114,7 +114,7 @@ test_that("PLINK cannot handle triallelic SNPs", {
 test_that("PLINK cannot handle quadallelic SNPs", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_params <- create_demo_assoc_params(
+  assoc_params <- create_demo_assoc_data(
     trait = create_random_case_control_trait(mafs = c(0.3, 0.2, 0.1)),
     n_individuals = 10
   )
@@ -132,7 +132,7 @@ test_that("All 95 chromosome numbers work", {
   # Upper limit set by PLINK is 95
   # https://github.com/chrchang/plink-ng/issues/182
   set.seed(314)
-  assoc_params <- create_demo_assoc_params(
+  assoc_params <- create_demo_assoc_data(
     trait = create_random_case_control_trait(n_snps = 95),
     n_individuals = 10
   )

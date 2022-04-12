@@ -10,7 +10,7 @@
 #' * \code{log}: the log file as text as created by \code{PLINK}
 #' @examples
 #' if (is_plink_installed()) {
-#'   plink_assoc(create_demo_assoc_params())
+#'   plink_assoc(create_demo_assoc_data())
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

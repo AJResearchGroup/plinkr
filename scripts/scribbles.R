@@ -109,22 +109,22 @@ simple_case_control_trait <- create_custom_trait(
 )
 
 n_individuals <- 10000
-assoc_params_xor_case_control_trait <- create_demo_assoc_params(
+assoc_params_xor_case_control_trait <- create_demo_assoc_data(
   trait = xor_case_control_trait,
   n_individuals = n_individuals
 )
-assoc_params_simple_case_control_trait <- create_demo_assoc_params(
+assoc_params_simple_case_control_trait <- create_demo_assoc_data(
   trait = simple_case_control_trait,
   n_individuals = n_individuals
 )
-assoc_params_random_case_control_trait <- create_demo_assoc_params(
+assoc_params_random_case_control_trait <- create_demo_assoc_data(
   trait = create_random_case_control_trait(
     mafs = 0.49,
     n_snps = 2
   ),
   n_individuals = n_individuals
 )
-assoc_params_epistatic_case_control_trait <- create_demo_assoc_params(
+assoc_params_epistatic_case_control_trait <- create_demo_assoc_data(
   trait = create_epistatic_trait(
     mafs = 0.49,
     n_snps = 2,
@@ -141,7 +141,7 @@ assoc(assoc_params_epistatic_case_control_trait)
 
 # Random scribbles
 
-assoc_params <- create_demo_assoc_params(
+assoc_params <- create_demo_assoc_data(
   trait = create_custom_trait(
     n_snps = 1,
     calc_phenotype_function = function(snvs) {
@@ -156,7 +156,7 @@ assoc_params <- create_demo_assoc_params(
 )
 
 
-assoc_params <- create_demo_assoc_params(
+assoc_params <- create_demo_assoc_data(
   trait = create_custom_trait(
     n_snps = 4,
     calc_phenotype_function = function(snvs) {
@@ -177,7 +177,7 @@ assoc_params$data$ped_table$case_control_code
 assoc(assoc_params)
 
 
-assoc_params <- create_demo_assoc_params(
+assoc_params <- create_demo_assoc_data(
   trait = create_random_trait(n_snps = 2)
 )
 assoc(assoc_params)

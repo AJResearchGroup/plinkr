@@ -16,7 +16,7 @@ xor_phenotype <- function(snvs) {
 }
 check_calc_phenotype_function(xor_phenotype)
 
-assoc_params <- create_demo_assoc_params(
+assoc_params <- create_demo_assoc_data(
   trait = create_custom_trait(
     mafs = 0.49,
     n_snps = 10,

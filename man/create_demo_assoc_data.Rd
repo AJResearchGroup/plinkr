@@ -40,23 +40,23 @@ This function is named after the \code{--assoc} PLINK flag.
 }
 \examples{
 # Default
-create_demo_assoc_params()
+create_demo_assoc_data()
 
 # Add more individuals
-create_demo_assoc_params(n_individuals = 16)
+create_demo_assoc_data(n_individuals = 16)
 
 # Use a random trait
-create_demo_assoc_params(
+create_demo_assoc_data(
   trait = create_random_trait()
 )
 
 # Use an additive trait
-create_demo_assoc_params(
+create_demo_assoc_data(
   trait = create_additive_trait()
 )
 
 # Use an epistatic trait
-create_demo_assoc_params(
+create_demo_assoc_data(
   trait = create_epistatic_trait()
 )
 }

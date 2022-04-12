@@ -19,8 +19,8 @@
 check_sample_ids <- function(sample_ids) {
   testthat::expect_true(tibble::is_tibble(sample_ids))
   testthat::expect_true(
-    names(sample_ids) == names(get_test_fam_table())[1:2] ||
-      names(sample_ids) == names(get_test_psam_table())[1:2]
+    all(names(sample_ids) == names(get_test_fam_table())[1:2]) ||
+      all(names(sample_ids) == names(get_test_psam_table())[1:2])
   )
   invisible(sample_ids)
 }

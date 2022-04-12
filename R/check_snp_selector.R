@@ -3,13 +3,16 @@
 #' Check if SNP selector is valid.
 #' Will \link{stop} if not.
 #'
-#' Current SNP selectors are:
-#'
-#'  * A window, i.e. a focal SNP and the SNPs in range,
-#'    see \link{create_snp_window_selector}
-#'  * `[TODO]` One or more SNPs by name, see `create_snp_by_name_selector`
 #' @inheritParams default_params_doc
 #' @return Nothing.
+#' @seealso
+#'
+#' There are multiple SNP selector checking functions:
+#'
+#'  * general, any type: see \link{check_snp_selector}
+#'  * a single SNP: see \link{check_single_snp_selector}
+#'  * a SNP range: see \link{check_snp_range_selector}
+#'  * a window around a SNP: see \link{check_snp_window_selector}
 #' @examples
 #' # A SNP window selector
 #' check_snp_selector(create_test_snp_window_selector())
@@ -18,7 +21,20 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_snp_selector <- function(snp_selector) {
-  # TODO: check for other types of SNP selectors
-  plinkr::check_snp_window_selector(snp_selector)
-  invisible(snp_selector)
+  tryCatch({
+      plinkr::check_snp_window_selector(snp_selector)
+      return(invisible(snp_selector))
+    }, error = function(e) {} # Ignore
+  )
+  tryCatch({
+    plinkr::check_single_snp_selector(snp_selector)
+    return(invisible(snp_selector))
+  }, error = function(e) {} # Ignore
+  )
+  tryCatch({
+    plinkr::check_snp_range_selector(snp_selector)
+    return(invisible(snp_selector))
+  }, error = function(e) {} # Ignore
+  )
+  stop()
 }

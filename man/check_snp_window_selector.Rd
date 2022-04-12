@@ -22,6 +22,15 @@ Will \link{stop} if not.
 \examples{
 check_snp_window_selector(create_test_snp_window_selector())
 }
+\seealso{
+There are multiple SNP selector checking functions:
+\itemize{
+\item general, any type: see \link{check_snp_selector}
+\item a single SNP: see \link{check_single_snp_selector}
+\item a SNP range: see \link{check_snp_range_selector}
+\item a window around a SNP: see \link{check_snp_window_selector}
+}
+}
 \author{
 Richèl J.C. Bilderbeek
 }

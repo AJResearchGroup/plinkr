@@ -4,7 +4,37 @@ test_that("use", {
       snp_selector = create_test_snp_window_selector()
     )
   )
-  # Other types of SNP selectors
+  expect_silent(
+    check_snp_selector(
+      snp_selector = create_snp_window_selector(
+        snp = "rs12345678",
+        window_kb = 0.001
+      )
+    )
+  )
+  expect_silent(
+    check_snp_selector(
+      snp_selector = create_test_single_snp_selector()
+    )
+  )
+  expect_silent(
+    check_snp_selector(
+      snp_selector = create_single_snp_selector(snp = "rs12345678")
+    )
+  )
+  expect_silent(
+    check_snp_selector(
+      snp_selector = create_test_snp_range_selector()
+    )
+  )
+  expect_silent(
+    check_snp_selector(
+      snp_selector = create_snp_range_selector(
+        snp_from = "rs12345678",
+        snp_to = "rs23456789"
+      )
+    )
+  )
 
   expect_error(check_snp_selector("nonsense"))
   expect_error(check_snp_selector(""))

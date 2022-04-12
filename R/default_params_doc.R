@@ -12,6 +12,9 @@
 #' \code{.assoc.adjusted} file.
 #' Use \link{read_plink_assoc_adjusted_file}
 #' to read a `PLINK` \code{.assoc.adjusted} file.
+#' @param assoc_data data to use for an association analysis
+#' for a quantitative trait (i.e. using \link{assoc}),
+#' as can be created by \link{create_assoc_data}
 #' @param assoc_filename name of a `PLINK` \code{.assoc} file.
 #' Use \link{read_plink_assoc_file} to read a `PLINK` \code{.assoc} file.
 #' @param assoc_params parameters to do an association analysis
@@ -434,6 +437,7 @@ default_params_doc <- function(
   add_noweb,
   args,
   assoc_adjusted_filename,
+  assoc_data,
   assoc_filename,
   assoc_params,
   assoc_qt_covar_data,

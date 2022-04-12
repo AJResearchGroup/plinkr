@@ -9,6 +9,7 @@ default_params_doc(
   add_noweb,
   args,
   assoc_adjusted_filename,
+  assoc_data,
   assoc_filename,
   assoc_params,
   assoc_qt_covar_data,
@@ -131,6 +132,10 @@ Use \link{check_plink_args} to check if these are valid}
 \code{.assoc.adjusted} file.
 Use \link{read_plink_assoc_adjusted_file}
 to read a \code{PLINK} \code{.assoc.adjusted} file.}
+
+\item{assoc_data}{data to use for an association analysis
+for a quantitative trait (i.e. using \link{assoc}),
+as can be created by \link{create_assoc_data}}
 
 \item{assoc_filename}{name of a \code{PLINK} \code{.assoc} file.
 Use \link{read_plink_assoc_file} to read a \code{PLINK} \code{.assoc} file.}

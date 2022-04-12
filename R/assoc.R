@@ -40,7 +40,7 @@ assoc <- function(
   }
   testthat::expect_equal("2.0", plink_options$plink_version)
   plinkr::plink2_assoc(
-    assoc_data = assoc_dat,
+    assoc_data = assoc_data,
     assoc_params = assoc_params,
     plink_options = plink_options,
     verbose = verbose

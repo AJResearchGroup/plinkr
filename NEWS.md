@@ -13,7 +13,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * 'assoc' now follows uniform interface
 
 ### BUG FIXES
 

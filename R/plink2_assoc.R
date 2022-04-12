@@ -29,7 +29,7 @@ plink2_assoc <- function(
   )
 
   # else, convert to PLINK2 binary format
-  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_params$data))
+  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_data$data))
 
 
   # Filenames
@@ -41,15 +41,15 @@ plink2_assoc <- function(
   # 'save_' functions will check for success themselves
   stop("Need help of 'pgenlibr' to save a .pgen file")
   plinkr::save_pgen_table(
-    pgen_table = assoc_params$data$pgen_table,
+    pgen_table = assoc_data$data$pgen_table,
     pgen_filename = pgen_filename
   )
   plinkr::save_psam_table(
-    psam_table = assoc_params$data$psam_table,
+    psam_table = assoc_data$data$psam_table,
     psam_filename = psam_filename
   )
   plinkr::save_pvar_table(
-    pvar_table = assoc_params$data$pvar_table,
+    pvar_table = assoc_data$data$pvar_table,
     pvar_filename = pvar_filename
   )
 

@@ -38,10 +38,9 @@
 #' @inheritParams default_params_doc
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_demo_assoc_params <- function(
+create_demo_assoc_data <- function(
   n_individuals = 3,
-  trait = create_random_case_control_trait(),
-  confidence_interval = 0.95
+  trait = create_random_case_control_trait()
 ) {
   plinkr::check_n_individuals(n_individuals)
   plinkr::check_trait(trait)
@@ -66,11 +65,10 @@ create_demo_assoc_params <- function(
   )
   names(phe_table) <- c(names(phe_table)[1:2], "case_control_code")
   ped_table$case_control_code <- phe_table$case_control_code
-  plinkr::create_assoc_params(
+  plinkr::create_assoc_data(
     data = create_plink_text_data(
       ped_table = ped_table,
       map_table = map_table
-    ),
-    confidence_interval = confidence_interval
+    )
   )
 }

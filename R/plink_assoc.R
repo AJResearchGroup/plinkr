@@ -33,11 +33,11 @@ plink_assoc <- function(
 
   # 'save_' functions will check for success themselves
   plinkr::save_ped_table(
-    ped_table = assoc_params$data$ped_table,
+    ped_table = assoc_data$data$ped_table,
     ped_filename = ped_filename
   )
   plinkr::save_map_table(
-    map_table = assoc_params$data$map_table,
+    map_table = assoc_data$data$map_table,
     map_filename = map_filename
   )
 

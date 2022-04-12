@@ -5,6 +5,7 @@
 \title{Let PLINK detect an association with one binary traits.}
 \usage{
 plink_assoc(
+  assoc_data,
   assoc_params,
   plink_options = create_plink_options(),
   verbose = FALSE

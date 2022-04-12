@@ -5,7 +5,12 @@
 \title{Let \code{PLINK}/\code{PLINK2} detect an association
 for a case/control or binary trait.}
 \usage{
-assoc(assoc_params, plink_options = create_plink_options(), verbose = FALSE)
+assoc(
+  assoc_data,
+  assoc_params,
+  plink_options = create_plink_options(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{assoc_params}{parameters to do an association analysis

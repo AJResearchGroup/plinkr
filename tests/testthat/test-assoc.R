@@ -4,6 +4,7 @@ test_that("minimal use, v1.7", {
   clear_plinkr_cache()
 
   assoc(
+    assoc_data = create_test_assoc_data(),
     assoc_params = create_test_assoc_params(),
     plink_options = create_plink_v1_7_options()
   )

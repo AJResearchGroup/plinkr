@@ -15,10 +15,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 plink2_assoc <- function(
+  assoc_data,
   assoc_params,
   plink_options = create_plink_v2_0_options(),
   verbose = FALSE
 ) {
+  plinkr::check_assoc_data(assoc_data)
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
 

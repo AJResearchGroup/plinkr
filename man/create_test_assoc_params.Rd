@@ -4,23 +4,9 @@
 \alias{create_test_assoc_params}
 \title{Create testing parameters for the \link{assoc} function}
 \usage{
-create_test_assoc_params(
-  data = create_test_plink_text_data(),
-  confidence_interval = 0.95,
-  maf = get_lowest_maf()
-)
+create_test_assoc_params(confidence_interval = 0.95, maf = get_lowest_maf())
 }
 \arguments{
-\item{data}{the data source, which can be:
-\itemize{
-\item PLINK text data, as created by \link{create_plink_text_data}.
-\item PLINK binary data, as created by \link{create_plink_bin_data}.
-\item PLINK2 binary data, as created by \link{create_plink2_bin_data}.
-\item PLINK text filenames, as created by \link{create_plink_text_filenames}.
-\item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
-\item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
-}}
-
 \item{confidence_interval}{confidence interval, a value between (and
 excluding both) 0.0 and 1.0. The confidence interval helps assess
 the certainty of an estimation: you can be 99 percent sure

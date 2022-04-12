@@ -5,7 +5,6 @@
 \title{Create parameters for the \link{assoc} function}
 \usage{
 create_assoc_params(
-  data,
   confidence_interval = 0.95,
   maf = get_lowest_maf(),
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
@@ -13,16 +12,6 @@ create_assoc_params(
 )
 }
 \arguments{
-\item{data}{the data source, which can be:
-\itemize{
-\item PLINK text data, as created by \link{create_plink_text_data}.
-\item PLINK binary data, as created by \link{create_plink_bin_data}.
-\item PLINK2 binary data, as created by \link{create_plink2_bin_data}.
-\item PLINK text filenames, as created by \link{create_plink_text_filenames}.
-\item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
-\item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
-}}
-
 \item{confidence_interval}{confidence interval, a value between (and
 excluding both) 0.0 and 1.0. The confidence interval helps assess
 the certainty of an estimation: you can be 99 percent sure

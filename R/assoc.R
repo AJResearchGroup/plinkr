@@ -20,15 +20,18 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 assoc <- function(
+  assoc_data,
   assoc_params,
   plink_options = create_plink_options(),
   verbose = FALSE
 ) {
+  plinkr::check_assoc_data(assoc_data)
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
   if (plink_options$plink_version %in% c("1.7", "1.9")) {
     return(
       plinkr::plink_assoc(
+        assoc_data = assoc_data,
         assoc_params = assoc_params,
         plink_options = plink_options,
         verbose = verbose
@@ -37,6 +40,7 @@ assoc <- function(
   }
   testthat::expect_equal("2.0", plink_options$plink_version)
   plinkr::plink2_assoc(
+    assoc_data = assoc_dat,
     assoc_params = assoc_params,
     plink_options = plink_options,
     verbose = verbose

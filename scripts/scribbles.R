@@ -141,7 +141,7 @@ assoc(assoc_params_epistatic_case_control_trait)
 
 # Random scribbles
 
-assoc_params <- create_demo_assoc_data(
+assoc_data <- create_demo_assoc_data(
   trait = create_custom_trait(
     n_snps = 1,
     calc_phenotype_function = function(snvs) {
@@ -156,7 +156,7 @@ assoc_params <- create_demo_assoc_data(
 )
 
 
-assoc_params <- create_demo_assoc_data(
+assoc_data <- create_demo_assoc_data(
   trait = create_custom_trait(
     n_snps = 4,
     calc_phenotype_function = function(snvs) {
@@ -177,7 +177,7 @@ assoc_params$data$ped_table$case_control_code
 assoc(assoc_params)
 
 
-assoc_params <- create_demo_assoc_data(
+assoc_data <- create_demo_assoc_data(
   trait = create_random_trait(n_snps = 2)
 )
 assoc(assoc_params)

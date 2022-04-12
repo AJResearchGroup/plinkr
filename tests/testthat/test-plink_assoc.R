@@ -43,7 +43,7 @@ test_that("confidence interval", {
   set.seed(314)
   expect_message(
     plink_assoc(
-      assoc_data = assoc_data,
+      assoc_data = create_test_assoc_data(),
       assoc_params = create_test_assoc_params(),
       verbose = TRUE
     ),
@@ -54,9 +54,8 @@ test_that("confidence interval", {
 test_that("use, test", {
   if (!is_plink_installed()) return()
   set.seed(314)
-  assoc_params <- create_test_assoc_params()
   assoc_result <- plink_assoc(
-    assoc_data = assoc_data,
+    assoc_data = create_test_assoc_data(),
     assoc_params = create_test_assoc_params(),
   )
   expect_true("assoc_table" %in% names(assoc_result))

@@ -82,10 +82,10 @@ test_that("Give error due to too high chromosome number", {
   assoc_data <- create_demo_assoc_data(
     n_individuals = 2
   )
-  assoc_params$data$map_table$CHR <- 123 # nolint PLINK coding style
+  assoc_data$data$map_table$CHR <- 123 # nolint PLINK coding style
   expect_error(
     save_map_table(
-      map_table = assoc_params$data$map_table,
+      map_table = assoc_data$data$map_table,
       map_filename = "irrelevant"
     ),
     "default PLINK can handle a maximum of 95 chromosomes"

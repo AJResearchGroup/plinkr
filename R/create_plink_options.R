@@ -37,9 +37,11 @@ create_plink_options <- function(
 ) {
   plinkr::check_plink_version(plink_version)
   plinkr::check_os(os)
-  list(
+  plink_options <- list(
     plink_version = plink_version,
     plink_exe_path = plink_exe_path,
     os = os
   )
+  class(plink_options) <- "plink_options"
+  plink_options
 }

@@ -34,7 +34,7 @@ Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
 }
 \value{
-Nothing.
+a checked \code{.ped} table, now of class type \code{ped_table}.
 Will \link{stop} if the pedigree table is invalid.
 }
 \description{

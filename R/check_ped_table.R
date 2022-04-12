@@ -3,7 +3,7 @@
 #' Check if a `.ped` table is valid.
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
-#' @return Nothing.
+#' @return a checked `.ped` table, now of class type `ped_table`.
 #'   Will \link{stop} if the pedigree table is invalid.
 #' @seealso use \link{is_ped_table} to determine if a table
 #' is a valid `.ped` table
@@ -13,6 +13,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_ped_table <- function(ped_table) {
+  if (inherits(ped_table, "ped_table")) {
+    return(ped_table)
+  }
   if (!tibble::is_tibble(ped_table)) {
     stop(
       "'ped_table' must a tibble. \n",
@@ -42,5 +45,5 @@ check_ped_table <- function(ped_table) {
     actual_names_rhs <- names(ped_table)[-seq(1, 6)]
     testthat::expect_equal(actual_names_rhs, expected_names_rhs)
   }
-  invisible(ped_table)
+  ped_table
 }

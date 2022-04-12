@@ -35,10 +35,12 @@ read_plink2_pgen_file_from_files <- function( # nolint indeed a long functio nam
   pvar_table <- plinkr::read_plink2_pvar_file(pvar_filename)
   snp_names <- pvar_table$ID # nolint PLINK2 variable name
   individual_ids <- psam_table$FID # nolint PLINK2 variable name
-  plinkr::read_plink2_pgen_file(
+  pgen_table <- plinkr::read_plink2_pgen_file(
     pgen_filename = pgen_filename,
     names_loci = snp_names,
     names_ind = individual_ids,
     verbose = verbose
   )
+  class(pgen_table) <- c(class(pgen_table), "pgen_table")
+  pgen_table
 }

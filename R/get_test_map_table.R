@@ -24,9 +24,10 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_map_table <- function() {
-  tibble::tribble(
+  map_table <- tibble::tribble(
     ~CHR, ~SNP  , ~position_cm, ~BP, # nolint keep spaces to align content
     1   , "snp1", 0           , 1  , # nolint keep spaces to align content
     1   , "snp2", 0           , 2    # nolint keep spaces to align content
   )
+  map_table
 }

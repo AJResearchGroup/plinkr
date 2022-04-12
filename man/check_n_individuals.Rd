@@ -10,6 +10,10 @@ check_n_individuals(n_individuals)
 \item{n_individuals}{the number of individuals.
 Use \link{check_n_individuals} to check if this is a valid value}
 }
+\value{
+the checked number of individuals,
+now as a class of type \code{n_individuals}
+}
 \description{
 Check if the number of individual is valid.
 Will \link{stop} if not

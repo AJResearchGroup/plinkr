@@ -28,10 +28,11 @@ read_plink_map_file <- function(map_filename) {
     pattern = "[:blank:]+",
     simplify = TRUE
   )
-  tibble::tibble(
+  map_table <- tibble::tibble(
     CHR = as.numeric(table[, 1]),
     SNP = table[, 2],
     position_cm = as.numeric(table[, 3]),
     BP = as.numeric(table[, 4]),
   )
+  map_table
 }

@@ -24,7 +24,7 @@ Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
 Use \link{check_map_table} to test if a genetic mapping table is valid.}
 }
 \value{
-Nothing. Will \link{stop} if the \code{map_table} is invalid
+a checked \code{.map} table, now of class type \code{map_table}.
 }
 \description{
 Check if a genetic mapping \code{.map} table is valid.

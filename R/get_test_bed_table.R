@@ -18,6 +18,5 @@ get_test_bed_table <- function() {
     byrow = TRUE,
     dimnames = list(c("snp0", "snp1"), c("per0", "per1"))
   )
-  class(bed_table) <- "bed_table"
   bed_table
 }

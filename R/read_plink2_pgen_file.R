@@ -32,6 +32,5 @@
   colnames(pgen_array) <- names_loci
   rownames(pgen_array) <- names_ind
 
-  class(pgen_array) <- "pgen_table"
   pgen_array
 }

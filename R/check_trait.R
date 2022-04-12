@@ -5,6 +5,7 @@
 #' Will \link{stop} if not
 #'
 #' @inheritParams default_params_doc
+#' @return the checked trait, now of class type `trait`
 #' @examples
 #' check_trait(create_additive_trait())
 #' check_trait(create_random_trait())
@@ -22,4 +23,5 @@ check_trait <- function(trait) {
   plinkr::check_calc_phenotype_function(
     calc_phenotype_function = trait$calc_phenotype_function
   )
+  trait
 }

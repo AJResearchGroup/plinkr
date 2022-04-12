@@ -6,8 +6,8 @@ create_demo_phe_table <- function(
   traits = create_demo_traits(),
   ped_table = create_demo_ped_table(traits = traits)
 ) {
-  plinkr::check_ped_table(ped_table)
-  plinkr::check_traits(traits)
+  ped_table <- plinkr::check_ped_table(ped_table)
+  traits <- plinkr::check_traits(traits)
 
   phe_table_lhs <- plinkr::create_demo_phe_table_lhs(
     ped_table = ped_table
@@ -20,5 +20,6 @@ create_demo_phe_table <- function(
     nrow(phe_table_lhs),
     nrow(phe_table_rhs)
   )
+
   dplyr::bind_cols(phe_table_lhs, phe_table_rhs)
 }

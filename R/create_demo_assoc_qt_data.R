@@ -64,13 +64,13 @@ create_demo_assoc_qt_data <- function(
   n_individuals = 3,
   traits = create_demo_traits()
 ) {
-  plinkr::check_n_individuals(n_individuals)
-  plinkr::check_traits(traits)
+  n_individuals <- plinkr::check_n_individuals(n_individuals)
+  traits <- plinkr::check_traits(traits)
 
   # traits must be a list of traits
   if (plinkr::is_one_trait(traits)) traits <- list(traits)
   testthat::expect_false(plinkr::is_one_trait(traits))
-  plinkr::check_traits(traits)
+  traits <- plinkr::check_traits(traits)
   n_traits <- length(traits)
   testthat::expect_true(n_traits >= 0)
   ped_table <- plinkr::create_demo_ped_table(

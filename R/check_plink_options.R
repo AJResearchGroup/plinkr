@@ -19,9 +19,6 @@
 check_plink_options <- function(
   plink_options
 ) {
-  if (inherits(plink_options, "plink_options")) {
-    return(plink_options)
-  }
   if (!is.list(plink_options)) {
     stop(
       "'plink_options' must be a list  \n",
@@ -34,8 +31,5 @@ check_plink_options <- function(
   testthat::expect_true("os" %in% names(plink_options))
   plinkr::check_plink_version(plink_options$plink_version)
   plinkr::check_os(plink_options$os)
-
-  class(plink_options) <- "plink_options"
-
   plink_options
 }

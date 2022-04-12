@@ -11,8 +11,8 @@ create_plink_text_data <- function(
   ped_table,
   map_table
 ) {
-  plinkr::check_ped_table(ped_table = ped_table)
-  plinkr::check_map_table(map_table = map_table)
+  ped_table <- plinkr::check_ped_table(ped_table)
+  map_table <- plinkr::check_map_table(map_table)
   list(
     ped_table = ped_table,
     map_table = map_table

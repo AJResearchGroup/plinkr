@@ -16,8 +16,9 @@ check_traits <- function(traits) {
   if (plinkr::is_one_trait(traits)) return(invisible(traits))
 
   for (i in seq_along(traits)) {
-    tryCatch(
-      expr = plinkr::check_trait(traits[[i]]),
+    tryCatch({
+      traits[[i]] <- plinkr::check_trait(traits[[i]])
+      },
       error = function(e) {
         stop(
           "Error in ", i, "th trait: \n",
@@ -26,5 +27,5 @@ check_traits <- function(traits) {
       }
     )
   }
-  invisible(traits)
+  traits
 }

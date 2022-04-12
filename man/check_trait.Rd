@@ -11,6 +11,9 @@ check_trait(trait)
 minor allele frequency, as created by \link{create_trait}.
 Use \link{is_one_trait} to detect if something is one trait}
 }
+\value{
+the checked trait, now of class type \code{trait}
+}
 \description{
 Check if a trait (with a clear genetic architecture and a known
 minor allele frequency) is valid.

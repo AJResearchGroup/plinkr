@@ -27,7 +27,5 @@ read_plink_bed_file <- function(
       verbose = verbose
     )
   )
-  class(bed_table) <- "bed_table"
-
   bed_table
 }

@@ -8,7 +8,7 @@
 #'  * c(`matrix`, `array`): on newer versions of R, probably from v4.0
 #'
 #' @inheritParams default_params_doc
-#' @return Nothing. Will \link{stop} if the \code{bed_table} is invalid
+#' @return a checked `bed_table`, now of class `bed_table`
 #' @examples
 #' # Simple .bed table
 #' check_bed_table(get_test_bed_table())
@@ -25,9 +25,6 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_bed_table <- function(bed_table) {
-  if (inherits(bed_table, "bed_table")) {
-    return(bed_table)
-  }
   is_matrix_class <- length(class(bed_table)) == 1 &&
     class(bed_table) == "matrix"
   is_matrix_array_class <- length(class(bed_table)) == 2 &&
@@ -42,4 +39,5 @@ check_bed_table <- function(bed_table) {
   testthat::expect_true("matrix" %in% class(bed_table))
   testthat::expect_true(all(is.na(bed_table) | bed_table >= 0))
   testthat::expect_true(all(is.na(bed_table) | bed_table <= 4))
+  bed_table
 }

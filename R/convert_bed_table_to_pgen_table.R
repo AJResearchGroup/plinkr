@@ -23,7 +23,6 @@ convert_bed_table_to_pgen_table <- function( # nolint indeed a long function nam
   # 1   0    1
   #
   # Simple, just transpose!
-  pgen_table <- t(bed_table)
-  plinkr::check_pgen_table(pgen_table)
-  pgen_table
+  pgen_table <- t(unclass(bed_table))
+  pgen_table <- plinkr::check_pgen_table(pgen_table)
 }

@@ -13,7 +13,7 @@ SNPs as columns. Optionally, the row names are the individuals' IDs,
 where the column names are the SNP ID's}
 }
 \value{
-Nothing. Will \link{stop} if the \code{.pgen} is invalid
+a checked \code{pgen_table}, now of class \code{pgen_table}
 }
 \description{
 Check if a \code{.pgen} table is valid.

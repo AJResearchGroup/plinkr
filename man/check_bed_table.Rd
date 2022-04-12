@@ -18,7 +18,7 @@ See also the \code{bed} file format reference at
 \url{https://www.cog-genomics.org/plink2/formats#bed}}
 }
 \value{
-Nothing. Will \link{stop} if the \code{bed_table} is invalid
+a checked \code{bed_table}, now of class \code{bed_table}
 }
 \description{
 Check if a \code{.bed} table is valid.

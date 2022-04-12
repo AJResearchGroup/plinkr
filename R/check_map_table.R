@@ -3,13 +3,16 @@
 #' Check if a genetic mapping \code{.map} table is valid.
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
-#' @return Nothing. Will \link{stop} if the \code{map_table} is invalid
+#' @return a checked `.map` table, now of class type `map_table`.
 #' @examples
 #' check_map_table(get_test_map_table())
 #' check_map_table(read_plink_map_file(get_plinkr_filenames("toy_v1_9.map")))
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_map_table <- function(map_table) {
+  if (inherits(map_table, "map_table")) {
+    return(map_table)
+  }
   testthat::expect_true(tibble::is_tibble(map_table))
   testthat::expect_equal(4, ncol(map_table))
   testthat::expect_equal("CHR", names(map_table)[1])
@@ -27,4 +30,5 @@ check_map_table <- function(map_table) {
         paste0(chromosome_numbers, collapse = ", ")
     )
   }
+  map_table
 }

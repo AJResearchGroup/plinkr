@@ -23,18 +23,15 @@
   names_ind,
   verbose = FALSE
 ) {
-   pgen <- pgenlibr::NewPgen(pgen_filename)
-   pgen_table <- pgenlibr::ReadList(
-     pgen = pgen,
-     variant_subset = 1:pgenlibr::GetVariantCt(pgen)
-   )
-   pgen_array <- as.array(pgen_table)
-   colnames(pgen_array) <- names_loci
-   rownames(pgen_array) <- names_ind
+  pgen <- pgenlibr::NewPgen(pgen_filename)
+  pgen_table <- pgenlibr::ReadList(
+    pgen = pgen,
+    variant_subset = 1:pgenlibr::GetVariantCt(pgen)
+  )
+  pgen_array <- as.array(pgen_table)
+  colnames(pgen_array) <- names_loci
+  rownames(pgen_array) <- names_ind
 
-   my_attributes <- attributes(pgen_array)
-   my_attributes$plink_data_type <- "pgen_table"
-   attributes(pgen_array) <- my_attributes
-
-   pgen_array
+  class(pgen_array) <- "pgen_table"
+  pgen_array
 }

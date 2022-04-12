@@ -48,7 +48,10 @@ as used by \code{PLINK}
 }
 \examples{
 if (is_plink_installed()) {
-  assoc(create_demo_assoc_params())
+  assoc(
+    assoc_data = create_demo_assoc_data(),
+    assoc_params = create_test_assoc_params()
+  )
 }
 }
 \seealso{

@@ -15,7 +15,10 @@
 #' @seealso Use \link{assoc_qt} to do an association on quantitative traits
 #' @examples
 #' if (is_plink_installed()) {
-#'   assoc(create_demo_assoc_params())
+#'   assoc(
+#'     assoc_data = create_demo_assoc_data(),
+#'     assoc_params = create_test_assoc_params()
+#'   )
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

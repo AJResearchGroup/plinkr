@@ -16,7 +16,7 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-The \code{assoc_qt_params} with an attribute (see \link{attributes})
+The \code{assoc_qt_params} with the class name added,
 to indicate it has been checked
 }
 \description{

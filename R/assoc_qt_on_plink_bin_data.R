@@ -51,7 +51,7 @@ assoc_qt_on_plink_bin_data <- function(
 
   if (!plinkr::is_plink_bin_data(assoc_qt_data$data)) {
     stop(
-      "'assoc_qt_params' is not PLINK binary data. \n",
+      "'assoc_qt_data' is not PLINK binary data. \n",
       "Tip 1: use 'assoc_qt' to let plinkr detect the type of PLINK data. \n",
       "Tip 2: If the data is in PLINK text format, ",
       "use 'assoc_qt_on_plink_text_data'. \n",

@@ -5,5 +5,5 @@ test_that("use", {
   )
   # .bed and .pgen tables are transposed,
   # see https://github.com/chrchang/plink-ng/issues/195
-  expect_identical(pgen_table, t(bed_table))
+  expect_identical(unclass(pgen_table), t(unclass(bed_table)))
 })

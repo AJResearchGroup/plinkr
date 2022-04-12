@@ -25,6 +25,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_bed_table <- function(bed_table) {
+  if (inherits(bed_table, "bed_table")) {
+    return(bed_table)
+  }
   is_matrix_class <- length(class(bed_table)) == 1 &&
     class(bed_table) == "matrix"
   is_matrix_array_class <- length(class(bed_table)) == 2 &&

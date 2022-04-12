@@ -185,7 +185,7 @@ test_that("All 95 chromosome numbers work", {
   )
   assoc(
     assoc_data = assoc_data,
-    assoc_params = assoc_params
+    assoc_params = create_test_assoc_params()
   )
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

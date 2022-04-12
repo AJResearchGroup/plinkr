@@ -102,7 +102,7 @@ test_that("use incorrect data", {
       assoc_qt_data = assoc_qt_data,
       assoc_qt_params = create_test_assoc_qt_params()
     ),
-    "'assoc_qt_params' is not PLINK binary data"
+    "'assoc_qt_data' is not PLINK binary data"
   )
   expect_silent(check_empty_plinkr_folder())
   clear_plinkr_cache()

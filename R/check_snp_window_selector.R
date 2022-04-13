@@ -6,12 +6,8 @@
 #' @return Nothing.
 #' @seealso
 #'
-#' There are multiple SNP selector checking functions:
-#'
-#'  * general, any type: see \link{check_snp_selector}
-#'  * a single SNP: see \link{check_single_snp_selector}
-#'  * a SNP range: see \link{check_snp_range_selector}
-#'  * a window around a SNP: see \link{check_snp_window_selector}
+#' There are multiple SNP selector checking functions,
+#' see \link{check_snp_selector} for an overview
 #' @examples
 #' check_snp_window_selector(create_test_snp_window_selector())
 #' @author Richèl J.C. Bilderbeek

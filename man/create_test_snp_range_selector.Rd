@@ -27,12 +27,8 @@ create_test_snp_range_selector(
 Use \link{create_test_snp_range_selector} to
 create a SNP window selector to be used in testing.
 
-There are multiple SNP selectors:
-\itemize{
-\item a single SNP: see \link{create_single_snp_selector}
-\item a SNP range: see \link{create_snp_range_selector}
-\item a window around a SNP: see \link{create_snp_window_selector}
-}
+There are multiple SNP selector checking functions,
+see \link{check_snp_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -6,10 +6,8 @@
 #' @seealso Use \link{create_test_snp_range_selector} to
 #' create a SNP window selector to be used in testing.
 #'
-#' There are multiple SNP selectors:
-#'  * a single SNP: see \link{create_single_snp_selector}
-#'  * a SNP range: see \link{create_snp_range_selector}
-#'  * a window around a SNP: see \link{create_snp_window_selector}
+#' There are multiple SNP selector checking functions,
+#' see \link{check_snp_selector} for an overview
 #' @examples
 #' create_test_snp_range_selector()
 #'

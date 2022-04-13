@@ -6,14 +6,17 @@
 #' @seealso Use \link{create_random_snp_selector} to
 #' create a random SNP selector.
 #'
-#' There are multiple SNP selectors:
-#'  * a single SNP: see \link{create_single_snp_selector}
-#'  * one or more random SNPs: see \link{create_random_snp_selector}
-#'  * a SNP range: see \link{create_snp_range_selector}
-#'  * a window around a SNP: see \link{create_snp_window_selector}
+#' There are multiple SNP selector checking functions,
+#' see \link{check_snp_selector} for an overview
 #' @examples
 #' create_test_random_snp_selector()
 #' create_test_random_snp_selector(n_snps = 42)
+#'
+#' check_random_snp_selector(create_test_random_snp_selector())
+#' is_random_snp_selector(create_test_random_snp_selector())
+#'
+#' check_snp_selector(create_test_random_snp_selector())
+#' is_snp_selector(create_test_random_snp_selector())
 #' @export
 #' @author Richèl J.C. Bilderbeek
 create_test_random_snp_selector <- function(

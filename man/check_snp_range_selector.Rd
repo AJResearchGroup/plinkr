@@ -23,13 +23,8 @@ Will \link{stop} if not.
 check_snp_range_selector(create_test_snp_range_selector())
 }
 \seealso{
-There are multiple SNP selector checking functions:
-\itemize{
-\item general, any type: see \link{check_snp_selector}
-\item a single SNP: see \link{check_single_snp_selector}
-\item a SNP range: see \link{check_snp_range_selector}
-\item a window around a SNP: see \link{check_snp_window_selector}
-}
+There are multiple SNP selector checking functions,
+see \link{check_snp_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

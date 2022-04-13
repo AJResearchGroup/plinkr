@@ -5,7 +5,7 @@
 #' @return the command-line arguments
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_snp_range_args <- function(
+create_select_snp_range_args <- function(
   plink_bin_filenames,
   snp_range_selector,
   base_output_filename,

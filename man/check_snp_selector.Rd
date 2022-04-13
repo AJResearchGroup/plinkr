@@ -18,18 +18,21 @@ Check if SNP selector is valid.
 Will \link{stop} if not.
 }
 \examples{
-# A SNP window selector
+check_snp_selector(create_test_random_snp_selector())
+check_snp_selector(create_test_single_snp_selector())
+check_snp_selector(create_test_snp_range_selector())
 check_snp_selector(create_test_snp_window_selector())
-
-# Other types of SNP selectors ...
 }
 \seealso{
+There are multiple SNP selectors,
+see \link{create_snp_selector} for an overview.
+
 There are multiple SNP selector checking functions:
 \itemize{
-\item general, any type: see \link{check_snp_selector}
-\item a single SNP: see \link{check_single_snp_selector}
-\item a SNP range: see \link{check_snp_range_selector}
-\item a window around a SNP: see \link{check_snp_window_selector}
+\item A random SNP selector: \link{check_random_snp_selector}
+\item A single SNP selector: \link{check_single_snp_selector}
+\item A SNP range selector: \link{check_snp_range_selector}
+\item A SNP window selector: \link{check_snp_window_selector}
 }
 }
 \author{

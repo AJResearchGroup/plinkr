@@ -3,11 +3,8 @@
 #' @return a `plink_bin_data` (see \link{check_plink_bin_data})
 #' @seealso
 #'
-#' There are multiple SNP selectors:
-#'  * a single SNP: see \link{create_single_snp_selector}
-#'  * one or more random SNPs: see \link{create_random_snp_selector}
-#'  * a SNP range: see \link{create_snp_range_selector}
-#'  * a window around a SNP: see \link{create_snp_window_selector}
+#' There are multiple SNP selector checking functions,
+#' see \link{check_snp_selector} for an overview
 #' @export
 #' @examples
 #' if (is_plink_installed()) {
@@ -71,7 +68,7 @@ select_snps <- function(
   plinkr::check_verbose(verbose)
 
   if (plinkr::is_plink_bin_filenames(data)) {
-    args <- plinkr::create_snp_select_args(
+    args <- plinkr::create_select_snp_args(
       plink_bin_filenames = data,
       snp_selector = snp_selector,
       base_output_filename = base_output_filename,

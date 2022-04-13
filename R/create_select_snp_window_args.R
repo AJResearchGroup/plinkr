@@ -6,7 +6,7 @@
 #' @return the command-line arguments
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_snp_window_args <- function(
+create_select_snp_window_args <- function(
   plink_bin_filenames,
   snp_window_selector,
   base_output_filename,

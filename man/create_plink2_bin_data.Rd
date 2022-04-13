@@ -4,11 +4,7 @@
 \alias{create_plink2_bin_data}
 \title{Create a set of \code{PLINK2} binary data}
 \usage{
-create_plink2_bin_data(
-  pgen_table = get_test_pgen_table(),
-  psam_table = get_test_psam_table(),
-  pvar_table = get_test_pvar_table()
-)
+create_plink2_bin_data(pgen_table, psam_table, pvar_table)
 }
 \arguments{
 \item{pgen_table}{an \link{array} that maps the individuals

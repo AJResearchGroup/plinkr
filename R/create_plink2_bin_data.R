@@ -11,9 +11,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_plink2_bin_data <- function(
-  pgen_table = get_test_pgen_table(),
-  psam_table = get_test_psam_table(),
-  pvar_table = get_test_pvar_table()
+  pgen_table,
+  psam_table,
+  pvar_table
 ) {
   plinkr::check_pgen_table(pgen_table = pgen_table)
   plinkr::check_psam_table(psam_table = psam_table)

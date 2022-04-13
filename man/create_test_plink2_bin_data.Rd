@@ -4,7 +4,11 @@
 \alias{create_test_plink2_bin_data}
 \title{Create a set of \code{PLINK2} binary data to be used in testing}
 \usage{
-create_test_plink2_bin_data()
+create_test_plink2_bin_data(
+  pgen_table = get_test_pgen_table(),
+  psam_table = get_test_psam_table(),
+  pvar_table = get_test_pvar_table()
+)
 }
 \description{
 Create a set of \code{PLINK2} binary data to be used in testing

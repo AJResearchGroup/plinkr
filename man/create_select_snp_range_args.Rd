@@ -16,7 +16,7 @@ create_select_snp_range_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
-\item{snp_range_selector}{a SNP selector (see \link{check_snp_selector}),
+\item{snp_range_selector}{a SNP selector (see \link{create_snp_selector}),
 that allows one to select a range between two SNPs,
 as created by \link{create_snp_range_selector}
 and checked by \link{check_snp_range_selector}}

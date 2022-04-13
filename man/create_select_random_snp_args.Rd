@@ -16,6 +16,11 @@ create_select_random_snp_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
+\item{random_snp_selector}{a SNP selector (see \link{create_snp_selector})
+that allows one to select one or more random SNPs,
+as created by \link{create_random_snp_selector}
+and checked by \link{check_random_snp_selector}}
+
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}
 

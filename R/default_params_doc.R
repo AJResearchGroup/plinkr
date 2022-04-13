@@ -371,6 +371,10 @@
 #' with a quantitative trait, as created by `PLINK`/`PLINK2`
 #' and stored as a \code{.qassoc} file (for `PLINK`) or
 #' `[basename].<phenotype>.glm.linear` (for `PLINK2`).
+#' @param random_snp_selector a SNP selector (see \link{create_snp_selector})
+#' that allows one to select one or more random SNPs,
+#' as created by \link{create_random_snp_selector}
+#' and checked by \link{check_random_snp_selector}
 #' @param regular_phenotype_value the regular phenotypic value
 #' @param sample_ids sample IDs, which is a \link[tibble]{tibble}
 #' with two columns: the first column holds the family ID
@@ -385,21 +389,21 @@
 #' @param simulate_qt_params the parameters for a quantitative
 #'   traits simulation, as can be created by
 #'   \link{create_simulate_qt_params}
-#' @param single_snp_selector a SNP selector (see \link{check_snp_selector})
+#' @param single_snp_selector a SNP selector (see \link{create_snp_selector})
 #' that allows one to select a single SNP,
 #' as created by \link{create_single_snp_selector}
 #' and checked by \link{check_single_snp_selector}
 #' @param snp a SNP, e.g. `rs12345678`,
 #' as can be checked by \link{check_snp}
 #' @param snp_from a SNP (see \link{check_snp}) to start from
-#' @param snp_range_selector a SNP selector (see \link{check_snp_selector}),
+#' @param snp_range_selector a SNP selector (see \link{create_snp_selector}),
 #' that allows one to select a range between two SNPs,
 #' as created by \link{create_snp_range_selector}
 #' and checked by \link{check_snp_range_selector}
 #' @param snp_selector a SNP selector, a way to select one or more SNPs,
 #' as can be checked by \link{check_snp_selector}
 #' @param snp_to a SNP (see \link{check_snp}) to end at
-#' @param snp_window_selector a SNP selector (see \link{check_snp_selector}),
+#' @param snp_window_selector a SNP selector (see \link{create_snp_selector}),
 #' that allows one to select a focal SNP and a range/window of SNPs around it,
 #' as created by \link{create_snp_window_selector}
 #' and checked by \link{check_snp_window_selector}
@@ -523,6 +527,7 @@ default_params_doc <- function(
   qassoc_filename,
   qassoc_filenames,
   qassoc_table,
+  random_snp_selector,
   regular_phenotype_value,
   sample_ids,
   sample_ids_filename,

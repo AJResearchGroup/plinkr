@@ -7,6 +7,11 @@
 is_random_snp_selector(random_snp_selector, verbose = FALSE)
 }
 \arguments{
+\item{random_snp_selector}{a SNP selector (see \link{create_snp_selector})
+that allows one to select one or more random SNPs,
+as created by \link{create_random_snp_selector}
+and checked by \link{check_random_snp_selector}}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}

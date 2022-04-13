@@ -16,7 +16,7 @@ create_select_single_snp_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
-\item{single_snp_selector}{a SNP selector (see \link{check_snp_selector})
+\item{single_snp_selector}{a SNP selector (see \link{create_snp_selector})
 that allows one to select a single SNP,
 as created by \link{create_single_snp_selector}
 and checked by \link{check_single_snp_selector}}

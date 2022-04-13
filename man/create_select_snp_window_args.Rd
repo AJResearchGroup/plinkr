@@ -16,7 +16,7 @@ create_select_snp_window_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
-\item{snp_window_selector}{a SNP selector (see \link{check_snp_selector}),
+\item{snp_window_selector}{a SNP selector (see \link{create_snp_selector}),
 that allows one to select a focal SNP and a range/window of SNPs around it,
 as created by \link{create_snp_window_selector}
 and checked by \link{check_snp_window_selector}}

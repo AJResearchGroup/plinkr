@@ -95,6 +95,7 @@ default_params_doc(
   qassoc_filename,
   qassoc_filenames,
   qassoc_table,
+  random_snp_selector,
   regular_phenotype_value,
   sample_ids,
   sample_ids_filename,
@@ -597,6 +598,11 @@ with a quantitative trait, as created by \code{PLINK}/\code{PLINK2}
 and stored as a \code{.qassoc} file (for \code{PLINK}) or
 \verb{[basename].<phenotype>.glm.linear} (for \code{PLINK2}).}
 
+\item{random_snp_selector}{a SNP selector (see \link{create_snp_selector})
+that allows one to select one or more random SNPs,
+as created by \link{create_random_snp_selector}
+and checked by \link{check_random_snp_selector}}
+
 \item{regular_phenotype_value}{the regular phenotypic value}
 
 \item{sample_ids}{sample IDs, which is a \link[tibble]{tibble}
@@ -617,7 +623,7 @@ as can be checked by \link{check_sample_ids}}
 traits simulation, as can be created by
 \link{create_simulate_qt_params}}
 
-\item{single_snp_selector}{a SNP selector (see \link{check_snp_selector})
+\item{single_snp_selector}{a SNP selector (see \link{create_snp_selector})
 that allows one to select a single SNP,
 as created by \link{create_single_snp_selector}
 and checked by \link{check_single_snp_selector}}
@@ -627,7 +633,7 @@ as can be checked by \link{check_snp}}
 
 \item{snp_from}{a SNP (see \link{check_snp}) to start from}
 
-\item{snp_range_selector}{a SNP selector (see \link{check_snp_selector}),
+\item{snp_range_selector}{a SNP selector (see \link{create_snp_selector}),
 that allows one to select a range between two SNPs,
 as created by \link{create_snp_range_selector}
 and checked by \link{check_snp_range_selector}}
@@ -637,7 +643,7 @@ as can be checked by \link{check_snp_selector}}
 
 \item{snp_to}{a SNP (see \link{check_snp}) to end at}
 
-\item{snp_window_selector}{a SNP selector (see \link{check_snp_selector}),
+\item{snp_window_selector}{a SNP selector (see \link{create_snp_selector}),
 that allows one to select a focal SNP and a range/window of SNPs around it,
 as created by \link{create_snp_window_selector}
 and checked by \link{check_snp_window_selector}}

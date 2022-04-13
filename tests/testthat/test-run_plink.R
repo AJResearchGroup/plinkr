@@ -11,6 +11,7 @@ test_that("show help, v1.7", {
   clear_plinkr_cache() # nolint
 })
 
+
 test_that("show help, v1.9", {
   if (!is_plink_installed()) return()
   expect_silent(
@@ -192,4 +193,24 @@ test_that("detect invalid combinations of commands", {
   )
 
   expect_silent(check_empty_plinkr_folder())
+})
+
+test_that("get general info about data", {
+  if (!is_plink_installed()) return()
+  bfile <- tools::file_path_sans_ext(get_plinkr_filename("select_snps.bed"))
+  expect_silent(
+    run_plink(
+      args = c("--bfile", bfile, "--noweb"),
+      plink_options = create_plink_v1_7_options()
+    )
+  )
+  # Works to get info
+  if (1 == 2) {
+    expect_error(
+      run_plink(
+        args = c("--bfile", bfile, "--pgen-info"),
+        plink_options = create_plink_v2_0_options()
+      )
+    )
+  }
 })

@@ -7,8 +7,8 @@
 check_snp_selector(snp_selector)
 }
 \arguments{
-\item{snp_selector}{a SNP selector, a way to select one or more SNPs,
-as can be checked by \link{check_snp_selector}}
+\item{snp_selector}{a SNP selector, a way to select one or more SNPs.
+See \link{create_snp_selector} for all SNP selectors.}
 }
 \value{
 Nothing.

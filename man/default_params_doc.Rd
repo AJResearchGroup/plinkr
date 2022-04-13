@@ -638,8 +638,8 @@ that allows one to select a range between two SNPs,
 as created by \link{create_snp_range_selector}
 and checked by \link{check_snp_range_selector}}
 
-\item{snp_selector}{a SNP selector, a way to select one or more SNPs,
-as can be checked by \link{check_snp_selector}}
+\item{snp_selector}{a SNP selector, a way to select one or more SNPs.
+See \link{create_snp_selector} for all SNP selectors.}
 
 \item{snp_to}{a SNP (see \link{check_snp}) to end at}
 

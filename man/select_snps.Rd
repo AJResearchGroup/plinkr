@@ -23,8 +23,8 @@ select_snps(
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
 }}
 
-\item{snp_selector}{a SNP selector, a way to select one or more SNPs,
-as can be checked by \link{check_snp_selector}}
+\item{snp_selector}{a SNP selector, a way to select one or more SNPs.
+See \link{create_snp_selector} for all SNP selectors.}
 
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}

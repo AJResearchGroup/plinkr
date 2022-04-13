@@ -68,7 +68,7 @@ select_snps <- function(
   plinkr::check_verbose(verbose)
 
   if (plinkr::is_plink_bin_filenames(data)) {
-    args <- plinkr::create_select_snp_args(
+    args <- plinkr::create_select_snps_args(
       plink_bin_filenames = data,
       snp_selector = snp_selector,
       base_output_filename = base_output_filename,

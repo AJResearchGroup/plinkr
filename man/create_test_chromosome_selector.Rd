@@ -5,12 +5,20 @@
 \title{Create a selector to select all SNPs on a chromosome,
 to be used in testing}
 \usage{
-create_test_chromosome_selector()
+create_test_chromosome_selector(chromosome_number = 1)
+}
+\value{
+a chromosome selector
 }
 \description{
 Create a selector to select all SNPs on a chromosome,
 to be used in testing.
 A SNP selector is used in, for example, \link{select_snps}
+}
+\examples{
+create_test_chromosome_selector()
+
+create_test_chromosome_selector(chromosome_number = 22)
 }
 \seealso{
 Use \link{create_chromosome_selector} to

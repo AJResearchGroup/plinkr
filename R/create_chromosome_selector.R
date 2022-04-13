@@ -7,9 +7,14 @@
 #'
 #' There are multiple SNP selectors,
 #' see \link{create_snp_selector} for an overview
-#' @export
+#' @examples
+#' create_chromosome_selector(chromosome_number = 1)
+#' create_chromosome_selector(chromosome_number = 22)
 #' @author Richèl J.C. Bilderbeek
-create_chromosome_selector <- function() {
-  stop("TODO")
+#' @export
+create_chromosome_selector <- function(chromosome_number) {
+  plinkr::check_chromosome_number(chromosome_number)
+  list(
+    chromosome_number = chromosome_number
+  )
 }
-

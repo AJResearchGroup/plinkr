@@ -45,7 +45,10 @@ This function is named after the \code{--assoc} flag used by PLINK
 }
 \examples{
 if (is_plink_installed()) {
-  assoc(create_demo_assoc_data())
+  assoc(
+    assoc_data = create_demo_assoc_data(),
+    assoc_params = create_test_assoc_params()
+  )
 }
 }
 \author{

@@ -4,7 +4,7 @@
 #' @inheritParams default_params_doc
 #' @return \link{TRUE} if this is a single SNP selector
 #' @examples
-#' is_single_snp_selector(get_test_single_snp_selector())
+#' is_single_snp_selector(create_test_single_snp_selector())
 #'
 #' is_single_snp_selector("nonsense")
 #' @author Richèl J.C. Bilderbeek

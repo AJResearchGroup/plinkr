@@ -23,7 +23,7 @@ Use \link{check_verbose} to detect if this argument is valid.}
 Determine if this is a single SNP selector
 }
 \examples{
-is_single_snp_selector(get_test_single_snp_selector())
+is_single_snp_selector(create_test_single_snp_selector())
 
 is_single_snp_selector("nonsense")
 }

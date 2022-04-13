@@ -4,11 +4,11 @@
 #' @inheritParams default_params_doc
 #' @return the command-line arguments
 #' @examples
-#' create_select_snp_args(
+#' create_select_snps_args(
 #'   plink_bin_filenames = create_test_plink_bin_filenames(),
 #'   snp_selector = create_test_single_snp_selector()
 #' )
-#' create_select_snp_args(
+#' create_select_snps_args(
 #'   plink_bin_filenames = create_plink_bin_filenames(
 #'     bed_filename = get_plinkr_filename("select_snps.bed"),
 #'     bim_filename = get_plinkr_filename("select_snps.bim"),
@@ -16,17 +16,17 @@
 #'   ),
 #'   snp_selector = create_test_random_snp_selector()
 #' )
-#' create_select_snp_args(
+#' create_select_snps_args(
 #'   plink_bin_filenames = create_test_plink_bin_filenames(),
 #'   snp_selector = create_test_snp_range_selector()
 #' )
-#' create_select_snp_args(
+#' create_select_snps_args(
 #'   plink_bin_filenames = create_test_plink_bin_filenames(),
 #'   snp_selector = create_test_snp_window_selector()
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_select_snp_args <- function(
+create_select_snps_args <- function(
   plink_bin_filenames,
   snp_selector,
   base_output_filename = plinkr::get_plinkr_tempfilename(),
@@ -36,7 +36,16 @@ create_select_snp_args <- function(
   plinkr::check_snp_selector(snp_selector)
   plinkr::check_base_output_filename(base_output_filename)
   plinkr::check_plink_options(plink_options)
-  if (plinkr::is_single_snp_selector(snp_selector)) {
+  if (plinkr::is_chromosome_selector(snp_selector)) {
+    return(
+      plinkr::create_select_chromosome_args(
+        plink_bin_filenames = plink_bin_filenames,
+        chromosome_selector = snp_selector,
+        base_output_filename = base_output_filename,
+        plink_options = plink_options
+      )
+    )
+  } else if (plinkr::is_single_snp_selector(snp_selector)) {
     return(
       plinkr::create_select_single_snp_args(
         plink_bin_filenames = plink_bin_filenames,

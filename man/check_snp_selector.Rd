@@ -18,6 +18,7 @@ Check if SNP selector is valid.
 Will \link{stop} if not.
 }
 \examples{
+check_snp_selector(create_test_chromosome_selector())
 check_snp_selector(create_test_random_snp_selector())
 check_snp_selector(create_test_single_snp_selector())
 check_snp_selector(create_test_snp_range_selector())
@@ -29,6 +30,7 @@ see \link{create_snp_selector} for an overview.
 
 There are multiple SNP selector checking functions:
 \itemize{
+\item A chromosome selector: \link{check_chromosome_selector}
 \item A random SNP selector: \link{check_random_snp_selector}
 \item A single SNP selector: \link{check_single_snp_selector}
 \item A SNP range selector: \link{check_snp_range_selector}

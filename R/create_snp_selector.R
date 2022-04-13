@@ -8,16 +8,16 @@
 #' @return Nothing.
 #' @seealso
 #' There are multiple SNP selectors,
+#'  * A chromosome selector: \link{create_chromosome_selector}
 #'  * A random SNP selector: \link{create_random_snp_selector}
 #'  * A single SNP selector: \link{create_single_snp_selector}
-#'  * A single chromosome selector: \link{create_chromosome_selector}
 #'  * A SNP range selector: \link{create_snp_range_selector}
 #'  * A SNP window selector: \link{create_snp_window_selector}
 #'
 #' There are multiple SNP selector checking functions,
 #' see \link{check_snp_selector} for an overview.
 #' @examples
-#' # Prefer using the specialized funtions over 'create_snp_selector'
+#' create_snp_selector(create_test_chromosome_selector())
 #' create_snp_selector(create_test_random_snp_selector())
 #' create_snp_selector(create_test_single_snp_selector())
 #' create_snp_selector(create_test_snp_range_selector())

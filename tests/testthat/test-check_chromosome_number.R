@@ -1,0 +1,13 @@
+test_that("use", {
+  expect_silent(check_chromosome_number(1))
+  expect_silent(check_chromosome_number(2))
+  expect_error(check_chromosome_number(0))
+  expect_error(check_chromosome_number(1.6))
+  expect_error(check_chromosome_number(-0.3))
+  expect_error(check_chromosome_number("nonsense"))
+  expect_error(check_chromosome_number(""))
+  expect_error(check_chromosome_number(NULL))
+  expect_error(check_chromosome_number(NA))
+  expect_error(check_chromosome_number(Inf))
+  expect_error(check_chromosome_number(c(1, 2)))
+})

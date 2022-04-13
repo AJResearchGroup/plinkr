@@ -4,11 +4,15 @@
 \alias{create_chromosome_selector}
 \title{Create a selector to select all SNPs on a chromosome}
 \usage{
-create_chromosome_selector()
+create_chromosome_selector(chromosome_number)
 }
 \description{
 Create a selector to select all SNPs on a chromosome
 to be used in, for example, \link{select_snps}
+}
+\examples{
+create_chromosome_selector(chromosome_number = 1)
+create_chromosome_selector(chromosome_number = 22)
 }
 \seealso{
 Use \link{create_test_chromosome_selector} to

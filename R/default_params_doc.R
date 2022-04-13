@@ -468,6 +468,7 @@ default_params_doc <- function(
   bim_table,
   calc_phenotype_function,
   chromosome_number,
+  chromosome_selector,
   confidence_interval,
   cov_filename,
   cov_table,

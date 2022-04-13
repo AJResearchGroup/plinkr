@@ -7,7 +7,9 @@ Newest versions at top.
 ### NEW FEATURES
 
  * Add 'select_snps'
+ * Add 'create_chromosome_selector'
  * Add 'create_single_snp_selector'
+ * Add 'create_random_snp_selector'
  * Add 'create_snp_range_selector'
  * Add 'create_snp_window_selector'
 

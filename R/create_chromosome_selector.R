@@ -2,6 +2,7 @@
 #'
 #' Create a selector to select all SNPs on a chromosome
 #' to be used in, for example, \link{select_snps}
+#' @inheritParams default_params_doc
 #' @seealso Use \link{create_test_chromosome_selector} to
 #' create a single-SNP selector to be used in testing.
 #'

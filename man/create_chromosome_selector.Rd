@@ -6,6 +6,10 @@
 \usage{
 create_chromosome_selector(chromosome_number)
 }
+\arguments{
+\item{chromosome_number}{the chromosome number,
+as can be checked by \link{check_chromosome_number}}
+}
 \description{
 Create a selector to select all SNPs on a chromosome
 to be used in, for example, \link{select_snps}

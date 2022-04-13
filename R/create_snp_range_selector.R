@@ -8,6 +8,7 @@
 #'
 #' There are multiple SNP selectors:
 #'  * a single SNP: see \link{create_single_snp_selector}
+#'  * one or more random SNPs: see \link{create_random_snp_selector}
 #'  * a SNP range: see \link{create_snp_range_selector}
 #'  * a window around a SNP: see \link{create_snp_window_selector}
 #' @examples

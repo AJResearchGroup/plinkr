@@ -19,6 +19,7 @@
 check_single_snp_selector <- function(single_snp_selector) {
   testthat::expect_true(is.list(single_snp_selector))
   testthat::expect_true("snp" %in% names(single_snp_selector))
+  testthat::expect_false("window_kb" %in% names(single_snp_selector))
   plinkr::check_snp(single_snp_selector$snp)
   invisible(single_snp_selector)
 }

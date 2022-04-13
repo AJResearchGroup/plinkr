@@ -1,3 +1,61 @@
+test_that("single SNP selector", {
+  if (!is_plink_installed()) return()
+
+  plink_bin_filenames <- create_plink_bin_filenames(
+    bed_filename = get_plinkr_filename("select_snps.bed"),
+    bim_filename = get_plinkr_filename("select_snps.bim"),
+    fam_filename = get_plinkr_filename("select_snps.fam")
+  )
+  single_snp_selector <- create_single_snp_selector(
+    snp = "snp_4"
+  )
+  new_plink_bin_data <- select_snps(
+    data = plink_bin_filenames,
+    snp_selector = single_snp_selector
+  )
+  expect_equal(1, nrow(new_plink_bin_data$bim_table))
+  expect_equal(1, nrow(new_plink_bin_data$bed_table))
+})
+
+test_that("random SNP selector", {
+  if (!is_plink_installed()) return()
+
+  plink_bin_filenames <- create_plink_bin_filenames(
+    bed_filename = get_plinkr_filename("select_snps.bed"),
+    bim_filename = get_plinkr_filename("select_snps.bim"),
+    fam_filename = get_plinkr_filename("select_snps.fam")
+  )
+  random_snp_selector <- create_random_snp_selector(
+    n_snps = 3
+  )
+  new_plink_bin_data <- select_snps(
+    data = plink_bin_filenames,
+    snp_selector = random_snp_selector
+  )
+  expect_equal(3, nrow(new_plink_bin_data$bim_table))
+  expect_equal(3, nrow(new_plink_bin_data$bed_table))
+})
+
+test_that("SNP range selector", {
+  if (!is_plink_installed()) return()
+
+  plink_bin_filenames <- create_plink_bin_filenames(
+    bed_filename = get_plinkr_filename("select_snps.bed"),
+    bim_filename = get_plinkr_filename("select_snps.bim"),
+    fam_filename = get_plinkr_filename("select_snps.fam")
+  )
+  snp_range_selector <- create_snp_range_selector(
+    snp_from = "snp_2",
+    snp_to = "snp_7"
+  )
+  new_plink_bin_data <- select_snps(
+    data = plink_bin_filenames,
+    snp_selector = snp_range_selector
+  )
+  expect_equal(6, nrow(new_plink_bin_data$bim_table))
+  expect_equal(6, nrow(new_plink_bin_data$bed_table))
+})
+
 test_that("use, from files, window of 0.001 is 1 SNP", {
   if (!is_plink_installed()) return()
 

@@ -1,4 +1,5 @@
 test_that("use", {
+  expect_silent(check_n_snps(0))
   expect_silent(check_n_snps(1))
   expect_silent(check_n_snps(2))
   expect_error(check_n_snps(1.6))

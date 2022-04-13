@@ -20,6 +20,7 @@ Check if the number of SNPs is valid.
 Will \link{stop} if not
 }
 \examples{
+check_n_snps(0)
 check_n_snps(1)
 check_n_snps(2)
 }

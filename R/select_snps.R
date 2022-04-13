@@ -5,6 +5,7 @@
 #'
 #' There are multiple SNP selectors:
 #'  * a single SNP: see \link{create_single_snp_selector}
+#'  * one or more random SNPs: see \link{create_random_snp_selector}
 #'  * a SNP range: see \link{create_snp_range_selector}
 #'  * a window around a SNP: see \link{create_snp_window_selector}
 #' @export
@@ -16,7 +17,36 @@
 #'     bim_filename = get_plinkr_filename("select_snps.bim"),
 #'     fam_filename = get_plinkr_filename("select_snps.fam")
 #'   )
-#'   # Selects 3 SNPs, with 'snp_5' in the middle
+#'
+#'   # Select a single SNP
+#'   single_snp_selector <- create_single_snp_selector(
+#'     snp = "snp_4"
+#'   )
+#'   plink_bin_data <- select_snps(
+#'     data = plink_bin_filenames,
+#'     snp_selector = single_snp_selector
+#'   )
+#'
+#'   # Select 2 random SNPs
+#'   random_snp_selector <- create_random_snp_selector(
+#'     n_snps = 3
+#'   )
+#'   plink_bin_data <- select_snps(
+#'     data = plink_bin_filenames,
+#'     snp_selector = random_snp_selector
+#'   )
+#'
+#'   # Select a SNP range
+#'   snp_range_selector <- create_snp_range_selector(
+#'     snp_from = "snp_2",
+#'     snp_to = "snp_7"
+#'   )
+#'   plink_bin_data <- select_snps(
+#'     data = plink_bin_filenames,
+#'     snp_selector = snp_range_selector
+#'   )
+#'
+#'   # Seleect a window around a SNP: 3 SNPs, with 'snp_5' in the middle
 #'   snp_window_selector <- create_snp_window_selector(
 #'     snp = "snp_5",
 #'     window_kb = 0.003
@@ -41,9 +71,9 @@ select_snps <- function(
   plinkr::check_verbose(verbose)
 
   if (plinkr::is_plink_bin_filenames(data)) {
-    args <- plinkr::create_snp_window_args(
+    args <- plinkr::create_snp_select_args(
       plink_bin_filenames = data,
-      snp_window_selector = snp_selector,
+      snp_selector = snp_selector,
       base_output_filename = base_output_filename,
       plink_options = plink_options
     )

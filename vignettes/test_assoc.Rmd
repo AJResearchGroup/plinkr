@@ -59,17 +59,18 @@ we need some parameters:
    trait values
  * The minor allele frequence (MAF)
 
-Here, we get simple set of parameters, as to be used in testing,
+Here, we get simple set of data and parameters, as to be used in testing,
 or -in this case- a simple demonstration:
  
 ```{r}
+assoc_data <- create_test_assoc_data()
 assoc_params <- create_test_assoc_params()
 ```
 
 ### The mapping table
 
 ```{r}
-knitr::kable(assoc_params$data$map_table)
+knitr::kable(assoc_data$data$map_table)
 ```
 
 ### The pedigree table
@@ -77,7 +78,7 @@ knitr::kable(assoc_params$data$map_table)
 The PLINK example \code{.ped} contains, among others, the pedigree of the individuals:
 
 ```{r}
-knitr::kable(assoc_params$data$ped_table)
+knitr::kable(assoc_data$data$ped_table)
 ```
 
 The pedigree table has a column called `case_control_code`,
@@ -102,6 +103,7 @@ we can detect the association between genotype and the single trait:
 ```{r}
 if (is_plink_installed()) {
   t <- assoc(
+    assoc_data = assoc_data,
     assoc_params = assoc_params
   )
   knitr::kable(t)

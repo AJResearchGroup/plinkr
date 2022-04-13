@@ -7,4 +7,3 @@ test_that("use, SNP window selector", {
     plink_options = create_plink_options()
   )
 })
-

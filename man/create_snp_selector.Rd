@@ -31,6 +31,7 @@ There are multiple SNP selectors,
 \itemize{
 \item A random SNP selector: \link{create_random_snp_selector}
 \item A single SNP selector: \link{create_single_snp_selector}
+\item A single chromosome selector: \link{create_chromosome_selector}
 \item A SNP range selector: \link{create_snp_range_selector}
 \item A SNP window selector: \link{create_snp_window_selector}
 }

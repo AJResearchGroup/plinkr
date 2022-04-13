@@ -10,6 +10,7 @@
 #' There are multiple SNP selectors,
 #'  * A random SNP selector: \link{create_random_snp_selector}
 #'  * A single SNP selector: \link{create_single_snp_selector}
+#'  * A single chromosome selector: \link{create_chromosome_selector}
 #'  * A SNP range selector: \link{create_snp_range_selector}
 #'  * A SNP window selector: \link{create_snp_window_selector}
 #'

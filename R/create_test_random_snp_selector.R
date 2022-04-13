@@ -19,7 +19,7 @@
 #' is_snp_selector(create_test_random_snp_selector())
 #' @export
 #' @author Richèl J.C. Bilderbeek
-create_test_random_snp_selector <- function(
+create_test_random_snp_selector <- function( # nolint indeed a long function name
   n_snps = 2
 ) {
   plinkr::create_random_snp_selector(n_snps = n_snps)

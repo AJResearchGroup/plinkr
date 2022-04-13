@@ -13,6 +13,8 @@ create_random_trait <- function(
   mafs = 0.25,
   n_snps = 1
 ) {
+  plinkr::check_n_snps(n_snps)
+  testthat::expect_true(n_snps > 0)
   # mafs and n_snps are checked by create_trait
   plinkr::create_trait(
     phenotype = "random",

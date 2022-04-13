@@ -104,7 +104,7 @@
 #' @param chromosome_selector a SNP selector (see \link{create_snp_selector})
 #' that allows one to select a single chromsome,
 #' as created by \link{create_chromosome_selector}
-#' and checked by \link{check_chromsome_selector}
+#' and checked by \link{check_chromosome_selector}
 #' @param confidence_interval confidence interval, a value between (and
 #' excluding both) 0.0 and 1.0. The confidence interval helps assess
 #' the certainty of an estimation: you can be 99 percent sure

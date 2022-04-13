@@ -77,3 +77,18 @@ test_that("read PLINK tutorial file qt.phe", {
   )
   expect_silent(read_plink_phe_file(phe_filename))
 })
+
+test_that("add NAs", {
+  phe_table <- get_test_phe_table()
+  phe_table$P1[2] <- NA
+  phe_filename <- get_plinkr_tempfilename(fileext = ".phe")
+  save_phe_table(
+    phe_table = phe_table,
+    phe_filename = phe_filename
+  )
+  phe_table_again <- read_plink_phe_file(
+    phe_filename = phe_filename
+  )
+  expect_identical(phe_table, phe_table_again)
+  file.remove(phe_filename)
+})

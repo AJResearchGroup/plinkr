@@ -43,31 +43,31 @@ Simulate data:
 ```{r}
 # Create the example files in the inst/extdata folder
 set.seed(314)
-assoc_params <- create_demo_assoc_params()
+assoc_data <- create_demo_assoc_data()
 ```
 
 Glance at the data:
 
 ```{r}
-knitr::kable(assoc_params$data$map_table)
+knitr::kable(assoc_data$data$map_table)
 ```
 
 ```{r}
-knitr::kable(assoc_params$data$ped_table)
+knitr::kable(assoc_data$data$ped_table)
 ```
 
 Should be the same:
 
 ```{r}
 testthat::expect_equal(
-  assoc_params$data$map_table,
+  assoc_data$data$map_table,
   read_plink_map_file(get_plinkr_filename("demo_assoc.map"))
 )
 ```
 
 ```{r}
 testthat::expect_equal(
-  assoc_params$data$ped_table,
+  assoc_data$data$ped_table,
   read_plink_ped_file(get_plinkr_filename("demo_assoc.ped"))
 )
 ```

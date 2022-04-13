@@ -43,7 +43,8 @@ plink_optionses <- create_plink_optionses(plink_folder = "/opt/plinkr")
 
 # Use PLINK v1.9, i.e. plink_optionses[[2]]
 assoc(
-  assoc_params = create_demo_assoc_params(),
+  assoc_data = create_demo_assoc_data(),
+  assoc_params = create_test_assoc_params(),
   plink_options = plink_optionses[[2]]
 )
 ```

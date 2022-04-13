@@ -7,6 +7,10 @@ to be used in testing}
 \usage{
 create_test_chromosome_selector(chromosome_number = 1)
 }
+\arguments{
+\item{chromosome_number}{the chromosome number,
+as can be checked by \link{check_chromosome_number}}
+}
 \value{
 a chromosome selector
 }

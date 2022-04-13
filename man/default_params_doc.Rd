@@ -29,6 +29,7 @@ default_params_doc(
   bim_filename,
   bim_table,
   calc_phenotype_function,
+  chromosome_number,
   confidence_interval,
   cov_filename,
   cov_table,
@@ -243,6 +244,9 @@ The output must be the phenotypic values, as a numeric vector,
 which has the same length as the number of individuals.
 Use \link{check_calc_phenotype_function}
 to check a \code{calc_phenotype_function}.}
+
+\item{chromosome_number}{the chromosome number,
+as can be checked by \link{check_chromosome_number}}
 
 \item{confidence_interval}{confidence interval, a value between (and
 excluding both) 0.0 and 1.0. The confidence interval helps assess
@@ -681,6 +685,11 @@ Use \link{check_verbose} to detect if this argument is valid.}
 
 \item{window_kb}{the window (i.e. the amount of base pairs around
 a focal SNP) in kilobases, as checked by \link{check_window_kb}}
+
+\item{chromosome_selector}{a SNP selector (see \link{create_snp_selector})
+that allows one to select a single chromsome,
+as created by \link{create_chromsome_selector}
+and checked by \link{check_chromsome_selector}}
 }
 \description{
 This function does nothing. It is intended to inherit is parameters'

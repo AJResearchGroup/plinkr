@@ -99,6 +99,12 @@
 #' which has the same length as the number of individuals.
 #' Use \link{check_calc_phenotype_function}
 #' to check a \code{calc_phenotype_function}.
+#' @param chromosome_number the chromosome number,
+#' as can be checked by \link{check_chromosome_number}
+#' @param chromosome_selector a SNP selector (see \link{create_snp_selector})
+#' that allows one to select a single chromsome,
+#' as created by \link{create_chromsome_selector}
+#' and checked by \link{check_chromsome_selector}
 #' @param confidence_interval confidence interval, a value between (and
 #' excluding both) 0.0 and 1.0. The confidence interval helps assess
 #' the certainty of an estimation: you can be 99 percent sure
@@ -461,6 +467,7 @@ default_params_doc <- function(
   bim_filename,
   bim_table,
   calc_phenotype_function,
+  chromosome_number,
   confidence_interval,
   cov_filename,
   cov_table,

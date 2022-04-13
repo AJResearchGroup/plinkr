@@ -8,6 +8,10 @@ Will \link{stop} if not}
 \usage{
 check_chromosome_number(chromosome_number)
 }
+\arguments{
+\item{chromosome_number}{the chromosome number,
+as can be checked by \link{check_chromosome_number}}
+}
 \value{
 Nothing. Will \link{stop} if the chromosome number is invalid
 }

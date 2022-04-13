@@ -16,6 +16,11 @@ create_select_chromosome_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
+\item{chromosome_selector}{a SNP selector (see \link{create_snp_selector})
+that allows one to select a single chromsome,
+as created by \link{create_chromsome_selector}
+and checked by \link{check_chromsome_selector}}
+
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}
 

@@ -7,6 +7,11 @@
 is_chromosome_selector(chromosome_selector, verbose = FALSE)
 }
 \arguments{
+\item{chromosome_selector}{a SNP selector (see \link{create_snp_selector})
+that allows one to select a single chromsome,
+as created by \link{create_chromsome_selector}
+and checked by \link{check_chromsome_selector}}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}

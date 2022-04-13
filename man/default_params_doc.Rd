@@ -251,7 +251,7 @@ as can be checked by \link{check_chromosome_number}}
 
 \item{chromosome_selector}{a SNP selector (see \link{create_snp_selector})
 that allows one to select a single chromsome,
-as created by \link{create_chromsome_selector}
+as created by \link{create_chromosome_selector}
 and checked by \link{check_chromsome_selector}}
 
 \item{confidence_interval}{confidence interval, a value between (and

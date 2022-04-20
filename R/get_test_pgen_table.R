@@ -23,6 +23,6 @@ get_test_pgen_table <- function() {
   )
   colnames(pgen_table) <- paste0("snp", c(1, 2))
   rownames(pgen_table) <- as.character(seq(1, 6))
-
+  class(pgen_table) <- c(class(pgen_table), "pgen_table")
   pgen_table
 }

@@ -2,8 +2,9 @@ test_that("minimal use", {
   clear_plinkr_cache()
 
   bed_filename <- get_plinkr_tempfilename(fileext = ".bed")
+  bed_table <- get_test_bed_table()
   save_bed_table(
-    bed_table = get_test_bed_table(),
+    bed_table = bed_table,
     bed_filename = bed_filename
   )
   expect_true(file.exists(bed_filename))

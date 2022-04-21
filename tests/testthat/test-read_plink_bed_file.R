@@ -6,6 +6,25 @@ test_that("minimal use, toy_data", {
   )
 })
 
+test_that("get test table, save, read", {
+  clear_plinkr_cache()
+
+  bed_filename <- get_plinkr_tempfilename(fileext = ".bed")
+  bed_table <- get_test_bed_table()
+  save_bed_table(
+    bed_table = bed_table,
+    bed_filename = bed_filename
+  )
+  expect_true(file.exists(bed_filename))
+  read_plink_bed_file(bed_filename = ,
+                      names_loci = ,
+                      names_ind = )
+
+  file.remove(bed_filename)
+
+  expect_silent(check_empty_plinkr_folder())
+})
+
 test_that("create, read, save, read, PLINK v1.7", {
   if (!is_plink_installed(plink_options = create_plink_v1_7_options())) return()
   clear_plinkr_cache()

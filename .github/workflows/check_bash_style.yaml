@@ -1,0 +1,22 @@
+on:
+  push:
+  pull_request:
+
+name: check_bash_style
+
+jobs:
+  check_bash_style:
+
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install shellcheck
+        run: sudo apt install shellcheck
+
+      - name: Run shellcheck
+        run: shellcheck $(find . | egrep ".sh$")

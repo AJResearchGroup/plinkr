@@ -11,6 +11,10 @@ cp -r ../vignettes build
 cp ../DESCRIPTION build
 cp ../NAMESPACE build
 
-cd build
+# Use exit in case 'cd' fails
+cd build || exit
+
 R CMD build .
-R CMD check --as-cran $(ls *.tar.gz)
+
+# Use ./*glob* or -- *glob* so names with dashes won't become options
+R CMD check --as-cran "$(ls -- *.tar.gz)"

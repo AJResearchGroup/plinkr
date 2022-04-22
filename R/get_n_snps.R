@@ -16,7 +16,9 @@
 #' @export
 get_n_snps <- function(table) {
   # First try class
-  if (inherits(table, "pgen_table")) {
+  if ("plinkr_datatype" %in% attributes(table) &&
+      attributes(table)$plinkr_datatype == "pgen_table"
+  ) {
     return(plinkr::get_n_snps_from_pgen_table(pgen_table = table))
   }
 

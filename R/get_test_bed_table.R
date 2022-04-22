@@ -8,15 +8,19 @@
 #' the word \code{create} is used.
 #' @examples
 #' get_test_bed_table()
+#' check_bed_table(get_test_bed_table())
+#' is_bed_table(get_test_bed_table())
 #' @author Richèl J.C. Bilderbeek
 #' @export
-get_test_bed_table <- function() {
+get_test_bed_table <- function(n_snps = 2) {
   bed_table <- matrix(
-    data = as.integer(c(1, 1, 0, 2)),
-    nrow = 2,
+    data = as.integer(
+      sample(c(0, 1, 2), size = n_snps * 2, replace = TRUE)
+    ),
+    nrow = n_snps,
     ncol = 2,
     byrow = TRUE,
-    dimnames = list(c("snp0", "snp1"), c("per0", "per1"))
+    dimnames = list(paste0("snp", seq(0, n_snps - 1)), c("per0", "per1"))
   )
   bed_table
 }

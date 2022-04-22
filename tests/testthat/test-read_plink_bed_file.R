@@ -10,15 +10,22 @@ test_that("get test table, save, read", {
   clear_plinkr_cache()
 
   bed_filename <- get_plinkr_tempfilename(fileext = ".bed")
-  bed_table <- get_test_bed_table()
+  set.seed(44)
+  bed_table <- get_test_bed_table(n_snps = 3)
+  bed_table
+  names_loci <- rownames(bed_table)
+  names_ind <- colnames(bed_table)
   save_bed_table(
     bed_table = bed_table,
     bed_filename = bed_filename
   )
   expect_true(file.exists(bed_filename))
-  read_plink_bed_file(bed_filename = ,
-                      names_loci = ,
-                      names_ind = )
+  bed_table_again <- read_plink_bed_file(
+    bed_filename = bed_filename,
+    names_loci = names_loci,
+    names_ind = names_ind
+  )
+  expect_identical(bed_table, bed_table_again)
 
   file.remove(bed_filename)
 

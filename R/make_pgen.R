@@ -45,7 +45,7 @@ make_pgen <- function(
     plink_options = plink_options,
     verbose = verbose
   )
-  # list.files(
+  list.files(
     path = dirname(base_output_filename),
     pattern = tools::file_path_sans_ext(basename(base_output_filename)),
     full.names = TRUE

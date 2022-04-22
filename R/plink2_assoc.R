@@ -37,9 +37,13 @@ plink2_assoc <- function(
 
   # else, convert to PLINK2 binary format
   if (plinkr::is_plink_text_data(assoc_data$data)) {
-    assoc_data$data <- convert_plink_text_data_to_plink2_bin_data(assoc_data$data)
+    assoc_data$data <- plinkr::convert_plink_text_data_to_plink2_bin_data(
+      assoc_data$data
+    )
   } else if (plinkr::is_plink_bin_data(assoc_data$data)) {
-    assoc_data$data <- convert_plink_bin_data_to_plink2_bin_data(assoc_data$data)
+    assoc_data$data <- plinkr::convert_plink_bin_data_to_plink2_bin_data(
+      assoc_data$data
+    )
   }
   testthat::expect_true(plinkr::is_plink2_bin_data(assoc_data$data))
 

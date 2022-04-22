@@ -1,4 +1,5 @@
 test_that("minimal use, test_v1_7_after_make-bed", {
+  clear_plinkr_cache()
   base_input_filename <- tools::file_path_sans_ext(
     get_plinkr_filename("test_v1_7_after_make-bed.bed")
   )

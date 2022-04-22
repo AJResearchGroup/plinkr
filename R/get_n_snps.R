@@ -15,13 +15,9 @@
 #'
 #' @export
 get_n_snps <- function(table) {
-  # First try class
-  if ("plinkr_datatype" %in% attributes(table) &&
-      attributes(table)$plinkr_datatype == "pgen_table"
-  ) {
+  if (has_pgen_table_attributes(table)) {
     return(plinkr::get_n_snps_from_pgen_table(pgen_table = table))
   }
-
   if (plinkr::is_bed_table(table)) {
     return(plinkr::get_n_snps_from_bed_table(bed_table = table))
   }

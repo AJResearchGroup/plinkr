@@ -1,21 +1,22 @@
-#' Let \code{PLINK2} detect an association with one binary traits.
+#' Let `PLINK2` detect an association with one binary traits.
 #'
-#' @note This function is named after the \code{--assoc} flag used by PLINK
+#' @note This function is named after the `--assoc` flag used by PLINK
 #' @inheritParams default_params_doc
 #' @return a \link{list} with the following columns:
-#' * \code{assoc_table}: a \link[tibble]{tibble} with associations
-#'   found by \code{PLINK}.
+#' * `assoc_table`: a \link[tibble]{tibble} with associations
+#'   found by `PLINK`.
 #'   See \link{read_plink_assoc_file} for an explanation of the
 #'   column names.
-#' * \code{log}: the log file as text as created by \code{PLINK}
+#' * `log`: the log file as text as created by `PLINK`
 #' @examples
 #' if (is_plink_installed()) {
 #'
 #'   if (1 == 2) {
+#'     # Need help of 'pgenlibr' to save a .pgen file
 #'     plink2_assoc(
-#'       assoc_data = create_test_plink2_bin_data(),
+#'       assoc_data = create_assoc_data(create_test_plink2_bin_data()),
 #'       assoc_params = create_test_assoc_params()
-#  '   )
+#'     )
 #'   }
 #' }
 #' @author Richèl J.C. Bilderbeek
@@ -35,6 +36,11 @@ plink2_assoc <- function(
   )
 
   # else, convert to PLINK2 binary format
+  if (plinkr::is_plink_text_data(assoc_data$data)) {
+    assoc_data$data <- convert_plink_text_data_to_plink2_bin_data(assoc_data$data)
+  } else if (plinkr::is_plink_bin_data(assoc_data$data)) {
+    assoc_data$data <- convert_plink_bin_data_to_plink2_bin_data(assoc_data$data)
+  }
   testthat::expect_true(plinkr::is_plink2_bin_data(assoc_data$data))
 
 

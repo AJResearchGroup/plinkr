@@ -31,6 +31,6 @@
   pgen_array <- as.array(pgen_table)
   colnames(pgen_array) <- names_loci
   rownames(pgen_array) <- names_ind
-
+  attributes(pgen_array)$plinkr_datatype <- "pgen_table"
   pgen_array
 }

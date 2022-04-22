@@ -6,6 +6,14 @@ test_that("minimal use, toy_data", {
   )
 })
 
+test_that("minimal use, toy_data", {
+  bim <- read_plink_bim_file(get_plinkr_filename("select_snps.bim"))
+  fam <- read_plink_fam_file(get_plinkr_filename("select_snps.fam"))
+  expect_silent(
+    read_plink_bed_file(get_plinkr_filename("select_snps.bed"), bim$id, fam$id)
+  )
+})
+
 test_that("get test table, save, read", {
   clear_plinkr_cache()
 

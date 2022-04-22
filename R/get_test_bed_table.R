@@ -1,10 +1,12 @@
-#' Get a simple (\code{.bed}) table
+#' Get a simple `.bed` table
 #'
-#' Get a simple (\code{.bed}) table,
+#' Get a simple `.bed` table,
 #' as can be used in testing.
-#' @return a (\code{.bed}) table
-#' @note The function has the word \code{get} in its name,
-#' as getting the result is trivial. When getting the result is non-trivial,
+#' @inheritParams default_params_doc
+#' @return a `.bed` table
+#' @note The function has the word `get` in its name,
+#' as getting the result is trivial.
+#' When getting the result is non-trivial,
 #' the word \code{create} is used.
 #' @examples
 #' get_test_bed_table()

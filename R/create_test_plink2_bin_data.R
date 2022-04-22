@@ -1,4 +1,5 @@
 #' Create a set of `PLINK2` binary data to be used in testing
+#' @inheritParams default_params_doc
 #' @examples
 #' create_test_plink2_bin_data()
 #' @author Richèl J.C. Bilderbeek

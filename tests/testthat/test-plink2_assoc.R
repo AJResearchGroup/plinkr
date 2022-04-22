@@ -1,3 +1,17 @@
+test_that("minimal use", {
+  if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+  expect_silent(
+    plink2_assoc(
+      assoc_data = create_test_assoc_data(),
+      assoc_params = create_test_assoc_params(),
+      plink_options = create_plink_v2_0_options()
+    )
+  )
+  expect_silent(check_empty_plinkr_folder())
+})
+
 test_that("run", {
   skip("WIP")
   # Create PLINK1 binary files

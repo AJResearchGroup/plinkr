@@ -47,9 +47,11 @@ This function is named after the \code{--assoc} flag used by PLINK
 if (is_plink_installed()) {
 
   if (1 == 2) {
+    # Need help of 'pgenlibr' to save a .pgen file
     plink2_assoc(
-      assoc_data = create_test_plink2_bin_data(),
+      assoc_data = create_assoc_data(create_test_plink2_bin_data()),
       assoc_params = create_test_assoc_params()
+    )
   }
 }
 }

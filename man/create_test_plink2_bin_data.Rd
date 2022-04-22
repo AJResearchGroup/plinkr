@@ -10,6 +10,35 @@ create_test_plink2_bin_data(
   pvar_table = get_test_pvar_table()
 )
 }
+\arguments{
+\item{pgen_table}{an \link{array} that maps the individuals
+to their SNPs, with as much rows as individuals, and as much
+SNPs as columns. Optionally, the row names are the individuals' IDs,
+where the column names are the SNP ID's}
+
+\item{psam_table}{a \link[tibble]{tibble} with as much rows as
+individuals. It has the following columns:
+\itemize{
+\item \code{FID}: the family ID
+\item \code{IID}: the within-family ID
+\item \code{SEX}: the sex
+\item \code{PHENO1}: a phenotypic value
+}
+
+The uppercase column names are those as used by PLINK2.}
+
+\item{pvar_table}{a \link[tibble]{tibble} with as much rows as
+SNPs. It has the following columns:
+\itemize{
+\item \code{CHROM}: the chromosome
+\item \code{POS}: the position on the chromosome
+\item \code{ID}: the SNP ID
+\item \code{REF}: the reference variant
+\item \code{ALT}: the alternate variant
+}
+
+The uppercase column names are those as used by PLINK2.}
+}
 \description{
 Create a set of \code{PLINK2} binary data to be used in testing
 }

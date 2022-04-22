@@ -31,6 +31,7 @@ save_plink_bin_data <- function(
     bed_table = plink_bin_data$bed_table,
     bed_filename = bed_filename
   )
+  testthat::expect_true(file.exists(bed_filename))
   plinkr::save_bim_table(
     bim_table = plink_bin_data$bim_table,
     bim_filename = bim_filename

@@ -4,7 +4,7 @@ test_that("minimal use, from files", {
 
   if (!is_plink_installed()) return()
   data <- convert_plink_text_data_to_plink_bin_data(
-    create_test_plink_text_data()
+    plink_text_data = create_test_plink_text_data()
   )
   assoc_qt_data <- create_test_assoc_qt_data(
     data = data,
@@ -94,6 +94,7 @@ test_that("minimal use, simulated data, matches PLINK1 text data results", {
 test_that("use incorrect data", {
 
   if (!is_plink_installed()) return()
+  clear_plinkr_cache()
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
   expect_false(is_plink_bin_data(assoc_qt_data$data))
@@ -105,5 +106,4 @@ test_that("use incorrect data", {
     "'assoc_qt_data' is not PLINK binary data"
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

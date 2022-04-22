@@ -33,3 +33,4 @@
 ^plink\.random_1\.qassoc$
 ^plink\.random_2\.qassoc$
 ^plink2\.log$
+^README\.Rmd$

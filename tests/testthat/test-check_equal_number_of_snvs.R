@@ -19,6 +19,20 @@ test_that("use, create_test_assoc_qt_params, PLINK binary data", {
   expect_silent(check_empty_plinkr_folder())
 })
 
+test_that("use, files, PLINK binary data", {
+  set.seed(314)
+  expect_silent(
+    check_equal_number_of_snvs(
+      data = create_plink_bin_filenames(
+        bed_filename = get_plinkr_filename("demo_assoc.bed"),
+        bim_filename = get_plinkr_filename("demo_assoc.bim"),
+        fam_filename = get_plinkr_filename("demo_assoc.fam")
+      )
+    )
+  )
+  expect_silent(check_empty_plinkr_folder())
+})
+
 test_that("use, create_test_assoc_qt_params, PLINK2 binary data", {
   set.seed(314)
   expect_silent(

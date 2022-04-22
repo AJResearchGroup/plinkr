@@ -64,6 +64,7 @@ save_plink2_bin_data <- function(
       plink2_bin_data
     )
     testthat::expect_true(plinkr::is_plink_bin_data(plink_bin_data))
+
     plink_bin_filenames <- plinkr::save_plink_bin_data(
       plink_bin_data = plink_bin_data,
       base_input_filename = base_input_filename

@@ -6,6 +6,9 @@
 \usage{
 has_pgen_table_attributes(table)
 }
+\arguments{
+\item{table}{a table}
+}
 \value{
 TRUE if the table has the attributes of a \code{pgen_table}
 }

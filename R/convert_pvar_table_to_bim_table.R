@@ -35,8 +35,8 @@ convert_pvar_table_to_bim_table <- function( # nolint indeed a long function nam
     id = pvar_table$ID, # nolint PLINK2 variable name
     posg = 0,
     pos = pvar_table$POS, # nolint PLINK2 variable name
-    ref = pvar_table$REF, # nolint PLINK2 variable name
-    alt = pvar_table$ALT # nolint PLINK2 variable name
+    alt = pvar_table$ALT, # nolint PLINK2 variable name
+    ref = pvar_table$REF # nolint PLINK2 variable name
   )
   plinkr::check_bim_table(bim_table)
   bim_table

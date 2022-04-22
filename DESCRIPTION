@@ -18,7 +18,7 @@ Imports:
     data.table,
     devtools,
     dplyr,
-    genio,
+    genio(>= 1.1.0),
     pgenlibr,
     pryr,
     purrr,

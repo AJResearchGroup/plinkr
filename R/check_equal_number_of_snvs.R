@@ -19,7 +19,6 @@ check_equal_number_of_snvs <- function(
   # Do not use 'is_plink_text_data' or the others,
   # as this results in recursion:
   # testthat::expect_true(plinkr::is_plink_text_data(data) || plinkr::is_plink_bin_data(data) || plinkr::is_plink2_bin_data(data)) # nolint never run this code!
-
   if ("ped_table" %in% names(data)) {
     testthat::expect_true("map_table" %in% names(data))
     n_snvs_in_ped_table <- (ncol(data$ped_table) - 6) / 2
@@ -35,8 +34,8 @@ check_equal_number_of_snvs <- function(
     }
   } else if ("bed_table" %in% names(data)) {
     testthat::expect_true("bim_table" %in% names(data))
-    n_snvs_in_bed_table <- nrow(data$bed_table)
-    n_snvs_in_bim_table <- nrow(data$bim_table)
+    n_snvs_in_bed_table <- plinkr::get_n_snps_from_bed_table(data$bed_table)
+    n_snvs_in_bim_table <- plinkr::get_n_snps_from_bim_table(data$bim_table)
     if (n_snvs_in_bed_table != n_snvs_in_bim_table) {
       stop(
         "Different number of SNVs in the genotype (.bed) table \n",
@@ -46,7 +45,7 @@ check_equal_number_of_snvs <- function(
         n_snvs_in_bim_table
       )
     }
-  } else {
+  } else if ("pgen_table" %in% names(data)) {
     testthat::expect_true("pgen_table" %in% names(data))
     testthat::expect_true("pvar_table" %in% names(data))
     testthat::expect_true("psam_table" %in% names(data))
@@ -60,6 +59,32 @@ check_equal_number_of_snvs <- function(
         n_snvs_in_pgen_table, " \n",
         "Number of SNVs in genotype (.pgen) table: ",
         n_snvs_in_pvar_table
+      )
+    }
+  } else {
+    testthat::expect_true("bed_filename" %in% names(data))
+    testthat::expect_true("bim_filename" %in% names(data))
+    testthat::expect_true("fam_filename" %in% names(data))
+    bed_table <- read_plink_bed_file_from_files(
+      bed_filename = data$bed_filename,
+      bim_filename = data$bim_filename,
+      fam_filename = data$fam_filename
+    )
+    bim_table <- plinkr::read_plink_bim_file(
+      bim_filename = data$bim_filename
+    )
+    n_snvs_in_bed_table <- plinkr::get_n_snps_from_bed_table(bed_table)
+    n_snvs_in_bim_table <- plinkr::get_n_snps_from_bim_table(bim_table)
+    if (n_snvs_in_bed_table != n_snvs_in_bim_table) {
+      stop(
+        "Different number of SNVs in the genotype (.bed) table \n",
+        "and the genetic mapping (.bim) table \n",
+        ".bed filename: ", data$bed_filename, " \n",
+        ".bim filename: ", data$bim_filename, " \n",
+        ".fam filename: ", data$fam_filename, " \n",
+        "Number of SNVs in genotype (.bed) table: ", n_snvs_in_bed_table, " \n",
+        "Number of SNVs in genetic mapping (.bim) table: ",
+        n_snvs_in_bim_table
       )
     }
   }

@@ -20,8 +20,8 @@ get_test_bim_table <- function() {
     id = c("snp0", "snp1"),
     posg = c(0, 0),
     pos = as.integer(c(0, 1)),
-    ref = c("A", "A"),
-    alt = c("B", "B")
+    alt = c("A", "A"),
+    ref = c("B", "B")
   )
   class(bim_table) <- c("spec_tbl_df", "tbl_df", "tbl", "data.frame")
   bim_table

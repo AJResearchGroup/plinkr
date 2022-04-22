@@ -2,12 +2,21 @@ test_that("minimal use", {
   clear_plinkr_cache()
 
   bed_filename <- get_plinkr_tempfilename(fileext = ".bed")
-  bed_table <- get_test_bed_table()
+  bed_table <- get_test_bed_table(n_snps = 3)
+
   save_bed_table(
     bed_table = bed_table,
     bed_filename = bed_filename
   )
   expect_true(file.exists(bed_filename))
+
+  bed_table_again <- read_plink_bed_file(
+    bed_filename = bed_filename,
+    names_loci = rownames(bed_table),
+    names_ind = colnames(bed_table)
+  )
+  expect_identical(bed_table, bed_table_again)
+
   file.remove(bed_filename)
 
   expect_silent(check_empty_plinkr_folder())
@@ -40,6 +49,7 @@ test_that("a .bed table has SNPs on the rows, and individuals on the columns", {
   # read an existing Plink *.bim file
   # pass locus and individual IDs as vectors, setting data dimensions too
   bed_table <- genio::read_bed(file_bed, bim$id, fam$id, verbose = FALSE)
+  expect_equal(get_n_snps(bed_table), 10)
 
   expect_silent(check_empty_plinkr_folder())
 })

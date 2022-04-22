@@ -1,4 +1,5 @@
 test_that("use, with test data", {
+  clear_plinkr_cache()
   base_input_filename <- file.path(
     get_plinkr_tempfilename(),
     "save_plink_text_data"
@@ -13,10 +14,11 @@ test_that("use, with test data", {
   file.remove(plink_text_filenames$ped_filename)
   unlink(dirname(base_input_filename), recursive = TRUE)
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("use, with ", {
+  clear_plinkr_cache()
+
   base_input_filename <- file.path(
     get_plinkr_tempfilename(),
     "save_plink_text_with_demo_assoc_qt_data"
@@ -32,5 +34,4 @@ test_that("use, with ", {
   file.remove(plink_text_filenames$ped_filename)
   unlink(dirname(base_input_filename), recursive = TRUE)
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

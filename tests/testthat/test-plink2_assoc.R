@@ -1,6 +1,6 @@
 test_that("minimal use", {
   if (!is_plink_installed()) return()
-
+  skip("Need help of 'pgenlibr' to save a .pgen file")
   clear_plinkr_cache()
   expect_silent(
     plink2_assoc(

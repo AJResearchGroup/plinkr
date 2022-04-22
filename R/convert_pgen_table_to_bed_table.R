@@ -24,7 +24,8 @@ convert_pgen_table_to_bed_table <- function( # nolint indeed a long function nam
   # rs0  NA 0
   # rs10  0 1
   #
-  # Simple, just transpose!
+  # Simple, just transpose
   bed_table <- t(pgen_table)
+
   bed_table
 }

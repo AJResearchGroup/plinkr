@@ -16,8 +16,8 @@ check_bim_table <- function(bim_table) {
   testthat::expect_equal("id", names(bim_table)[2])
   testthat::expect_equal("posg", names(bim_table)[3])
   testthat::expect_equal("pos", names(bim_table)[4])
-  testthat::expect_equal("ref", names(bim_table)[5])
-  testthat::expect_equal("alt", names(bim_table)[6])
+  testthat::expect_equal("alt", names(bim_table)[5])
+  testthat::expect_equal("ref", names(bim_table)[6])
   testthat::expect_true(is.character(bim_table$id))
   is_too_highs <- bim_table$chr > 95
   chromosome_numbers <- bim_table$chr[is_too_highs]

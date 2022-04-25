@@ -49,8 +49,11 @@ test_that("a .bed table has SNPs on the rows, and individuals on the columns", {
   # read an existing Plink *.bim file
   # pass locus and individual IDs as vectors, setting data dimensions too
   bed_table <- genio::read_bed(file_bed, bim$id, fam$id, verbose = FALSE)
-  expect_equal(get_n_snps(bed_table), 10)
 
+  # Use attributes to distinguish between pgen and bed table
+  attributes(bed_table)$plinkr_datatype <- "bed_table"
+
+  expect_equal(get_n_snps(bed_table), 10)
   expect_silent(check_empty_plinkr_folder())
 })
 

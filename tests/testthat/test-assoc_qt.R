@@ -145,6 +145,11 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
   assoc_qt_data <- create_test_assoc_qt_data(
     data = create_test_plink2_bin_data()
   )
+  skip("'select_snps' does not support PLINK2 yet")
+  select_snps(
+    data = assoc_qt_data$data,
+    snp_selector = create_single_snp_selector(snp = data$bim_table$id[1])
+  )
   expect_warning(
     assoc_qt(
       assoc_qt_data = assoc_qt_data,

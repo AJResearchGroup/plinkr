@@ -18,9 +18,11 @@ create_plink2_bin_data <- function(
   plinkr::check_pgen_table(pgen_table = pgen_table)
   plinkr::check_psam_table(psam_table = psam_table)
   plinkr::check_pvar_table(pvar_table = pvar_table)
-  list(
+  plink2_bin_data <- list(
     pgen_table = pgen_table,
     psam_table = psam_table,
     pvar_table = pvar_table
   )
+  plinkr::check_plink2_bin_data(plink2_bin_data)
+  plink2_bin_data
 }

@@ -34,7 +34,8 @@ read_plink2_pgen_file_from_files <- function( # nolint indeed a long functio nam
   psam_table <- plinkr::read_plink2_psam_file(psam_filename)
   pvar_table <- plinkr::read_plink2_pvar_file(pvar_filename)
   snp_names <- pvar_table$ID # nolint PLINK2 variable name
-  individual_ids <- psam_table$FID # nolint PLINK2 variable name
+  # Use IID not FID, for #37
+  individual_ids <- psam_table$IID # nolint PLINK2 variable name
   pgen_table <- plinkr::read_plink2_pgen_file(
     pgen_filename = pgen_filename,
     names_loci = snp_names,

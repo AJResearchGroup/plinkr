@@ -27,5 +27,6 @@ read_plink_bed_file <- function(
       verbose = verbose
     )
   )
+  attributes(bed_table)$plinkr_datatype <- "bed_table"
   bed_table
 }

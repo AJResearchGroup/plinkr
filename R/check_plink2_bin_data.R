@@ -34,5 +34,24 @@ check_plink2_bin_data <- function(
   plinkr::check_psam_table(plink2_bin_data$psam_table)
   plinkr::check_pvar_table(plink2_bin_data$pvar_table)
   plinkr::check_equal_number_of_snvs(plink2_bin_data)
+
+  testthat::expect_true("IID" %in% names(plink2_bin_data$psam_table))
+  psam_table_iids <- stringr::str_trim(plink2_bin_data$psam_table$IID)
+  pgen_table_rownames <- stringr::str_trim(rownames(plink2_bin_data$pgen_table))
+
+  if (!all(psam_table_iids == pgen_table_rownames)) {
+    stop(
+      "Mismatch between the 'IID' column in the .psam table ",
+      "and the rownames in the .pgen table \n",
+      "'IID' column values in the .psam table: ",
+      paste0(psam_table_iids, collapse = ", "),
+      " \n",
+      "rownames in the .pgen table: ",
+      paste0(pgen_table_rownames, collapse = ", "),
+      " \n"
+    )
+  }
+
+
   invisible(plink2_bin_data)
 }

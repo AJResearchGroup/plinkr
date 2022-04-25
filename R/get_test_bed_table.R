@@ -24,5 +24,6 @@ get_test_bed_table <- function(n_snps = 2) {
     byrow = TRUE,
     dimnames = list(paste0("snp", seq(0, n_snps - 1)), c("per0", "per1"))
   )
+  attributes(bed_table)$plinkr_datatype <- "bed_table"
   bed_table
 }

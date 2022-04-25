@@ -64,6 +64,7 @@ assoc_qt_on_plink2_bin_data <- function(
     log = plinkr::read_plink_log_file(log_filename)
   )
 
+
   file.remove(pgen_filename)
   file.remove(psam_filename)
   file.remove(pvar_filename)
@@ -86,6 +87,21 @@ assoc_qt_on_plink2_bin_data <- function(
     dirname(assoc_qt_params$base_output_filename),
     recursive = TRUE
   )
-  plinkr::check_assoc_qt_result(assoc_qt_result)
+  if (ncol(assoc_qt_result$qassoc_table) != 0) {
+    plinkr::check_assoc_qt_result(assoc_qt_result)
+  }
+  if ("check" == "that error") {
+    tryCatch({
+      plinkr::check_assoc_qt_result(assoc_qt_result)
+    }, error = function(e) {
+      stop(
+        "'assoc_qt_on_plink2_bin_data' failed. \n",
+        "Error: ", e, "\n",
+        "PLINK log: \n * ",
+        paste0(assoc_qt_result$log, "\n * "), "\n"
+      )
+    }
+    )
+  }
   assoc_qt_result
 }

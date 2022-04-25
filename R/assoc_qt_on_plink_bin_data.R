@@ -69,7 +69,7 @@ assoc_qt_on_plink_bin_data <- function(
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
   # 'save_' functions will check for success themselves
-  assoc_qt_data$data <- save_plink_bin_data(
+  assoc_qt_data$data <- plinkr::save_plink_bin_data(
     plink_bin_data = assoc_qt_data$data,
     base_input_filename = assoc_qt_params$base_input_filename
   )

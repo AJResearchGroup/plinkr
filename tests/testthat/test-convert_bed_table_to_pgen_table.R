@@ -5,6 +5,8 @@ test_that("use", {
   )
   # .bed and .pgen tables are transposed,
   # see https://github.com/chrchang/plink-ng/issues/195
+  attributes(bed_table)$plinkr_datatype <- NULL
+  attributes(pgen_table)$plinkr_datatype <- NULL
   expect_identical(pgen_table, t(bed_table))
 })
 

@@ -17,6 +17,18 @@ nothing
 Check if the \code{PLINK} bin data is valid.
 Will \link{stop} if not.
 }
+\details{
+Valid \code{PLINK} binary data has the following properties:
+\itemize{
+\item The \code{bed_table} must be valid, as checked by \link{check_bed_table}
+\item The \code{bim_table} must be valid, as checked by \link{check_bim_table}
+\item The \code{fam_table} must be valid, as checked by \link{check_fam_table}
+\item The number of SNVs must match,
+as checked by \link{check_equal_number_of_snvs}
+\item The column names of the \code{bed_table} must match the \code{id}s in the
+\code{fam_table}
+}
+}
 \examples{
 plink_bin_data <- create_test_plink_bin_data()
 check_plink_bin_data(plink_bin_data)

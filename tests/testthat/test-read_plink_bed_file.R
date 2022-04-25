@@ -4,6 +4,15 @@ test_that("minimal use, toy_data", {
   expect_silent(
     read_plink_bed_file(get_plinkr_filename("toy_data.bed"), bim$id, fam$id)
   )
+  expect_silent(
+    check_bed_table(
+      read_plink_bed_file(
+        get_plinkr_filename("toy_data.bed"),
+        bim$id,
+        fam$id
+      )
+    )
+  )
 })
 
 test_that("minimal use, toy_data", {

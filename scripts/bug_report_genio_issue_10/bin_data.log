@@ -1,0 +1,27 @@
+PLINK v1.90b6.22 64-bit (16 Apr 2021)
+Options in effect:
+  --file text_data
+  --make-bed
+  --out bin_data
+
+Hostname: N141CU
+Working directory: /home/richel/GitHubs/plinkr/scripts/bug_report_genio_issue_10
+Start time: Mon Apr 25 14:35:56 2022
+
+Random number seed: 1650890156
+7642 MB RAM detected; reserving 3821 MB for main workspace.
+Scanning .ped file... done.
+Performing single-pass .bed write (1 variant, 3 people).
+--file: bin_data-temporary.bed + bin_data-temporary.bim +
+bin_data-temporary.fam written.
+1 variant loaded from .bim file.
+3 people (3 males, 0 females) loaded from .fam.
+3 phenotype values loaded from .fam.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 3 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+1 variant and 3 people pass filters and QC.
+Among remaining phenotypes, 1 is a case and 2 are controls.
+--make-bed to bin_data.bed + bin_data.bim + bin_data.fam ... done.
+
+End time: Mon Apr 25 14:35:56 2022

@@ -23,6 +23,7 @@ read_plink_bin_data <- function(
   bim_table <- plinkr::read_plink_bim_file(bim_filename = bim_filename)
   fam_table <- plinkr::read_plink_fam_file(fam_filename = fam_filename)
 
+  # Will be checked there
   plinkr::create_plink_bin_data(
     bim_table = bim_table,
     fam_table = fam_table,

@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## plinkr v0.19.2.1 (unreleased)
+## plinkr v0.20 (unreleased)
 
 ### NEW FEATURES
 
@@ -12,6 +12,7 @@ Newest versions at top.
  * Add 'create_random_snp_selector'
  * Add 'create_snp_range_selector'
  * Add 'create_snp_window_selector'
+ * Use attributes to distinguish between `pgen_table` and `bed_table`
 
 ### MINOR IMPROVEMENTS
 
@@ -23,7 +24,7 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * None
+ * Uses `genio` v1.1.0, that has different 
 
 ## plinkr v0.19.2 (2022-03-15)
 

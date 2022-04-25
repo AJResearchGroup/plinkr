@@ -5,9 +5,10 @@
 #' @export
 create_test_plink_bin_data <- function() {
   base_input_filename <- tools::file_path_sans_ext(
-    get_plinkr_filename("test_v1_7_after_make-bed.bed")
+    get_plinkr_filename("gcaer_issue_2_bin.bed")
   )
-  plinkr::read_plink_bin_data(
+  plink_bin_data <- plinkr::read_plink_bin_data(
     base_input_filename = base_input_filename
   )
+  plink_bin_data
 }

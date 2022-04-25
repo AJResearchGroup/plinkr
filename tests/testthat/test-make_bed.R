@@ -5,6 +5,9 @@
 ################################################################################
 test_that("use, v1.7", {
   if (!is_plink_installed(plink_options = create_plink_v1_7_options())) return()
+
+  clear_plinkr_cache()
+
   map_filename <- get_plinkr_filename("test_v1_7.map")
   ped_filename <- get_plinkr_filename("test_v1_7.ped")
   base_output_filename <- file.path(get_plinkr_tempfilename(), "output")
@@ -23,134 +26,8 @@ test_that("use, v1.7", {
   unlink(dirname(base_output_filename), recursive = TRUE)
 
   check_empty_plinkr_folder()
-  clear_plinkr_cache() # nolint
 })
 
-test_that("files exactly reproduced, from v1.7", {
-  plink_options <- create_plink_v1_7_options()
-
-  if (!is_plink_installed(plink_options = plink_options)) return()
-
-
-  map_filename <- get_plinkr_filename("test_v1_7.map")
-  ped_filename <- get_plinkr_filename("test_v1_7.ped")
-
-  if (1 == 2) {
-    # Must be same files as PLINK v1.7 example files
-    map_filename_too <- get_plink_example_filename(
-      "test.map", plink_options = plink_options
-    )
-
-    ped_filename_too <- get_plink_example_filename(
-      "test.ped", plink_options = plink_options
-    )
-    expect_equal(readLines(map_filename), readLines(map_filename_too))
-    expect_equal(readLines(ped_filename), readLines(ped_filename_too))
-  }
-
-  base_output_filename <- file.path(
-    get_plinkr_tempfilename(), "output"
-  )
-  filenames <- make_bed(
-    base_input_filename = tools::file_path_sans_ext(ped_filename),
-    base_output_filename = base_output_filename,
-    plink_options = plink_options
-  )
-  # To create the 'test_v1_7_after_make-bed.*' files, I used,
-  # in folder '~/.local/share/plinkr/plink_1_7_unix':
-  #
-  #  ./plink --file test --make-bed --out ~/test_v1_7_after_make-bed --noweb
-  #
-  #
-  bed_filename <- stringr::str_subset(filenames, "\\.bed$")
-  bed_filename_too <- get_plinkr_filename("test_v1_7_after_make-bed.bed")
-  expect_equal(
-    as.vector(tools::md5sum(bed_filename)),
-    as.vector(tools::md5sum(bed_filename_too))
-  )
-
-  bim_filename <- stringr::str_subset(filenames, "\\.bim$")
-  bim_filename_too <- get_plinkr_filename("test_v1_7_after_make-bed.bim")
-  expect_equal(
-    as.vector(tools::md5sum(bim_filename)),
-    as.vector(tools::md5sum(bim_filename_too))
-  )
-
-  fam_filename <- stringr::str_subset(filenames, "\\.fam$")
-  fam_filename_too <- get_plinkr_filename("test_v1_7_after_make-bed.fam")
-  expect_equal(
-    as.vector(tools::md5sum(fam_filename)),
-    as.vector(tools::md5sum(fam_filename_too))
-  )
-
-  unlink(dirname(base_output_filename), recursive = TRUE)
-
-  check_empty_plinkr_folder()
-  clear_plinkr_cache() # nolint
-})
-
-test_that("files exactly reproduced, from v1.7", {
-  plink_options <- create_plink_v1_7_options()
-
-  if (!is_plink_installed(plink_options = plink_options)) return()
-
-
-  map_filename <- get_plinkr_filename("test_v1_7.map")
-  ped_filename <- get_plinkr_filename("test_v1_7.ped")
-
-  if (1 == 2) {
-    # Must be same files as PLINK v1.7 example files
-    map_filename_too <- get_plink_example_filename(
-      "test.map", plink_options = plink_options
-    )
-
-    ped_filename_too <- get_plink_example_filename(
-      "test.ped", plink_options = plink_options
-    )
-    expect_equal(readLines(map_filename), readLines(map_filename_too))
-    expect_equal(readLines(ped_filename), readLines(ped_filename_too))
-  }
-
-  base_output_filename <- file.path(
-    get_plinkr_tempfilename(), "output"
-  )
-  filenames <- make_bed(
-    base_input_filename = tools::file_path_sans_ext(ped_filename),
-    base_output_filename = base_output_filename,
-    plink_options = plink_options
-  )
-  # To create the 'test_v1_7_after_make-bed.*' files, I used,
-  # in folder '~/.local/share/plinkr/plink_1_7_unix':
-  #
-  #  ./plink --file test --make-bed --out ~/test_v1_7_after_make-bed --noweb
-  #
-  #
-  bed_filename <- stringr::str_subset(filenames, "\\.bed$")
-  bed_filename_too <- get_plinkr_filename("test_v1_7_after_make-bed.bed")
-  expect_equal(
-    as.vector(tools::md5sum(bed_filename)),
-    as.vector(tools::md5sum(bed_filename_too))
-  )
-
-  bim_filename <- stringr::str_subset(filenames, "\\.bim$")
-  bim_filename_too <- get_plinkr_filename("test_v1_7_after_make-bed.bim")
-  expect_equal(
-    as.vector(tools::md5sum(bim_filename)),
-    as.vector(tools::md5sum(bim_filename_too))
-  )
-
-  fam_filename <- stringr::str_subset(filenames, "\\.fam$")
-  fam_filename_too <- get_plinkr_filename("test_v1_7_after_make-bed.fam")
-  expect_equal(
-    as.vector(tools::md5sum(fam_filename)),
-    as.vector(tools::md5sum(fam_filename_too))
-  )
-
-  unlink(dirname(base_output_filename), recursive = TRUE)
-
-  check_empty_plinkr_folder()
-  clear_plinkr_cache() # nolint
-})
 ################################################################################
 #
 # PLINK1 v1.9

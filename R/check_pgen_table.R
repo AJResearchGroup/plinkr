@@ -10,5 +10,6 @@
 #' @export
 check_pgen_table <- function(pgen_table) {
   testthat::expect_true(is.matrix(pgen_table))
+  testthat::expect_true(has_pgen_table_attributes(pgen_table))
   pgen_table
 }

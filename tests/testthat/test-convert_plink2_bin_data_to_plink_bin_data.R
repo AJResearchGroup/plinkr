@@ -7,7 +7,10 @@ test_that("minimal use", {
 
   plink_bin_data <- convert_plink2_bin_data_to_plink_bin_data(plink2_bin_data)
   check_plink_bin_data(plink_bin_data)
-  expect_true("plinkr_datatype" %in% names(attributes(plink_bin_data$bed_table)))
+  expect_true(
+    "plinkr_datatype" %in%
+      names(attributes(plink_bin_data$bed_table))
+  )
   expect_false(
     "pgen_table" %in% attributes(plink_bin_data$bed_table)$plinkr_datatype
   )

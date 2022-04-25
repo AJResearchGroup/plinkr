@@ -36,7 +36,9 @@ save_plink_bin_data <- function(
       recursive = TRUE
     )
     attributes(plink_bin_data$bed_table)$plinkr_datatype <- NULL
-    colnames(plink_bin_data$bed_table) <- stringr::str_trim(colnames(plink_bin_data$bed_table))
+    colnames(plink_bin_data$bed_table) <- stringr::str_trim(
+      colnames(plink_bin_data$bed_table)
+    )
     genio::write_plink(
       file = base_input_filename,
       X = plink_bin_data$bed_table,

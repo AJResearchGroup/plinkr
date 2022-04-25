@@ -46,7 +46,7 @@ test_that("minimal use, use example data from genio", {
   dir.create(dirname(bed_filename), showWarnings = FALSE, recursive = TRUE)
   dir.create(dirname(bim_filename), showWarnings = FALSE, recursive = TRUE)
   dir.create(dirname(fam_filename), showWarnings = FALSE, recursive = TRUE)
-  base_url <- "https://raw.githubusercontent.com/OchoaLab/genio/master/tests/testthat/"
+  base_url <- "https://raw.githubusercontent.com/OchoaLab/genio/master/tests/testthat/" # nolint indeed a long line
   bed_url <- paste0(base_url, "dummy-4-10-0.1.bed")
   bim_url <- paste0(base_url, "dummy-4-10-0.1.bim")
   fam_url <- paste0(base_url, "dummy-4-10-0.1.fam")
@@ -67,4 +67,3 @@ test_that("minimal use, use example data from genio", {
     10, get_n_snps_from_bim_table(bim_table = bim_table)
   )
 })
-

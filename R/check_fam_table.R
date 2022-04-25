@@ -19,4 +19,5 @@ check_fam_table <- function(fam_table) {
   testthat::expect_equal("sex", names(fam_table)[5])
   testthat::expect_equal("pheno", names(fam_table)[6])
   testthat::expect_true(is.character(fam_table$fam))
+  testthat::expect_true(is.character(fam_table$id))
 }

@@ -30,6 +30,13 @@ the unit added in the flag's name
 check_window_kb(0.001) # 1 base pair
 check_window_kb(1) # 1000 base pairs
 }
+\seealso{
+the window size is used by:
+\itemize{
+\item \link{create_snp_window_selector}:
+to select variants of a certain window around a SNP
+}
+}
 \author{
 Richèl J.C. Bilderbeek
 }

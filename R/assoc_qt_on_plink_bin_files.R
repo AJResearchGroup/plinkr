@@ -10,7 +10,7 @@
 #'  * `log_filename`: name of the PLINK log file
 #'
 #' @seealso use \link{assoc_qt_on_plink_bin_data} to work on data directly
-#' @note This function is named after the \code{--assoc} flag used by PLINK.
+#' @note This function is named after the `--assoc` flag used by PLINK.
 #' @author Richèl J.C. Bilderbeek
 #' @export
 assoc_qt_on_plink_bin_files <- function(

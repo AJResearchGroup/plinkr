@@ -22,6 +22,26 @@ create_snp_window_selector(
   snp = "my_snp",
   window_kb = 12.34
 )
+
+if (is_plink_installed()) {
+
+  plink_bin_filenames <- create_plink_bin_filenames(
+    bed_filename = get_plinkr_filename("select_snps.bed"),
+    bim_filename = get_plinkr_filename("select_snps.bim"),
+    fam_filename = get_plinkr_filename("select_snps.fam")
+  )
+
+  # Selects a window of 3, i.e. the variant before,
+  # and after the focal SNP
+  snp_window_selector <- create_snp_window_selector(
+    snp = "snp_5",
+    window_kb = 0.003
+  )
+  new_plink_bin_data <- select_snps(
+    data = plink_bin_filenames,
+    snp_selector = snp_window_selector
+  )
+}
 }
 \seealso{
 Use \link{create_test_snp_window_selector} to

@@ -52,7 +52,7 @@ create_assoc_qt_args <- function(
     args <- c(
       "--map", assoc_qt_data$data$map_filename,
       "--ped", assoc_qt_data$data$ped_filename,
-      "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
+      "--pheno", assoc_qt_data$phenotype_data$phe_filename,
       "--all-pheno",
       "--assoc",
       "--maf", assoc_qt_params$maf,

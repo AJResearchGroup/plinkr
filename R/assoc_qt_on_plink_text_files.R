@@ -24,13 +24,14 @@ assoc_qt_on_plink_text_files <- function(
 
   testthat::expect_true(file.exists(assoc_qt_data$data$map_filename))
   testthat::expect_true(file.exists(assoc_qt_data$data$ped_filename))
-  phe_filename <- paste0(assoc_qt_params$base_input_filename, ".phe")
-  plinkr::check_phe_filename(phe_filename)
 
   # Phenotype data: save if in-memory
   if (plinkr::is_phenotype_data_table(assoc_qt_data$phenotype_data)) {
     # .phe table must not have case-control values only
     plinkr::check_phe_table_ok_for_qt(assoc_qt_data$phenotype_data$phe_table)
+
+    phe_filename <- paste0(assoc_qt_params$base_input_filename, ".phe")
+    plinkr::check_phe_filename(phe_filename)
 
     assoc_qt_data$phenotype_data <- plinkr::save_phenotype_data_table(
       phenotype_data_table = assoc_qt_data$phenotype_data,
@@ -41,6 +42,10 @@ assoc_qt_on_plink_text_files <- function(
     testthat::expect_equal(
       assoc_qt_data$phenotype_data$phe_filename,
       phe_filename
+    )
+  } else {
+    testthat::expect_true(
+      plinkr::is_phenotype_data_filename(assoc_qt_data$phenotype_data)
     )
   }
 

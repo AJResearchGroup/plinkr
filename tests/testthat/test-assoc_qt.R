@@ -187,8 +187,6 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
 test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
   if (!is_plink_installed()) return()
 
-  skip("Fails for now")
-
   clear_plinkr_cache()
   assoc_qt_data <- create_assoc_qt_data(
     data = create_plink_text_filenames(
@@ -206,13 +204,10 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
     assoc_qt_params = assoc_qt_params
   )
 
-
   file.remove(assoc_qt_result_filenames$qassoc_filenames)
   file.remove(assoc_qt_result_filenames$log_filename)
-  unlink(dirname(assoc_qt_data$phenotype_data$phe_filename), recursive = TRUE)
   unlink(dirname(assoc_qt_params$base_input_filename), recursive = TRUE)
   unlink(dirname(assoc_qt_params$base_output_filename), recursive = TRUE)
-
   expect_silent(check_empty_plinkr_folder())
 })
 

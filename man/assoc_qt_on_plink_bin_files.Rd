@@ -8,7 +8,7 @@ with files in \code{PLINK} binary format.}
 assoc_qt_on_plink_bin_files(
   assoc_qt_data,
   assoc_qt_params,
-  plink_options = create_plink_v2_0_options(),
+  plink_options = create_plink_v1_9_options(),
   verbose = FALSE
 )
 }

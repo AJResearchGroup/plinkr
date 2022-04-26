@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## plinkr v0.20 (unreleased)
+## plinkr v0.20 (2022-04-26)
 
 ### NEW FEATURES
 
@@ -24,7 +24,7 @@ Newest versions at top.
 
 ### DEPRECATED AND DEFUNCT
 
- * Uses `genio` v1.1.0, that has different 
+ * Uses `genio` v1.1.0
 
 ## plinkr v0.19.2 (2022-03-15)
 

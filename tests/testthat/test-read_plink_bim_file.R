@@ -15,6 +15,8 @@ test_that("minimal use", {
 test_that("create, read, save, read, PLINK v1.7", {
   if (!is_plink_installed(plink_options = create_plink_v1_7_options())) return()
 
+  clear_plinkr_cache()
+
   # Create .bim file using PLINK v1.7
   map_filename <- get_plinkr_filename("test_v1_7.map")
   ped_filename <- get_plinkr_filename("test_v1_7.ped")
@@ -46,11 +48,12 @@ test_that("create, read, save, read, PLINK v1.7", {
   unlink(folder_name, recursive = TRUE)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("create, read, save, read, PLINK v1.9", {
   if (!is_plink_installed(plink_options = create_plink_v1_9_options())) return()
+
+  clear_plinkr_cache()
 
   # Create .bed file using PLINK v1.9
   map_filename <- get_plinkr_filename("toy_v1_9.map")
@@ -83,5 +86,4 @@ test_that("create, read, save, read, PLINK v1.9", {
   unlink(folder_name, recursive = TRUE)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

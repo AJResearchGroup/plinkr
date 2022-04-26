@@ -24,7 +24,7 @@ create_assoc_qt_args_on_plink_bin_data <- function( # nolint indeed a long funct
   )
   args <- c(
     "--bfile", assoc_qt_params$base_input_filename, # PLINK adds prefix
-    "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
+    "--pheno", assoc_qt_data$phenotype_data$phe_filename,
     "--all-pheno",
     "--assoc",
     "--maf", assoc_qt_params$maf,

@@ -212,41 +212,31 @@ test_that("7. test filenames, PLINK1, PLINK1 text filenames", {
 })
 
 test_that("8. test filenames, PLINK1, PLINK1 bin filenames", {
-  skip("assoc_qt 8: leaves file")
-
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
-
-  assoc_qt_data <- create_test_assoc_qt_data(
-    data = create_test_plink_bin_data()
+  assoc_qt_data <- create_assoc_qt_data(
+    data = create_plink_bin_filenames(
+      bed_filename = get_plinkr_filename("demo_assoc_qt.bed"),
+      bim_filename = get_plinkr_filename("demo_assoc_qt.bim"),
+      fam_filename = get_plinkr_filename("demo_assoc_qt.fam")
+    ),
+    phenotype_data = create_phenotype_data_filename(
+      phe_filename = get_plinkr_filename("demo_assoc_qt.phe")
+    )
   )
-  assoc_qt_data$data <- save_plink_bin_data(assoc_qt_data$data)
-  assoc_qt_params <- create_test_assoc_qt_params()
-  save_phe_table(
-    phe_table = assoc_qt_data$phenotype_data$phe_table,
-    phe_filename = paste0(assoc_qt_params$base_input_filename, ".phe")
-  )
-
-  assoc_qt(
+  check_assoc_qt_data(assoc_qt_data)
+  assoc_qt_params <- create_assoc_qt_params()
+  assoc_qt_result_filenames <- assoc_qt(
     assoc_qt_data = assoc_qt_data,
     assoc_qt_params = assoc_qt_params
   )
-  suppressMessages(
-    expect_message(
-      assoc_qt(
-        assoc_qt_data = assoc_qt_data,
-        assoc_qt_params = assoc_qt_params,
-        verbose = TRUE
-      ),
-      "you should be able to copy paste this"
-    )
-  )
-  unlink(dirname(assoc_qt_params$base_output_filename), recursive = TRUE)
-  unlink(dirname(assoc_qt_params$base_input_filename), recursive = TRUE)
 
+  file.remove(assoc_qt_result_filenames$qassoc_filenames)
+  file.remove(assoc_qt_result_filenames$log_filename)
+  unlink(dirname(assoc_qt_params$base_input_filename), recursive = TRUE)
+  unlink(dirname(assoc_qt_params$base_output_filename), recursive = TRUE)
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("9. test filenames, PLINK1, PLINK2 bin filenames, must fail", {

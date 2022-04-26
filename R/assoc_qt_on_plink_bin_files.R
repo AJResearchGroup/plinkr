@@ -16,18 +16,19 @@
 assoc_qt_on_plink_bin_files <- function(
   assoc_qt_data,
   assoc_qt_params,
-  plink_options = create_plink_v2_0_options(),
+  plink_options = create_plink_v1_9_options(),
   verbose = FALSE
 ) {
   plinkr::check_assoc_qt_data(assoc_qt_data)
   plinkr::check_assoc_qt_params(assoc_qt_params)
   plinkr::check_plink_bin_filenames(assoc_qt_data$data)
 
-  phe_filename <- paste0(assoc_qt_params$base_input_filename, ".phe")
-  plinkr::check_phe_filename(phe_filename)
-
   # Phenotype data: save if in-memory
   if (plinkr::is_phenotype_data_table(assoc_qt_data$phenotype_data)) {
+
+    phe_filename <- paste0(assoc_qt_params$base_input_filename, ".phe")
+    plinkr::check_phe_filename(phe_filename)
+
     assoc_qt_data$phenotype_data <- plinkr::save_phenotype_data_table(
       phenotype_data_table = assoc_qt_data$phenotype_data,
       phe_filename = phe_filename
@@ -36,6 +37,10 @@ assoc_qt_on_plink_bin_files <- function(
     testthat::expect_equal(
       assoc_qt_data$phenotype_data$phe_filename,
       phe_filename
+    )
+  } else {
+    testthat::expect_true(
+      plinkr::is_phenotype_data_filename(assoc_qt_data$phenotype_data)
     )
   }
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")

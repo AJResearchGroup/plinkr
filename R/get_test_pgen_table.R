@@ -14,15 +14,15 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_pgen_table <- function() {
-  pgen_table <- array(
-    data = c(
-      2, 1, 0, 1, 0, 0,
-      1, 1, 2, 0, 1, 0
+  plinkr::read_plink2_pgen_file_from_files(
+    pgen_filename = plinkr::get_plinkr_filename(
+      "toy_v1_9_after_make-bed_after_make-pgen.pgen"
     ),
-    dim = c(6, 2)
+    psam_filename = plinkr::get_plinkr_filename(
+      "toy_v1_9_after_make-bed_after_make-pgen.psam"
+    ),
+    pvar_filename = plinkr::get_plinkr_filename(
+      "toy_v1_9_after_make-bed_after_make-pgen.pvar"
+    )
   )
-  colnames(pgen_table) <- paste0("snp", c(1, 2))
-  rownames(pgen_table) <- as.character(seq(1, 6))
-  attributes(pgen_table)$plinkr_datatype <- "pgen_table"
-  pgen_table
 }

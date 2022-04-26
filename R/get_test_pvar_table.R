@@ -14,13 +14,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_test_pvar_table <- function() {
-
-  pvar_table <- tibble::tribble(
-    ~CHROM, ~POS, ~ID,    ~REF, ~ALT, # nolint PLINK2 variable names
-    1,      1000, "rs0",  "C",  ".",  # nolint use this layout for readability
-    1,      1001, "rs10", "A",  "G"   # nolint use this layout for readability
+  plinkr::read_plink2_pvar_file(
+    pvar_filename = plinkr::get_plinkr_filename(
+      "toy_v1_9_after_make-bed_after_make-pgen.pvar"
+    )
   )
-  pvar_table$CHROM <- as.integer(pvar_table$CHROM) # nolint PLINK2 variable names
-  pvar_table$POS <- as.integer(pvar_table$POS) # nolint PLINK2 variable names
-  pvar_table
 }

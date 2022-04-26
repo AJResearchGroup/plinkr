@@ -78,6 +78,22 @@ plinkr::run_plink(
  * See the vignette `demo_assoc_qt` for doing a quantitative trait
    analysis using simulated data and the `plinkr` interface
 
+### Run a quantitative trait analysis on existing files
+
+```{r results=FALSE}
+assoc_qt_data <- create_assoc_qt_data(
+  data = create_plink_text_filenames(
+    map_filename = get_plinkr_filename("demo_assoc_qt.map"), 
+    ped_filename = get_plinkr_filename("demo_assoc_qt.ped")
+  ),
+  phenotype_data = create_phenotype_data_filename(
+    phe_filename = get_plinkr_filename("demo_assoc_qt.phe")  
+  )
+)
+assoc_qt(assoc_qt_data = assoc_qt_data)
+```
+
+
 ### Demonstrate a quantitative trait analysis
 
 `plinkr` can seamlessly use `PLINK`/`PLINK2` in-memory-data or files.

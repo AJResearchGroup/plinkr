@@ -18,7 +18,7 @@
 #' @export
 save_plink_bin_data <- function(
   plink_bin_data,
-  base_input_filename = get_plinkr_tempfilename(),
+  base_input_filename,
   verbose = FALSE
 ) {
   plinkr::check_plink_bin_data(plink_bin_data)

@@ -22,11 +22,19 @@
 create_phe_table_from_psam_table <- function(psam_table) { # nolint indeed a long and descriptive name
   plinkr::check_psam_table(psam_table)
 
-  phe_table <- tibble::tibble(
-    FID = psam_table$FID,
-    IID = psam_table$IID,
-    P1 = psam_table$PHENO1 / 10.0
-  )
+  if ("PHENO1" %in% names(psam_table)) {
+    phe_table <- tibble::tibble(
+      FID = psam_table$FID,
+      IID = psam_table$IID,
+      P1 = psam_table$PHENO1 / 10.0
+    )
+  } else {
+    phe_table <- tibble::tibble(
+      FID = psam_table$FID,
+      IID = psam_table$IID,
+      P1 = psam_table[, 3] / 10.0
+    )
+  }
   plinkr::check_phe_table(phe_table)
   phe_table
 }

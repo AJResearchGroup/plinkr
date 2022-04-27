@@ -29,10 +29,6 @@ read_plink_bed_file_from_files <- function(
   fam_table <- plinkr::read_plink_fam_file(fam_filename)
   snp_names <- bim_table$id
   individual_ids <- format(fam_table$id, scientific = FALSE)
-  if (length(unique(individual_ids)) < length(individual_ids)) {
-    individual_ids <- format(fam_table$id, scientific = FALSE)
-  }
-  testthat::expect_equal(length(unique(individual_ids)), length(individual_ids))
   plinkr::read_plink_bed_file(
     bed_filename = bed_filename,
     names_loci = snp_names,

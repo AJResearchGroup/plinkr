@@ -19,7 +19,7 @@
 #' )
 #' @export
 #' @author Richèl J.C. Bilderbeek
-create_test_single_sample_selector <- function(
+create_test_single_sample_selector <- function( # nolint indeed a long function name
   fid = "adams",
   iid = "morticia"
 ) {

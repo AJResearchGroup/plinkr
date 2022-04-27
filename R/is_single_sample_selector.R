@@ -16,7 +16,9 @@ is_single_sample_selector <- function(
   plinkr::check_verbose(verbose)
   result <- FALSE
   tryCatch({
-    plinkr::check_single_sample_selector(single_sample_selector = single_sample_selector)
+    plinkr::check_single_sample_selector(
+      single_sample_selector = single_sample_selector
+    )
     result <- TRUE
   }, error = function(e) {
     if (verbose) message(e$message)

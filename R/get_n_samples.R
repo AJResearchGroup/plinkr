@@ -17,7 +17,7 @@
 #'
 #' @export
 get_n_samples <- function(table) {
-  if (has_pgen_table_attributes(table)) {
+  if (has_pgen_table_attributes(table)) { # nolint this is a simple function
     return(plinkr::get_n_samples_from_pgen_table(pgen_table = table))
   }
   if (plinkr::is_bed_table(table)) {
@@ -35,19 +35,15 @@ get_n_samples <- function(table) {
   if (plinkr::is_ped_table(table)) {
     return(plinkr::get_n_samples_from_ped_table(ped_table = table))
   }
-  if (plinkr::is_pgen_table(table)) {
-    # This will never be reached: a .pgen table is identified similar
-    # as a .bed file, hence the use of classes
-    return(plinkr::get_n_samples_from_pgen_table(pgen_table = table))
-  }
   if (plinkr::is_psam_table(table)) {
-    # This will never be reached: a .pgen table is identified similar
-    # as a .bed file, hence the use of classes
     return(plinkr::get_n_samples_from_psam_table(psam_table = table))
   }
   if (plinkr::is_pvar_table(table)) {
     return(plinkr::get_n_samples_from_pvar_table(pvar_table = table))
   }
+  # This will never be reached: a .pgen table is identified similar
+  # as a .bed file, hence the use of classes
+  testthat::expect_false(plinkr::is_pgen_table(table))
   stop("Unimplemented table in 'get_n_samples'")
 }
 

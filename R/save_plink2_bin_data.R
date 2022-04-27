@@ -18,7 +18,7 @@
 #' @export
 save_plink2_bin_data <- function(
   plink2_bin_data,
-  base_input_filename = get_plinkr_tempfilename(),
+  base_input_filename,
   plink_options = create_plink_v2_0_options(),
   verbose = FALSE
 ) {
@@ -65,14 +65,9 @@ save_plink2_bin_data <- function(
     )
     testthat::expect_true(plinkr::is_plink_bin_data(plink_bin_data))
 
-    plink_bin_filenames <- plinkr::save_plink_bin_data(
+    plinkr::save_plink_bin_data(
       plink_bin_data = plink_bin_data,
       base_input_filename = base_input_filename
-    )
-    plinkr::read_plink_bed_file_from_files(
-      bed_filename = plink_bin_filenames$bed_filename,
-      bim_filename = plink_bin_filenames$bim_filename,
-      fam_filename = plink_bin_filenames$fam_filename
     )
     testthat::expect_true(plinkr::has_plink_bin_files(base_input_filename))
     plinkr::make_pgen(

@@ -5,7 +5,7 @@
 #' @return the command-line arguments
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_select_single_sample_args <- function(
+create_select_single_sample_args <- function( # nolingt indeed a long function name
   plink_bin_filenames,
   single_sample_selector,
   sample_ids_filename,

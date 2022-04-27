@@ -2,7 +2,11 @@
 #'
 #' Select samples/individuals from data
 #' @inheritParams default_params_doc
-#' @return a `plink_bin_data` (see \link{check_plink_bin_data})
+#' @return
+#'  * If `data` is a `plink_bin_data` (see \link{check_plink_bin_data}),
+#'    a `plink_bin_data`
+#'  * If `data` is a `assoc_qt_data` (see \link{check_assoc_qt_data}),
+#'    a `assoc_qt_data`
 #' @seealso
 #' To select SNPs, use \link{select_snps}
 #'

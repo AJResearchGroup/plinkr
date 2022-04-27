@@ -30,7 +30,7 @@ test_that("single sample selector on assoc_qt_data", {
     fid = "3",
     iid = "1"
   )
-  new_plink_bin_data <- select_samples(
+  new_assoc_qt_data <- select_samples(
     data = assoc_qt_data,
     sample_selector = single_sample_selector
   )

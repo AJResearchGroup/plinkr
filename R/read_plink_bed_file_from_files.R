@@ -28,7 +28,7 @@ read_plink_bed_file_from_files <- function(
   bim_table <- plinkr::read_plink_bim_file(bim_filename)
   fam_table <- plinkr::read_plink_fam_file(fam_filename)
   snp_names <- bim_table$id
-  individual_ids <- format(fam_table$fam, scientific = FALSE)
+  individual_ids <- format(fam_table$id, scientific = FALSE)
   if (length(unique(individual_ids)) < length(individual_ids)) {
     individual_ids <- format(fam_table$id, scientific = FALSE)
   }

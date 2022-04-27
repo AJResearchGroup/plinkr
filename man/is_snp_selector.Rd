@@ -28,6 +28,10 @@ is_snp_selector(create_test_snp_window_selector())
 
 is_snp_selector("nonsense")
 }
+\seealso{
+use \link{is_sample_selector} to determine if a selector
+is a sample selector
+}
 \author{
 Richèl J.C. Bilderbeek
 }

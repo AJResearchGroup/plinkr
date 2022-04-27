@@ -21,7 +21,7 @@ Check if a random-sample selector is valid.
 Will \link{stop} if not.
 }
 \examples{
-random_samples_selector(create_test_random_samples_selector())
+check_random_samples_selector(create_test_random_samples_selector())
 }
 \seealso{
 There are multiple sample selector checking functions,

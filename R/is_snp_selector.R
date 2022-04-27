@@ -3,6 +3,8 @@
 #' Determine if this is a SNP selector
 #' @inheritParams default_params_doc
 #' @return \link{TRUE} if this is a SNP selector
+#' @seealso use \link{is_sample_selector} to determine if a selector
+#' is a sample selector
 #' @examples
 #' is_snp_selector(create_test_random_snps_selector())
 #' is_snp_selector(create_test_single_snp_selector())

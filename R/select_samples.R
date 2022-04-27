@@ -32,7 +32,7 @@
 #'   random_samples_selector <- create_random_samples_selector(
 #'     n_samples = 2
 #'   )
-#'   plink_bin_data <- select_sample(
+#'   plink_bin_data <- select_samples(
 #'     data = plink_bin_filenames,
 #'     sample_selector = random_samples_selector
 #'   )
@@ -107,7 +107,7 @@ select_samples <- function(
       )
     }
     base_output_filename_2 <- plinkr::get_plinkr_tempfilename()
-    new_data <- plinkr::select_sample(
+    new_data <- plinkr::select_samples(
       data = plink_bin_filenames,
       sample_selector = sample_selector,
       base_output_filename = base_output_filename_2,

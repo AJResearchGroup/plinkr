@@ -26,6 +26,7 @@ test_that("minimal use, using PLINK1 text data", {
 })
 
 test_that("use", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -42,6 +43,7 @@ test_that("use", {
 })
 
 test_that("default demo", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -60,6 +62,7 @@ test_that("default demo", {
 })
 
 test_that("demo on random only", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -78,8 +81,7 @@ test_that("demo on random only", {
 })
 
 test_that("demo on two randoms", {
-  expect_silent(check_empty_plinkr_folder())
-
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -99,6 +101,7 @@ test_that("demo on two randoms", {
 })
 
 test_that("number of individuals", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -119,6 +122,7 @@ test_that("number of individuals", {
 })
 
 test_that("demo on additive only", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -139,6 +143,7 @@ test_that("demo on additive only", {
 })
 
 test_that("use quantitative traits that are either 1 or 2", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -162,6 +167,7 @@ test_that("use quantitative traits that are either 1 or 2", {
 
 
 test_that("PLINK cannot handle triallelic SNPs", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -183,6 +189,7 @@ test_that("PLINK cannot handle triallelic SNPs", {
 })
 
 test_that("PLINK cannot handle quadallelic SNPs", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -204,10 +211,11 @@ test_that("PLINK cannot handle quadallelic SNPs", {
 })
 
 test_that("95 chromosome numbers work", {
+  if (!is_on_ci()) return()
+  if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
 
-  if (!is_plink_installed()) return()
   set.seed(314)
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(n_snps = 95),

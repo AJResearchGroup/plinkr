@@ -1,6 +1,7 @@
 test_that("Compare assoc_qt results and speed of PLINKs", {
   expect_equal(1 + 1, 2) # To prevent 'No test' warning
 
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   # Goal is to see the results of the PLINK versions

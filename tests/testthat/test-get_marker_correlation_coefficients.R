@@ -1,5 +1,6 @@
 test_that("random data, no LD", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   set.seed(42)

@@ -2,8 +2,11 @@ test_that("minimal use", {
   plink2_bin_data <- create_test_plink2_bin_data()
 
   check_plink2_bin_data(plink2_bin_data)
-  expect_equal(2, get_n_snps_from_pgen_table(plink2_bin_data$pgen_table))
-  expect_equal(2, get_n_snps(plink2_bin_data$pgen_table))
+  expect_equal(
+    get_n_snps(plink2_bin_data$pgen_table),
+    get_n_snps(plink2_bin_data$pvar_table)
+  )
+  n_snps <- get_n_snps(plink2_bin_data$pgen_table)
 
   plink_bin_data <- convert_plink2_bin_data_to_plink_bin_data(plink2_bin_data)
   check_plink_bin_data(plink_bin_data)
@@ -14,9 +17,14 @@ test_that("minimal use", {
   expect_false(
     "pgen_table" %in% attributes(plink_bin_data$bed_table)$plinkr_datatype
   )
-  expect_equal(2, get_n_snps_from_bed_table(plink_bin_data$bed_table))
-  expect_equal(2, get_n_snps(table = plink_bin_data$bed_table))
-
+  expect_equal(
+    get_n_snps(table = plink_bin_data$bed_table),
+    get_n_snps(table = plink_bin_data$bim_table)
+  )
+  expect_equal(
+    n_snps,
+    get_n_snps(table = plink_bin_data$bim_table)
+  )
 })
 
 test_that("absent", {

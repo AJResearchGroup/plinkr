@@ -16,7 +16,7 @@
 #'  * \link{get_n_samples_from_pvar_table} for a `.pvar` table
 #'
 #' @export
-get_n_samples <- function(table) {
+get_n_samples <- function(table) { # nolint indeed a high cyclomatic complexity, yet the function is simple
   if (has_pgen_table_attributes(table)) { # nolint this is a simple function
     return(plinkr::get_n_samples_from_pgen_table(pgen_table = table))
   }

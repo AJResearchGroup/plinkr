@@ -18,7 +18,8 @@ used as input for \code{PLINK}/\code{PLINK2}}
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}
 
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

@@ -29,12 +29,12 @@
 #'   )
 #'
 #'   # Select 2 random samples
-#'   random_sample_selector <- create_random_sample_selector(
+#'   random_samples_selector <- create_random_samples_selector(
 #'     n_samples = 2
 #'   )
 #'   plink_bin_data <- select_sample(
 #'     data = plink_bin_filenames,
-#'     sample_selector = random_sample_selector
+#'     sample_selector = random_samples_selector
 #'   )
 #' }
 #' @author Richèl J.C. Bilderbeek

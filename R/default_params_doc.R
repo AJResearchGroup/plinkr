@@ -213,7 +213,10 @@
 #' @param n_individuals the number of individuals.
 #' Use \link{check_n_individuals} to check if this is a valid value
 #' @param n_phenotypes the number of phenotypes
-#' @param n_snps the number of SNPs
+#' @param n_samples the number of samples/individuals,
+#' as can be checked by \link{check_n_samples}
+#' @param n_snps the number of SNPs,
+#' as can be checked by \link{check_n_snps}
 #' @param n_snps_per_phenotype the number of SNPs that determine one phenotype
 #' @param os name of the operating system,
 #' as returned by \link[rappdirs]{app_dir}
@@ -377,10 +380,11 @@
 #' with a quantitative trait, as created by `PLINK`/`PLINK2`
 #' and stored as a \code{.qassoc} file (for `PLINK`) or
 #' `[basename].<phenotype>.glm.linear` (for `PLINK2`).
-#' @param random_snp_selector a SNP selector (see \link{create_snp_selector})
+#' @param random_snps_selector a SNP selector
+#' (see \link{create_snp_selector})
 #' that allows one to select one or more random SNPs,
-#' as created by \link{create_random_snp_selector}
-#' and checked by \link{check_random_snp_selector}
+#' as created by \link{create_random_snps_selector}
+#' and checked by \link{check_random_snps_selector}
 #' @param regular_phenotype_value the regular phenotypic value
 #' @param sample_ids sample IDs, which is a \link[tibble]{tibble}
 #' with two columns: the first column holds the family ID
@@ -390,12 +394,21 @@
 #' as can be checked by \link{check_sample_ids}
 #' @param sample_ids_filename name of a file to store `sample_ids`
 #' (see \link{check_sample_ids}) to
+#' @param sample_selector a sample/individual selector,
+#' a way to select one or more samples/individuals.
+#' See \link{create_sample_selector} for all sample selectors.
 #' @param sim_filename name of a `PLINK` \code{.sim} file
 #' @param simfreq_filename name of a `PLINK` \code{.simfreq} file
 #' @param simulate_qt_params the parameters for a quantitative
 #'   traits simulation, as can be created by
 #'   \link{create_simulate_qt_params}
-#' @param single_snp_selector a SNP selector (see \link{create_snp_selector})
+#' @param single_sample_selector a sample selector
+#' (see \link{create_sample_selector} for all sample selectors)
+#' that allows one to select a single sample,
+#' as created by \link{create_single_sample_selector}
+#' and checked by \link{check_single_sample_selector}
+#' @param single_snp_selector a SNP selector
+#' (see \link{create_snp_selector} for all SNP selectors)
 #' that allows one to select a single SNP,
 #' as created by \link{create_single_snp_selector}
 #' and checked by \link{check_single_snp_selector}
@@ -494,6 +507,7 @@ default_params_doc <- function(
   map_table,
   n_individuals,
   n_phenotypes,
+  n_samples,
   n_snps,
   n_snps_per_phenotype,
   os,
@@ -535,13 +549,16 @@ default_params_doc <- function(
   qassoc_filename,
   qassoc_filenames,
   qassoc_table,
-  random_snp_selector,
+  random_samples_selector,
+  random_snps_selector,
   regular_phenotype_value,
   sample_ids,
   sample_ids_filename,
+  sample_selector,
   sim_filename,
   simfreq_filename,
   simulate_qt_params,
+  single_sample_selector,
   single_snp_selector,
   snp,
   snp_from,

@@ -18,6 +18,10 @@ create_select_samples_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
+\item{sample_selector}{a sample/individual selector,
+a way to select one or more samples/individuals.
+See \link{create_sample_selector} for all sample selectors.}
+
 \item{sample_ids_filename}{name of a file to store \code{sample_ids}
 (see \link{check_sample_ids}) to}
 
@@ -40,11 +44,11 @@ create_select_samples_args(
 )
 create_select_samples_args(
   plink_bin_filenames = create_plink_bin_filenames(
-    bed_filename = get_plinkr_filename("select_samples.bed"),
-    bim_filename = get_plinkr_filename("select_samples.bim"),
-    fam_filename = get_plinkr_filename("select_samples.fam")
+    bed_filename = get_plinkr_filename("select_snps.bed"),
+    bim_filename = get_plinkr_filename("select_snps.bim"),
+    fam_filename = get_plinkr_filename("select_snps.fam")
   ),
-  sample_selector = create_test_random_sample_selector()
+  sample_selector = create_test_random_samples_selector()
 )
 }
 \author{

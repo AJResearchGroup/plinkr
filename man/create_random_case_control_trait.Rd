@@ -17,7 +17,8 @@ Note that \code{PLINK} cannot handle triallelic nor
 quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 }
 \description{
 Create a case-control  with no relation between genotype and phenotype

@@ -14,7 +14,7 @@
 #'     bim_filename = get_plinkr_filename("select_snps.bim"),
 #'     fam_filename = get_plinkr_filename("select_snps.fam")
 #'   ),
-#'   snp_selector = create_test_random_snp_selector()
+#'   snp_selector = create_test_random_snps_selector()
 #' )
 #' create_select_snps_args(
 #'   plink_bin_filenames = create_test_plink_bin_filenames(),
@@ -54,11 +54,11 @@ create_select_snps_args <- function(
         plink_options = plink_options
       )
     )
-  } else if (plinkr::is_random_snp_selector(snp_selector)) {
+  } else if (plinkr::is_random_snps_selector(snp_selector)) {
     return(
       plinkr::create_select_random_snp_args(
         plink_bin_filenames = plink_bin_filenames,
-        random_snp_selector = snp_selector,
+        random_snps_selector = snp_selector,
         base_output_filename = base_output_filename,
         plink_options = plink_options
       )

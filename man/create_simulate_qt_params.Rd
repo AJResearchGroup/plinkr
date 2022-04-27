@@ -15,7 +15,8 @@ create_simulate_qt_params(
 )
 }
 \arguments{
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 
 \item{snp_label}{Label of this set of SNPs}
 

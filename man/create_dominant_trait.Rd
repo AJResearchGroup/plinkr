@@ -22,7 +22,8 @@ Note that \code{PLINK} cannot handle triallelic nor
 quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 
 \item{phenotype_value_recessive}{phenotypic value
 for the recessive variant, i.e. that genotype that is homozygous for the

@@ -36,7 +36,8 @@ Note that \code{PLINK} cannot handle triallelic nor
 quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 
 \item{calc_phenotype_function}{a function that calculate the phenotypes
 from genotypes. The input is the genetic data as a \link[tibble]{tibble},

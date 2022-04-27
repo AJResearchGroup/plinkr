@@ -18,6 +18,20 @@ create_selected_sample_ids <- function(
         id = sample_selector$iid,
       )
     )
+  } else if (plinkr::is_random_samples_selector(sample_selector)) {
+    testthat::expect_true("n_samples" %in% names(sample_selector))
+    n_samples <- sample_selector$n_samples
+    fam_table <- plinkr::read_plink_fam_file(
+      plink_bin_filenames$fam_filename
+    )[, c(1, 2)]
+    testthat::expect_true(n_samples <= nrow(fam_table))
+    indices <- sample(
+      x = seq(1, nrow(fam_table)),
+      size = n_samples,
+      replace = FALSE
+    )
+    sorted_indices <- sort(indices)
+    return(fam_table[sorted_indices, ])
   } else {
     stop("Sample selector not implemented yet")
   }

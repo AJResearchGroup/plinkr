@@ -7,7 +7,8 @@
 get_test_bed_table(n_snps = 2)
 }
 \arguments{
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 }
 \value{
 a \code{.bed} table

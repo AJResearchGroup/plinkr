@@ -9,6 +9,7 @@ Newest versions at top.
  * Add 'check_sample_selector'
  * Add 'check_single_sample_selector'
  * Add 'create_keep_args'
+ * Add 'create_random_samples_selector'
  * Add 'create_select_samples_args'
  * Add 'create_select_single_sample_args'
  * Add 'create_selected_sample_ids'
@@ -39,7 +40,7 @@ Newest versions at top.
  * Add 'select_snps'
  * Add 'create_chromosome_selector'
  * Add 'create_single_snp_selector'
- * Add 'create_random_snp_selector'
+ * Add 'create_random_snps_selector'
  * Add 'create_snp_range_selector'
  * Add 'create_snp_window_selector'
  * Use attributes to distinguish between `pgen_table` and `bed_table`

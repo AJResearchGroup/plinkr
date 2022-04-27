@@ -56,6 +56,7 @@ default_params_doc(
   map_table,
   n_individuals,
   n_phenotypes,
+  n_samples,
   n_snps,
   n_snps_per_phenotype,
   os,
@@ -97,13 +98,16 @@ default_params_doc(
   qassoc_filename,
   qassoc_filenames,
   qassoc_table,
-  random_snp_selector,
+  random_samples_selector,
+  random_snps_selector,
   regular_phenotype_value,
   sample_ids,
   sample_ids_filename,
+  sample_selector,
   sim_filename,
   simfreq_filename,
   simulate_qt_params,
+  single_sample_selector,
   single_snp_selector,
   snp,
   snp_from,
@@ -393,7 +397,11 @@ Use \link{check_n_individuals} to check if this is a valid value}
 
 \item{n_phenotypes}{the number of phenotypes}
 
-\item{n_snps}{the number of SNPs}
+\item{n_samples}{the number of samples/individuals,
+as can be checked by \link{check_n_samples}}
+
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 
 \item{n_snps_per_phenotype}{the number of SNPs that determine one phenotype}
 
@@ -608,10 +616,11 @@ with a quantitative trait, as created by \code{PLINK}/\code{PLINK2}
 and stored as a \code{.qassoc} file (for \code{PLINK}) or
 \verb{[basename].<phenotype>.glm.linear} (for \code{PLINK2}).}
 
-\item{random_snp_selector}{a SNP selector (see \link{create_snp_selector})
+\item{random_snps_selector}{a SNP selector
+(see \link{create_snp_selector})
 that allows one to select one or more random SNPs,
-as created by \link{create_random_snp_selector}
-and checked by \link{check_random_snp_selector}}
+as created by \link{create_random_snps_selector}
+and checked by \link{check_random_snps_selector}}
 
 \item{regular_phenotype_value}{the regular phenotypic value}
 
@@ -625,6 +634,10 @@ as can be checked by \link{check_sample_ids}}
 \item{sample_ids_filename}{name of a file to store \code{sample_ids}
 (see \link{check_sample_ids}) to}
 
+\item{sample_selector}{a sample/individual selector,
+a way to select one or more samples/individuals.
+See \link{create_sample_selector} for all sample selectors.}
+
 \item{sim_filename}{name of a \code{PLINK} \code{.sim} file}
 
 \item{simfreq_filename}{name of a \code{PLINK} \code{.simfreq} file}
@@ -633,7 +646,14 @@ as can be checked by \link{check_sample_ids}}
 traits simulation, as can be created by
 \link{create_simulate_qt_params}}
 
-\item{single_snp_selector}{a SNP selector (see \link{create_snp_selector})
+\item{single_sample_selector}{a sample selector
+(see \link{create_sample_selector} for all sample selectors)
+that allows one to select a single sample,
+as created by \link{create_single_sample_selector}
+and checked by \link{check_single_sample_selector}}
+
+\item{single_snp_selector}{a SNP selector
+(see \link{create_snp_selector} for all SNP selectors)
 that allows one to select a single SNP,
 as created by \link{create_single_snp_selector}
 and checked by \link{check_single_snp_selector}}

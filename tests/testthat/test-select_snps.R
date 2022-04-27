@@ -25,12 +25,12 @@ test_that("random SNP selector", {
     bim_filename = get_plinkr_filename("select_snps.bim"),
     fam_filename = get_plinkr_filename("select_snps.fam")
   )
-  random_snp_selector <- create_random_snp_selector(
+  random_snps_selector <- create_random_snps_selector(
     n_snps = 3
   )
   new_plink_bin_data <- select_snps(
     data = plink_bin_filenames,
-    snp_selector = random_snp_selector
+    snp_selector = random_snps_selector
   )
   expect_equal(3, nrow(new_plink_bin_data$bim_table))
   expect_equal(3, nrow(new_plink_bin_data$bed_table))

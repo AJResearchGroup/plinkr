@@ -6,7 +6,7 @@ test_that("use", {
   )
   expect_false(
     is_single_snp_selector(
-      single_snp_selector = create_test_random_snp_selector()
+      single_snp_selector = create_test_random_snps_selector()
     )
   )
   expect_false(

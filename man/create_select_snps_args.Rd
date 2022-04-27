@@ -42,7 +42,7 @@ create_select_snps_args(
     bim_filename = get_plinkr_filename("select_snps.bim"),
     fam_filename = get_plinkr_filename("select_snps.fam")
   ),
-  snp_selector = create_test_random_snp_selector()
+  snp_selector = create_test_random_snps_selector()
 )
 create_select_snps_args(
   plink_bin_filenames = create_test_plink_bin_filenames(),

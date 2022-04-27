@@ -11,13 +11,13 @@
 #'
 #' There are multiple SNP selector checking functions:
 #'  * A chromosome selector: \link{check_chromosome_selector}
-#'  * A random SNP selector: \link{check_random_snp_selector}
+#'  * A random SNP selector: \link{check_random_snps_selector}
 #'  * A single SNP selector: \link{check_single_snp_selector}
 #'  * A SNP range selector: \link{check_snp_range_selector}
 #'  * A SNP window selector: \link{check_snp_window_selector}
 #' @examples
 #' check_snp_selector(create_test_chromosome_selector())
-#' check_snp_selector(create_test_random_snp_selector())
+#' check_snp_selector(create_test_random_snps_selector())
 #' check_snp_selector(create_test_single_snp_selector())
 #' check_snp_selector(create_test_snp_range_selector())
 #' check_snp_selector(create_test_snp_window_selector())
@@ -30,7 +30,7 @@ check_snp_selector <- function(snp_selector) {
   }, error = function(e) {} # nolint ignore
   )
   tryCatch({
-    plinkr::check_random_snp_selector(snp_selector)
+    plinkr::check_random_snps_selector(snp_selector)
     return(invisible(snp_selector))
   }, error = function(e) {} # nolint ignore
   )

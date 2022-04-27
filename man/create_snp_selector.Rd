@@ -21,7 +21,7 @@ which are listed at the 'See Also' section.
 }
 \examples{
 create_snp_selector(create_test_chromosome_selector())
-create_snp_selector(create_test_random_snp_selector())
+create_snp_selector(create_test_random_snps_selector())
 create_snp_selector(create_test_single_snp_selector())
 create_snp_selector(create_test_snp_range_selector())
 create_snp_selector(create_test_snp_window_selector())
@@ -30,7 +30,7 @@ create_snp_selector(create_test_snp_window_selector())
 There are multiple SNP selectors,
 \itemize{
 \item A chromosome selector: \link{create_chromosome_selector}
-\item A random SNP selector: \link{create_random_snp_selector}
+\item A random SNPs selector: \link{create_random_snps_selector}
 \item A single SNP selector: \link{create_single_snp_selector}
 \item A SNP range selector: \link{create_snp_range_selector}
 \item A SNP window selector: \link{create_snp_window_selector}

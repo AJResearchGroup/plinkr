@@ -9,7 +9,8 @@ Will \link{stop} if not}
 check_n_snps(n_snps)
 }
 \arguments{
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 }
 \value{
 Nothing. Will \link{stop} if the number of SNPs is invalid

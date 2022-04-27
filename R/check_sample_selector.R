@@ -21,5 +21,10 @@ check_sample_selector <- function(sample_selector) {
     return(invisible(sample_selector))
   }, error = function(e) {} # nolint ignore
   )
+  tryCatch({
+    plinkr::check_random_samples_selector(sample_selector)
+    return(invisible(sample_selector))
+  }, error = function(e) {} # nolint ignore
+  )
   stop("Unknown 'sample_selector'")
 }

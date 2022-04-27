@@ -6,6 +6,11 @@
 \usage{
 check_sample_selector(sample_selector)
 }
+\arguments{
+\item{sample_selector}{a sample/individual selector,
+a way to select one or more samples/individuals.
+See \link{create_sample_selector} for all sample selectors.}
+}
 \value{
 Nothing.
 }

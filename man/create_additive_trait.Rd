@@ -22,7 +22,8 @@ Note that \code{PLINK} cannot handle triallelic nor
 quadallelic SNPs: \code{PLINK} will give a warning that it
 is setting the rarest alleles to missing.}
 
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 
 \item{base_phenotype_value}{the base phenotypic value for an additive trait,
 i.e. the phenotypic value for homozygotes of the common allele}

@@ -31,13 +31,14 @@ test_that("random sample selector", {
     bim_filename = get_plinkr_filename("select_snps.bim"),
     fam_filename = get_plinkr_filename("select_snps.fam")
   )
-  random_sample_selector <- create_random_sample_selector(
-    n_samples = 3
+  n_samples <- 3
+  random_samples_selector <- create_random_samples_selector(
+    n_samples = n_samples
   )
   new_plink_bin_data <- select_samples(
     data = plink_bin_filenames,
-    sample_selector = random_sample_selector
+    sample_selector = random_samples_selector
   )
-  expect_equal(3, nrow(new_plink_bin_data$bim_table))
-  expect_equal(3, nrow(new_plink_bin_data$bed_table))
+  expect_equal(n_samples, get_n_samples(new_plink_bin_data$fam_table))
+  expect_equal(n_samples, get_n_samples(new_plink_bin_data$bed_table))
 })

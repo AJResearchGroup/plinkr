@@ -21,7 +21,7 @@ Use \link{check_verbose} to detect if this argument is valid.}
 Determine if this is a SNP selector
 }
 \examples{
-is_snp_selector(create_test_random_snp_selector())
+is_snp_selector(create_test_random_snps_selector())
 is_snp_selector(create_test_single_snp_selector())
 is_snp_selector(create_test_snp_range_selector())
 is_snp_selector(create_test_snp_window_selector())

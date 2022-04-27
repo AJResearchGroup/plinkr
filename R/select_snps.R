@@ -26,12 +26,12 @@
 #'   )
 #'
 #'   # Select 2 random SNPs
-#'   random_snp_selector <- create_random_snp_selector(
+#'   random_snps_selector <- create_random_snps_selector(
 #'     n_snps = 3
 #'   )
 #'   plink_bin_data <- select_snps(
 #'     data = plink_bin_filenames,
-#'     snp_selector = random_snp_selector
+#'     snp_selector = random_snps_selector
 #'   )
 #'
 #'   # Select a SNP range

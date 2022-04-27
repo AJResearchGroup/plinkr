@@ -7,7 +7,8 @@
 create_snvs(n_snps = 1, n_individuals = 1)
 }
 \arguments{
-\item{n_snps}{the number of SNPs}
+\item{n_snps}{the number of SNPs,
+as can be checked by \link{check_n_snps}}
 
 \item{n_individuals}{the number of individuals.
 Use \link{check_n_individuals} to check if this is a valid value}

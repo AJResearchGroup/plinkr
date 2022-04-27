@@ -16,7 +16,7 @@ create_select_chromosome_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
-\item{chromosome_selector}{a SNP selector (see \link{create_snp_selector})
+\item{chromosome_selector}{a SNP selector (see \link{create_snps_selector})
 that allows one to select a single chromsome,
 as created by \link{create_chromosome_selector}
 and checked by \link{check_chromosome_selector}}

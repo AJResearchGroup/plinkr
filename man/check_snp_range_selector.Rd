@@ -7,7 +7,7 @@
 check_snp_range_selector(snp_range_selector)
 }
 \arguments{
-\item{snp_range_selector}{a SNP selector (see \link{create_snp_selector}),
+\item{snp_range_selector}{a SNP selector (see \link{create_snps_selector}),
 that allows one to select a range between two SNPs,
 as created by \link{create_snp_range_selector}
 and checked by \link{check_snp_range_selector}}
@@ -24,7 +24,7 @@ check_snp_range_selector(create_test_snp_range_selector())
 }
 \seealso{
 There are multiple SNP selector checking functions,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

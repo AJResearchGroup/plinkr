@@ -29,7 +29,7 @@ Use \link{create_chromosome_selector} to
 create a regular chromosome selector.
 
 There are multiple SNP selectors,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

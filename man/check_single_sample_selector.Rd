@@ -8,7 +8,7 @@ check_single_sample_selector(single_sample_selector)
 }
 \arguments{
 \item{single_sample_selector}{a sample selector
-(see \link{create_sample_selector} for all sample selectors)
+(see \link{create_samples_selector} for all sample selectors)
 that allows one to select a single sample,
 as created by \link{create_single_sample_selector}
 and checked by \link{check_single_sample_selector}}
@@ -25,7 +25,7 @@ check_single_sample_selector(create_test_single_sample_selector())
 }
 \seealso{
 There are multiple sample selector checking functions,
-see \link{create_sample_selector} for an overview
+see \link{create_samples_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

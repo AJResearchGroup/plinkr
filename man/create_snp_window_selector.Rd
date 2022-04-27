@@ -48,7 +48,7 @@ Use \link{create_test_snp_window_selector} to
 create a SNP window selector to be used in testing.
 
 There are multiple SNP selectors,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

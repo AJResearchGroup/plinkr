@@ -8,7 +8,7 @@ check_single_snp_selector(single_snp_selector)
 }
 \arguments{
 \item{single_snp_selector}{a SNP selector
-(see \link{create_snp_selector} for all SNP selectors)
+(see \link{create_snps_selector} for all SNP selectors)
 that allows one to select a single SNP,
 as created by \link{create_single_snp_selector}
 and checked by \link{check_single_snp_selector}}
@@ -25,7 +25,7 @@ check_single_snp_selector(create_test_single_snp_selector())
 }
 \seealso{
 There are multiple SNP selector checking functions,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -7,6 +7,12 @@
 is_random_samples_selector(random_samples_selector, verbose = FALSE)
 }
 \arguments{
+\item{random_samples_selector}{a sample selector
+(see \link{create_samples_selector})
+that allows one to select one or more random samples,
+as created by \link{create_random_samples_selector}
+and checked by \link{check_random_samples_selector}}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}

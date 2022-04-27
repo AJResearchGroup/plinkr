@@ -17,7 +17,7 @@ to work on,
 as created by \link{create_plink_bin_filenames}.}
 
 \item{random_snps_selector}{a SNP selector
-(see \link{create_snp_selector})
+(see \link{create_snps_selector})
 that allows one to select one or more random SNPs,
 as created by \link{create_random_snps_selector}
 and checked by \link{check_random_snps_selector}}

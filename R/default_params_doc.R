@@ -101,7 +101,7 @@
 #' to check a \code{calc_phenotype_function}.
 #' @param chromosome_number the chromosome number,
 #' as can be checked by \link{check_chromosome_number}
-#' @param chromosome_selector a SNP selector (see \link{create_snp_selector})
+#' @param chromosome_selector a SNP selector (see \link{create_snps_selector})
 #' that allows one to select a single chromsome,
 #' as created by \link{create_chromosome_selector}
 #' and checked by \link{check_chromosome_selector}
@@ -131,6 +131,10 @@
 #'  * PLINK text filenames, as created by \link{create_plink_text_filenames}.
 #'  * PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
 #'  * PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
+#'  * data to be used by \link{assoc},
+#'    as created by \link{create_assoc_data}
+#'  * data to be used by \link{assoc_qt},
+#'    as created by \link{create_assoc_qt_data}
 #'
 #' @param epistatic_phenotype_value the phenotypic value when the
 #' epistatic phenotype is expressed
@@ -380,8 +384,13 @@
 #' with a quantitative trait, as created by `PLINK`/`PLINK2`
 #' and stored as a \code{.qassoc} file (for `PLINK`) or
 #' `[basename].<phenotype>.glm.linear` (for `PLINK2`).
+#' @param random_samples_selector a sample selector
+#' (see \link{create_samples_selector})
+#' that allows one to select one or more random samples,
+#' as created by \link{create_random_samples_selector}
+#' and checked by \link{check_random_samples_selector}
 #' @param random_snps_selector a SNP selector
-#' (see \link{create_snp_selector})
+#' (see \link{create_snps_selector})
 #' that allows one to select one or more random SNPs,
 #' as created by \link{create_random_snps_selector}
 #' and checked by \link{check_random_snps_selector}
@@ -396,33 +405,33 @@
 #' (see \link{check_sample_ids}) to
 #' @param sample_selector a sample/individual selector,
 #' a way to select one or more samples/individuals.
-#' See \link{create_sample_selector} for all sample selectors.
+#' See \link{create_samples_selector} for all sample selectors.
 #' @param sim_filename name of a `PLINK` \code{.sim} file
 #' @param simfreq_filename name of a `PLINK` \code{.simfreq} file
 #' @param simulate_qt_params the parameters for a quantitative
 #'   traits simulation, as can be created by
 #'   \link{create_simulate_qt_params}
 #' @param single_sample_selector a sample selector
-#' (see \link{create_sample_selector} for all sample selectors)
+#' (see \link{create_samples_selector} for all sample selectors)
 #' that allows one to select a single sample,
 #' as created by \link{create_single_sample_selector}
 #' and checked by \link{check_single_sample_selector}
 #' @param single_snp_selector a SNP selector
-#' (see \link{create_snp_selector} for all SNP selectors)
+#' (see \link{create_snps_selector} for all SNP selectors)
 #' that allows one to select a single SNP,
 #' as created by \link{create_single_snp_selector}
 #' and checked by \link{check_single_snp_selector}
 #' @param snp a SNP, e.g. `rs12345678`,
 #' as can be checked by \link{check_snp}
 #' @param snp_from a SNP (see \link{check_snp}) to start from
-#' @param snp_range_selector a SNP selector (see \link{create_snp_selector}),
+#' @param snp_range_selector a SNP selector (see \link{create_snps_selector}),
 #' that allows one to select a range between two SNPs,
 #' as created by \link{create_snp_range_selector}
 #' and checked by \link{check_snp_range_selector}
 #' @param snp_selector a SNP selector, a way to select one or more SNPs.
-#' See \link{create_snp_selector} for all SNP selectors.
+#' See \link{create_snps_selector} for all SNP selectors.
 #' @param snp_to a SNP (see \link{check_snp}) to end at
-#' @param snp_window_selector a SNP selector (see \link{create_snp_selector}),
+#' @param snp_window_selector a SNP selector (see \link{create_snps_selector}),
 #' that allows one to select a focal SNP and a range/window of SNPs around it,
 #' as created by \link{create_snp_window_selector}
 #' and checked by \link{check_snp_window_selector}

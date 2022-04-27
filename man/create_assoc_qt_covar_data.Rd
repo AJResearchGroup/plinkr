@@ -15,6 +15,10 @@ create_assoc_qt_covar_data(data, phenotype_data, cov_table)
 \item PLINK text filenames, as created by \link{create_plink_text_filenames}.
 \item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
+\item data to be used by \link{assoc},
+as created by \link{create_assoc_data}
+\item data to be used by \link{assoc_qt},
+as created by \link{create_assoc_qt_data}
 }}
 
 \item{phenotype_data}{phenotype data in the form of either

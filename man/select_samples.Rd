@@ -23,11 +23,15 @@ select_samples(
 \item PLINK text filenames, as created by \link{create_plink_text_filenames}.
 \item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
+\item data to be used by \link{assoc},
+as created by \link{create_assoc_data}
+\item data to be used by \link{assoc_qt},
+as created by \link{create_assoc_qt_data}
 }}
 
 \item{sample_selector}{a sample/individual selector,
 a way to select one or more samples/individuals.
-See \link{create_sample_selector} for all sample selectors.}
+See \link{create_samples_selector} for all sample selectors.}
 
 \item{sample_ids_filename}{name of a file to store \code{sample_ids}
 (see \link{check_sample_ids}) to}
@@ -81,7 +85,7 @@ if (is_plink_installed()) {
 To select SNPs, use \link{select_snps}
 
 There are multiple sample selector checking functions,
-see \link{create_sample_selector} for an overview
+see \link{create_samples_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

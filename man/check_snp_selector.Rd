@@ -8,7 +8,7 @@ check_snp_selector(snp_selector)
 }
 \arguments{
 \item{snp_selector}{a SNP selector, a way to select one or more SNPs.
-See \link{create_snp_selector} for all SNP selectors.}
+See \link{create_snps_selector} for all SNP selectors.}
 }
 \value{
 Nothing.
@@ -26,7 +26,7 @@ check_snp_selector(create_test_snp_window_selector())
 }
 \seealso{
 There are multiple SNP selectors,
-see \link{create_snp_selector} for an overview.
+see \link{create_snps_selector} for an overview.
 
 There are multiple SNP selector checking functions:
 \itemize{

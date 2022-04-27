@@ -26,7 +26,7 @@ Use \link{create_single_snp_selector} to
 create a regular single-SNP selector.
 
 There are multiple SNP selectors,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

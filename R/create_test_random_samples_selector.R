@@ -7,7 +7,7 @@
 #' create a random sample selector.
 #'
 #' There are multiple sample selector checking functions,
-#' see \link{create_sample_selector} for an overview
+#' see \link{create_samples_selector} for an overview
 #' @examples
 #' create_test_random_samples_selector()
 #' create_test_random_samples_selector(n_samples = 42)

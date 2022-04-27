@@ -31,7 +31,7 @@ Use \link{create_single_sample_selector} to
 create a regular single-sample selector.
 
 There are multiple sample selectors,
-see \link{create_sample_selector} for an overview
+see \link{create_samples_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

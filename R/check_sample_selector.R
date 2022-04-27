@@ -7,7 +7,7 @@
 #' @return Nothing.
 #' @seealso
 #' There are multiple sample selectors,
-#' see \link{create_sample_selector} for an overview.
+#' see \link{create_samples_selector} for an overview.
 #'
 #' There are multiple sample selector checking functions:
 #'  * A single sample selector: \link{check_single_sample_selector}

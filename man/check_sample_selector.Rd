@@ -9,7 +9,7 @@ check_sample_selector(sample_selector)
 \arguments{
 \item{sample_selector}{a sample/individual selector,
 a way to select one or more samples/individuals.
-See \link{create_sample_selector} for all sample selectors.}
+See \link{create_samples_selector} for all sample selectors.}
 }
 \value{
 Nothing.
@@ -23,7 +23,7 @@ check_sample_selector(create_test_single_sample_selector())
 }
 \seealso{
 There are multiple sample selectors,
-see \link{create_sample_selector} for an overview.
+see \link{create_samples_selector} for an overview.
 
 There are multiple sample selector checking functions:
 \itemize{

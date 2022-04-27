@@ -7,7 +7,7 @@
 check_chromosome_selector(chromosome_selector)
 }
 \arguments{
-\item{chromosome_selector}{a SNP selector (see \link{create_snp_selector})
+\item{chromosome_selector}{a SNP selector (see \link{create_snps_selector})
 that allows one to select a single chromsome,
 as created by \link{create_chromosome_selector}
 and checked by \link{check_chromosome_selector}}
@@ -24,7 +24,7 @@ check_chromosome_selector(create_test_chromosome_selector())
 }
 \seealso{
 There are multiple SNP selector checking functions,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

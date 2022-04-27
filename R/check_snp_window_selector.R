@@ -7,7 +7,7 @@
 #' @seealso
 #'
 #' There are multiple SNP selector checking functions,
-#' see \link{create_snp_selector} for an overview
+#' see \link{create_snps_selector} for an overview
 #' @examples
 #' check_snp_window_selector(create_test_snp_window_selector())
 #' @author Richèl J.C. Bilderbeek

@@ -17,6 +17,12 @@ create_select_random_samples_args(
 to work on,
 as created by \link{create_plink_bin_filenames}.}
 
+\item{random_samples_selector}{a sample selector
+(see \link{create_samples_selector})
+that allows one to select one or more random samples,
+as created by \link{create_random_samples_selector}
+and checked by \link{check_random_samples_selector}}
+
 \item{sample_ids_filename}{name of a file to store \code{sample_ids}
 (see \link{check_sample_ids}) to}
 

@@ -7,7 +7,7 @@
 #' @return Nothing.
 #' @seealso
 #' There are multiple SNP selectors,
-#' see \link{create_snp_selector} for an overview.
+#' see \link{create_snps_selector} for an overview.
 #'
 #' There are multiple SNP selector checking functions:
 #'  * A chromosome selector: \link{check_chromosome_selector}

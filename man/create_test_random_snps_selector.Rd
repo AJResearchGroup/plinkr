@@ -29,7 +29,7 @@ Use \link{create_random_snps_selector} to
 create a random SNP selector.
 
 There are multiple SNP selector checking functions,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

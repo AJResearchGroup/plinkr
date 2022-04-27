@@ -22,9 +22,25 @@ test_that("single sample selector", {
   expect_equal(1, get_n_samples(new_plink_bin_data$bed_table))
 })
 
+test_that("single sample selector on assoc_qt_data", {
+  skip("Not yet")
+  if (!is_plink_installed()) return()
+  assoc_qt_data <- create_test_assoc_qt_data()
+  single_sample_selector <- create_single_sample_selector(
+    fid = "3",
+    iid = "1"
+  )
+  new_plink_bin_data <- select_samples(
+    data = assoc_qt_data,
+    sample_selector = single_sample_selector
+  )
+  expect_equal(1, get_n_samples(new_plink_bin_data$fam_table))
+  expect_equal(1, get_n_samples(new_plink_bin_data$bed_table))
+})
+
+
 test_that("random sample selector", {
   if (!is_plink_installed()) return()
-  skip("#42")
 
   plink_bin_filenames <- create_plink_bin_filenames(
     bed_filename = get_plinkr_filename("select_snps.bed"),

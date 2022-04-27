@@ -17,7 +17,7 @@ to work on,
 as created by \link{create_plink_bin_filenames}.}
 
 \item{snp_selector}{a SNP selector, a way to select one or more SNPs.
-See \link{create_snp_selector} for all SNP selectors.}
+See \link{create_snps_selector} for all SNP selectors.}
 
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}

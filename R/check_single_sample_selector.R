@@ -6,7 +6,7 @@
 #' @return Nothing.
 #' @seealso
 #' There are multiple sample selector checking functions,
-#' see \link{create_sample_selector} for an overview
+#' see \link{create_samples_selector} for an overview
 #' @examples
 #' check_single_sample_selector(create_test_single_sample_selector())
 #' @author Richèl J.C. Bilderbeek

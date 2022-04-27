@@ -7,7 +7,7 @@
 #' create a regular single-SNP selector.
 #'
 #' There are multiple SNP selectors,
-#' see \link{create_snp_selector} for an overview
+#' see \link{create_snps_selector} for an overview
 #' @examples
 #' create_test_single_snp_selector()
 #'

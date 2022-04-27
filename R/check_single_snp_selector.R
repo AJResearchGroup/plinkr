@@ -6,7 +6,7 @@
 #' @return Nothing.
 #' @seealso
 #' There are multiple SNP selector checking functions,
-#' see \link{create_snp_selector} for an overview
+#' see \link{create_snps_selector} for an overview
 #' @examples
 #' check_single_snp_selector(create_test_single_snp_selector())
 #' @author Richèl J.C. Bilderbeek

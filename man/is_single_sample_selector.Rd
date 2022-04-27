@@ -8,7 +8,7 @@ is_single_sample_selector(single_sample_selector, verbose = FALSE)
 }
 \arguments{
 \item{single_sample_selector}{a sample selector
-(see \link{create_sample_selector} for all sample selectors)
+(see \link{create_samples_selector} for all sample selectors)
 that allows one to select a single sample,
 as created by \link{create_single_sample_selector}
 and checked by \link{check_single_sample_selector}}

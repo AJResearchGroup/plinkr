@@ -18,7 +18,7 @@ to work on,
 as created by \link{create_plink_bin_filenames}.}
 
 \item{single_sample_selector}{a sample selector
-(see \link{create_sample_selector} for all sample selectors)
+(see \link{create_samples_selector} for all sample selectors)
 that allows one to select a single sample,
 as created by \link{create_single_sample_selector}
 and checked by \link{check_single_sample_selector}}

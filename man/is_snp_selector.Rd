@@ -8,7 +8,7 @@ is_snp_selector(snp_selector, verbose = FALSE)
 }
 \arguments{
 \item{snp_selector}{a SNP selector, a way to select one or more SNPs.
-See \link{create_snp_selector} for all SNP selectors.}
+See \link{create_snps_selector} for all SNP selectors.}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

@@ -6,6 +6,13 @@
 \usage{
 check_random_samples_selector(random_samples_selector)
 }
+\arguments{
+\item{random_samples_selector}{a sample selector
+(see \link{create_samples_selector})
+that allows one to select one or more random samples,
+as created by \link{create_random_samples_selector}
+and checked by \link{check_random_samples_selector}}
+}
 \value{
 Nothing.
 }
@@ -18,7 +25,7 @@ random_samples_selector(create_test_random_samples_selector())
 }
 \seealso{
 There are multiple sample selector checking functions,
-see \link{create_sample_selector} for an overview
+see \link{create_samples_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

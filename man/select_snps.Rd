@@ -21,10 +21,14 @@ select_snps(
 \item PLINK text filenames, as created by \link{create_plink_text_filenames}.
 \item PLINK binary filenames, as created by \link{create_plink_bin_filenames}.
 \item PLINK2 binary filenames, as created by \link{create_plink2_bin_filenames}.
+\item data to be used by \link{assoc},
+as created by \link{create_assoc_data}
+\item data to be used by \link{assoc_qt},
+as created by \link{create_assoc_qt_data}
 }}
 
 \item{snp_selector}{a SNP selector, a way to select one or more SNPs.
-See \link{create_snp_selector} for all SNP selectors.}
+See \link{create_snps_selector} for all SNP selectors.}
 
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}
@@ -94,7 +98,7 @@ if (is_plink_installed()) {
 To select samples/individuals, use \link{select_samples}
 
 There are multiple SNP selector checking functions,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

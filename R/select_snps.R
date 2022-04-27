@@ -5,7 +5,7 @@
 #' To select samples/individuals, use \link{select_samples}
 #'
 #' There are multiple SNP selector checking functions,
-#' see \link{create_snp_selector} for an overview
+#' see \link{create_snps_selector} for an overview
 #' @export
 #' @examples
 #' if (is_plink_installed()) {

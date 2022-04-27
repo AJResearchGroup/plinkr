@@ -20,7 +20,7 @@ as created by \link{create_plink_bin_filenames}.}
 
 \item{sample_selector}{a sample/individual selector,
 a way to select one or more samples/individuals.
-See \link{create_sample_selector} for all sample selectors.}
+See \link{create_samples_selector} for all sample selectors.}
 
 \item{sample_ids_filename}{name of a file to store \code{sample_ids}
 (see \link{check_sample_ids}) to}

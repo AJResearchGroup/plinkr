@@ -8,7 +8,7 @@ check_random_snps_selector(random_snps_selector)
 }
 \arguments{
 \item{random_snps_selector}{a SNP selector
-(see \link{create_snp_selector})
+(see \link{create_snps_selector})
 that allows one to select one or more random SNPs,
 as created by \link{create_random_snps_selector}
 and checked by \link{check_random_snps_selector}}
@@ -25,7 +25,7 @@ check_random_snps_selector(create_test_random_snps_selector())
 }
 \seealso{
 There are multiple SNP selector checking functions,
-see \link{create_snp_selector} for an overview
+see \link{create_snps_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

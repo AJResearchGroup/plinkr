@@ -35,9 +35,6 @@ There are multiple SNP selectors,
 \item A SNP range selector: \link{create_snp_range_selector}
 \item A SNP window selector: \link{create_snp_window_selector}
 }
-
-There are multiple SNP selector checking functions,
-see \link{check_snp_selector} for an overview.
 }
 \author{
 Richèl J.C. Bilderbeek

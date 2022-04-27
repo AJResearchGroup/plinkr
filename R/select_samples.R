@@ -1,11 +1,13 @@
-#' Select SNPs
+#' Select samples/individuals
+#'
+#' Select samples/individuals from data
 #' @inheritParams default_params_doc
 #' @return a `plink_bin_data` (see \link{check_plink_bin_data})
 #' @seealso
-#' To select samples/individuals, use \link{select_samples}
+#' To select SNPs, use \link{select_snps}
 #'
-#' There are multiple SNP selector checking functions,
-#' see \link{create_snp_selector} for an overview
+#' There are multiple sample selector checking functions,
+#' see \link{create_sample_selector} for an overview
 #' @export
 #' @examples
 #' if (is_plink_installed()) {
@@ -16,64 +18,58 @@
 #'     fam_filename = get_plinkr_filename("select_snps.fam")
 #'   )
 #'
-#'   # Select a single SNP
-#'   single_snp_selector <- create_single_snp_selector(
-#'     snp = "snp_4"
+#'   # Select a single sample
+#'   single_sample_selector <- create_single_sample_selector(
+#'     fid = "C",
+#'     iid = "1"
 #'   )
-#'   plink_bin_data <- select_snps(
+#'   plink_bin_data <- select_samples(
 #'     data = plink_bin_filenames,
-#'     snp_selector = single_snp_selector
+#'     sample_selector = single_sample_selector
 #'   )
 #'
-#'   # Select 2 random SNPs
-#'   random_snp_selector <- create_random_snp_selector(
-#'     n_snps = 3
+#'   # Select 2 random samples
+#'   random_sample_selector <- create_random_sample_selector(
+#'     n_samples = 2
 #'   )
-#'   plink_bin_data <- select_snps(
+#'   plink_bin_data <- select_sample(
 #'     data = plink_bin_filenames,
-#'     snp_selector = random_snp_selector
-#'   )
-#'
-#'   # Select a SNP range
-#'   snp_range_selector <- create_snp_range_selector(
-#'     snp_from = "snp_2",
-#'     snp_to = "snp_7"
-#'   )
-#'   plink_bin_data <- select_snps(
-#'     data = plink_bin_filenames,
-#'     snp_selector = snp_range_selector
-#'   )
-#'
-#'   # Seleect a window around a SNP: 3 SNPs, with 'snp_5' in the middle
-#'   snp_window_selector <- create_snp_window_selector(
-#'     snp = "snp_5",
-#'     window_kb = 0.003
-#'   )
-#'   plink_bin_data <- select_snps(
-#'     data = plink_bin_filenames,
-#'     snp_selector = snp_window_selector
+#'     sample_selector = random_sample_selector
 #'   )
 #' }
 #' @author Richèl J.C. Bilderbeek
-select_snps <- function(
+select_samples <- function(
   data,
-  snp_selector,
+  sample_selector,
+  sample_ids_filename = plinkr::get_plinkr_tempfilename(
+    pattern = "sample_ids_",
+    fileext = ".txt"
+  ),
   base_output_filename = plinkr::get_plinkr_tempfilename(),
   plink_options = plinkr::create_plink_options(),
   verbose = FALSE
 ) {
   plinkr::check_data(data)
-  plinkr::check_snp_selector(snp_selector)
+  plinkr::check_sample_selector(sample_selector)
   plinkr::check_base_output_filename(base_output_filename)
   plinkr::check_plink_options(plink_options)
   plinkr::check_verbose(verbose)
 
   if (plinkr::is_plink_bin_filenames(data)) {
-    args <- plinkr::create_select_snps_args(
+    args <- plinkr::create_select_samples_args(
       plink_bin_filenames = data,
-      snp_selector = snp_selector,
+      sample_selector = sample_selector,
+      sample_ids_filename = sample_ids_filename,
       base_output_filename = base_output_filename,
       plink_options = plink_options
+    )
+    sample_ids <- plinkr::create_selected_sample_ids(
+      plink_bin_filenames = data,
+      sample_selector = sample_selector
+    )
+    plinkr::save_sample_ids(
+      sample_ids = sample_ids,
+      sample_ids_filename = sample_ids_filename
     )
     dir.create(
       dirname(base_output_filename),
@@ -85,12 +81,13 @@ select_snps <- function(
       plink_options = plink_options,
       verbose = verbose
     )
+    file.remove(sample_ids_filename)
     new_data <- plinkr::read_plink_bin_data(
       base_input_filename = base_output_filename
     )
     if (verbose) {
       message(
-        "Create selected SNPs at files with basename ", base_output_filename
+        "Create selected sample at files with basename ", base_output_filename
       )
     }
     file.remove(paste0(base_output_filename, ".bed"))
@@ -110,9 +107,9 @@ select_snps <- function(
       )
     }
     base_output_filename_2 <- plinkr::get_plinkr_tempfilename()
-    new_data <- plinkr::select_snps(
+    new_data <- plinkr::select_sample(
       data = plink_bin_filenames,
-      snp_selector = snp_selector,
+      sample_selector = sample_selector,
       base_output_filename = base_output_filename_2,
       plink_options = plink_options,
       verbose = verbose

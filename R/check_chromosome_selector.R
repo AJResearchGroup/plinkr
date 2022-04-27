@@ -6,7 +6,7 @@
 #' @return Nothing.
 #' @seealso
 #' There are multiple SNP selector checking functions,
-#' see \link{check_snp_selector} for an overview
+#' see \link{create_snp_selector} for an overview
 #' @examples
 #' check_chromosome_selector(create_test_chromosome_selector())
 #' @author Richèl J.C. Bilderbeek

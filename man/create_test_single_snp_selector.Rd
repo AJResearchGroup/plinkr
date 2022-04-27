@@ -25,8 +25,8 @@ create_test_single_snp_selector(
 Use \link{create_single_snp_selector} to
 create a regular single-SNP selector.
 
-There are multiple SNP selector checking functions,
-see \link{check_snp_selector} for an overview
+There are multiple SNP selectors,
+see \link{create_snp_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

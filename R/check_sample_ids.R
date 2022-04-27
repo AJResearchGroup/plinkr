@@ -18,9 +18,9 @@
 #' @export
 check_sample_ids <- function(sample_ids) {
   testthat::expect_true(tibble::is_tibble(sample_ids))
-  testthat::expect_true(
-    all(names(sample_ids) == names(get_test_fam_table())[1:2]) ||
-      all(names(sample_ids) == names(get_test_psam_table())[1:2])
-  )
+  first_col_name <- names(sample_ids)[1]
+  testthat::expect_true(first_col_name %in% c("fam", "FID", "fid"))
+  second_col_name <- names(sample_ids)[2]
+  testthat::expect_true(second_col_name %in% c("id", "IID", "iid"))
   invisible(sample_ids)
 }

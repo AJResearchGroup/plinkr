@@ -26,17 +26,10 @@ keep <- function(
   testthat::expect_true(file.exists(bim_filename))
   testthat::expect_true(file.exists(fam_filename))
   bfile <- tools::file_path_sans_ext(bed_filename)
-
-  # /home/richel/.local/share/plinkr/plink_1_9_unix/plink \
-  # --bfile toy_data \
-  # --keep sample_ids.txt \
-  # --make-bed \
-  # --out tmp
-  args <- c(
-    "--bfile", bfile,
-    "--keep", sample_ids_filename,
-    "--make-bed",
-    "--out", base_output_filename
+  args <- plinkr::create_keep_args(
+    bfile = bfile,
+    sample_ids_filename = sample_ids_filename,
+    base_output_filename = base_output_filename
   )
   plinkr::run_plink(
     args = args,

@@ -24,7 +24,7 @@ check_snp_range_selector(create_test_snp_range_selector())
 }
 \seealso{
 There are multiple SNP selector checking functions,
-see \link{check_snp_selector} for an overview
+see \link{create_snp_selector} for an overview
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -7,7 +7,7 @@
 #' create a random SNP selector.
 #'
 #' There are multiple SNP selector checking functions,
-#' see \link{check_snp_selector} for an overview
+#' see \link{create_snp_selector} for an overview
 #' @examples
 #' create_test_random_snp_selector()
 #' create_test_random_snp_selector(n_snps = 42)

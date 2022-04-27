@@ -11,23 +11,23 @@ create_test_plink2_bin_data <- function(
 ) {
   pgen_table <- read_plink2_pgen_file_from_files(
     pgen_filename = get_plinkr_filename(
-      "toy_v1_9_after_make-bed_after_make-pgen.pgen"
+      "assoc_qt_on_plink2_bin_files.pgen"
     ),
     psam_filename = get_plinkr_filename(
-      "toy_v1_9_after_make-bed_after_make-pgen.psam"
+      "assoc_qt_on_plink2_bin_files.psam"
     ),
     pvar_filename = get_plinkr_filename(
-      "toy_v1_9_after_make-bed_after_make-pgen.pvar"
+      "assoc_qt_on_plink2_bin_files.pvar"
     )
   )
   psam_table <- plinkr::read_plink2_psam_file(
     psam_filename = get_plinkr_filename(
-      "toy_v1_9_after_make-bed_after_make-pgen.psam"
+      "assoc_qt_on_plink2_bin_files.psam"
     )
   )
   pvar_table <- read_plink2_pvar_file(
     pvar_filename = get_plinkr_filename(
-      "toy_v1_9_after_make-bed_after_make-pgen.pvar"
+      "assoc_qt_on_plink2_bin_files.pvar"
     )
   )
   plinkr::create_plink2_bin_data(

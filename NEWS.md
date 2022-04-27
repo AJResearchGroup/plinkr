@@ -6,7 +6,19 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Add 'check_sample_selector'
+ * Add 'check_single_sample_selector'
+ * Add 'create_keep_args'
+ * Add 'create_select_samples_args'
+ * Add 'create_select_single_sample_args'
+ * Add 'create_selected_sample_ids'
+ * Add 'create_single_sample_selector'
+ * Add 'create_test_single_sample_selector'
+ * Add 'get_n_samples'
+ * Add 'is_fam_table'
+ * Add 'is_psam_table'
+ * Add 'is_single_sample_selector'
+ * Add 'select_samples'
 
 ### MINOR IMPROVEMENTS
 

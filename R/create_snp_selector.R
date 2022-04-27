@@ -13,9 +13,6 @@
 #'  * A single SNP selector: \link{create_single_snp_selector}
 #'  * A SNP range selector: \link{create_snp_range_selector}
 #'  * A SNP window selector: \link{create_snp_window_selector}
-#'
-#' There are multiple SNP selector checking functions,
-#' see \link{check_snp_selector} for an overview.
 #' @examples
 #' create_snp_selector(create_test_chromosome_selector())
 #' create_snp_selector(create_test_random_snp_selector())

@@ -8,7 +8,7 @@
 #' There are multiple sample selector checking functions,
 #' see \link{create_samples_selector} for an overview
 #' @examples
-#' random_samples_selector(create_test_random_samples_selector())
+#' check_random_samples_selector(create_test_random_samples_selector())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_random_samples_selector <- function(random_samples_selector) {

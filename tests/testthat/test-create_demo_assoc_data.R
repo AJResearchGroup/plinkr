@@ -4,6 +4,7 @@ test_that("use", {
 })
 
 test_that("n_individuals", {
+  if (!is_on_ci()) return()
   n_individuals <- 5
   assoc_data <- create_demo_assoc_data(
     n_individuals = n_individuals
@@ -13,6 +14,7 @@ test_that("n_individuals", {
 })
 
 test_that("random", {
+  if (!is_on_ci()) return()
   expect_silent(
     create_demo_assoc_data(
       trait = create_random_trait()
@@ -21,6 +23,7 @@ test_that("random", {
 })
 
 test_that("random, other MAF", {
+  if (!is_on_ci()) return()
   expect_silent(
     create_demo_assoc_data(
       trait = create_random_trait(maf = 0.1)
@@ -29,6 +32,7 @@ test_that("random, other MAF", {
 })
 
 test_that("additive", {
+  if (!is_on_ci()) return()
   expect_silent(
     create_demo_assoc_data(
       trait = create_additive_trait()
@@ -37,6 +41,7 @@ test_that("additive", {
 })
 
 test_that("epistatic", {
+  if (!is_on_ci()) return()
   expect_silent(
     create_demo_assoc_data(
       trait = create_epistatic_trait()
@@ -45,6 +50,7 @@ test_that("epistatic", {
 })
 
 test_that("number of individuals", {
+  if (!is_on_ci()) return()
   expect_silent(
     create_demo_assoc_data(
       n_individuals = 3,
@@ -54,6 +60,7 @@ test_that("number of individuals", {
 })
 
 test_that("Triallelic SNPs", {
+  if (!is_on_ci()) return()
   expect_silent(
     create_demo_assoc_data(
       trait = create_random_trait(mafs = c(0.3, 0.2)),
@@ -63,6 +70,7 @@ test_that("Triallelic SNPs", {
 })
 
 test_that("Quadallelic SNPs", {
+  if (!is_on_ci()) return()
   expect_silent(
     create_demo_assoc_data(
       trait = create_random_trait(mafs = c(0.3, 0.2, 0.1)),

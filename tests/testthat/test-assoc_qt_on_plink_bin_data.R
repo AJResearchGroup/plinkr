@@ -1,18 +1,14 @@
 test_that("minimal use, from files", {
-  clear_plinkr_cache()
-  expect_silent(check_empty_plinkr_folder())
-
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   data <- convert_plink_text_data_to_plink_bin_data(
     plink_text_data = create_test_plink_text_data()
   )
   assoc_qt_data <- create_test_assoc_qt_data(
     data = data,
     phenotype_data = create_phenotype_data_table_from_data(data)
-  )
-  check_assoc_qt_data(assoc_qt_data)
-  expect_true(
-    is_plink_bin_data(plink_bin_data = assoc_qt_data$data)
   )
   assoc_qt_on_plink_bin_data(
     assoc_qt_data = assoc_qt_data,
@@ -30,19 +26,19 @@ test_that("minimal use, from files", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("minimal use, simulated data", {
-
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
   assoc_qt_data$data <- convert_plink_text_data_to_plink_bin_data(
     assoc_qt_data$data
   )
-  # assoc_qt_data$data$fam_table$pheno <- 9 # No measured phenotypes # nolint
-
   expect_true(is_plink_bin_data(assoc_qt_data$data))
 
   assoc_qt_on_plink_bin_data(
@@ -59,14 +55,15 @@ test_that("minimal use, simulated data", {
       "you should be able to copy paste this"
     )
   )
-
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("minimal use, simulated data, matches PLINK1 text data results", {
-
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
   assoc_qt_results_text <- assoc_qt_on_plink_text_data(
@@ -88,13 +85,14 @@ test_that("minimal use, simulated data, matches PLINK1 text data results", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("use incorrect data", {
-
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
+
   clear_plinkr_cache()
+
   set.seed(314)
   assoc_qt_data <- create_test_assoc_qt_data()
   expect_false(is_plink_bin_data(assoc_qt_data$data))

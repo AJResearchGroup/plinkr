@@ -4,6 +4,8 @@ test_that("use", {
 })
 
 test_that("n_individuals", {
+  if (!is_on_ci()) return()
+
   n_individuals <- 5
   assoc_qt_data <- create_demo_assoc_qt_data(
     n_individuals = n_individuals
@@ -14,6 +16,8 @@ test_that("n_individuals", {
 })
 
 test_that("MAFs", {
+  if (!is_on_ci()) return()
+
   n_individuals <- 10
   mafs <- c(0.2, 0.1)
   assoc_qt_data <- create_demo_assoc_qt_data(
@@ -49,6 +53,8 @@ test_that("MAFs", {
 })
 
 test_that("one random, 1 SNP", {
+  if (!is_on_ci()) return()
+
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(n_snps = 1)
   )
@@ -57,6 +63,8 @@ test_that("one random, 1 SNP", {
 })
 
 test_that("one random, 2 SNPs", {
+  if (!is_on_ci()) return()
+
   assoc_qt_data <- create_demo_assoc_qt_data(
     traits = create_random_trait(n_snps = 2)
   )
@@ -65,6 +73,8 @@ test_that("one random, 2 SNPs", {
 })
 
 test_that("one additive, 1 SNP", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = create_additive_trait()
@@ -73,6 +83,8 @@ test_that("one additive, 1 SNP", {
 })
 
 test_that("one additive, 2 SNPs", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = create_additive_trait(n_snps = 2)
@@ -81,6 +93,8 @@ test_that("one additive, 2 SNPs", {
 })
 
 test_that("one epistatic, 1 SNP", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = create_epistatic_trait()
@@ -89,6 +103,8 @@ test_that("one epistatic, 1 SNP", {
 })
 
 test_that("one epistatic, 3 SNPs", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = create_epistatic_trait(n_snps = 3),
@@ -98,6 +114,8 @@ test_that("one epistatic, 3 SNPs", {
 })
 
 test_that("number of individuals", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       n_individuals = 3,
@@ -107,6 +125,8 @@ test_that("number of individuals", {
 })
 
 test_that("Triallelic SNPs", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = create_random_trait(mafs = c(0.3, 0.2)),
@@ -116,6 +136,8 @@ test_that("Triallelic SNPs", {
 })
 
 test_that("Quadallelic SNPs", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = create_random_trait(mafs = c(0.3, 0.2, 0.1)),
@@ -125,6 +147,8 @@ test_that("Quadallelic SNPs", {
 })
 
 test_that("two randoms", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = rep(list(create_random_trait()), 2)
@@ -133,6 +157,8 @@ test_that("two randoms", {
 })
 
 test_that("two additive", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = rep(list(create_additive_trait()), 2)
@@ -141,6 +167,8 @@ test_that("two additive", {
 })
 
 test_that("two epistatic", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = rep(list(create_additive_trait()), 2)
@@ -149,6 +177,8 @@ test_that("two epistatic", {
 })
 
 test_that("two of demo traits", {
+  if (!is_on_ci()) return()
+
   expect_silent(
     create_demo_assoc_qt_data(
       traits = rep(create_demo_traits(), 2)

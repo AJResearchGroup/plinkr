@@ -21,8 +21,8 @@ check_equal_number_of_snvs <- function(
   # testthat::expect_true(plinkr::is_plink_text_data(data) || plinkr::is_plink_bin_data(data) || plinkr::is_plink2_bin_data(data)) # nolint never run this code!
   if ("ped_table" %in% names(data)) {
     testthat::expect_true("map_table" %in% names(data))
-    n_snvs_in_ped_table <- (ncol(data$ped_table) - 6) / 2
-    n_snvs_in_map_table <- nrow(data$map_table)
+    n_snvs_in_ped_table <- plinkr::get_n_snps_from_ped_table(data$ped_table)
+    n_snvs_in_map_table <- plinkr::get_n_snps_from_map_table(data$map_table)
     if (n_snvs_in_ped_table != n_snvs_in_map_table) {
       stop(
         "Different number of SNVs in the genetic mapping (.map) table \n",
@@ -49,8 +49,8 @@ check_equal_number_of_snvs <- function(
     testthat::expect_true("pgen_table" %in% names(data))
     testthat::expect_true("pvar_table" %in% names(data))
     testthat::expect_true("psam_table" %in% names(data))
-    n_snvs_in_pgen_table <- ncol(data$pgen_table)
-    n_snvs_in_pvar_table <- nrow(data$pvar_table)
+    n_snvs_in_pgen_table <- plinkr::get_n_snps_from_pgen_table(data$pgen_table)
+    n_snvs_in_pvar_table <- plinkr::get_n_snps_from_pvar_table(data$pvar_table)
     if (n_snvs_in_pgen_table != n_snvs_in_pvar_table) {
       stop(
         "Different number of SNVs in the genetic mapping (.pvar) table \n",

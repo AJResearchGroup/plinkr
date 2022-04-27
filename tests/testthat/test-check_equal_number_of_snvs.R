@@ -1,5 +1,7 @@
 test_that("use, create_test_assoc_qt_params, PLINK text", {
+
   clear_plinkr_cache()
+
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
@@ -45,6 +47,8 @@ test_that("use, create_test_assoc_qt_params, PLINK2 binary data", {
 })
 
 test_that("use, create_demo_assoc_qt_data", {
+  if (!is_on_ci()) return()
+
   set.seed(314)
   expect_silent(
     check_equal_number_of_snvs(
@@ -54,6 +58,7 @@ test_that("use, create_demo_assoc_qt_data", {
 })
 
 test_that("detect mismatch in PLINK text data", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -83,6 +88,7 @@ test_that("detect mismatch in PLINK text data", {
 })
 
 test_that("detect mismatch in PLINK bin data", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()
@@ -103,6 +109,7 @@ test_that("detect mismatch in PLINK bin data", {
 })
 
 test_that("detect mismatch in PLINK2 bin data", {
+  if (!is_on_ci()) return()
   if (!is_plink_installed()) return()
 
   clear_plinkr_cache()

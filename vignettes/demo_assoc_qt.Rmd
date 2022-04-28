@@ -30,7 +30,7 @@ messy data, see the 'test_assoc_qt' vignette.
 Set the RNG seed:
 
 ```{r set_rng_seed}
-set.seed(314)
+set.seed(11)
 ```
 
 
@@ -57,7 +57,7 @@ if (is_plink_installed()) {
 ## Detecting associations for quantitative traits
 
 To do an association (both for a single and multiple traits), 
-we need some parameters:
+we need some data:
 
  * The `.map` table or mapping table, which contains the location
    of the single-nucleotide polymorphisms (SNPs)
@@ -65,10 +65,8 @@ we need some parameters:
    of the individuals and their SNP values
  * The phenotype table, which contains the one or more phenotypes
    of the individuals
- * The minor allele frequency (MAF) threshold for an allele
-   to be included in the analysis
 
-Here, we get simple set of parameters, as to be used in testing,
+Here, we create some simple data, as to be used in testing,
 or -in this case- a simple demonstration:
  
 ```{r}
@@ -129,32 +127,17 @@ genotype:
    that can only be 21.0 if all four nucleotides on four
    SNPs are the uncommon alleles
 
-### The minor allele frequency (MAF)
-
-
-```
-# TODO
-message(assoc_qt_data$maf)
-```
-
-The `maf` (named after the PLINK `--maf` flag)
-denotes the minimal frequency an allele must have to be
-included in the analysis. 
-We keep this at the lowest non-zero value, so that all
-SNPs are analysed.
-
 ### Detecting the association
 
 With the mapping, pedigree and phenotype table, 
 we can detect the association between genotype and the two traits:
 
-```
-# TODO
+```{r}
 if (is_plink_installed()) {
-  t <- assoc_qt(
+  assoc_qt_result <- assoc_qt(
     assoc_qt_data = assoc_qt_data
   )
-  knitr::kable(t)
+  knitr::kable(assoc_qt_result$qassoc_table)
 }
 ```
 
@@ -169,13 +152,31 @@ if (is_plink_installed()) {
  * `T`: Wald test (based on t-distribution)
  * `P`: Wald test asymptotic p-value
 
-In the fourth row, the association between `snp_2`
+In the second row, the association between `snp_2`
 and the `additive` phenotype is discovered
 correctly, as the `R2` (the R-squared value, i.e. the
 proportion of the phenotype that can be explained by the
 genotype) gives the highest possible value of 1.0,
 which denotes the phenotype can be perfectly explained
 by the genotype.
+
+## Add a bit of noise to the data
+
+```{r}
+assoc_qt_data$phenotype_data$phe_table$additive <-
+  assoc_qt_data$phenotype_data$phe_table$additive + 
+  runif(n = 16, min = -0.001, max = 0.001
+)
+```
+
+```{r}
+if (is_plink_installed()) {
+  assoc_qt_result <- assoc_qt(
+    assoc_qt_data = assoc_qt_data
+  )
+  knitr::kable(assoc_qt_result$qassoc_table)
+}
+```
 
 
 ## Cleanup

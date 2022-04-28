@@ -3,6 +3,26 @@ test_that("use", {
   expect_silent(check_assoc_qt_data(assoc_qt_data))
 })
 
+test_that("epistatic works", {
+  if (!is_on_ci()) return()
+  set.seed(11)
+  assoc_qt_data <- create_demo_assoc_qt_data(n_individuals = 16)
+  expect_equal(
+    2,
+    length(unique(assoc_qt_data$phenotype_data$phe_table$epistatic))
+  )
+  if ("Hunt for a good seed" == "what I want") {
+    seed <- 1
+    while (1) {
+      seed <- seed + 1
+      message(seed)
+      set.seed(seed)
+      assoc_qt_data <- create_demo_assoc_qt_data(n_individuals = 16)
+      if (length(unique(assoc_qt_data$phenotype_data$phe_table$epistatic)) == 2) stop(seed)
+    }
+  }
+})
+
 test_that("n_individuals", {
   if (!is_on_ci()) return()
 

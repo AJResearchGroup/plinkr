@@ -160,3 +160,27 @@ test_that("minimal use, demo_assoc_qt", {
     )
   )
 })
+
+test_that("proper error message", {
+  bim <- read_plink_bim_file(get_plinkr_filename("toy_data.bim"))
+  fam <- read_plink_fam_file(get_plinkr_filename("toy_data.fam"))
+  expect_error(
+    read_plink_bed_file(
+      get_plinkr_filename("toy_data.bed"),
+      bim$id[-1],
+      fam$id
+    ),
+    "number of loci"
+  )
+  if (1 == 2) {
+    # genio does not detect of the number of samples is correct
+    expect_error(
+      read_plink_bed_file(
+        get_plinkr_filename("toy_data.bed"),
+        bim$id,
+        c(fam$id, "per123")
+      ),
+      "number of SNPs"
+    )
+  }
+})

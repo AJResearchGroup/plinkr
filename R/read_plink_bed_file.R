@@ -19,13 +19,30 @@ read_plink_bed_file <- function(
   verbose = FALSE
 ) {
   testthat::expect_true(file.exists(bed_filename))
-  suppressWarnings(
-    bed_table <- genio::read_bed(
-      file = bed_filename,
-      names_loci = names_loci,
-      names_ind = names_ind,
-      verbose = verbose
+  tryCatch({
+    suppressWarnings(
+      bed_table <- genio::read_bed(
+        file = bed_filename,
+        names_loci = names_loci,
+        names_ind = names_ind,
+        verbose = verbose
+      )
     )
+  }, error = function(e) {
+    stop(
+      "'genio::read_bed' failed", " \n",
+      "bed_filename: ", bed_filename, " \n",
+      "number of loci: ", length(names_loci), " \n",
+      "number of samples/individuals: ", length(names_ind), " \n",
+      "First loci names: ",
+        paste0(head(names_loci), collapse = ", "), " \n",
+      "First sample/individual names: ",
+      paste0(head(names_ind), collapse = ", "), " \n",
+      "genio error message: \n",
+      e$msg
+    )
+  }
+
   )
   attributes(bed_table)$plinkr_datatype <- "bed_table"
   bed_table

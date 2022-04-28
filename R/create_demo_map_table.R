@@ -29,22 +29,11 @@ create_demo_map_table <- function(
   testthat::expect_false(plinkr::is_one_trait(traits))
 
   n_snps <- sum(purrr::map_dbl(traits, function(e) e$n_snps))
-
-  t <- NA
-  if (n_snps == 0) {
-    t <- tibble::tibble(
-      CHR = numeric(0),
-      SNP = character(0),
-      position_cm = numeric(0),
-      BP = numeric(0)
-    )
-  } else {
-    t <- tibble::tibble(
-      CHR = 1 + (seq(0, n_snps - 1) %% 95),
-      SNP = paste0("snp_", seq_len(n_snps)),
-      position_cm = rep(0, n_snps),
-      BP = seq_len(n_snps)
-    )
-  }
-  t
+  testthat::expect_true(n_snps > 0)
+  tibble::tibble(
+    CHR = 1 + (seq(0, n_snps - 1) %% 95),
+    SNP = paste0("snp_", seq_len(n_snps)),
+    position_cm = rep(0, n_snps),
+    BP = seq_len(n_snps)
+  )
 }

@@ -11,3 +11,12 @@ test_that("use", {
     "fam_table"
   )
 })
+
+test_that("use", {
+  plink_bin_data <- create_test_plink_bin_data()
+  plink_bin_data$fam_table$id <- paste0("human_", plink_bin_data$fam_table$id)
+  expect_error(
+    check_plink_bin_data(plink_bin_data),
+    "fam_table"
+  )
+})

@@ -7,5 +7,6 @@ read_plink_bim_file <- function(
   verbose = FALSE
 ) {
   testthat::expect_true(file.exists(bim_filename))
-  genio::read_bim(bim_filename, verbose = verbose)
+  bim_table <- genio::read_bim(bim_filename, verbose = verbose)
+  bim_table
 }

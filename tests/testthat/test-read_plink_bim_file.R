@@ -8,8 +8,6 @@ test_that("minimal use", {
   expect_silent(
     read_plink_bim_file(get_plinkr_filename("demo_assoc_qt.bim"))
   )
-
-
 })
 
 test_that("create, read, save, read, PLINK v1.7", {

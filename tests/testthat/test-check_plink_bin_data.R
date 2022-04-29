@@ -17,6 +17,6 @@ test_that("use", {
   plink_bin_data$fam_table$id <- paste0("human_", plink_bin_data$fam_table$id)
   expect_error(
     check_plink_bin_data(plink_bin_data),
-    "fam_table"
+    "Mismatch between the 'id' column in the .fam table and the column names in the .bed table" # nolint indeed a long line
   )
 })

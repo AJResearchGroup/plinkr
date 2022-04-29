@@ -47,7 +47,12 @@ Set to \link{TRUE} for more output.
 Use \link{check_verbose} to detect if this argument is valid.}
 }
 \value{
-a \code{plink_bin_data} (see \link{check_plink_bin_data})
+\itemize{
+\item If \code{data} is a \code{plink_bin_data} (see \link{check_plink_bin_data}),
+a \code{plink_bin_data}
+\item If \code{data} is a \code{assoc_qt_data} (see \link{check_assoc_qt_data}),
+a \code{assoc_qt_data}
+}
 }
 \description{
 Select samples/individuals from data

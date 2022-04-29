@@ -18,7 +18,13 @@ test_that("epistatic works", {
       message(seed)
       set.seed(seed)
       assoc_qt_data <- create_demo_assoc_qt_data(n_individuals = 16)
-      if (length(unique(assoc_qt_data$phenotype_data$phe_table$epistatic)) == 2) stop(seed)
+      if (
+        length(
+          unique(assoc_qt_data$phenotype_data$phe_table$epistatic)
+        ) == 2
+      ) {
+        stop(seed)
+      }
     }
   }
 })

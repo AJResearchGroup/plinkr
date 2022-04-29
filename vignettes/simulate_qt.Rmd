@@ -30,7 +30,7 @@ if (plinkr::is_plink_installed()) {
     n_individuals = 2,
     temp_sim_filename = "temp.sim"
   )
-  knitr::kable(head(results$simfreq))
+  knitr::kable(utils::head(results$simfreq))
 }
 ```
 

@@ -35,9 +35,9 @@ read_plink_bed_file <- function(
       "number of loci: ", length(names_loci), " \n",
       "number of samples/individuals: ", length(names_ind), " \n",
       "First loci names: ",
-        paste0(head(names_loci), collapse = ", "), " \n",
+        paste0(utils::head(names_loci), collapse = ", "), " \n",
       "First sample/individual names: ",
-      paste0(head(names_ind), collapse = ", "), " \n",
+      paste0(utils::head(names_ind), collapse = ", "), " \n",
       "genio error message: \n",
       e$msg
     )

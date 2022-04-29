@@ -75,7 +75,7 @@ if (good_to_go) {
   )
   map_table <- plinkr::read_plink_map_file(hapmap1_map_filename)
   n_snps <- nrow(map_table)
-  knitr::kable(head(map_table))
+  knitr::kable(utils::head(map_table))
 }
 ```
 
@@ -115,7 +115,7 @@ if (good_to_go) {
     tutorial_data_filenames, "pop.phe"
   )
   knitr::kable(
-    head(plinkr::read_plink_phe_file(pop_phe_filename))
+    utils::head(plinkr::read_plink_phe_file(pop_phe_filename))
   )
 }
 ```
@@ -128,7 +128,7 @@ if (good_to_go) {
     tutorial_data_filenames, "qt.phe"
   )
   knitr::kable(
-    head(plinkr::read_plink_phe_file(qt_phe_filename))
+    utils::head(plinkr::read_plink_phe_file(qt_phe_filename))
   )
 }
 ```
@@ -247,7 +247,7 @@ if (good_to_go) {
     binary_filenames, "hapmap1.bim"
   )
   bim_table <- plinkr::read_plink_bim_file(bim_filename = bim_filename)
-  knitr::kable(head(bim_table))
+  knitr::kable(utils::head(bim_table))
 }
 ```
 
@@ -257,7 +257,7 @@ if (good_to_go) {
     binary_filenames, "hapmap1.fam"
   )
   fam_table <- plinkr::read_plink_fam_file(fam_filename = fam_filename)
-  knitr::kable(head(fam_table))
+  knitr::kable(utils::head(fam_table))
 }
 ```
 
@@ -346,7 +346,7 @@ Taking a look at the file `miss_stat.lmiss`:
 
 ```{r}
 if (good_to_go) {
-  knitr::kable(head(missing_result$lmiss_table))
+  knitr::kable(utils::head(missing_result$lmiss_table))
 }
 ```
 We see, that is, for each SNP, we see the number of missing individuals (N_MISS) and the proportion of individuals missing (F_MISS). 
@@ -365,7 +365,7 @@ Similarly, `miss_stat.imiss`:
 
 ```{r}
 if (good_to_go) {
-  knitr::kable(head(missing_result$imiss_table))
+  knitr::kable(utils::head(missing_result$imiss_table))
 }
 ```
 
@@ -394,7 +394,7 @@ if (good_to_go) {
     bfile = base_binary_filenames,
     out = base_frq_filenames
   )
-  knitr::kable(head(freq_results$frq_table))
+  knitr::kable(utils::head(freq_results$frq_table))
 }
 ```
 
@@ -416,7 +416,7 @@ if (good_to_go) {
     phe_filename = pop_phe_filename,
     out = base_freq_within_filenames
   )
-  knitr::kable(head(freq_within_results$frq_strat_table))
+  knitr::kable(utils::head(freq_within_results$frq_strat_table))
 }
 ```
 
@@ -442,7 +442,7 @@ if (good_to_go) {
     bfile = base_binary_filenames,
     out = base_as1_filenames
   )
-  knitr::kable(head(assoc_results$assoc_table))
+  knitr::kable(utils::head(assoc_results$assoc_table))
 }
 ```
 
@@ -467,7 +467,7 @@ we sort the association results based on their low p-value:
 
 ```{r}
 if (good_to_go) {
-  knitr::kable(head(dplyr::arrange(assoc_results$assoc_table, P)))
+  knitr::kable(utils::head(dplyr::arrange(assoc_results$assoc_table, P)))
 }
 ```
 
@@ -484,7 +484,7 @@ if (good_to_go) {
     bfile = base_binary_filenames,
     out = base_as2_filenames
   )
-  knitr::kable(head(assoc_results$assoc_adjusted_table))
+  knitr::kable(utils::head(assoc_results$assoc_adjusted_table))
 }
 ```
 

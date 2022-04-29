@@ -6,10 +6,12 @@ test_that("minimal use, test_v1_7_after_make-bed", {
   plink_bin_data <- read_plink_bin_data(
     base_input_filename = base_input_filename
   )
-  expect_output(
-    read_plink_bin_data(
-      base_input_filename = base_input_filename,
-      verbose = TRUE
+  suppressMessages(
+    expect_message(
+      read_plink_bin_data(
+        base_input_filename = base_input_filename,
+        verbose = TRUE
+      )
     )
   )
   expect_silent(check_plink_bin_data(plink_bin_data))

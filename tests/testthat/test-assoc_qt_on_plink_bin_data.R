@@ -28,6 +28,38 @@ test_that("minimal use, from files", {
   expect_silent(check_empty_plinkr_folder())
 })
 
+test_that("--allow-no-sex", {
+  if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
+  data <- convert_plink_text_data_to_plink_bin_data(
+    plink_text_data = create_test_plink_text_data()
+  )
+  assoc_qt_data <- create_test_assoc_qt_data(
+    data = data,
+    phenotype_data = create_phenotype_data_table_from_data(data)
+  )
+  # No sex
+  assoc_qt_data$data$fam_table$sex <- 0
+
+  assoc_qt_on_plink_bin_data(
+    assoc_qt_data = assoc_qt_data,
+    assoc_qt_params = create_test_assoc_qt_params(allow_no_sex = TRUE),
+    plink_options = create_plink_options()
+  )
+
+  # TODO: fix this
+  expect_error(
+    assoc_qt_on_plink_bin_data(
+      assoc_qt_data = assoc_qt_data,
+      assoc_qt_params = create_test_assoc_qt_params(allow_no_sex = FALSE)
+    )
+  )
+
+  expect_silent(check_empty_plinkr_folder())
+})
+
 test_that("minimal use, simulated data", {
   if (!is_on_ci()) return()
   if (!is_plink_installed()) return()

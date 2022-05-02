@@ -7,15 +7,15 @@
 #' @return the command-line arguments
 #' @examples
 #' assoc_qt_data <- create_test_assoc_qt_data(
-#'   data = create_test_plink_bin_data()
+#'   data = create_test_plink_bin_filenames()
 #' )
-#' create_assoc_qt_args_on_plink_bin_data(
+#' create_assoc_qt_args_on_plink_bin_filenames(
 #'   assoc_qt_data = assoc_qt_data,
 #'   assoc_qt_params = create_test_assoc_qt_params()
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_assoc_qt_args_on_plink_bin_data <- function( # nolint indeed a long function name
+create_assoc_qt_args_on_plink_bin_filenames <- function( # nolint indeed a long function name
   assoc_qt_data,
   assoc_qt_params,
   plink_options = create_plink_options()
@@ -28,10 +28,18 @@ create_assoc_qt_args_on_plink_bin_data <- function( # nolint indeed a long funct
     plink_options = plink_options
   )
   testthat::expect_true(
+    plinkr::is_plink_bin_filenames(assoc_qt_data$data)
+  )
+  testthat::expect_true(
+    plink_options$plink_version %in% plinkr::get_plink1_versions()
+  )
+  testthat::expect_true(
     plink_options$plink_version %in% plinkr::get_plink1_versions()
   )
   args <- c(
-    "--bfile", assoc_qt_params$base_input_filename, # PLINK adds prefix
+    "--bed", assoc_qt_data$data$bed_filename,
+    "--bim", assoc_qt_data$data$bim_filename,
+    "--fam", assoc_qt_data$data$fam_filename,
     "--pheno", assoc_qt_data$phenotype_data$phe_filename,
     "--all-pheno",
     "--assoc",

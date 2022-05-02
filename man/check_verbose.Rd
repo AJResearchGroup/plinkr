@@ -20,6 +20,10 @@ is not either \link{TRUE} or \link{FALSE}.
 \description{
 Will \link{stop} if not
 }
+\examples{
+check_verbose(verbose = TRUE)
+check_verbose(verbose = FALSE)
+}
 \author{
 Richèl J.C. Bilderbeek
 }

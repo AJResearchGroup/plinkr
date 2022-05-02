@@ -31,6 +31,15 @@ Create the command-line arguments to call \code{PLINK} or \code{PLINK2}
 to do a quantitative trait analysis, when
 \code{PLINK} binary data is used
 }
+\examples{
+assoc_qt_data <- create_test_assoc_qt_data(
+  data = create_test_plink_bin_data()
+)
+create_assoc_qt_args_on_plink_bin_data(
+  assoc_qt_data = assoc_qt_data,
+  assoc_qt_params = create_test_assoc_qt_params()
+)
+}
 \author{
 Richèl J.C. Bilderbeek
 }

@@ -1,0 +1,13 @@
+test_that("use", {
+  expect_silent(check_allow_no_sex(TRUE))
+  expect_silent(check_allow_no_sex(FALSE))
+  expect_error(check_allow_no_sex(0.6))
+  expect_error(check_allow_no_sex(-0.3))
+  expect_error(check_allow_no_sex(""))
+  expect_error(check_allow_no_sex("nonsense"))
+  expect_error(check_allow_no_sex(12))
+  expect_error(check_allow_no_sex(NULL))
+  expect_error(check_allow_no_sex(NA))
+  expect_error(check_allow_no_sex(Inf))
+  expect_error(check_allow_no_sex(c(TRUE, FALSE)))
+})

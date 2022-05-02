@@ -6,6 +6,9 @@
 #' By default, this value is set to true,
 #' hence \link{plinkr} will skip this check.
 #' Use \link{get_plink_version} to get the current `PLINK` version.
+#' @param allow_no_sex set this to \link{TRUE}
+#' to retain phenotype values for missing-sex samples.
+#' This parameter is named after the `PLINK` `--allow-no-sex` flag
 #' @param args arguments for the `PLINK` or `PLINK2` executable.
 #' Use \link{check_plink_args} to check if these are valid
 #' @param assoc_adjusted_filename name of a `PLINK`
@@ -467,6 +470,7 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   add_noweb,
+  allow_no_sex,
   args,
   assoc_adjusted_filename,
   assoc_data,

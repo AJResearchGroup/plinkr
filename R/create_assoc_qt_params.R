@@ -14,14 +14,17 @@
 #' @export
 create_assoc_qt_params <- function(
   maf = get_lowest_maf(),
+  allow_no_sex = FALSE,
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
   base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")
 ) {
   plinkr::check_maf(maf = maf)
+  plinkr::check_allow_no_sex(allow_no_sex = allow_no_sex)
   plinkr::check_base_input_filename(base_input_filename = base_input_filename)
   plinkr::check_base_output_filename(base_output_filename)
   assoc_qt_params <- list(
     maf = maf,
+    allow_no_sex = allow_no_sex,
     base_input_filename = base_input_filename,
     base_output_filename = base_output_filename
   )

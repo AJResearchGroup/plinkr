@@ -4,7 +4,7 @@
 \alias{create_test_assoc_qt_params}
 \title{Create testing parameters for the \link{assoc_qt} function}
 \usage{
-create_test_assoc_qt_params(maf = get_lowest_maf())
+create_test_assoc_qt_params(maf = get_lowest_maf(), allow_no_sex = FALSE)
 }
 \arguments{
 \item{maf}{minor allele frequency threshold.
@@ -19,6 +19,10 @@ as obtained by \link{get_lowest_maf}
 The parameter name \code{maf} is named after the
 \code{PLINK} \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
+
+\item{allow_no_sex}{set this to \link{TRUE}
+to retain phenotype values for missing-sex samples.
+This parameter is named after the \code{PLINK} \code{--allow-no-sex} flag}
 }
 \description{
 Create parameters (as created by \link{create_assoc_qt_params})

@@ -6,6 +6,7 @@
 \usage{
 create_assoc_qt_params(
   maf = get_lowest_maf(),
+  allow_no_sex = FALSE,
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
   base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")
 )
@@ -23,6 +24,10 @@ as obtained by \link{get_lowest_maf}
 The parameter name \code{maf} is named after the
 \code{PLINK} \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
+
+\item{allow_no_sex}{set this to \link{TRUE}
+to retain phenotype values for missing-sex samples.
+This parameter is named after the \code{PLINK} \code{--allow-no-sex} flag}
 
 \item{base_input_filename}{the base of the filenames that are
 used as input for \code{PLINK}/\code{PLINK2}}

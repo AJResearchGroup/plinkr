@@ -7,10 +7,12 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_assoc_qt_params <- function(
-  maf = get_lowest_maf()
+  maf = get_lowest_maf(),
+  allow_no_sex = FALSE
 ) {
   plinkr::check_maf(maf = maf)
   plinkr::create_assoc_qt_params(
-    maf = maf
+    maf = maf,
+    allow_no_sex = allow_no_sex
   )
 }

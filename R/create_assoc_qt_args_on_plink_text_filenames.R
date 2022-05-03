@@ -40,6 +40,7 @@ create_assoc_qt_args_on_plink_text_filenames <- function( # nolint indeed a long
     "--all-pheno",
     "--assoc",
     "--maf", assoc_qt_params$maf,
+    "--ci", assoc_qt_params$confidence_interval,
     "--out", assoc_qt_params$base_output_filename
   )
   if (plink_options$plink_version == "1.7") {

@@ -7,13 +7,12 @@
 #' @return the command-line arguments
 #' @examples
 #' assoc_qt_data <- create_assoc_qt_data(
-#'   data = create_plink_bin_filenames(
-#'     bed_filename = get_plinkr_filename("select_snps.bed"),
-#'     bim_filename = get_plinkr_filename("select_snps.bim"),
-#'     fam_filename = get_plinkr_filename("select_snps.fam")
+#'   data = create_plink_text_filenames(
+#'     map_filename = get_plinkr_filename("demo_assoc_qt.map"),
+#'     ped_filename = get_plinkr_filename("demo_assoc_qt.ped")
 #'   ),
 #'   phenotype_data = create_test_phenotype_data_filename(
-#'     phe_filename = get_plinkr_filename("select_snps.phe")
+#'     phe_filename = get_plinkr_filename("demo_assoc_qt.phe")
 #'   )
 #' )
 #' create_assoc_qt_args_on_plink_bin_filenames(

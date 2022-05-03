@@ -16,6 +16,7 @@
 #' @export
 create_assoc_qt_covar_params <- function(
   maf = get_lowest_maf(),
+  confidence_interval = 0.95,
   allow_no_sex = FALSE,
   base_input_filename = file.path(
     get_plinkr_tempfilename(), "assoc_qt_covar_input"
@@ -25,11 +26,13 @@ create_assoc_qt_covar_params <- function(
   )
 ) {
   plinkr::check_maf(maf = maf)
+  plinkr::check_confidence_interval(confidence_interval = confidence_interval)
   plinkr::check_allow_no_sex(allow_no_sex)
   plinkr::check_base_input_filename(base_input_filename = base_input_filename)
   plinkr::check_base_output_filename(base_output_filename)
   list(
     maf = maf,
+    confidence_interval = confidence_interval,
     allow_no_sex = allow_no_sex,
     base_input_filename = base_input_filename,
     base_output_filename = base_output_filename

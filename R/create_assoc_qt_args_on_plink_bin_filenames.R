@@ -6,8 +6,15 @@
 #' @inheritParams default_params_doc
 #' @return the command-line arguments
 #' @examples
-#' assoc_qt_data <- create_test_assoc_qt_data(
-#'   data = create_test_plink_bin_filenames()
+#' assoc_qt_data <- create_assoc_qt_data(
+#'   data = create_plink_bin_filenames(
+#'     bed_filename = get_plinkr_filename("select_snps.bed"),
+#'     bim_filename = get_plinkr_filename("select_snps.bim"),
+#'     fam_filename = get_plinkr_filename("select_snps.fam")
+#'   ),
+#'   phenotype_data = create_test_phenotype_data_filename(
+#'     phe_filename = get_plinkr_filename("select_snps.phe")
+#'   )
 #' )
 #' create_assoc_qt_args_on_plink_bin_filenames(
 #'   assoc_qt_data = assoc_qt_data,
@@ -44,6 +51,7 @@ create_assoc_qt_args_on_plink_bin_filenames <- function( # nolint indeed a long 
     "--all-pheno",
     "--assoc",
     "--maf", assoc_qt_params$maf,
+    "--ci", assoc_qt_params$confidence_interval,
     "--out", assoc_qt_params$base_output_filename
   )
   if (plink_options$plink_version == "1.7") {

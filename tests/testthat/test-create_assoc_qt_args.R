@@ -20,10 +20,9 @@
 ################################################################################
 test_that("use, PLINK v1.7, PLINK text data", {
 
-  clear_plinkr_cache()
-
+  # detailed tests at test-create_assoc_qt_args_on_plink_text_data.R
   expect_silent(
-    args <- create_assoc_qt_args(
+    create_assoc_qt_args(
       assoc_qt_data = create_test_assoc_qt_data(),
       assoc_qt_params = create_test_assoc_qt_params(),
       plink_options = create_plink_v1_7_options()
@@ -33,6 +32,7 @@ test_that("use, PLINK v1.7, PLINK text data", {
 })
 
 test_that("use, PLINK v1.7, PLINK bin data", {
+  # detailed tests at test-create_assoc_qt_args_on_plink_bin_data.R
 
   if (!is_plink_installed()) return()
 
@@ -85,7 +85,6 @@ test_that("use, PLINK v1.9, PLINK text data", {
       plink_options = create_plink_v1_9_options()
     )
   )
-
   expect_silent(check_empty_plinkr_folder())
 })
 
@@ -104,7 +103,6 @@ test_that("use, PLINK v1.9, PLINK bin data", {
       plink_options = create_plink_v1_9_options()
     )
   )
-
   expect_silent(check_empty_plinkr_folder())
 })
 
@@ -167,6 +165,7 @@ test_that("use, PLINK2, PLINK binary data", {
 })
 
 test_that("use, PLINK2, PLINK2 binary data", {
+  # Detailed tests at test-create_assoc_qt_args_on_plink2_bin_data.R
   clear_plinkr_cache()
 
   if (!is_plink_installed()) return()

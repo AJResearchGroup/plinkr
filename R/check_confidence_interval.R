@@ -1,6 +1,6 @@
-#' Check if the \code{confidence_interval} is valid.
+#' Check if the `confidence_interval` is valid.
 
-#' Check if the \code{confidence_interval} is valid,
+#' Check if the `confidence_interval` is valid,
 #' which is when it is a number between
 #' 0.0 and 1.0 (i.e. excluding 0.0 and 1.0).
 #'
@@ -9,6 +9,10 @@
 #' @return Nothing. Will \link{stop} if the input
 #' is not a number between
 #' 0.0 and 1.0
+#' @examples
+#' check_confidence_interval(0.01)
+#' check_confidence_interval(0.95)
+#' check_confidence_interval(0.99)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_confidence_interval <- function(confidence_interval) {

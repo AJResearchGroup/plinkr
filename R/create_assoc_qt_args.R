@@ -52,25 +52,13 @@ create_assoc_qt_args <- function(
     )
   }
   if (plinkr::is_plink_text_filenames(assoc_qt_data$data)) {
-    testthat::expect_true(
-      plink_options$plink_version %in% plinkr::get_plink1_versions()
+    return(
+      plinkr::create_assoc_qt_args_on_plink_text_filenames(
+        assoc_qt_data = assoc_qt_data,
+        assoc_qt_params = assoc_qt_params,
+        plink_options = plink_options
+      )
     )
-    args <- c(
-      "--map", assoc_qt_data$data$map_filename,
-      "--ped", assoc_qt_data$data$ped_filename,
-      "--pheno", assoc_qt_data$phenotype_data$phe_filename,
-      "--all-pheno",
-      "--assoc",
-      "--maf", assoc_qt_params$maf,
-      "--out", assoc_qt_params$base_output_filename
-    )
-    if (plink_options$plink_version == "1.7") {
-      args <- c(args, "--noweb")
-    }
-    if (plink_options$plink_version == "1.9") {
-      args <- c(args, "--allow-extra-chr", "--chr-set", 95)
-    }
-    return(args)
   }
   if (plinkr::is_plink_bin_filenames(assoc_qt_data$data)) {
     return(

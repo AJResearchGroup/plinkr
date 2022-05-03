@@ -1,12 +1,11 @@
 test_that("minimal use", {
-  expect_silent(
-    create_assoc_qt_args_on_plink_bin_data(
-      assoc_qt_data = create_test_assoc_qt_data(
-        data = create_test_plink_bin_data()
-      ),
-      assoc_qt_params = create_test_assoc_qt_params()
-    )
+  args <- create_assoc_qt_args_on_plink_bin_data(
+    assoc_qt_data = create_test_assoc_qt_data(
+      data = create_test_plink_bin_data()
+    ),
+    assoc_qt_params = create_test_assoc_qt_params()
   )
+  expect_true("--ci" %in% args)
 })
 
 test_that("--allow-no-sex", {

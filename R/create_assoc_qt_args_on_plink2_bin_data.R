@@ -29,6 +29,7 @@ create_assoc_qt_args_on_plink2_bin_data <- function( # nolint indeed a long func
     "--allow-extra-chr",
     "--chr-set", 95,
     "--maf", assoc_qt_params$maf,
+    "--ci", assoc_qt_params$confidence_interval,
     "--out", assoc_qt_params$base_output_filename
   )
 }

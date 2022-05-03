@@ -2,12 +2,20 @@
 #'
 #' Create the command-line arguments to call `PLINK` or `PLINK2`
 #' to do a quantitative trait analysis, when
-#' `PLINK` text data is used
+#' `PLINK` text files are used as data
 #' @inheritParams default_params_doc
 #' @return the command-line arguments
+#' @examples
+#' assoc_qt_data <- create_test_assoc_qt_data(
+#'   data = create_test_plink_text_filenames()
+#' )
+#' create_assoc_qt_args_on_plink_text_filenames(
+#'   assoc_qt_data = assoc_qt_data,
+#'   assoc_qt_params = create_test_assoc_qt_params()
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_assoc_qt_args_on_plink_text_data <- function( # nolint indeed a long function name
+create_assoc_qt_args_on_plink_text_filenames <- function( # nolint indeed a long function name
   assoc_qt_data,
   assoc_qt_params,
   plink_options = create_plink_options()
@@ -20,16 +28,18 @@ create_assoc_qt_args_on_plink_text_data <- function( # nolint indeed a long func
     plink_options = plink_options
   )
   testthat::expect_true(
+    plinkr::is_plink_text_filenames(assoc_qt_data$data)
+  )
+  testthat::expect_true(
     plink_options$plink_version %in% plinkr::get_plink1_versions()
   )
   args <- c(
-    "--map", paste0(assoc_qt_params$base_input_filename, ".map"),
-    "--ped", paste0(assoc_qt_params$base_input_filename, ".ped"),
-    "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
+    "--map", assoc_qt_data$data$map_filename,
+    "--ped", assoc_qt_data$data$ped_filename,
+    "--pheno", assoc_qt_data$phenotype_data$phe_filename,
     "--all-pheno",
     "--assoc",
     "--maf", assoc_qt_params$maf,
-    "--ci", assoc_qt_params$confidence_interval,
     "--out", assoc_qt_params$base_output_filename
   )
   if (plink_options$plink_version == "1.7") {

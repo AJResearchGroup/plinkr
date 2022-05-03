@@ -7,6 +7,7 @@ to be used in testing.}
 \usage{
 create_test_assoc_qt_covar_params(
   maf = get_lowest_maf(),
+  confidence_interval = 0.95,
   allow_no_sex = FALSE,
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_qt_covar_input"),
   base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_qt_covar_input")
@@ -25,6 +26,11 @@ as obtained by \link{get_lowest_maf}
 The parameter name \code{maf} is named after the
 \code{PLINK} \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
+
+\item{confidence_interval}{confidence interval, a value between (and
+excluding both) 0.0 and 1.0. The confidence interval helps assess
+the certainty of an estimation: you can be 99 percent sure
+a value is within the range of the 0.99 confidence interval}
 
 \item{allow_no_sex}{set this to \link{TRUE}
 to retain phenotype values for missing-sex samples.

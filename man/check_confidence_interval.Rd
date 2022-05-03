@@ -23,6 +23,11 @@ is not a number between
 \description{
 Will \link{stop} if not
 }
+\examples{
+check_confidence_interval(0.01)
+check_confidence_interval(0.95)
+check_confidence_interval(0.99)
+}
 \author{
 Richèl J.C. Bilderbeek
 }

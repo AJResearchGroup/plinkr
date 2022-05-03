@@ -6,6 +6,7 @@
 \usage{
 create_assoc_qt_params(
   maf = get_lowest_maf(),
+  confidence_interval = 0.95,
   allow_no_sex = FALSE,
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
   base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")
@@ -25,6 +26,11 @@ The parameter name \code{maf} is named after the
 \code{PLINK} \code{--maf} flag. This was chosen over
 more specific names such as \code{min_allele_frequency}).}
 
+\item{confidence_interval}{confidence interval, a value between (and
+excluding both) 0.0 and 1.0. The confidence interval helps assess
+the certainty of an estimation: you can be 99 percent sure
+a value is within the range of the 0.99 confidence interval}
+
 \item{allow_no_sex}{set this to \link{TRUE}
 to retain phenotype values for missing-sex samples.
 This parameter is named after the \code{PLINK} \code{--allow-no-sex} flag}
@@ -35,6 +41,9 @@ used as input for \code{PLINK}/\code{PLINK2}}
 \item{base_output_filename}{the base of the filenames that are
 used as output for \code{PLINK}/\code{PLINK2}}
 }
+\value{
+the parameters to do a quantitative trait analysis
+}
 \description{
 Create parameters to detect associations with quantitative traits
 (using \link{assoc_qt}).
@@ -42,10 +51,20 @@ Use \link{create_test_assoc_qt_params}) to create a set of parameters
 that is used in testing.
 }
 \note{
-This function is named after the \code{--assoc} \code{PLINK} flag.
-Where \code{--PLINK} uses phenotypic values to determine if an association
+This function is named after the \code{--assoc} \code{PLINK} flag,
+where \code{--assoc} uses phenotypic values to determine if an association
 is about a binary/case-control trait or a quantitative trait,
 \link{plinkr} uses functions named \link{assoc} and \link{assoc_qt}.
+}
+\examples{
+create_assoc_qt_params()
+create_assoc_qt_params(maf = 0.01)
+create_assoc_qt_params(confidence_interval = 0.99)
+create_assoc_qt_params(allow_no_sex = TRUE)
+}
+\seealso{
+use \link{create_test_assoc_qt_params} to create \code{assoc_qt_params}
+used for testing
 }
 \author{
 Richèl J.C. Bilderbeek

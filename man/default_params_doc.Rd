@@ -266,7 +266,10 @@ and checked by \link{check_chromosome_selector}}
 \item{confidence_interval}{confidence interval, a value between (and
 excluding both) 0.0 and 1.0. The confidence interval helps assess
 the certainty of an estimation: you can be 99 percent sure
-a value is within the range of the 0.99 confidence interval}
+a value is within the range of the 0.99 confidence interval
+
+The \code{confidence_interval} is only used by \code{PLINK2}.
+For \code{PLINK}, its value is ignored}
 
 \item{cov_filename}{name of a covariates (\code{.cov}) file.
 Use \link{read_plink_cov_file} to read a covariates file.}

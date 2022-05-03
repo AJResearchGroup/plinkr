@@ -29,7 +29,10 @@ more specific names such as \code{min_allele_frequency}).}
 \item{confidence_interval}{confidence interval, a value between (and
 excluding both) 0.0 and 1.0. The confidence interval helps assess
 the certainty of an estimation: you can be 99 percent sure
-a value is within the range of the 0.99 confidence interval}
+a value is within the range of the 0.99 confidence interval
+
+The \code{confidence_interval} is only used by \code{PLINK2}.
+For \code{PLINK}, its value is ignored}
 
 \item{allow_no_sex}{set this to \link{TRUE}
 to retain phenotype values for missing-sex samples.

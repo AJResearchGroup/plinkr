@@ -11,19 +11,17 @@
 check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {
   testthat::expect_true(is.list(assoc_qt_covar_params))
   testthat::expect_true("maf" %in% names(assoc_qt_covar_params))
+  testthat::expect_true("allow_no_sex" %in% names(assoc_qt_covar_params))
   testthat::expect_true(
     "base_input_filename" %in% names(assoc_qt_covar_params)
   )
   testthat::expect_true(
     "base_output_filename" %in% names(assoc_qt_covar_params)
   )
-  testthat::expect_silent(plinkr::check_maf(assoc_qt_covar_params$maf))
-  testthat::expect_silent(
-    plinkr::check_base_input_filename(assoc_qt_covar_params$base_input_filename)
-  )
-  testthat::expect_silent(
-    plinkr::check_base_output_filename(
-      assoc_qt_covar_params$base_output_filename
-    )
+  plinkr::check_maf(assoc_qt_covar_params$maf)
+  plinkr::check_allow_no_sex(assoc_qt_covar_params$allow_no_sex)
+  plinkr::check_base_input_filename(assoc_qt_covar_params$base_input_filename)
+  plinkr::check_base_output_filename(
+    assoc_qt_covar_params$base_output_filename
   )
 }

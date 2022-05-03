@@ -48,8 +48,9 @@ test_that("--allow-no-sex", {
     assoc_qt_params = create_test_assoc_qt_params(allow_no_sex = TRUE),
     plink_options = create_plink_options()
   )
+  expect_silent(check_empty_plinkr_folder())
 
-  # TODO: fix this
+  skip("#45")
   expect_error(
     assoc_qt_on_plink_bin_data(
       assoc_qt_data = assoc_qt_data,
@@ -57,7 +58,6 @@ test_that("--allow-no-sex", {
     )
   )
 
-  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("minimal use, simulated data", {

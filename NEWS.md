@@ -20,6 +20,7 @@ Newest versions at top.
  * Add 'is_psam_table'
  * Add 'is_single_sample_selector'
  * Add 'select_samples'
+ * Can use the PLINK '--allow-no-sex' in 'assoc_qt'
 
 ### MINOR IMPROVEMENTS
 

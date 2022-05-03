@@ -1,8 +1,7 @@
-test_that("is silent", {
-  expect_silent(create_test_assoc_qt_covar_params())
-})
-
-test_that("valid", {
-  assoc_qt_covar_params <- create_test_assoc_qt_covar_params()
-  expect_silent(check_assoc_qt_params(assoc_qt_params = assoc_qt_covar_params))
+test_that("minimal", {
+  expect_silent(
+    check_assoc_qt_covar_params(
+      assoc_qt_covar_params = create_test_assoc_qt_covar_params()
+    )
+  )
 })

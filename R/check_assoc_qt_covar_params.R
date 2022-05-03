@@ -3,6 +3,9 @@
 #' @note This function is named after the \code{--assoc} PLINK flag.
 #' @inheritParams default_params_doc
 #' @return Nothing.
+#' @examples
+#' assoc_qt_covar_params <- create_test_assoc_qt_covar_params()
+#' check_assoc_qt_covar_params(assoc_qt_covar_params = assoc_qt_covar_params)
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_assoc_qt_covar_params <- function(assoc_qt_covar_params) {

@@ -21,6 +21,10 @@ Check if the \code{assoc_qt_covar_params} are valid, will stop otherwise
 \note{
 This function is named after the \code{--assoc} PLINK flag.
 }
+\examples{
+assoc_qt_covar_params <- create_test_assoc_qt_covar_params()
+check_assoc_qt_covar_params(assoc_qt_covar_params = assoc_qt_covar_params)
+}
 \author{
 Richèl J.C. Bilderbeek
 }

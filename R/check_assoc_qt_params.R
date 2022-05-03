@@ -5,7 +5,7 @@
 #' @return The `assoc_qt_params` with the class name added,
 #' to indicate it has been checked
 #' @examples
-#' check_assoc_qt_params(create_test_assoc_params())
+#' check_assoc_qt_params(create_test_assoc_qt_params())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_assoc_qt_params <- function(assoc_qt_params, verbose = FALSE) {

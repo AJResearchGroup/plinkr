@@ -26,7 +26,7 @@ Check if the \code{assoc_qt_params} are valid, will stop otherwise
 This function is named after the \code{--assoc} PLINK flag.
 }
 \examples{
-check_assoc_qt_params(create_test_assoc_params())
+check_assoc_qt_params(create_test_assoc_qt_params())
 }
 \author{
 Richèl J.C. Bilderbeek

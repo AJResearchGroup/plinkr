@@ -5,6 +5,8 @@
 #' `PLINK` text data is used
 #' @inheritParams default_params_doc
 #' @return the command-line arguments
+#' @seealso see \link{create_assoc_qt_args} for all the specialized
+#' functions to create the `PLINK`/`PLINK2` command-line arguments
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_assoc_qt_args_on_plink_text_data <- function( # nolint indeed a long function name
@@ -37,6 +39,9 @@ create_assoc_qt_args_on_plink_text_data <- function( # nolint indeed a long func
   }
   if (plink_options$plink_version == "1.9") {
     args <- c(args, "--allow-extra-chr", "--chr-set", 95)
+  }
+  if (assoc_qt_params$allow_no_sex) {
+    args <- c(args, "--allow-no-sex")
   }
   args
 }

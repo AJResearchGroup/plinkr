@@ -40,6 +40,17 @@ create_assoc_qt_args(
   plink_options = create_plink_options()
 )
 }
+\seealso{
+These are the specialized functions:
+\itemize{
+\item \link{create_assoc_qt_args_on_plink_text_data}
+\item \link{create_assoc_qt_args_on_plink_bin_data}
+\item \link{create_assoc_qt_args_on_plink2_bin_data}
+\item \link{create_assoc_qt_args_on_plink_text_filenames}
+\item \link{create_assoc_qt_args_on_plink_bin_filenames}
+\item \link{create_assoc_qt_args_on_plink2_bin_filenames}
+}
+}
 \author{
 Richèl J.C. Bilderbeek
 }

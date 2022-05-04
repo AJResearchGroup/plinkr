@@ -23,7 +23,7 @@
 #' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_assoc_qt_args_on_plink_bin_filenames <- function( # nolint indeed a long function name
+create_assoc_qt_args_on_plink2_bin_filenames <- function( # nolint indeed a long function name
   assoc_qt_data,
   assoc_qt_params,
   plink_options = create_plink_options()
@@ -35,32 +35,21 @@ create_assoc_qt_args_on_plink_bin_filenames <- function( # nolint indeed a long 
     data = assoc_qt_data$data,
     plink_options = plink_options
   )
+  testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_qt_data$data))
   testthat::expect_true(
-    plinkr::is_plink_bin_filenames(assoc_qt_data$data)
-  )
-  testthat::expect_true(
-    plink_options$plink_version %in% plinkr::get_plink1_versions()
-  )
-  testthat::expect_true(
-    plink_options$plink_version %in% plinkr::get_plink1_versions()
+    plink_options$plink_version %in% plinkr::get_plink2_versions()
   )
   args <- c(
-    "--bed", assoc_qt_data$data$bed_filename,
-    "--bim", assoc_qt_data$data$bim_filename,
-    "--fam", assoc_qt_data$data$fam_filename,
+    "--pgen", assoc_qt_data$data$pgen_filename,
+    "--psam", assoc_qt_data$data$psam_filename,
+    "--pvar", assoc_qt_data$data$pvar_filename,
+    "--glm",
     "--pheno", assoc_qt_data$phenotype_data$phe_filename,
-    "--all-pheno",
-    "--assoc",
+    "--allow-extra-chr",
+    "--chr-set", 95,
     "--maf", assoc_qt_params$maf,
-    "--ci", assoc_qt_params$confidence_interval,
     "--out", assoc_qt_params$base_output_filename
   )
-  if (plink_options$plink_version == "1.7") {
-    args <- c(args, "--noweb")
-  }
-  if (plink_options$plink_version == "1.9") {
-    args <- c(args, "--allow-extra-chr", "--chr-set", 95)
-  }
   if (assoc_qt_params$allow_no_sex) {
     args <- c(args, "--allow-no-sex")
   }

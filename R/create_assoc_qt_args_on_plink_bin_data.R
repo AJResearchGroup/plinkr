@@ -5,6 +5,8 @@
 #' `PLINK` binary data is used
 #' @inheritParams default_params_doc
 #' @return the command-line arguments
+#' @seealso see \link{create_assoc_qt_args} for all the specialized
+#' functions to create the `PLINK`/`PLINK2` command-line arguments
 #' @examples
 #' assoc_qt_data <- create_test_assoc_qt_data(
 #'   data = create_test_plink_bin_data()

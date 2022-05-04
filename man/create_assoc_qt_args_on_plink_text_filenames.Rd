@@ -40,6 +40,10 @@ create_assoc_qt_args_on_plink_text_filenames(
   assoc_qt_params = create_test_assoc_qt_params()
 )
 }
+\seealso{
+see \link{create_assoc_qt_args} for all the specialized
+functions to create the \code{PLINK}/\code{PLINK2} command-line arguments
+}
 \author{
 Richèl J.C. Bilderbeek
 }

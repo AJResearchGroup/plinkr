@@ -31,6 +31,10 @@ Create the command-line arguments to call \code{PLINK} or \code{PLINK2}
 to do a quantitative trait analysis, when
 \code{PLINK} text data is used
 }
+\seealso{
+see \link{create_assoc_qt_args} for all the specialized
+functions to create the \code{PLINK}/\code{PLINK2} command-line arguments
+}
 \author{
 Richèl J.C. Bilderbeek
 }

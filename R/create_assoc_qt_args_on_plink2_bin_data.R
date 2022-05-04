@@ -22,7 +22,7 @@ create_assoc_qt_args_on_plink2_bin_data <- function( # nolint indeed a long func
   testthat::expect_true(
     plink_options$plink_version %in% plinkr::get_plink2_versions()
   )
-  c(
+  args <- c(
     "--pfile", assoc_qt_params$base_input_filename,
     "--glm",
     "--pheno", paste0(assoc_qt_params$base_input_filename, ".phe"),
@@ -32,4 +32,8 @@ create_assoc_qt_args_on_plink2_bin_data <- function( # nolint indeed a long func
     "--ci", assoc_qt_params$confidence_interval,
     "--out", assoc_qt_params$base_output_filename
   )
+  if (assoc_qt_params$allow_no_sex) {
+    args <- c(args, "--allow-no-sex")
+  }
+  args
 }

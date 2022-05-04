@@ -61,4 +61,4 @@ assoc(
 
     URL https://github.com/richelbilderbeek/plinkr
 
-    VERSION 0.20.1
+    VERSION 0.20.2

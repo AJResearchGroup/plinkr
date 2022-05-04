@@ -7,20 +7,6 @@
 #' @return the command-line arguments
 #' @seealso see \link{create_assoc_qt_args} for all the specialized
 #' functions to create the `PLINK`/`PLINK2` command-line arguments
-#' @examples
-#' assoc_qt_data <- create_assoc_qt_data(
-#'   data = create_plink_text_filenames(
-#'     map_filename = get_plinkr_filename("demo_assoc_qt.map"),
-#'     ped_filename = get_plinkr_filename("demo_assoc_qt.ped")
-#'   ),
-#'   phenotype_data = create_test_phenotype_data_filename(
-#'     phe_filename = get_plinkr_filename("demo_assoc_qt.phe")
-#'   )
-#' )
-#' create_assoc_qt_args_on_plink_bin_filenames(
-#'   assoc_qt_data = assoc_qt_data,
-#'   assoc_qt_params = create_test_assoc_qt_params()
-#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_assoc_qt_args_on_plink2_bin_filenames <- function( # nolint indeed a long function name

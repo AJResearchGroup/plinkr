@@ -11,7 +11,7 @@
 check_assoc_data <- function(assoc_data) {
   testthat::expect_true(is.list(assoc_data))
   testthat::expect_true("data" %in% names(assoc_data))
-  testthat::expect_silent(plinkr::check_data(assoc_data$data))
+  plinkr::check_data(assoc_data$data)
   if (!all(
       assoc_data$data$ped_table$case_control_code %in% c(1, 2)
     )

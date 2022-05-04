@@ -62,9 +62,9 @@ compare_assoc_qt_speed <- function(
     base_output_plink1_filename = base_output_plink1_filename,
     base_output_plink2_filename = base_output_plink2_filename
   )
-  testthat::expect_silent(plinkr::check_plink_text_data(plink_text_data))
-  testthat::expect_silent(plinkr::check_plink_bin_data(plink_bin_data))
-  testthat::expect_silent(plinkr::check_plink2_bin_data(plink2_bin_data))
+  plinkr::check_plink_text_data(plink_text_data)
+  plinkr::check_plink_bin_data(plink_bin_data)
+  plinkr::check_plink2_bin_data(plink2_bin_data)
 
   if (verbose) {
     message(Sys.time(), ": saving the data to file")

@@ -9,7 +9,7 @@ save_simulate_qt_params <- function( # nolint indeed a long function name
   simulate_qt_params,
   sim_filename
 ) {
-  testthat::expect_silent(plinkr::check_simulate_qt_params(simulate_qt_params))
+  plinkr::check_simulate_qt_params(simulate_qt_params)
   line <- paste(
     simulate_qt_params, collapse = " "
   )

@@ -14,7 +14,7 @@ check_equal_number_of_snvs <- function(
   data
 ) {
   # Do not use 'check_data' as this results in recursion
-  # testthat::expect_silent(plinkr::check_data(data)) # nolint indeed, that code :-)
+  # plinkr::check_data(data) # nolint indeed, that code :-)
 
   # Do not use 'is_plink_text_data' or the others,
   # as this results in recursion:

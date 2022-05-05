@@ -34,8 +34,14 @@ check_plink_args <- function(
         "to use PLINK v1.9 instead"
       )
     }
-
-
+    if ("--ci" %in% args) {
+      stop(
+        "'args' invalid: '--ci' ",
+        "did not yet exist in PLINK v1.7. \n",
+        "Tip: use 'plink_options = create_plink_v2_0_options()' ",
+        "to use PLINK2 instead"
+      )
+    }
     if (!"--noweb" %in% args) {
       stop(
         "'args' must have '--noweb' for PLINK version 1.7, ",
@@ -56,6 +62,16 @@ check_plink_args <- function(
     }
   }
 
+  if (plink_options$plink_version == "1.9") {
+    if ("--ci" %in% args) {
+      stop(
+        "'args' invalid: '--ci' ",
+        "did not yet exist in PLINK v1.9. \n",
+        "Tip: use 'plink_options = create_plink_v2_0_options()' ",
+        "to use PLINK2 instead"
+      )
+    }
+  }
 
   if ("--covar" %in% args) {
     bad_other_args <- c(

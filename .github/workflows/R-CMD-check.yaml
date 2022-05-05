@@ -18,8 +18,10 @@ jobs:
         os: [ubuntu-latest]
 
     runs-on: ubuntu-latest
+
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -70,9 +72,4 @@ jobs:
       - name: Report
         run: plinkr::plinkr_report()
         shell: Rscript {0}
-
-#      - name: Self-test
-#        env:
-#          INSTALL_PLINK: ${{ matrix.install_plink }}
-#        run: if [[ "$INSTALL_PLINK" == true ]]; then Rscript -e "plinkr::do_plink_self_test()"; fi
 

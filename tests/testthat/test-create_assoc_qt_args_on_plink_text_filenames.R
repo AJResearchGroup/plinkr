@@ -12,7 +12,7 @@ test_that("use", {
     assoc_qt_data = assoc_qt_data,
     assoc_qt_params = create_test_assoc_qt_params()
   )
-  expect_true("--ci" %in% args)
+  args
 })
 
 test_that("--allow-no-sex", {

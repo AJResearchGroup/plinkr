@@ -38,19 +38,6 @@ test_that("verbose", {
   expect_silent(check_empty_plinkr_folder())
 })
 
-test_that("confidence interval", {
-  if (!is_plink_installed()) return()
-  set.seed(314)
-  expect_message(
-    plink_assoc(
-      assoc_data = create_test_assoc_data(),
-      assoc_params = create_test_assoc_params(),
-      verbose = TRUE
-    ),
-    "--ci"
-  )
-})
-
 test_that("use, test", {
   if (!is_plink_installed()) return()
   set.seed(314)

@@ -16,7 +16,6 @@ create_assoc_args <- function(
         "--ped", paste0(assoc_params$base_input_filename, ".ped"),
         "--assoc",
         "--maf", assoc_params$maf,
-        "--ci", assoc_params$confidence_interval,
         "--out", assoc_params$base_output_filename,
         "--noweb" # Will freeze otherwise
       )
@@ -30,13 +29,12 @@ create_assoc_args <- function(
         "--assoc",
         "--chr-set", 95,
         "--maf", assoc_params$maf,
-        "--ci", assoc_params$confidence_interval,
         "--out", assoc_params$base_output_filename
       )
     )
   }
   testthat::expect_true(plink_options$plink_version == "2.0")
-  c(
+  args <- c(
     "--pfile", assoc_params$base_input_filename,
     "--glm",
     "--allow-extra-chr",
@@ -44,4 +42,10 @@ create_assoc_args <- function(
     "--ci", assoc_params$confidence_interval,
     "--out", assoc_params$base_output_filename
   )
+  if (plink_options$plink_version == "2.0") {
+    if (!is.na(assoc_params$confidence_interval)) {
+      args <- c(args, "--ci", assoc_params$confidence_interval)
+    }
+  }
+  args
 }

@@ -4,8 +4,7 @@
 \alias{check_confidence_interval}
 \title{Check if the \code{confidence_interval} is valid.
 Check if the \code{confidence_interval} is valid,
-which is when it is a number between
-0.0 and 1.0 (i.e. excluding 0.0 and 1.0).}
+which is when:}
 \usage{
 check_confidence_interval(confidence_interval)
 }
@@ -24,9 +23,20 @@ is not a number between
 0.0 and 1.0
 }
 \description{
+\itemize{
+\item its length is 1
+\item its only element is either
+\itemize{
+\item NA
+\item a number between 0.0 and 1.0 (i.e. excluding 0.0 and 1.0)
+}
+}
+}
+\details{
 Will \link{stop} if not
 }
 \examples{
+check_confidence_interval(NA)
 check_confidence_interval(0.01)
 check_confidence_interval(0.95)
 check_confidence_interval(0.99)

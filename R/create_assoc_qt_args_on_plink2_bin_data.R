@@ -29,9 +29,13 @@ create_assoc_qt_args_on_plink2_bin_data <- function( # nolint indeed a long func
     "--allow-extra-chr",
     "--chr-set", 95,
     "--maf", assoc_qt_params$maf,
-    "--ci", assoc_qt_params$confidence_interval,
     "--out", assoc_qt_params$base_output_filename
   )
+  if (plink_options$plink_version == "2.0") {
+    if (!is.na(assoc_qt_params$confidence_interval)) {
+      args <- c(args, "--ci", assoc_qt_params$confidence_interval)
+    }
+  }
   if (assoc_qt_params$allow_no_sex) {
     args <- c(args, "--allow-no-sex")
   }

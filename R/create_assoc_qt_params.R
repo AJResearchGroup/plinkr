@@ -22,7 +22,7 @@
 #' @export
 create_assoc_qt_params <- function(
   maf = get_lowest_maf(),
-  confidence_interval = 0.95,
+  confidence_interval = NA,
   allow_no_sex = FALSE,
   base_input_filename = file.path(get_plinkr_tempfilename(), "assoc_input"),
   base_output_filename = file.path(get_plinkr_tempfilename(), "assoc_output")

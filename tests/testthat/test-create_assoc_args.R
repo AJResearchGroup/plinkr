@@ -38,7 +38,6 @@ test_that("v1.7", {
     "--ped", paste0(assoc_params$base_input_filename, ".ped"),
     "--assoc",
     "--maf", assoc_params$maf,
-    "--ci", assoc_params$confidence_interval,
     "--out", assoc_params$base_output_filename,
     "--noweb"
   )
@@ -69,7 +68,6 @@ test_that("v1.9, allow 95 chromosome", {
     "--assoc",
     "--chr-set", 95,
     "--maf", assoc_params$maf,
-    "--ci", assoc_params$confidence_interval,
     "--out", assoc_params$base_output_filename
   )
   expect_equal(created, expected)

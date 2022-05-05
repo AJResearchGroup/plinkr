@@ -22,6 +22,23 @@ test_that("v1.7 non-existing options", {
     ),
     "'args' invalid: '--chr-set' did not yet exist in PLINK v1.7"
   )
+  expect_error(
+    check_plink_args(
+      args = c("--ci", "--noweb"),
+      plink_options = create_plink_v1_7_options()
+    ),
+    "'args' invalid: '--ci' did not yet exist in PLINK v1.7"
+  )
+})
+
+test_that("v1.9 non-existing options", {
+  expect_error(
+    check_plink_args(
+      args = c("--ci"),
+      plink_options = create_plink_v1_9_options()
+    ),
+    "'args' invalid: '--ci' did not yet exist in PLINK v1.9"
+  )
 })
 
 test_that("--noweb", {

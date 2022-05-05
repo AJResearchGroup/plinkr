@@ -8,7 +8,7 @@ test_that("use", {
   )
   args <- create_assoc_qt_args_on_plink2_bin_data(
     assoc_qt_data = assoc_qt_data,
-    assoc_qt_params = create_test_assoc_qt_params(),
+    assoc_qt_params = create_test_assoc_qt_params(confidence_interval = 0.95),
     plink_options = create_plink_v2_0_options()
   )
   expect_true("--ci" %in% args)

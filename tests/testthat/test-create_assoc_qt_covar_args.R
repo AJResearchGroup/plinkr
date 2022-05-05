@@ -38,10 +38,10 @@ test_that("use, v2.0", {
   assoc_qt_covar_data$data <- convert_plink_text_data_to_plink2_bin_data(
     assoc_qt_covar_data$data
   )
-  assoc_qt_covar_args <- create_assoc_qt_covar_args(
+  args <- create_assoc_qt_covar_args(
     assoc_qt_covar_data = assoc_qt_covar_data,
     assoc_qt_covar_params = create_test_assoc_qt_covar_params(),
     plink_options = create_plink_v2_0_options()
   )
-  expect_equal(assoc_qt_covar_args[length(assoc_qt_covar_args) - 1], "--out")
+  args
 })

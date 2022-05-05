@@ -6,6 +6,6 @@ test_that("use", {
     assoc_qt_params = create_test_assoc_qt_params(),
     plink_options = create_plink_v1_7_options()
   )
-  expect_true("--ci" %in% args)
+  args
   expect_silent(check_empty_plinkr_folder())
 })

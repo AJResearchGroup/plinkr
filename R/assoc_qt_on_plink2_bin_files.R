@@ -34,11 +34,11 @@ assoc_qt_on_plink2_bin_files <- function(
   pgen_filename <- assoc_qt_data$data$pgen_filename
   psam_filename <- assoc_qt_data$data$psam_filename
   pvar_filename <- assoc_qt_data$data$pvar_filename
-  phe_filename <- paste0(base_input_filename, ".phe")
   log_filename <- paste0(assoc_qt_params$base_output_filename, ".log")
 
   # Phenotype data: save if in-memory
   if (plinkr::is_phenotype_data_table(assoc_qt_data$phenotype_data)) {
+    phe_filename <- paste0(base_input_filename, ".phe")
     assoc_qt_data$phenotype_data <- plinkr::save_phenotype_data_table(
       phenotype_data_table = assoc_qt_data$phenotype_data,
       phe_filename = phe_filename
@@ -49,7 +49,7 @@ assoc_qt_on_plink2_bin_files <- function(
       phe_filename
     )
   }
-
+  phe_filename <- assoc_qt_data$phenotype_data$phe_filename
   testthat::expect_true(file.exists(pgen_filename))
   testthat::expect_true(file.exists(psam_filename))
   testthat::expect_true(file.exists(pvar_filename))

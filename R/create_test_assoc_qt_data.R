@@ -14,7 +14,6 @@ create_test_assoc_qt_data <- function(
 ) {
   plinkr::check_data(data = data)
   plinkr::check_phenotype_data(phenotype_data)
-  phenotype_data$phe_table[, 3] <- 0.1 * seq_len(nrow(phenotype_data$phe_table))
   plinkr::create_assoc_qt_data(
     data = data,
     phenotype_data = phenotype_data

@@ -98,6 +98,36 @@ select_snps <- function(
     file.remove(paste0(base_output_filename, ".fam"))
     file.remove(paste0(base_output_filename, ".log"))
     return(new_data)
+  } else if (plinkr::is_plink2_bin_filenames(data)) {
+    args <- plinkr::create_select_snps_args(
+      plink_bin_filenames = data,
+      snp_selector = snp_selector,
+      base_output_filename = base_output_filename,
+      plink_options = plink_options
+    )
+    dir.create(
+      dirname(base_output_filename),
+      recursive = TRUE,
+      showWarnings = FALSE
+    )
+    plinkr::run_plink(
+      args = args,
+      plink_options = plink_options,
+      verbose = verbose
+    )
+    new_data <- plinkr::read_plink2_bin_data(
+      base_input_filename = base_output_filename
+    )
+    if (verbose) {
+      message(
+        "Create selected SNPs at files with basename ", base_output_filename
+      )
+    }
+    file.remove(paste0(base_output_filename, ".pgen"))
+    file.remove(paste0(base_output_filename, ".psam"))
+    file.remove(paste0(base_output_filename, ".pvar"))
+    file.remove(paste0(base_output_filename, ".log"))
+    return(new_data)
   } else if (plinkr::is_plink_bin_data(data)) {
     plink_bin_filenames <- plinkr::save_plink_bin_data(
       plink_bin_data = data,
@@ -118,6 +148,27 @@ select_snps <- function(
       verbose = verbose
     )
     file.remove(unlist(plink_bin_filenames))
+    return(new_data)
+  } else if (plinkr::is_plink2_bin_data(data)) {
+    plink2_bin_filenames <- plinkr::save_plink2_bin_data(
+      plink2_bin_data = data,
+      base_input_filename = base_output_filename
+    )
+    if (verbose) {
+      message(
+        "Saved in-memory data to files: \n * ",
+        paste0(plink2_bin_filenames, collapse = "\n * ")
+      )
+    }
+    base_output_filename_2 <- plinkr::get_plinkr_tempfilename()
+    new_data <- plinkr::select_snps(
+      data = plink2_bin_filenames,
+      snp_selector = snp_selector,
+      base_output_filename = base_output_filename_2,
+      plink_options = plink_options,
+      verbose = verbose
+    )
+    file.remove(unlist(plink2_bin_filenames))
     return(new_data)
   } else {
     stop("Unimplemented type of 'data'")

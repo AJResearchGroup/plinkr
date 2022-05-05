@@ -44,6 +44,13 @@ assoc_qt_on_plink2_bin_data <- function(
     base_input_filename = base_input_filename,
     verbose = verbose
   )
+  plinkr::save_phe_table(
+    phe_table = assoc_qt_data$phenotype_data$phe_table,
+    phe_filename = phe_filename
+  )
+  assoc_qt_data$phenotype_data <- plinkr::create_phenotype_data_filename(
+    phe_filename = phe_filename
+  )
 
   testthat::expect_true(file.exists(pgen_filename))
   testthat::expect_true(file.exists(psam_filename))

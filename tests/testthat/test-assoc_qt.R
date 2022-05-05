@@ -143,12 +143,22 @@ test_that("6. test data, PLINK2, PLINK2 bin data", {
   clear_plinkr_cache()
 
   assoc_qt_data <- create_test_assoc_qt_data(
-    data = create_test_plink2_bin_data()
+    data = plinkr::read_plink2_bin_data(
+      base_input_filename = tools::file_path_sans_ext(
+        plinkr::get_plinkr_filename("select_snps_plink2.pgen")
+      )
+    ),
+    phenotype_data = create_phenotype_data_filename(
+      phe_filename = plinkr::get_plinkr_filename("select_snps.phe")
+    )
   )
+  plinkr::check_assoc_qt_data(assoc_qt_data)
   skip("'select_snps' does not support PLINK2 yet")
   select_snps(
     data = assoc_qt_data$data,
-    snp_selector = create_single_snp_selector(snp = data$bim_table$id[1])
+    snp_selector = create_single_snp_selector(
+      snp = assoc_qt_data$data$pvar_table$ID[1]
+    )
   )
   expect_warning(
     assoc_qt(

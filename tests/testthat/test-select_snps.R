@@ -182,3 +182,24 @@ test_that("create the dataset", {
     n_snps_per_trait = 10
   )
 })
+
+test_that("convert dataset to PLINK2", {
+  if (!is_plink_installed()) return()
+  return() # Just re-run when needed
+  base_input_filename <- file.path(
+    dirname(get_plinkr_filenames()[1]),
+    "select_snps"
+  )
+  base_output_filename <- stringr::str_replace(
+    base_input_filename,
+    "select_snps",
+    "select_snps_plink2"
+  )
+  plink_bin_data <- read_plink_bin_data(
+    base_input_filename = base_input_filename
+  )
+  convert_plink_bin_files_to_plink2_bin_files(
+    base_input_filename = base_input_filename,
+    base_output_filename = base_output_filename
+  )
+})

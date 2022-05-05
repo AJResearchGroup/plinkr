@@ -1,0 +1,26 @@
+PLINK v2.00a2.3LM 64-bit Intel (24 Jan 2020)
+Options in effect:
+  --bfile /home/richel/GitHubs/plinkr/inst/extdata/select_snps
+  --make-pgen
+  --out /home/richel/GitHubs/plinkr/inst/extdata/select_snps_plink2
+
+Hostname: N141CU
+Working directory: /home/richel/GitHubs/plinkr
+Start time: Thu May  5 13:20:10 2022
+
+Random number seed: 1651749610
+7642 MiB RAM detected; reserving 3821 MiB for main workspace.
+Using up to 8 compute threads.
+100 samples (0 females, 100 males; 100 founders) loaded from
+/home/richel/GitHubs/plinkr/inst/extdata/select_snps.fam.
+10 variants loaded from
+/home/richel/GitHubs/plinkr/inst/extdata/select_snps.bim.
+Note: No phenotype data present.
+Writing /home/richel/GitHubs/plinkr/inst/extdata/select_snps_plink2.psam ...
+done.
+Writing /home/richel/GitHubs/plinkr/inst/extdata/select_snps_plink2.pvar ...
+done.
+Writing /home/richel/GitHubs/plinkr/inst/extdata/select_snps_plink2.pgen ...
+done.
+
+End time: Thu May  5 13:20:10 2022

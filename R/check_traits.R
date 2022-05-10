@@ -27,5 +27,5 @@ check_traits <- function(traits) {
       }
     )
   }
-  traits
+  invisible(traits)
 }

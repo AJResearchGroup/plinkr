@@ -11,6 +11,10 @@ create_demo_traits()
 Create some traits with a clear genetic architecture and a known
 minor allele frequency for demonstration purposes.
 }
+\examples{
+traits <- create_demo_traits()
+check_traits(traits)
+}
 \author{
 Richèl J.C. Bilderbeek
 }

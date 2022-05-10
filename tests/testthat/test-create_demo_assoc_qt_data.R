@@ -211,3 +211,34 @@ test_that("two of demo traits", {
     )
   )
 })
+
+test_that("create the 'big_random' dataset", {
+  return()
+  if (!is_on_ci()) return()
+  set.seed(42)
+  n_traits <- 100
+  traits <- list()
+  for (i in seq_len(n_traits)) traits[[i]] <- plinkr::create_random_trait()
+  check_traits(traits)
+  assoc_qt_data <- create_demo_assoc_qt_data(
+    n_individuals = 1000,
+    traits = traits
+  )
+  assoc_qt_data$phenotype_data$phe_table[, 3:102] <- round(
+    assoc_qt_data$phenotype_data$phe_table[, 3:102],
+    digits = 1
+  )
+  assoc_qt_data$data$map_table$CHR <- 1
+  save_plink_text_data(
+    plink_text_data = assoc_qt_data$data,
+    base_input_filename = "~/big_random"
+  )
+  save_phe_table(
+    phe_table = assoc_qt_data$phenotype_data$phe_table,
+    phe_filename = "~/big_random.phe"
+  )
+  convert_plink_text_files_to_plink_bin_files(
+    base_input_filename = "~/big_random",
+    base_output_filename = "~/big_random"
+  )
+})

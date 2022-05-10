@@ -193,6 +193,8 @@ PLINK2 binary data  |`read_plink2_bin_data`
 `.diff`             |:construction: 
 `.dist`             |:construction:
 `.dupvar`           |:construction: 
+`.eigenval`         |`read_plink_eigenval_file`
+`.eigenvec`         |`read_plink_eigenvec_file`
 `.eigenvec*`        |:construction:
 `.epi.*`            |:construction:
 `.fam`              |`read_plink_fam_file` 

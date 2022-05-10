@@ -4,9 +4,25 @@
 \alias{create_plink_text_data}
 \title{Create a set of \code{PLINK} textual data}
 \usage{
-create_plink_text_data(ped_table, map_table)
+create_plink_text_data(map_table, ped_table)
 }
 \arguments{
+\item{map_table}{a genetic mapping table.
+
+A \code{map_table} is a \link[tibble]{tibble} with the following columns:
+\itemize{
+\item \code{CHR}: the chromosome code or contig name.
+The chromosome number cannot exceed 95
+(\url{https://www.cog-genomics.org/plink/1.9/input#chr_set})
+\item \code{SNP}: Variant identifier
+\item \code{position_cm}: Position in morgans or centimorgans.
+This value is optional. Zeroes denote it is unused
+\item \code{BP}: Base-pair coordinat
+}
+
+Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
+Use \link{check_map_table} to test if a genetic mapping table is valid.}
+
 \item{ped_table}{a 'pedigree' table.
 
 A \code{ped_table} is a \link[tibble]{tibble} with these columns:
@@ -32,30 +48,14 @@ The \code{FID} and \code{IID} column names match the PLINK names, see
 
 Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.
 Use \link{check_ped_table} to test if a pedigree table is valid.}
-
-\item{map_table}{a genetic mapping table.
-
-A \code{map_table} is a \link[tibble]{tibble} with the following columns:
-\itemize{
-\item \code{CHR}: the chromosome code or contig name.
-The chromosome number cannot exceed 95
-(\url{https://www.cog-genomics.org/plink/1.9/input#chr_set})
-\item \code{SNP}: Variant identifier
-\item \code{position_cm}: Position in morgans or centimorgans.
-This value is optional. Zeroes denote it is unused
-\item \code{BP}: Base-pair coordinat
-}
-
-Use \link{read_plink_map_file} to read a \code{PLINK} \code{.map} file.
-Use \link{check_map_table} to test if a genetic mapping table is valid.}
 }
 \description{
 Create a set of \code{PLINK} textual data
 }
 \examples{
 create_plink_text_data(
-  ped_table = get_test_ped_table(),
-  map_table = get_test_map_table()
+  map_table = get_test_map_table(),
+  ped_table = get_test_ped_table()
 )
 }
 \author{

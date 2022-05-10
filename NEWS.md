@@ -6,7 +6,8 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Add 'pca'
+ * Add 'plot_pca_results'
 
 ### MINOR IMPROVEMENTS
 

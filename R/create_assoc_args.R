@@ -34,15 +34,31 @@ create_assoc_args <- function(
     )
   }
   testthat::expect_true(plink_options$plink_version == "2.0")
-  args <- c(
-    "--pfile", assoc_params$base_input_filename,
-    "--glm",
-    "--allow-extra-chr",
-    "--maf", assoc_params$maf,
-    "--ci", assoc_params$confidence_interval,
-    "--out", assoc_params$base_output_filename
-  )
-  if (plink_options$plink_version == "2.0") {
+  if (plinkr::is_plink2_bin_data(assoc_data$data)) {
+    args <- c(
+      "--pfile", assoc_params$base_input_filename,
+      "--glm",
+      "--allow-extra-chr",
+      "--maf", assoc_params$maf,
+      "--out", assoc_params$base_output_filename
+    )
+    if (plink_options$plink_version == "2.0") {
+      if (!is.na(assoc_params$confidence_interval)) {
+        args <- c(args, "--ci", assoc_params$confidence_interval)
+      }
+    }
+  } else {
+    testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_data$data))
+    args <- c(
+      "--pgen", assoc_data$data$pgen_filename,
+      "--psam", assoc_data$data$psam_filename,
+      "--pvar", assoc_data$data$pvar_filename,
+      "--glm",
+      "--allow-extra-chr",
+      "--maf", assoc_params$maf,
+      "--out", assoc_params$base_output_filename
+    )
+    testthat::expect_true(plink_options$plink_version == "2.0")
     if (!is.na(assoc_params$confidence_interval)) {
       args <- c(args, "--ci", assoc_params$confidence_interval)
     }

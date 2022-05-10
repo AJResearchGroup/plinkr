@@ -1,5 +1,8 @@
-#' Let `PLINK2` detect an association with one binary traits.
+#' Let `PLINK2` detect an association with one binary trait
+#' on `PLINK2` binary data
 #'
+#' Let `PLINK2` detect an association with one binary trait
+#' on `PLINK2` binary data
 #' @note This function is named after the `--assoc` flag used by PLINK
 #' @inheritParams default_params_doc
 #' @return a \link{list} with the following columns:
@@ -13,7 +16,7 @@
 #'
 #'   if (1 == 2) {
 #'     # Need help of 'pgenlibr' to save a .pgen file
-#'     plink2_assoc(
+#'     plink2_assoc_on_plink2_bin_data(
 #'       assoc_data = create_assoc_data(create_test_plink2_bin_data()),
 #'       assoc_params = create_test_assoc_params()
 #'     )
@@ -21,7 +24,7 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-plink2_assoc <- function(
+plink2_assoc_on_plink2_bin_data <- function(
   assoc_data,
   assoc_params,
   plink_options = create_plink_v2_0_options(),
@@ -30,39 +33,31 @@ plink2_assoc <- function(
   plinkr::check_assoc_data(assoc_data)
   plinkr::check_assoc_params(assoc_params)
   plinkr::check_plink_options(plink_options)
-
   testthat::expect_true(
     plink_options$plink_version %in% plinkr::get_plink2_versions()
   )
-
-  # If data, convert to PLINK2 binary format
-  if (plinkr::is_plink_text_data(assoc_data$data)) {
-    assoc_data$data <- plinkr::convert_plink_text_data_to_plink2_bin_data(
-      assoc_data$data
-    )
-  } else if (plinkr::is_plink_bin_data(assoc_data$data)) {
-    assoc_data$data <- plinkr::convert_plink_bin_data_to_plink2_bin_data(
-      assoc_data$data
-    )
-  }
-  if (plinkr::is_plink2_bin_data(assoc_data$data)) {
-    return(
-      plinkr::plink2_assoc_on_plink2_bin_data(
-        assoc_data = assoc_data,
-        assoc_params = assoc_params,
-        plink_options = plink_options,
-        verbose = verbose
-      )
-    )
-  }
-
-  testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_data$data))
+  testthat::expect_true(plinkr::is_plink2_bin_data(assoc_data$data))
 
   # Filenames
-  testthat::expect_true(file.exists(assoc_data$data$pgen_filename))
-  testthat::expect_true(file.exists(assoc_data$data$psam_filename))
-  testthat::expect_true(file.exists(assoc_data$data$pvar_filename))
+  pgen_filename <- paste0(assoc_params$base_input_filename, ".pgen")
+  psam_filename <- paste0(assoc_params$base_input_filename, ".psam")
+  pvar_filename <- paste0(assoc_params$base_input_filename, ".pvar")
   assoc_filename <- paste0(assoc_params$base_output_filename, ".assoc")
+
+  # 'save_' functions will check for success themselves
+  stop("Need help of 'pgenlibr' to save a .pgen file")
+  plinkr::save_pgen_table(
+    pgen_table = assoc_data$data$pgen_table,
+    pgen_filename = pgen_filename
+  )
+  plinkr::save_psam_table(
+    psam_table = assoc_data$data$psam_table,
+    psam_filename = psam_filename
+  )
+  plinkr::save_pvar_table(
+    pvar_table = assoc_data$data$pvar_table,
+    pvar_filename = pvar_filename
+  )
 
   # PLINK will not do so and will not give an error
   # PLINK2 will suggest to change the out parameter :-)
@@ -88,6 +83,9 @@ plink2_assoc <- function(
   )
   assoc_table <- plinkr::read_plink_assoc_file(assoc_filename)
 
+  file.remove(pgen_filename)
+  file.remove(psam_filename)
+  file.remove(pvar_filename)
   file.remove(assoc_filename)
   testthat::expect_equal(
     0,

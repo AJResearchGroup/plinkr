@@ -1,16 +1,17 @@
 test_that("minimal use", {
+  clear_plinkr_cache()
   expect_silent(
     read_plink2_psam_file(
       get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.psam")
     )
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("create, read, save, read, PLINK2", {
   if (!is_plink_installed(plink_options = create_plink_v2_0_options())) return()
 
+  clear_plinkr_cache()
   psam_filename <- get_plinkr_filename(
     "toy_v1_9_after_make-bed_after_make-pgen.psam"
   )
@@ -35,5 +36,4 @@ test_that("create, read, save, read, PLINK2", {
   file.remove(psam_filename_again)
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

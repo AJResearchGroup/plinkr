@@ -2,20 +2,25 @@ test_that("minimal use", {
 
   clear_plinkr_cache()
 
-    expect_silent(
+  expect_silent(
     create_assoc_args(
+      assoc_data = create_test_assoc_data(),
       assoc_params = create_test_assoc_params(),
       plink_options = create_plink_v1_7_options()
     )
   )
   expect_silent(
     create_assoc_args(
+      assoc_data = create_test_assoc_data(),
       assoc_params = create_test_assoc_params(),
       plink_options = create_plink_v1_9_options()
     )
   )
   expect_silent(
     create_assoc_args(
+      assoc_data = create_test_assoc_data(
+        data = create_test_plink2_bin_data()
+      ),
       assoc_params = create_test_assoc_params(),
       plink_options = create_plink_v2_0_options()
     )
@@ -30,6 +35,7 @@ test_that("v1.7", {
 
   assoc_params <- create_test_assoc_params()
   created <- create_assoc_args(
+    assoc_data = create_test_assoc_data(),
     assoc_params = assoc_params,
     plink_options = create_plink_v1_7_options()
   )
@@ -59,6 +65,7 @@ test_that("v1.9, allow 95 chromosome", {
 
   assoc_params <- create_test_assoc_params()
   created <- create_assoc_args(
+    assoc_data = create_test_assoc_data(),
     assoc_params = assoc_params,
     plink_options = create_plink_v1_9_options()
   )
@@ -82,17 +89,18 @@ test_that("v1.9, allow 95 chromosome", {
 })
 
 test_that("v2.0", {
-  skip("WIP: no idea to call PLINK2 to do assoc yet")
-  assoc_params <- create_test_assoc_params(data = create_plink2_bin_data())
-  created <- create_assoc_args(
-    assoc_params = assoc_params,
+  args <- create_assoc_args(
+    assoc_data = create_test_assoc_data(
+      data = create_test_plink2_bin_filenames()
+    ),
+    assoc_params = create_test_assoc_params(),
     plink_options = create_plink_v2_0_options()
   )
   # No idea yet
-  expect_true("--glm" %in% created)
+  expect_true("--glm" %in% args)
 
   # PLINK v2.0 does not support this
-  expect_false("--assoc" %in% created)
-  expect_false("--noweb" %in% created)
+  expect_false("--assoc" %in% args)
+  expect_false("--noweb" %in% args)
   expect_silent(check_empty_plinkr_folder())
 })

@@ -4,6 +4,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_assoc_args <- function(
+  assoc_data,
   assoc_params,
   plink_options = create_plink_options()
 ) {

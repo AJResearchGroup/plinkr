@@ -77,6 +77,7 @@ plink2_assoc <- function(
     recursive = TRUE
   )
   args <- plinkr::create_assoc_args(
+    assoc_data = assoc_data,
     assoc_params = assoc_params,
     plink_options = plink_options
   )

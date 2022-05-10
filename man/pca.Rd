@@ -43,6 +43,8 @@ as can be read by \link{read_plink_fam_file}
 \item \code{log_filename}: the \code{.log} filename,
 as can be read by \link{read_plink_log_file}
 }
+
+Use \link{check_pca_result_filenames}
 }
 \description{
 Do a principal component analysis

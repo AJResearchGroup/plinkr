@@ -19,6 +19,8 @@
 #'     as can be read by \link{read_plink_fam_file}
 #'  * `log_filename`: the `.log` filename,
 #'     as can be read by \link{read_plink_log_file}
+#'
+#' Use \link{check_pca_result_filenames}
 #' @author Richèl J.C. Bilderbeek
 #' @export
 pca <- function(

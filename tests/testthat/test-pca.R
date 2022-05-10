@@ -8,11 +8,12 @@ test_that("use", {
     get_plinkr_tempfilename(),
     "pca"
   )
-  pca_filenames <- pca(
+  pca_result_filenames <- pca(
     base_input_filename = base_input_filename,
     base_output_filename = base_output_filename,
     plink_options = create_plink_v1_9_options(),
   )
+  check_pca_result_filenames(pca_result_filenames)
   expect_true(
     length(list.files(dirname(base_output_filename)))
     > 0

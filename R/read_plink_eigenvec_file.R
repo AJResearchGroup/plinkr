@@ -27,12 +27,19 @@ read_plink_eigenvec_file <- function(
     pattern = "[:blank:]+",
     simplify = TRUE
   )
-  t <-  tibble::as_tibble(
-    text_matrix,
+  float_matrix <- text_matrix[, c(-1, -2)]
+  mode(float_matrix) <- "numeric"
+  t_fid_and_iid <- tibble::as_tibble(
+    text_matrix[, c(1, 2)],
     .name_repair = "minimal"
   )
+  names(t_fid_and_iid) <- c("fam", "id")
+  t_pcas <- tibble::as_tibble(
+    float_matrix,
+    .name_repair = "minimal"
+  )
+  names(t_pcas) <- paste0("pc_", seq(1, ncol(t_pcas)))
+  t <- dplyr::bind_cols(t_fid_and_iid, t_pcas)
   testthat::expect_true(ncol(t) >= 2)
-  n_pca <- ncol(t) - 2
-  names(t) <- c("fam", "id",  paste0("pc_", seq(1, n_pca)))
   t
 }

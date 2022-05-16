@@ -12,10 +12,18 @@ is_on_ci()
 \description{
 Determines if the environment is a continuous integration service
 }
+\note{
+It is possible to fake being on continuous integration service,
+in this case GitHub Actions, using:\if{html}{\out{<div class="sourceCode r">}}\preformatted{Sys.setenv(GITHUB_ACTIONS = "I fake being on GitHub Actions")
+is_on_ci() # Will be true
+}\if{html}{\out{</div>}}
+
+To undo this, do\if{html}{\out{<div class="sourceCode r">}}\preformatted{Sys.setenv(GITHUB_ACTIONS = "")
+is_on_ci() # Will be false
+}\if{html}{\out{</div>}}
+}
 \examples{
-  if (is_on_ci()) {
-    message("Running on a continuous integration service")
-  }
+is_on_ci()
 }
 \author{
 Richèl J.C. Bilderbeek

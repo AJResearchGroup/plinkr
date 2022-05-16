@@ -12,10 +12,19 @@ is_on_github_actions()
 \description{
 Determines if the environment is GitHub Actions
 }
+\note{
+It is possible to fake being on GitHub Actions, using:\if{html}{\out{<div class="sourceCode r">}}\preformatted{Sys.setenv(GITHUB_ACTIONS = "I fake being on GitHub Actions")
+is_on_github_actions() # Will be true
+}\if{html}{\out{</div>}}
+
+To undo this, do\if{html}{\out{<div class="sourceCode r">}}\preformatted{Sys.setenv(GITHUB_ACTIONS = "")
+is_on_github_actions() # Will be false
+}\if{html}{\out{</div>}}
+}
 \examples{
-  if (is_on_github_actions()) {
-    message("Running on GitHub Actions")
-  }
+if (is_on_github_actions()) {
+  message("Running on GitHub Actions")
+}
 }
 \author{
 Richèl J.C. Bilderbeek

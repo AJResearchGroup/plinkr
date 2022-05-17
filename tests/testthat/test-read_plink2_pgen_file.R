@@ -58,6 +58,8 @@ test_that("demonstrate .pgen row/column ordering differs from genio's .bed", {
 
   if (!is_plink_installed()) return()
 
+  clear_plinkr_cache()
+
   # Convert data
   # 1. Create an asymmetrical PLINK1 text data set
   # 2. Convert to an asymmetrical PLINK1 binary data set
@@ -150,7 +152,6 @@ test_that("demonstrate .pgen row/column ordering differs from genio's .bed", {
 
   unlink(folder, recursive = TRUE)
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("can read .bed files as well?", {

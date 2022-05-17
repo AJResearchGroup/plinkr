@@ -5,9 +5,9 @@
 \title{Create a \code{plink2_bin_filenames} to be used in testing.}
 \usage{
 create_test_plink2_bin_filenames(
-  pgen_filename = "test.pgen",
-  psam_filename = "test.psam",
-  pvar_filename = "test.pvar"
+  pgen_filename = get_plinkr_filename("select_snps_plink2.pgen"),
+  psam_filename = get_plinkr_filename("select_snps_plink2.psam"),
+  pvar_filename = get_plinkr_filename("select_snps_plink2.pvar")
 )
 }
 \arguments{

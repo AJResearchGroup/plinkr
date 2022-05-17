@@ -57,48 +57,10 @@ plink2_assoc <- function(
   }
 
   testthat::expect_true(plinkr::is_plink2_bin_filenames(assoc_data$data))
-
-  # Filenames
-  testthat::expect_true(file.exists(assoc_data$data$pgen_filename))
-  testthat::expect_true(file.exists(assoc_data$data$psam_filename))
-  testthat::expect_true(file.exists(assoc_data$data$pvar_filename))
-  assoc_filename <- paste0(assoc_params$base_output_filename, ".assoc")
-
-  # PLINK will not do so and will not give an error
-  # PLINK2 will suggest to change the out parameter :-)
-  dir.create(
-    dirname(assoc_params$base_input_filename),
-    showWarnings = FALSE,
-    recursive = TRUE
-  )
-  dir.create(
-    dirname(assoc_params$base_output_filename),
-    showWarnings = FALSE,
-    recursive = TRUE
-  )
-  args <- plinkr::create_assoc_args(
+  plinkr::plink2_assoc_on_plink2_bin_files(
     assoc_data = assoc_data,
     assoc_params = assoc_params,
-    plink_options = plink_options
-  )
-
-  plinkr::run_plink(
-    args = args,
     plink_options = plink_options,
     verbose = verbose
   )
-  assoc_table <- plinkr::read_plink_assoc_file(assoc_filename)
-
-  file.remove(assoc_filename)
-  testthat::expect_equal(
-    0,
-    length(list.files(pattern = assoc_params$base_input_filename))
-  )
-  unlink(dirname(assoc_params$base_input_filename), recursive = TRUE)
-  testthat::expect_equal(
-    0,
-    length(list.files(pattern = assoc_params$base_output_filename))
-  )
-  unlink(dirname(assoc_params$base_output_filename), recursive = TRUE)
-  assoc_table
 }

@@ -22,9 +22,9 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_test_plink2_bin_filenames <- function( # nolint indeed a long function name
-  pgen_filename = "test.pgen",
-  psam_filename = "test.psam",
-  pvar_filename = "test.pvar"
+  pgen_filename = get_plinkr_filename("select_snps_plink2.pgen"),
+  psam_filename = get_plinkr_filename("select_snps_plink2.psam"),
+  pvar_filename = get_plinkr_filename("select_snps_plink2.pvar")
 ) {
   plinkr::create_plink2_bin_filenames(
     pgen_filename = pgen_filename,

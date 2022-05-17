@@ -7,5 +7,5 @@ test_that("minimal use, toy_v1_9_after_make-bed_after_make-pgen.pgen", {
     base_input_filename = base_input_filename
   )
   expect_silent(check_plink2_bin_data(plink2_bin_data))
-  check_empty_plinkr_folder()
+  expect_silent(check_empty_plinkr_folder())
 })

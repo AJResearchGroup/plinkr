@@ -1,6 +1,8 @@
 test_that("minimal use, v1.7", {
   if (!is_plink_installed()) return()
+
   clear_plinkr_cache()
+
   expect_silent(
     plink_assoc(
       assoc_data = create_test_assoc_data(),
@@ -13,6 +15,9 @@ test_that("minimal use, v1.7", {
 
 test_that("minimal use, v1.9", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   expect_silent(
     plink_assoc(
@@ -25,6 +30,9 @@ test_that("minimal use, v1.9", {
 
 test_that("verbose", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   expect_message(
     plink_assoc(
@@ -38,6 +46,9 @@ test_that("verbose", {
 
 test_that("use, test", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_result <- plink_assoc(
     assoc_data = create_test_assoc_data(),
@@ -50,6 +61,9 @@ test_that("use, test", {
 
 test_that("use, demo", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(317)
   assoc_data <- create_demo_assoc_data()
   assoc_results <- assoc(
@@ -58,6 +72,7 @@ test_that("use, demo", {
   )
   # 1 traits times 1 SNP = 1 association
   expect_equal(1, nrow(assoc_results$assoc_table))
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("demo on random only", {
@@ -75,6 +90,9 @@ test_that("demo on random only", {
 
 test_that("number of individuals", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   set.seed(314)
   assoc_data <- create_demo_assoc_data(
     n_individuals = 5,
@@ -91,6 +109,9 @@ test_that("number of individuals", {
 
 test_that("error when case-controls are not 1 or 2", {
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   assoc_data <- create_test_assoc_data()
   n_individuals <- nrow(assoc_data$data$ped_table)
   assoc_data$data$ped_table$case_control_code <- 314
@@ -101,6 +122,8 @@ test_that("error when case-controls are not 1 or 2", {
       verbose = TRUE
     )
   )
+
+  expect_silent(check_empty_plinkr_folder())
 })
 
 test_that("PLINK cannot handle triallelic SNPs", {
@@ -138,6 +161,9 @@ test_that("PLINK cannot handle quadallelic SNPs", {
 test_that("All 95 chromosome numbers work", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!is_plink_installed()) return()
+
+  clear_plinkr_cache()
+
   # Upper limit set by PLINK is 95
   # https://github.com/chrchang/plink-ng/issues/182
   set.seed(314)
@@ -151,5 +177,4 @@ test_that("All 95 chromosome numbers work", {
   )
 
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })

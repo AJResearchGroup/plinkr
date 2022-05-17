@@ -14,9 +14,12 @@ test_that("minimal use", {
   expect_silent(check_empty_plinkr_folder())
 })
 
-test_that("minimal use, from fileswithout phenotypes", {
+test_that("minimal use, from files without phenotypes", {
   if (!is_plink_installed()) return()
+
   clear_plinkr_cache()
+
+  expect_silent(check_empty_plinkr_folder())
   expect_error(
     plink2_assoc(
       assoc_data = create_test_assoc_data(

@@ -1,7 +1,6 @@
 test_that("minimal use, v1.7", {
-  expect_silent(check_empty_plinkr_folder())
-
   if (!is_plink_installed()) return()
+  clear_plinkr_cache()
   expect_silent(
     plink_assoc(
       assoc_data = create_test_assoc_data(),
@@ -10,7 +9,6 @@ test_that("minimal use, v1.7", {
     )
   )
   expect_silent(check_empty_plinkr_folder())
-  clear_plinkr_cache()
 })
 
 test_that("minimal use, v1.9", {

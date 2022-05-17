@@ -15,6 +15,10 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 plot_pca_results <- function(pca_result_filenames) {
+
+  pc_1 <- NULL; rm(pc_1) # nolint, fixes warning: no visible binding for global variable
+  pc_2 <- NULL; rm(pc_2) # nolint, fixes warning: no visible binding for global variable
+
   plinkr::check_pca_result_filenames(pca_result_filenames)
   eigenval_table <- plinkr::read_plink_eigenval_file(
     pca_result_filenames$eigenval_filename

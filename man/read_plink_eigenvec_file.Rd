@@ -6,6 +6,10 @@
 \usage{
 read_plink_eigenvec_file(eigenvec_filename)
 }
+\arguments{
+\item{eigenvec_filename}{name for a \code{.eigenvec} file,
+as can be read with \link{read_plink_eigenvec_file}}
+}
 \value{
 a \link[tibble]{tibble} with the following columns:
 \itemize{

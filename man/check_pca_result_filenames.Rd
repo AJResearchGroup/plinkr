@@ -6,6 +6,10 @@
 \usage{
 check_pca_result_filenames(pca_result_filenames)
 }
+\arguments{
+\item{pca_result_filenames}{a list with the filenames created
+by a call to \link{pca}}
+}
 \value{
 Nothing. Will \link{stop} if the \code{pca_result_filenames} is invalid
 }

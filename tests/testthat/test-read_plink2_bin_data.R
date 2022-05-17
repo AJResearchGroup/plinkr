@@ -1,4 +1,5 @@
 test_that("minimal use, toy_v1_9_after_make-bed_after_make-pgen.pgen", {
+  clear_plinkr_cache()
   base_input_filename <- tools::file_path_sans_ext(
     get_plinkr_filename("toy_v1_9_after_make-bed_after_make-pgen.pgen")
   )

@@ -6,6 +6,10 @@
 \usage{
 read_plink_eigenval_file(eigenval_filename)
 }
+\arguments{
+\item{eigenval_filename}{name for a \code{.eigenval} file,
+as can be read with \link{read_plink_eigenval_file}}
+}
 \value{
 a \link[tibble]{tibble} with the following columns:
 \itemize{

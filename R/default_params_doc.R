@@ -142,6 +142,10 @@
 #'  * data to be used by \link{assoc_qt},
 #'    as created by \link{create_assoc_qt_data}
 #'
+#' @param eigenval_filename name for a `.eigenval` file,
+#' as can be read with \link{read_plink_eigenval_file}
+#' @param eigenvec_filename name for a `.eigenvec` file,
+#' as can be read with \link{read_plink_eigenvec_file}
 #' @param epistatic_phenotype_value the phenotypic value when the
 #' epistatic phenotype is expressed
 #' @param example_filename name of the example file
@@ -233,6 +237,8 @@
 #' @param out the base filename of the output files.
 #' This parameter is named after the `PLINK`
 #' \code{--out} flag
+#' @param pca_result_filenames a list with the filenames created
+#' by a call to \link{pca}
 #' @param ped_filename name of a `PLINK` \code{.ped} file.
 #' Use \link{read_plink_ped_file} to read a `PLINK` \code{.ped} file.
 #' @param ped_table a 'pedigree' table.
@@ -502,6 +508,8 @@ default_params_doc <- function(
   cov_filename,
   cov_table,
   data,
+  eigenval_filename,
+  eigenvec_filename,
   epistatic_phenotype_value,
   example_filename,
   fam_filename,
@@ -528,6 +536,7 @@ default_params_doc <- function(
   n_snps_per_phenotype,
   os,
   out,
+  pca_result_filenames,
   ped_filename,
   ped_table,
   pgen_filename,

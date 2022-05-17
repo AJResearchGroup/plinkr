@@ -36,6 +36,8 @@ default_params_doc(
   cov_filename,
   cov_table,
   data,
+  eigenval_filename,
+  eigenvec_filename,
   epistatic_phenotype_value,
   example_filename,
   fam_filename,
@@ -62,6 +64,7 @@ default_params_doc(
   n_snps_per_phenotype,
   os,
   out,
+  pca_result_filenames,
   ped_filename,
   ped_table,
   pgen_filename,
@@ -303,6 +306,12 @@ as created by \link{create_assoc_data}
 as created by \link{create_assoc_qt_data}
 }}
 
+\item{eigenval_filename}{name for a \code{.eigenval} file,
+as can be read with \link{read_plink_eigenval_file}}
+
+\item{eigenvec_filename}{name for a \code{.eigenvec} file,
+as can be read with \link{read_plink_eigenvec_file}}
+
 \item{epistatic_phenotype_value}{the phenotypic value when the
 epistatic phenotype is expressed}
 
@@ -423,6 +432,9 @@ as returned by \link[rappdirs]{app_dir}}
 \item{out}{the base filename of the output files.
 This parameter is named after the \code{PLINK}
 \code{--out} flag}
+
+\item{pca_result_filenames}{a list with the filenames created
+by a call to \link{pca}}
 
 \item{ped_filename}{name of a \code{PLINK} \code{.ped} file.
 Use \link{read_plink_ped_file} to read a \code{PLINK} \code{.ped} file.}

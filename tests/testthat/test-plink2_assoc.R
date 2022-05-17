@@ -16,7 +16,7 @@ test_that("minimal use", {
 
 test_that("minimal use, from files without phenotypes", {
   if (!is_plink_installed()) return()
-
+  skip("Issue #48")
   clear_plinkr_cache()
 
   expect_silent(check_empty_plinkr_folder())
